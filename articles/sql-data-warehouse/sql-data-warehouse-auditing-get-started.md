@@ -59,7 +59,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 
 ##<a id="subheading-2"></a>Configuration de l'audit pour votre base de données
 
-1. Lancez le <a href="https://portal.azure.com" target="_blank">portail Azure en version préliminaire</a>.
+1. Ouvrez le <a href="https://portal.azure.com" target="_blank">portail Azure</a>.
 
 2. Accédez au panneau de configuration de la base de données SQL Data Warehouse/du SQL Server que vous voulez auditer. Cliquez sur le bouton **Paramètres** situé en haut de l’écran, puis, dans le volet de configuration, sélectionnez **audit**.
 
@@ -102,7 +102,7 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
 
 
 ##<a id="subheading-4">Pratiques d’utilisation dans un environnement de production</a>
-La description fournie dans cette section fait référence aux captures d'écran précédentes. La <a href="https://portal.azure.com" target="_blank">version préliminaire du portail Azure</a> ou la <a href= "https://manage.windowsazure.com/" target="_bank">version classique du portail Azure</a> peuvent être utilisées.
+La description fournie dans cette section fait référence aux captures d'écran précédentes. Vous pouvez utiliser le <a href="https://portal.azure.com" target="_blank">portail Azure</a> ou le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure Classic</a>.
  
 
 ##<a id="subheading-5"></a>Régénération des clés de stockage
@@ -141,4 +141,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

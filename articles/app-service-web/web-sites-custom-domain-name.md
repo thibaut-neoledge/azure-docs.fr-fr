@@ -35,13 +35,13 @@ Si vous avez besoin d’aide supplémentaire concernant n’importe quel point d
 
 ## Vue d'ensemble
 
-Si vous ne vous êtes pas encore enregistré pour obtenir un nom de domaine externe (c’est-à-dire autre que *.azurewebsites.net), le moyen le plus simple pour configurer un domaine personnalisé consiste à en acheter un directement dans le [portail Azure en version préliminaire](https://portal.azure.com). Vous pouvez ainsi gérer le nom de domaine de votre application web directement dans le portail au lieu de passer par un site tiers comme GoDaddy. De même, configurer le nom de domaine dans votre application web est considérablement simplifié, que votre application web utilise ou non [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md). Pour plus d’informations, consultez [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+Si vous ne vous êtes pas encore enregistré pour obtenir un nom de domaine externe (c’est-à-dire autre que *.azurewebsites.net), le moyen le plus simple pour configurer un domaine personnalisé consiste à en acheter un directement dans le [portail Azure](https://portal.azure.com). Vous pouvez ainsi gérer le nom de domaine de votre application web directement dans le portail au lieu de passer par un site tiers comme GoDaddy. De même, configurer le nom de domaine dans votre application web est considérablement simplifié, que votre application web utilise ou non [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md). Pour plus d’informations, consultez [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](custom-dns-web-site-buydomains-web-app.md).
 
 Si vous avez déjà un nom de domaine, ou que vous souhaitez réserver un domaine à partir d’autres bureaux d’enregistrement de noms de domaine, voici les étapes générales pour donner un nom de domaine personnalisé à une application web (voir les [instructions spécifiques pour GoDaddy.com](web-sites-godaddy-custom-domain-name.md)) :
 
 1. Réservation de votre nom de domaine Cet article ne traite pas cette étape. Il existe un grand choix de bureaux d'enregistrement de domaines. Lorsque vous vous inscrivez, leur site vous expliquera les étapes du processus.
 1. Création d’enregistrements DNS qui mappent le domaine vers votre application web Azure.
-1. Ajout du nom de domaine sur le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Ajout du nom de domaine sur le [portail Azure](https://portal.azure.com).
 
 Au-delà de ces fondamentaux, il faut prendre en compte des cas spécifiques :
 
@@ -144,7 +144,6 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

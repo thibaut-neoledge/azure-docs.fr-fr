@@ -72,7 +72,8 @@ Reliable Services vous offre un modèle de programmation global, simple et puiss
 - [Prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [Architecture](service-fabric-reliable-services-platform-architecture.md)
 - [Collections fiables](service-fabric-reliable-services-reliable-collections.md)
-- [Configuration de Reliable Services avec état](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Configuration des services fiables avec état](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Sérialisation](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Utilisation avancée du modèle de programmation Reliable Services](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 La communication avec Reliable Services et les abstractions que les clients peuvent utiliser pour détecter les points de terminaison de service et communiquer avec eux sont décrites dans les articles suivants :
@@ -80,11 +81,11 @@ La communication avec Reliable Services et les abstractions que les clients peuv
 - [Communication avec les services](service-fabric-connect-and-communicate-with-services.md)
 - [Modèle de communication de service](service-fabric-reliable-services-communication.md)
 - [Pile de communication par défaut fournie par l'infrastructure des services fiables](service-fabric-reliable-services-communication-remoting.md)
-- [Pile de communication WCF pour Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-- [Prise en main des services d'API web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
+- [Pile de communication WCF pour les services fiables](service-fabric-reliable-services-communication-wcf.md)
+- [Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
 Reliable Services émet des événements et des compteurs de performance, qui peuvent être utilisés pour diagnostiquer et surveiller votre service :
 
 - [Diagnostics de Reliable Service avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

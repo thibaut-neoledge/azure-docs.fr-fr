@@ -351,4 +351,4 @@ Afin de pouvoir supprimer l'accès d'une application à son répertoire (après 
 
 - Lisez le [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

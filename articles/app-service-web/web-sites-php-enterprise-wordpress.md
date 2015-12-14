@@ -134,7 +134,7 @@ Utilisez l'une des sections suivantes pour migrer votre site.
 
 6. Cliquez sur **Envoyer**. Un message vous signalera que l’importation est terminée.
 
-8. Une fois que vous avez complété toutes les étapes, redémarrez votre site depuis le panneau de son application web sur le [portail Azure en version préliminaire][mgmtportal].
+8. Une fois que vous avez procédé à toutes les étapes, redémarrez votre site depuis le panneau de son application web sur le [portail Azure][mgmtportal].
 
 Après avoir importé le site, vous devez suivre les étapes suivantes pour activer les paramètres non présents dans le fichier d’importation.
 
@@ -161,7 +161,7 @@ Si vous utilisiez ceci... | Procédez comme suit...
 
 4. Créez une nouvelle application web sur le portail Azure et publiez la sauvegarde WordPress.
 
-	1. Créez une nouvelle application web sur le [portail Azure en version préliminaire][mgmtportal] à l’aide d’une base de données en cliquant sur **Nouveau** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (ou **Web app + MySQL**) -> **Créer**. Définissez tous les paramètres requis pour créer une application web vierge.
+	1. Créez une nouvelle application web sur le [portail Azure][mgmtportal] à l’aide d’une base de données en cliquant sur **Nouveau** -> **Web + mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (ou **Web app + MySQL**) -> **Créer**. Définissez tous les paramètres requis pour créer une application web vierge.
 
 	2. Dans votre sauvegarde WordPress, localisez le fichier **wp-config.php** et ouvrez-le avec un éditeur. Remplacez les entrées suivantes avec les informations de votre nouvelle base de données MySQL.
 
@@ -236,7 +236,6 @@ Action à réaliser... | Élément à utiliser...
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -283,4 +282,4 @@ Action à réaliser... | Élément à utiliser...
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

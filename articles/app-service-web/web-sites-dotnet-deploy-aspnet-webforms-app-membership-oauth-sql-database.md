@@ -41,7 +41,7 @@ Vous allez développer une simple application web de liste de contacts basée su
 
 ![Contacts - Edit Page](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n’avez pas de compte, vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement MSDN</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">obtenir une évaluation gratuite</a>. Si vous voulez prendre en main Azure avant de créer un compte, accédez à [Essayer App Service](https://tryappservice.azure.com/), où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">obtenir un essai gratuit</a>. Si vous voulez prendre en main Azure avant de créer un compte, accédez à [Essayer App Service](https://tryappservice.azure.com/), où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
 
 ##Configuration de l'environnement de développement 
 Pour commencer, configurez l'environnement de développement en installant Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure pour .NET.
@@ -68,7 +68,7 @@ Dans ce didacticiel, votre application Web s’exécute au sein d’un environne
 
 La base de données SQL Azure est un service de bases de données relationnelles sur le cloud, basé sur les technologies SQL Server. Les outils et applications fonctionnant avec SQL Server fonctionnent également avec la base de données SQL.
 
-1. Dans l’onglet gauche du [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur **Applications Web**, puis sur **Nouveau**. ![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+1. Dans l’onglet gauche du [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Applications Web**, puis sur **Nouveau**. ![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
 2. Cliquez sur **Application Web**, puis sur **Création personnalisée**. ![Création personnalisée](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) L’Assistant **Nouvelle application Web - Création personnalisée** s’ouvre.  
 
 3. Lors de l’étape **Créer une application Web** de l’Assistant, entrez une chaîne dans la zone **URL** afin de l’utiliser en tant qu’URL unique pour votre application. L’URL complète se composera du texte entré dans cette zone, ainsi que du suffixe affiché en regard de la zone. L’illustration indique une URL probablement déjà utilisée (**il faut donc en choisir une autre**). ![Contacts - Créer un site Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
@@ -82,7 +82,7 @@ La base de données SQL Azure est un service de bases de données relationnelles
 11. Entrez un **Nom de connexion** et un **Mot de passe** d’administrateur. Si vous avez sélectionné **New SQL Database server**, vous ne devez pas entrer un nom et un mot de passe existant ici, mais une nouvelle paire nom/mot de passe que vous allez choisir maintenant et utiliser ultérieurement lorsque vous accèderez à la base de données. Si vous avez sélectionné une base de données SQL Server créée auparavant, vous devez entrer le mot de passe et le nom du compte SQL Server que vous aviez créé. Pour ce didacticiel, ne cochez pas la case **Avancé**.
 12. Cliquez sur la coche située dans le coin inférieur droit de la zone pour indiquer que vous avez terminé.
 
-Le **portail de gestion Azure** revient à la page **Applications Web** et la colonne **Statut** indique que le site est en cours de création. Après un temps d'attente (généralement inférieur à une minute), la colonne **Statut** indique que le site a été créé correctement. Dans la barre de navigation de gauche, le nombre de sites de votre compte apparaît en regard de l’icône **Application Web**, tandis que le nombre de bases de données apparaît en regard de l’icône **Bases de données SQL**.
+Le **portail Azure Classic** revient à la page **Applications Web** et la colonne **Statut** indique que le site est en cours de création. Après un temps d'attente (généralement inférieur à une minute), la colonne **Statut** indique que le site a été créé correctement. Dans la barre de navigation de gauche, le nombre de sites de votre compte apparaît en regard de l’icône **Application Web**, tandis que le nombre de bases de données apparaît en regard de l’icône **Bases de données SQL**.
 ##Création d'une application ASP.NET Web Forms 
 Vous avez créé une application Web, mais elle est encore vide. La prochaine étape consiste à créer l’application Web Visual Studio que vous allez publier sur Azure.
 ###Création du projet 
@@ -667,7 +667,7 @@ Pour empêcher les autres utilisateurs de s’inscrire et d’utiliser votre exe
 2. Dans l’**Explorateur de serveurs**, accédez à **Application Web**.
 3. Cliquez avec le bouton droit sur chaque instance d’application Web, puis sélectionnez **Arrêter l’application Web**. ![Élément de menu Arrêter le site web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	Vous pouvez aussi sélectionner l’application Web à partir du portail de gestion Microsoft Azure, puis cliquer sur l’icône **arrêter** en bas de la page. ![Page Ajouter un contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
+	Vous pouvez également, sur le portail Azure Classic, sélectionner l’application web, puis cliquer sur l’icône **arrêter** en bas de la page. ![Page Ajouter un contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
 
 ##Révision de la base de données 
 Il est important de savoir comment afficher et modifier directement la base de données. Le fait de savoir travailler directement avec la base de données vous permet de valider les données qu'elle contient et de comprendre comment les données sont stockées dans chaque table.
@@ -701,4 +701,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

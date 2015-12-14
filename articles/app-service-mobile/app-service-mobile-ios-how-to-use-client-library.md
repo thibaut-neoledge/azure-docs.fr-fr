@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
@@ -22,7 +22,11 @@
  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Ce guide indique le déroulement de scénarios courants dans le cadre de l'utilisation du dernier [Kit de développement logiciel (SDK) iOS Azure Mobile Apps](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si vous ne connaissez pas Azure Mobile Apps, consultez d'abord la section [Démarrage rapide d'Azure Mobile Apps] pour créer un serveur principal, créez une table et téléchargez un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel côté serveur .NET pour le serveur principal, consultez [Fonctionnement avec le serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) iOS Azure Mobile Apps](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend, créer une table et télécharger un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel (SDK) côté serveur .NET pour le backend, consultez [Fonctionnement avec le serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+
+## Documentation de référence
+
+La documentation de référence du Kit de développement logiciel (SDK) client iOS se trouve ici : [Référence du client iOS Azure Mobile Apps](http://azure.github.io/azure-mobile-services/iOS/v3/).
 
 ##<a name="Setup"></a>Configuration et conditions préalables
 
@@ -30,7 +34,7 @@ Ce guide part du principe que vous avez créé un serveur principal avec une tab
 
 ##<a name="create-client"></a>Création du client
 
-Pour accéder à un serveur principal Azure Mobile Apps dans votre projet, créez un `MSClient`. Remplacez `AppUrl` par l'URL de l'application. Vous pouvez laisser `gatewayURLString` et `applicationKey` vides. Si vous avez configuré une passerelle pour l'authentification, renseignez `gatewayURLString` avec l'URL de la passerelle.
+Pour accéder à un backend Azure Mobile Apps dans votre projet, créez un `MSClient`. Remplacez `AppUrl` par l’URL de l’application. Vous pouvez laisser `gatewayURLString` et `applicationKey` vides. Si vous avez configuré une passerelle pour l’authentification, renseignez `gatewayURLString` avec l’URL de la passerelle.
 
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
@@ -191,6 +195,21 @@ Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
 
 Au minimum, l'attribut `id` doit être défini quand vous effectuez des suppressions.
 
+##<a name="templates"></a>Inscription de modèles de notifications Push pour envoyer des notifications multiplateforme
+
+Pour inscrire des modèles, transmettez-les simplement avec votre méthode **client.push registerDeviceToken** dans votre application cliente.
+
+        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+        	...
+        }];
+
+Vos modèles sont de type NSDictionary et peuvent contenir plusieurs modèles au format suivant :
+
+        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+
+Notez que toutes les balises seront supprimées pour des raisons de sécurité. Pour ajouter des balises à des installations ou des modèles dans des installations, consultez [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+
+Pour envoyer des notifications à l’aide de ces modèles inscrits, utilisez les [API Notification Hubs](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="errors"></a>Procédure : gestion des erreurs
 
@@ -227,7 +246,7 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 <!-- Images. -->
 
 <!-- URLs. -->
-[Démarrage rapide d'Azure Mobile Apps]: app-service-mobile-ios-get-started.md
+[Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -249,4 +268,4 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

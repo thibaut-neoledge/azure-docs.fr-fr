@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # Ressources Application Insights distinctes pour le développement, le test et la production
@@ -28,7 +28,7 @@ Les données reçues de votre application sont stockées et traitées par Applic
 
 Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressource Application Insights :
 
-![Cliquez sur Nouveau > Application Insights](./media/app-insights-create-new-resource/01-new.png)
+![Cliquez sur Nouveau > Application Insights](./media/app-insights-separate-resources/01-new.png)
 
 
 * Le **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer][metrics]. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web et un des types de téléphone pour les autres appareils.
@@ -46,7 +46,7 @@ La création de la ressource prend quelques secondes. Une alerte vous prévient 
 
 La clé d'instrumentation identifie la ressource que vous avez créée.
 
-![Cliquez sur Essentials, sur la clé d'instrumentation, puis appuyez sur CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+![Cliquez sur Essentials, sur la clé d'instrumentation, puis appuyez sur CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 Vous aurez besoin des clés d'instrumentation de toutes les ressources auxquelles votre application envoie des données.
 
@@ -98,4 +98,4 @@ L'iKey est également utilisée dans les pages web de votre application, dans le
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

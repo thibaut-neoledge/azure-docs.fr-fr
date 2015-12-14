@@ -22,7 +22,7 @@
 
 Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Le stockage de fichiers est maintenant mis à la disposition générale et prend en charge SMB 3.0 et SMB 2.1.
 
-Vous pouvez créer des partages de fichiers Azure à l’aide du portail Azure en version préliminaire, des applets de commande Azure Storage PowerShell, des bibliothèques clientes Azure Storage ou de l’API REST d’Azure Storage. En outre, étant donné que les partages de fichiers sont des partages SMB, vous pouvez y accéder via les API de système de fichiers standard et connues.
+Vous pouvez créer des partages de fichiers Azure à l’aide du [portail Azure](portal.azure.com), des applets de commande Azure Storage PowerShell, des bibliothèques clientes Azure Storage ou de l’API REST d’Azure Storage. En outre, étant donné que les partages de fichiers sont des partages SMB, vous pouvez y accéder via les API de système de fichiers standard et connues.
 
 Les applications exécutées dans Azure permettent de monter facilement des partages de fichiers à partir de machines virtuelles Azure. Et avec la dernière version du stockage de fichiers, vous pouvez également monter un partage de fichiers à partir d’une application locale prenant en charge SMB 3.0.
 
@@ -91,7 +91,7 @@ Si vous utilisez Open SUSE 13.2, vous pouvez monter le fichier comme indiqué c
 
 ## Gestion du partage de fichiers ##
 
-Désormais, le [portail Azure en version préliminaire](https://portal.azure.com/) offre une interface utilisateur permettant de gérer le stockage de fichiers Azure. Vous pouvez effectuer les actions suivantes à partir de votre navigateur web :
+Le [portail Azure](portal.azure.com) offre une interface utilisateur permettant de gérer le stockage de fichiers Azure. Vous pouvez effectuer les actions suivantes à partir de votre navigateur web :
 
 - Charger et télécharger des fichiers vers et à partir de votre partage de fichiers.
 - Surveiller l'utilisation réelle de chaque partage de fichiers.
@@ -137,4 +137,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

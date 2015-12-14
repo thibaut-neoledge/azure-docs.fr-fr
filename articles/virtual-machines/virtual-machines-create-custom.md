@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création d’une machine virtuelle personnalisée dans Azure | Microsoft Azure"
-	description="Découvrez comment créer une machine virtuelle personnalisée à partir du portail Azure à l'aide du modèle de déploiement classique."
+	description="Découvrez comment créer une machine virtuelle personnalisée à partir du portail Azure Classic à l’aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -36,4 +36,4 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

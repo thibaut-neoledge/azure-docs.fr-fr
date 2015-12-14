@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # Prise en main de Tâches de bases de données élastiques
@@ -33,15 +33,15 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 	![invite de commande][1]
 
-2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
+2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 
-3.  Le [portail Azure en version préliminaire](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
+3.  Le [portail Azure](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
 
 	![Confirmation Visual Studio][2]
 
 	À ce stade, nous créerons une collecte de base de données personnalisée qui reflétera toutes les bases de données dans la carte de partitions. Ceci nous permettra de créer et d’exécuter une tâche qui ajoutera une nouvelle table aux partitions.
 
-Dans ce cas précis, nous créons généralement une cible de carte de partitions, à l'aide de l’applet de commande **New-AzureSqlJobTarget**. La base de données du Gestionnaire de cartes de partitions doit être définie en tant que base de données cible et la carte de partitions spécifique doit être spécifiée en tant que cible. Au lieu de cela, nous énumérerons toutes les bases de données du serveur et nous ajouterons les bases de données à la nouvelle collecte personnalisée, à l'exception de la base de données principale.
+Dans ce cas précis, nous créons généralement une cible de carte de partitions, à l’aide de l’applet de commande **New-AzureSqlJobTarget**. La base de données du gestionnaire de cartes de partitions doit être définie en tant que base de données cible et la carte de partitions spécifique doit être spécifiée en tant que cible. Au lieu de cela, nous énumérerons toutes les bases de données du serveur et nous ajouterons les bases de données à la nouvelle collecte personnalisée, à l'exception de la base de données principale.
 
 ##Crée une collecte personnalisée et ajoute toutes les bases de données du serveur à la cible de la collecte personnalisée, à l'exception de la base de données principale.
 
@@ -276,7 +276,7 @@ Mettez à jour la stratégie d'exécution souhaitée :
  
 ## Annulation d’une tâche
 
-La fonctionnalité Tâches de bases de données élastiques prend en charge les demandes d'annulation de tâches. Si la fonctionnalité Tâches de bases de données élastiques détecte une demande d'annulation d'une tâche en cours d'exécution, il tente d'arrêter la tâche.
+La fonctionnalité Tâches de bases de données élastiques prend en charge les demandes d’annulation de tâches. Si la fonctionnalité Tâches de bases de données élastiques détecte une demande d'annulation d'une tâche en cours d'exécution, il tente d'arrêter la tâche.
 
 La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
 
@@ -354,7 +354,7 @@ Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur u
 
 **Tâches de bases de données élastiques** prend en charge l'exécution d'une requête sur un groupe de bases de données et envoie les résultats de la table d’une base de données spécifiée. Le tableau peut être interrogé une fois les résultats de la requête affichés à partir de chaque base de données. Ceci fournit un mécanisme asynchrone, permettant d’exécuter une requête sur plusieurs bases de données. Les cas d'échec, notamment l’indisponibilité temporaire d’une des bases de données, sont gérés automatiquement par le biais de tentatives.
 
-La table de destination spécifiée sera automatiquement créée s’il n'existe pas encore de table correspondant au schéma du jeu de résultats retourné. Si l'exécution d'un script retourne plusieurs jeux de résultats, la fonctionnalité Tâches de bases de données élastiques enverra uniquement le premier vers la table de destination fournie.
+La table de destination spécifiée sera automatiquement créée s’il n’existe pas encore de table correspondant au schéma du jeu de résultats retourné. Si l'exécution d'un script retourne plusieurs jeux de résultats, la fonctionnalité Tâches de bases de données élastiques enverra uniquement le premier vers la table de destination fournie.
 
 Le script PowerShell suivant peut être utilisé pour exécuter un script qui collecte ses résultats dans une table spécifiée. Ce script part du principe qu'un script T-SQL, qui génère un jeu de résultats unique, et une cible de collecte de base de données personnalisée ont été créés.
 
@@ -379,7 +379,7 @@ Définissez les valeurs suivantes pour refléter le script, les informations d'i
 
 ## Créez une planification pour l'exécution de tâches à l'aide d'un déclencheur de tâches
 
-Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle de minutes, mais New-AzureSqlJobSchedule prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval, et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant - OneTime.
+Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle d’une minute, mais New-AzureSqlJobSchedule prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant - OneTime.
 
 Créez une nouvelle planification :
 
@@ -447,4 +447,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

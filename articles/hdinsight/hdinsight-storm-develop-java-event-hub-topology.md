@@ -263,7 +263,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 Event Hubs est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau concentrateur d'événements.
 
-1. À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **concentrateur d’événements** > **Création personnalisée**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **Event Hub** > **Création personnalisée**.
 
 2. Sur l’écran **Ajouter un nouveau concentrateur d’événements**, entrez un **nom de concentrateur d’événements**, sélectionnez la **région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
@@ -476,4 +476,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

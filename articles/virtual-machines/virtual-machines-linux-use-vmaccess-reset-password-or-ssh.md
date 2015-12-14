@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Réinitialisation du mot de passe de la machine virtuelle Linux avec l’interface de ligne de commande Azure | Microsoft Azure"
-	description="Utilisation de l'extension VMAccess à partir du portail Azure ou de la CLI pour réinitialiser les mots de passe et les clés SSH, les configurations SSH de la machine virtuelle Linux, et supprimer des comptes d'utilisateurs."
+	description="Utilisation de l’extension VMAccess à partir du portail Azure Classic ou de l’interface de ligne de commande pour réinitialiser les mots de passe et clés SSH, ainsi que les configurations SSH de machine virtuelle Linux, et supprimer des comptes d’utilisateurs."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Azure en version préliminaire pour réinitialiser le mot de passe ou la clé SSH ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Azure pour réinitialiser le mot de passe ou la clé SSH, ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
 
-## Portail Azure en version préliminaire
+## Portail Azure
 
-Pour réinitialiser la configuration SSH dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual Machines** > *votre machine virtuelle Linux* > **Réinitialiser l’accès à distance**. Voici un exemple.
+Pour réinitialiser la configuration SSH dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Linux* > **Réinitialiser l’accès à distance**. Voici un exemple.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des privilèges sudo ou la clé publique SSH dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual Machines** > *votre machine virtuelle Linux* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
+Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des privilèges sudo ou la clé publique SSH dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Linux* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -40,8 +40,8 @@ Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des
 Vous devez disposer des éléments suivants :
 
 - Agent Microsoft Azure Linux version 2.0.5 ou ultérieure. La plupart des images Linux dans la galerie de machines virtuelles incluent la version 2.0.5. Pour connaître la version installée, exécutez **waagent -version**. Pour mettre à jour l’agent, suivez les instructions du [Guide de l’utilisateur de l’agent Linux Azure].
-- Interface de ligne de commande Microsoft Azure Pour plus d’informations sur la configuration de l’interface de ligne de commande Microsoft Azure, consultez la page [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
-- Azure PowerShell. Vous allez utiliser les commandes de la cmdlet Set-AzureVMExtension pour charger et configurer automatiquement l'extension VMAccessForLinux. Pour plus d’informations sur la configuration de Microsoft Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell].
+- Interface de ligne de commande Microsoft Azure Pour plus d’informations sur la configuration de l’interface de ligne de commande Microsoft Azure, voir la page [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+- Azure PowerShell. Vous allez utiliser les commandes de la cmdlet Set-AzureVMExtension pour charger et configurer automatiquement l’extension VMAccessForLinux. Pour plus d’informations sur la configuration de Microsoft Azure PowerShell, voir la page [Installation et configuration d’Azure PowerShell].
 - Un nouveau mot de passe ou des clés SSH, si vous souhaitez réinitialiser l’un des deux. Vous n’avez pas besoin de ces derniers si vous souhaitez corriger la configuration SSH.
 
 ### Aucune installation nécessaire
@@ -150,7 +150,7 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 	azure vm extension get
 
 
-## Utilisation d'Azure PowerShell
+## Utilisation d’Azure PowerShell
 
 Utilisez l’applet de commande **Set-AzureVMExtension** pour effectuer les modifications autorisées par VMAccess. Dans tous les cas, démarrez en utilisant le nom du service cloud et le nom de la machine virtuelle pour obtenir l’objet de machine de virtuelle et le stocker dans une variable.
 
@@ -165,7 +165,7 @@ Si vous ne connaissez pas le service cloud et le nom de la machine virtuelle, ex
 
 > [AZURE.NOTE]Les lignes de commande qui commencent par $ définissent des variables PowerShell qui sont ensuite utilisées dans les commandes PowerShell.
 
-Si vous avez créé la machine virtuelle avec le portail Azure, exécutez la commande supplémentaire suivante :
+Si vous avez créé la machine virtuelle avec le portail Azure Classic, exécutez la commande supplémentaire suivante :
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -182,7 +182,7 @@ Exécutez ensuite les tâches suivantes :
 
 ### <a name="password"></a>Réinitialisation du mot de passe
 
-Renseignez le nom d'utilisateur Linux actuel et le nouveau mot de passe, puis exécutez ces commandes.
+Renseignez le nom d’utilisateur Linux actuel et le nouveau mot de passe, puis exécutez ces commandes.
 
 	$UserName = "<current Linux account name>"
 	$Password = "<new password>"
@@ -197,7 +197,7 @@ Renseignez le nom d'utilisateur Linux actuel et le nouveau mot de passe, puis ex
 
 ### <a name="SSHKey"></a>Réinitialisation d’une clé SSH
 
-Renseignez le nom d'utilisateur Linux actuel et le chemin d'accès au certificat contenant les clés SSH, puis exécutez ces commandes.
+Renseignez le nom d’utilisateur Linux actuel et le chemin d’accès au certificat contenant les clés SSH, puis exécutez ces commandes.
 
 	$UserName = "<current Linux user name>"
 	$Cert = Get-Content "<certificate path>"
@@ -209,7 +209,7 @@ Renseignez le nom d'utilisateur Linux actuel et le chemin d'accès au certificat
 
 ### <a name="both"></a>Réinitialisation du mot de passe et de la clé SSH
 
-Renseignez le nom d'utilisateur Linux actuel, le nouveau mot de passe ainsi que le chemin d'accès au certificat contenant les clés SSH, puis exécutez ces commandes.
+Renseignez le nom d’utilisateur Linux actuel, le nouveau mot de passe ainsi que le chemin d’accès au certificat contenant les clés SSH, puis exécutez ces commandes.
 
 	$UserName = "<current Linux user name>"
 	$Password = "<new password>"
@@ -222,7 +222,7 @@ Renseignez le nom d'utilisateur Linux actuel, le nouveau mot de passe ainsi que 
 
 ### <a name="config"></a>Réinitialisation de la configuration SSH
 
-Les erreurs de configuration SSH peuvent vous empêcher d’accéder à la machine virtuelle. Vous pouvez résoudre ce problème en rétablissant la configuration SSH par défaut. Cette action supprime tous les nouveaux paramètres d'accès dans la configuration, tels que le nom d'utilisateur, le mot de passe et la clé SSH, mais ne modifie pas le mot de passe ou les clés SSH du compte d'utilisateur. L’extension redémarre le serveur SSH, ouvre le port SSH sur votre machine virtuelle et rétablit la configuration SSH par défaut.
+Les erreurs de configuration SSH peuvent vous empêcher d’accéder à la machine virtuelle. Vous pouvez résoudre ce problème en rétablissant la configuration SSH par défaut. Cette action supprime tous les nouveaux paramètres d’accès dans la configuration, tels que le nom d’utilisateur, le mot de passe et la clé SSH, mais ne modifie pas le mot de passe ou les clés SSH du compte d’utilisateur. L’extension redémarre le serveur SSH, ouvre le port SSH sur votre machine virtuelle et rétablit la configuration SSH par défaut.
 
 Exécutez ces commandes.
 
@@ -236,7 +236,7 @@ Exécutez ces commandes.
 
 ### <a name="delete"></a> Suppression d’un utilisateur
 
-Renseignez le nom d'utilisateur Linux à supprimer, puis exécutez ces commandes.
+Renseignez le nom d’utilisateur Linux à supprimer, puis exécutez ces commandes.
 
 	$UserName = "<Linux user name to delete>"
 	$PrivateConfig = "{"remove_user": "' + $UserName + '"}"
@@ -266,4 +266,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

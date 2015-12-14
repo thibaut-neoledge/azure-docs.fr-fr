@@ -28,8 +28,8 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d'erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l'onglet **Journaux** du service mobile sur le portail de gestion.
+    Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d’erreur, le code ajoute une entrée dans le journal des erreurs, consultable à partir de l’onglet **Journaux** du service mobile sur le [portail Azure Classic](https://manage.windowsazure.com/).
 
 3. Publiez à nouveau votre projet de service mobile dans Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

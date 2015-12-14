@@ -48,7 +48,7 @@ Dans ce didacticiel, vous allez apprendre à rassembler les scénarios suivants 
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -56,7 +56,7 @@ Dans ce didacticiel, vous allez apprendre à rassembler les scénarios suivants 
 
 >[AZURE.NOTE]Le script utilisé dans ce didacticiel configure automatiquement la publication continue à partir de votre référentiel GitHub. Pour ce faire, vos informations d’identification GitHub doivent déjà être stockées dans Azure, sinon les scripts de déploiement échoueront lorsque vous tenterez de configurer les paramètres de contrôle de code source pour les applications web.
 >
->Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure en version préliminaire](https://portal.azure.com) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
+>Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
 
 Dans un scénario classique d’opérations de développement, vous disposez d’une application qui s’exécute dans Azure et vous souhaitez lui apporter des modifications par le biais de la publication continue. Dans ce scénario, vous allez déployer en production un modèle que vous avez développé et testé.
 
@@ -84,7 +84,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
-5.	Connectez-vous au [portail Azure en version préliminaire ](https://portal.azure.com) et observez ce qui est créé.
+5.	Connectez-vous au [portail Azure](https://portal.azure.com) et observez ce qui est créé.
 
 	Les deux applications web doivent figurer dans le même groupe de ressources, et le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
 
@@ -97,7 +97,7 @@ Vous avez configuré l’application de production. À présent, imaginons que v
 5. Ouvrez *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.sln dans Visual Studio.
 6. Restaurez tous les packages Nuget en cliquant avec le bouton droit sur la solution > **Gérer les packages NuGet pour la solution** > **Restaurer**.
 6. Cliquez avec le bouton droit sur **MultiChannelToDo.Web** > **Ajouter la télémétrie Application Insights** > **Configurer les paramètres** > Modifier le groupe de ressources en ToDoApp*&lt;votre\_suffixe >* > **Ajouter Application Insights au projet**.
-7. Dans le portail Azure en version préliminaire, ouvrez le panneau de la ressource Application Insights **MultiChannelToDo.Web**. Ensuite, dans la partie **Intégrité des applications**, cliquez sur **Apprendre à collecter les données de chargement de page de navigateur** > Copier le code.
+7. Dans le portail Azure, ouvrez le panneau de la ressource Application Insights **MultiChannelToDo.Web**. Ensuite, dans la partie **Intégrité des applications**, cliquez sur **Apprendre à collecter les données de chargement de page de navigateur** > Copier le code.
 7. Ajoutez le code d’instrumentation JS copié à *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, juste avant la balise de fermeture `<heading>`. Il doit contenir la clé d’instrumentation unique de votre ressource Application Insights.
 
         <script type="text/javascript">
@@ -375,4 +375,4 @@ Azure App Service facilite le test en production des applications destinées aux
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

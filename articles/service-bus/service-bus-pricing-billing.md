@@ -33,7 +33,7 @@ Le niveau **premium** isole les ressources au niveau des couches processeur et m
 
 Notez que les frais de base standards sont facturés en une seule fois par mois et par abonnement Azure. En d'autres termes, après avoir créé un espace de noms Service Bus de niveau standard ou premium, vous serez en mesure de créer autant d'espaces de noms standard ou premium que possible dans ce même abonnement Azure, sans encourir de frais de base supplémentaires.
 
-Tous les espaces de noms Service Bus existants créés avant le 1er novembre 2014 ont été automatiquement placés dans le niveau standard. Cette mesure garantit un accès à toutes les fonctionnalités actuellement disponibles avec Service Bus. Par la suite, vous pourrez utiliser le portail Azure pour redescendre votre version vers le niveau de base si vous le souhaitez.
+Tous les espaces de noms Service Bus existants créés avant le 1er novembre 2014 ont été automatiquement placés dans le niveau standard. Cette mesure garantit un accès à toutes les fonctionnalités actuellement disponibles avec Service Bus. Par la suite, vous pourrez utiliser le [portail Azure Classic][] pour redescendre votre version vers le niveau de base si vous le souhaitez.
 
 Le tableau suivant résume les différences fonctionnelles entre les niveaux de base et standard/premium.
 
@@ -85,7 +85,7 @@ Les prix suivants sont appliqués depuis le 1er novembre 2014 :
 
 ## Connexions réparties
 
-Les *connexions réparties* répondent aux modèles d'utilisation client qui impliquent un grand nombre d'expéditeurs/destinataires « en permanence connectés » aux files d'attente, rubriques/abonnements ou Event Hubs. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
+Les *connexions réparties* répondent aux modèles d’utilisation client qui impliquent un grand nombre d’expéditeurs/destinataires « en permanence connectés » aux files d’attente, rubriques/abonnements ou Event Hubs. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
 
 Auparavant, les files d'attente et les rubriques/abonnements avaient une limite de 100 connexions simultanées par URL. Le modèle de facturation actuel supprime la limite par URL des files d'attente et des rubriques/abonnements et implémente des quotas et des mesures de connexions réparties au niveau de l'espace de noms Service Bus et de l'abonnement Azure.
 
@@ -106,7 +106,7 @@ Le niveau de base inclut et est strictement limité à 100 connexions répartie
 |---|
 |Les connexions réparties ne sont pas facturées au niveau premium.|
 
-Pour plus d'informations sur les connexions réparties, consultez la section [FAQ](#FAQ) plus loin dans cette rubrique.
+Pour plus d’informations sur les connexions réparties, consultez la section [FAQ](#FAQ) plus loin dans cette rubrique.
 
 ## Relais
 
@@ -121,7 +121,7 @@ Les relais sont disponibles uniquement dans les espaces de noms de niveau standa
 
 ### Comment le nombre d’heures de relais est-il calculé ?
 
-Voir cette [rubrique](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
+Voir [cette rubrique](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
 
 ### Que sont les connexions réparties et combien me coûtent-elles ?
 
@@ -147,4 +147,6 @@ Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de 
 
 [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+[portail Azure Classic]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

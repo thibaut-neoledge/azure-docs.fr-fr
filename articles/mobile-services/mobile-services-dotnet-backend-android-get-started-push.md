@@ -18,6 +18,11 @@
 
 # Ajout de notifications push à votre application Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android. Dans ce didacticiel, vous ajoutez des notifications Push au projet de démarrage rapide à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
@@ -25,7 +30,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez suivre [Prise en main de Mobile Services] pour connecter votre projet au service mobile. En tant que tel, ce didacticiel requiert également Visual Studio 2013.
 
 ## Exemple de code
-Pour afficher le code source terminé, vous pouvez y accéder [ici](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
+Pour afficher le code source terminé, cliquez [ici](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
 
 ## Activation de Google Cloud Messaging
 
@@ -104,7 +109,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 
 [Utilisation de la bibliothèque cliente Android pour Mobile Services]: mobile-services-android-how-to-use-client-library.md
@@ -112,6 +116,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 [Envoi de notifications diffusées aux abonnés]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envoi de notifications basées sur un modèle aux abonnés]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

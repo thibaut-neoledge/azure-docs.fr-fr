@@ -1,5 +1,5 @@
 <properties
- pageTitle="Ajouter des nœuds « d’extension » à un cluster HPC Pack | Microsoft Azure"
+ pageTitle="Ajouter des nœuds d’extension à un cluster HPC Pack | Microsoft Azure"
  description="Découvrez comment ajouter des instances de rôle de travail exécutées dans un service cloud à la demande en tant que ressources de calcul à un nœud principal HPC Pack dans Azure."
  services="virtual-machines"
  documentationCenter=""
@@ -25,23 +25,23 @@ Il vous montre comment ajouter des nœuds « d’extension » Azure (instances
 
 ![Nœuds d’extension][burst]
 
->[AZURE.TIP]Si vous utilisez le [script de déploiement IaaS HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster dans Azure, vous pouvez inclure des nœuds d’extension Azure dans votre déploiement automatisé.
+>[AZURE.TIP]Si vous utilisez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster dans Azure, vous pouvez inclure des nœuds d’extension Azure dans votre déploiement automatisé.
 
-Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure est essentiellement la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions détaillées et des considérations sur les déploiements de production, consultez [Extension à Azure avec Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure est essentiellement la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions et considérations détaillées sur les déploiements de production, consultez [Extension à Azure avec Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 
 Si vous souhaitez utiliser la taille d’instance de calcul intensif A8 ou A9, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Configuration requise
 
-* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : consultez [Déployer un nœud principal HPC Pack dans une machine virtuelle Azure](virtual-machines-hpcpack-cluster-headnode.md) pour connaître les étapes de création d’un nœud principal de cluster dans le modèle de déploiement classique (gestion des services).
+* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : consultez [Déployer un nœud principal HPC Pack dans une machine virtuelle Azure](virtual-machines-hpcpack-cluster-headnode.md) pour connaître les étapes de création d’un nœud principal de cluster dans le modèle de déploiement classique (Service Management).
 
-* **Abonnement azure** : pour ajouter des nœuds Azure, vous pouvez choisir l’abonnement utilisé pour déployer la machine virtuelle à nœud principal, ou bien un autre ou d’autres abonnements.
+* **Abonnement Azure** : pour ajouter des nœuds Azure, vous pouvez choisir l’abonnement utilisé pour déployer la machine virtuelle à nœud principal, ou bien un ou plusieurs autres abonnements.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multiprocesseurs. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multicœur. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ## Étape 1 : créer un service cloud et un compte de stockage pour ajouter des nœuds Azure
 
-Utilisez le portail Azure ou des outils équivalents pour configurer les éléments suivants, qui sont nécessaires pour déployer vos nœuds Azure :
+Utilisez le portail Azure Classic ou des outils équivalents pour configurer les éléments suivants, qui sont nécessaires pour déployer vos nœuds Azure :
 
 * Un nouveau service cloud Azure
 * Un nouveau compte de stockage Azure
@@ -79,13 +79,13 @@ Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont g�
 
 Après avoir ajouté et démarré les nœuds, vous pouvez les utiliser pour exécuter des tâches de cluster.
 
-Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Résoudre les problèmes liés aux déploiements de nœuds Azure avec Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Dépannage de problèmes liés aux déploiements de nœuds Azure avec Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Étapes suivantes
 
-* Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Augmenter ou réduire les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Augmentation ou réduction des ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

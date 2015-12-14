@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestion d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire | Azure" 
+   pageTitle="Gestion d'Azure Data Lake Analytics à l'aide du portail Azure | Azure" 
    description="Apprenez à gérer des comptes Data Lake Analytics, des sources de données, des utilisateurs et des travaux." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Gestion d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire
+# Gestion d'Azure Data Lake Analytics à l'aide du portail Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l'aide du portail Azure en version préliminaire. Pour afficher les rubriques de gestion à l'aide d'autres outils, cliquez sur l'onglet de sélection ci-dessus.
+Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l'aide du portail Azure. Pour afficher les rubriques de gestion à l'aide d'autres outils, cliquez sur l'onglet de sélection ci-dessus.
 
 **Configuration requise**
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -145,7 +145,7 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 
 <a name="upload-data-to-adls"></a> **Pour télécharger des fichiers vers le compte Data Lake Store**
 
-1. À partir de la version préliminaire du portail, cliquez sur **Parcourir** dans le menu de gauche, puis cliquez sur **Data Lake Store**.
+1. À partir du portail, cliquez sur **Parcourir** dans le menu de gauche, puis cliquez sur **Data Lake Store**.
 2. Cliquez sur le compte Data Lake Store vers lequel vous souhaitez télécharger des données. Pour trouver le compte de stockage Data Lake par défaut, consultez [ceci](#default-adl-account).
 3. Cliquez sur **Explorateur de données** dans le menu supérieur.
 4. Cliquez sur **Nouveau répertoire** pour créer un nouveau dossier ou cliquez sur le nom d'un dossier pour modifier le dossier.
@@ -256,7 +256,7 @@ Consultez [Surveiller les travaux Data Lake Analytics](#monitor-jobs).
 
 ##Affichage du catalogue U-SQL
 
-Le [catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md) est utilisé pour structurer les données et le code afin que les scripts U-SQL puissent les partager. Le catalogue permet les meilleures performances possibles avec les données comprises dans Azure Data Lake. À partir du portail Azure en version préliminaire, vous êtes en mesure d'afficher le catalogue U-SQL.
+Le [catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md) est utilisé pour structurer les données et le code afin que les scripts U-SQL puissent les partager. Le catalogue permet les meilleures performances possibles avec les données comprises dans Azure Data Lake. À partir du portail Azure, vous êtes en mesure d'afficher le catalogue U-SQL.
 
 **Pour parcourir le catalogue U-SQL**
 
@@ -291,8 +291,8 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 ##Voir aussi 
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

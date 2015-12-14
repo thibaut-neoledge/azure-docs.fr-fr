@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -35,7 +40,7 @@ Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire vo
 Ce didacticiel requiert les éléments suivants :
 
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
-* Exécution du didacticiel [Prise en main de Mobile Services]
+* Exécution du didacticiel [Prise en main de Mobile Services].
 * Kit de développement logiciel (SDK) Microsoft Azure Mobile Services – Package NuGet
 * Bibliothèque d'authentification Active Directory – Package NuGet
 
@@ -85,7 +90,7 @@ Vous devez, à présent, extraire l'identificateur de sécurité (SID) du packag
 
 ###Création de l'inscription de l'application native
 
-1. Accédez à **Active Directory** dans le [portail de gestion Azure], puis cliquez sur votre annuaire.
+1. Accédez à **Active Directory** dans le [portail Azure Classic], puis cliquez sur votre annuaire.
 
     ![][7]
 
@@ -162,7 +167,7 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
             }
         }
 
-6. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
+6. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail Azure Classic].
 
 7. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-RESOURCE-URI-HERE** par l'**URI ID d'application** de votre service mobile. Si vous avez suivi les instructions de la rubrique [Inscription auprès d'Azure Active Directory], votre URI ID d'application doit être semblable à https://todolist.azure-mobile.net/login/aad.
 
@@ -184,7 +189,7 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 ##Test du client à l'aide de l'authentification
 
 1. Exécutez l'application cliente dans Visual Studio.
-2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.  
+2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.
 3. L'application authentifie et renvoie les tâches à effectuer.
 
     ![][15]
@@ -211,9 +216,9 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 
 <!-- URLs. -->
 [Inscription auprès d'Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

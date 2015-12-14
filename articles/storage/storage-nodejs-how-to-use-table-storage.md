@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -71,7 +71,7 @@ Ajoutez le code suivant en haut du fichier **server.js** dans votre application�
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le portail Azure pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
 
 ## Création d’une table
 
@@ -79,7 +79,7 @@ Le code suivant crée un objet **TableService** et l'utilise pour créer une tab
 
     var tableSvc = azure.createTableService();
 
-L’appel de **createTableIfNotExists** crée une table avec le nom spécifié si elle n’existe pas déjà. Dans l'exemple suivant, la table 'mytable' est créée, si elle n'existe pas déjà :
+L’appel de **createTableIfNotExists** crée une nouvelle table avec le nom spécifié si elle n’existe pas déjà. Dans l'exemple suivant, la table 'mytable' est créée, si elle n'existe pas déjà :
 
     tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 		if(!error){
@@ -87,7 +87,7 @@ L’appel de **createTableIfNotExists** crée une table avec le nom spécifié s
 		}
 	});
 
-`result` est `true` si une table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
+`result` est `true` si une nouvelle table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
 
 ### Filtres
 
@@ -114,7 +114,7 @@ Pour ajouter une entité, commencez par créer un objet qui définit les propri�
 
 * **RowKey** : identifie de façon unique l’entité dans la partition
 
-**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d’informations, consultez [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d’informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Voici un exemple de définition d'une entité. Notez que **dueDate** est définie comme un type de **Edm.DateTime**. L'indication du type est facultative et s'ils ne sont pas spécifiés, les types sont déduits.
 
@@ -151,7 +151,7 @@ Exemple de réponse :
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]Par défaut, **insertEntity** ne renvoie pas l’entité insérée dans le cadre des informations `response`. Si vous prévoyez d’exécuter d’autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans `result`. Pour ce faire, activez **echoContent** comme suit :
+> [AZURE.NOTE]Par défaut, **insertEntity** ne renvoie pas l’entité insérée dans le cadre des informations `response`. Si vous prévoyez d’exécuter d’autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans le cadre de `result`. Pour ce faire, activez **echoContent** comme suit :
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -161,11 +161,11 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 
 * **updateEntity** : met à jour une entité existante en la remplaçant
 
-* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité
+* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
 
 * **insertOrReplaceEntity** : met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 
-* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité. En l’absence d’entité, une nouvelle entité est insérée.
+* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
 
 L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** :
 
@@ -185,7 +185,7 @@ L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** 
 >    
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez extrait la valeur ETag, par exemple avec une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
 
-Avec **updateEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Avec **updateEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
@@ -225,19 +225,19 @@ Pour les opérations de traitement par lot réussies, `result` contient les info
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations :
 
-* **clear** : permet de supprimer toutes les opérations d’un traitement par lots
+* **clear** : permet de supprimer toutes les opérations d’un lot
 
-* **getOperations** : permet d’obtenir une opération du traitement par lots
+* **getOperations** : permet d’obtenir une opération du lot
 
-* **hasOperations** : permet de renvoyer true si le traitement par lots contient des opérations
+* **hasOperations** : permet de renvoyer true si le lot contient des opérations
 
 * **removeOperations** : permet de supprimer une opération
 
-* **size** : permet de renvoyer le nombre d’opérations du traitement par lots
+* **size** : permet de renvoyer le nombre d’opérations du lot
 
 ## Récupération d'une entité par clé
 
-Pour envoyer une entité donnée d’après la valeur **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
+Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
 
     tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
@@ -276,7 +276,7 @@ Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécu
 	  }
 	});
 
-En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, utilisez *null* comme troisième paramètre.
+En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non *null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, utilisez *null* comme troisième paramètre.
 
 ### Interrogation d'un sous-ensemble de propriétés d'entité
 
@@ -349,7 +349,7 @@ Un exemple de liaison est également disponible dans le référentiel Node.js Az
 
 Les signatures d’accès partagé (SAP) sont un moyen sécurisé de fournir un accès précis aux tables sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à interroger des enregistrements.
 
-Une application approuvée, comme un service cloud, génère une signature d’accès partagé à l’aide de l’élément **generateSharedAccessSignature** du **TableService**, et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
+Une application approuvée, comme un service cloud, génère une SAP à l’aide de l’élément **generateSharedAccessSignature** du **TableService**, et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
 
 L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à interroger (« r ») la table et expire 100 minutes après son heure de création.
 
@@ -432,7 +432,6 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 Pour plus d’informations, consultez les ressources suivantes.
 
--   Référence MSDN : [Stockage et accessibilité des données dans Azure][].
 -   [Blog de l’équipe Azure Storage][].
 -   Référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 -   [Centre de développement Node.js](/develop/nodejs/)
@@ -440,14 +439,13 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec Storage]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

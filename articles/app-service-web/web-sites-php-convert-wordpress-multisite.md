@@ -54,7 +54,7 @@ Connectez-vous à la zone *wp-admin* de votre application web. Vous devez voir 
 
 ![Écran Configuration réseau][wordpress-network-setup]
 
-Ce didacticiel utilise le schéma de site *Sous-dossiers* parce qu'il doit toujours fonctionner. Nous définirons des domaines personnalisés pour chaque sous-site ultérieurement dans le didacticiel. Toutefois, il doit être possible de configurer l’installation du sous-domaine, si vous mappez un domaine via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) et que vous configurez correctement le DNS générique.
+Ce didacticiel utilise le schéma de site *Sous-dossiers* parce qu'il doit toujours fonctionner. Nous définirons des domaines personnalisés pour chaque sous-site ultérieurement dans le didacticiel. Toutefois, il doit être possible de configurer l’installation du sous-domaine, si vous mappez un domaine via le [portail Azure](https://portal.azure.com) et que vous configurez correctement le DNS générique.
 
 Pour plus d'informations sur les configurations de sous-domaine et de sous-dossier, consultez l'article [Types de réseau multisite][wordpress-codex-types-of-networks] sur le Codex WordPress.
 
@@ -138,7 +138,6 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -154,4 +153,4 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

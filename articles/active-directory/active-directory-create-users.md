@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création ou modification d’utilisateurs dans Azure AD"
-	description="Rubrique qui explique comment créer ou modifier des comptes d’utilisateurs dans Azure AD."
+	pageTitle="Création ou modification d’utilisateurs dans Azure Active Directory | Microsoft Azure"
+	description="Explique comment créer ou modifier des comptes d’utilisateurs dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Création ou modification d’utilisateurs dans Azure AD
+# Création ou modification d’utilisateurs dans Azure Active Directory
 
-Vous devez créer un compte pour chaque utilisateur ayant besoin d’accéder à un service cloud Microsoft. Vous pouvez également modifier des comptes d’utilisateurs ou les supprimer lorsqu’ils ne sont plus nécessaires. Par défaut, les utilisateurs ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez éventuellement leur affecter de telles autorisations.
+Vous devez créer un compte dans Azure Active Directory (Azure AD) pour chaque utilisateur ayant besoin d’accéder à un service cloud Microsoft. Vous pouvez également modifier des comptes d’utilisateurs ou les supprimer lorsqu’ils ne sont plus nécessaires. Par défaut, les utilisateurs ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez éventuellement leur affecter de telles autorisations.
 
 ## Créer un utilisateur
 
@@ -41,7 +41,7 @@ Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance 
 
 Si l’utilisateur que vous essayez de modifier est synchronisé avec votre service Active Directory, un message d’erreur s’affiche et vous ne pouvez pas modifier l’utilisateur à l’aide de cette procédure. Pour modifier l’utilisateur, utilisez vos outils de gestion Active Directory locaux.
 
-Pour modifier un utilisateur dans le portail de gestion Azure :
+Pour modifier un utilisateur dans le portail Azure Classic :
 
 1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Dans la page **Utilisateurs**, cliquez sur le nom complet de l’utilisateur à modifier.
@@ -61,7 +61,7 @@ Dans Azure AD, vous pouvez également ajouter des utilisateurs à un annuaire A
 
 Les utilisateurs qui sont ajoutés à partir d’un autre annuaire sont des utilisateurs externes. Les utilisateurs externes peuvent collaborer avec des utilisateurs qui existent déjà dans un annuaire, comme dans un environnement de test, sans avoir à se connecter avec de nouveaux comptes et informations d’identification. Les utilisateurs externes sont authentifiés par leur annuaire principal lorsqu’ils se connectent et cette authentification fonctionne pour tous les autres annuaires dont ils sont membres.
 
-Pour créer un utilisateur externe, créez un utilisateur dans le portail et pour **Type d’utilisateur**, sélectionnez **Utilisateur dans un autre annuaire Azure AD**.
+Pour créer un utilisateur externe, créez un utilisateur dans le portail Azure Classic et pour **Type d’utilisateur**, sélectionnez **Utilisateur dans un autre annuaire Azure AD**.
 
 ## Gestion des utilisateurs externes et limitations
 
@@ -73,7 +73,7 @@ Le seul lien entre les deux objets est que l’utilisateur s’authentifie toujo
 
 Si un utilisateur est supprimé de son annuaire principal ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans l’annuaire. Cependant, l’utilisateur ne peut pas accéder aux ressources de l’annuaire étant donné qu’il ne peut plus s’authentifier auprès de son annuaire principal ni à l’aide de son compte Microsoft.
 
-Un utilisateur administrateur de plusieurs annuaires peut gérer ceux-ci individuellement dans le portail de gestion Azure. Cependant, d’autres applications telles qu’Office 365 ne permettent pas pour le moment d’affecter des services ou d’accéder à des services en tant qu’utilisateur externe dans un autre annuaire. À partir de maintenant, nous fournirons aux développeurs des recommandations sur le fonctionnement de leurs applications avec les utilisateurs membres de plusieurs annuaires.
+Un utilisateur administrateur de plusieurs annuaires peut gérer ceux-ci individuellement dans le portail Azure Classic. Cependant, d’autres applications telles qu’Office 365 ne permettent pas pour le moment d’affecter des services ou d’accéder à des services en tant qu’utilisateur externe dans un autre annuaire. À partir de maintenant, nous fournirons aux développeurs des recommandations sur le fonctionnement de leurs applications avec les utilisateurs membres de plusieurs annuaires.
 
 Certaines restrictions existent actuellement dans le sens où un administrateur peut seulement donner son consentement à une application mutualisée dans son annuaire principal et être configuré pour les applications SaaS et l’authentification unique (SSO) via le panneau d’accès de son annuaire principal. Les utilisateurs de compte Microsoft sont soumis aux mêmes restrictions étant donné qu’ils ne peuvent pas donner leur consentement à une application mutualisée ou utiliser le panneau d’accès pour le moment.
 
@@ -85,7 +85,7 @@ Au sein de l’annuaire, les invités disposent de droits limités. Ces droits o
 
 ## Configurer les stratégies d’accès utilisateur
 
-L'onglet **Configurer** d'un annuaire inclut des options de contrôle d'accès des utilisateurs externes. Ces options peuvent être modifiées uniquement dans l'interface utilisateur (il n'existe aucune méthode Windows PowerShell ou API) dans le portail Azure complet par un administrateur global de l'annuaire. Pour ouvrir l’onglet **Configurer** dans le portail Azure, cliquez sur **Active Directory**, puis sur le nom de l’annuaire.
+L'onglet **Configurer** d'un annuaire inclut des options de contrôle d'accès des utilisateurs externes. Ces options peuvent être modifiées uniquement dans l’interface utilisateur (il n’existe aucune méthode Windows PowerShell ou API) dans le portail Azure Classic complet par un administrateur global de l’annuaire. Pour ouvrir l’onglet **Configurer** dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire.
 
 ![][1]
 
@@ -111,4 +111,4 @@ La capacité des invités à n'accéder qu'à certaines informations limitées d
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

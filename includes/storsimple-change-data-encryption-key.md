@@ -1,10 +1,10 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### Étape 1 : autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail de gestion
 
 En règle générale, l’administrateur de l’appareil demande que l’administrateur du service autorise un appareil à modifier les clés de chiffrement des données du service. Ensuite, l’administrateur du service autorise l’appareil à modifier la clé.
 
-Cette étape s’effectue dans le portail de gestion. L’administrateur du service peut sélectionner un appareil à partir d’une liste des appareils pouvant être autorisés. Après cela, l’appareil est autorisé à démarrer le processus de modification de la clé de chiffrement des données du service.
+Cette étape s’effectue dans le portail Azure Classic. L’administrateur du service peut sélectionner un appareil à partir d’une liste des appareils pouvant être autorisés. Après cela, l’appareil est autorisé à démarrer le processus de modification de la clé de chiffrement des données du service.
 
 #### Quels appareils peuvent être autorisés à modifier les clés de chiffrement des données du service ?
 
@@ -20,7 +20,7 @@ Un appareil doit respecter les critères suivants avant d’être autorisé à d
 
 - Vous pouvez autoriser un appareil lorsque certains appareils inscrits auprès du service ont substitué le chiffrement tandis que d’autres ne l’ont pas fait. Dans ce cas, les appareils pouvant être autorisés sont ceux qui ont terminé la modification de la clé de chiffrement des données du service.
 
-> [AZURE.NOTE]Dans le portail de gestion, les appareils virtuels StorSimple ne sont pas affichés dans la liste des appareils pouvant être autorisés à démarrer la modification de clé.
+> [AZURE.NOTE]Dans le portail Azure Classic, les appareils virtuels StorSimple ne sont pas affichés dans la liste des appareils pouvant être autorisés à démarrer la modification de clé.
 
 Procédez comme suit pour sélectionner et autoriser un appareil à démarrer la modification de clé de chiffrement des données du service.
 
@@ -38,7 +38,7 @@ Procédez comme suit pour sélectionner et autoriser un appareil à démarrer la
 
 Cette étape s’effectue dans l’interface Windows PowerShell pour StorSimple, sur l’appareil StorSimple autorisé.
 
-> [AZURE.NOTE]Aucune opération ne peut être effectuée dans le portail de gestion de votre service StorSimple Manager avant la fin de la substitution de la clé.
+> [AZURE.NOTE]Aucune opération ne peut être effectuée dans le portail Azure Classic de votre service StorSimple Manager avant la fin de la substitution de la clé.
 
 Si vous utilisez la console série de l’appareil pour vous connecter à l’interface Windows PowerShell, procédez comme suit.
 
@@ -74,4 +74,4 @@ Procédez comme suit pour mettre à jour le chiffrement des données du service 
 
 3. Entrez la clé de chiffrement des données du service obtenue lors de l’[Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

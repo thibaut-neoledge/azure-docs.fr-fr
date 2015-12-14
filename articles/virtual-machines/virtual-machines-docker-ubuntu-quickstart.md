@@ -25,7 +25,7 @@ Le moyen le plus rapide pour se familiariser avec [Docker] consiste à accéder 
 
 Vous pouvez immédiatement vous connecter à la machine virtuelle via SSH et commencer à travailler avec Docker directement, sans procédure supplémentaire.
 
-> [AZURE.NOTE]La machine virtuelle créée par le modèle Azure Marketplace n'héberge pas l'API distante Docker pour la gestion par un client Docker distant. Pour activer le contrôle à distance de l’hôte Docker sur cette machine virtuelle, consultez la page [Exécution de Docker avec HTTPS](https://docs.docker.com/articles/https/) ou suivez les étapes de la rubrique [Utilisation de l’extension Docker VM avec le portail Azure](virtual-machines-docker-with-portal.md) ou [Utilisation de l’extension Docker VM à partir de l’interface interplateforme Azure (xplat-cli)](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Si vous souhaitez automatiser votre machine virtuelle Azure Docker à partir de Windows, vous pouvez [installer la boîte à outils Docker](https://docs.docker.com/installation/windows/) ou obtenir Docker.exe à partir du site [Chocolatey](https://chocolatey.org/packages/docker).
+> [AZURE.NOTE]La machine virtuelle créée par le modèle Azure Marketplace n'héberge pas l'API distante Docker pour la gestion par un client Docker distant. Pour activer le contrôle à distance de l’hôte Docker sur cette machine virtuelle, consultez la page [Exécution de Docker avec HTTPS](https://docs.docker.com/articles/https/) ou suivez les étapes de la rubrique [Utilisation de l’extension Docker VM avec le portail Azure Classic](virtual-machines-docker-with-portal.md) ou [Utilisation de l’extension Docker VM à partir de l’interface interplateforme Azure (xplat-cli)](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Si vous souhaitez automatiser votre machine virtuelle Azure Docker à partir de Windows, vous pouvez [installer la boîte à outils Docker](https://docs.docker.com/installation/windows/) ou obtenir Docker.exe à partir du site [Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Connexion au portail
 
@@ -78,4 +78,4 @@ L’idéal est de commencer en utilisant [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

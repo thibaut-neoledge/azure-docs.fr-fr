@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Microsoft Azure" 
-	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Microsoft Azure"
+	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/12/2015"
 	ms.author="glenga"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
@@ -45,7 +50,7 @@ Ce didacticiel requiert Visual Studio 2013 s'exécutant sous Windows 8.1.
 
 Ce didacticiel est une procédure pas à pas expliquant comment l'[Exemple TODO hors connexion Mobile Services] gère les conflits de synchronisation entre le magasin hors connexion local et la base de données Mobile Services dans Azure.
 
-1. Téléchargez le fichier .zip du [Référentiel GitHub d'exemples Mobile Services] pour l'extraire dans un répertoire de travail. 
+1. Téléchargez le fichier .zip du [Référentiel GitHub d'exemples Mobile Services] pour l'extraire dans un répertoire de travail.
 
 2. Si vous n'avez pas déjà installé SQLite pour Windows 8.1 et Windows Phone 8.1 comme indiqué dans le didacticiel [Prise en main des données hors connexion], installez les deux runtimes.
 
@@ -64,7 +69,7 @@ Notez que dans la mesure où l'application n'est pas encore connectée à un ser
 
 À présent, il est temps de tester l'application sur base de Mobile Services.
 
-1. Dans le portail de gestion Azure, recherchez la clé d'application de votre service mobile en cliquant sur **Gérer les clés** dans la barre de commandes de l'onglet **Tableau de bord**. Copiez la **clé d'application**.
+1. Dans le [portail Azure Classic], recherchez la clé d’application de votre service mobile en cliquant sur **Gérer les clés** dans la barre de commandes de l’onglet **Tableau de bord**. Copiez la **clé d'application**.
 
 2. Dans l'Explorateur de solutions pour Visual Studio, ouvrez le fichier App.xaml.cs dans l'exemple de projet client. Modifiez l'initialisation de **MobileServiceClient** pour utiliser l'URL et la clé d'application de votre service mobile :
 
@@ -88,14 +93,14 @@ Dans un scénario réel, un conflit de synchronisation se produit lorsqu'une app
 La procédure suivante indique comment exécuter les clients Windows Phone 8.1 et Windows Store 8.1 en même temps pour provoquer et résoudre un conflit à l'aide de l'exemple.
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet Windows Phone 8.1 et cliquez sur **Définir comme projet de démarrage**. Puis, appuyez sur **Ctrl+F5** pour exécuter le client Windows Phone 8.1 sans débogage. Une fois le client Windows Phone 8.1 opérationnel dans l'émulateur, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
- 
+
     ![][3]
- 
-   
+
+
 2. Dans Visual Studio, cliquez avec le bouton droit sur le projet de runtime Windows 8.1, puis cliquez sur **Définir comme projet de démarrage**. Ensuite, appuyez sur **F5** pour l'exécuter. Une fois le client Windows Store 8.1 opérationnel, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
 
     ![][4]
- 
+
 3. À ce stade, les deux clients sont synchronisés avec la base de données. Le code de ces deux clients utilise également la synchronisation des valeurs incrémentielles, de sorte qu'ils synchroniseront uniquement des éléments todo incomplets. Les éléments todo complets seront ignorés. Choisissez l'un des éléments et définissez le texte d'un même élément sur une valeur différente pour chaque client. Cliquez sur le bouton **Push** pour synchroniser les modifications avec la base de données sur le serveur.
 
     ![][5]
@@ -126,7 +131,7 @@ La classe `SyncHandler` de **SyncHandler.cs** implémente `IMobileServiceSyncHan
 
 Pour résoudre les conflits au profit de l'élément local, essayez simplement à nouveau l'opération. Une fois qu'un conflit a eu lieu, la version locale de l'élément est mise à jour de façon à correspondre à la version serveur. Par conséquent, une nouvelle exécution de l'opération remplacera les modifications du serveur par les modifications locales :
 
-    await operation.ExecuteAsync(); 
+    await operation.ExecuteAsync();
 
 Pour résoudre les conflits au profit de l'élément serveur, exécutez simplement la méthode `ExecuteTableOperationAsync`. La version locale de l'objet sera ignorée et remplacée par la valeur provenant du serveur.
 
@@ -158,10 +163,9 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
 [Prise en main des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [Référentiel GitHub d'exemples Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

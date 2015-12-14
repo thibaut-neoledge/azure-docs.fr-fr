@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Attribution de rôles d’administrateur dans Azure AD"
-	description="Décrit les rôles d’administrateur disponibles avec Azure AD et leur utilisation."
+	pageTitle="Attribution de rôles d’administrateur dans Azure Active Directory | Microsoft Azure"
+	description="Décrit les rôles d’administrateur disponibles avec Azure Active Directory et leur utilisation."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Attribution de rôles d’administrateur dans Azure AD
+# Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)
 
-Selon la taille de votre entreprise, vous pouvez désigner plusieurs administrateurs, qui remplissent différentes fonctions. Ces administrateurs ont accès à plusieurs fonctionnalités du portail Azure et, selon leur rôle, peuvent créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe d’utilisateur, gérer les licences utilisateur et les domaines, etc.
+Selon la taille de votre entreprise, vous pouvez désigner plusieurs administrateurs, qui remplissent différentes fonctions. Ces administrateurs ont accès à plusieurs fonctionnalités du portail Azure ou du portail Azure Classic et, selon leur rôle, peuvent créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe d’utilisateur, gérer les licences utilisateur et les domaines, etc.
 
-Il est important de comprendre qu’un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations sur tous les services cloud auxquels votre organisation est abonnée, peu importe que vous attribuiez le rôle dans le portail Office 365 ou dans le portail Azure ou encore à l’aide du module Azure AD pour Windows PowerShell.
+Il est important de comprendre qu’un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations sur tous les services cloud auxquels votre organisation est abonnée, peu importe que vous attribuiez le rôle dans le portail Office 365 ou dans le portail Azure Classic ou encore à l’aide du module Azure AD pour Windows PowerShell.
 
 Les rôles d’administrateur disponibles sont les suivants :
 
@@ -28,8 +28,8 @@ Les rôles d’administrateur disponibles sont les suivants :
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
-    > [AZURE.NOTE] 
-    > Pour assigner le rôle d'administrateur du service à un utilisateur, l'administrateur général doit d'abord assigner des autorisations administratives à l'utilisateur du service, comme Exchange Online, puis lui assigner le rôle d'administrateur du service dans le portail de gestion Windows Azure. 
+> [AZURE.NOTE]Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
+
 - **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
 ## Autorisations des administrateurs
@@ -71,9 +71,9 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 ## Attribution ou suppression de rôles d’administrateur
 
 
-1. Dans le portail de gestion, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
+1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Sur la page **Utilisateurs**, cliquez sur le nom d’affichage de l’utilisateur à modifier.
-3. Sélectionnez le menu déroulant **Rôle organisationnel**, puis le rôle d’administrateur que vous souhaitez attribuer à cet utilisateur, ou sélectionnez **Utilisateur** pour supprimer un rôle d’administrateur existant.
+3. Dans la liste **Rôle organisationnel**, sélectionnez le rôle d’administrateur que vous souhaitez attribuer à cet utilisateur, ou sélectionnez **Utilisateur** pour supprimer un rôle d’administrateur existant.
 4. Dans le champ **Autre adresse de messagerie**, tapez une adresse électronique. Cette adresse électronique est utilisée pour les notifications importantes, notamment la réinitialisation automatique de mot de passe. L’utilisateur doit donc être en mesure d’accéder à ce compte, qu’il ait ou non accès à Azure.
 5. Sélectionnez **Autoriser** ou **Bloquer** pour indiquer si l’utilisateur est autorisé ou non à se connecter aux services et à y accéder.
 6. Spécifiez un lieu en le sélectionnant dans la liste déroulante **Lieu d’utilisation**.
@@ -85,4 +85,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

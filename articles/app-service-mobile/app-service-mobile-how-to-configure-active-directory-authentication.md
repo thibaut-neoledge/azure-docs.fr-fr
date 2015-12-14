@@ -29,7 +29,7 @@ Cette rubrique montre comment configurer Azure App Services pour utiliser Azure 
 
 ## <a name="express"></a>Configuration d'Azure Active Directory à l'aide de la configuration rapide
 
-13. Dans le [portail de gestion Azure], accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
+13. Dans le [portail Azure], accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
 
 14. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
@@ -52,9 +52,9 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 
 ### <a name="register"> </a>Inscription de votre application auprès d’Azure Active Directory
 
-1. Connectez-vous au [portail de gestion Azure en version préliminaire] et accédez à votre application. Copiez votre **URL**. Elle vous permettra de configurer votre application Azure Active Directory.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Elle vous permettra de configurer votre application Azure Active Directory.
 
-3. Connectez-vous au [portail de gestion Azure] et accédez à **Active Directory**.
+3. Connectez-vous au [portail Azure Classic] et accédez à **Active Directory**.
 
     ![][2]
 
@@ -85,9 +85,9 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 > [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis choisissez **Azure Active Directory**. Collez le ClientID et ajoutez l'ID client à la liste des **locataires autorisés**. Cliquez sur **Save**.
 
 
-13. Revenez au [portail de gestion Azure en version préliminaire] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
+13. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
 
-14. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
+14. Si la fonctionnalité Authentification/Autorisation n’est pas activée, positionnez le commutateur sur **Activé**.
 
 15. Cliquez sur **Azure Active Directory**, puis sur **Avancé** sous **Mode de gestion**. Collez-y les valeurs d’ID locataire et d’URL de l’émetteur que vous avez obtenues précédemment. Cliquez ensuite sur **OK**.
 
@@ -100,6 +100,30 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 17. Cliquez sur **Enregistrer**.
 
 Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentification dans votre application.
+
+## (Facultatif) Configurer une application cliente native
+
+Azure Active Directory permet également d’inscrire les clients natifs, ce qui offre un contrôle accru du mappage d’autorisations. Cela est utile si vous souhaitez effectuer des connexions à l’aide d’une bibliothèque telle que **Active Directory Authentication Library**.
+
+1. Accédez à **Active Directory** dans le [portail Azure Classic].
+
+2. Sélectionnez votre annuaire, puis l’onglet **Applications** en haut de la page. Cliquez sur **AJOUTER** en bas de la page pour créer une inscription d’application.
+
+3. Cliquez sur **Ajouter une application développée par mon organisation**.
+
+4. Dans l'Assistant Ajout d'application, entrez un **Nom** pour votre application et cliquez sur le type **Application cliente native**. Ensuite, cliquez pour continuer.
+
+5. Dans la zone **URI de redirection**, entrez le point de terminaison _/.auth/login/done_ de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Une fois l’application native ajoutée, cliquez sur l’onglet **Configurer**. Recherchez l’**ID client** et notez-en la valeur.
+
+7. Faites défiler la page vers le bas jusqu’à la section **Autorisations pour d’autres applications** et cliquez sur **Ajouter une application**.
+
+8. Recherchez l’application web que vous avez inscrite précédemment et cliquez sur l’icône plus, puis sur la coche pour fermer la boîte de dialogue.
+
+9. Dans la nouvelle entrée que vous venez d’ajouter, ouvrez la liste déroulante **Autorisations déléguées**, sélectionnez **Accès (appName)**. Cliquez ensuite sur **Enregistrer**.
+
+Vous avez maintenant configuré une application cliente native qui peut accéder à votre application App Service.
 
 ## <a name="related-content"> </a>Contenu connexe
 
@@ -114,9 +138,9 @@ Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentifi
 
 <!-- URLs. -->
 
-[portail de gestion Azure en version préliminaire]: https://portal.azure.com/
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://portal.azure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [méthode alternative]: #advanced
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

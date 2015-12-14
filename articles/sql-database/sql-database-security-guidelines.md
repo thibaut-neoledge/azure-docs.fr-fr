@@ -25,7 +25,7 @@ Cette rubrique décrit les instructions et limitations d’Azure SQL Database re
 
 Le service Azure SQL Database Azure n’est disponible que via le port TCP 1433. Pour accéder à une base de données SQL depuis votre ordinateur, vérifiez que votre pare-feu autorise les communications TCP sortantes sur le port 1433. Dans le cadre du processus de connexion, les connexions à partir des machines virtuelles Azure sont redirigées vers une autre adresse IP et un autre port, propres à chaque rôle de travail. Le numéro du port sera compris entre 11000 et 11999.
 
-Lors de votre première connexion au serveur Azure SQL Database, vous devez utiliser le [portail Azure](https://portal.azure.com) ou le [portail de gestion de la plateforme Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) pour configurer le pare-feu Azure SQL Database. Vous devez créer un paramètre de pare-feu au niveau du serveur, qui autorise les tentatives de connexion depuis votre ordinateur vers le serveur Azure SQL Database. De plus, si vous souhaitez contrôler l’accès à certaines bases de données de votre serveur Azure SQL Database, créez des règles de pare-feu de niveau base de données pour les bases de données respectives. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure](sql-database-firewall-configure.md).
+Lors de votre première connexion au serveur Azure SQL Database, vous devez utiliser le [portail Azure Classic](https://portal.azure.com) ou le [portail Classic de la plateforme Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) pour configurer le pare-feu Azure SQL Database. Vous devez créer un paramètre de pare-feu au niveau du serveur, qui autorise les tentatives de connexion depuis votre ordinateur vers le serveur Azure SQL Database. De plus, si vous souhaitez contrôler l’accès à certaines bases de données de votre serveur Azure SQL Database, créez des règles de pare-feu de niveau base de données pour les bases de données respectives. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure](sql-database-firewall-configure.md).
 
 ## Chiffrement de connexion et validation des certificats
 
@@ -111,4 +111,4 @@ Considérez les points suivants pour réduire la vulnérabilité de vos applicat
 
 [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

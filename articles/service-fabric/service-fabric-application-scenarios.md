@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Scénarios d'applications Service Fabric
@@ -55,9 +55,11 @@ Commencez à créer des services sans et avec état au moyen des modèles de pro
 
 Consultez également les rubriques suivantes :
 
-[Définition et gestion de l'état des services](service-fabric-concepts-state.md)
+[En savoir plus sur les microservices](service-fabric-overview-microservices.md)
 
-[Disponibilité des services](service-fabric-concepts-availability-services.md)
+[Définition et gestion de l’état des services](service-fabric-concepts-state.md)
+
+[Disponibilité des services](service-fabric-availability-services.md)
 
 [Extensibilité des services Service Fabric](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Consultez également les rubriques suivantes :
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

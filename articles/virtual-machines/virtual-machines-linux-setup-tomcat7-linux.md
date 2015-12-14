@@ -57,8 +57,8 @@ Pour générer la clé d’authentification SSH, procédez comme suit.
 5.	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé publicKey.pem. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk.
 
-###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
-Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l'image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
+###Étape 2 : Créer l’image dans le portail Azure.
+Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l'image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
 
 Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple tomcatdemo, et Azure génère l’URL comme tomcatdemo.cloudapp.net.
 
@@ -73,7 +73,7 @@ Les points de terminaison dans Azure se composent d’un protocole (TCP ou UDP) 
 
 Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. L’ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d’autres clients Internet) d’accéder aux pages tomcat.
 
-1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée. ![][5]
+1.	Dans le portail Azure, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée. ![][5]
 2.	Pour ajouter un point de terminaison à votre machine virtuelle, cliquez sur la zone **Points de terminaison**. ![][6]
 3.	Cliquez sur **Ajouter**.  
 	1.	Entrez un nom pour le **Point de terminaison** dans Point de terminaison, puis tapez 80 dans **Port public**.  
@@ -90,7 +90,7 @@ Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. 
 ###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-Tout d'abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
+Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple. ![][8]
 
@@ -306,4 +306,4 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

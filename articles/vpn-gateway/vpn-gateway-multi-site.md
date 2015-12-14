@@ -19,19 +19,19 @@
 
 # Connecter plusieurs sites locaux à un réseau virtuel
 
->[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, voir [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique (gestion des services).
 
 Vous pouvez connecter plusieurs sites locaux à un même réseau virtuel. Cela est particulièrement intéressant pour la création de solutions de cloud hybrides. La création d’une connexion sur plusieurs sites à votre passerelle de réseau virtuel Azure est très similaire à la création d’autres connexions de site à site. En fait, vous pouvez utiliser une passerelle VPN Azure existante, dans la mesure où vous disposez d’une passerelle VPN basée sur un itinéraire (ou routage dynamique) configurée pour votre réseau virtuel.
 
-Si votre passerelle est basée sur une stratégie (ou le routage statique), vous pouvez toujours modifier le type de passerelle sans avoir à régénérer le réseau virtuel pour prendre en charge plusieurs sites. Toutefois, vous devrez vérifier que votre passerelle VPN locale prend en charge les configurations de VPN basées sur un itinéraire. Vous pouvez alors ajouter les paramètres de configuration au fichier de configuration du réseau et créer plusieurs connexions VPN à partir de votre réseau virtuel pour les sites supplémentaires.
+Si votre passerelle est basée sur une stratégie (ou le routage statique), vous pouvez toujours modifier le type de passerelle sans avoir à régénérer le réseau virtuel pour prendre en charge plusieurs sites. Toutefois, vous devrez vérifier que votre passerelle VPN locale prend en charge les configurations VPN basées sur un itinéraire. Vous pouvez alors ajouter les paramètres de configuration au fichier de configuration du réseau et créer plusieurs connexions VPN à partir de votre réseau virtuel pour les sites supplémentaires.
 
 ![VPN multisite](./media/vpn-gateway-multi-site/IC727363.png)
 
 ## Éléments à prendre en considération
 
-**Vous ne pourrez pas utiliser le portail de gestion pour apporter des modifications à ce réseau virtuel.** Pour cette version, vous devez apporter des modifications au fichier de configuration réseau au lieu d’utiliser le portail de gestion. Si vous apportez des modifications dans le portail de gestion, elles remplaceront vos paramètres de référence multisite pour ce réseau virtuel. Vous aurez le temps de vous familiariser avec le fichier de configuration réseau d’ici la fin de la procédure multisite. Toutefois, si plusieurs personnes travaillent sur la configuration de votre réseau, vous devez vous assurer que tout le monde ait connaissance de cette limitation. Cela ne signifie pas que vous ne pouvez pas du tout utiliser le portail de gestion. Vous pouvez l’utiliser pour toutes les procédures, à l’exception des modifications de configuration de ce réseau virtuel spécifique.
+**Vous ne pouvez pas utiliser le portail Azure Classic pour apporter des modifications à ce réseau virtuel.** Pour cette version, vous devez apporter des modifications au fichier de configuration réseau au lieu d’utiliser le portail Azure Classic. Si vous apportez des modifications dans le portail Azure Classic, elles remplacent vos paramètres de référence multisite pour ce réseau virtuel. Vous aurez le temps de vous familiariser avec le fichier de configuration réseau au terme de la procédure multisite. Toutefois, si plusieurs personnes travaillent sur la configuration de votre réseau, vous devez vous assurer que tout le monde a connaissance de cette limitation. Cela ne signifie pas que vous ne pouvez pas du tout utiliser le portail Azure Classic. Vous pouvez l’utiliser pour toutes les procédures, à l’exception des modifications de configuration de ce réseau virtuel spécifique.
 
 ## Avant de commencer
 
@@ -39,31 +39,31 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-- Matériel VPN compatible pour chaque emplacement local. Consultez [À propos des périphériques VPN pour la connectivité au réseau virtuel](http://go.microsoft.com/fwlink/p/?linkid=615099) pour vérifier si l’appareil que vous souhaitez utiliser est bien compatible.
+- Matériel VPN compatible pour chaque emplacement local. Voir [À propos des périphériques VPN pour la connectivité au réseau virtuel](http://go.microsoft.com/fwlink/p/?linkid=615099) pour vérifier si l’appareil que vous souhaitez utiliser est bien compatible.
 
 - Une adresse IP IPv4 publique exposée en externe pour chaque périphérique VPN. L’adresse IP ne peut pas se trouver derrière un NAT. Cela est obligatoire.
 
 -   La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la page [Téléchargements](http://azure.microsoft.com/downloads/).
 
-- Un expert en matière de configuration du matériel VPN. Vous ne pourrez pas utiliser les scripts VPN générés automatiquement à partir du portail de gestion pour configurer vos périphériques VPN. Cela signifie que vous devez avoir une bonne maîtrise de la façon de configurer votre périphérique VPN ou collaborer avec quelqu’un disposant des connaissances nécessaires.
+- Un expert en configuration du matériel VPN. Vous ne pouvez pas utiliser les scripts VPN générés automatiquement à partir du portail Azure Classic pour configurer vos périphériques VPN. Cela signifie que vous devez avoir une bonne maîtrise de la façon de configurer votre périphérique VPN ou collaborer avec quelqu’un disposant des connaissances nécessaires.
 
 - Les plages d’adresses IP que vous souhaitez utiliser pour votre réseau virtuel (si vous n’en avez pas déjà créé).
 
-- Les plages d’adresses IP pour chacun des sites du réseau local auxquels vous vous connecterez. Vous devez vous assurer que les plages d’adresses IP pour chacun des sites du réseau local auxquels vous souhaitez vous connecter ne se chevauchent ne pas. Dans le cas contraire, le portail de gestion ou l’API REST rejettera la configuration en cours de téléchargement. Par exemple, si vous avez deux sites de réseau local contenant la plage d’adresse IP 10.2.3.0/24 et que vous disposez d’un package avec une adresse de destination 10.2.3.3, Azure ne saura pas à quel site envoyer le package, car les plages d’adresses se chevauchent. Pour éviter les problèmes de routage, Azure ne vous permet pas de télécharger un fichier de configuration ayant des plages qui se chevauchent.
+- Les plages d’adresses IP pour chacun des sites du réseau local auxquels vous vous connecterez. Vous devez vous assurer que les plages d’adresses IP pour chacun des sites du réseau local auxquels vous souhaitez vous connecter ne se chevauchent ne pas. Dans le cas contraire, le portail Azure Classic ou l’API REST rejette la configuration en cours de chargement. Par exemple, si vous avez deux sites de réseau local contenant la plage d’adresse IP 10.2.3.0/24 et que vous disposez d’un package avec une adresse de destination 10.2.3.3, Azure ne saura pas à quel site envoyer le package, car les plages d’adresses se chevauchent. Pour éviter les problèmes de routage, Azure ne vous permet pas de télécharger un fichier de configuration ayant des plages qui se chevauchent.
 
 ## Créer votre réseau virtuel et votre passerelle
 
-1. **Créez un VPN de site à site avec une passerelle de routage dynamique.** Si vous en avez déjà un, très bien ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Puis, procédez ainsi :
+1. **Créez un VPN de site à site avec une passerelle de routage dynamique.** Si vous en avez déjà un, très bien ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Sinon, procédez ainsi :
 
-	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :** **1.** Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, consultez [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md).
+	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :** **1.** Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, voir [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configuration d’une passerelle VPN dans le portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md).
 	
-	**Si vous n’avez pas de réseau virtuel de site à site :** **1.** Créez votre réseau virtuel de site à site en suivant cette procédure : [Créer un réseau virtuel avec une connexion VPN de site à site dans le portail de gestion](vpn-gateway-site-to-site-create.md). **2.** Configurez une passerelle de routage dynamique en suivant cette procédure : [Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
+	**Si vous n’avez pas de réseau virtuel de site à site :** **1.** Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md). **2.** Configurez une passerelle de routage dynamique en suivant la procédure décrite dans [Configuration d’une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 
 
-1. **<a name="export"></a>Exporter les paramètres de configuration de réseau virtuel.** Pour exporter le fichier de configuration de votre réseau, consultez [Pour exporter vos paramètres réseau](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Le fichier que vous exportez permet de configurer vos nouveaux paramètres multisites.
+1. **<a name="export"></a>Exporter les paramètres de configuration de réseau virtuel.** Pour exporter le fichier de configuration de votre réseau, consultez [Pour exporter vos paramètres réseau](../virtual-network/virtual-networks-using-network-configuration-file.md). Le fichier que vous exportez permet de configurer vos nouveaux paramètres multisites.
 
-1. **Ouvrir le fichier de configuration réseau.** Ouvrez le fichier de configuration réseau que vous avez téléchargé à l’étape précédente. Utilisez un éditeur xml qui vous convient. Le fichier doit se présenter ainsi :
+1. **Ouvrir le fichier de configuration réseau.** Ouvrez le fichier de configuration réseau que vous avez téléchargé à l’étape précédente. Utilisez l’éditeur xml de votre choix. Le fichier doit se présenter ainsi :
 
 		<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
 		  <VirtualNetworkConfiguration>
@@ -129,7 +129,7 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-1. **Enregistrez le fichier de configuration réseau et importez-le.** Pour importer le fichier de configuration réseau, consultez [Pour importer vos paramètres réseau](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment.
+1. **Enregistrez le fichier de configuration réseau et importez-le.** Pour importer le fichier de configuration réseau, voir [Pour importer vos paramètres réseau](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment.
 
 
 
@@ -175,6 +175,6 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Pour en savoir plus sur les passerelles VPN, voir [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,7 +25,7 @@ Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un
 
 Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics.
 
-> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure.
 
 ## Composants requis ##
 
@@ -35,7 +35,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 ## Création d’un travail Azure Stream Analytics ##
 
-Dans le [portail Azure](https://manage.windowsazure.com), cliquez sur **Nouveau, Services de données, Stream Analytics, Création rapide**.
+Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
 
 Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
@@ -99,11 +99,11 @@ Fournissez les valeurs suivantes :
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] De même, veuillez noter que si Power BI dispose déjà d'un groupe de données et d'un tableau portant le même nom que celui que vous avez saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Écriture d’une requête ##
@@ -221,4 +221,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

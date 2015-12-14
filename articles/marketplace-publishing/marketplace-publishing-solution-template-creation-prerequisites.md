@@ -22,10 +22,10 @@ Avant de commencer, lisez attentivement cette procédure, de manière à compren
 ## Développement de blocs de construction
 Vous devez choisir les blocs de construction de votre solution avant de compléter votre modèle de solution sur le portail de publication. Voici des liens vers les documents qui peuvent vous aider dans le processus :
 
-1. [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](https://azure.microsoft.com/fr-FR/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Création de modèles Azure Resource Manager](https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-authoring-templates/)
+1. [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../best-practices-resource-manager-design-templates.md)
+2. [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
 3. Modèles de démarrage rapide Microsoft Azure :
-  - [https://azure.microsoft.com/fr-FR/documentation/templates/](https://azure.microsoft.com/fr-FR/documentation/templates/)
+  - [https://azure.microsoft.com/fr-FR/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Étapes suivantes
@@ -34,4 +34,4 @@ Vous devez choisir les blocs de construction de votre solution avant de complét
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

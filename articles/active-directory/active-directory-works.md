@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fonctionnement d’Azure AD"
-	description="Azure AD crée un paysage d'identité qui vous appartient dans le cloud. Il peut être connecté à votre système d'identité locale ou utilisé indépendamment."
+	pageTitle="Fonctionnement d’Azure Active Directory | Microsoft Azure"
+	description="Azure Active Directory crée un paysage d'identité qui vous appartient dans le cloud. Il peut être connecté à votre système d'identité locale ou utilisé indépendamment."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # Fonctionnement d’Azure Active Directory
 
-
 ###Autres articles sur le sujet
 [Présentation d’Azure AD](active-directory-whatis.md)<br> [Comment cela fonctionne-t-il ?](active-directory-works.md)<br> [Prise en main](active-directory-get-started.md)<br> [Étapes suivantes](active-directory-next-steps.md)<br> [En savoir plus](active-directory-learn-map.md)
 
 
-Azure AD crée un paysage d'identité qui vous appartient dans le cloud. Il peut être connecté à votre système d'identité locale ou utilisé indépendamment.
+Azure Active Directory (Azure AD) crée un paysage d'identité qui vous appartient dans le cloud. Il peut être connecté à votre système d'identité locale ou utilisé indépendamment.
 
 Vous pouvez considérer un compte dans Azure AD comme votre permis de conduire pour le cloud, c’est-à-dire un ID unique vous permettant d’accéder aux services en ligne. Azure AD fonctionne ainsi de la même manière que votre propre bureau d'enregistrement privé du cloud pour ces permis de conduire. Il permet d’utiliser des identités n'importe où dans le cloud et améliore la mobilité des utilisateurs qui accèdent aux ressources locales.
 
@@ -49,4 +48,4 @@ Vous désirez en savoir plus sur la gestion d'Azure AD ? Comment bénéficier d
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

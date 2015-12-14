@@ -36,11 +36,11 @@ Azure Marketplace comporte des modèles pour les infrastructures Bottle, Django 
 - [Création d’applications web avec Flask](web-sites-python-create-deploy-flask-app.md)
 
 
-## Création d’applications web sur le portail Azure en version préliminaire
+## Création d’applications web sur le portail Azure
 
-Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail Azure en version préliminaire.
+Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail Azure.
 
-Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure en version préliminaire](https://portal.azure.com). Cliquez sur le bouton NOUVEAU en bas à gauche, puis cliquez sur **Web + mobile** > **Application web**.
+Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Cliquez sur le bouton NOUVEAU en bas à gauche, puis cliquez sur **Web + mobile** > **Application web**.
 
 ## Publication Git
 
@@ -378,7 +378,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 
@@ -386,4 +385,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

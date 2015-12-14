@@ -1,4 +1,4 @@
-1. Dans le [portail de gestion Azure], cliquez sur votre nouveau service mobile ou sur son onglet d'icône cloud pour accéder à la page de présentation.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur votre nouveau service mobile ou sur son onglet d’icône cloud pour accéder à la page de présentation.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -19,11 +19,4 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
-
-
-
-
-<!-- URLs. -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion de votre service Search sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Gestion de votre service Search sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Gestion d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -21,7 +21,7 @@
 
 Azure Search est un service cloud avec une API HTTP qu'il est possible d'utiliser dans des applications de recherche personnalisées. Notre service Search fournit le moteur d'analyse de texte avec recherche en texte intégral, des fonctionnalités de recherche avancée, un espace de stockage de données de recherche et une syntaxe de commande de requête.
 
-Cet article vous explique comment administrer un service Search dans le [portail Azure](https://portal.azure.com).
+Cet article vous explique comment administrer un service Search dans le [portail Azure Classic](https://portal.azure.com).
 
 Vous pouvez également utiliser l'API REST de gestion. Pour en savoir plus, consultez les articles [Prise en main de l'API REST de gestion Azure Search](search-get-started-management-api.md) et [Informations de référence sur l'API REST de gestion Azure Search](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -62,7 +62,7 @@ Les développeurs qui conçoivent des applications de recherche doivent connaît
 
 Pour obtenir l'URL de service à partir du tableau de bord des services :
 
-1.	Connectez-vous au [portail Azure](https://portal.azure.com).
+1.	Connectez-vous au [portail Azure Classic](https://portal.azure.com).
 2.	Cliquez sur **Parcourir** | **Tout** | **Services de recherche**.
 3.	Cliquez sur le nom de votre service de recherche pour ouvrir le tableau de bord.
 4.	Cliquez sur **PROPRIÉTÉS** pour ouvrir une page de propriétés. L'URL de service figure en haut de la page. Vous pouvez épingler cette page en vue d'y accéder plus rapidement par la suite.
@@ -159,7 +159,7 @@ L'arrêt ou le démarrage du service ne désactive pas la facturation. Pour ne p
 <a id="sub-8"></a>
 ## Définition de rôles lors de l'accès des administrateurs
 
-Azure offre un modèle d'autorisation par rôle global pour tous les services gérés via le portail préliminaire ou dans l'API du gestionnaire de ressources Azure si vous utilisez un outil d'administration personnalisé. Les rôles Propriétaire, Collaborateur et Lecteur définissent le niveau d'administration des services pour les utilisateurs, les groupes et les principaux de sécurité Active Directory que vous assignez à chaque rôle. Pour en savoir plus sur l'appartenance à un rôle, consultez la page [Contrôle d'accès en fonction du rôle dans le portail Azure](../role-based-access-control-configure.md).
+Azure offre un modèle d’autorisation par rôle global pour tous les services gérés via le portail ou dans l’API du gestionnaire de ressources Azure si vous utilisez un outil d’administration personnalisé. Les rôles Propriétaire, Collaborateur et Lecteur définissent le niveau d'administration des services pour les utilisateurs, les groupes et les principaux de sécurité Active Directory que vous assignez à chaque rôle. Pour en savoir plus sur l’appartenance à un rôle, consultez la page [Contrôle d’accès en fonction du rôle dans le portail Azure Classic](../role-based-access-control-configure.md).
 
 Dans Azure Search, les contrôles d'accès en fonction du rôle déterminent les tâches d'administration suivantes :
 
@@ -170,7 +170,7 @@ Propriétaire|Démarrage, arrêt ou suppression du service.<p>Génération et af
 Collaborateur|Même niveau d'accès que le Propriétaire, à l'exception de la gestion des rôles. Par exemple, un Collaborateur peut visualiser et régénérer `api-key`, mais il ne peut pas modifier les appartenances aux rôles.
 Lecteur|Affichage de l'état du service et des clés Requête. Les membres de ce rôle ne peuvent ni démarrer ou arrêter un service, ni afficher des clés Admin.
 
-Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d'accès en fonction du rôle dans le portail Azure](../role-based-access-control-configure.md).
+Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d’accès en fonction du rôle dans le portail Azure Classic](../role-based-access-control-configure.md).
 
 Les rôles offrent un contrôle d'accès après la création du service. Seuls les responsables d'abonnement peuvent ajouter un service Search à un abonnement.
 
@@ -193,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

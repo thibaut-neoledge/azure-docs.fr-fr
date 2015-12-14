@@ -167,7 +167,7 @@ Ajoutez le code suivant pour chiffrer un objet blob et le télécharger sur votr
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Voici une capture d’écran du portail Azure pour un objet blob qui a été chiffré à l’aide du chiffrement côté client avec une clé stockée dans Key Vault. La propriété **KeyId** est l’URI de la clé dans Key Vault qui fait office de clé de chiffrement de clés (KEK). La propriété **EncryptedKey** contient la version chiffrée de la clé de chiffrement de contenu (CEK).
+Voici une capture d’écran du [portail Azure Classic](manage.windowsazure.com) pour un objet blob qui a été chiffré à l’aide du chiffrement côté client avec une clé stockée dans Key Vault. La propriété **KeyId** est l’URI de la clé dans Key Vault qui fait office de clé de chiffrement de clés (KEK). La propriété **EncryptedKey** contient la version chiffrée de la clé de chiffrement de contenu (CEK).
 
 ![Capture d'écran présentant des métadonnées d'objets blob qui incluent des métadonnées de chiffrement][1]
 
@@ -235,4 +235,4 @@ Pour obtenir les dernières informations sur Microsoft Azure Storage, consulte
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

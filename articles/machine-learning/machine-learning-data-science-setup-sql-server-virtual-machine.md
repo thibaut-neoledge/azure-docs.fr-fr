@@ -28,11 +28,11 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
  >[AZURE.NOTE]L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 
-##<a name="Provision"></a>Se connecter au portail de gestion Azure et approvisionner une machine virtuelle SQL Server
+##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
 
-1.  Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/).
 
-2.  Dans le portail de gestion Azure, en bas à gauche de la page Web, cliquez sur **+NEW**, sur **COMPUTE**, sur **VIRTUAL MACHINE**, puis sur **FROM GALLERY**.
+2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
 3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
@@ -223,7 +223,7 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 Pour vous connecter au moteur de base de données SQL Server à partir d’un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
 
-1.  Dans le portail de gestion Azure (ou à partir de l’étape précédente), sélectionnez **VIRTUAL MACHINES**.
+1.  Dans le portail Azure Classic (ou à partir de l’étape précédente), sélectionnez **VIRTUAL MACHINES**.
 
 2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne ****http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
 
@@ -259,11 +259,11 @@ Dans les étapes ultérieures du Processus d’analyse avancé et technologie en
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)**.
 
-> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail de gestion Azure](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
+> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
 Pour arrêter et libérer la machine virtuelle :
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com/) avec votre compte.  
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.  
 
 2. Sélectionnez **MACHINES VIRTUELLES** dans la barre de navigation gauche.
 
@@ -273,7 +273,7 @@ Pour arrêter et libérer la machine virtuelle :
 
 ![Arrêt de la machine virtuelle][15]
 
-Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pouvez redémarrer votre machine virtuelle à tout moment à partir du Portail de gestion Azure.
+Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pouvez redémarrer votre machine virtuelle à tout moment à partir du portail Azure Classic.
 
 ## Étapes suivantes une fois votre machine virtuelle Azure SQL Server prête à être utilisée
 
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

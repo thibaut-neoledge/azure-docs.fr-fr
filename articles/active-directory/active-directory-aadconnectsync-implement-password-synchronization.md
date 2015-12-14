@@ -158,6 +158,6 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 ## Ressources supplémentaires
 
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
-* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

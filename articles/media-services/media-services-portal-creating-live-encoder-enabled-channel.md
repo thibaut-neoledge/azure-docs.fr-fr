@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure" 
-	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure." 
+	pageTitle="Création de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure Classic" 
+	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure Classic." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure
+#Création de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure Classic
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 ##Dans ce didacticiel
 
-Dans ce didacticiel, le portail de gestion Azure est utilisé pour effectuer les tâches suivantes :
+Dans ce didacticiel, le portail Azure Classic est utilisé pour effectuer les tâches suivantes :
 
 2.  Configurez les points de terminaison de diffusion en continu.
 3.  Créez un canal qui est activé pour effectuer un encodage en temps réel.
@@ -85,13 +85,13 @@ Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une u
 
 Pour changer le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page POINTS DE TERMINAISON DE DIFFUSION EN CONTINU. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
 3. Pour spécifier le nombre d'unités de diffusion en continu, sélectionnez l'onglet METTRE À L'ÉCHELLE et déplacez le curseur de **capacité réservée**.
 
-	![Page Mettre à l'échelle](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
+	![Scale page](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
 
 4. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
 
@@ -105,7 +105,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
  
 ##Créer un CANAL
 
-1.	Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur Media Services, puis sur le nom du compte Media Services.
+1.	Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur Media Services, puis sur le nom du compte Media Services.
 2.	Sélectionnez la page CANAUX.
 3.	Sélectionnez Ajouter+ pour ajouter un canal.
 
@@ -276,4 +276,4 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

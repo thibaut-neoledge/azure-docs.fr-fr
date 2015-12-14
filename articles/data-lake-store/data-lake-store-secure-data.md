@@ -32,7 +32,7 @@ Cet article explique comment utiliser le portail Azure pour effectuer les tâche
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Créer des groupes de sécurité dans Azure Active Directory
@@ -125,7 +125,7 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 ## Supprimer les groupes de sécurité d'un compte Azure Data Lake Store
 
-Lorsque vous supprimez des groupes de sécurité de comptes Azure Data Lake Store, vous ne modifiez que l'accès aux opérations de gestion sur le compte à l'aide du portail Azure en version préliminaire et des API Azure Resource Manager.
+Lorsque vous supprimez des groupes de sécurité de comptes Azure Data Lake Store, vous ne modifiez que l’accès aux opérations de gestion sur le compte à l’aide du portail Azure et des API Azure Resource Manager.
 
 1. Dans le panneau de votre compte Data Lake Store, cliquez sur l'icône de l'utilisateur.
 
@@ -164,4 +164,4 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurer un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell | Microsoft Azure"
+   pageTitle="Configurer un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell | Microsoft Azure"
    description="Cet article vous guide tout au long des étapes de création et d’approvisionnement d'un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement de votre circuit."
    documentationCenter="na"
    services="expressroute"
@@ -356,6 +356,5 @@ Si le fournisseur de services a annulé l’approvisionnement du circuit (l’é
 ## Étapes suivantes
 
 - [Configuration du routage](expressroute-howto-routing-arm.md)
-- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

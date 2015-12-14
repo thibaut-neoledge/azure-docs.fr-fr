@@ -52,7 +52,7 @@ Pour d’autres notes de publication sur les dernières versions de HDInsight, c
 
 ### Sélection d'une version lors de la création d'un cluster HDInsight
 
-Lorsque vous créez un cluster par l'intermédiaire des applets de commande Windows PowerShell HDInsight ou du Kit de développement logiciel (SDK) .NET HDInsight, vous pouvez choisir la version du cluster Hadoop HDInsight avec le menu déroulant de la **version HDInsight** sur le panneau ** Configuration facultative** de la version préliminaire du portail Azure.
+Lorsque vous créez un cluster par l'intermédiaire des applets de commande Windows PowerShell HDInsight ou du Kit de développement logiciel (SDK) .NET HDInsight, vous pouvez choisir la version du cluster Hadoop HDInsight avec le menu déroulant de la **version HDInsight** sur le panneau **Configuration facultative** du portail Azure.
 
 ##Présentation des fonctionnalités
 Les caractéristiques principales de la plateforme HDInsight sont notamment les suivantes :
@@ -66,7 +66,7 @@ Les caractéristiques principales de la plateforme HDInsight sont notamment les 
 
 - **Storm** - Storm sur Azure HDInsight est désormais disponible. Cette fonction permet de déployer rapidement et simplement des analyses en temps réel en quelques clics et en quelques minutes. Apache Storm sur Azure HDInsight est un projet open source dans l’écosystème Apache Hadoop qui permet d’accéder à une plateforme d’analyse capable de traiter de manière fiable des millions d’événements. Dorénavant, les utilisateurs de Hadoop peuvent interpréter les données en temps réel, tout en disposant des analyses d’événements passés. Microsoft a également ajouté une intégration avec Visual Studio, facilitant ainsi l’interaction des développeurs avec Storm. Vous pouvez maintenant développer, déployer et déboguer les topologies Storm à partir de Visual Studio.
 
-- **HDInsight sur Linux** : Azure HDInsight fournit l'option de création des clusters Hadoop qui s'exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez créer un cluster HDInsight sur Linux à partir d'un ordinateur client fonctionnant sous Windows ou Linux à l'aide du portail Azure en version préliminaire, de l'interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
+- **HDInsight sur Linux** : Azure HDInsight fournit l'option de création des clusters Hadoop qui s'exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez créer un cluster HDInsight sur Linux à partir d'un ordinateur client fonctionnant sous Windows ou Linux à l'aide du portail Azure, de l'interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
 
 - **Tailles des machines virtuelles supplémentaires** - Les clusters HDInsight sont désormais disponibles sur plusieurs tailles et types de machines virtuelles. Les clusters HDInsight peuvent à présent utiliser des tailles A2 à A7 conçues pour un usage général ; des nœuds de série D possédant des disques SSD et des processeurs 60 % plus rapides ; et des tailles A8 et A9 prenant en charge InfiniBand pour une mise en réseau rapide. Les clients Apache HBase sur Azure HDInsight peuvent tirer parti de configurations supérieures au niveau de la mémoire de série D pour augmenter les performances. Les clients Apache Storm sur Azure HDInsight peuvent également bénéficier d’une mémoire supplémentaire pour le chargement des jeux de données de référence plus volumineux, ainsi que de processeurs plus rapides pour augmenter le débit.
 
@@ -101,9 +101,9 @@ Les caractéristiques principales de la plateforme HDInsight sont notamment les 
 Le tableau suivant répertorie les versions de HDInsight actuellement disponibles, les versions correspondantes de la plateforme de données Hortonworks utilisées par ces dernières, ainsi que leurs dates de lancement. La date d’expiration de la prise en charge et la date d’obsolescence sont également indiquées. Notez les points suivants :
 
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
-* Une fois que la prise en charge a expiré pour une version particulière, elle n'est plus disponible par l'intermédiaire de la version préliminaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu'à leur date d'obsolescence.
+* Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu'à leur date d'obsolescence.
 
-Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
+Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure Classic|Date d'expiration du support|Date d'obsolescence
 ---|---|---|---|---|---|---
 HDI 3.2|HDP 2.2|Oui|2/18/2015|Oui||
 HDI 3,1|HDP 2,1|Oui|6/24/2014|Oui||
@@ -118,7 +118,7 @@ HDI 1.6|HDP 1.1|Non|10/28/2013|Non|04/26/2014|05/31/2015
 Le contrat de niveau de service est défini en termes de « fenêtre de support ». Une fenêtre de support désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Un cluster HDInsight est en dehors de la fenêtre de support si la **Date d'expiration du support** correspondant à la version de ce cluster est postérieure à la date actuelle. Le tableau ci-dessus contient une liste des versions de cluster HDInsight prises en charge. La date d'expiration du support pour une version donnée de HDInsight (lorsqu'une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :
 
 - Formule 1 : ajoutez 180 jours à la date de lancement du cluster HDInsight version X.
-- Formule 2 : ajoutez 90 jours à la date à laquelle le cluster HDInsight version X+1 (la version qui suit la version X) est mis à disposition dans la version préliminaire du portail.
+- Formule 2 : ajoutez 90 jours à la date à laquelle le cluster HDInsight version X+1 (la version qui suit la version X) est mis à disposition dans le portail.
 
 La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight.
 
@@ -162,4 +162,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

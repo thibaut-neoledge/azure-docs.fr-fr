@@ -53,7 +53,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 3. Créez un programme.
 
-	Lors de l’utilisation du portail de gestion Azure, la création d’un programme crée également une ressource.
+	Lors de l’utilisation du portail Azure Classic, la création d’un programme crée également un élément multimédia.
 
 	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
 1. Publiez la ressource associée au programme.   
@@ -157,7 +157,7 @@ Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obte
 
 Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-Notez que pour le moment, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail de gestion Azure pour afficher votre flux.
+Notez que pour le moment, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure Classic pour afficher votre flux.
 
 
 ####Adresses IP autorisées
@@ -269,4 +269,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

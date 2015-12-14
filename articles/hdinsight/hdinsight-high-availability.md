@@ -50,7 +50,7 @@ Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et 
 
 
 ## Vérifier l’état des services du nœud principal actif
-Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). Pour obtenir des instructions sur le protocole RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen de la version préliminaire du portail Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Service Available ** située sur le Bureau pour obtenir l’état concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
+Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). Pour obtenir des instructions sur le protocole RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Service Available ** située sur le Bureau pour obtenir l’état concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -106,4 +106,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

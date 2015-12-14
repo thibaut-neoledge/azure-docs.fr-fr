@@ -205,7 +205,7 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
 
 	Cela désactive le module WebSockets IIS, qui comprend sa propre implémentation de WebSockets et entre en conflit avec les modules WebSocket spécifiques à Node.js tels que Socket.IO. Si cette ligne est absente ou a la valeur `true`, ceci peut expliquer que le transport WebSocket ne fonctionne pas sur votre application.
 
-	Normalement, les applications Node.js n'incluent pas de fichier **web.config**. Par conséquent, l'offre Sites Web Azure en génère un automatiquement pour les applications Node.js lors de leur déploiement. Ce fichier étant généré automatiquement sur le serveur, vous devez utiliser l'URL FTP ou FTPS de votre site web pour l'afficher. Vous pouvez obtenir les URL FTP et FTPS de votre site dans le portail de gestion Azure en sélectionnant votre site web, puis le lien **Tableau de bord**. Les URL sont affichées dans la section **aperçu rapide**.
+	Normalement, les applications Node.js n'incluent pas de fichier **web.config**. Par conséquent, l'offre Sites Web Azure en génère un automatiquement pour les applications Node.js lors de leur déploiement. Ce fichier étant généré automatiquement sur le serveur, vous devez utiliser l'URL FTP ou FTPS de votre site web pour l'afficher. Vous pouvez obtenir les URL FTP et FTPS de votre site dans le portail Azure Classic en sélectionnant votre application web, puis le lien **Tableau de bord**. Les URL sont affichées dans la section **aperçu rapide**.
 
 	> [AZURE.NOTE]Le fichier **web.config** n’est généré par Sites Web Azure que si votre application n’en fournit pas. Si vous fournissez un fichier **web.config** à la racine de votre projet d’application, il sera utilisé par Azure Web Apps.
 
@@ -285,4 +285,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

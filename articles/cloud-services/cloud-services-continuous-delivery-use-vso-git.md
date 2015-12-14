@@ -59,7 +59,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 ## Étape 3 : connexion du projet à Azure
 
-1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
+1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
 
 	![][9]
 
@@ -152,7 +152,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][29]
 
-1. Dans le [portail de gestion Azure](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
 
 	![][30]
 
@@ -172,13 +172,13 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 ## Étape 5 : redéploiement d’une build antérieure
 
-Cette étape est facultative. Dans le portail de gestion Azure, choisissez un déploiement antérieur et sélectionnez **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l’historique de votre déploiement.
+Cette étape est facultative. Dans le portail Azure Classic, choisissez un déploiement antérieur et sélectionnez **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l’historique de votre déploiement.
 
 ![][34]
 
 ## Étape 6 : modification du déploiement de production
 
-Une fois que vous êtes prêt, vous pouvez promouvoir l’environnement intermédiaire en environnement de production en sélectionnant **Basculer** dans le portail de gestion Azure. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
+Une fois que vous êtes prêt, vous pouvez promouvoir l’environnement intermédiaire en environnement de production en sélectionnant **Basculer** dans le portail Azure Classic. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
 
 ![][35]
 
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

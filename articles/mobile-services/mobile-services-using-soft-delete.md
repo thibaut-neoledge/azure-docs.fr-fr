@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment utiliser la fonctionnalité de suppression réversible Azure Mobile Services dans votre application" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Microsoft Azure"
+	description="Découvrez comment utiliser la fonctionnalité de suppression réversible Azure Mobile Services dans votre application"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Vue d'ensemble
 
@@ -44,7 +49,7 @@ La suppression réversible pour le backend .NET a été prise en charge pour la 
 Les étapes suivantes vous guident lors de l'activation de la suppression réversible pour un service mobile de backend .NET.
 
 1. Ouvrez votre projet de service mobile de backend .NET dans Visual Studio.
-2. Cliquez avec le bouton droit sur le projet principal .NET, puis cliquez sur **Gérer les packages NuGet**. 
+2. Cliquez avec le bouton droit sur le projet principal .NET, puis cliquez sur **Gérer les packages NuGet**.
 3. Dans la boîte de dialogue du gestionnaire de package, cliquez sur **Nuget.org** sous les mises à jour et installez la version 1.0.402 ou ultérieure des packages NuGet du [backend .NET de Microsoft Azure Mobile Services](http://go.microsoft.com/fwlink/?LinkId=513165).
 3. Dans l'Explorateur de solutions de Visual Studio, développez le nœud **Contrôleurs** sous votre projet de backend .NET et ouvrez la source du contrôleur. Par exemple, *TodoItemController.cs*.
 4. Dans la méthode `Initialize()` du contrôleur, transmettez le paramètre `enableSoftDelete: true` au constructeur EntityDomainManager.
@@ -65,7 +70,7 @@ Si vous créez une table pour votre service mobile, vous pouvez activer la suppr
 
 Pour activer la suppression réversible sur une table existante du backend JavaScript :
 
-1. Dans le [portail de gestion], cliquez sur votre service mobile. Cliquez ensuite sur l'onglet Données.
+1. Dans le [portail Azure Classic], cliquez sur votre service mobile. Cliquez ensuite sur l'onglet Données.
 2. Dans la page des données, cliquez pour sélectionner la table souhaitée. Cliquez ensuite sur le bouton **Activer la suppression réversible** dans la barre de commande. Si la suppression réversible est déjà activée pour la table, ce bouton n'apparaît pas, mais vous pourrez voir la colonne *\_\_deleted* en cliquant sur l'onglet **Parcourir** ou **Colonnes** de la table.
 
     ![][0]
@@ -82,23 +87,23 @@ La tâche planifiée suivante purge les enregistrements supprimés de manière r
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@ Pour en savoir plus sur les tâches planifiées avec le backend .NET Mobile Serv
 Vous pouvez utiliser les scripts de table pour ajouter une logique à la fonctionnalité de suppression réversible à l'aide des services mobiles de backend JavaScript.
 
 Pour détecter une demande d'annulation de suppression, utilisez la propriété « undelete » dans votre script de mise à jour de table :
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 Pour inclure les enregistrements supprimés dans les résultats de requête d'un script, définissez le paramètre includeDeleted sur True :
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 <!-- URLs. -->
 [type de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [synchronisation des données hors connexion pour Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[portail de gestion]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

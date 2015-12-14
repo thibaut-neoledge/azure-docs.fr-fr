@@ -47,7 +47,7 @@ Comme le montre l’illustration ci-dessus, la topologie de déploiement compren
 -	Quatre nœuds subordonnés s’exécutant dans le même sous-réseau virtuel et le même groupe à haute disponibilité que le nœud principal.
 -	Une machine virtuelle « jump box » située dans le même réseau virtuel et le même sous-réseau qui peut être utilisée pour accéder au cluster.
 
-Spark version 3.0.0 est la version par défaut et peut être remplacé par n’importe quel exécutable binaire pré-généré disponible sur le référentiel Spark. Il existe également une configuration dans le script pour enlever les marques de commentaire de la build dans la source. Une adresse IP statique est affectée à chaque nœud maître Spark : 10.0.0.10. Une adresse IP statique est attribuée à chaque nœud esclave Spark afin de contourner la limitation actuelle qui empêche de pouvoir composer dynamiquement une liste d'adresses IP à partir du modèle. (Par défaut, le premier nœud se voit attribuer l'adresse IP privée 10.0.0.30, le deuxième nœud l’adresse 10.0.0.31 et ainsi de suite.) Pour consulter les erreurs de déploiement, accédez au portail Azure en version préliminaire et regardez sous **Groupe de ressources** > **Dernier déploiement** > **Vérifier les détails de l’opération**.
+Spark version 3.0.0 est la version par défaut et peut être remplacé par n’importe quel exécutable binaire pré-généré disponible sur le référentiel Spark. Il existe également une configuration dans le script pour enlever les marques de commentaire de la build dans la source. Une adresse IP statique est affectée à chaque nœud maître Spark : 10.0.0.10. Une adresse IP statique est attribuée à chaque nœud esclave Spark afin de contourner la limitation actuelle qui empêche de pouvoir composer dynamiquement une liste d'adresses IP à partir du modèle. (Par défaut, le premier nœud se voit attribuer l'adresse IP privée 10.0.0.30, le deuxième nœud l’adresse 10.0.0.31 et ainsi de suite.) Pour consulter les erreurs de déploiement, accédez au portail Azure et regardez sous **Groupe de ressources** > **Dernier déploiement** > **Vérifier les détails de l’opération**.
 
 Avant de voir plus en détail Azure Resource Manager et le modèle utilisé pour ce déploiement, vérifiez que vous disposez d’une version configurée et opérationnelle d’Azure PowerShell et de l’interface de ligne de commande Azure.
 
@@ -381,7 +381,7 @@ Parameters        :
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure en version préliminaire](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation située sur la gauche, cliquez sur **Parcourir**, puis faites défiler les options vers le bas et cliquez sur **Groupes de ressources**.
 - Cliquez sur le groupe de ressources que vous venez de créer pour afficher le panneau « Groupe de ressources ».
@@ -847,4 +847,4 @@ Découvrez plus d’informations sur les [infrastructures d’application](virtu
 
 [Résolution des problèmes des déploiements de modèle](resource-group-deploy-debug.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

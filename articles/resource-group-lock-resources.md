@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
@@ -22,7 +22,7 @@ En tant qu’administrateur, vous pouvez envisager de verrouiller un abonnement,
 
 Azure Resource Manager prend en charge la restriction des opérations sur les ressources, par le biais de verrous de gestion des ressources. Les verrous sont des stratégies qui appliquent un niveau de verrou sur une étendue particulière. Le verrou peut être appliqué à un abonnement, un groupe de ressources ou à une ressource. Le niveau de verrouillage identifie le type d’application de la stratégie, qui comporte actuellement deux valeurs : **CanNotDelete** et **ReadOnly**. **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier des ressources, mais ils peuvent supprimer aucune des ressources limitées. **ReadOnly** signifie que les utilisateurs autorisés peuvent uniquement lire à partir de la ressource, mais ils ne peuvent modifier ou supprimer aucune des ressources limitées.
 
-Les verrous diffèrent de l'utilisation du contrôle d'accès basé sur les rôles pour autoriser les utilisateurs à effectuer certaines actions. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez les pages [Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](role-based-access-control-configure.md) et [Gestion et audit d’accès aux ressources](resource-group-rbac.md). Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles, et vous appliquez généralement les verrous pour une durée limitée uniquement.
+Les verrous diffèrent de l'utilisation du contrôle d'accès basé sur les rôles pour autoriser les utilisateurs à effectuer certaines actions. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez les pages [Contrôle d’accès basé sur les rôles dans le portail Azure](role-based-access-control-configure.md) et [Gestion et audit d’accès aux ressources](resource-group-rbac.md). Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles, et vous appliquez généralement les verrous pour une durée limitée uniquement.
 
 ## Scénarios courants
 
@@ -108,4 +108,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour modifier le groupe de ressources dans lequel une ressource réside, consultez [Déplacer les ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

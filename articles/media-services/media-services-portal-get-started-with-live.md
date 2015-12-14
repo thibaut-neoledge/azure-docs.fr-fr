@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utiliser le portail Azure pour créer des canaux recevant des flux dynamiques à débit binaire multiple provenant d’encodeurs locaux | Microsoft Azure"
+	pageTitle="Utiliser le portail Azure Classic pour créer des canaux recevant des flux dynamiques à débit binaire multiple provenant d’encodeurs locaux | Microsoft Azure"
 	description="Ce didacticiel vous guide dans les étapes de mise en place d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local."
 	services="media-services"
 	documentationCenter=""
@@ -17,20 +17,20 @@
 	ms.author="juliako"/>
 
 
-# Utiliser le portail Azure pour créer des canaux recevant des flux dynamiques à débit binaire multiple provenant d’encodeurs locaux
+# Utiliser le portail Azure Classic pour créer des canaux recevant des flux dynamiques à débit binaire multiple provenant d’encodeurs locaux
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 Ce didacticiel vous guide dans les étapes de mise en place d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local. Pour une vue d’ensemble plus détaillée de l’utilisation des canaux et des composants associés, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
-Dans ce didacticiel, le portail Azure est utilisé pour effectuer les tâches suivantes :
+Dans ce didacticiel, le portail Azure Classic permet d’effectuer les tâches suivantes :
 
 2.  Configurez les points de terminaison de diffusion en continu.
 3.  Créer un canal.
 1.  Configurer un encodeur dynamique et recevoir un flux dynamique dans le canal (Wirecast est utilisé à cette étape).
 1.  Créer un programme (et un élément multimédia).
-1.  Publier l’élément multimédia et obtenir les URL de diffusion en continu.  
+1.  Publier l’élément multimédia et obtenir les URL de diffusion en continu.
 1.  Lire votre contenu.
 2.  Nettoyer.
 
@@ -42,7 +42,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire multiple.
 
 
-## Configurer un point de terminaison de diffusion en continu à l'aide du portail Azure
+## Configurer un point de terminaison de diffusion en continu à l’aide du portail Azure Classic
 
 Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu en continu à débit binaire adaptatif à vos clients. Avec le streaming à débit adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
@@ -52,26 +52,26 @@ Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une u
 
 Pour changer le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page **POINTS DE TERMINAISON DE DIFFUSION EN CONTINU**. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
 3. Pour spécifier le nombre d’unités de diffusion en continu, sélectionnez l’onglet **METTRE À L’ÉCHELLE** et déplacez le curseur de capacité de réserve.
 
-	![Scale page](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
+![Scale page](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
 
 4. Cliquez sur le bouton **ENREGISTRER** pour enregistrer vos modifications.
 
-	L’allocation de nouvelles unités prend environ 20 minutes.
+L’allocation de nouvelles unités prend environ 20 minutes.
 
-	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
-	>
-	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+>
+> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 ## Créer un canal
 
-Dans le portail Azure, sélectionnez la page **CANAUX**. puis cliquez sur **NOUVEAU**. Sur la page **Créer un canal en direct**, entrez le nom de votre canal.
+Dans le portail Azure Classic, sélectionnez la page **CANAUX**. puis cliquez sur **NOUVEAU**. Sur la page **Créer un nouveau Live Channel**, entrez le nom de votre canal.
 
 ![createchannel](./media/media-services-portal-get-started-with-live/media-services-create-channel.png)
 
@@ -96,7 +96,7 @@ Pour plus d’informations sur les URL de réception, voir [Utilisation d’enc
 
 Pour plus d’informations sur la configuration de Wirecast et le démarrage de la réception du flux, voir [Configuration de Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Si, pour une raison quelconque, vous arrêtez l’encodeur, puis devez le redémarrer, vous devez tout d’abord réinitialiser le canal en cliquant sur la commande **RESET** dans le portail Azure.
+>[AZURE.NOTE]Si, pour une raison quelconque, vous arrêtez l’encodeur, puis devez le redémarrer, vous devez d’abord réinitialiser le canal en cliquant sur la commande **RESET** dans le portail Azure Classic.
 
 
 ## Créer et gérer un programme
@@ -129,28 +129,28 @@ Il existe deux façons de lancer un événement :
 
 1. Sur la page **CANAUX**, cliquez sur **AJOUTER** pour ajouter un programme.
 
-	Sur la page **Créer un programme**, spécifiez le nom du programme, le nom de l’élément multimédia, la fenêtre d’archivage et l’option de chiffrement.
+Sur la page **Créer un programme**, spécifiez le nom du programme, le nom de l’élément multimédia, la fenêtre d’archivage et l’option de chiffrement.
 
-	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
+![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
 
-	Si l’option **Publier ce programme maintenant** est sélectionnée, les URL de publication sont créées.
+Si l’option **Publier ce programme maintenant** est sélectionnée, les URL de publication sont créées.
 
-	Vous pouvez cliquer sur **DÉMARRER** chaque fois que vous êtes prêt à diffuser le programme en continu.
+Vous pouvez cliquer sur **DÉMARRER** chaque fois que vous êtes prêt à diffuser le programme.
 
-	Une fois que vous avez lancé le programme, vous pouvez cliquer sur **LIRE** pour commencer à lire le contenu.
+Une fois que vous avez lancé le programme, vous pouvez cliquer sur **LIRE** pour commencer à lire le contenu.
 
-	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
+![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
-2. Vous pouvez également utiliser un raccourci et cliquer sur le bouton **LANCER LA DIFFUSION EN CONTINU** sur la page **CANAUX**. Une ressource, un programme et un localisateur de diffusion en continu sont alors créés.
+2. Vous pouvez également utiliser un raccourci et cliquer sur le bouton **DÉMARRER LA DIFFUSION** sur la page **CANAUX**. Une ressource, un programme et un localisateur de diffusion en continu sont alors créés.
 
-	Le programme est nommé DefaultProgram, et la fenêtre d’archivage est définie sur 1 heure.
+Le programme est nommé DefaultProgram, et la fenêtre d’archivage est définie sur 1 heure.
 
-	Vous pouvez lire le programme publié sur la page **CANAUX**.
+Vous pouvez lire le programme publié sur la page **CANAUX**.
 
-	![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
+![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
 
 
-Si vous cliquez sur **ARRÊTER LA DIFFUSION EN CONTINU** sur la page **CANAUX**, le programme par défaut est arrêté et supprimé. La ressource reste toujours disponible, et vous pouvez la publier ou en annuler la publication dans la page **CONTENU**.
+Si vous cliquez sur **ARRÊTER LA DIFFUSION** sur la page **CANAUX**, le programme par défaut est arrêté et supprimé. La ressource reste toujours disponible, et vous pouvez la publier ou en annuler la publication dans la page **CONTENU**.
 
 Si vous basculez vers la page **CONTENU**, vous verrez les ressources qui ont été créées pour vos programmes.
 
@@ -159,7 +159,7 @@ Si vous basculez vers la page **CONTENU**, vous verrez les ressources qui ont é
 
 ## Lecture de contenu
 
-Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu en continu, vous devez d’abord *publier* votre élément multimédia (comme indiqué dans la section précédente) en créant un localisateur (lorsque vous publiez un élément multimédia à l’aide du portail Azure, des localisateurs sont créés pour vous). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
+Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu, vous devez d’abord *publier* votre élément multimédia (comme indiqué dans la section précédente) en créant un localisateur (lorsque vous publiez un élément multimédia à l’aide du portail Azure Classic, des localisateurs sont créés pour vous). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
 
 En fonction du protocole de diffusion en continu à utiliser pour lire votre contenu, vous devrez peut-être modifier l’URL que vous obtenez à partir du lien **URL DE PUBLICATION** du canal/programme.
 
@@ -167,15 +167,15 @@ L’empaquetage dynamique correspond à l’empaquetage du flux dynamique dans l
 
 Par défaut, les URL de diffusion en continu, que vous pouvez utiliser pour lire les éléments multimédia Smooth Streaming, ont le format suivant.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest
 
 Pour créer une URL de diffusion en continu HLS, ajoutez (format=m3u8-aapl) à l’URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=m3u8-aapl)
 
 Pour créer une URL de diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) à l’URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=mpd-time-csf)
 
 Pour plus d’informations sur la transmission de votre contenu, voir [Distribution de contenu](media-services-deliver-content-overview.md).
 
@@ -205,11 +205,11 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 
 ## Ressources supplémentaires
-- [Prise en main de la vidéo en flux continu à l'aide du portail de gestion Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Prise en main de la vidéo en flux continu à l’aide du portail Azure Classic](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

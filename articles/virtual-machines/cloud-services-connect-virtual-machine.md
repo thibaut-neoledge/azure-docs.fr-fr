@@ -41,8 +41,8 @@ Les réseaux virtuels sont la méthode recommandée pour connecter des machines 
 
 Pour connecter des machines virtuelles dans un réseau virtuel :
 
-1.	Créez le réseau virtuel dans le [portail Azure en version préliminaire](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2.	Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le portail Azure, cliquez sur **Nouveau > Calcul > Service cloud > Création personnalisée** pour chaque service cloud.
+1.	Créez le réseau virtuel dans le [portail Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.	Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le portail Azure Classic, cliquez sur **Nouveau > Compute > Service cloud > Création personnalisée** pour chaque service cloud.
 3.	Pour créer chaque machine virtuelle, cliquez sur **Nouveau > Calcul > Machine virtuelle > À partir de la galerie**. Choisissez le service cloud et le réseau virtuel appropriés à la machine virtuelle. Si le service cloud est déjà joint à un réseau virtuel, son nom est sélectionné pour vous.
 
 ![Sélection d'un service cloud pour une machine virtuelle](./media/howto-connect-vm-cloud-service/VMConfig1.png)
@@ -51,7 +51,7 @@ Pour connecter des machines virtuelles dans un réseau virtuel :
 
 Pour connecter des machines virtuelles dans un service cloud autonome :
 
-1.	Créez le service cloud dans le [portail Azure](http://manage.windowsazure.com). Cliquez sur **Nouveau > Calculer > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
+1.	Créez le service cloud dans le [portail Azure Classic](http://manage.windowsazure.com). Cliquez sur **Nouveau > Calculer > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
 2.	Lorsque vous créez la machine virtuelle, sélectionnez le nom du service cloud créé à l'étape précédente. ![Ajouter un ordinateur virtuel à un service cloud existant](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Ressources
@@ -67,4 +67,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 [Attachement d'un disque de données à une machine virtuelle Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

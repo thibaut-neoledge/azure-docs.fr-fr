@@ -18,8 +18,8 @@
 
 # Azure Data Factory - Exemples
 
-## Exemples dans le portail Azure
-Vous pouvez déployer, passer en revue et tester rapidement un exemple Azure Data Factory à l’aide du panneau **Exemples de pipelines** dans le portail Azure.
+## Exemples dans le portail Azure Classic
+Vous pouvez déployer, passer en revue et tester rapidement un exemple Azure Data Factory à l’aide du panneau **Exemples de pipelines** dans le portail Azure Classic.
 
 1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory][data-factory-get-started] pour connaître les étapes de la création d’une fabrique de données.
 2. Dans le panneau **DATA FACTORY** pour la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
@@ -57,4 +57,4 @@ Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-dataf
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

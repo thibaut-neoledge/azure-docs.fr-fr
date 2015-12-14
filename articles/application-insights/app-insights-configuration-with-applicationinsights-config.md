@@ -68,7 +68,7 @@ Le `DiagnosticsTelemetryModule` répertorie les erreurs dans le code d'instrumen
 
 ### Suivi des requêtes web
 
-Indique le [temps de réponse et le code résultant](app-insights-start-monitoring-app-health-usage.md) des requêtes HTTP.
+Indique le [temps de réponse et le code résultant](app-insights-asp-net.md) des requêtes HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * Package NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
@@ -110,7 +110,7 @@ Les initialiseurs standard sont tous définis par les packages NuGet web ou Wind
 
 
 * `AccountIdTelemetryInitializer` définit la propriété AccountId.
-* `OperationNameTelemetryInitializer` met à jour la propriété de contexte `Operation.Id` de tous les éléments de télémétrie suivis pendant le traitement d'une demande avec l'élément `RequestTelemetry.Id` généré automatiquement.
+* `AuthenticatedUserIdTelemetryInitializer` définit la propriété AuthenticatedUserId déterminée par le Kit de développement logiciel (SDK) JavaScript.
 * `AzureRoleEnvironmentTelemetryInitializer` met à jour les propriétés `RoleName` et `RoleInstance` du contexte `Device` pour tous les éléments de télémétrie avec des informations extraites de l'environnement d’exécution Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` met à jour la propriété `Version` du contexte `Component` pour tous les éléments de télémétrie avec la valeur extraite du fichier `BuildInfo.config` produit par MSBuild.
 * `ClientIpHeaderTelemetryInitializer` met à jour la propriété `Ip` du contexte `Location` de tous les éléments de télémétrie à partir de l’en-tête HTTP `X-Forwarded-For` de la demande.
@@ -135,6 +135,29 @@ Les initialiseurs standard sont tous définis par les packages NuGet web ou Wind
 Les processeurs de télémétrie peuvent filtrer et modifier chaque élément de télémétrie avant son envoi au portail à partir du Kit de développement logiciel (SDK).
 
 Vous pouvez [écrire vos propres processeurs de télémétrie](app-insights-api-filtering-sampling.md#filtering).
+
+
+#### Processeur de télémétrie d'échantillonnage adaptatif (à partir de 2.0.0-beta3)
+
+Cette option est activée par défaut. Si votre application envoie beaucoup de télémétrie, ce processeur en supprime une partie.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+Le paramètre fournit la cible que l'algorithme essaie d'atteindre. Chaque instance du Kit de développement logiciel (SDK) fonctionne de manière indépendante. Ainsi, si votre serveur est un cluster de plusieurs ordinateurs, le volume réel des données de télémétrie sera multiplié en conséquence.
+
+[En savoir plus sur l'échantillonnage](app-insights-sampling.md).
+
+
+
+#### Processeur de télémétrie d'échantillonnage à taux fixe (à partir de 2.0.0-beta1)
 
 Il existe également un [processeur de télémétrie d’échantillonnage](app-insights-api-filtering-sampling.md#sampling) standard (à partir de 2.0.1) :
 
@@ -256,10 +279,10 @@ Pour obtenir une nouvelle clé, [créez une nouvelle ressource dans le portail A
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

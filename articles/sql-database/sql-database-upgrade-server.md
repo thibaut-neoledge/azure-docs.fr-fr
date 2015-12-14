@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide de PowerShell | Microsoft Azure" 
-	description="Explique comment effectuer une mise à niveau vers la base de données SQL Azure V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l'aide de PowerShell." 
+	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide de PowerShell | Microsoft Azure" 
+	description="Explique comment effectuer une mise à niveau vers Azure SQL Database V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l'aide de PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -16,11 +16,11 @@
 	ms.date="11/11/2015" 
 	ms.author="sstein"/>
 
-# Mise à niveau vers Azure SQL Database V12 à l’aide de PowerShell
+# Mise à niveau vers Azure SQL Database V12 à l’aide de PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -28,7 +28,7 @@ SQL Database V12 est la version la plus récente. Il est donc recommandé d’
 
 - Compatibilité améliorée avec SQL Server.
 - Plus de performances pour le niveau Premium, nouveaux niveaux de performances.
-- [Pools de bases de données élastique](sql-database-elastic-pool.md).
+- [Pools de base de données élastique](sql-database-elastic-pool.md).
 
 Cet article fournit des instructions sur la mise à niveau des serveurs et bases de données SQL Database V11 existants vers SQL Database V12.
 
@@ -38,7 +38,7 @@ En outre, la migration vers un [pool de base de données élastique](sql-databas
 
 Vous pouvez facilement auto-migrer des bases de données à partir de serveurs V11 directement dans des pools de base de données élastique en suivant les étapes décrites dans cet article.
 
-Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à jour.
+Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
 
 Il n’est pas possible d’annuler la mise à niveau vers SQL Database V12. Après une mise à niveau, le serveur ne peut pas être restauré vers la version V11.
 
@@ -48,7 +48,7 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 - **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) ci-dessous ou utilisez [PowerShell pour mettre à niveau les bases de données et le serveur](sql-database-upgrade-server-powershell.md).
 - **Vérifier et suspendre la géo-réplication** : si votre base de données SQL Azure est configurée pour la géo-réplication, vous devez documenter la configuration actuelle et [arrêter la géo-réplication](sql-database-geo-replication-portal.md#remove-secondary-database). Une fois la mise à niveau terminée, reconfigurez votre base de données pour la géo-réplication.
-- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez la rubrique [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 ## Composants requis 
@@ -57,7 +57,7 @@ Pour mettre à niveau un serveur à la version V12 avec PowerShell, Azure PowerS
 
 > [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus de détails, consultez la rubrique [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
@@ -178,15 +178,15 @@ Outre les bases de données individuelles, vous pouvez surveiller les pools de b
 
 Informations de surveillance supplémentaires :
 
-- [Guide des performances de base de données SQL Azure pour les bases de données uniques](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database=elastic-pool-guidance.md).
+- [Guide des performances d’Azure SQL Database pour les bases de données uniques](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database=elastic-pool-guidance.md).
 - [Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
 
 
-**Alertes :** configurer les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
+**Alertes :** configurer les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
 
-Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Réception de notifications d'alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d'alerte.
+Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à la rubrique [Réception de notifications d'alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d'alerte.
 
 
 
@@ -203,4 +203,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

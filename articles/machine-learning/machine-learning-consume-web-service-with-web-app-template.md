@@ -56,7 +56,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 	![URI de demande][image4]
 
-3. Dans [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/), cliquez sur **Créer une application web**. Le modèle vous redirige vers le portail Microsoft Azure où est créée la nouvelle application Web.
+3. Dans [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/), cliquez sur **Créer une application web**. Le modèle vous redirige vers le portail Microsoft Azure Classic où est créée la nouvelle application web.
 
 	- Donnez un nom unique à votre application Web. L’URL de l’application web sera ce nom suivi de `.azurewebsites.net.` (par exemple, `http://carprediction.azurewebsites.net.`).
 
@@ -86,7 +86,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 Si vous souhaitez revenir à la page **Configuration**, accédez à la page `setting.aspx` de l’application web. Par exemple : `http://carprediction.azurewebsites.net/setting.aspx.`. Vous serez invité à saisir de nouveau la clé de l’API pour pouvoir accéder à la page et mettre à jour les paramètres.
 
-Vous pouvez arrêter, redémarrer ou supprimer l’application Web dans le portail Azure comme n’importe quelle autre application Web. Tant qu’elle est en cours d’exécution, vous pouvez accéder à l’adresse Web de base et saisir les nouvelles valeurs.
+Vous pouvez arrêter, redémarrer ou supprimer l’application web dans le portail Azure Classic comme n’importe quelle autre application web. Tant qu’elle est en cours d’exécution, vous pouvez accéder à l’adresse Web de base et saisir les nouvelles valeurs.
 
 ## Comment utiliser le modèle Batch Execution Service (BES)
 
@@ -125,4 +125,4 @@ Pour en savoir plus sur...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

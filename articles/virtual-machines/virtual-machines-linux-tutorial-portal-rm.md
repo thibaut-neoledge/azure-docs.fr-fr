@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer une machine virtuelle Azure exécutant Linux dans le portail Azure | Microsoft Azure"
+	pageTitle="Créer une machine virtuelle Azure exécutant Linux dans le portail Azure Classic | Microsoft Azure"
 	description="Utilisez le portail Azure pour créer une machine virtuelle Azure (VM) exécutant Linux avec les groupes de ressources Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,15 +17,15 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire
+# Création d’une machine virtuelle exécutant Windows dans le portail Azure
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
-La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure en version préliminaire pour en créer une rapidement et utilise le `~/.ssh/id_rsa.pub`fichier de clé publique pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-create-upload-vhd.md).
+La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure pour en créer une rapidement et utilise le fichier de clé publique `~/.ssh/id_rsa.pub` pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]Ce didacticiel crée une machine virtuelle Azure qui est gérée par l’API de groupe de ressources Azure. Pour plus d’informations, consultez la section [Vue d’ensemble du groupe de ressources Azure](resource-group-overview.md).
 
@@ -130,4 +130,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

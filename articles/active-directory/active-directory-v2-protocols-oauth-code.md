@@ -230,4 +230,4 @@ Les réponses d’erreur se présentent comme suit :
 
 ![Flux de code d’authentification OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

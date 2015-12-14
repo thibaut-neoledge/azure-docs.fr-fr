@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
@@ -34,7 +39,7 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Vous avez créé le service mobile. À présent, vous allez télécharger des projets que vous pouvez exécuter localement.
 
-1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
+1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
 
 2. Sur votre PC Windows, cliquez sur **Télécharger** sous **Télécharger et publier votre service dans le cloud**. Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -64,7 +69,7 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Ajout de l’authentification à une application existante] <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
+* [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
 
 * [Résolution des problèmes d’un serveur principal .NET Mobile Services] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un serveur principal .NET Mobile Services.
 
@@ -92,13 +97,10 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 <!-- URLs. -->
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Ajout de l’authentification à une application existante]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Résolution des problèmes d’un serveur principal .NET Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
-
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

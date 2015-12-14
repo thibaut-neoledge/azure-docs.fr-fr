@@ -90,7 +90,7 @@ Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez a
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-La chaîne de connexion de votre application est affichée sur le portail Azure.
+La chaîne de connexion de votre application est affichée sur le portail Azure Classic.
 
 ### Initialisation d'Engagement
 
@@ -285,4 +285,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

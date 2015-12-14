@@ -192,4 +192,4 @@ Pour ajouter une adresse IP privée statique à la machine virtuelle créée à
 - En savoir plus sur les adresses [IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

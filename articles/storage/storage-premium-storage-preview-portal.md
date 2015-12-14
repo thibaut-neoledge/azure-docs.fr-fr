@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -35,7 +35,7 @@ Voici une liste des points importants à prendre en compte avant ou pendant l'ut
 
 - Pour utiliser le stockage Premium, vous devez disposer d'un compte de stockage Premium. Pour savoir comment créer un compte de stockage Premium, consultez [Création et utilisation d'un compte de stockage Premium pour disques](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Le stockage Premium est actuellement disponible dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/) et accessible grâce aux bibliothèques suivantes du kit de développement logiciel (SDK) : [API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or ultérieure ; [API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure ; et [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 ou ultérieure.
+- Le stockage Premium est disponible dans le [portail Azure](portal.azure.com) et accessible grâce aux bibliothèques suivantes du Kit de développement logiciel (SDK) : [API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or ultérieure ; [API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure ; et [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 ou ultérieure.
 
 - Pour obtenir la liste des régions qui prennent actuellement en charge le stockage Premium, consultez [Services Azure par région](http://azure.microsoft.com/regions/#services).
 
@@ -61,7 +61,7 @@ Azure utilise le compte de stockage comme conteneur pour votre système d'exploi
 
 Pour plus d'informations sur la migration de vos machines virtuelles existantes vers Premium Storage, consultez [Azure Premium Storage](storage-migration-to-premium-storage.md).
 
-Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de stockage Premium de type *Premium\_LRS*. Pour ce faire, vous pouvez utiliser le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) ou l'[API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx). Pour des instructions détaillées, consultez [Création et utilisation du compte de stockage Premium pour disques](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de stockage Premium de type *Premium\_LRS*. Pour ce faire, vous pouvez utiliser le [portail Azure](portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) ou l’[API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx). Pour des instructions détaillées, consultez [Création et utilisation du compte de stockage Premium pour disques](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Remarques importantes :
 
@@ -201,7 +201,7 @@ Consultez les instructions importantes ci-dessous pour configurer vos machines v
 	- Si vous utilisez **XFS**, désactivez les barrières à l'aide de l'option de montage « nobarrier ». (Pour activer les barrières, utilisez l’option « barrier ».)
 
 - Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
-- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk).
+- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk).
 
 Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribution</strong></td> <td><strong>Version</strong></td> <td><strong>Noyau pris en charge</strong></td> <td><strong>Image prise en charge</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-fr-FR-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-fr-FR-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-fr-FR-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-fr-FR-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obligatoire </a> </br> *Voir remarque ci-dessous </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recommandé </a> <br/> *Voir remarque ci-dessous </td> </tr>
 
@@ -250,11 +250,7 @@ Cette section montre comment créer un compte de stockage Premium à l'aide du p
 
 Cette section explique comment créer un compte de stockage Premium à l’aide du portail Azure en version préliminaire.
 
-1.	Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/). Consultez l'offre de [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous n'avez pas encore d'abonnement.
-
-
-    > [AZURE.NOTE]Si vous vous connectez au portail de gestion Azure, cliquez sur nom d'utilisateur en haut à droite du portail. Ensuite, cliquez sur **Basculer vers le nouveau portail**.
-
+1.	Connectez-vous au [portail Azure](portal.azure.com). Consultez l'offre de [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous n'avez pas encore d'abonnement.
 
 2.	Dans le menu Hub, cliquez sur **Nouveau**.
 
@@ -335,9 +331,8 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Tailles de machines virtuelles et services cloud pour Windows Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
-- [Référence MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

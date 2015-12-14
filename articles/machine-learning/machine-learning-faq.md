@@ -93,8 +93,7 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
-Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience.
-<!--
+Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -213,13 +212,13 @@ Vous pouvez également utiliser les API de recyclage. Un exemple de code est dis
 
 **Comment puis-je surveiller mon service Web déployé en production ?**
 
-Une fois qu’un modèle prédictif a été mis en production, vous pouvez le surveiller à partir du portail Azure. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service.
+Une fois qu’un modèle prédictif a été mis en production, vous pouvez le surveiller à partir du portail Azure Classic. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service.
 
 **Existe-t-il un endroit où je peux voir le résultat de mon service RRS/BES ?**
 
 Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
 
- ** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+ **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
 
 ## Extensibilité
 
@@ -267,7 +266,7 @@ Non.
 
 **Qui a accès au point de terminaison HTTP pour le service Web déployé en production par défaut ? Comment puis-je limiter les accès au point de terminaison ?**
 
-Après le déploiement d’un service web, nous créons un point de terminaison par défaut pour ce service. Ce point de terminaison par défaut est déployé en production et peut être appelé à l'aide de sa clé d'API. Il est possible d'ajouter des points de terminaison supplémentaires à leurs propres clés à partir du portail Azure ou par le biais d'un programme à l'aide des API de gestion de service web. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Après le déploiement d’un service web, nous créons un point de terminaison par défaut pour ce service. Ce point de terminaison par défaut est déployé en production et peut être appelé à l'aide de sa clé d'API. Il est possible d'ajouter des points de terminaison supplémentaires à leurs propres clés à partir du portail Azure Classic ou par le biais d'un programme à l'aide des API de gestion de service web. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **Que se passe-t-il si mon compte de stockage est introuvable ?**
@@ -279,7 +278,7 @@ Si vous avez supprimé par inadvertance le compte de stockage, la seule façon d
 
 **Que se passe-t-il si ma clé d’accès au compte de stockage n’est pas synchronisée ?** Machine Learning Studio s’appuie sur un compte de stockage Azure fourni par l’utilisateur pour enregistrer les données intermédiaires lors de l’exécution du workflow. Ce compte de stockage est fourni à Machine Learning Studio lors de la création d’un espace de travail et les clés d’accès sont associées à cet espace de travail. Une fois l’espace de travail créé, si les clés d’accès sont modifiées, l’espace de travail ne peut plus accéder au compte de stockage et cesse de fonctionner. Toutes les expériences de cet espace de travail échouent.
 
-Si vous avez modifié les clés d’accès de compte de stockage, veillez à resynchroniser les clés d’accès dans le paramètre d’espace de travail dans le portail Azure.
+Si vous avez modifié les clés d’accès de compte de stockage, veillez à resynchroniser les clés d’accès dans le paramètre d’espace de travail dans le portail Azure Classic.
 
 
 ## Azure Marketplace
@@ -311,5 +310,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Nov15_HO4-->
-<!---Line 96 breakline-->
+<!---HONumber=AcomDC_1203_2015-->

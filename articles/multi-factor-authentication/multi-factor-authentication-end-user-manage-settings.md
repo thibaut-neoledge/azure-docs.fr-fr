@@ -134,9 +134,9 @@ Sachez que si vous avez reçu plusieurs codes de vérification, seul le plus ré
 Si vous avez déjà configuré un téléphone de secours, nous vous recommandons de réessayer en sélectionnant ce téléphone sur la page de connexion. Si vous n'avez pas configuré d'autre méthode, contactez votre administrateur et demandez-lui d'effacer les paramètres. À la prochaine connexion, vous devrez donc configurer de nouveau [l'authentification multifacteur (Multi-factor Authentication)](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
 ##Les mots de passe d’application ne fonctionnent pas
-Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. Si le mot de passe ne fonctionne pas, essayez de vous connecter et de [créer un mot de passe d'application](multi-factor-authentication-end-user-app-passwords). Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d'application existants](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords). Vous pourrez alors créer un nouveau mot de passe et l'utiliser.
+Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. S’il ne fonctionne toujours pas, essayez de vous connecter et de [créer un nouveau mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md). Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d'application existants](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords). Vous pourrez alors créer un nouveau mot de passe et l'utiliser.
 
 ##Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?
 Lorsque vous désinstallez l’application de votre appareil ou que vous réinitialisez l’appareil, l’application ne sera pas désactivée sur le serveur principal. Vous devez suivre la procédure décrite dans la section relative au [transfert vers un nouveau périphérique](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

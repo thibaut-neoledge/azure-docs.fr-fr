@@ -60,7 +60,7 @@ Azure Resource Manager vous permet de manipuler les ressources de votre applicat
 
 **Pour créer un groupe de ressources**
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, cliquez sur **Gestion**, puis sur **Groupe de ressources**.
 3. Tapez ou sélectionnez les valeurs suivantes :
 
@@ -74,13 +74,13 @@ Avant la configuration d’un cluster HBase, vous devez disposer d’un réseau 
 
 **Pour créer un réseau virtuel au moyen du portail Azure**
 
-1. Connectez-vous au [portail en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, sur **Réseau**, puis cliquez sur **Réseau virtuel**.
 3. Dans **Sélectionner un modèle de déploiement**, sélectionnez **classique** si vous utilisez un cluster HDInsight basé sur Windows, sélectionnez **Gestionnaire de ressources** si vous utilisez un cluster HDInsight basé sur Linux. Enfin, cliquez sur **Créer**.
 
     > [AZURE.NOTE]Les clusters Windows nécessitent un réseau virtuel v1 (classique), tandis que les clusters basés sur Linux nécessitent un réseau virtuel v2 (Azure Resource Manager). Si le type de réseau est incorrect, il ne sera pas utilisable lorsque vous créerez le cluster.
     >
-    > Si vous disposez de ressources sur un réseau virtuel qui n'est pas utilisable par le cluster que vous envisagez de créer, vous pouvez créer un nouveau réseau virtuel utilisable par le cluster et le connecter au réseau virtuel incompatible. Vous pouvez ensuite créer le cluster dans la version réseau dont il a besoin, et il sera en mesure d'accéder aux ressources de l'autre réseau puisque les deux seront reliés. Pour plus d'informations sur la connexion de réseaux classiques et nouveaux, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+    > Si vous disposez de ressources sur un réseau virtuel qui n’est pas utilisable par le cluster que vous envisagez de créer, vous pouvez créer un nouveau réseau virtuel utilisable par le cluster et le connecter au réseau virtuel incompatible. Vous pouvez ensuite créer le cluster dans la version réseau dont il a besoin, et il sera en mesure d’accéder aux ressources de l’autre réseau puisque les deux seront reliés. Pour plus d'informations sur la connexion de réseaux classiques et nouveaux, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
     
 4. Tapez ou sélectionnez les valeurs suivantes :
 
@@ -115,10 +115,10 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 
 **Création d'un cluster HDInsight**
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, sur **Analyse des données**, puis sur **HDInsight**.
 
-    ![Création d'un nouveau cluster dans la version préliminaire du portail Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Création d'un nouveau cluster dans la version préliminaire du portail Azure")
+    ![Création d’un nouveau cluster dans le portail Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Création d’un nouveau cluster dans le portail Azure")
 
 3. Tapez ou sélectionnez les valeurs suivantes :
 
@@ -389,4 +389,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

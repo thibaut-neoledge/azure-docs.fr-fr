@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Installation d’Update 1.2 sur votre appareil StorSimple
@@ -21,7 +21,7 @@
 
 Ce didacticiel explique comment installer Update 1.2 sur un appareil StorSimple exécutant une version logicielle antérieure à Update 1. Ce didacticiel couvre également les étapes supplémentaires requises pour la mise à jour lorsqu’une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple.
 
-Update 1.2 comprend des mises à jour logicielles de l’appareil, des mises à jour du pilote LSI et des mises à jour du microprogramme de disque. Les mises à jour logicielles et du pilote LSI sont des mises à jour non perturbatrices et peuvent être appliquées par le biais du portail Azure. Les mises à jour du microprogramme de disque sont des mises à jour perturbatrices et peuvent uniquement être appliquées par le biais de l’interface Windows PowerShell de l’appareil.
+Update 1.2 comprend des mises à jour logicielles de l’appareil, des mises à jour du pilote LSI et des mises à jour du microprogramme de disque. Les mises à jour logicielles et du pilote LSI sont des mises à jour non perturbatrices et peuvent être appliquées par le biais du portail Azure Classic. Les mises à jour du microprogramme de disque sont des mises à jour perturbatrices et peuvent uniquement être appliquées par le biais de l’interface Windows PowerShell de l’appareil.
 
 Selon la version en cours d’exécution sur votre appareil, vous pouvez déterminer si Update 1.2 sera appliqué. Vous pouvez vérifier la version logicielle de votre appareil en accédant à la section **Aperçu rapide** du **tableau de bord** de celui-ci.
 
@@ -41,8 +41,8 @@ Selon la version en cours d’exécution sur votre appareil, vous pouvez déterm
 > [AZURE.IMPORTANT]
  
 > -  Vous ne voyez pas immédiatement Update 1.2, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car celle-ci sera bientôt disponible.
-> - Cette mise à jour comprend un ensemble de vérifications préalables manuelles et automatiques pour déterminer l’intégrité de l’appareil en termes d’état matériel et de connectivité réseau. Ces vérifications préalables sont effectuées uniquement si vous appliquez les mises à jour à partir du portail Azure. 
-> - Nous vous recommandons d’installer les mises à jour du pilote et du logiciel via le portail Azure. Vous devez uniquement accéder à l’interface Windows PowerShell de l’appareil (pour installer les mises à jour) en cas d’échec de la vérification de la passerelle avant la mise à jour dans le portail. L’installation des mises à jour peut prendre 5 à 10 heures (y compris les mises à jour Windows). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour du mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.
+> - Cette mise à jour comprend un ensemble de vérifications préalables manuelles et automatiques pour déterminer l’intégrité de l’appareil en termes d’état matériel et de connectivité réseau. Ces vérifications préalables sont effectuées uniquement si vous appliquez les mises à jour à partir du portail Azure Classic. 
+> - Nous vous recommandons d’installer les mises à jour du pilote et du logiciel au moyen du portail Azure Classic. Vous devez uniquement accéder à l’interface Windows PowerShell de l’appareil (pour installer les mises à jour) en cas d’échec de la vérification de la passerelle avant la mise à jour dans le portail. L’installation des mises à jour peut prendre 5 à 10 heures (y compris les mises à jour Windows). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour du mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.
 
 ## Préparation des mises à jour
 Vous devez effectuer les étapes suivantes avant d’analyser et d’appliquer la mise à jour :
@@ -77,7 +77,7 @@ Vous devez effectuer les étapes suivantes avant d’analyser et d’appliquer l
 
 Une fois que vous avez terminé ces vérifications préalables manuelles, vous pouvez passer à l’analyse et à l’installation des mises à jour.
 
-## Installation d’Update 1.2 via le portail Azure 
+## Installation d’Update 1.2 via le portail Azure Classic 
 
 Utilisez cette procédure uniquement si vous disposez d’une passerelle configurée sur l’interface réseau DATA 0 de votre appareil. Suivez la procédure suivante pour mettre à jour votre appareil.
 
@@ -85,7 +85,7 @@ Utilisez cette procédure uniquement si vous disposez d’une passerelle configu
 
 ## Installation d’Update 1.2 sur un appareil présentant une passerelle configurée pour une interface réseau différente de DATA 0. 
 
-Vous devez utiliser cette procédure uniquement si la vérification de la passerelle échoue lors de la tentative d’installation des mises à jour via le portail Azure. La vérification échoue car vous avez une passerelle affectée à une interface réseau différente de DATA 0 et votre appareil exécute une version logicielle antérieure à Update 1. Si votre appareil ne possède pas de passerelle sur une interface réseau différente de DATA 0, vous pouvez mettre à jour votre périphérique directement à partir du portail Azure. Consultez la section [Installation d’Update 1.2 via le portail Azure](#install-update-12-via-the-azure-portal).
+Vous devez utiliser cette procédure uniquement si la vérification de la passerelle échoue lors de la tentative d’installation des mises à jour par le biais du portail Azure Classic. La vérification échoue car vous avez une passerelle affectée à une interface réseau différente de DATA 0 et votre appareil exécute une version logicielle antérieure à Update 1. Si votre appareil ne possède pas de passerelle sur une interface réseau différente de DATA 0, vous pouvez le mettre à jour directement à partir du portail Azure Classic. Consultez la section [Installation d’Update 1.2 via le portail Azure Classic](#install-update-12-via-the-azure-portal).
 
 Les versions logicielles qui peuvent être mises à niveau à l’aide de cette méthode sont : Update 0.1, Update 0.2 et Update 0.3.
 
@@ -93,20 +93,20 @@ Les versions logicielles qui peuvent être mises à niveau à l’aide de cette 
 > [AZURE.IMPORTANT]
 > 
 > - Si votre appareil exécute la version commerciale (GA), contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour obtenir de l’aide avec cette mise à jour.
-> - Cette procédure ne doit être effectuée qu’une seule fois pour appliquer Update 1.2. Pour appliquer les mises à jour ultérieures, vous pouvez utiliser le portail Azure.
+> - Cette procédure ne doit être effectuée qu’une seule fois pour appliquer Update 1.2. Pour appliquer les mises à jour ultérieures, vous pouvez utiliser le portail Azure Classic.
 
 Si votre appareil exécute un logiciel antérieur à Update 1 et qu’il possède une passerelle définie pour une interface réseau différente de DATA 0, vous pouvez appliquer Update 1.2 des deux manières suivantes :
 
 - **Option 1** : téléchargez la mise à jour et appliquez-la à l’aide de l’applet de commande `Start-HcsHotfix` à partir de l’interface Windows PowerShell de l’appareil. Il s’agit de la méthode recommandée. **N’utilisez pas cette méthode pour appliquer Update 1.2 si votre appareil exécute Update 1.0 ou Update 1.1.** 
 
-- **Option 2** : supprimez la configuration de la passerelle et installez la mise à jour directement à partir du portail Azure.
+- **Option 2** : supprimez la configuration de la passerelle et installez la mise à jour directement à partir du portail Azure Classic.
 
 
 Des instructions détaillées relatives à chacune des procédures sont fournies dans les sections suivantes.
 
 ## Option 1 : utiliser Windows PowerShell pour StorSimple pour appliquer Update 1.2 en tant que correctif logiciel
 
-Vous devez utiliser cette procédure uniquement si vous exécutez Update 0.1, 0.2 ou 0.3 et si la vérification de votre passerelle a échoué lors de la tentative d’installation des mises à jour à partir du portail Azure. Si vous exécutez la version commerciale (GA) du logiciel, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour mettre à jour votre appareil.
+Vous devez utiliser cette procédure uniquement si vous exécutez Update 0.1, 0.2 ou 0.3 et si la vérification de votre passerelle a échoué lors de la tentative d’installation des mises à jour à partir du portail Azure Classic. Si vous exécutez la version commerciale (GA) du logiciel, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour mettre à jour votre appareil.
 
 Avant d'exécuter cette procédure pour appliquer la mise à jour, vérifiez les points suivants :
 
@@ -117,7 +117,7 @@ Exécutez la procédure suivante pour appliquer Update 1.2. **Les mises à jour
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
 
-## Option 2 : utiliser le portail Azure pour appliquer Update 1.2 après la suppression de la configuration de la passerelle
+## Option 2 : utiliser le portail Azure Classic pour appliquer Update 1.2 après la suppression de la configuration de la passerelle
 
 Cette procédure s’applique uniquement aux appareils StorSimple exécutant une version logicielle antérieure à Update 1, avec une passerelle définie sur une interface réseau différente de DATA 0. Vous devez effacer le paramètre de passerelle avant d’appliquer la mise à jour.
  
@@ -152,4 +152,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

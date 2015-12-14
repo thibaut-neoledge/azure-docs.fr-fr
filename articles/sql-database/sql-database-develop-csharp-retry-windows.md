@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -54,7 +54,7 @@ La liste des erreurs classées comme erreurs temporaires est disponible à l'adr
 ## Exemple de code C#
 
 
-L'exemple de code C# de la présente rubrique contient la logique de détection et de nouvelle tentative personnalisée permettant de gérer les erreurs temporaires.
+L'exemple de code C# de la présente rubrique contient la logique de détection et de nouvelle tentative personnalisée permettant de gérer les erreurs temporaires. L’exemple part du principe que .NET Framework 4.5.1 (ou une version ultérieure) est installé.
 
 
 L'exemple de code suit certaines règles élémentaires ou recommandations qui s'appliquent quelle que soit la technologie utilisée pour interagir avec Azure SQL Database. Vous pouvez consulter les recommandations générales ici :
@@ -131,8 +131,6 @@ namespace RetryAdo2
 			int retryIntervalSeconds = 10;
 			bool returnBool = false;
 
-			Program program = new Program();
-
 			for (int tries = 1; tries <= 5; tries++)
 			{
 				try
@@ -142,8 +140,7 @@ namespace RetryAdo2
 						H.Thread.Sleep(1000 * retryIntervalSeconds);
 						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
 					}
-
-					program.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+					this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
 
 					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
 
@@ -193,6 +190,10 @@ SELECT TOP 3
 			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
 			_sqlConnectionSB["Password"] = "MyPassword";
 			_sqlConnectionSB["Database"] = "MyDatabase";
+
+			// Adjust these values if you like. (.NET 4.5.1 or later.)
+			_sqlConnectionSB["ConnectRetryCount"] = 3;
+			_sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
 
 			// Leave these values as they are.
 			_sqlConnectionSB["Trusted_Connection"] = false;
@@ -281,4 +282,4 @@ Il exécuterait le programme avec le paramètre « test » et vérifierait que
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

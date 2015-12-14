@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Opérations de l’indexeur (API REST du service Azure Search, version 2015-02-28-Preview) | Microsoft Azure | Service de recherche cloud hébergé" 
+pageTitle="Opérations de l’indexeur (API REST du service Azure Search, version 2015-02-28-Preview) | Microsoft Azure | Service de recherche cloud hébergé" 
 description="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -92,7 +92,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Pour obtenir le nom du service et l'en-tête `api-key`, consultez votre tableau de bord de service dans le [portail de gestion Azure](https://portal.azure.com/). Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le [portail Azure Classic](https://portal.azure.com/). Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Search dans le portail](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Syntaxe du corps de la requête**
 
@@ -120,8 +120,8 @@ La requête peut contenir les propriétés suivantes :
 	- `documentdb` - Azure DocumentDB
 - `credentials` :
 	- La propriété `connectionString` obligatoire spécifie la chaîne de connexion pour la source de données. Le format de la chaîne de connexion dépend du type de source de données : 
-		- Pour Azure SQL, il s'agit de la chaîne de connexion SQL Server habituelle. Si vous utilisez le portail de gestion Azure pour obtenir la chaîne de connexion, sélectionnez l'option `ADO.NET connection string`.
-		- Pour DocumentDB, la chaîne de connexion doit avoir le format suivant : `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Toutes les valeurs sont obligatoires. Elles sont disponibles sur le [Portail de gestion Azure](https://portal.azure.com/).   
+		- Pour Azure SQL, il s'agit de la chaîne de connexion SQL Server habituelle. Si vous utilisez le portail Azure Classic pour obtenir la chaîne de connexion, sélectionnez l'option `ADO.NET connection string`.
+		- Pour DocumentDB, la chaîne de connexion doit avoir le format suivant : `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Toutes les valeurs sont obligatoires. Elles sont disponibles sur le [Portail Azure Classic](https://portal.azure.com/).   
 		
 - `container` :
 	- La propriété `name` obligatoire spécifie la table ou vue (pour une source de données SQL Azure), ou la collection (pour une source de données DocumentDB) à indexer. 
@@ -776,4 +776,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

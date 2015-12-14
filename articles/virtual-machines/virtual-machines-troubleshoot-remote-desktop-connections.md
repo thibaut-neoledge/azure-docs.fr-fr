@@ -34,7 +34,7 @@ La première section, « Étapes de base », répertorie les étapes de résol
 
 Ces étapes de base peuvent aider à résoudre les échecs de connexion Bureau à distance les plus courants sur les machines virtuelles créées à l'aide du modèle de déploiement classique. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
-- Réinitialisez le service Bureau à distance à partir du [portail Azure en version préliminaire](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
+- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
 
     ![Capture d'écran qui affiche une réinitialisation de la configuration RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -169,4 +169,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

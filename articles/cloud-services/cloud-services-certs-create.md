@@ -26,7 +26,7 @@ Les certificats utilisés par Azure peuvent contenir une clé privée ou publiqu
 ## Que sont les certificats de service ?
 Les certificats de service sont associés aux services cloud et sécurisent les communications à destination et en provenance du service. Par exemple, si vous avez déployé un rôle web, vous pouvez fournir un certificat qui peut authentifier un point de terminaison HTTPS exposé. Les certificats de service, définis dans votre définition de service, sont déployés automatiquement sur la machine virtuelle qui exécute une instance de votre rôle.
 
-Vous pouvez charger les certificats de service dans le Portail de gestion par l’intermédiaire de ce portail ou à l’aide de l’API de gestion des services. Les certificats de service sont associés à un service cloud spécifique et affectés à un déploiement dans le fichier de définition de service.
+Vous pouvez charger les certificats de service dans le portail Azure Classic par l’intermédiaire de ce portail ou à l’aide de l’API de gestion des services. Les certificats de service sont associés à un service cloud spécifique et affectés à un déploiement dans le fichier de définition de service.
 
 Les certificats de service peuvent être gérés séparément de vos services et par différentes personnes. Par exemple, un développeur peut charger un package de services qui fait référence à un certificat précédemment chargé dans Azure par un responsable informatique. Un responsable informatique peut gérer et renouveler ce certificat en modifiant la configuration du service sans avoir à charger un nouveau package de services. Ceci est rendu possible par le fait que le nom logique du certificat et le nom et l’emplacement de son magasin sont spécifiés dans le fichier de définition de service, alors que l’empreinte numérique du certificat est spécifiée dans le fichier de configuration de service. Pour mettre à jour le certificat, il est uniquement nécessaire de charger un nouveau certificat et de modifier la valeur d’empreinte numérique dans le fichier de configuration de service.
 
@@ -74,10 +74,10 @@ Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-cr
 
 ## Étapes suivantes
 
-[Chargez votre certificat de service dans le portail Azure](cloud-services-configure-ssl-certificate.md) (ou dans le [portail en version préliminaire](cloud-services-configure-ssl-certificate-portal.md)), puis [configurez-le](cloud-services-xml-certs.md) pour le service cloud.
+[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)), puis [configurez-le](cloud-services-xml-certs.md) pour le service cloud.
 
-Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure.
+Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
 
->[AZURE.NOTE]Le portail Azure en version préliminaire n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
+>[AZURE.NOTE]Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

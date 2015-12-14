@@ -205,7 +205,7 @@ Non. Une adresse MAC ne peut pas être configurée de manière statique.
 
 ### Une fois créée, l’adresse MAC reste-t-elle la même pour ma machine virtuelle ?
 
-Non. L’adresse MAC d’une machine virtuelle peut changer pour différentes raisons. Si la machine virtuelle est placée dans l’état Arrêté (Désalloué), et que vous modifiez la taille de la machine virtuelle, ou qu’une réparation de service ou une maintenance planifiée est en cours sur le serveur hôte, l’adresse MAC n’est pas conservée.
+Non, mais elle change uniquement si la machine virtuelle est placée dans l'état Arrêté (désalloué). Si vous modifiez la taille de la machine virtuelle, redémarrez, ou en cas de réparation de service ou de maintenance planifiée du serveur hôte, l'adresse MAC est conservée.
 
 ### Puis-je me connecter à Internet à partir d’une machine virtuelle dans un réseau virtuel ?
 
@@ -222,7 +222,7 @@ Vous pouvez uniquement utiliser les services de calcul au sein des réseaux virt
 Oui. Vous pouvez déployer des applications Web à l'intérieur d'un réseau virtuel à l'aide d'ASE (App Service Environment). De plus, des applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connectivité de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les liens suivants :
 
 
-- [Création d'applications web dans un environnement App Service](https://azure.microsoft.com/fr-FR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [Création d'applications web dans un environnement App Service](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

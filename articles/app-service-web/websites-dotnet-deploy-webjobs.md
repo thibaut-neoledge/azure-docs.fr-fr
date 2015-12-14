@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Cette rubrique explique comment utiliser Visual Studio pour déployer un projet d’application console dans une application web d’[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) sous la forme d’une tache [Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
+Cette rubrique explique comment utiliser Visual Studio pour déployer un projet d’application console dans une application web d’[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) sous la forme d’une tache [Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](https://portal.azure.com), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
 
 Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 
@@ -127,7 +127,7 @@ La boîte de dialogue **Ajouter une tâche web Azure** vous permet de saisir le 
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dialogue **Nouvelle tâche** du portail de gestion Azure. Pour plus d’informations, consultez [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
+Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dialogue **Nouvelle tâche** du portail Azure. Pour plus d’informations, consultez [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
 
 Pour une tâche web planifiée (mais pas pour les tâches web continues), Visual Studio crée une collection de tâches [Azure Scheduler](/services/scheduler/) s'il n'en existe pas encore, et crée une tâche dans la collection :
 
@@ -197,7 +197,5 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

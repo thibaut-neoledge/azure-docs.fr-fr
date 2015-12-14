@@ -18,6 +18,10 @@
 
 # Télécharger des images vers Azure Storage depuis un appareil Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Cette rubrique montre comment permettre à votre application Azure Mobile Services Android de télécharger des images vers Azure Storage.
@@ -31,7 +35,7 @@ Avant de commencer ce didacticiel, vous devez avoir terminé le démarrage rapid
 
 Ce didacticiel requiert les éléments suivants :
 
-+ Un [compte de stockage Azure](../storage-create-storage-account.md).
++ Un [compte de stockage Azure](../storage-create-storage-account.md).
 + Un appareil Android avec un appareil photo
 
 ## Fonctionnement de l’application
@@ -39,7 +43,7 @@ Ce didacticiel requiert les éléments suivants :
 Le téléchargement de la photo est un processus en plusieurs étapes :
 
 - Tout d’abord vous prenez une photo et insérez une ligne TodoItem dans la base de données SQL qui contient les nouveaux champs de métadonnées utilisées par Azure Storage.
-- Un nouveau service mobile script SQL d’**insertion** demande à Azure Storage une Signature d’accès partagé (SAP).
+- Un nouveau service mobile script SQL d’**insertion** demande à Azure Storage une signature d’accès partagé (SAP).
 - Ce script renvoie la SAP et une URI vers l’objet blob au client.
 - Le client télécharge la photo, à l’aide du SAP et l’URI d’objet blob.
 
@@ -50,7 +54,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 ## Exemple de code
 [Voici](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) la partie du code source client terminée de cette application. Pour l'exécuter, vous devez effectuer les étapes de ce didacticiel liées au serveur principal de Mobile Services.
 
-## Mise à jour du script de la fonction insert inscrite dans le portail de gestion
+## Mettre à jour le script d’insertion inscrit dans le portail Azure Classic
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -59,12 +63,12 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Référence la bibliothèque cliente Azure Storage Android.
 
-1. Pour ajouter la référence à la bibliothèque, dans le fichier d’**application** > **build.gradle**, ajouter cette ligne à la `dependencies` section :
+1. Pour ajouter la référence à la bibliothèque, dans le fichier d’**application** > **build.gradle**, ajoutez cette ligne à la section `dependencies` :
 
 		compile 'com.microsoft.azure.android:azure-storage-android:0.6.0@aar'
 
 
-2. Modifier la valeur `minSdkVersion` 15 et attribuez-lui la valeur 15 (requis par l’API d’appareil photo).
+2. Modifiez la valeur `minSdkVersion` et attribuez-lui la valeur 15 (requis par l’API d’appareil photo).
 
 3. Appuyez sur l’icône **Synchronisation du projet avec les fichiers Gradle**.
 
@@ -79,16 +83,16 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-	Notez que Android de stockage externe n’est pas nécessairement une carte SD : pour plus d’informations, consultez l’[enregistrement des fichiers](http://developer.android.com/training/basics/data-storage/files.html).
+	Notez que le stockage externe Android n’est pas nécessairement une carte SD : pour plus d’informations, consultez [Enregistrement des fichiers](http://developer.android.com/training/basics/data-storage/files.html).
 
 ### Mettre à jour des fichiers de ressources pour la nouvelle interface utilisateur
 
-1. Ajouter des intitulés des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
+1. Ajoutez l’intitulé des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
 
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. Dans le fichier **activity\_to\_do.xml** dans le **res = > mise en page**, ajouter le code existant pour le bouton **Ajouter**.
+2. Dans le fichier **activity\_to\_do.xml** du dossier **res = > mise en page**, ajoutez ce code avant le code existant pour le bouton **Ajouter**.
 
          <Button
              android:id="@+id/buttonPreview"
@@ -97,7 +101,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
              android:onClick="takePicture"
              android:text="@string/preview_button_text" />
 
-3. Remplacez l’élément du bouton **Ajouter** avec le code suivant :
+3. Remplacez l’élément du bouton **Ajouter** par le code suivant :
 
          <Button
              android:id="@+id/buttonUpload"
@@ -109,7 +113,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Ajouter un code pour la capture de photo
 
-1. Dans **ToDoActivity.java** ajoutez ce code pour créer un objet **fichier** avec un nom unique.
+1. Dans **ToDoActivity.java**, ajoutez ce code pour créer un objet **fichier** avec un nom unique.
 
 		// Create a File object for storing the photo
 	    private File createImageFile() throws IOException {
@@ -125,7 +129,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	        return image;
 	    }
 
-5. Ajoutez ce code pour démarrer l’application de caméra Android. Vous pouvez prendre des photos et lorsque l’une d’elles semble parfaite, appuyer sur **Enregistrer**, ce qui la stockera dans le fichier que vous venez de créer.
+5. Ajoutez ce code pour démarrer l’application de caméra Android. Prenez des photos et lorsque l’une d’elles semble parfaite, appuyez sur **Enregistrer** pour la stocker dans le fichier que vous venez de créer.
 
 		// Run an Intent to start up the Android camera
 	    static final int REQUEST_TAKE_PHOTO = 1;
@@ -286,7 +290,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	    }
 
 
-4. Dans le fichier **ToDoActivity.java**, remplacez la méthode **addItem** dans **ToDoActivity.java** avec le code suivant qui télécharge l’image.
+4. Dans le fichier **ToDoActivity.java**, remplacez la méthode **addItem** dans **ToDoActivity.java** par le code suivant qui télécharge l’image.
 
 	    /**
 	     * Add a new item
@@ -365,13 +369,13 @@ Ce code envoie une demande au service mobile pour insérer un nouvel élément T
 
 2. Lorsque l’application de l’interface utilisateur s’affiche, saisissez du texte dans la zone de texte intitulée **Ajouter un élément ToDo**.
 
-3. Appuyez sur **Prendre une Photo**. Au démarrage de l’application de caméra, prenez une photo. Appuyez sur la coche pour accepter le nom de domaine.
+3. Appuyez sur **Prendre une photo**. Au démarrage de l’application de caméra, prenez une photo. Appuyez sur la coche pour accepter le nom de domaine.
 
 4. Appuyez sur **Télécharger**. Notez que le ToDoItem a été ajouté à la liste, comme d’habitude.
 
-5. Dans le portail Microsoft Azure, accédez à votre compte de stockage, appuyez sur l’onglet **Conteneurs**, appuyez sur le nom de votre conteneur dans la liste.
+5. Dans le portail Azure Classic, accédez à votre compte de stockage, appuyez sur l’onglet **Conteneurs**, puis sur le nom de votre conteneur dans la liste.
 
-6. Une liste des fichiers d’objets blob téléchargés s’affiche. Sélectionnez-en une et appuyez sur **Télécharger**.
+6. Une liste des fichiers d’objets blob téléchargés s’affiche. Sélectionnez-en un et appuyez sur **Télécharger**.
 
 7. L’image que vous avez téléchargée apparaît maintenant dans une fenêtre de navigateur.
 
@@ -416,10 +420,10 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Référence de script serveur Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Prise en main de Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

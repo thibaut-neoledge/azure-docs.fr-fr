@@ -26,7 +26,7 @@
 
 Microsoft Azure Media Services permet de transmettre un contenu chiffré avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le DRM PlayReady. Media Services fournit également un **service de remise de clés/de licences** à partir duquel les clients peuvent obtenir une clé ou une licence pour lire le contenu chiffré.
 
-Cette rubrique montre comment utiliser le **portail de gestion Azure** pour configurer la stratégie d’autorisation de clé de contenu. Elles peuvent ensuite être utilisées pour chiffrer dynamiquement votre contenu. Notez que, actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
+Cette rubrique montre comment utiliser le **portail Azure Classic** pour configurer la stratégie d’autorisation de clé de contenu. Elles peuvent ensuite être utilisées pour chiffrer dynamiquement votre contenu. Notez que, actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
  
 Lorsqu’un lecteur demande un flux de données devant être chiffré dynamiquement, Media Services utilise la clé configurée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
@@ -95,7 +95,7 @@ Vous pouvez cliquer sur le bouton **importer le xml de la stratégie** et fourni
 
 
 ##Étapes suivantes
-La stratégie d’autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment utiliser le portail de gestion Azure pour activer le chiffrement](../media-services-manage-content#encrypt/).
+La stratégie d’autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment utiliser le portail Azure Classic pour activer le chiffrement](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -103,4 +103,4 @@ La stratégie d’autorisation de la clé de contenu étant configurée, consult
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

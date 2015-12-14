@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connexion à une machine virtuelle | Microsoft Azure"
-	description="Utilisez le portail Azure pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
+	description="Utilisez le portail Azure Classic pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,11 @@
 	ms.author="cynthn"/>
 
 
-# Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure
+# Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure Classic
 
 
 
-Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.
+Sur le portail Azure Classic, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.
 
 Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
 
@@ -38,7 +38,7 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 ## Connectez-vous à la machine virtuelle.
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous à la version classique du portail Azure.
 
 2. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle.
 
@@ -61,4 +61,4 @@ Vous pouvez essayer les opérations suivants :
 
 Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

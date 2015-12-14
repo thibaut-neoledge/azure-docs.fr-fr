@@ -40,7 +40,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 
 ## Création d’une machine virtuelle
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 7.
 4. Cliquez sur **Next**.
@@ -63,7 +63,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 
 ## Connexion distante à votre machine virtuelle
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous souhaitez vous connecter.
 4. Une fois que la machine virtuelle a démarré, un menu contextuel au bas de la page autorise les connexions.
@@ -89,7 +89,7 @@ Tomcat doit maintenant démarrer lorsque vous lancez le navigateur de la machine
 Pour démarrer Tomcat depuis des machines externes, vous devez créer un point de terminaison et ouvrir un port.
 
 ## Création d'un point de terminaison pour votre machine virtuelle
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
@@ -146,4 +146,4 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -10,17 +10,15 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # Ajout de notifications Push à votre application Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -64,39 +62,6 @@ Cette procédure vous amène à créer un Notification Hub. Si vous en avez déj
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
-## Mettre à jour le projet de bibliothèques de classes portables 
-
-La classe `TodoItemManager` définie dans le projet partagé encapsule la connexion du client vers le serveur principal d’application mobile avec les opérations que nous souhaitons effectuer sur la table hébergée dans le serveur principal d’application mobile. Nous exposerons la connexion du client, afin de pouvoir procéder à l’inscription pour les notifications Push.
-
-1. Dans Visual Studio ou Xamarin Studio, ouvrez TodoItemManager.cs dans le projet partagé. Ajoutez le membre statique et les accesseurs suivants à la classe `TodoItemManager`. Nous nous appuierons sur ces éléments pour accéder à `MobileServiceClient`, lorsque nous avons besoin de récupérer l’objet `Microsoft.WindowsAzure.MobileServices.Push` spécifique de plateforme. 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. Ajoutez le code pour initialiser `DefaultInstance` au début du constructeur pour la classe `TodoItemManager`.
-
-        DefaultClient = this;
-
-
-
-
 ##(Facultatif) Configurer et exécuter le projet Android
 
 Cette section s’applique à l’exécution du projet Xamarin pour Android. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Android.
@@ -117,7 +82,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 ####Ajouter les notifications Push au projet Android
 
-1. Cliquez avec le bouton droit sur le dossier Composants, cliquez sur Obtenir d'autres composants, recherchez le composant **Client de messagerie Cloud Google** et ajoutez-le au projet. Ce composant facilite l’utilisation des notifications Push avec un projet Android Xamarin.
+1. Cliquez avec le bouton droit sur le dossier Composants, cliquez sur Obtenir d’autres composants, recherchez le composant **Client Google Cloud Messaging** et ajoutez-le au projet. Ce composant facilite l’utilisation des notifications Push avec un projet Android Xamarin.
 
 2. Ouvrez le fichier projet MainActivity.cs et ajoutez l’instruction using suivante au début du fichier :
 
@@ -236,7 +201,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -346,7 +311,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-2. Dans l'application, tapez une tâche, puis cliquez sur l'icône plus (**+**).
+2. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -375,7 +340,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 
 ####Ajout de notifications Push à votre application iOS
 
-1. Ajoutez l'instruction `using` suivante au début du fichier **AppDelegate.cs**.
+1. Ajoutez l’instruction `using` suivante au début du fichier **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
@@ -422,7 +387,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
@@ -454,7 +419,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-3. Dans l'application, tapez une tâche, puis cliquez sur l'icône plus (**+**).
+3. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
 
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -505,7 +470,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. Dans App.xaml.cs, mettez à jour le gestionnaire d’événements `OnLaunched` avec l’attribut `async`, puis appelez `InitNotificationsAsync`.
@@ -559,7 +524,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-3. Dans l'application, tapez une tâche, puis cliquez sur l'icône plus (**+**).
+3. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
 
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -572,10 +537,6 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

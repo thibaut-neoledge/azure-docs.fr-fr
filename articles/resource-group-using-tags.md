@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Organisation des ressources Azure à l'aide de balises | Microsoft Azure"
+	pageTitle="Organisation des ressources Azure à l’aide de balises | Microsoft Azure"
 	description="Indique comment appliquer des balises afin d’organiser des ressources dédiées à la facturation et à la gestion."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/02/2015"
 	ms.author="tomfitz"/>
 
 
@@ -27,7 +27,7 @@ Chaque balise que vous ajoutez à une ressource ou à un groupe de ressources es
 
 Chaque ressource ou groupe de ressources peut inclure un maximum de 15 balises. Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères.
 
-> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (par exemple, via le portail Azure ou l'[API Service Management](../services/api-management/)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
+> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (par exemple, via le portail Azure ou l’[API Service Management](../services/api-management/)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
 
 ## Balises dans les modèles
 
@@ -51,9 +51,9 @@ L’exemple suivant illustre un compte de stockage avec une balise.
         }
     ]
 
-## Balises de la version préliminaire du portail
+## Balises dans le portail Azure
 
-Il est facile de baliser des ressources et des groupes de ressources dans la version préliminaire du portail. Utilisez le hub Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
+Il est facile de baliser des ressources et des groupes de ressources dans le portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
 
 ![Balises des panneaux de ressources et de groupe de ressources](./media/resource-group-using-tags/tag-icon.png)
 
@@ -99,7 +99,7 @@ Les balises se trouvent directement sur les ressources et les groupes de ressour
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant. Pour baliser un groupe de ressources, utilisez simplement la commande **Set-AzureRmResourceGroup** avant d'indiquer un nom et une valeur de balise.
+Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant. Pour baliser un groupe de ressources, utilisez simplement la commande **Set-AzureRmResourceGroup**, puis indiquez un nom et une valeur de balise.
 
     PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
@@ -131,15 +131,15 @@ Les balises sont mises à jour en tant qu'ensemble, donc si vous ajoutez une bal
 
 Pour supprimer une ou plusieurs balises, enregistrez simplement le tableau sans les balises que vous souhaitez supprimer.
 
-Le processus est le même pour les ressources, sauf que vous allez utiliser les applets de commande **Get-AzureRmResource** et **Set-AzureRmResource**.
+Le processus est le même pour les ressources, sauf que vous utilisez les applets de commande **Get-AzureRmResource** et **Set-AzureRmResource**.
 
-Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l'applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
+Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
 
     PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
     tag-demo
 
-Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, utilisez les commandes suivantes pour obtenir les ressources avec une balise particulière.
+Pour les versions d’Azure PowerShell antérieures à la version 1.0, utilisez les commandes suivantes pour obtenir les ressources avec une balise particulière.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -149,7 +149,7 @@ Pour les versions d’Azure PowerShell antérieures à la version préliminaire�
     rbacdemo-docdb
     ...    
 
-Pour obtenir une liste de toutes les balises d'un abonnement à l'aide de PowerShell, utilisez l'applet de commande **Get-AzureRmTag**.
+Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
     PS C:/> Get-AzureRmTag
     Name                      Count
@@ -159,7 +159,7 @@ Pour obtenir une liste de toutes les balises d'un abonnement à l'aide de PowerS
 
 Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
-Utilisez l'applet de commande **New-AzureRmTag** pour ajouter des balises à la classification. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l'applet de commande **Remove-AzureRmTag** pour la supprimer de la classification.
+Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
 ## Balisage avec une API REST
 
@@ -170,7 +170,7 @@ Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ress
 
 Dans le cas des services pris en charge, vous pouvez utiliser des balises pour regrouper vos données de facturation. Par exemple, les [machines virtuelles intégrées à Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) vous permettent de définir et d’appliquer des balises pour organiser l’utilisation de la facturation pour les machines virtuelles. Si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux balises pour regrouper l’utilisation par centre de coûts. Vous pouvez également utiliser des balises pour catégoriser les coûts par environnement d’exécution ; par exemple, l’utilisation de la facturation pour les machines virtuelles en cours d’exécution dans l’environnement de production.
 
-Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV) que vous pouvez télécharger à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d'informations sur l'accès par programme aux informations de facturation, consultez [Obtenir une vue d'ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV) que vous pouvez télécharger à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d’informations sur l’accès par programme aux informations de facturation, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises**. Pour plus d’informations, voir [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
@@ -179,8 +179,8 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 ## Étapes suivantes
 
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger la définition d'une balise spécifique pour toutes les ressources. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
-- Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
-- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
-- Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
+- Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
+- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](./xplat-cli-azure-resource-manager.md).
+- Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md).  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

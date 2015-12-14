@@ -138,9 +138,9 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 La taille du nœud principal ne peut être sélectionnée que lors de la création du cluster. La taille par défaut des nœuds principaux est **A3**, ce qui fournit 4 cœurs, 7 Go de mémoire et 285 Go de stockage local. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide de la [version préliminaire d'Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
 
-* **Portail Azure en version préliminaire** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des nœuds principal et de données (worker) du cluster :
+* **Portail Azure** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des nœuds principal et de données (worker) du cluster :
 
 	![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -166,4 +166,4 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
 
-Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle de gestionnaire des ressources Azure.
+Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
 
 Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon. Lors de l'évaluation, la fonction préservera la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les expressions sont évaluées.
 
@@ -78,26 +78,44 @@ Retourne l'index actuel d'une boucle d'itération. Pour obtenir des exemples d'u
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
-Les informations relatives au déploiement sont renvoyées en tant qu’objet avec les propriétés suivantes :
+Cette expression retourne l’objet passé au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, par exemple lorsque vous utilisez le paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné est au format suivant :
 
     {
-      "name": "",
-      "properties": {
-        "template": {},
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-      }
+        "name": "",
+        "properties": {
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "resources": [
+                ],
+                "outputs": {}
+            },
+            "parameters": {},
+            "mode": "",
+            "provisioningState": ""
+        }
     }
 
-L’exemple ci-après indique comment renvoyer les informations de déploiement dans la section « outputs ».
+Quand l’objet est passé en tant que lien, par exemple lorsque vous utilisez le paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est retourné au format suivant.
 
-    "outputs": {
-      "exampleOutput": {
-        "value": "[deployment()]",
-        "type" : "object"
-      }
+    {
+        "name": "",
+        "properties": {
+            "templateLink": {
+                "uri": "",
+                "contentVersion": ""
+            },
+            "mode": "",
+            "provisioningState": ""
+        }
     }
+
+L’exemple suivant montre comment utiliser deployment() pour établir une liaison à un autre modèle en fonction de l’URI du modèle parent.
+
+    "variables": {  
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+    }  
+
 
 ## div
 
@@ -131,9 +149,25 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 
 ## length
 
-**length(array)**
+**length (tableau ou chaîne)**
 
-Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d'utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Retourne le nombre d’éléments dans un tableau ou le nombre de caractères dans une chaîne. Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple suivant, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
+Vous pouvez aussi l’utiliser avec une chaîne :
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
@@ -268,7 +302,7 @@ Permet à une expression de dériver sa valeur de l'état d'exécution d'une aut
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
-En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n'avez pas besoin d'utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
+En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
 
     "outputs": {
       "siteUri": {
@@ -387,7 +421,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 ## split
 
-**split(inputString, delimiter)** **split(inputString, [delimiters])**
+**split(chaîne\_entrée, délimiteurs)** **split(chaîne\_entrée, [délimiteurs])**
 
 Retourne un tableau de chaînes qui contient les sous-chaînes de la chaîne d'entrée séparées par les délimiteurs envoyés.
 
@@ -559,9 +593,11 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-L’exemple suivant montre comment créer un URI absolu dans le lien du modèle. Voici le résultat : ****http://contoso.com/resources/nested/azuredeploy.json**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin d’accès de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez ****http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est ****http://contoso.com/resources/**.
 
-    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## variables
@@ -578,7 +614,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 ## Étapes suivantes
 - Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
-- Pour itérer un nombre de fois précis pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

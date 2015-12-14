@@ -68,7 +68,7 @@ Le modèle de contrôle d'accès DocumentDB définit trois types de construction
 Comme indiqué précédemment, les clés principales DocumentDB fournissent un accès administratif complet à toutes les ressources au sein d'un compte DocumentDB tandis que les clés en lecture seule permettent l'accès en lecture à toutes les ressources du compte. L'extrait de code suivant indique comment utiliser une clé principale et un point de terminaison de compte DocumentDB pour instancier un DocumentClient et créer une base de données.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

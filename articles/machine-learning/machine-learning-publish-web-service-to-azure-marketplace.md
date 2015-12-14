@@ -37,7 +37,7 @@ Les étapes suivantes vous permettront de publier un service Web Azure Machine L
  Si vous ne l’avez pas encore fait, consultez ce [guide](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Étape 2 : déployez le service en production et obtenez les informations de point de terminaison OData et de la clé d’API.###
-1. Depuis le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez l’option **MACHINE LEARNING** (apprentissage automatique) dans la barre de navigation de gauche, puis sélectionnez votre espace de travail. 
+1. Depuis le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez l’option **MACHINE LEARNING** dans la barre de navigation de gauche, puis sélectionnez votre espace de travail. 
 
 2. Cliquez sur l’onglet **WEB SERVICES** (services Web) et sélectionnez le service Web que vous souhaitez publier sur le marché.
 
@@ -84,7 +84,7 @@ déployez le service en production.
 
 	![Azure Marketplace][image2]
 
-9.	Obtenez l’URL du service Web et la clé d’API à partir du portail de gestion Azure, tel qu’expliqué dans l’étape 2 ci-dessus.
+9.	Obtenez l’URL du service web et la clé API à partir du portail Azure Classic, tel qu’expliqué dans l’étape 2 ci-dessus.
 
 10.	Dans la boîte de dialogue de configuration du service de données Marketplace, collez l’adresse du point de terminaison OData dans la zone de texte **URL du service**.
 
@@ -109,4 +109,4 @@ déployez le service en production.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

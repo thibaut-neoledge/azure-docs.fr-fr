@@ -19,7 +19,7 @@
 
 ## Vue d’ensemble
 
-La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du portail de gestion Microsoft Azure, ainsi que des fonctions étendues d’accès aux données.
+La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](portal.azure.com), ainsi que des fonctions étendues d’accès aux données.
 
 Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli-install.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
 
@@ -169,7 +169,7 @@ Pour supprimer un objet blob, utilisez la commande ci-dessous :
 
 ## Créer et gérer des partages de fichiers
 
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur le stockage de fichiers Azure, consultez la page [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files) ou [Utilisation du stockage de fichiers Azure avec Linux](storage-how-to-use-files-linux.md).
+Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure File Storage, consultez la page [Utilisation d’Azure File Storage sous Windows](storage-dotnet-how-to-use-files) ou [Utilisation d’Azure File Storage sous Linux](storage-how-to-use-files-linux.md).
 
 ### Créer un partage de fichiers
 
@@ -222,4 +222,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

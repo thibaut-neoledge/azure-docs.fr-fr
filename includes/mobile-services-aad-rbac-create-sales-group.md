@@ -3,7 +3,7 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 ### Création des utilisateurs
 
 
-1. Dans le [portail de gestion Azure], accédez à l’annuaire que vous avez configuré précédemment pour l’authentification lorsque vous avez suivi le didacticiel pour ajouter l’authentification à votre application.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), accédez au répertoire que vous avez configuré précédemment pour l’authentification lorsque vous avez suivi le didacticiel pour ajouter l’authentification à votre application.
 2. Cliquez sur **Utilisateurs** en haut de la page. Cliquez ensuite sur le bouton **Ajouter un utilisateur** en bas de la page. 
 3. Dans les boîtes de dialogue de création de nouveaux utilisateurs, créez un utilisateur appelé **Bob**. Notez le mot de passe temporaire de cet utilisateur. 
 4. Créez un autre utilisateur appelé **Dave**. Notez le mot de passe temporaire de cet utilisateur.
@@ -37,4 +37,4 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ Cet article explique comment utiliser les fonctionnalités de messagerie répart
 
 ## Prise en main de Service Bus
 
-Cet article présume que vous disposez déjà d'un espace de noms Service Bus contenant une file d'attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l'espace de noms et la file d’attente à l'aide du [portail Azure](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md).
+Cet article présume que vous disposez déjà d'un espace de noms Service Bus contenant une file d'attente nommée « queue1 ». Dans le cas contraire, vous pouvez créer l’espace de noms et la file d’attente à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md).
 
 ## Téléchargement du Kit de développement logiciel (SDK) Service Bus
 
@@ -63,13 +63,13 @@ La valeur du paramètre **Microsoft.ServiceBus.ConnectionString** est la chaîne
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Où les valeurs `[namespace]` et `[SAS key]` sont obtenues à partir du portail Azure. Pour plus d’informations, consultez la page [Utilisation des files d’attente Service Bus][].
+Où `[namespace]` et `[SAS key]` sont obtenues à partir du [portail Azure Classic][]. Pour plus d’informations, consultez la page [Utilisation des files d’attente Service Bus][].
 
-Lors de l'utilisation d'AMQP, `;TransportType=Amqp` est ajouté à la chaîne de connexion, ce qui indique à la bibliothèque cliente d'établir sa connexion à Service Bus à l'aide d'AMQP 1.0.
+Lors de l’utilisation d’AMQP, `;TransportType=Amqp` est ajouté à la chaîne de connexion, ce qui indique à la bibliothèque cliente d’établir sa connexion à Service Bus à l’aide d’AMQP 1.0.
 
 ### Configuration du nom d’entité
 
-Cet exemple d'application utilise le paramètre `EntityName` dans la section **appSettings** du fichier App.config pour configurer le nom de la file d’attente avec laquelle l'application échange des messages.
+Cet exemple d’application utilise le paramètre `EntityName` dans la section **appSettings** du fichier App.config pour configurer le nom de la file d’attente avec laquelle l’application échange des messages.
 
 ### Une simple application .NET utilisant une file d’attente Service Bus
 
@@ -227,7 +227,7 @@ Cette rubrique a expliqué comment envoyer des messages à Service Bus en utilis
 
 À l'aide de l'exemple d'application .NET décrit ci-dessus et d'une application Java similaire extraite d'un manuel associé, [Utilisation de l'API Java Message Service (JMS) avec Service Bus et AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), il est possible d'échanger des messages entre .NET et Java.
 
-Pour plus d'informations sur les détails de la messagerie interplateforme utilisant Service Bus et AMQP 1.0, consultez [Vue d'ensemble d'AMQP 1.0 dans Service Bus](service-bus-amqp-overview.md).
+Pour plus d’informations sur les détails de la messagerie interplateforme utilisant Service Bus et AMQP 1.0, consultez [Vue d’ensemble d’AMQP 1.0 dans Service Bus](service-bus-amqp-overview.md).
 
 ### De JMS à .NET
 
@@ -306,13 +306,13 @@ Les fonctionnalités suivantes de l'API .NET Services Bus ne sont actuellement p
 * Renouvellement du verrouillage des sessions
 * Certaines différences mineures de comportement
 
-Pour plus d'informations, consultez [Vue d'ensemble d'AMQP dans Service Bus](service-bus-amqp-dotnet.md). Cette rubrique inclut une liste détaillée des API non prises en charge.
+Pour plus d’informations, consultez [Vue d’ensemble d’AMQP dans Service Bus](service-bus-amqp-dotnet.md). Cette rubrique inclut une liste détaillée des API non prises en charge.
 
 ## Résumé
 
 Cette rubrique a expliqué comment accéder aux fonctionnalités de messagerie répartie Service Bus (rubriques de files d'attente et de publication/d'abonnement) depuis .NET en utilisant AMQP 1.0 et l'API .NET Service Bus.
 
-Vous pouvez également utiliser AMQP 1.0 de Service Bus avec d’autres langages, notamment Java, C, Python et PHP. Les composants intégrés avec ces langages peuvent échanger des messages de manière fiable et fidèle en utilisant AMQP 1.0 dans Service Bus. Pour plus d'informations, consultez [Vue d'ensemble d'AMQP dans Service Bus](service-bus-amqp-dotnet.md).
+Vous pouvez également utiliser AMQP 1.0 de Service Bus avec d’autres langages, notamment Java, C, Python et PHP. Les composants intégrés avec ces langages peuvent échanger des messages de manière fiable et fidèle en utilisant AMQP 1.0 dans Service Bus. Pour plus d’informations, consultez [Vue d’ensemble d’AMQP dans Service Bus](service-bus-amqp-dotnet.md).
 
 ## Étapes suivantes
 
@@ -322,5 +322,6 @@ Maintenant que vous avez une vue d'ensemble du Service Bus et AMQP avec .NET, co
 * [Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
  
+[portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

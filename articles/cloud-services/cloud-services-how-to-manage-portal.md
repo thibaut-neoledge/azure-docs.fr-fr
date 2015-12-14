@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Comment gérer un service cloud (portail en version préliminaire) | Microsoft Azure" 
-	description="Découvrez comment gérer des services cloud dans le portail Azure en version préliminaire. Ces exemples utilisent le portail Azure en version préliminaire." 
+	pageTitle="Gestion d'un service cloud | Microsoft Azure" 
+	description="Découvrez comment gérer des services cloud dans le portail Azure. Ces exemples utilisent le portail Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -20,17 +20,17 @@
 # Gestion des services cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-Dans la zone **Cloud Services** du portail Azure en version préliminaire, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
+Dans la zone **Cloud Services** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
 
 ## Mise à jour d’un rôle ou d’un déploiement de service cloud
 
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le panneau de service cloud. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
 
-1. Dans le [portail Azure en version préliminaire][], sélectionnez le service cloud que vous souhaitez mettre à jour. Le panneau d'instance de service cloud s'ouvre.
+1. Dans le [portail Azure][], sélectionnez le service cloud que vous souhaitez mettre à jour. Le panneau d'instance de service cloud s'ouvre.
 
 2. Dans le panneau, cliquez sur le bouton **Update**.
 
@@ -60,7 +60,7 @@ Utilisez **Swap** pour faire passer le déploiement intermédiaire d'un service 
 
 Vous pouvez inverser les déploiements à partir de la page **Cloud Services** ou du tableau de bord.
 
-1. Dans le [portail Azure en version préliminaire][], sélectionnez le service cloud que vous souhaitez mettre à jour. Le panneau d'instance de service cloud s'ouvre.
+1. Dans le [portail Azure][], sélectionnez le service cloud que vous souhaitez mettre à jour. Le panneau d'instance de service cloud s'ouvre.
 
 2. Dans le panneau, cliquez sur le bouton **Swap**.
 
@@ -78,7 +78,7 @@ Vous pouvez inverser les déploiements à partir de la page **Cloud Services** o
 
 ## Liaison d’une ressource à un service cloud
 
-Le portail Azure Preview ne lie pas les ressources comme le fait le portail Azure actuel. Vous devez déployer des ressources supplémentaires vers le même groupe de ressources que celui utilisé par le service cloud.
+Le portail Azure ne lie pas les ressources comme le fait le portail Azure Classic actuel. Vous devez déployer des ressources supplémentaires vers le même groupe de ressources que celui utilisé par le service cloud.
 
 ## Suppression de déploiements et d’un service cloud
 
@@ -88,7 +88,7 @@ Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploieme
 
 Utiliser la procédure suivante pour supprimer un déploiement ou un service cloud.
 
-1. Dans le [portail Azure en version préliminaire][], sélectionnez le service cloud que vous souhaitez supprimer. Le panneau d'instance de service cloud s'ouvre.
+1. Dans le [portail Azure][], sélectionnez le service cloud que vous souhaitez supprimer. Le panneau d'instance de service cloud s'ouvre.
 
 2. Dans le panneau, cliquez sur le bouton **Delete**.
 
@@ -102,10 +102,9 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
-> [AZURE.NOTE]
-> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
+> [AZURE.NOTE]Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
 
-[portail Azure en version préliminaire]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 
 ## Étapes suivantes
 
@@ -114,4 +113,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
 
-Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer votre application dans Azure. Elle montre comment déployer votre application à l’aide d’Azure PowerShell, d’Azure CLI, de l’API REST ou de la version préliminaire du portail Microsoft Azure.
+Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer votre application dans Azure. Elle montre comment déployer votre application à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure.
 
 Pour une introduction à Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md). Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
@@ -32,17 +32,7 @@ Lorsque vous déployez une application avec un modèle, vous pouvez fournir des 
 
 1. Connectez-vous à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
-    Version antérieure à la version préliminaire 1.0 d’Azure PowerShell
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Version préliminaire 1.0 d’Azure PowerShell :
+    Azure PowerShell 1.0 :
 
          PS C:\> Login-AzureRmAccount
 
@@ -51,11 +41,11 @@ Lorsque vous déployez une application avec un modèle, vous pouvez fournir des 
          ...
 
 
-2. Si vous avez plusieurs abonnements, fournissez l'ID d'abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Select-AzureRmSubscription**.
+2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Select-AzureRmSubscription**.
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-3. Si vous n'avez pas de groupe de ressources, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement dont vous avez besoin pour votre solution. Un résumé du nouveau groupe de ressources est retourné.
+3. Si vous n’avez pas de groupe de ressources, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement dont vous avez besoin pour votre solution. Un résumé du nouveau groupe de ressources est retourné.
 
         PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -148,7 +138,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
    
      Vous disposez des options suivantes pour fournir les valeurs des paramètres :
 
-     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
              azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -219,13 +209,13 @@ Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le d
 
 Pour voir une présentation de l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## Déployer avec la version préliminaire du portail
+## Déploiement avec le portail
 
-Devinez quoi ? Chaque application que vous créez avec le [portail en version préliminaire](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager ! En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** et vous pourrez progresser vers le déploiement d’une application avec Azure Resource Manager.
+Devinez quoi ? Chaque application que vous créez avec le [portail](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager. En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** pour déployer une application avec Azure Resource Manager.
 
 ![Nouveau](./media/resource-group-template-deploy/new.png)
 
-Pour plus d’informations sur l’utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
+Pour plus d’informations sur l’utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
 
 ## Fichier de paramètres
@@ -259,4 +249,4 @@ La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

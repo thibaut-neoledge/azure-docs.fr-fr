@@ -71,4 +71,12 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## Étapes suivantes
+
+[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
+
+[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
+
+[Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

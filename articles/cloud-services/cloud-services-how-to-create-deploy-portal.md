@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création et déploiement d’un service cloud (portail en version préliminaire) | Microsoft Azure"
-	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure. Ces exemples utilisent le portail Azure en version préliminaire."
+	pageTitle="Création et déploiement d'un service cloud | Microsoft Azure"
+	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure. Ces exemples utilisent le portail Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # Création et déploiement d’un service cloud
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy.md)
-- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
 Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
 
@@ -61,12 +61,12 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 - Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. Vous pouvez télécharger les certificats sur Azure lorsque vous créez et déployez le service cloud. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Networks** du portail Azure, sur la page **Affinity Groups**. Pour plus d'informations consultez la page [Créer un groupe d'affinités dans le portail de gestion](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Networks** du portail Azure, sur la page **Affinity Groups**. Pour plus d’informations, consultez la page [Créer un groupe d’affinités dans le portail Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Étape 3 : création d’un service cloud et chargement du package de déploiement
 
-1. Connectez-vous au [portail Azure en version préliminaire][].
+1. Connectez-vous au [portail Azure][].
 2. Cliquez sur **Nouveau >Compute**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -114,4 +114,4 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

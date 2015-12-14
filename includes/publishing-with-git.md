@@ -58,7 +58,7 @@ Web Apps prend en charge des applications créées dans différents langages de 
 
 Pour activer un référentiel Git pour votre application Web, procédez comme suit.
 
-1. Connectez-vous au [Portail Azure en version préliminaire].
+1. Connectez-vous au [portail Azure].
 
 2. Faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
 
@@ -269,10 +269,9 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[Portail Azure en version préliminaire]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Comment utiliser PowerShell pour Azure]: ../articles/install-configure-powershell.md
@@ -298,4 +297,4 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Diffusion continue sur Azure au moyen de Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

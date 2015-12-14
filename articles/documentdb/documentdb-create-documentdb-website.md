@@ -128,11 +128,11 @@ Maintenant, nous allons déployer notre premier modèle.
 
 	![Exemple d’application Todo](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Continuez et créez deux tâches, puis ouvrez le [portail Azure en version préliminaire](https://portal.azure.com).
+7. Continuez et créez deux tâches, puis ouvrez le [portail Microsoft Azure](https://portal.azure.com).
 
 8. Choisissez de parcourir les groupes de ressources et de sélectionner le groupe de ressources que nous avons créé au cours du déploiement (dans l'exemple ci-dessus, myDemoResourceGroup).
 
-	![Capture d’écran du portail Azure avec l’application web myDemoResourceGroup mise en surbrillance](./media/documentdb-create-documentdb-website/image3.png)
+	![Capture d’écran du portail Azure Classic avec l’application web myDemoResourceGroup mise en surbrillance](./media/documentdb-create-documentdb-website/image3.png)
 9.  Notez que la carte des ressources de l’objectif Résumé affiche toutes nos ressources connexes (compte DocumentDB, application web App Service, surveillance).
 
 	![Capture d’écran de l’objectif Résumé](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@ Maintenant nous allons déployer notre deuxième modèle.
 	> [AZURE.TIP]Notez que vous serez invité à entrer vos nom d'utilisateur et mot de passe de compte Azure dans le cadre de l'exécution du script. L'exécution complète du déploiement prendra entre 10 et 15 minutes.
 
 4. La sortie du déploiement sera très similaire au premier exemple de modèle.
-5. Avant d’ouvrir le portail Azure en version préliminaire, essayons de comprendre ce que ce déploiement de modèle a effectué :
+5. Avant d'ouvrir le portail Azure, essayons de comprendre ce que ce déploiement de modèle a effectué :
 
 	- Une application web App Service a été créée.
 
@@ -182,14 +182,14 @@ Maintenant nous allons déployer notre deuxième modèle.
 
 	- 	Une série de règles de surveillance par défaut a été créée.
 
-6. Nous allons ouvrir le [portail Azure en version préliminaire](https://portal.azure.com), parcourir les groupes de ressources et sélectionner le groupe de ressources que nous avons créé au cours du déploiement (dans l’exemple ci-dessus, myOtherDemoResourceGroup).
+6. Nous allons ouvrir le [portail Azure](https://portal.azure.com), parcourir les groupes de ressources et sélectionner le groupe de ressources que nous avons créé au cours du déploiement (dans l’exemple ci-dessus, myOtherDemoResourceGroup).
 7. Dans l’objectif Résumé, cliquez sur l’application web que vous venez de déployer.
 
 	![Capture d’écran de l’objectif Résumé avec l’application web myotherdocumentdbwebapp mise en surbrillance](./media/documentdb-create-documentdb-website/image6.png)
 8. Dans le panneau de l’application web, cliquez sur **Tous les paramètres**, puis sur **Paramètres de l’application** et remarquez l’existence de paramètres d’application pour le point de terminaison DocumentDB et chacune des clés principales DocumentDB.
 
 	![Capture d’écran des panneaux de l’application web, des paramètres et des paramètres de l’application](./media/documentdb-create-documentdb-website/image7.png)
-9. N’hésitez pas à poursuivre l’exploration du portail Azure en version préliminaire ou à suivre l’un de nos [exemples](http://go.microsoft.com/fwlink/?LinkID=402386) DocumentDB pour créer votre propre application DocumentDB.
+9. N'hésitez pas à continuer à explorer le portail Azure ou à suivre l'un de nos [exemples](http://go.microsoft.com/fwlink/?LinkID=402386) DocumentDB pour créer votre propre application DocumentDB.
 
 	
 	
@@ -205,9 +205,9 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

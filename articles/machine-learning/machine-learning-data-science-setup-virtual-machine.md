@@ -26,7 +26,7 @@ Si vous disposez déjà d’une machine virtuelle Azure et que vous souhaitez si
 
 Avant de démarrer la procédure de création d’une machine virtuelle sur Azure, vous devez déterminer la taille de la machine requise pour le traitement des données du projet concerné. Les machines de taille réduite comportent moins de mémoire et de cœurs de processeur que les machines de grande taille, mais se révèlent également moins coûteuses. Pour obtenir la liste des différents types de machine et des prix correspondants, consultez la page <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Tarification des machines virtuelles</a>.
 
-1. Connectez-vous au <a href="https://manage.windowsazure.com" target="_blank">portail Azure</a>, puis cliquez sur **Nouveau** dans le coin inférieur gauche. Une fenêtre s’affiche. Sélectionnez **CALCULER** -> **MACHINE VIRTUELLE** -> **À PARTIR DE LA GALERIE**.
+1. Connectez-vous au <a href="https://manage.windowsazure.com" target="_blank">portail Azure Classic</a>, puis cliquez sur **Nouveau** dans le coin inférieur gauche. Une fenêtre s’affiche. Sélectionnez **CALCULER** -> **MACHINE VIRTUELLE** -> **À PARTIR DE LA GALERIE**.
 
 	![Create workspace][24]
 
@@ -60,7 +60,7 @@ L’exécution de ce processus peut nécessiter entre 15 et 25 minutes. Une foi
 
 Si vous avez créé la machine virtuelle en suivant les instructions de l’étape 1, le point de terminaison pour Notebook IPython a déjà été ajouté, et vous pouvez donc ignorer cette étape.
 
-Si la machine virtuelle existe déjà et que vous devez ajouter un point de terminaison pour Notebook IPython que vous allez installer à l’étape 3 ci-après, commencez par vous connecter au Portail de gestion Azure, sélectionnez la machine virtuelle, puis ajoutez le point de terminaison pour le serveur Notebook IPython. La figure ci-dessous contient une capture d’écran du portail après l’ajout du point de terminaison pour Notebook IPython sur une machine virtuelle Windows.
+Si la machine virtuelle existe déjà et que vous devez ajouter un point de terminaison pour Notebook IPython que vous allez installer à l’étape 3 ci-après, commencez par vous connecter au portail Azure Classic, sélectionnez la machine virtuelle, puis ajoutez le point de terminaison pour le serveur Notebook IPython. La figure ci-dessous contient une capture d’écran du portail après l’ajout du point de terminaison pour Notebook IPython sur une machine virtuelle Windows.
 
 ![Create workspace][17]
 
@@ -79,7 +79,7 @@ Lorsque vous y êtes invité, entrez un mot de passe pour Notebook IPython et le
 ## <a name="access"></a>Étape 4 : accéder à Notebook IPython à partir d’un navigateur web
 Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;virtual nom DNS de la machine>:&#60;numéro du port public>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;public port number>* doit correspondre au numéro de port que vous avez spécifié lors de l’ajout du point de terminaison de Notebook IPython.
 
-La variable *&#60;virtual machine DNS name>* correspond au nom DNS de la machine virtuelle, qui est accessible par le biais du Portail de gestion Azure. Après vous être connecté au Portail de gestion, cliquez sur **MACHINES VIRTUELLES**, sélectionnez la machine que vous avez créée, puis sélectionnez **TABLEAU DE BORD**. Le nom DNS s’affiche sous la forme suivante :
+La variable *&#60;virtual machine DNS name>* correspond au nom DNS de la machine virtuelle, qui est accessible par le biais du portail Azure Classic. Après vous être connecté au portail Azure Classic, cliquez sur **MACHINES VIRTUELLES**, sélectionnez la machine que vous avez créée, puis sélectionnez **TABLEAU DE BORD**. Le nom DNS s’affiche sous la forme suivante :
 
 ![Create workspace][19]
 
@@ -104,11 +104,11 @@ Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateu
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
 
-> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [Portail de gestion Azure](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant **ShutdownRoleOperation** avec « PostShutdownAction » défini sur « StoppedDeallocated ».
+> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour être certain de ne plus être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant **ShutdownRoleOperation** avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
 Pour arrêter et libérer la machine virtuelle :
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com/) avec votre compte.  
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.  
 
 2. Sélectionnez **MACHINES VIRTUELLES** dans la barre de navigation gauche.
 
@@ -118,7 +118,7 @@ Pour arrêter et libérer la machine virtuelle :
 
 ![Arrêt de la machine virtuelle][15]
 
-Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pouvez redémarrer votre machine virtuelle à tout moment à partir du Portail de gestion Azure.
+Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pouvez redémarrer votre machine virtuelle à tout moment à partir du portail Azure Classic.
 
 ## Étapes suivantes une fois votre machine virtuelle Azure prête à être utilisée
 
@@ -143,4 +143,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

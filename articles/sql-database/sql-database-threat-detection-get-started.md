@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de Threat Detection pour la base de données SQL"
-   description="Comment prendre en main l’outil Threat Detection de la base de données SQL dans le portail Azure en version préliminaire"
+   description="Prise en main l’outil Threat Detection de la base de données SQL dans le portail Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,7 +30,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 ## Configurer Threat Detection pour votre base de données
 
-1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure en version préliminaire.
+1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure.
 
 2. Accédez au volet de configuration de la base de données SQL que voulez surveiller. Dans le volet Paramètres, sélectionnez **Auditing & Threat Detection**.
 
@@ -89,4 +89,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -38,7 +38,7 @@ Il existe des exigences de connectivité réseau pour les environnements App Se
 -  Le chemin d'accès réseau sortant ne peut pas traverser des proxys d'entreprise internes et il ne peut pas non plus être tunnelé de force en local. Ceci modifie l'adresse NAT réelle du trafic réseau sortant à partir de l'environnement App Service. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service entraînera des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne des échecs de création d'environnement App Service, ainsi que la désignation comme non intègres des environnements App Service précédemment considérés comme intègres.  
 -  L'accès réseau entrant vers les ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
 
-La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [nouveau portail de gestion][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
+La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [portail Azure][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
 
 Les exigences d'accès au réseau entrant peuvent être satisfaites en configurant un [groupe de sécurité réseau][NetworkSecurityGroups] sur le sous-réseau de l'environnement App Service, afin d'autoriser l'accès requis, comme décrit dans cet [article][requiredports].
 
@@ -137,4 +137,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

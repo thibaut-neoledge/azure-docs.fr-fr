@@ -22,12 +22,12 @@ Cette rubrique explore et compare les différents outils et options de gestion d
 
 
 
-## Portail Azure
+## Portail Azure Classic
 
 
-Le [portail Azure](http://portal.azure.com) est un portail de gestion basé sur le web dans lequel vous pouvez créer, mettre à jour et supprimer des serveurs logiques et des bases de données, et surveiller l'activité des bases de données. Cet outil est très utile si vous n'êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données, ou si vous devez effectuer rapidement une action.
+Le [portail Azure Classic](http://portal.azure.com) est un portail Classic basé sur le web dans lequel vous pouvez créer, mettre à jour et supprimer des serveurs logiques et des bases de données, et surveiller l’activité des bases de données. Cet outil est très utile si vous n'êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données, ou si vous devez effectuer rapidement une action.
 
-Pour en savoir plus sur l’utilisation du portail, voir [Gérer des bases de données SQL à l’aide du portail Azure](sql-database-manage-portal.md).
+Pour en savoir plus sur l’utilisation du portail, voir [Gérer des bases de données SQL à l’aide du portail Azure Classic](sql-database-manage-portal.md).
 
 ## SQL Server Data Tools et Management Studio dans Visual Studio
 
@@ -44,4 +44,4 @@ Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour g�
 Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, consultez [Gestion d'une base de données SQL avec PowerShell](sql-database-command-line-tools.md).
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

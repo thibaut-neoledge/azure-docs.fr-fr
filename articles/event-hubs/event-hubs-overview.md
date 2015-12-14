@@ -17,7 +17,7 @@
 
 # Vue d'ensemble des hubs d'événements Azure
 
-De nombreuses solutions modernes ont pour but de proposer des expériences client adaptatives ou d'améliorer les produits par le biais de commentaires en continu et de télémétrie automatisée. Ces solutions sont confrontées au défi consistant à traiter de façon fiable et sécurisée de très grandes quantités d'informations provenant de plusieurs éditeurs. Les hubs d'événements Microsoft Azure sont un service de plateforme gérée qui fournit une base pour l'admission de données à grande échelle dans un large éventail de scénarios. Le suivi de comportement dans les applications mobiles, les informations de trafic provenant de batteries de serveurs Web, la capture d'événements de jeu dans les jeux de console ou les données de télémétrie recueillies à partir de machines industrielles ou de véhicules connectés constituent des exemples de ces scénarios. Dans les architectures de solution, les hubs d'événements jouent souvent le rôle de « porte d'entrée » pour un pipeline d'événements, souvent appelé un service de *réception d'événements*. Un service de réception d'événements est un composant ou service qui se trouve entre les producteurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements à partir de la consommation de ces événements.
+De nombreuses solutions modernes ont pour but de proposer des expériences client adaptatives ou d'améliorer les produits par le biais de commentaires en continu et de télémétrie automatisée. Ces solutions sont confrontées au défi consistant à traiter de façon fiable et sécurisée de très grandes quantités d'informations provenant de plusieurs éditeurs. Les hubs d'événements Microsoft Azure sont un service de plateforme gérée qui fournit une base pour l'admission de données à grande échelle dans un large éventail de scénarios. Le suivi de comportement dans les applications mobiles, les informations de trafic provenant de batteries de serveurs Web, la capture d'événements de jeu dans les jeux de console ou les données de télémétrie recueillies à partir de machines industrielles ou de véhicules connectés constituent des exemples de ces scénarios. Dans les architectures de solution, les hubs d'événements jouent souvent le rôle de « porte d'entrée » pour un pipeline d'événements, souvent appelé un service de *réception d'événements*. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation.
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
@@ -132,7 +132,7 @@ La capacité de débit des hubs d'événements est contrôlée par les unités d
 
 - Sortie : jusqu'à 2 Mo par seconde.
 
-L'entrée est limitée à la quantité de capacité offerte par le nombre d'unités de débit achetées. L'envoi de données au-delà de cette quantité résulte en une exception de « quota dépassé ». Cette quantité est soit 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier. La sortie ne produit pas d'exceptions de limitation, mais elle est limitée à la quantité de transfert de données prévu par les unités de débit achetées : 2 Mo par seconde par unité de débit. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d'unités de débit achetées pour l'espace de noms dans lequel le hub d'événements a été créé. Pour obtenir plus d’unités de débit, vous pouvez ajuster le paramètre dans la page **Espaces de noms** sous l’onglet **Mettre à l’échelle** du portail Azure. Vous pouvez également modifier ce paramètre à l'aide des API Azure.
+L'entrée est limitée à la quantité de capacité offerte par le nombre d'unités de débit achetées. L'envoi de données au-delà de cette quantité résulte en une exception de « quota dépassé ». Cette quantité est soit 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier. La sortie ne produit pas d'exceptions de limitation, mais elle est limitée à la quantité de transfert de données prévu par les unités de débit achetées : 2 Mo par seconde par unité de débit. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d'unités de débit achetées pour l'espace de noms dans lequel le hub d'événements a été créé. Pour obtenir plus d’unités de débit, vous pouvez ajuster le paramètre dans la page **Espaces de noms** sous l’onglet **Mettre à l’échelle** du [portail Azure Classic][]. Vous pouvez également modifier ce paramètre à l'aide des API Azure.
 
 Les partitions sont un concept d'organisation de données, alors que les unités de débit sont purement un concept de capacité. Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Il est possible d'acheter jusqu'à 20 unités de débit pour un espace de noms Service Bus. Un compte Azure est limité à 20 unités de débit. Ces unités de débit sont partagées par tous les hubs d'événements dans un espace de noms donné.
 
@@ -144,7 +144,7 @@ Pour obtenir des informations de tarification détaillées, consultez [Tarificat
 
 ### Stratégie d'éditeur
 
-Event Hubs permet un contrôle granulaire sur les producteurs d'événements par le biais des *stratégies d'éditeur*. Les stratégies d'éditeur sont un ensemble de fonctionnalités d'exécution conçu pour faciliter de grands nombres de producteurs d'événements indépendants. Avec les stratégies d'éditeur, chaque éditeur utilise son propre identificateur unique lors de la publication d'événements sur un hub d'événements, à l'aide du mécanisme suivant :
+Event Hubs permet un contrôle granulaire sur les éditeurs d'événements par le biais des *stratégies d'éditeur*. Les stratégies d'éditeur sont un ensemble de fonctionnalités d'exécution conçu pour fournir de grands nombres d’éditeurs d'événements indépendants. Avec les stratégies d'éditeur, chaque éditeur utilise son propre identificateur unique lors de la publication d'événements sur un hub d'événements, à l'aide du mécanisme suivant :
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
@@ -152,19 +152,20 @@ Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils do
 
 ## Résumé
 
-Les hubs d'événements Azure fournissent un service évolutif de traitement de télémétrie et d'événement qui peut être utilisé pour la surveillance courante d'application et du workflow utilisateur à toute échelle. Grâce à leur capacité à fournir des fonctionnalités publication-abonnement avec une faible latence et à grande échelle, les hubs d'événements constituent la « base » des données volumineuses (Big Data). Avec l'identité basée sur l'éditeur et les listes de révocation, ces fonctionnalités sont étendues à des scénarios Internet des objets (IoT) courants. Pour plus d'informations sur le développement d'applications de hubs d'événements, consultez le [Guide de programmation Event Hubs](event-hubs-programming-guide.md).
+Les hubs d'événements Azure fournissent un service évolutif de traitement de télémétrie et d'événement qui peut être utilisé pour la surveillance courante d'application et du workflow utilisateur à toute échelle. Grâce à leur capacité à fournir des fonctionnalités publication-abonnement avec une faible latence et à grande échelle, les hubs d'événements constituent la « base » des données volumineuses (Big Data). Avec l'identité basée sur l'éditeur et les listes de révocation, ces fonctionnalités sont étendues à des scénarios Internet des objets (IoT) courants. Pour plus d'informations sur le développement d'applications de hubs d'événements, consultez le [Guide de programmation de hubs d'événements](event-hubs-programming-guide.md).
 
 ## Étapes suivantes
 
 À présent que vous avez découvert les concepts Event Hubs, vous pouvez passer aux scénarios suivants :
 
-- Prise en main avec un [didacticiel Event Hubs].
-- [Exemple complet d’une application qui utilise Event Hubs].
+- Prise en main avec un [didacticiel des hubs d'événements].
+- Un [exemple d'application complet qui utilise des hubs d’événements].
 - Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
 
-[didacticiel Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
-[Exemple complet d’une application qui utilise Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[portail Azure Classic]: http://manage.windowsazure.com
+[didacticiel des hubs d'événements]: event-hubs-csharp-ephcs-getstarted.md
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

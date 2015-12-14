@@ -24,7 +24,7 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 
 ## Paramètres de sauvegarde automatisée
 
-Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure en version préliminaire ou Azure Windows PowerShell.
+Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure ou Azure Windows PowerShell.
 
 |Paramètre|Plage (par défaut)|Description|
 |---|---|---|
@@ -34,21 +34,21 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 |**Chiffrement**|Activer/Désactiver (désactivé)|Active ou désactive le chiffrement. Lorsque le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié dans le même conteneur automaticbackup à l’aide de la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures.|
 |**Mot de passe**|Texte du mot de passe (aucun)|Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée.|
 
-## Configurer une sauvegarde automatisée dans le portail Azure en version préliminaire
+## Configurer une sauvegarde automatisée dans le portail Azure
 
-Vous pouvez utiliser le portail Azure en version préliminaire pour configurer une sauvegarde automatisée lorsque vous créez une machine virtuelle SQL Server 2014.
+Vous pouvez utiliser le portail Azure pour configurer une sauvegarde automatisée lorsque vous créez une machine virtuelle SQL Server 2014.
 
 >[AZURE.NOTE]La sauvegarde automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d'informations, consultez la page [Extensions et agent de machine virtuelle](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
-La capture d'écran suivante du portail Azure en version préliminaire présente ces options sous **CONFIGURATION FACULTATIVE** | **SAUVEGARDE AUTOMATISÉE SQL**.
+La capture d’écran du portail Azure suivante présente ces options sous **CONFIGURATION FACULTATIVE** | **SAUVEGARDE AUTOMATISÉE SQL**.
 
-![Configuration d'une sauvegarde automatisée SQL dans le portail Azure en version préliminaire](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
+![Configuration d’une sauvegarde automatisée SQL dans le portail Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
 Pour les machines virtuelles SQL Server 2014 existantes, sélectionnez les paramètres de **sauvegarde automatisée** dans la section **Configuration** des propriétés de la machine virtuelle. Dans la fenêtre **Sauvegarde automatisée**, vous pouvez activer la fonctionnalité, définir la période de rétention, sélectionner le compte de stockage et définir le chiffrement. Cette situation est présentée dans la capture d’écran suivante.
 
-![Configuration d'une sauvegarde automatisée dans le portail Azure en version préliminaire](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
+![Configuration d’une sauvegarde automatisée dans le portail Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]Lorsque vous activez la sauvegarde automatisée pour la première fois, Azure configure l’agent IaaS de SQL Server en arrière-plan. Pendant ce temps, le portail Azure en version préliminaire n'indique pas que la sauvegarde automatisée est configurée. Patientez quelques minutes jusqu’à ce que l’agent soit installé et configuré. Le portail Azure en version préliminaire reflète alors les nouveaux paramètres.
+>[AZURE.NOTE]Lorsque vous activez la sauvegarde automatisée pour la première fois, Azure configure l’agent IaaS de SQL Server en arrière-plan. Pendant ce temps, le portail Azure n’indique pas que la sauvegarde automatisée est configurée. Patientez quelques minutes jusqu’à ce que l’agent soit installé et configuré. Le portail Azure reflète alors les nouveaux paramètres.
 
 ## Configurer une sauvegarde automatisée avec PowerShell
 
@@ -114,4 +114,4 @@ La [mise à jour corrective automatisée pour SQL Server dans les machines virt
 
 Passez en revue les autres [ressources liées à l'exécution de SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

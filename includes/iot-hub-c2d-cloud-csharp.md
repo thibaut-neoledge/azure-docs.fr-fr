@@ -18,7 +18,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 		using Microsoft.Azure.Devices;
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs d’espace réservé par le nom du concentrateur IoT et la chaîne de connexion du concentrateur IoT de la section [Prise en main d’IoT Hub] :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant la valeur d’espace réservé par la chaîne de connexion du concentrateur IoT de la section [Prise en main d’IoT Hub] :
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -102,4 +102,4 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** po
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

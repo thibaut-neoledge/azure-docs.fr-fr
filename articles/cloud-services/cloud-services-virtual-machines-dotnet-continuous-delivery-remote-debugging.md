@@ -36,7 +36,7 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 ## Activation du débogage distant pour les machines virtuelles
 
 1. Créez une machine virtuelle Azure. Consultez [Création d’une machine virtuelle exécutant Windows Server](virtual-machines-windows-tutorial.md) ou [Créer et gérer des machines virtuelles Azure dans Visual Studio](vs-azure-tools-virtual-machines-create-manage.md).
-2. Dans la [page du portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l’**empreinte numérique de certificat RDP** de la machine virtuelle. Cette valeur est utilisée pour la valeur `ServerThumbprint` dans la configuration de l’extension.
+2. Sur la [page du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l’**EMPREINTE NUMÉRIQUE DE CERTIFICAT RDP** de la machine virtuelle. Cette valeur est utilisée pour la valeur `ServerThumbprint` dans la configuration de l’extension.
 3. Créez un certificat client comme expliqué dans [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md) (conservez l’empreinte numérique de certificat .pfx et RDP).
 4. Installez Azure PowerShell (version 0.7.4 ou ultérieure) comme indiqué dans [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 5. Exécutez le script suivant pour activer l'extension RemoteDebug. Remplacez les chemins d’accès et les données personnelles par les vôtres, notamment le nom de l'abonnement, le nom du service et l'empreinte numérique.
@@ -44,50 +44,50 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 	>[AZURE.NOTE]Ce script est configuré pour Visual Studio 2015. Si vous utilisez Visual Studio 2013, utilisez « RemoteDebugVS2013 » pour le nom de la référence et de l’extension.
 
 	<pre>
-    Add-AzureAccount
+Add-AzureAccount
 
-    Select-AzureSubscription "My Microsoft Subscription"
+Select-AzureSubscription "My Microsoft Subscription"
 
-    $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
+$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
 
-    $endpoints = @(
-    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
-    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
-    )
+$endpoints = @(
+,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+)
 
-    foreach($endpoint in $endpoints)
-    {
-    Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
-    }
+foreach($endpoint in $endpoints)
+{
+Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+}
 
-    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
-    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-    $extensionName = "RemoteDebugVS2015"
-    $version = "1.*"
-    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
+$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+$extensionName&#160;= "RemoteDebugVS2015"
+$version = "1.*"
+$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `
-    -PublicConfiguration $publicConfiguration
+$vm | Set-AzureVMExtension `
+-ReferenceName $referenceName `
+-Publisher $publisher `
+-ExtensionName $extensionName `
+-Version $version `
+-PublicConfiguration $publicConfiguration
 
-    foreach($extension in $vm.VM.ResourceExtensionReferences)
-    {
-    if(($extension.ReferenceName -eq $referenceName) `
-    -and ($extension.Publisher -eq $publisher) `
-    -and ($extension.Name -eq $extensionName) `
-    -and ($extension.Version -eq $version))
-    {
-    $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
-    break
-    }
-    }
+foreach($extension in $vm.VM.ResourceExtensionReferences)
+{
+if(($extension.ReferenceName -eq $referenceName) `
+-and ($extension.Publisher -eq $publisher) `
+-and ($extension.Name -eq $extensionName) `
+-and ($extension.Version -eq $version))
+{
+$extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+break
+}
+}
 
-    $vm | Update-AzureVM
-	</pre>
+$vm | Update-AzureVM
+</pre>
 
 6. Importez le certificat (.pfx) sur l'ordinateur sur lequel Visual Studio et le Kit de développement logiciel (SDK) Azure pour .NET sont installés.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

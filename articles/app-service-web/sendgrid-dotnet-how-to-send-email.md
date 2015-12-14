@@ -116,7 +116,7 @@ Une fois le message électronique créé, vous pouvez l'envoyer à l'aide de l'A
 
 Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe) ou votre clé d’API SendGrid. La clé d’API est la méthode privilégiée. Pour plus de détails sur la configuration des clés d’API, consultez notre [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html).
 
-Vous pouvez stocker ces informations d'identification via votre portail Azure en cliquant sur CONFIGURER et en ajoutant les paires clé/valeur sous « paramètres de l'application ».
+Vous pouvez stocker ces informations d’identification via votre portail Azure en cliquant sur CONFIGURER et en ajoutant les paires clé / valeur dans Paramètres de l’application.
 
  ![Paramètres de l’application Azure][azure_app_settings]
 
@@ -261,4 +261,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # Prise en main du service de gestion des partenaires commerciaux BizTalk et ajout de celui-ci à votre application logique
@@ -39,4 +39,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

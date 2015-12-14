@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Méthodes de routage de Traffic Manager
@@ -23,7 +23,7 @@ Il est important de noter que toutes les méthodes de routage du trafic incluent
 
 Les trois méthodes de routage du trafic de Traffic Manager sont :
 
-- **Basculement **: sélectionnez cette méthode quand vos points de terminaison se trouvent dans le même centre de données Azure (appelé région dans le portail de gestion) ou dans des centres de données Azure différents, et que vous voulez utiliser un point de terminaison principal pour tout le trafic, tout en fournissant des sauvegardes au cas où le point de terminaison principal ou les points de terminaison de sauvegarde ne seraient pas disponibles. Pour plus d’informations, consultez la section [Méthode de routage du trafic par basculement](#failover-traffic-routing-method).
+- **Basculement** : sélectionnez cette méthode quand vos points de terminaison se trouvent dans le même centre de données Azure (appelé région dans le portail Azure) ou dans des centres de données Azure différents, et que vous voulez utiliser un point de terminaison principal pour tout le trafic, tout en fournissant des sauvegardes au cas où le point de terminaison principal ou les points de terminaison de sauvegarde ne seraient pas disponibles. Pour plus d’informations, consultez la section [Méthode de routage du trafic par basculement](#failover-traffic-routing-method).
 
 - **Tourniquet** : sélectionnez cette méthode quand vous souhaitez répartir la charge sur un ensemble de points de terminaison situés dans le même centre de données ou dans différents centres de données. Pour plus d’informations, consultez la section [Méthode de routage du trafic en tourniquet (round robin)](#round-robin-traffic-routing-method).
 
@@ -37,7 +37,7 @@ Notez qu'Azure Websites fournit déjà des méthodes de routage du trafic par ba
 
 Bien souvent, une organisation souhaite assurer une certaine fiabilité pour ses services. Pour ce faire, elle fournit des services de sauvegarde au cas où le service principal serait hors fonction. Dans le cadre du basculement des services, il est courant d'utiliser un ensemble de points de terminaison identiques et de diriger le trafic vers un service principal, avec une liste répertoriant une ou plusieurs sauvegardes. Si le service principal n'est pas disponible, les clients à l'origine de la demande sont redirigés vers le service suivant dans l'ordre. Si les premier et deuxième services dans la liste ne sont pas disponibles, le trafic est envoyé vers le troisième, et ainsi de suite.
 
-Quand vous configurez la méthode de routage du trafic par basculement, l'ordre des points de terminaison sélectionnés est important. À l'aide du portail de gestion, vous pouvez configurer l'ordre de basculement dans la page Configuration associée au profil.
+Quand vous configurez la méthode de routage du trafic par basculement, l'ordre des points de terminaison sélectionnés est important. À l'aide du portail Azure, vous pouvez configurer l'ordre de basculement dans la page Configuration associée au profil.
 
 La figure 1 est un exemple qui illustre la méthode de routage du trafic par basculement pour un ensemble de points de terminaison.
 
@@ -81,7 +81,7 @@ Le routage du trafic en tourniquet (round robin) pondéré vous permet de répar
 - Migration d’applications vers Azure : créez un profil avec des points de terminaison Azure et externes, et spécifiez la pondération du trafic acheminé vers chaque point de terminaison.
 - Extension du cloud pour une capacité supplémentaire : étendez rapidement un déploiement local dans le cloud en le plaçant derrière un profil Traffic Manager. Quand vous avez besoin d'une capacité supplémentaire dans le cloud, vous pouvez ajouter ou activer des points de terminaison supplémentaires et spécifier quelle partie du trafic est destinée à chaque point de terminaison.
 
-Pour le moment, vous ne pouvez pas utiliser le portail de gestion pour configurer le routage du trafic pondéré. Azure fournit un accès par programmation à cette méthode à l'aide des applets de commande PowerShell Azure et des API REST Service Management associées.
+Pour le moment, vous ne pouvez pas utiliser le portail Azure pour configurer le routage du trafic pondéré. Azure fournit un accès par programmation à cette méthode à l'aide des applets de commande PowerShell Azure et des API REST Service Management associées.
 
 Pour plus d’informations sur l’utilisation des API REST, consultez [Opérations sur Traffic Manager (informations de référence sur les API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
@@ -130,4 +130,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 [Ajout d’un point de terminaison](traffic-manager-endpoints.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

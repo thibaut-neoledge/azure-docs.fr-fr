@@ -22,7 +22,7 @@
 
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerShell et l’interface de ligne de commande Azure pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ Les applications web App Service journalisent également les informations de d�
 
 ## <a name="enablediag"></a>Activation des diagnostics
 
-Pour activer les diagnostics sur le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostic**.
+Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez au panneau de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostic**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,9 +59,9 @@ Quand vous activez le **diagnostic d’application**, vous choisissez aussi le *
 
 > [AZURE.NOTE]Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 
-Dans le [portail Azure](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
+Dans le [portail Azure Classic](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-Dans le [portail Azure](https://manage.windowsazure.com), l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
+Dans le [portail Azure Classic](https://manage.windowsazure.com), l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
 
 * **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
 * **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
@@ -99,7 +99,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 
 ### FTP
 
-Pour accéder à des informations de diagnostic par FTP, consultez le **Tableau de bord** de votre application web sur le [portail Azure](https://manage.windowsazure.com). Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
+Pour accéder à des informations de diagnostic par FTP, consultez le **Tableau de bord** de votre application web sur le [portail Azure Classic](https://manage.windowsazure.com). Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
 
 > [AZURE.NOTE]Si l’entrée **Utilisateur du déploiement/FTP** n’est pas définie ou si vous avez oublié le mot de passe de cet utilisateur, vous pouvez créer un utilisateur et un mot de passe en utilisant le lien **Réinitialiser les informations d’identification du déploiement** dans la section **Aperçu rapide** du **Tableau de bord**.
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 2. Ajoutez le package de l’écouteur de suivi à votre projet.
  * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet. Sélectionnez `Microsoft.ApplicationInsights.TraceListener` [En savoir plus](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
-4. Sur le [portail Azure en version préliminaire](http://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous pouvez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../application-insights/app-insights-diagnostic-search.md)
+4. Dans le [portail Azure](http://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous pouvez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../application-insights/app-insights-diagnostic-search.md)
 
 [En savoir plus sur le suivi des performances avec Application Insights](../insights-perf-analytics.md)
 
@@ -259,7 +259,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 
 ##<a name="nextsteps"></a>Étapes suivantes
 
-- [Surveillance d’applications Web](/fr-FR/manage/services/web-sites/how-to-monitor-websites/)
+- [Surveillance d’applications Web](/manage/services/web-sites/how-to-monitor-websites/)
 - [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analyse des journaux d’application Web dans HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (en anglais)
 
@@ -270,4 +270,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@ Dans ce didacticiel, vous allez apprendre à créer une application web App Serv
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 >
->La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans la [version préliminaire du portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Configuration requise ##
 
@@ -116,11 +116,11 @@ Votre application Visual Studio nécessite une base de données d'appartenance �
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Création d’une application web dans la version préliminaire du portail Azure ##
+## B. Créer une application web dans le portail Azure ##
 
-> [AZURE.NOTE]Si vous avez déjà créé dans la version préliminaire du portail Azure une application web que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
+> [AZURE.NOTE]Si vous avez déjà créé dans le portail Azure une application Web que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
 
-1. Dans la [version préliminaire du portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web et mobilité** > **Application web**.
+1. Dans le [Portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web + mobile** > **Application Web**.
 
 	![New button][New]
 
@@ -239,7 +239,7 @@ Vous allez maintenant publier votre application dans votre application web App S
 
 ### Publication de l'application web ###
 
-1. Vous pouvez télécharger votre profil de publication de l’application web App Service dans la version préliminaire du portail Azure. Dans le panneau de votre application web, cliquez sur **Obtenir le profil de publication**, puis enregistrez le fichier sur votre ordinateur.
+1. Vous pouvez télécharger votre profil de publication de l’application web App Service dans le portail Azure. Dans le panneau de votre application web, cliquez sur **Obtenir le profil de publication**, puis enregistrez le fichier sur votre ordinateur.
 
 	![Télécharger le profil de publication][PortalDownloadPublishProfile]
 
@@ -363,4 +363,4 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

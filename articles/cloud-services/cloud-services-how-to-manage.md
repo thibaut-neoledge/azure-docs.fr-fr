@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment gérer des services cloud dans le portail Azure." 
+	description="Découvrez comment gérer des services cloud dans le portail Azure Classic." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -23,17 +23,17 @@
 # Gestion des services cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-Dans la zone **Cloud Services** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
+Dans la zone **Services cloud** du portail Azure Classic, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d’étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
 
 ## Mise à jour d’un rôle ou d’un déploiement de service cloud
 
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le tableau de bord, la page **Cloud Services** ou la page **Instances**. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), dans le tableau de bord, dans la page **Services cloud** ou dans la page **Instances**, cliquez sur **Mettre à jour**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -63,7 +63,7 @@ Utilisez **Swap** pour faire passer le déploiement intermédiaire d'un service 
 
 Vous pouvez inverser les déploiements à partir de la page **Cloud Services** ou du tableau de bord.
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Services cloud**.
 
 2. Dans la liste des services cloud, cliquez sur le service cloud pour le sélectionner.
 
@@ -85,7 +85,7 @@ Pour voir les dépendances de votre service par rapport à d'autres ressources, 
 
 Utilisez **Link** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Scale**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées](cloud-services-how-to-scale.md).
 
-Vous pouvez également surveiller, gérer et étendre la base de données dans le nœud **Databases** du portail de gestion.
+Vous pouvez également surveiller, gérer et étendre la base de données dans le nœud **Bases de données** du portail Azure Classic.
 
 Dans ce sens, la liaison d'une ressource ne connecte pas votre application à la ressource. Si vous créez une nouvelle base de données à l'aide de **Link**, vous devez ajouter les chaînes de connexion au code de votre application, puis mettre à niveau le service cloud. Vous aurez également besoin d'ajouter des chaînes de connexion si votre application utilise des ressources dans un compte de stockage lié.
 
@@ -93,7 +93,7 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 ### Liaison d'une instance de base de données SQL à un service cloud
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Linked Resources**.
 
@@ -109,9 +109,9 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 4. Cliquez sur **Create a new resource** ou **Link an existing resource**.
 
-5. Choisissez le type de ressource à lier. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **SQL Database**. (L'aperçu du portail de gestion ne prend pas en charge la liaison d'un compte de stockage à un service cloud.)
+5. Choisissez le type de ressource à lier. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Base de données SQL**. La version préliminaire du portail Azure Classic ne prend pas en charge la liaison d’un compte de stockage à un service cloud.
 
-6. Afin de terminer la configuration de la base de données, suivez les instructions de l'aide dans la zone **SQL Databases** du portail de gestion.
+6. Pour terminer la configuration de la base de données, suivez les instructions de l’aide dans la zone **Bases de données SQL** du portail Azure Classic.
 
 	Vous pouvez suivre l'état de l'opération de liaison dans la zone de messages.
 
@@ -121,13 +121,13 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 ### Pour annuler la liaison d'une ressource liée
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Linked Resources**, puis sélectionnez la ressource.
 
 3. Cliquez sur **Unlink**. Cliquez ensuite sur **Yes** dans l'invite de confirmation.
 
-	L'annulation de la liaison d'une base de données SQL n'a pas d'effet sur la base de données ou sur les connexions de l'application à la base de données. Vous pouvez gérer la base de données dans la zone **SQL Databases** du portail de gestion.
+	L'annulation de la liaison d'une base de données SQL n'a pas d'effet sur la base de données ou sur les connexions de l'application à la base de données. Vous pouvez gérer la base de données dans la zone **Bases de données SQL** du portail Azure Classic.
 
 
 
@@ -139,7 +139,7 @@ Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploieme
 
 Utiliser la procédure suivante pour supprimer un déploiement ou un service cloud.
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**.
 
 2. Sélectionnez le service cloud, puis cliquez sur **Delete**. (Pour sélectionner un service cloud sans ouvrir le tableau de bord, cliquez n'importe où, sauf sur le nom dans l'entrée du service cloud.)
 
@@ -154,9 +154,7 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
-> [AZURE.NOTE]
-Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail de gestion » sur la page <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
-
+> [AZURE.NOTE]Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail Azure Classic » sur la page [Surveillance des services cloud](cloud-services-how-to-monitor.md).
 
 ## Étapes suivantes
 
@@ -165,4 +163,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

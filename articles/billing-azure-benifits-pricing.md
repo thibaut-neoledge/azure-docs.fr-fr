@@ -20,6 +20,6 @@
 
 #Où puis-je trouver les informations sur les avantages et la tarification des services Azure ?
 
-Microsoft Azure vous aide à déployer rapidement une infrastructure et des services en fonction des besoins de votre entreprise. Vous pouvez exécuter des applications Windows et Linux dans 19 régions (centres de données) Azure associées à des contrats SLA adaptés aux entreprises. Pour plus d’informations sur les avantages des services Azure, consultez la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/fr-FR/support/legal/offer-details/). Pour plus d’informations sur la tarification, consultez la page [Tarification Azure](https://azure.microsoft.com/fr-FR/pricing/).
+Microsoft Azure vous aide à déployer rapidement une infrastructure et des services en fonction des besoins de votre entreprise. Vous pouvez exécuter des applications Windows et Linux dans 19 régions (centres de données) Azure associées à des contrats SLA adaptés aux entreprises. Pour plus d’informations sur les avantages des services Azure, consultez la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Pour plus d’informations sur la tarification, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

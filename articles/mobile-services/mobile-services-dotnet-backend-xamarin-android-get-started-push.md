@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Ajout de notifications push à votre application Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##Vue d'ensemble
+
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Xamarin.Android. Dans ce didacticiel, vous allez ajouter des notifications push au projet [Prise en main de Mobile Services] à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
-
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
-
-1. [Activer Google Cloud Messaging](#register)
-2. [Configurer Mobile Services](#configure)
-3. [Configurer le projet pour les notifications push](#configure-app)
-4. [Ajouter le code des notifications push à votre application](#add-push)
-5. [Insérer des données pour recevoir des notifications](#test)
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -75,4 +74,4 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

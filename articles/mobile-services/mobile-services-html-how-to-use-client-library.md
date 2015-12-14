@@ -43,9 +43,9 @@ Dans l'éditeur, ouvrez ou créez un fichier JavaScript, ajoutez le code suivant
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-Vous devez remplacer l’espace réservé `AppUrl` par l’URL d’application de votre service mobile et `AppKey` par la clé d’application, que vous récupérez du [portail Azure](http://manage.windowsazure.com/).
+Vous devez remplacer l’espace réservé `AppUrl` par l’URL d’application de votre service mobile et `AppKey` par la clé d’application, que vous récupérez du [portail Azure Classic](http://manage.windowsazure.com/).
 
->[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire par rapport à votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#authentication).
+>[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire sur votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#authentication).
 
 ##<a name="querying"></a>Procédure : interrogation des données à partir d'un service mobile
 
@@ -624,7 +624,7 @@ Outre la personnalisation des en-têtes de requête, les filtres peuvent être u
 
 ##<a name="hostnames"></a>Procédure : utilisation de CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)
 
-Pour contrôler les sites web autorisés à interagir avec les requêtes et à en envoyer à votre service mobile, veillez à ajouter le nom d'hôte du site web utilisé pour l'héberger dans la liste approuvée CORS (Cross-Origin Resource Sharing). Pour un service mobile de backend JavaScript, vous pouvez configurer la liste approuvée sous l'onglet Configurer du [portail de gestion Azure](https://manage.windowsazure.com). Vous pouvez utiliser des caractères génériques le cas échéant. Par défaut, les nouveaux services mobiles indiquent aux navigateurs d'autoriser l'accès uniquement à partir de `localhost`, et CORS (Cross-Origin Resource Sharing) permet au code JavaScript de s'exécuter dans un navigateur sur un nom d'hôte externe à des fins d'interaction avec votre service mobile. Cette configuration n'est pas requise pour les applications WinJS.
+Pour contrôler les sites web autorisés à interagir avec les requêtes et à en envoyer à votre service mobile, veillez à ajouter le nom d'hôte du site web utilisé pour l'héberger dans la liste approuvée CORS (Cross-Origin Resource Sharing). Pour un service mobile de backend JavaScript, vous pouvez configurer la liste approuvée sous l'onglet Configurer du [portail Azure Classic](https://manage.windowsazure.com). Vous pouvez utiliser des caractères génériques le cas échéant. Par défaut, les nouveaux services mobiles indiquent aux navigateurs d'autoriser l'accès uniquement à partir de `localhost`, et CORS (Cross-Origin Resource Sharing) permet au code JavaScript de s'exécuter dans un navigateur sur un nom d'hôte externe à des fins d'interaction avec votre service mobile. Cette configuration n'est pas requise pour les applications WinJS.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -665,4 +665,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

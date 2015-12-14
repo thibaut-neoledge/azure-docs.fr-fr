@@ -59,6 +59,10 @@ Les données de télémétrie incluent :
 
 Le nombre d’utilisateurs et de sessions n’est pas inclus dans le quota à des fins de tarification.
 
+*Que se passe-t-il si mon application dépasse le taux par seconde ?*
+
+* Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Certaines versions du Kit de développement logiciel (SDK) essaient de renvoyer, en diffusant un pic pendant plusieurs minutes ; d’autres, comme le SDK JavaScript, abandonnent simplement les données refusées.
+
 *Comment savoir combien de points de données envoie mon application ?*
 
 * Ouvrez Paramètres/Quota et tarification pour découvrir le graphique du volume de données.
@@ -66,8 +70,8 @@ Le nombre d’utilisateurs et de sessions n’est pas inclus dans le quota à de
 
 *Comment puis-je réduire le volume de données envoyé par mon application ?*
 
-* Utilisez l'[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre les éléments associés dans la recherche.
-* [Désactivez les collecteurs de données de télémétrie](app-insights-configuration-with-applicationinsights-config.md) dont vous n'avez pas besoin.
+* Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. À partir du Kit de développement logiciel (SDK) ASP.NET 2.0.0-beta3, l’échantillonnage adaptatif est activé par défaut.
+* [Désactivez les collecteurs de données de télémétrie](app-insights-configuration-with-applicationinsights-config.md) dont vous n’avez pas besoin.
 
 
 #### Combien de temps sont conservées les données ? 
@@ -112,7 +116,7 @@ Microsoft n’utilise les données que pour vous fournir le service.
 
 #### Mes données sont-elles sécurisées ? 
 
-Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions correspondantes sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure.](http://go.microsoft.com/fwlink/?linkid=392408) Pour les comptes du portail Visual Studio Team Services, le document [relatif à la protection des données dans Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) s'applique.
+Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions correspondantes sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure](http://go.microsoft.com/fwlink/?linkid=392408). Pour les comptes du portail Visual Studio Team Services, le document [relatif à la protection des données dans Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) s’applique.
 
 L'accès à vos données par le personnel Microsoft est limité. Nous n'accédons à vos données qu'avec votre autorisation, et seulement pour vous aider à utiliser Application Insights.
 
@@ -245,7 +249,7 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
@@ -255,4 +259,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

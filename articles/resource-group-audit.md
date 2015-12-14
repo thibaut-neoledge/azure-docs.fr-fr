@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
@@ -27,13 +27,13 @@ Il existe deux limitations importantes à prendre en compte lorsque vous travail
 1. Les journaux d’audit sont conservés pendant 90 jours seulement.
 2. Vous pouvez demander une plage de 15 jours maximum.
 
-Vous pouvez récupérer des informations à partir des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure en version préliminaire.
+Vous pouvez récupérer des informations à partir des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure.
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version préliminaire 1.0). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
+Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version 1.0). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
 
 L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée. Les dates de début et de fin sont indiquées dans un format de date.
 
@@ -144,9 +144,9 @@ Si la liste des opérations à partir du dernier déploiement est trop longue, v
 
 Les opérations REST à utiliser avec le journal d’audit font partie de l’[API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’audit, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portail en version préliminaire
+## Portail
 
-Vous pouvez également afficher des opérations journalisées via le portail en version préliminaire. Il vous suffit de sélectionner le panneau des journaux d’audit.
+Vous pouvez également afficher des opérations journalisées via le portail. Il vous suffit de sélectionner le panneau des journaux d’audit.
 
 ![sélectionner des journaux d’audit](./media/resource-group-audit/select-audit.png)
 
@@ -162,4 +162,4 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 - Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

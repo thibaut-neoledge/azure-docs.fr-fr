@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Index d'article HDInsight pour le portail Azure | Microsoft Azure"
-   description="Page d'index avec des liens vers des articles sur HDInsight sur le portail Azure. Microsoft recommande le portail Azure en version préliminaire pour les clusters Hadoop sur HDInsight."
+   pageTitle="Index d’articles HDInsight pour le portail Azure Classic | Microsoft Azure"
+   description="Page d’index avec des liens vers des articles sur HDInsight sur le portail Azure Classic. Microsoft recommande le portail Azure pour les nouveaux clusters Hadoop sur HDInsight."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Index d'article HDInsight pour le portail Azure
+# Index d’articles HDInsight pour le portail Azure Classic
 
-Utilisez cette page d'index pour trouver des articles parlant de HDInsight sur le [Portail Azure](https://manage.windowsazure.com/). Azure HDInsight est une distribution par cloud du logiciel open-source Hadoop et de Hortonworks Data Platform.
+Utilisez cette page d’index pour trouver des articles parlant de HDInsight sur le [portail Azure Classic](https://manage.windowsazure.com/). Azure HDInsight est une distribution par cloud du logiciel open-source Hadoop et de Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]Cette page d'index de documentation s'adresse aux clients qui disposent déjà de solutions déployées sur le portail Azure.
+> [AZURE.IMPORTANT]Cette page d’index de documentation s’adresse aux clients qui disposent déjà de solutions déployées sur le portail Azure Classic.
 >
-> Microsoft recommande l'utilisation du **portail Azure en version** préliminaire pour les nouveaux clusters HDInsight :
+> Microsoft recommande l’utilisation du **portail Azure** pour les nouveaux clusters HDInsight :
 >
-> * [Accédez à la documentation relative à la version préliminaire du portail HDInsight](/documentation/services/hdinsight/)
-> * [Accédez à la version préliminaire du portail Azure](https://portal.azure.com/)
+> * [Accéder à la documentation relative au portail HDInsight](/documentation/services/hdinsight/)
+> * [Accéder au portail Azure](https://portal.azure.com/)
 >
-> Pour obtenir une explication des avantages du portail en version préliminaire, consultez la page [Les opérations de développement sont désormais bien plus impressionnantes](/overview/preview-portal/).
+> Pour obtenir une explication des avantages du portail, consultez la page [Les opérations de développement sont désormais bien plus impressionnantes](/overview/preview-portal/).
 >
-> Sur le portail Azure, HDInsight ne recevra plus de mises à niveau après le juillet 2015 et sera remplacé par la version préliminaire du portail Azure.
+> Sur le portail Azure Classic, HDInsight ne reçoit plus de mises à niveau depuis le juillet 2015 et a été remplacé par le portail Azure.
 
 ## Prise en main
 
-Si vous êtes novice dans Hadoop sur HDInsight, accédez à la [page de documentation HDInsight](/documentation/services/hdinsight/) pour vous familiariser avec la version préliminaire du portail Azure.
+Si vous êtes novice dans Hadoop sur HDInsight, accédez à la [page de documentation HDInsight](/documentation/services/hdinsight/) pour vous familiariser avec le portail Azure.
 
 ## Linux
 
@@ -81,7 +81,7 @@ Pour obtenir un ensemble complet d'articles au sujet de Linux et des clusters Li
 
 ## Apache Spark
 
-Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark natifs dans la version préliminaire du portail Azure, consultez la [page de documentation HDInsight](/documentation/services/hdinsight/).
+Pour obtenir des articles relatifs à l’utilisation des clusters Apache Spark natifs dans le portail Azure, consultez la [page de documentation HDInsight](/documentation/services/hdinsight/).
 
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Installation et utilisation de Spark sur des clusters Hadoop](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@ Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark na
 * [Interprétation des messages d'erreur](hdinsight-debug-jobs.md)
 * [Obtenir de l'aide sur le forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

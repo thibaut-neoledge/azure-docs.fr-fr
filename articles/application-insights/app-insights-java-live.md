@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Application Insights pour les applications web qui sont déjà actives
@@ -21,7 +21,7 @@
 
 Si vous disposez d’une application web qui est déjà en cours d’exécution sur votre serveur J2EE, vous pouvez commencer à la surveiller avec [Application Insights](app-insights-overview.md) sans avoir à modifier le code ni à recompiler votre projet. Grâce à cette option, vous obtenez des informations sur les requêtes HTTP envoyées à votre serveur, les exceptions non gérées et les compteurs de performances.
 
-Vous devrez vous abonner à [Microsoft Azure](http://azure.com).
+Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE]La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
 
@@ -30,13 +30,13 @@ Vous devrez vous abonner à [Microsoft Azure](http://azure.com).
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 2. Créer une ressource Application Insights dans Azure
 
-    ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-get-started/01-create.png)
+    ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-live/01-create.png)
 3. Définissez le type d’application sur Application web Java.
 
-    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-get-started/02-create.png)
+    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-live/02-create.png)
 4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.
 
-    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-get-started/03-key.png)
+    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-live/03-key.png)
 
 ## 2\. Télécharger le Kit de développement logiciel (SDK)
 
@@ -111,18 +111,18 @@ Revenez à votre ressource Application Insights sur le [portail Microsoft Azure]
 
 Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
-![Exemples de données](./media/app-insights-java-get-started/5-results.png)
+![Exemples de données](./media/app-insights-java-live/5-results.png)
  
 
 Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
 
-![](./media/app-insights-java-get-started/6-barchart.png)
+![](./media/app-insights-java-live/6-barchart.png)
 
  
 
 Et lorsque vous affichez les propriétés d'une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
  
-![](./media/app-insights-java-get-started/7-instance.png)
+![](./media/app-insights-java-live/7-instance.png)
 
 
 [En savoir plus sur les mesures.](app-insights-metrics-explorer.md)
@@ -139,4 +139,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

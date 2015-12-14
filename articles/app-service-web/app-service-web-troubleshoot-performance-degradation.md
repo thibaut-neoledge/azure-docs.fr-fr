@@ -50,7 +50,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 
 #### Suivi de l’état du service
 
-Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure en version préliminaire](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](insights-service-health.md).
+Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](insights-service-health.md).
 
 #### Contrôle de votre application web
 
@@ -174,16 +174,16 @@ Vous pouvez définir la mise à l’échelle pour qu’elle soit manuelle ou aut
 
 ####	Utilisation de la correction automatique (AutoHeal)
 
-La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application web directement dans le portail Azure en version préliminaire, la fonctionnalité de correction automatique (AutoHeal) le fera automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application web. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .Net.
+La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application web directement dans le portail Azure, la fonctionnalité de correction automatique (AutoHeal) le fera automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application web. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .Net.
 
 Pour plus d’informations, consultez [Correction automatique de Sites Web Azure](/blog/auto-healing-windows-azure-web-sites/).
 
 ####	Redémarrage de l’application web
 
-Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure en version préliminaire](https://portal.azure.com), sur le panneau de votre application web, vous disposez des options pour arrêter ou redémarrer votre application.
+Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com), sur le panneau de votre application web, vous disposez des options pour arrêter ou redémarrer votre application.
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

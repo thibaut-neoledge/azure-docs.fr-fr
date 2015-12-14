@@ -45,7 +45,7 @@ La deuxième tâche opère sur les valeurs d’appareil à seuil créées dans l
 
 ## Ajout de vos propres règles
 
-En plus de modifier les tâches Azure Stream Analytics préconfigurées, vous pouvez utiliser le portail Azure en version préliminaire pour ajouter de nouvelles tâches ou ajouter de nouvelles requêtes aux tâches existantes.
+En plus de modifier les tâches Azure Stream Analytics préconfigurées, vous pouvez utiliser le portail Azure pour ajouter de nouvelles tâches ou ajouter de nouvelles requêtes aux tâches existantes.
 
 ## Personnalisation des appareils
 
@@ -69,4 +69,4 @@ Pour plus d’informations sur les appareils IoT, consultez le [site de dévelop
 
 [Kit SDK d’appareils IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

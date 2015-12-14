@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory" 
-	description="Découvrez comment utiliser le portail de gestion Azure et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
+	description="Découvrez comment utiliser le portail Azure Classic et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ Le service Data Factory offre une vision fiable et complète de vos services de 
 Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines. Vous obtiendrez également des informations sur la façon de créer des alertes et être averti en cas d’échec.
 
 ## Présentation des pipelines et des états d’activité
-À l'aide du portail Azure en version préliminaire, vous pouvez afficher votre fabrique de données sous forme de diagramme, voir les activités d’un pipeline, visualiser les jeux de données d’entrée et de sortie, et bien plus encore. Cette section montre également comment une tranche de données passe d'un état à un autre.
+À l'aide du portail Azure, vous pouvez afficher votre fabrique de données sous forme de diagramme, voir les activités d’un pipeline, visualiser les jeux de données d’entrée et de sortie, et bien plus encore. Cette section montre également comment une tranche de données passe d'un état à un autre.
 
 ### Accédez à votre fabrique de données
-1.	Connectez-vous au [Portail Azure en version préliminaire](http://portal.azure.com).
+1.	Connectez-vous au [portail Azure](http://portal.azure.com).
 2.	Cliquez sur **Parcourir tout** et sélectionnez **Fabriques de données**.
 	
 	![Parcourir tout -> Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -150,7 +151,7 @@ Le flux de transition d'états des jeux de données de la fabrique de données i
 
 Les tranches commencent par l’état **Waiting**. Elles attendent alors que les conditions préalables soient respectées avant l’exécution. Ensuite, l’activité est exécutée et la tranche passe à l’état **In-Progress**. L'exécution de l'activité peut alors réussir ou échouer. En fonction du résultat, la tranche passe à l’état **Ready** ou **Failed**.
 
-L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **Skip** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
+L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **SKIP** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
 
 
 ## Gestion des pipelines
@@ -181,20 +182,20 @@ Par exemple :
 
 
 ## Débogage de pipelines
-Azure Data Factory offre des fonctionnalités exceptionnelles à travers le portail Azure et Azure PowerShell pour déboguer et dépanner les pipelines.
+Azure Data Factory offre des fonctionnalités exceptionnelles à travers le portail Azure Classic et Azure PowerShell pour déboguer et dépanner les pipelines.
 
 ### Recherche d’erreurs dans un pipeline
 En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données généré par celui-ci est alors en état d'erreur. Vous pouvez déboguer et corriger les erreurs dans la Azure Data Factory à l'aide des mécanismes suivants.
 
-#### Utilisez le portail Azure pour déboguer une erreur :
+#### Utilisez le portail Azure Classic pour déboguer une erreur :
 
-1.	Cliquez sur **Avec erreurs** sur la vignette **Jeux de données** dans la page d’accueil de la fabrique de données.
+1.	Cliquez sur **AVEC DES ERREURS** sur la mosaïque **JEUX DE DONNÉES** sur la page d’accueil de la fabrique de données.
 	
 	![Vignette de jeux de données avec erreur](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	Dans le panneau **Jeux de données avec erreurs**, cliquez sur la table qui vous intéresse.
+2.	Dans le panneau **JEUX DE DONNÉES AVEC ERREURS**, cliquez sur la table qui vous intéresse.
 
 	![Panneau Jeux de données avec erreurs](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **Failed**.
+3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **FAILED**.
 
 	![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’exécution d’activité qui a échoué.
@@ -209,7 +210,7 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 2.	Passez en mode **AzureResourceManager**, car les applets de commande Data Factory sont disponibles uniquement dans ce mode.
 
 		switch-azuremode AzureResourceManager
-3.	Exécutez la commande **Get-AzureDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **Failed** devrait apparaître.
+3.	Exécutez la commande **Get-AzureDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **FAILED** devrait apparaître.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,13 +263,13 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 
 ## Réexécutez des échecs dans un pipeline
 
-### En passant par le portail Azure
+### Utiliser le portail Azure Classic
 
-Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **Exécuter**, figurant sur la barre de commandes.
+Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **EXÉCUTER**, figurant sur la barre de commandes.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **Valider**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **VALIDER**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Utilisation de Microsoft Azure PowerShell
 
@@ -391,26 +392,44 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 
 
 #### Résolution des problèmes des événements utilisateur
-Vous pouvez voir tous les événements générés après avoir cliqué sur la mosaïque **Opérations**. En outre, vous pouvez configurer des alertes relatives à n'importe quelle opération visible sur le panneau **Événements** :
-
-![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-Pour afficher les alertes configurées avec PowerShell, vous pouvez exécuter la commande suivante et voir toutes les alertes créées. Ainsi, les alertes configurées à la fois pour les mesures et pour les événements et dont le type de ressource est **microsoft.insights/alertrules** s’afficheront.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-Si des événements de génération d'alertes apparaissent sur le panneau du portail mais que vous ne recevez aucune notification par e-mail, vérifiez que votre adresse e-mail est bien configurée de manière à recevoir des e-mails de la part d’expéditeurs externes. Les alertes par e-mail peuvent avoir été bloquées en raison de vos paramètres de messagerie.
+- Vous pouvez voir tous les événements générés après avoir cliqué sur la mosaïque **Opérations**. En outre, vous pouvez configurer des alertes relatives à n'importe quelle opération visible sur le panneau **Événements** :
+
+	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d'utilisation de l’applet de commande **Get-AlertRule** :
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Exécutez les commandes get-help suivantes afinb d’afficher des détails et des exemples pour l'applet de commande Get-AlertRule.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- Si des événements de génération d'alertes apparaissent sur le panneau du portail mais que vous ne recevez aucune notification par e-mail, vérifiez que votre adresse e-mail est bien configurée de manière à recevoir des e-mails de la part d’expéditeurs externes. Les alertes par e-mail peuvent avoir été bloquées en raison de vos paramètres de messagerie.
 
 ### Alertes relatives à des mesures
 Data Factory vous permet de capturer différentes mesures et de créer des alertes associées. Vous pouvez analyser et créer des alertes relatives à des mesures suivantes pour les tranches de votre fabrique de données.
@@ -425,7 +444,7 @@ Pour activer les mesures, suivez le chemin suivant à partir du panneau Data Fa
 
 **Analyse** -> **Mesure** -> **Paramètres de diagnostic** -> **Diagnostic**
 
-Sur le panneau **Diagnostic**, cliquez sur **Activé** et sélectionnez votre compte de stockage. Enregistrez.
+Sur le panneau **DIAGNOSTIC**, cliquez sur **ACTIVÉ** et sélectionnez votre compte de stockage. Enregistrez.
 
 ![Activer les mesures](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -497,9 +516,7 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs :
-- FailedRuns
-- SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
@@ -523,4 +540,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -94,9 +94,9 @@ Où qu’il réside, chaque objet blob que vous créez appartient à un conteneu
 Le conteneur d’objets blob par défaut stocke les informations spécifiques de cluster telles que l’historique et les journaux des travaux. Ne partagez pas un conteneur d’objets blob par défaut avec plusieurs clusters HDInsight. Cela peut endommager l’historique des travaux et modifier le comportement du cluster. Il est recommandé d’utiliser un conteneur différent pour chaque cluster et de placer des données partagées sur un compte de stockage lié spécifié dans le déploiement de tous les clusters pertinents plutôt que d’utiliser le compte de stockage par défaut. Pour plus d'informations sur la configuration des comptes de stockage liés, consultez la rubrique [Création de clusters HDInsight][hdinsight-creation]. Vous pouvez, toutefois, réutiliser un conteneur de stockage par défaut une fois le cluster HDInsight d'origine supprimé. Pour les clusters HBase, vous pouvez conserver le schéma de la table HBase et les données en créant un nouveau cluster HBase à l'aide du conteneur de stockage d'objets blob par défaut qui est utilisé par un cluster HBase qui a été supprimé.
 
 
-### Utilisation de la version préliminaire du portail Azure
+### Utilisation du portail Azure
 
-Lorsque vous créez un cluster HDInsight à partir du portail en version préliminaire, vous avez la possibilité d'utiliser un compte de stockage existant ou de créer un nouveau compte de stockage :
+Lorsque vous créez un cluster HDInsight à partir du portail, vous avez la possibilité d’utiliser un compte de stockage existant ou de créer un nouveau compte de stockage :
 
 ![source de données de création hadoop hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -297,4 +297,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

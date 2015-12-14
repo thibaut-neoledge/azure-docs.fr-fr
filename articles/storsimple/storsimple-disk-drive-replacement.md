@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Remplacer un lecteur de disque sur votre appareil StorSimple
@@ -70,13 +70,13 @@ Votre appareil StorSimple prend en charge une configuration des espaces de stock
 >
 >- Veillez à placer un disque SSD de remplacement à un emplacement qui contenait auparavant un disque SSD. De même, veillez à placer un disque dur de remplacement à un emplacement qui contenait auparavant un disque dur.
 >
->- Dans le portail de gestion, les emplacements sont numérotés de 0 à 11. Par conséquent, si le portail indique qu’un disque à l’emplacement 2 est défectueux, sur l’appareil, vous trouvez le disque défectueux au troisième emplacement à partir du coin supérieur gauche.
+>- Dans le portail Azure Classic, les emplacements sont numérotés de 0 à 11. Par conséquent, si le portail indique qu’un disque à l’emplacement 2 est défectueux, sur l’appareil, vous trouvez le disque défectueux au troisième emplacement à partir du coin supérieur gauche.
 
 Les lecteurs peuvent être retirés et remplacés pendant que le système fonctionne.
 
 #### Pour retirer un lecteur
 
-1. Pour identifier le disque défectueux, dans le portail de gestion, accédez à **Appareils** > **Maintenance** > **Statut du matériel**. Comme un disque défectueux peut se trouver dans le boîtier principal et/ou dans un boîtier EBOD (si vous utilisez un modèle 8600), vérifiez l’état des disques sous **Composants partagés** et sous **Composants partagés du boîtier EBOD**. Un disque défectueux dans un des boîtiers est affiché avec un état rouge.
+1. Pour identifier le disque défectueux, dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Comme un disque défectueux peut se trouver dans le boîtier principal et/ou dans un boîtier EBOD (si vous utilisez un modèle 8600), vérifiez l’état des disques sous **Composants partagés** et sous **Composants partagés du boîtier EBOD**. Un disque défectueux dans un des boîtiers est affiché avec un état rouge.
 
 2. Recherchez les lecteurs à l’avant du boîtier principal ou du boîtier EBOD. Pour le disque défectueux, le LED ambre est allumé.
 
@@ -116,7 +116,7 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 4. Utilisez la clé de verrouillage qui a été fournie par Microsoft (tournevis Torx anti-effraction) pour sécuriser la poignée du support à son emplacement en tournant la vis de verrouillage d’un quart de tour dans le sens des aiguilles d’une montre.
 
-5. Vérifiez que le remplacement a réussi et que le lecteur est opérationnel en accédant au portail de gestion, puis à **Maintenance** > **Statut du matériel**. Sous **Composants partagés** ou **Composants partagés du boîtier EBOD**, l’état du disque doit être en vert, indiquant qu’il est sain.
+5. Vérifiez que le remplacement a réussi et que le lecteur est opérationnel en accédant au portail Azure Classic, puis à **Maintenance** > **État du matériel**. Sous **Composants partagés** ou **Composants partagés du boîtier EBOD**, l’état du disque doit être en vert, indiquant qu’il est sain.
 
     >[AZURE.NOTE]Plusieurs heures peuvent être nécessaires pour que l’état du disque passe en vert après le remplacement.
 
@@ -124,4 +124,4 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

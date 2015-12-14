@@ -13,36 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Analyse des données historiques de votre application
-La section Analyses de l'interface utilisateur fournit des informations globales sur votre application basées sur des données historiques qui sont mises à jour toutes les 24 heures. Les informations sont affichées sur différents tableaux de bord composés de graphiques linéaires/à barres/en secteurs, de grilles et de cartes. Les données peuvent également être téléchargées sous forme de fichiers .csv. La plupart de ces mêmes informations sont disponibles en temps réel dans la section Écran de l'interface utilisateur, et peuvent également être consultées à partir de l'API Analyses. Le « Glossaire » de la section « Concepts » présente les définitions des termes et abréviations indiqués dans Analyse et Surveillance, notamment : utilisateur actif, nouvel utilisateur, utilisateur retenu, session, Graph du chemin d’accès de l’utilisateur, mappage des utilisateurs, URL de suivi, tendances, activité, événement, tâche, erreur, informations supplémentaires, incident et informations sur l’application.
 
-### Voir aussi
--  [Concepts - Glossaire][Link 6], [Guide de résolution des problèmes - Analyse][Link 21]
+Cet article décrit l’onglet **ANALYTICS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
+
+La section Analyses de l'interface utilisateur fournit des informations globales sur votre application basées sur des données historiques qui sont mises à jour toutes les 24 heures. Les informations sont affichées sur différents tableaux de bord composés de graphiques linéaires/à barres/en secteurs, de grilles et de cartes. Les données peuvent également être téléchargées sous forme de fichiers .csv. La plupart de ces mêmes informations sont disponibles en temps réel dans la section Écran de l'interface utilisateur, et peuvent également être consultées à partir de l'API Analyses.
+
+>[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Analyses standard et personnalisées :
-Azure Mobile Engagement fournit un ensemble d'informations d'analyses standard, de base, sur vos applications qui peuvent être représentées graphiquement dès que vous intégrez votre application au Kit de développement logiciel. Azure Mobile Engagement permet également de recueillir des informations supplémentaires d'analyses personnalisées que vous désirez obtenir sur le comportement de vos utilisateurs finaux. Vous pouvez réaliser cela en créant un plan de balises des « balises d'informations relatives aux applications » personnalisées, réalisées à partir des « Paramètres » de manière à ce qu'Azure Mobile Engagement puisse collecter ces données supplémentaires pour vous.
 
-### Voir aussi
--  [Documentation de l’interface utilisateur - Paramètres][Link 20]
- 
-## En-tête de l'analyse
-- Nom de l’élément : étiquette l'élément comptabilisé
-- Affichage de l’Aide : affiche des informations contextuelles sur cette section
-- Versions : vous permet d'afficher différentes informations d'analyse relatives à chaque version de votre application ou d’afficher les informations pour toutes les versions. (Note : le filtrage de vos données d'analyse dans l'interface utilisateur affiche tous les exemples de ce type, et ce, quelle que soit la version de votre application. Par exemple, les « Incidents » filtrés par nom s'afficheront depuis la version 1 et la version 2 de votre application.)
-- Période : les 7 derniers jours, les 30 derniers jours, tout le temps, personnalisé
-- Taux : par heure, par jour, par semaine, par mois
-- Affichage : graphique en courbes, grille, envoyer vers le tableau de bord, télécharger le fichier CSV
- 
-![Analyse 1][10]
+Azure Mobile Engagement fournit un ensemble d'informations d'analyses standard, de base, sur vos applications qui peuvent être représentées graphiquement dès que vous intégrez votre application au Kit de développement logiciel. Azure Mobile Engagement permet également de recueillir des informations supplémentaires d'analyses personnalisées que vous désirez obtenir sur le comportement de vos utilisateurs finaux. Pour ce faire, créez un plan de balises des « Tags (app info) » personnalisées, réalisées à partir des **Paramètres** de manière à ce qu'Azure Mobile Engagement puisse collecter ces données supplémentaires pour vous.
 
+ 
+ 
 ## Analyse
 - Tableau de bord : affiche des informations générales sur vos utilisateurs nouveaux et actifs et leurs tendances.
 - Utilisateurs : les utilisateurs sont identifiés par l'identifiant de leur appareil. Cet identifiant est unique pour chaque appareil (un nouvel utilisateur représente en réalité un nouvel appareil). Un utilisateur est considéré comme nouveau sur une période donnée s'il a effectué sa première session durant cette période. Un utilisateur est considéré comme retenu s'il a effectué au moins une session durant les derniers 7 jours. Les utilisateurs actifs sont ceux qui ont effectué au moins une session durant une période donnée. Vous pouvez les trier par mois, par semaine, par jour ou par heure. Tous les graphiques se ressemblent, mais ils vous permettent de filtrer via différentes fonctionnalités, telles que la version de votre application, puis de trier par période. Les informations standard regroupées lors de l’intégration du Kit de développement logiciel (SDK) incluent les informations suivantes : les utilisateurs actifs, le nouvel utilisateur, le nombre de sessions, la durée de chaque session, les informations techniques sur le pays, les habitants, l'emplacement, la langue de l’opérateur, les appareils, le microprogramme, le réseau (Wi-Fi), les versions de l'application et du Kit de développement logiciel (SDK) utilisées par les clients. Cette information peut être consultée en temps réel depuis la section Écran. 
-- Le suivi par source affiche le nombre d'utilisateurs nouveaux qui ont téléchargé l'application à la suite d'une campagne promotionnelle spécifique. Les utilisateurs sont identifiés par l'identifiant de leur appareil : cet identifiant est unique pour chaque appareil(un nouvel utilisateur représente en réalité un nouvel appareil). Un utilisateur est considéré comme nouveau sur une période donnée s'il a effectué sa première session durant cette période.
-- Le suivi par magasin affiche le nombre d'utilisateurs nouveaux qui ont téléchargé l'application depuis un magasin spécifique. Les utilisateurs sont identifiés par l'identifiant de leur appareil : cet identifiant est unique pour chaque appareil(un nouvel utilisateur représente en réalité un nouvel appareil). Un utilisateur est considéré comme nouveau sur une période donnée s'il a effectué sa première session durant cette période.
 
 > Note : la période est calculée en fonction de la date indiquée dans les paramètres de l'appareil de l'utilisateur, de manière à ce qu'un utilisateur dont la date de son téléphone est mal réglée puisse apparaître dans la mauvaise période.
 
@@ -77,6 +68,12 @@ La présentation de la rétention est décomposée en plusieurs cartes, qui affi
 3.    Cet indicateur visuel fournit les mêmes informations que celles représentées ci-dessus dans ce graphique. (La partie nº 3 de ce cercle indique que cela représente 33 % des utilisateurs.) La couleur donne des informations supplémentaires : la couleur verte vous indique que ce nombre est plus élevé que lors du calcul précédent. La couleur jaune signifie qu'il est identique et la couleur rouge, qu'il est plus faible.
 4.    Il vous indique les valeurs utilisées pour le calcul.
 5.    Ceci est un graphique sparkline de l'historique des valeurs de rétention. Il vous permet de découvrir les valeurs précédentes ainsi que leurs évolutions.
+
+
+## Voir aussi
+
+- [Concepts][Link 6]
+- [Guide de résolution des problèmes - Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -174,4 +171,4 @@ La présentation de la rétention est décomposée en plusieurs cartes, qui affi
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

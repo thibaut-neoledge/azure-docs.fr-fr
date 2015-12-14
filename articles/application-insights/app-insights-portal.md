@@ -163,7 +163,7 @@ La recherche affiche des événements individuels tels que les affichages de pag
 
 Ouvrez la recherche de diagnostic :
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhaitez afficher. (Si vous souhaitez restaurer plus tard les filtres avec lesquels vous avez ouvert le panneau, cliquez sur Réinitialiser).
 
@@ -205,4 +205,4 @@ Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouv
 
 Si vous avez enregistré une période relative, le panneau rouvert comporte les données les plus récentes. Si vous avez enregistré une période absolue, vous voyez les mêmes données à chaque fois.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

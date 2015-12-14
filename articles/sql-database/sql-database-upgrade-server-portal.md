@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure en version préliminaire | Microsoft Azure" 
-	description="Explique comment effectuer une mise à niveau vers Azure SQL Database V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l’aide du portail Azure en version préliminaire." 
+	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure | Microsoft Azure" 
+	description="Explique comment effectuer une mise à niveau vers Azure SQL Database V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l’aide du portail Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure en version préliminaire
+# Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -54,7 +54,7 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure en version préliminaire](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+1. Dans le [portail Azure](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
 2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
@@ -99,7 +99,7 @@ Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez com
 
 ## Déplacer vos bases de données dans un pool de base de données élastique
 
-Dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
+Dans le [portail Azure](https://portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
 
 - ou -
 
@@ -137,7 +137,7 @@ Informations de surveillance supplémentaires :
 
 
 
-**Alertes :** configurez les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
+**Alertes :** configurer les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
 
 Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Réception de notifications d’alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d’alerte.
 
@@ -168,4 +168,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -201,7 +201,7 @@ La [bibliothèque Runtime Azure](https://msdn.microsoft.com/library/azure/dn511
 ## ServicePackage.cspkg
 Pour déployer une application en tant que service cloud dans Azure, vous devez d’abord créer un package de l’application dans le format approprié. Vous pouvez utiliser l’outil de ligne de commande **CSPack** (installé avec le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/)) pour créer le fichier de package en tant qu’alternative à Visual Studio.
 
-**CSPack** utilise le contenu du fichier de définition de service et du fichier de configuration de service pour définir le contenu du package. **CSPack** génère un fichier de package de l’application (.cspkg) que vous pouvez charger vers Azure à l’aide du [portail de gestion Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Par défaut, le package est nommé `[ServiceDefinitionFileName].cspkg`, mais vous pouvez indiquer un autre nom à l’aide de l’option `/out` de **CSPack**.
+**CSPack** utilise le contenu du fichier de définition de service et du fichier de configuration de service pour définir le contenu du package. **CSPack** génère un fichier de package de l’application (.cspkg) que vous pouvez charger vers Azure à l’aide du [portail Azure Classic](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Par défaut, le package est nommé `[ServiceDefinitionFileName].cspkg`, mais vous pouvez indiquer un autre nom à l’aide de l’option `/out` de **CSPack**.
 
 ###### Emplacement de l’outil CSPack (sur Windows)
 | Version du Kit de développement logiciel (SDK) | Path |
@@ -270,4 +270,4 @@ J’utilise Visual Studio et souhaite...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

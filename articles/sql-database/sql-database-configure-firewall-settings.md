@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure
+# Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure Classic
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -33,15 +33,15 @@ Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autori
 > [AZURE.IMPORTANT]Pour autoriser des applications d’Azure à se connecter à votre serveur de base de données, les connexions Azure doivent être activées. Pour plus d’informations sur les règles de pare-feu et l’activation des connexions à partir d’Azure, voir [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md). Si vous effectuez des connexions dans la limite du cloud Azure, vous devez peut-être ouvrir des ports TCP supplémentaires. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-### Gestion des règles de pare-feu au niveau du serveur via le nouveau portail Azure
+### Gestion des règles de pare-feu au niveau du serveur via le nouveau portail Azure Classic
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Gestion des règles de pare-feu au niveau du serveur via le portail de gestion 
+## Gestion des règles de pare-feu au niveau du serveur via le portail Classic 
 
-1. Dans le portail de gestion, cliquez sur **Base de données SQL**. Toutes les bases de données et leurs serveurs correspondants sont répertoriés ici.
+1. Dans le portail Classic, cliquez sur **Base de données SQL**. Toutes les bases de données et leurs serveurs correspondants sont répertoriés ici.
 2. Cliquez sur **Serveurs** en haut de la page.
 3. Cliquez sur la flèche en regard du serveur pour lequel vous souhaitez gérer les règles de pare-feu.
 4. Cliquez sur **Configurer** en haut de la page.
@@ -62,4 +62,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

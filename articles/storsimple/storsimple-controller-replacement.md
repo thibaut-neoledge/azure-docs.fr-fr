@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/10/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
-# Remplacer un module de contrôleur sur votre appareil StorSimple
+# Remplacement d’un module de contrôleur sur votre appareil StorSimple
 
 ## Vue d’ensemble
 
@@ -37,7 +37,7 @@ Le tableau suivant indique les scénarios de remplacement de contrôleurs pris e
 |3|Des contrôleurs sont intervertis dans le même appareil ou dans différents appareils. Le châssis, les disques et leur boîtier sont intègres.|Un message d’alerte s’affiche pour signaler la mauvaise correspondance d’un emplacement.|
 |4|Il manque un contrôleur et l’autre contrôleur est en panne.|[Remplacement des deux contrôleurs](#replace-both-controllers), qui décrit la [logique sous-jacente au remplacement des deux contrôleurs](#dual-controller-replacement-logic), ainsi que la [procédure de remplacement](#dual-controller-replacement-steps).|
 |5|Un seul contrôleur ou les deux sont en panne. Vous ne pouvez pas accéder à l’appareil via la console série ni la communication à distance Windows PowerShell.|Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour connaître la procédure manuelle de remplacement de contrôleur.|
-|6|La version de build des contrôleurs est différente. Deux causes sont possibles.<ul><li>Les versions de logiciel des contrôleurs sont différentes.</li><li>Les versions de microprogramme des contrôleurs sont différentes.</li></ul>|Si les versions de logiciel des contrôleurs sont différentes, la logique de remplacement le détecte et met à jour la version du logiciel sur le contrôleur de remplacement.<br><br>Si les versions de microprogramme des contrôleurs sont différentes et que l’ancienne version ne peut **pas** être mise à niveau automatiquement, un message d’alerte s’affiche sur le portail de gestion. Vous devez rechercher et installer les mises à jour du microprogramme.</br></br>Si les versions de microprogramme des contrôleurs sont différentes et que l’ancienne version peut être mise à niveau automatiquement, la logique de remplacement du contrôleur le détecte et, une fois le contrôleur démarré, le microprogramme est automatiquement mis à jour.|
+|6|La version de build des contrôleurs est différente. Deux causes sont possibles.<ul><li>Les versions de logiciel des contrôleurs sont différentes.</li><li>Les versions de microprogramme des contrôleurs sont différentes.</li></ul>|Si les versions de logiciel des contrôleurs sont différentes, la logique de remplacement le détecte et met à jour la version du logiciel sur le contrôleur de remplacement.<br><br>Si les versions de microprogramme des contrôleurs sont différentes et que l’ancienne version ne peut **pas** être mise à niveau automatiquement, un message d’alerte s’affiche sur le portail Azure Classic. Vous devez rechercher et installer les mises à jour du microprogramme.</br></br>Si les versions de microprogramme des contrôleurs sont différentes et que l’ancienne version peut être mise à niveau automatiquement, la logique de remplacement du contrôleur le détecte et, une fois le contrôleur démarré, le microprogramme est automatiquement mis à jour.|
 
 Vous devez retirer un module de contrôleur s’il est tombé en panne. Un seul contrôleur ou les deux peuvent tomber en panne, ce qui entraîne le remplacement d’un seul ou de deux contrôleurs. Pour les procédures de remplacement et la logique sous-jacente, voir les rubriques suivantes :
 
@@ -47,7 +47,7 @@ Vous devez retirer un module de contrôleur s’il est tombé en panne. Un seul 
 - [Insérer un contrôleur](#insert-a-controller)
 - [Identifier le contrôleur actif sur votre appareil](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]Avant le retrait et le remplacement d’un contrôleur, consultez les informations de sécurité dans [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Avant le retrait et le remplacement d’un contrôleur, voir les informations de sécurité dans [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Remplacer un seul contrôleur
 
@@ -75,7 +75,7 @@ En cas d’échec de l’un des contrôleurs de votre appareil Microsoft Azure S
 
 #### Pour retirer un seul module de contrôleur défectueux
 
-1. Dans le portail de gestion du service StorSimple Manager, cliquez sur l’onglet **Appareils**, puis sur le nom de l’appareil à surveiller.
+1. Dans le portail Azure Classic du service StorSimple Manager, cliquez sur l’onglet **Appareils**, puis sur le nom de l’appareil à surveiller.
 
 2. Cliquez sur l’onglet **Maintenance**, puis accédez à **Statut matériel**. L’état de Contrôleur 0 ou Contrôleur 1 doit être rouge, ce qui indique une défaillance.
 
@@ -102,7 +102,7 @@ En cas d’échec de l’un des contrôleurs de votre appareil Microsoft Azure S
 
 7. Pendant que la logique de remplacement d’un seul contrôleur se déroule en arrière-plan, rebranchez les câbles. Veillez à rebrancher tous les câbles exactement comme ils l’étaient avant le remplacement.
 
-8. Une fois que le contrôleur redémarre, vérifiez l’**état du contrôleur** et l’**état du cluster** dans le portail de gestion pour vous assurer que le contrôleur est à nouveau intègre et en mode veille.
+8. Une fois que le contrôleur redémarre, vérifiez l’**état du contrôleur** et l’**état du cluster** dans le portail Azure Classic pour vous assurer que le contrôleur est à nouveau intègre et en mode veille.
 
 >[AZURE.NOTE]Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s’affiche pas dans un délai de deux heures après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
 
@@ -154,7 +154,7 @@ Ce flux de travail doit être suivi quand les deux contrôleurs de votre apparei
 
 4. Insérez d’abord le modèle de remplacement du contrôleur 0, puis celui du contrôleur 1. Pour plus d’informations, voir [Insertion d’un contrôleur](#insert-a-controller). La logique de remplacement des deux contrôleurs est ainsi déclenchée. Pour plus d’informations, voir [Logique de remplacement de deux contrôleurs](#dual-controller-replacement-logic).
 
-5. Pendant que la logique de remplacement des deux contrôleurs se déroule en arrière-plan, rebranchez les câbles. Veillez à rebrancher tous les câbles exactement comme ils l’étaient avant le remplacement. Consultez les instructions détaillées relatives à votre modèle dans la section sur le branchement des câbles de votre appareil de la rubrique [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
+5. Pendant que la logique de remplacement des deux contrôleurs se déroule en arrière-plan, rebranchez les câbles. Veillez à rebrancher tous les câbles exactement comme ils l’étaient avant le remplacement. Voir les instructions détaillées relatives à votre modèle dans la section sur le branchement des câbles de votre appareil de la rubrique [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
 6. Mettez sous tension l’appareil StorSimple. Si vous utilisez un modèle 8600 :
 
@@ -214,13 +214,13 @@ Utilisez la procédure suivante pour installer un module de contrôleur d’usin
 
     >[AZURE.NOTE]L’activation du contrôleur et du voyant LED peut prendre jusqu’à 5 minutes.
 
-5. Pour vérifier que le remplacement a réussi, dans le portail de gestion, accédez à **Appareils** > **Maintenance** > **Statut matériel**, puis vérifiez que les contrôleurs 0 et 1 sont signalés comme étant intègres (état vert).
+5. Pour vérifier que le remplacement a réussi, dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **Statut matériel**, puis vérifiez que les contrôleurs 0 et 1 sont signalés comme étant intègres (état vert).
 
 ## Identifier le contrôleur actif sur votre appareil
 
 Dans de nombreuses situations, notamment lors de la première inscription de l’appareil ou du premier remplacement du contrôleur, vous devez trouver le contrôleur actif sur un appareil StorSimple. Le contrôleur actif traite toutes les opérations de mise en réseau et de microprogramme du disque. Vous pouvez utiliser les méthodes suivantes pour identifier le contrôleur actif :
 
-- [Utiliser le portail de gestion pour identifier le contrôleur actif](#use-the-management-portal-to-identify-the-active-controller)
+- [Utilisation du portail Azure Classic pour identifier le contrôleur actif](#use-the-azure-classic-portal-to-identify-the-active-controller)
 
 - [Utiliser Windows PowerShell pour StorSimple pour identifier le contrôleur actif](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
 
@@ -228,13 +228,13 @@ Dans de nombreuses situations, notamment lors de la première inscription de l�
 
 Chacune de ces procédures est décrite ci-dessous.
 
-### Utiliser le portail de gestion pour identifier le contrôleur actif
+### Utilisation du portail Azure Classic pour identifier le contrôleur actif
 
 Dans le portail de gestion, accédez à **Appareils** > **Maintenance**, puis faites défiler jusqu’à la section **Contrôleurs**. Dans cette section, vous pouvez vérifier quel contrôleur est actif.
 
 ![Identifier le contrôleur actif dans le portail de gestion](./media/storsimple-controller-replacement/IC752072.png)
 
-**Figure 6** Portail de gestion indiquant un contrôleur actif
+**Figure 6** Portail Azure Classic montrant le contrôleur actif
 
 ### Utiliser Windows PowerShell pour StorSimple pour identifier le contrôleur actif
 
@@ -252,7 +252,7 @@ Pour identifier le contrôleur actif sur votre appareil, localisez le voyant LED
 
 Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en mode veille. Utilisez le schéma et le tableau suivants pour vous aider.
 
-![Fond de panier du boîtier principal de l'appareil avec ports de données](./media/storsimple-controller-replacement/IC741055.png)
+![Fond de panier du boîtier principal de l’appareil avec ports de données](./media/storsimple-controller-replacement/IC741055.png)
 
 **Figure 8** Arrière du boîtier principal, avec les ports de données et les voyants LED de contrôle
 
@@ -266,4 +266,4 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,7 +29,7 @@ Un travail nécessite au moins une source d’entrée pour la diffusion de donn�
 ## Configuration des unités de diffusion en continu ##
 Les unités de diffusion en continu représentent les ressources et la puissance pour exécuter un travail Azure Stream Analytics. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s.
 
-Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour un travail à l’aide du portail Azure. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [support technique de Microsoft](http://support.microsoft.com).
+Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour une tâche à l’aide du portail Azure Classic. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [support technique de Microsoft](http://support.microsoft.com).
 
 Le nombre d'unités de diffusion en continu qu'un travail peut utiliser dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Notez également qu’une valeur valide pour les unités de diffusion en continu doit être utilisée. Les valeurs valides commencent à 1, 3, 6, puis vers le haut par incréments de 6, comme indiqué ci-dessous.
 
@@ -147,20 +147,20 @@ Cette requête peut être mise à l'échelle jusqu'à comporter 24 unités de d
 
 **Réglage de l'unité de diffusion en continu d'un travail**
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Connectez-vous au [Portail Classic](https://manage.windowsazure.com).
 2. Cliquez sur **Stream Analytics** sur la gauche.
 3. Cliquez sur le travail Stream Analytics que vous souhaitez mettre à l'échelle.
 4. Cliquez sur **METTRE À L'ÉCHELLE** en haut de la page.
 
 ![Mise à l’échelle des unités de diffusion en continu Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
-Dans le portail Azure en version préliminaire, les paramètres de mise à l'échelle sont accessibles sous Paramètres :
+Dans le portail Azure, les paramètres de mise à l'échelle sont accessibles sous Paramètres :
 
-![Configuration d’une tâche Stream Analytics sur le portail Azure en version préliminaire][img.stream.analytics.preview.portal.settings.scale]
+![Configuration d’une tâche Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Surveillance des performances du travail ##
 
-À l'aide du portail de gestion, vous pouvez suivre le débit d'un travail dans Événements par seconde :
+À l'aide du portail Classic, vous pouvez suivre le débit d'une tâche dans Événements par seconde :
 
 ![Surveillance des travaux Azure Stream Analytics][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

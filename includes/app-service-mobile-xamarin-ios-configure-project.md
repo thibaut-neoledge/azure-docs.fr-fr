@@ -2,17 +2,17 @@
 
 1. Dans Xamarin.Studio, ouvrez **Info.plist** et mettez à jour la valeur de **Bundle Identifier** avec l'ID de groupe que vous avez créé précédemment avec votre nouvel ID d'application.
 
-    ![][88]
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 
 2. Descendez jusqu’à **Background Modes**, puis activez les cases à cocher **Enable Background Modes** et **Remote notifications**.
 
-    ![][122]
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png)
 
 3. Double-cliquez sur votre projet dans Solution Panel pour ouvrir les **options de projet**.
 
 4.  Sélectionnez **iOS Bundle Signing** sous **Build**, puis sélectionnez les éléments **Identity** et **Provisioning profile** que vous venez de configurer pour ce projet.
 
-    ![][120]
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png)
 
     Cela permet de vérifier que le projet utilise le nouveau profil pour la signature du code. Pour obtenir la documentation officielle de l’approvisionnement des appareils Xamarin, consultez la page [Approvisionnement des appareils Xamarin].
 
@@ -20,22 +20,20 @@
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet, puis cliquez sur **Propriétés**.
 
-3. Dans les pages de propriétés, cliquez sur l’onglet **iOS Application** et mettez à jour la valeur de **Identifier** avec l’ID que vous avez créé précédemment.
+2. Dans les pages de propriétés, cliquez sur l’onglet **iOS Application** et mettez à jour la valeur de **Identifier** avec l’ID que vous avez créé précédemment.
 
-    ![][123]
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)
 
-4. Sous l’onglet **iOS Bundle Signing**, sélectionnez les éléments **Identity** et **Provisioning profile** correspondants que vous venez de configurer pour ce projet.
+3. Sous l’onglet **iOS Bundle Signing**, sélectionnez les éléments **Identity** et **Provisioning profile** correspondants que vous venez de configurer pour ce projet.
 
-    ![][124]
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png)
 
     Cela permet de vérifier que le projet utilise le nouveau profil pour la signature du code. Pour obtenir la documentation officielle de l’approvisionnement des appareils Xamarin, consultez la page [Approvisionnement des appareils Xamarin].
 
-[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[88]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+4. Double-cliquez sur Info.plist pour l’ouvrir et ensuite activer **RemoteNotifications** dans Modes d’arrière-plan.
+
+
 
 [Approvisionnement des appareils Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

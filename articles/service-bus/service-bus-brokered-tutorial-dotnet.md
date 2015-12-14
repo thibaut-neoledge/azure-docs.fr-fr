@@ -33,24 +33,24 @@ Voici quelques étapes d'administration et conditions préalables que vous devez
 
 1. Pour créer un espace de noms de service, suivez les étapes décrites dans la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. Dans la fenêtre principale du portail Azure, cliquez sur le nom d’espace de noms que vous avez créé à l’étape précédente.
+1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom d’espace de noms que vous avez créé à l’étape précédente.
 
 1. Cliquez sur **Configurer**.
 
-1. Dans la section du **générateur de signature d'accès partagé**, notez la clé primaire associée à la stratégie **RootManagerSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
+1. Dans la section du **générateur de signature d’accès partagé**, notez la clé primaire associée à la stratégie **RootManagerSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
-L'étape suivante consiste à créer un projet Visual Studio et à écrire deux fonctions d'assistance qui chargent une liste délimitée par des virgules de messages dans un objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortement typé.
+L’étape suivante consiste à créer un projet Visual Studio et à écrire deux fonctions d’assistance qui chargent une liste délimitée par des virgules de messages dans un objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortement typé.
 
 ### Créer un projet Visual Studio
 
 1. Ouvrez Visual Studio en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu Démarrer, puis en cliquant sur **Exécuter en tant qu’administrateur**.
 
-1. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n'apparaît pas, regardez sous **Autres langages**), cliquez sur le modèle **Application console** et nommez-le **QueueSample**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
+1. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), cliquez sur le modèle **Application console** et nommez-le **QueueSample**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
 
 1. Utilisez le gestionnaire de package NuGet pour ajouter les bibliothèques Service Bus à votre projet :
 	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier du projet, puis sélectionnez **Gérer les packages NuGet**.
 	2. Dans la boîte de dialogue **Gérer les paquets Nuget**, recherchez en ligne **Service Bus** puis cliquez sur **Installer**. <br />
-1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le nom par défaut de l'espace de noms `QueueSample` par `Microsoft.ServiceBus.Samples`.
+1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le nom par défaut de l’espace de noms `QueueSample` par `Microsoft.ServiceBus.Samples`.
 
 	```
 	Microsoft.ServiceBus.Samples
@@ -92,13 +92,13 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 
 	Enregistrez et fermez le fichier Data.csv, puis mémorisez l'emplacement dans lequel vous l'avez enregistré.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le nom de votre projet (dans cet exemple, **QueueSample**), cliquez sur **Ajouter**, puis sur **Élément existant**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom de votre projet (dans cet exemple, **QueueSample**), cliquez sur **Ajouter**, puis sur **Élément existant**.
 
 1. Accédez au fichier Data.csv que vous avez créé à l’étape 6. Cliquez sur le fichier, puis sur **Ajouter**. Vérifiez que l’option **Tous les fichiers (*.*)** est sélectionnée dans la liste des types de fichiers.
 
 ### Créer une fonction qui analyse une liste de messages
 
-1. Avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L'autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
+1. Avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L’autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
 
 	```
 	namespace Microsoft.ServiceBus.Samples
@@ -106,8 +106,8 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. En dehors de `Main()`, définissez une méthode `ParseCSV()` qui analyse la liste des messages dans Data.csv puis charge les messages dans une table [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), comme indiqué ici. La méthode renvoie un objet **DataTable**.
@@ -161,7 +161,7 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 
 ### Créer une fonction qui charge la liste des messages
 
-1. En dehors de `Main()`, définissez une méthode `GenerateMessages()` qui prend l’objet **DataTable** renvoyé par `ParseCSVFile()` puis charge la table dans une liste fortement typée de messages répartis. La méthode renvoie alors l’objet **List**, comme dans l'exemple suivant. 
+1. En dehors de `Main()`, définissez une méthode `GenerateMessages()` qui prend l’objet **DataTable** renvoyé par `ParseCSVFile()` puis charge la table dans une liste fortement typée de messages répartis. La méthode renvoie alors l’objet **List**, comme dans l’exemple suivant. 
 
 	```
 	static List<BrokeredMessage> GenerateMessages(DataTable issues)
@@ -169,7 +169,8 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -182,7 +183,7 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 	}
 	```
 
-1. Dans `Main()`, directement sous l'appel à `ParseCSVFile()`, ajoutez une instruction qui appelle la méthode `GenerateMessages()` avec la valeur renvoyée à partir de `ParseCSVFile()` comme argument :
+1. Dans `Main()`, directement sous l’appel à `ParseCSVFile()`, ajoutez une instruction qui appelle la méthode `GenerateMessages()` avec la valeur renvoyée à partir de `ParseCSVFile()` comme argument :
 
 	```
 	public static void Main(string[] args)
@@ -227,7 +228,7 @@ L'étape suivante consiste à créer un projet Visual Studio et à écrire deux 
 	}
 	```
 
-1. Dans `Main()`, directement sous l'appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
+1. Dans `Main()`, directement sous l’appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
 
 	```
 	public static void Main(string[] args)
@@ -266,7 +267,7 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
 	}
 	```
 
-1. L'étape suivante consiste à créer des informations d'identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
+1. L’étape suivante consiste à créer des informations d’identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
 
 	```
 	staticvoid Queue()
@@ -398,26 +399,26 @@ Dans cette étape, vous créez une file d'attente, puis envoyez les messages con
 
 ### Créer une file d’attente et envoyer des messages vers cette file d’attente
 
-1. Tout d’abord, créez la file d'attente. Par exemple, appelez-la `myQueue`, puis déclarez-la directement après les opérations de gestion que vous avez ajoutées à l'étape précédente :
+1. Tout d’abord, créez la file d'attente. Par exemple, appelez-la `myQueue`, puis déclarez-la directement après les opérations de gestion que vous avez ajoutées à l’étape précédente :
 
 	```
 	QueueDescription myQueue;
 	myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
 	```
 
-1. Dans la méthode `Queue()`, créez un objet de fabrique de messagerie avec un URI Bus de Service nouvellement créé en tant qu'argument. Ajoutez le code suivant directement après les opérations de gestion que vous avez ajoutées à l'étape précédente :
+1. Dans la méthode `Queue()`, créez un objet de fabrique de messagerie avec un URI Bus de Service nouvellement créé en tant qu’argument. Ajoutez le code suivant directement après les opérations de gestion que vous avez ajoutées à l'étape précédente :
 
 	```
 	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 	```
 
-1. Puis créez l'objet de file d'attente en utilisant la classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Ajoutez le code suivant directement après le code que vous avez ajouté à la dernière étape :
+1. Puis créez l’objet de file d’attente en utilisant la classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Ajoutez le code suivant directement après le code que vous avez ajouté à la dernière étape :
 
 	```
 	QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
 	```
 
-1. Puis ajoutez le code qui parcourt en boucle la liste des messages répartis que vous avez créée précédemment, envoyant ainsi chaque message à la file d'attente. Ajoutez le code suivant directement après l’instruction `CreateQueueClient()` de l'étape précédente :
+1. Puis ajoutez le code qui parcourt en boucle la liste des messages répartis que vous avez créée précédemment, envoyant ainsi chaque message à la file d'attente. Ajoutez le code suivant directement après l’instruction `CreateQueueClient()` de l’étape précédente :
 	
 	```
 	// Send messages
@@ -437,7 +438,7 @@ Dans cette étape, vous obtenez la liste des messages provenant de la file d'att
 
 ### Créer un récepteur et recevoir les messages de la file d'attente
 
-Dans la méthode `Queue()`, effectuez une itération dans la file d'attente et recevez les messages à l'aide de la méthode [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx), en imprimant chaque message sur la console. Ajoutez le code suivant directement sous le code que vous avez ajouté à l'étape précédente :
+Dans la méthode `Queue()`, effectuez une itération dans la file d’attente et recevez les messages à l’aide de la méthode [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx), en imprimant chaque message sur la console. Ajoutez le code suivant directement sous le code que vous avez ajouté à l'étape précédente :
 
 	```
 	Console.WriteLine("Now receiving messages from Queue.");
@@ -629,9 +630,9 @@ Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution
 
 ### Exécuter l’application QueueSample
 
-1. Avant d'exécuter l'application, vous devez vous assurer que vous avez créé un espace de noms de service et obtenu une clé SAP, comme décrit dans la rubrique [Introduction et conditions préalables](#introduction-and-prerequisites).
+1. Avant d’exécuter l’application, vous devez vous assurer que vous avez créé un espace de noms de service et obtenu une clé SAP, comme décrit dans la rubrique [Introduction et conditions préalables](#introduction-and-prerequisites).
 
-1. Ouvrez un navigateur et accédez au [portail Azure](http://manage.windowsazure.com).
+1. Ouvrez un navigateur et accédez au [portail Azure Classic][].
 
 1. Cliquez sur **Service Bus** dans l’arborescence à gauche.
 
@@ -649,4 +650,6 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 
-<!---HONumber=Nov15_HO4-->
+[portail Azure Classic]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

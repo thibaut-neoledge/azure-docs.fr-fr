@@ -85,15 +85,15 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 
 À la création d'un cluster HDInsight sous Linux, vous devez fournir la clé publique précédemment créée. Pour les clients Linux, Unix ou OS X, vous pouvez créer un cluster HDInsight de deux façons :
 
-* **Portail Azure en version préliminaire** : utilise un portail web pour créer le cluster.
+* **Portail Azure** : utilise un portail web pour créer le cluster.
 
 * **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
 
 Chacune de ces méthodes nécessite un mot de passe ou une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sous Linux, consultez [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portail Azure en version préliminaire
+###Portail Azure
 
-Quand vous utilisez le [portail Azure en version préliminaire][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez saisir un **NOM D’UTILISATEUR SSH**, puis sélectionner cette option pour entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
+Quand vous utilisez le [portail Azure][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez entrer un **NOM D’UTILISATEUR SSH**, puis sélectionner cette option pour entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
 
 Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique (contenue dans le fichier avec l’extension **.pub**) dans le champ __SSH PublicKey__ ou choisir __Sélectionner un fichier__ pour parcourir et sélectionner le fichier de clé publique.
 
@@ -109,7 +109,7 @@ L’utilisateur indiqué peut ainsi se connecter avec le mot de passe ou la clé
 
 Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
-Pour plus d’informations sur l’utilisation de cette commande, voir [Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l'aide d'options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
+Pour plus d’informations sur l’utilisation de cette commande, consultez la rubrique [Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Connexion à un cluster HDInsight sous Linux
 
@@ -238,4 +238,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

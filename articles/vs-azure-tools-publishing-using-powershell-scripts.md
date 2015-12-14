@@ -349,6 +349,6 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 ## Étapes suivantes
 
-En savoir plus sur l’écriture de scripts PowerShell en lisant [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et en consultant d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/fr-FR/documentation/scripts/).
+Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Prise en main de l'écosystème Hadoop avec l'émulateur HDInsight, un bac à sable (sandbox) Hadoop
@@ -37,8 +37,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - L'émulateur HDInsight requiert une version 64 bits de Windows. L'un des systèmes d'exploitation suivants doit être installé :
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -109,9 +108,9 @@ Une fois la connexion établie, vous pouvez utiliser les outils Visual Studio HD
 
 ## Résolution des problèmes : connexion d’outils HDInsight à l’émulateur HDInsight
 
-1. Au moment de la connexion à l’émulateur HDInsight, même si la boîte de dialogue indique que HiveServer2 est connecté avec succès, vous devez définir manuellement **hive.security.authorization.enabled property** sur **false** dans le fichier de configuration Hive situé sur C:\\hdp\\hive-*version*\\conf\\hive-site.xml, puis redémarrer l’émulateur local. Les outils HDInsight pour Visual Studio se connectent uniquement à HiveServer2 lorsque vous affichez un aperçu des 100 premières lignes de votre table. Si vous ne souhaitez pas utiliser une telle requête, ne modifiez pas la configuration du fichier Hive.
+1. Au moment de la connexion à l’émulateur HDInsight, même si la boîte de dialogue indique que HiveServer2 est connecté avec succès, vous devez définir manuellement la **propriété hive.security.authorization.enabled** sur **false** dans le fichier de configuration Hive situé sur C:\\hdp\\hive-*version*\\conf\\hive-site.xml, puis redémarrer l’émulateur local. Les outils HDInsight pour Visual Studio se connectent uniquement à HiveServer2 lorsque vous affichez un aperçu des 100 premières lignes de votre table. Si vous ne souhaitez pas utiliser une telle requête, ne modifiez pas la configuration du fichier Hive.
 
-2. Si vous utilisez l’allocation d’adresse IP dynamique (DHCP) sur l’ordinateur exécutant l’émulateur HDInsight, vous devrez peut-être mettre à jour C:\\hdp\\hadoop-*version*\\etc\\hadoop\\core-site.xml et remplacer la valeur de la propriété **hadoop.proxyuser.hadoop.hosts** par (*). Cela permet à l’utilisateur Hadoop de se connecter à tous les hôtes pour emprunter l’identité de l’utilisateur que vous avez entrée dans Visual Studio.
+2. Si vous utilisez l’allocation d’adresse IP dynamique (DHCP) sur l’ordinateur exécutant l’émulateur HDInsight, vous devrez peut-être mettre à jour C:\\hdp\\hadoop-*version*\\etc\\hadoop\\core-site.xml et remplacer la valeur de la propriété **hadoop.proxyuser.hadoop.hosts** par (*). Cela permet à l’utilisateur Hadoop de se connecter à tous les hôtes pour emprunter l’identité de l’utilisateur que vous avez entrée dans Visual Studio.
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -397,14 +396,14 @@ Avant de commencer à suivre les instructions ci-dessous, vous devez créer un c
 
 **Création d’un conteneur**
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
 2. Cliquez sur **NOUVEAU** dans le volet gauche, cliquez sur **Données + Stockage**, puis cliquez sur **Stockage**.
 3. Dans le panneau Compte de stockage, configurez les propriétés, comme indiqué dans la capture d'écran ci-dessous.
 	
 	![Créer un compte de stockage](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
 
 	Sélectionnez **Épingler au Tableau d’accueil**, puis cliquez sur **Créer**.
-4. Une fois le compte de stockage créé, à partir du nouveau panneau de compte de stockage, cliquez sur **Conteneurs** pour ouvrir le panneau de conteneurs, puis cliquez sur **Ajouter**.
+4. Une fois le compte de stockage créé, à partir du panneau du nouveau compte de stockage, cliquez sur **Conteneurs** pour ouvrir le panneau de conteneurs, puis cliquez sur **Ajouter**.
 5. Entrez le nom du conteneur, puis cliquez sur **Sélectionner**.
 
 	![Créez un conteneur.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
@@ -498,4 +497,4 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

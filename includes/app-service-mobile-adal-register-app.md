@@ -1,6 +1,6 @@
 1. Inscrivez le serveur principal de votre application mobile auprès de votre client Azure Active Directory en suivant la rubrique [Configuration de votre application mobile avec Azure Active Directory].
 
-2. Accédez à **Active Directory** dans le [portail de gestion Azure]
+2. Accédez à **Active Directory** dans le [portail Azure Classic]
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 Votre application est désormais configurée dans AAD, et les utilisateurs peuvent donc se connecter à l’aide de l’authentification AAD.
 
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Configuration de votre application mobile avec Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

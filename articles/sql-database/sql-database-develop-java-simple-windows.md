@@ -58,7 +58,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## Chaîne de connexion pour votre base de données SQL.
 
 
-L'exemple de code crée un objet `Connection` à l'aide d'une chaîne de connexion. Vous pouvez trouver la chaîne de connexion à l'aide du [portail Azure en version préliminaire](http://portal.azure.com/). Pour plus d'informations sur la recherche de la chaîne de connexion, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+L'exemple de code crée un objet `Connection` à l'aide d'une chaîne de connexion. Vous pouvez trouver la chaîne de connexion à l’aide du [portail Azure](http://portal.azure.com/). Pour plus d'informations sur la recherche de la chaîne de connexion, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 
 > [AZURE.NOTE]Pilote JTDS JDBC : si vous utilisez le pilote JTDS JDBC, vous devrez alors ajouter « ssl=require » à l’URL de la chaîne de connexion et vous devrez définir l’option suivante pour l’environnement JVM« -Djsse.enableCBCProtection=false ». Cette option JVM désactive un correctif pour un problème de sécurité. Par conséquent, assurez-vous que vous savez quels risques vous prenez avant de définir cette option.
@@ -230,4 +230,4 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 
 Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -38,6 +38,7 @@ U-SQL | Diagrammes ferroviaires grammaticaux | 1 | en cours, à l'aide de [ceci]
 Service | Sécurisation des travaux, données et tables dans Data Lake Analytics |1| en cours | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 Service | Déplacement de la sortie d’un travail vers SQL Data Warehouse à l’aide de Data Factory |1 | en cours | [@mumian](https://github.com/mumian) | 
 Outils | Utilisation des outils de diagnostic | 1 | Pending | [@mumian](https://github.com/mumian) | 
+U-SQL | Expliquez les techniques permettant d’effectuer des jointures basé sur une plage | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -46,13 +47,13 @@ Outils | Utilisation des outils de diagnostic | 1 | Pending | [@mumian](https://
 
 Domaine |Rubrique | location
 ------------- | ------------- | -------------- 
-Service | Coordination du déploiement de Data Lake Analytics avec d’autres services Azure à l’aide de modèles ARM | [location](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Service | Coordination du déploiement de Data Lake Analytics avec d’autres services Azure à l’aide de modèles ARM | [location](../data-lake-analytics-manage-use-powershell.md)
 
 ## Comment envoyer des commentaires sur le backlog
 Plusieurs possibilités vous sont données pour fournir des commentaires sur le backlog :
 
 * Ajouter un commentaire ci-dessous
-* Soumettre une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
-* Envoyer un e-mail à l'adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
+* Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
+* Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

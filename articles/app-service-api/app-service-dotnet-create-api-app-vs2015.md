@@ -18,10 +18,7 @@
 
 # Créer une application API ASP.NET dans Azure App Service avec Visual Studio 2015
 
-> [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Vue d'ensemble
 
@@ -297,4 +294,4 @@ Dans cette section, vous accédez au portail pour afficher la définition d'API 
 Vous avez maintenant créé et déployé une application API à l’aide de Visual Studio 2015 RC. Pour plus d’informations sur les applications API, consultez les entrées dans le volet de navigation qui s’affiche sur le côté gauche de la page (pour les grandes fenêtres de navigateur) ou en haut de la page (pour les fenêtres de navigateur étroites). La plupart des documents relatifs aux applications API font actuellement référence à Visual Studio 2013, mais la plus grande partie peut être utilisée avec Visual Studio 2015, car l’interface utilisateur est similaire, le code que vous écrivez est le même et l’interface utilisateur du portail est identique.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

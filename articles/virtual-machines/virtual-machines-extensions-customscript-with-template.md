@@ -27,7 +27,7 @@ Pour une vue d’ensemble de l’extension de script personnalisé, voir l’art
 
 Depuis son lancement, l’extension de Script personnalisé a été largement utilisée pour configurer des charges travail aussi bien sur des machines virtuelles Windows et que Linux. Avec la présentation des modèles Azure Resource manager, les utilisateurs peuvent maintenant créer un modèle unique qui non seulement met en service la machine virtuelle, mais configure les charges de travail.
 
-## Vue d’ensemble des modèles Azure Resource Manager
+## À propos des modèles Azure Resource Manager
 
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
 
@@ -35,7 +35,7 @@ Le modèle Azure Resource Manager vous permet de spécifier de manière déclara
 - [Déploiement de modèles avec l'interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli)
 - [Déploiement de modèles avec Azure Powershell](virtual-machines-deploy-rmtemplates-powershell)
 
-### Conditions préalables pour exécuter l’extension de script personnalisé
+### Conditions préalables
 
 1. Installez les dernières applets de commande d'Azure PowerShell ou de l'interface de ligne de commande Azure à partir d'[ici](http://azure.microsoft.com/downloads).
 2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l'agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez [ces](virtual-machines-extensions-install) instructions pour en installer un.
@@ -43,11 +43,11 @@ Le modèle Azure Resource Manager vous permet de spécifier de manière déclara
 4. Les scripts peuvent également être téléchargés vers un compte Github.
 5. Le script doit être conçu de manière à ce que le script d'entrée lancé par l'extension lance à son tour les autres scripts.
 
-## Vue d’ensemble de l’utilisation de l’extension de script personnalisé avec les modèles :
+## Utilisation de l’extension de script personnalisé
 
 Pour le déploiement de modèles, nous utilisons la même version d’extension de script personnalisé que celle de l’API de gestion de Service Azure. L’extension prend en charge les mêmes paramètres et scénarios, par exemple, le téléchargement de fichiers vers le compte de stockage Azure ou un emplacement Github. La différence clé qui intervient pendant l’utilisation des modèles est que la version exacte de l’extension doit être spécifiée, contrairement à la spécification de la version au format majorversion.*.
 
- ## Extrait de modèle d’extension de script personnalisé sur une machine virtuelle Linux
+ ## Exemple de modèle pour une machine virtuelle sous Linux
 
 Définir la ressource d’extension suivante dans la section Ressource du modèle
 
@@ -69,7 +69,7 @@ Définir la ressource d’extension suivante dans la section Ressource du modèl
     }
     }
 
-## Extrait de modèle d’extension de script personnalisé sur une machine virtuelle Windows.
+## Exemple de modèle pour une machine virtuelle sous Windows
 
 Définir la ressource suivante dans la section Ressource du modèle
 
@@ -102,4 +102,4 @@ Reportez-vous aux exemples ci-dessous pour obtenir des exemples complets de conf
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

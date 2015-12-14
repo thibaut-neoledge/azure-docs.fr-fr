@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Paramétrez le classement de recherche avec les profils de score dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -46,8 +46,8 @@ Dans l'onglet Code source, cliquez sur **Télécharger** pour obtenir un fichier
 ## Modification du fichier app.config
 
 1. Après avoir extrait les fichiers, ouvrez la solution dans Visual Studio pour modifier le fichier de configuration.
-1. Dans l'Explorateur de solutions, double-cliquez sur **app.config**. Ce fichier spécifie le point de terminaison de service et une `api-key` utilisée pour authentifier la demande. Ces valeurs sont disponibles dans le portail de gestion Azure.
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Dans l'Explorateur de solutions, double-cliquez sur **app.config**. Ce fichier spécifie le point de terminaison de service et une `api-key` utilisée pour authentifier la demande. Ces valeurs sont disponibles dans le portail Classic.
+1. Connectez-vous au [portail Azure Classic](https://portal.azure.com).
 1. Accédez au tableau de bord du service pour Azure Search.
 1. Cliquez sur la vignette **Propriétés** pour copier l'URL du service.
 1. Cliquez sur la vignette **Clés** pour copier l'`api-key`.
@@ -126,4 +126,4 @@ Vous avez besoin de revenir en arrière et de vous former davantage à la créat
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

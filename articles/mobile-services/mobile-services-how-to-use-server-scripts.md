@@ -89,7 +89,7 @@ Chaque script serveur dispose d'une fonction principale et peut avoir des foncti
 
 Vous pouvez définir des scripts serveur qui sont enregistrés pour une opération de table d'une des façons suivantes :
 
-+ Dans le [portail de gestion Azure][Management Portal]. Les scripts pour les opérations de table sont accessibles sous l'onglet **Scripts** d'une table donnée. Ce qui suit présente le code par défaut enregistré pour le script insert de la table `TodoItem`. Vous pouvez remplacer ce code par votre propre logique métier personnalisée.
++ Dans le [portail Azure Classic]. Les scripts pour les opérations de table sont accessibles sous l'onglet **Scripts** d'une table donnée. Ce qui suit présente le code par défaut enregistré pour le script insert de la table `TodoItem`. Vous pouvez remplacer ce code par votre propre logique métier personnalisée.
 
 	![1][1]
 	
@@ -336,7 +336,7 @@ L'état global est conservé entre les exécutions.
 
 Vous pouvez définir des scripts serveur qui sont enregistrés pour des méthodes HTTP dans un point de terminaison d'API personnalisée de l'une des façons suivantes :
 
-+ Dans le [portail de gestion Azure][Management Portal]. Les scripts de l'API personnalisée sont créés et modifiés dans l'onglet **API**. Le code du script serveur se trouve dans l'onglet **Scripts** d'une API personnalisée donnée. Ce qui suit affiche le script appelé par une requête POST au point de terminaison de l'API personnalisée `CompleteAll`. 
++ Dans le [portail Azure Classic]. Les scripts de l'API personnalisée sont créés et modifiés dans l'onglet **API**. Le code du script serveur se trouve dans l'onglet **Scripts** d'une API personnalisée donnée. Ce qui suit affiche le script appelé par une requête POST au point de terminaison de l'API personnalisée `CompleteAll`. 
 
 	![2][2]
 	
@@ -443,17 +443,17 @@ Les deux itinéraires de l'exemple d'API personnalisée ci-dessus peuvent être 
 
 ##<a name="scheduler-scripts"></a>Planificateur de travaux
 
-Mobile Services vous permet de définir des scripts serveur qui sont exécutés comme des travaux sur une planification fixe ou à la demande à partir du portail de gestion. Les travaux planifiés sont utiles pour effectuer des tâches périodiques comme le nettoyage des données de table et le traitement par lots. Pour plus d'informations, consultez la page [Planifier les travaux].
+Mobile Services vous permet de définir des scripts serveur qui sont exécutés comme des travaux selon une planification fixe ou à la demande à partir du portail Azure Classic. Les travaux planifiés sont utiles pour effectuer des tâches périodiques comme le nettoyage des données de table et le traitement par lots. Pour plus d'informations, consultez la page [Planifier les travaux].
 
 Les scripts qui sont enregistrés pour des travaux planifiés ont une fonction principale avec le même nom que le travail planifié. Étant donné qu'un script planifié n'est pas appelé par une requête HTTP, aucun contexte ne peut être transmis au runtime du serveur et la fonction ne prend pas de paramètre. Comme d'autres types de scripts, vous pouvez avoir des fonctions de sous-routine et des modules partagés. Pour plus d'informations, consultez la section [Contrôle du code source, code partagé et fonctions d'assistance].
 
 ###<a name="scheduler-scripts"></a>Procédure : définition de scripts de travail planifié
 
-Un script serveur peut être attribué à un travail qui est défini dans le planificateur Mobile Services. Ces scripts appartiennent au travail et sont exécutés selon la planification du travail. (Vous pouvez aussi utiliser le [portail de gestion] pour exécuter des travaux à la demande.) Un script définissant un travail planifié n'a pas de paramètre, car Mobile Services ne lui transmet aucune donnée ; il est exécuté comme une fonction JavaScript régulière et n'interagit pas directement avec Mobile Services.
+Un script serveur peut être attribué à un travail qui est défini dans le planificateur Mobile Services. Ces scripts appartiennent au travail et sont exécutés selon la planification du travail. (Vous pouvez aussi utiliser le [portail Azure Classic] pour exécuter des travaux à la demande.) Un script définissant un travail planifié n'a pas de paramètre, car Mobile Services ne lui transmet aucune donnée ; il est exécuté comme une fonction JavaScript régulière et n'interagit pas directement avec Mobile Services.
 
 Vous définissez des travaux planifiés de l'une des façons suivantes :
 
-+ Dans le [portail de gestion Azure][Management Portal], sous l'onglet **Script** dans le planificateur :
++ Dans le [portail Azure Classic], sous l'onglet **Script** dans le planificateur :
 
 	![3][3]
 
@@ -924,7 +924,7 @@ La bonne exécution de la méthode **open** entraîne la transmission de la conn
 
 Pour écrire dans les journaux, utilisez l'[objet console] global. Utilisez la fonction **log** ou **info** pour journaliser les avertissements de niveau des informations. Les fonctions **warning** et **error** journalisent leurs niveaux respectifs qui sont appelés dans les journaux.
 
-> [AZURE.NOTE]Pour afficher les journaux de votre service mobile, connectez-vous au [portail de gestion](https://manage.windowsazure.com/), sélectionnez votre service mobile, puis choisissez l'onglet **Logs**.
+> [AZURE.NOTE]Pour afficher les journaux de votre service mobile, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez votre service mobile, puis choisissez l'onglet **Logs**.
 
 Vous pouvez aussi utiliser les fonctions de journalisation de l'[objet console] pour formater vos messages à l'aide de paramètres. L'exemple suivant fournit un objet JSON en tant que paramètre à la chaîne du message :
 
@@ -1020,8 +1020,7 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Valider des données]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modifier la requête]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modifier la réponse]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
-[portail de gestion]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Planifier les travaux]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validation et modification des données dans Mobile Services à l'aide des scripts serveur]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commandes pour gérer Azure Mobile Services]: ../virtual-machines-command-line-tools.md#Mobile_Scripts
@@ -1052,4 +1051,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

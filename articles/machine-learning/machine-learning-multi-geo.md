@@ -23,7 +23,7 @@ Cet article explique comment vous pouvez créer un espace de travail et publier 
 
 ## Création d'un espace de travail
 
-1. Connectez-vous au portail de gestion Azure.
+1. Connectez-vous au portail Azure Classic.
 
 2.  Cliquez sur **+ Nouveau** > **SERVICES DE DONNÉES** > **MACHINE LEARNING** > **CRÉATION RAPIDE**. Sous **Emplacement**, sélectionner une autre région, par exemple, l'**Asie du Sud-est**. ![Aide zone géographique multiple image 1][1]
 3. Sélectionnez l'espace de travail, puis cliquez sur **Se connecter à ML Studio**. ![Aide zone géographique multiple image 2][2]
@@ -57,4 +57,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

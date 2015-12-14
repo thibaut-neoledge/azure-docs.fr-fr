@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Association d’un disque de données | Microsoft Azure"
-	description="Explique comment attacher un disque de données nouveau ou existant à une machine virtuelle dans le portail Azure en version préliminaire à l’aide du modèle de déploiement du Gestionnaire des ressources."
+	description="Explique comment attacher un disque de données nouveau ou existant à une machine virtuelle dans le portail Azure à l’aide du modèle de déploiement Resource Manager."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,21 +17,21 @@
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
-# Attachement d’un disque de données dans le portail Azure en version préliminaire
+# Attachement d’un disque de données dans le portail Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
-Cet article explique comment attacher des disques nouveaux et existants à une machine virtuelle via le portail Azure en version préliminaire. Avant cela, passez en revue les conseils suivants :
+Cet article explique comment attacher des disques nouveaux et existants à une machine virtuelle via le portail Azure. Avant cela, passez en revue les conseils suivants :
 
-- La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+- La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 - Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
-- Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour plus de détails, voir [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
+- Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 - Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
 - Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier déjà présent, s’il n’est attaché à aucune autre machine virtuelle, ou télécharger votre propre fichier .vhd sur le compte de stockage.
 
 ## Recherchez la machine virtuelle.
 
-1. Connectez-vous au portail Azure en version préliminaire.
+1. Connectez-vous au portail Azure.
 
 2. Dans le menu Hub, cliquez sur **Parcourir**.
 
@@ -41,7 +41,7 @@ Cet article explique comment attacher des disques nouveaux et existants à une m
 
 4.	Sélectionnez la machine virtuelle dans la liste.
 
-5. À droite, sous **Essentials**, cliquez sur **Tous les paramètres**, puis sur **Disques**.
+5. À droite, sous **Bases**, cliquez sur **Tous les paramètres**, puis sur **Disques**.
 
 	![Ouverture des paramètres d’un disque](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -79,15 +79,15 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 Une fois le disque ajouté, vous devez le préparer pour utilisation dans le système d’exploitation de la machine virtuelle :
 
-- Pour Linux, consultez la section « Initialisation d’un nouveau disque de données sous Linux » de cet [article](virtual-machines-linux-how-to-attach-disk.md).
-- Pour Windows, consultez la section « Initialisation d’un nouveau disque de données sous Windows Server » de cet [article](storage-windows-attach-disk.md).
+- Pour Linux, consultez « Initialisation d’un nouveau disque de données sous Linux » dans cet [article](virtual-machines-linux-how-to-attach-disk.md).
+- Pour Windows, consultez « Initialisation d’un nouveau disque de données sous Windows Server » dans cet [article](storage-windows-attach-disk.md).
 
 ## Ressources supplémentaires
 
-[À propos des comptes de stockage Azure]
+[À propos des comptes Azure Storage]
 
 <!--Link references-->
 
-[À propos des comptes de stockage Azure]: ../storage-whatis-account/
+[À propos des comptes Azure Storage]: ../storage-whatis-account/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

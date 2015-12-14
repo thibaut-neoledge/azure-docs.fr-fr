@@ -18,13 +18,13 @@
 
 # Utilisation de la gestion des services à partir de Python
 
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](../python-how-to-install.md) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail de gestion][management-portal] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
+Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](../python-how-to-install.md) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 > [AZURE.NOTE]L’API Gestion des API est remplacée par la nouvelle API Gestion des ressources, actuellement disponible en version préliminaire. Consultez la [documentation sur la gestion de ressources Azure](http://azure-sdk-for-python.readthedocs.org/) pour plus de détails sur l’utilisation de la nouvelle API Gestion des ressources Python.
 
 
 ## <a name="WhatIs"> </a>Présentation de la gestion des services
-L'API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail de gestion][management-portal]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud et vos comptes de stockage.
+L’API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail Azure Classic][management-portal]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud et vos comptes de stockage.
 
 Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,7 +32,7 @@ Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure]
 Le Kit de développement logiciel (SDK) Azure pour Python inclut l'[API de gestion des services Azure][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 ## <a name="Connect"> </a>Connexion à la gestion des services
-Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d'abonnement Azure et d'un certificat de gestion valide. Vous pouvez obtenir votre ID d'abonnement dans le [portail de gestion][management-portal].
+Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d'abonnement Azure et d'un certificat de gestion valide. Vous pouvez obtenir votre ID d’abonnement dans le [portail Azure Classic][management-portal].
 
 > [AZURE.NOTE]À partir du Kit de développement logiciel (SDK) Azure pour Python v0.8.0, il est maintenant possible d'utiliser des certificats créés avec OpenSSL sous Windows. Ceci nécessite Python 2.7.4 ou version ultérieure. Nous recommandons aux utilisateurs d’utiliser OpenSSL au lieu de .pfx, car la prise en charge des certificats .pfx risque de disparaître à l’avenir.
 
@@ -45,9 +45,9 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la page [Vue d’ensemble des certificats pour Azure](./cloud-services-certs-create.md). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Pour plus d’informations sur les certificats Azure, consultez la page [Vue d’ensemble des certificats pour Azure Cloud Services](./cloud-services-certs-create.md). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Une fois ces fichiers créés, vous devez télécharger le fichier`.cer` sur Azure au moyen de l’action Télécharger de l’onglet Paramètres dans le [portail de gestion][management-portal]. Pensez également à noter l’endroit où vous avez enregistré le fichier `.pem`.
+Une fois ces fichiers créés, vous devez télécharger le fichier `.cer` sur Azure au moyen de l’action Télécharger de l’onglet Paramètres dans le [portail Azure Classic][management-portal]. Pensez également à noter l’endroit où vous avez enregistré le fichier `.pem`.
 
 Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l’ID d’abonnement et le chemin du fichier `.pem` vers **ServiceManagementService** :
 
@@ -69,7 +69,7 @@ Vous pouvez créer un certificat de gestion auto-signé sur votre machine au moy
 
 La commande va créer le fichier `.cer` et l’installer dans le magasin de certificats **Personnel**. Pour plus de détails, consultez la rubrique [Vue d’ensemble des certificats pour Azure Cloud Services](./cloud-services-certs-create.md).
 
-Une fois le certificat créé, vous devez télécharger le fichier `.cer` sur Azure via l’action Télécharger de l’onglet Paramètres dans le [portail de gestion][management-portal].
+Une fois le certificat créé, vous devez télécharger le fichier `.cer` sur Azure par le biais de l’action Télécharger de l’onglet Paramètres dans le [portail Azure Classic][management-portal].
 
 Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l’ID d’abonnement et l’emplacement du certificat dans votre magasin de certificats **Personnel** vers **ServiceManagementService** (à nouveau, remplacez *AzureCertificate* par le nom de votre certificat) :
 
@@ -435,4 +435,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
 [service cloud]: https://azure.microsoft.com/fr-FR/documentation/services/cloud-services/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

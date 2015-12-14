@@ -23,15 +23,15 @@ Pour vous aider lors de la mise à niveau des bases de données Web et Business,
 
 **Pour obtenir des recommandations sur les niveaux tarifaires :**
 
-- [Mise à niveau vers SQL Database V12 à l’aide du portail Azure](sql-database-v12-upgrade.md)
-- [Mise à niveau vers SQL Database V12 à l’aide de PowerShell](sql-database-upgrade-server.md)
+- [Mise à niveau vers SQL Database V12 à l’aide du portail Azure](sql-database-upgrade-server-portal.md)
+- [Mise à niveau vers SQL Database V12 à l’aide de PowerShell](sql-database-upgrade-server-powershell.md)
 - [Modifier le niveau tarifaire d’une base de données Web ou Business](sql-database-service-tier-advisor.md)
  
 
 
-## Pourquoi le portail de gestion Azure indique-t-il que mes bases de données des éditions Web et Business sont supprimées ?
+## Pourquoi le portail Azure indique-t-il que mes bases de données des éditions Web et Business sont supprimées ?
 
-Étant donné que les bases de données des éditions Web et Business ne seront plus disponibles après le mois de septembre 2015, le portail de gestion marque les bases de données Web et Business comme étant supprimées. Vous pouvez toujours approvisionner et gérer les bases de données Web et Business comme d’habitude, mais l’étiquette « Supprimé » est un rappel signalant qu’il est préférable d’utiliser le niveau de service De base, Standard ou Premium pour les nouvelles bases de données. Cette étiquette rappelle également que les bases de données Web et Business doivent être mises à niveau vers le niveau Standard, De base ou Premium. Pour plus d’informations sur la mise à niveau des bases de données Web ou Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md).
+Étant donné que les bases de données des éditions Web et Business ne seront plus disponibles après le mois de septembre 2015, le portail marque les bases de données Web et Business comme étant supprimées. Vous pouvez toujours approvisionner et gérer les bases de données Web et Business comme d’habitude, mais l’étiquette « Supprimé » est un rappel signalant qu’il est préférable d’utiliser le niveau de service De base, Standard ou Premium pour les nouvelles bases de données. Cette étiquette rappelle également que les bases de données Web et Business doivent être mises à niveau vers le niveau Standard, De base ou Premium. Pour plus d’informations sur la mise à niveau des bases de données Web ou Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md).
 
 ## Quel nouveau niveau de service constitue le meilleur choix pour mettre à niveau ma base de données Web ou Business existante ?
 
@@ -68,4 +68,4 @@ Les bases de données SQL Azure De base, Standard et Premium sont facturées à 
 
 [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Inscription pour l'authentification Google | Microsoft Azure" 
-	description="Découvrez comment inscrire vos applications afin d'utiliser Google pour l'authentification auprès d'Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Inscription pour l'authentification Google | Microsoft Azure"
+	description="Découvrez comment inscrire vos applications afin d'utiliser Google pour l'authentification auprès d'Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 # Inscription des applications pour la connexion Google avec Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
@@ -28,16 +33,16 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 3. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 
-4. Dans la barre de navigation à gauche, cliquez sur **API et authentification**, puis sous **API sociales** cliquez sur **API Google+** > **Activer l’API**.
+4. Dans la barre de navigation à gauche, cliquez sur **API et authentification**, puis, sous **API sociales**, cliquez sur **API Google+** > **Activer l'API**.
 
-5. Cliquez sur **API et authentification** > **Informations d’identification** > **Écran de consentement OAuth**, sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit**, puis cliquez sur **Enregistrer**.
+5. Cliquez sur **API et authentification** > **Informations d'identification** > **Écran de consentement OAuth**, puis sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit** et cliquez sur **Enregistrer**.
 
-6. Dans l’onglet **Informations d'identification**, cliquez sur **Ajouter des informations d'identification** > **ID client OAuth 2.0**, puis sélectionnez **Application Web**.
+6. Dans l'onglet **Informations d'identification**, cliquez sur **Ajouter des informations d'identification** > **ID client OAuth 2.0**, puis sélectionnez **Application Web**.
 
 7. Entrez l’URL de votre service mobile dans **Origines JavaScript autorisées**, remplacez l’URL générée dans **URI de redirection autorisée** par l’un des formats d’URL suivants, puis cliquez sur **Créer un ID de client** :
- 
-	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-google`
-	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/google` 
+
+	+ **Backend .NET** : `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **Backend JavaScript** : `https://<mobile_service>.azure-mobile.net/login/google`
 
 	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera.
 
@@ -56,7 +61,4 @@ Vous êtes désormais prêt à configurer votre service mobile pour utiliser l'a
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

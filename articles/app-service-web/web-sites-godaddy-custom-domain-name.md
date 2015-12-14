@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acheter un domaine pour Web Apps</a>.
+Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md).
 
 Cet article explique comment utiliser un nom de domaine personnalisé acheté directement auprès de [GoDaddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -67,7 +67,7 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 5. Cliquez sur **Ajouter**.
 6. Sélectionnez **CNAME** comme type d’enregistrement, puis spécifiez une valeur **Host** de **awverify** et une valeur **Pointe vers** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l’enregistrement A ou le premier enregistrement CNAME. Une fois que le domaine a été mappé à l’application web dans le portail Azure en version préliminaire, l’entrée **awverify** peut être supprimée.
+	> [AZURE.NOTE]Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l’enregistrement A ou le premier enregistrement CNAME. Une fois que le domaine a été mappé à l’application web dans le portail Azure, l’entrée **awverify** peut être supprimée.
 
 5. Une fois que vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Finish** pour enregistrer les changements.
 
@@ -80,6 +80,5 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

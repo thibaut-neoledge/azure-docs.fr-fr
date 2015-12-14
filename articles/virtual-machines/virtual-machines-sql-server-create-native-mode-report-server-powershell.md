@@ -31,7 +31,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 
 - **Abonnement Azure** : vérifiez le nombre de mémoires à tores magnétiques disponibles dans votre abonnement Azure. Si vous créez une machine virtuelle de la taille recommandée **A3**, vous devez disposer de **4** mémoires à tores magnétiques. Si vous utilisez une machine virtuelle de taille **A2**, vous devez disposer de **2** mémoires à tores magnétiques.
 	
-	- Pour vérifier la limite de mémoires à tores magnétiques de votre abonnement, dans le portail Azure, cliquez sur PARAMÈTRES dans le volet de gauche, puis sur UTILISATION dans le menu supérieur.
+	- Pour vérifier la limite de mémoires à tores magnétiques de votre abonnement, dans le portail Azure Classic, cliquez sur PARAMÈTRES dans le volet de gauche, puis sur UTILISATION dans le menu supérieur.
 	
 	- Pour augmenter le quota de mémoires à tores magnétiques, contactez le [support technique Azure](http://azure.microsoft.com/support/options/). Pour plus d’informations sur les tailles de machines virtuelles, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
 
@@ -43,7 +43,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 
 ## Étape 1 : Approvisionner une machine virtuelle Azure
 
-1. Accédez au portail Azure.
+1. Connectez-vous au portail Azure Classic.
 
 1. Cliquez sur **Machines virtuelles** dans le volet de gauche.
 
@@ -143,7 +143,7 @@ Un certificat auto-signé a été créé sur la machine virtuelle lors de son ap
 
 1. Pour approuver l’autorité de certification racine du certificat sur la machine virtuelle locale, ajoutez le certificat aux **Autorités de certification racines de confiance**. Les instructions suivantes sont un résumé de la procédure requise. Pour obtenir la procédure détaillée d’approbation de l’autorité de certification, consultez la page [Installer un certificat de serveur](https://technet.microsoft.com/library/cc740068).
 
-	1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
+	1. Dans le portail Azure Classic, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
 	
 		![se connecter à une machine virtuelle azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle.
 	
@@ -193,7 +193,7 @@ Pour obtenir la procédure détaillée, consultez la section [Se connecter à la
 
 Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapports, procédez comme suit. La configuration inclut HTTP, pas HTTPS :
 
-1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
+1. Dans le portail Azure Classic, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
 
 	![se connecter à une machine virtuelle azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle.
 
@@ -334,7 +334,7 @@ Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapp
 
 Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, procédez comme suit. La configuration inclut HTTPS, pas HTTP.
 
-1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
+1. Dans le portail Azure Classic, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
 
 	![se connecter à une machine virtuelle azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle.
 
@@ -557,11 +557,11 @@ Le résultat comprend les éléments suivants :
 
 Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serveur de rapports, suivez la procédure décrite dans cette section pour utiliser le Gestionnaire de configuration de Reporting Services en mode natif afin de configurer le serveur de rapports.
 
-1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Utilisez le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle.
+1. Dans le portail Azure Classic, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Utilisez le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle.
 
 	![se connecter à une machine virtuelle azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. Exécutez Windows Update et installez les mises à jour de la machine virtuelle. Si un redémarrage de la machine virtuelle est nécessaire, redémarrez la machine virtuelle et reconnectez-vous à celle-ci à partir du portail Azure.
+1. Exécutez Windows Update et installez les mises à jour de la machine virtuelle. Si un redémarrage de la machine virtuelle est nécessaire, redémarrez la machine virtuelle et reconnectez-vous à celle-ci à partir du portail Azure Classic.
 
 1. Dans le menu Démarrer de la machine virtuelle, saisissez **Reporting Services** et ouvrez le **Gestionnaire de configuration de Reporting Services**.
 
@@ -633,7 +633,7 @@ Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ou
 
 		http://localhost/Reports
 
-- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine](nom utilisateur), où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
+- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine][nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -683,7 +683,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 ## Réduire les coûts si vous n’utilisez pas la machine virtuelle
 
->[AZURE.NOTE]Pour réduire les frais associés à Azure Virtual Machines lorsque vous ne l’utilisez pas, arrêtez la machine virtuelle à partir du portail Azure. Si vous utilisez les options d’alimentation Windows d’une machine virtuelle pour arrêter la machine virtuelle, vous êtes toujours facturé du même montant pour la machine virtuelle. Pour réduire les frais, vous devez arrêter la machine virtuelle dans le portail Azure. Si vous n’avez plus besoin de la machine virtuelle, n’oubliez pas de la supprimer, ainsi que les fichiers .vhd associés, pour éviter des frais de stockage. Pour plus d’informations, consultez la FAQ à la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE]Pour réduire les frais associés à vos machines virtuelles Azure lorsque vous ne les utilisez pas, arrêtez la machine virtuelle à partir du portail Azure Classic. Si vous utilisez les options d’alimentation Windows d’une machine virtuelle pour arrêter la machine virtuelle, vous êtes toujours facturé du même montant pour la machine virtuelle. Pour réduire les frais, vous devez arrêter la machine virtuelle dans le portail Azure Classic. Si vous n’avez plus besoin de la machine virtuelle, n’oubliez pas de la supprimer, ainsi que les fichiers .vhd associés, pour éviter des frais de stockage. Pour plus d’informations, consultez la FAQ à la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines).
 
 ## Informations complémentaires
 
@@ -705,4 +705,4 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

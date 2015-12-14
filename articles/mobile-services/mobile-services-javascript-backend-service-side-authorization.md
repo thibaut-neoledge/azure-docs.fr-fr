@@ -28,7 +28,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## <a name="register-scripts"></a>Inscription des scripts
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre service mobile. Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
+1. Connectez vous au [portail Azure Classic], cliquez sur **Mobile Services**, puis sur votre service mobile. Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
 2. Cliquez sur **Script**, sélectionnez l’opération **Insérer**, remplacez le script existant par la fonction suivante, puis cliquez sur **Enregistrer**.
 
@@ -67,7 +67,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Ajout de l'authentification à une application Mobile Services existante]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,7 +25,7 @@ Les éléments suivants vous donnent un bref aperçu de la façon dont Adventure
 ## Ajout d’exemples de données lors de la création
 Pour garantir que les exemples de données sont chargés dans votre SQL Data Warehouse lors du déploiement, procédez comme suit :
 
-1. Démarrez le processus de création en recherchant SQL Data Warehouse dans le [portail Azure][] en cliquant sur « + Nouveau », puis sur « Données et stockage » ou dans Marketplace en recherchant « SQL Data Warehouse ». 
+1. Démarrez le processus de création en recherchant SQL Data Warehouse dans le [portail Azure Classic][] en cliquant sur « + Nouveau », puis sur « Données et stockage » ou dans Marketplace en recherchant « SQL Data Warehouse ». 
  
 2. Une fois que le processus est démarré, cliquez sur l’option « Sélectionner la source » et affectez-lui la valeur « Exemple ». Si vous ne créez pas de nouveau serveur, vous serez également invité à indiquer le mot de passe d’accès au serveur utilisé pour la création.
 
@@ -35,7 +35,7 @@ Pour garantir que les exemples de données sont chargés dans votre SQL Data W
 
 ## Utilisation de Power BI pour analyser Adventureworks
 
-Utiliser le jeu d’exemples de données peut être un excellent moyen de prendre en main Power BI. Après avoir chargé les exemples de données, vous pouvez ouvrir une connexion à SQL Data Warehouse en cliquant sur le bouton « Ouvrir dans Power BI » dans le portail Azure ou en accédant à [Power BI][] et en vous [connectant à SQL Data Warehouse][]. Une fois que vous êtes connecté, un nouveau jeu de données doit être créé avec le même nom que celui de votre entrepôt de données. Pour faciliter l’analyse, nous avons créé une vue appelée « AggregateSales » avec quelques-unes des mesures essentielles pour analyser les ventes de la société. Vous pouvez cliquer sur le nom de cette vue pour la développer et afficher les colonnes qu’elle contient et vous pouvez créer des visualisations rapides en suivant ces étapes :
+Utiliser le jeu d’exemples de données peut être un excellent moyen de prendre en main Power BI. Après avoir chargé les exemples de données, vous pouvez ouvrir une connexion à SQL Data Warehouse en cliquant sur le bouton « Ouvrir dans Power BI » dans le portail Azure Classic ou en accédant à [Power BI][] et en vous [connectant à SQL Data Warehouse][]. Une fois que vous êtes connecté, un nouveau jeu de données doit être créé avec le même nom que celui de votre entrepôt de données. Pour faciliter l’analyse, nous avons créé une vue appelée « AggregateSales » avec quelques-unes des mesures essentielles pour analyser les ventes de la société. Vous pouvez cliquer sur le nom de cette vue pour la développer et afficher les colonnes qu’elle contient et vous pouvez créer des visualisations rapides en suivant ces étapes :
 
 1. Pour commencer, nous pouvons facilement créer une carte de toutes nos ventes en cliquant sur les colonnes « PostalCode » et « SalesAmount ». Power BI reconnaît même automatiquement ces données comme des données géographiques et les intègre dans une carte. 
 
@@ -85,7 +85,7 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 [code de migration]: ./sql-data-warehouse-migrate-code.md
 [charger manuellement des exemples de données]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [charger manuellement les exemples de données]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[portail Azure]: https://portal.azure.com/
+[portail Azure Classic]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connectant à SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 
@@ -95,4 +95,4 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

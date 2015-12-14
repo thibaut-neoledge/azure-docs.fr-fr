@@ -51,11 +51,11 @@ Nous vous recommandons également d’installer [Python Tools 2.2 pour Visual 
 Vous devez avoir installé Python et Git, mais vérifiez que vous disposez de Python 2.7 ou 3.4.
 
 
-## Création d'applications web sur le portail Azure en version préliminaire
+## Création d’applications web sur le portail Azure
 
-La première étape consiste à créer votre application web via le [portail Azure en version préliminaire](https://portal.azure.com).
+La première étape consiste à créer l’application web par le biais du [portail Azure](https://portal.azure.com).
 
-1. Connectez-vous au portail Azure en version préliminaire et cliquez sur le bouton **NOUVEAU** en bas à gauche. 
+1. Connectez-vous au portail Azure et cliquez sur le bouton **NOUVEAU** dans le coin inférieur gauche. 
 2. Cliquez sur **web + Mobile**.
 3. Dans le champ de recherche, tapez « python ».
 4. Dans les résultats de recherche, sélectionnez **Bottle**, puis cliquez sur **Créer**.
@@ -132,7 +132,7 @@ Les trois sections suivantes expliquent comment développer des applications web
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure en version préliminaire. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
 
 Ouvrez le fichier solution (.sln) inclus dans la racine du référentiel.
 
@@ -144,7 +144,7 @@ Nous allons à présent créer un environnement virtuel pour le développement l
 
 - Vérifiez que l’environnement porte le nom `env`.
 
-- Sélectionnez l’interpréteur de base. Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau **Paramètres de l’application** de votre application web dans le portail Azure en version préliminaire).
+- Sélectionnez l’interpréteur de base. Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau **Paramètres de l’application** de votre application web dans le portail Azure).
 
 - Vérifiez que l’option permettant de télécharger et d’installer les packages est cochée.
 
@@ -199,7 +199,7 @@ Accédez à l’URL Azure pour visualiser les modifications que vous avez apport
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure en version préliminaire, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ Commencez par cloner le référentiel à l’aide de l’URL fournie sur le port
 
 Nous allons créer un environnement virtuel pour le développement (ne l’ajoutez pas au référentiel). Les environnements virtuels dans Python ne sont pas déplaçables. De ce fait, chaque développeur travaillant sur l’application créera ses propres environnements localement.
 
-Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau Paramètres de l’application de votre application web dans le portail Azure en version préliminaire).
+Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau Paramètres de l’application de votre application web dans le portail Azure).
 
 Pour Python 2.7 :
 
@@ -278,7 +278,7 @@ Accédez à l’URL Azure pour visualiser les modifications que vous avez apport
 
 ### Cloner le référentiel
 
-Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure en version préliminaire, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
+Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ Commencez par cloner le référentiel à l’aide de l’URL fournie sur le port
 
 Nous allons créer un environnement virtuel pour le développement (ne l’ajoutez pas au référentiel). Les environnements virtuels dans Python ne sont pas déplaçables. De ce fait, chaque développeur travaillant sur l’application créera ses propres environnements localement.
 
-Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau Paramètres de l’application de votre application web dans le portail Azure en version préliminaire).
+Veillez à utiliser la même version de Python que celle sélectionnée pour votre application web (dans runtime.txt ou le panneau Paramètres de l’application de votre application web dans le portail Azure).
 
 Pour Python 2.7 :
 
@@ -378,7 +378,6 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 <!--Link references-->
@@ -400,4 +399,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

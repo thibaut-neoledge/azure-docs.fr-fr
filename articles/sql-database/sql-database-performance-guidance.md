@@ -115,7 +115,7 @@ La géo-réplication standard et active fournit des fonctionnalités de récupé
 Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 ### Stockage In-Memory OLTP maximal
-Le **In-Memory OLTP maximal** fait référence à la quantité maximale de stockage disponible pour la [version préliminaire d'In-Memory OLTP](sql-database-in-memory.md) des bases de données Premium. Cela est parfois aussi appelé le *stockage XTP en mémoire*. Vous pouvez utiliser le portail Azure ou la vue **sys.dm\_db\_resource\_stats** pour surveiller votre utilisation du stockage en mémoire. Pour plus d'informations sur la surveillance, consultez [Surveiller le stockage In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
+Le **In-Memory OLTP maximal** fait référence à la quantité maximale de stockage disponible pour la [version préliminaire d'In-Memory OLTP](sql-database-in-memory.md) des bases de données Premium. Cela est parfois aussi appelé le *stockage XTP en mémoire*. Vous pouvez utiliser le portail Azure Classic ou la vue **sys.dm\_db\_resource\_stats** pour surveiller votre utilisation du stockage en mémoire. Pour plus d'informations sur la surveillance, consultez [Surveiller le stockage In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]La version préliminaire d'In-Memory OLTP est actuellement prise en charge uniquement par les bases de données uniques et non par les bases de données de pools de bases de données élastiques.
 
@@ -168,7 +168,7 @@ Il existe deux vues qui vous permettent de surveiller l'utilisation des ressourc
 - [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE]Il est également possible d'utiliser le portail de gestion Azure pour afficher l'utilisation des ressources. Pour afficher un exemple, consultez [Niveaux de service - Analyse des performances](sql-database-service-tiers.md#monitoring-performance).
+>[AZURE.NOTE]Il est également possible d’utiliser le portail Azure Classic pour afficher l’utilisation des ressources. Pour afficher un exemple, consultez [Niveaux de service - Analyse des performances](sql-database-service-tiers.md#monitoring-performance).
 
 ### Avec sys.dm\_db\_resource\_stats
 La vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe dans chaque base de données SQL et fournit les dernières données sur l'utilisation des ressources par rapport au niveau de service. Les pourcentages moyens de CPU, d'E/S des données, d'écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
@@ -292,7 +292,7 @@ Alors que les niveaux de service sont conçus pour améliorer la stabilité et l
 Cette section explique certaines techniques que vous pouvez utiliser pour paramétrer la base de données SQL Azure afin d’obtenir les meilleures performances de votre application et d’être en mesure d’exécuter le plus petit niveau de performances possible. Plusieurs techniques correspondent aux meilleures pratiques de paramétrage SQL Server traditionnelles, mais certaines sont spécifiques à la base de données SQL Azure. Dans certains cas, les techniques SQL Server traditionnelles peuvent être étendues pour également fonctionner sur la base de données SQL Azure en examinant les ressources utilisées par une base de données afin de déterminer des zones à paramétrer davantage.
 
 ### Query Performance Insight et assistant Index
-La base de données SQL fournit deux outils dans le portail Azure pour l'analyse et la résolution des problèmes de performances qui affectent votre base de données :
+La base de données SQL fournit deux outils dans le portail Azure Classic pour l’analyse et la résolution des problèmes de performances qui affectent votre base de données :
 
 - [Query Performance Insight](sql-database-query-performance.md)
 - [Assistant Index](sql-database-index-advisor.md)
@@ -491,4 +491,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

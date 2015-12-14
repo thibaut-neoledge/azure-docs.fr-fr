@@ -98,7 +98,7 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
             }];
         }
 
-4. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
+4. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 
 5. Dans le code de la méthode `loginAndGetData`, remplacez **INSERT-RESOURCE-URI-HERE** par l’**URI ID d’application** de votre application mobile. Si vous avez suivi les instructions de la rubrique [Configuration de votre application mobile avec Azure Active Directory], votre URI ID d’application doit être semblable à https://contosogateway.azurewebsites.net/login/aad.
 
@@ -118,10 +118,10 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
 
 <!-- URLs. -->
 [Configuration de votre application mobile avec Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [bibliothèque d’authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [Prise en main des applications mobiles]: app-service-mobile-ios-get-started.md
 [Ajout d’une authentification à votre application]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

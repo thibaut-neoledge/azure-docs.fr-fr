@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Configuration d’un environnement intermédiaire
-Supposons que vous avez déjà une application web de WordPress en cours d’exécution sur Azure Web. Connectez-vous au [portail Azure Management Preview](http://portal.azure.com) et accédez à votre application web de WordPress. Apps. Si ce n’est pas le cas, vous pouvez en créer une dans marketplace. Cliquez [ici](web-sites-php-web-site-gallery) pour en savoir plus. Cliquez sur Paramètres -> Emplacement de déploiement -> Ajouter pour créer un emplacement de déploiement avec le nom intermédiaire. Un emplacement de déploiement est une autre application web partageant les mêmes ressources que l’application web principale créé ci-dessus.
+Supposons que vous avez déjà une application web WordPress en cours d’exécution sur Azure Web. Connectez-vous au [portail Azure](http://portal.azure.com) et accédez à votre application web WordPress. Apps. Si ce n’est pas le cas, vous pouvez en créer une dans marketplace. Cliquez [ici](web-sites-php-web-site-gallery) pour en savoir plus. Cliquez sur Paramètres -> Emplacement de déploiement -> Ajouter pour créer un emplacement de déploiement avec le nom intermédiaire. Un emplacement de déploiement est une autre application web partageant les mêmes ressources que l’application web principale créé ci-dessus.
 
 ![Créer un emplacement de déploiement intermédiaire](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ Parcourir et tester votre application web intermédiaire. Si l’on prend en com
 
 ![Échanger les modifications de l’aperçu pour WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> Si, pour votre scénario, vous n’avez besoin que de fichiers push (sans mise à jour de base de données), **vérifiez** le **Paramètre d’emplacement ** de tous les *paramètres d’application* et les *paramètres de chaînes de connexion* associés à la base de données dans le panneau de paramètre d’application web au sein du portail Azure en version préliminaire avant de procéder à l’échange. Dans ce cas DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, le paramètre de chaîne de connexion par défaut ne s’affichent pas dans les modifications de présentation au moment de procéder à l’**échange**. À ce stade, lorsque vous terminez l’opération d’**échange**, l’application web WordPress obtient **UNIQUEMENT** les fichiers des mises à jour.
+ >[AZURE.NOTE]> Si, pour votre scénario, vous n’avez besoin que de fichiers push (sans mise à jour de base de données), **vérifiez** le **Paramètre d’emplacement ** de tous les *paramètres d’application* et les *paramètres de chaînes de connexion* associés à la base de données dans le panneau de paramètre d’application web au sein du portail Azure avant de procéder à l’échange. Dans ce cas DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, le paramètre de chaîne de connexion par défaut ne s’affichent pas dans les modifications de présentation au moment de procéder à l’**échange**. À ce stade, lorsque vous terminez l’opération d’**échange**, l’application web WordPress obtient **UNIQUEMENT** les fichiers des mises à jour.
 
 Avant de procéder à l’échange, voici l’application web de production WordPress ![Application web de production avant l’échange d’emplacements](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -362,21 +362,14 @@ Pour réaliser la configuration, vous devez mettre à jour le fichier courier.co
   </repositories>
  ```
 
-Sous `<repositories>`, entrez l'URL du site de production et les informations utilisateur. Si vous utilisez le fournisseur d'appartenances Umbraco par défaut, ajoutez l'ID de l'utilisateur Administration dans la section <user> . Si vous utilisez un fournisseur d'appartenances Umbraco personnalisé, utilisez les éléments `<login>`,`<password>` pour que le module Courier2 sache comment se connecter au site de production. Pour plus d'informations, consultez la [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) du module Courier. 
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-De même, installez le module Courier sur votre site de production et configurez-le de manière à ce qu'il pointe vers l'application web intermédiaire dans le fichier courier.config concerné, comme indiqué ici
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Cliquez sur l’onglet Courier2 dans le tableau de bord de l’application web Umbraco CMS et sélectionnez des emplacements. Vous devez voir le nom du référentiel comme indiqué dans `courier.config`. Exécutez l'opération à la fois sur votre application de production et votre application intermédiaire.
 
@@ -429,4 +422,4 @@ Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez él
 
 [Comment limiter l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

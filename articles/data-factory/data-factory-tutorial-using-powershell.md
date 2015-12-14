@@ -51,12 +51,12 @@ Dans cette procédure pas à pas, nous allons collecter des exemples de journaux
 	- **Base de données SQL Azure** : serveur, base de données, nom d’utilisateur et mot de passe.
 	- **Cluster Azure HDInsight** : nom du cluster HDInsight, nom d’utilisateur, mot de passe, nom de compte et clé de compte pour le système Microsoft Azure Storage associé à ce cluster. Si vous souhaitez utiliser un cluster HDInsight à la demande au lieu de votre propre cluster HDInsight, vous pouvez ignorer cette étape.  
 8. Lancez **Azure PowerShell** et exécutez les commandes suivantes. Laissez la fenêtre Microsoft Azure PowerShell ouverte. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire.
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 	
 
-## Vue d’ensemble
+## Vue d'ensemble
 Le flux de travail de bout en bout est représenté ci-dessous : ![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
 
 1. Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob (RawGameEventsTable) et crée des partitions basées sur l’année, le mois et le jour (PartitionedGameEventsTable).
@@ -101,7 +101,7 @@ Le flux de travail de bout en bout est représenté ci-dessous : ![Didacticiel 
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Étape 6 : Surveiller des pipelines et des tranches de données](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure.
+6. [Étape 6 : Surveiller des pipelines et des tranches de données](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure Classic.
 
 ## <a name="MainStep1"></a> Étape 1 : Télécharger des exemples de données et des scripts
 Dans cette étape, vous allez télécharger tous les exemples de données (y compris l’ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront appelés par les flux de travail. Les scripts que vous exécutez créent également une base de données SQL Microsoft Azure nommée **MarketingCampaigns**}, des tables, des types définis par l’utilisateur et des procédures stockées.
@@ -122,7 +122,7 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
 	
 	Vous pouvez également utiliser les fichiers du dossier : C:\\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
-2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
+2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le [portail Azure Classic](http://manage.windowsazure.com) ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
 4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\\ADFWalkthrough**).
 5. Exécutez le fichier **uploadSampleDataAndScripts.ps1**. 
 6. Une fois que le script s’exécute correctement, vous verrez les éléments suivants :
@@ -158,9 +158,9 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
 
 
 ## <a name="MainStep2"></a> Étape 2 : Créer une fabrique de données Microsoft Azure
-Dans cette étape, vous allez créer une fabrique de données Microsoft Azure nommée **LogProcessingFactory**.
+Dans cette étape, vous allez créer une fabrique de données Microsoft Azure nommée **LogProcessingFactory**.
 
-1.	Une fois connecté au [portail Azure en version préliminaire][azure-preview-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, puis sur **Fabrique de données** dans le panneau **Nouveau**. 
+1.	Une fois que vous êtes connecté au [portail Azure][azure-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, puis sur **Fabrique de données** dans le panneau **Nouveau**. 
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 	
@@ -178,7 +178,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
 	
 		![Créer un groupe de ressources][image-data-factory-tutorial-create-resourcegroup]
 7. Sélectionnez **ADF** dans le champ **NOM DU GROUPE DE RESSOURCES**.  
-8.	Dans le panneau **Nouvelle fabrique de données**, notez que l’option **Ajouter au tableau d’accueil** est sélectionnée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d’accueil (ce que vous voyez lorsque vous vous connectez à la version préliminaire du portail Azure).
+8.	Dans le panneau **Nouvelle fabrique de données**, notez que l’option **Ajouter au tableau d’accueil** est sélectionnée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d’accueil (ce que vous voyez lorsque vous vous connectez au portail Azure).
 
 	![Panneau Créer une fabrique de données][image-data-factory-tutorial-create-datafactory]
 
@@ -197,7 +197,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
  
 ## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE]Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
+> [AZURE.NOTE]Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Azure Classic, et plus spécifiquement de l’éditeur Data Factory.
 
 Dans cette étape, vous allez créer les services liés suivants : StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService et HDInsightLinkedService.
 
@@ -236,16 +236,16 @@ Dans cette étape, vous allez créer les services liés suivants : StorageLinke
 		
  		![Paramètres SQL Azure][image-data-factory-tutorial-azuresql-settings]
 
-		Pour obtenir ces valeurs à partir du portail de gestion Azure, cliquez sur Afficher les chaînes de connexion de la base de données SQL pour la base de données MarketingCampaigns.
+		Pour obtenir ces valeurs à partir du [portail Azure Classic](http://manage.windowsazure.com), cliquez sur Afficher les chaînes de connexion de la base de données SQL pour la base de données MarketingCampaigns.
 
 		![Chaîne de connexion Base de données SQL Azure][image-data-factory-tutorial-azuresql-database-connection-string]
 
 12. Vérifiez que les trois magasins de données que vous avez créés s’affichent : **StorageLinkedService**, **HDInsightStorageLinkedService** et **AzureSqlLinkedService**.
 13. Vous devez créer un autre service lié, mais cette fois il s’agit d’un service de calcul, précisément du **cluster HDInsight Azure**. Le portail ne prend pas encore en charge la création d’un service de calcul lié. Par conséquent, vous devez utiliser Azure PowerShell pour ce faire. 
 14. Accédez à **Azure PowerShell** s’il est déjà ouvert ; sinon, démarrez **Azure PowerShell**. Si vous avez fermé et rouvert Azure PowerShell, vous devez exécuter les commandes suivantes : 
-	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire. 
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure. 
 15. Passez en mode **AzureResourceManager**, car les applets de commande Azure Data Factory sont disponibles uniquement dans ce mode.
 
 		Switch-AzureMode AzureResourceManager
@@ -296,12 +296,12 @@ Dans cette étape, vous allez créer les tables suivantes :
  
 L’image ci-dessus présente les pipelines sur la ligne du milieu et les tables sur les lignes supérieures et inférieures.
 
-Le portail Azure n’autorise pas encore la création de jeux de données/tables, vous devez donc utiliser Azure PowerShell pour créer des tables dans cette version.
+Le portail Azure Classic n’autorise pas encore la création de jeux de données/tables. Vous devez donc utiliser Azure PowerShell pour créer des tables dans cette version.
 
 ### Créer des tables
 
 1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\\ADFWalkthrough\\Tables**) depuis l’emplacement auquel vous avez extrait les exemples.
-2.	Utilisez l'applet de commande **New-AzureDataFactoryDataset** pour créer les jeux de données pour **RawGameEventsTable.json** comme suit.	
+2.	Utilisez l’applet de commande **New-AzureDataFactoryDataset** pour créer les jeux de données pour **RawGameEventsTable.json** comme suit.	
 
 
 		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
@@ -324,7 +324,7 @@ Le portail Azure n’autorise pas encore la création de jeux de données/tables
 
 
 
-4. Dans le **portail Azure en version préliminaire**, cliquez sur **Jeux de données** dans le panneau **FABRIQUES DE DONNÉES** pour **LogProcessingFactory** et vérifiez que vous voyez apparaître tous les jeux de données (les tables sont des jeux de données rectangulaires).
+4. Dans le **portail Azure**, cliquez sur **Jeux de données** dans le panneau **DATA FACTORY** pour **LogProcessingFactory** et vérifiez que vous voyez apparaître tous les jeux de données (les tables sont des jeux de données rectangulaires).
 
 	![Jeux de données - Tout][image-data-factory-tutorial-datasets-all]
 
@@ -390,7 +390,7 @@ Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmd
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. Dans le **portail Azure en version préliminaire**, cliquez sur la vignette **Pipelines** (et non sur le nom des pipelines) dans le panneau **DATA FACTORY** de **LogProcessingFactory**. Vous devez voir apparaître les pipelines que vous avez créés.
+11. Dans le **portail Azure**, cliquez sur la vignette **Pipelines** (et non sur le nom des pipelines) dans le panneau **DATA FACTORY** de **LogProcessingFactory**. Vous devez voir apparaître les pipelines que vous avez créés.
 
 	![Tous les pipelines][image-data-factory-tutorial-pipelines-all]
 
@@ -438,7 +438,7 @@ Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmd
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l'état **Prêt** ou à l'état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Ready** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
  
 	Pour comprendre tous les états possibles des tranches, reportez-vous à la rubrique [Référence du développeur Azure Data Factory][developer-reference].
 
@@ -474,7 +474,7 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -562,4 +562,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

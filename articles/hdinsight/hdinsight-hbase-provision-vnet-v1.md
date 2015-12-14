@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Approvisionnement de clusters HBase sur Azure Virtual Network
@@ -51,9 +51,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Avant la configuration d’un cluster HBase, vous devez disposer d’un réseau virtuel Azure.
 
-**Pour créer un réseau virtuel au moyen du portail Azure**
+**Pour créer un réseau virtuel au moyen du portail Azure Classic**
 
-1. Connectez-vous au [portail Azure][azure-portal].
+1. Connectez-vous au [portail Azure Classic][azure-portal].
 2. Cliquez sur **NOUVEAU** dans le coin inférieur gauche, puis sur **SERVICES RÉSEAU**, **RÉSEAU VIRTUEL** et **CRÉATION RAPIDE**.
 3. Tapez ou sélectionnez les valeurs suivantes :
 
@@ -86,9 +86,9 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 
 > [AZURE.NOTE]Les clusters HDInsight utilisent le stockage d'objets blob Azure pour stocker des données. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight](../hdinsight-use-blob-storage.md). Vous aurez besoin d'un compte de stockage et d'un conteneur de stockage d'objets blob. Le compte de stockage doit être situé au même emplacement que le réseau virtuel et le cluster.
 
-À l’instar des autres clusters HDInsight, un cluster HBase requiert un compte de stockage Azure et un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Le compte de stockage doit être situé au même emplacement que le réseau virtuel et le cluster. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight][hdinsight-storage]. Lorsque vous configurez un cluster HBase, vous pouvez en créer ou utiliser ceux qui existent déjà. Cette procédure montre comment créer un compte de stockage et un conteneur de stockage d’objets blob à l’aide du portail Azure.
+À l’instar des autres clusters HDInsight, un cluster HBase requiert un compte de stockage Azure et un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Le compte de stockage doit être situé au même emplacement que le réseau virtuel et le cluster. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight][hdinsight-storage]. Lorsque vous configurez un cluster HBase, vous pouvez en créer ou utiliser ceux qui existent déjà. Cette procédure montre comment créer un compte de stockage et un conteneur de stockage d’objets blob à l’aide du portail Azure Classic.
 
-1. Connectez-vous au [portail Azure][azure-portal].
+1. Connectez-vous au [portail Azure Classic][azure-portal].
 2. Cliquez sur **NOUVEAU** dans le coin inférieur gauche, cliquez sur **SERVICES DE DONNÉES**, **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**.
 
 3. Tapez ou sélectionnez les valeurs suivantes :
@@ -107,11 +107,11 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 11. Entrez le nom du conteneur. Ce conteneur sera utilisé comme conteneur par défaut pour le cluster HBase. Par défaut, le nom du conteneur par défaut correspond au nom du cluster. Pour le champ **ACCÈS**, gardez la valeur **Privé**.  
 12. Cliquez sur la coche pour créer le conteneur.
 
-**Approvisionnement d’un cluster HBase en utilisant le portail Azure**
+**Pour approvisionner un cluster HBase en utilisant le portail Azure Classic**
 
 > [AZURE.NOTE]Pour plus d’informations sur l’approvisionnement d’un nouveau cluster HBase au moyen d’Azure PowerShell, consultez la rubrique [Approvisionnement d’un cluster HBase au moyen d’Azure PowerShell](#powershell).
 
-1. Connectez-vous au [portail Azure][azure-portal].
+1. Connectez-vous au [portail Azure Classic][azure-portal].
 
 2. Cliquez sur **NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES**, sur **HDINSIGHT**, puis cliquez sur **CRÉATION PERSONNALISÉE**.
 
@@ -127,15 +127,13 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 	![Fournir des détails pour le cluster HBase](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nœuds de données</td><td>Sélectionnez le nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-		<tr><td>Région/Réseau virtuel</td><td><p>Sélectionnez une région ou un réseau virtuel Azure, si vous en avez déjà créé un. Pour ce didacticiel, sélectionnez le réseau que vous avez créé précédemment, puis un sous-réseau correspondant. Le nom par défaut est <b>Sous-réseau-1</b>.</p></td></tr>
-		<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-		<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-		<tr><td>Taille du nœud Zookeeper</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud Zookeeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Nœuds de données</td><td>Sélectionnez le nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
+	<tr><td>Région/Réseau virtuel</td><td><p>Sélectionnez une région ou un réseau virtuel Azure, si vous en avez déjà créé un. Pour ce didacticiel, sélectionnez le réseau que vous avez créé précédemment, puis un sous-réseau correspondant. Le nom par défaut est <b>Sous-réseau-1</b>.</p></td></tr>
+	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
+	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
+	<tr><td>Taille du nœud Zookeeper</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud Zookeeper.</p></td></tr>
+</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 	Cliquez avec le bouton droit.
 
@@ -144,45 +142,43 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 	![Fournir un compte de stockage pour le cluster Hadoop HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nom d’utilisateur HTTP</td>
-			<td>Spécifiez le nom d'utilisateur de cluster HDInsight.</td></tr>
-		<tr><td>Mot de passe HTTP/Confirmer le mot de passe</td>
-			<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
-		<tr><td>Activation du Bureau à distance pour le cluster</td>
-			<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
-	</table>
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Nom d’utilisateur HTTP</td>
+		<td>Spécifiez le nom d'utilisateur de cluster HDInsight.</td></tr>
+	<tr><td>Mot de passe HTTP/Confirmer le mot de passe</td>
+		<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
+	<tr><td>Activation du Bureau à distance pour le cluster</td>
+		<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
+</table>
 
 6. Sur la page **Compte de stockage**, entrez les valeurs suivantes :
 
     ![Fournir un compte de stockage pour le cluster Hadoop HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Compte de stockage</td>
-			<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
-			<ul>
-				<li><strong>Utiliser le stockage existant</strong></li>
-				<li><strong>Créer un nouveau stockage</strong></li>
-				<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
-			</ul>
-			</td></tr>
-		<tr><td>Nom du compte</td>
-			<td><ul>
-				<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le centre de données sur lequel vous voulez approvisionner le cluster.</li>
-				<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
-			</ul></td></tr>
-		<tr><td>Clé du compte</td>
-			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
-		<tr><td>Conteneur par défaut</td>
-			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-	        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
-	    </td></tr>
-		<tr><td>Comptes de stockage supplémentaires</td>
-			<td>Si nécessaire, spécifiez les comptes de stockage supplémentaires pour le cluster. HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, une page est donc ajoutée à l’assistant.</td></tr>
-	</table>
-
-	Cliquez sur la flèche droite.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Compte de stockage</td>
+		<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
+		<ul>
+			<li><strong>Utiliser le stockage existant</strong></li>
+			<li><strong>Créer un nouveau stockage</strong></li>
+			<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
+		</ul>
+		</td></tr>
+	<tr><td>Nom du compte</td>
+		<td><ul>
+			<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le centre de données sur lequel vous voulez approvisionner le cluster.</li>
+			<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
+		</ul></td></tr>
+	<tr><td>Clé du compte</td>
+		<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
+	<tr><td>Conteneur par défaut</td>
+		<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
+        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
+    </td></tr>
+	<tr><td>Comptes de stockage supplémentaires</td>
+		<td>Si nécessaire, spécifiez les comptes de stockage supplémentaires pour le cluster. HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure Classic, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, une page est donc ajoutée à l’assistant.</td></tr>
+</table>Cliquez sur la flèche droite.
 
 7. Sur la page **Actions de script**, activez la case à cocher dans le coin inférieur droit. Ne cliquez pas sur le bouton **Ajouter une action de script**, étant donné que ce didacticiel ne nécessite pas une configuration de cluster personnalisée.
 
@@ -308,7 +304,7 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 		Ceci renvoie le suffixe DNS. Par exemple, **votre\_nom\_cluster.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Vous pouvez également utiliser le Bureau à distance pour vous connecter au cluster HBase (vous serez connecté au nœud principal) et exécuter **ipconfig** à partir d’une invite de commandes pour obtenir le suffixe DNS. Pour des instructions sur l’activation du protocole RDP (Remote Desktop Protocol) et la façon de se connecter au moyen de ce dernier, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE]Vous pouvez également utiliser le Bureau à distance pour vous connecter au cluster HBase (vous serez connecté au nœud principal) et exécuter **ipconfig** à partir d’une invite de commandes pour obtenir le suffixe DNS. Pour des instructions sur l’activation du protocole RDP (Remote Desktop Protocol) et la façon de se connecter au moyen de ce dernier, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure Classic][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.suffix][img-dns-surffix]
 
@@ -374,7 +370,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
 
 
 3. Cliquez sur **Exécuter le script** ou appuyez sur **F5**.
-4. Pour valider le cluster, vous pouvez vérifier le cluster à partir du portail Azure ou exécuter la cmdlet Azure PowerShell suivante à partir du volet inférieur :
+4. Pour valider le cluster, vous pouvez vérifier le cluster à partir du portail Azure Classic ou exécuter l’applet de commande Azure PowerShell suivante à partir du volet inférieur :
 
 	Get-AzureHDInsightCluster
 
@@ -387,7 +383,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 - [Approvisionnement de clusters dans HDInsight](hdinsight-provision-clusters.md)
 - [Prise en main de HBase avec Hadoop dans HDInsight](../hdinsight-hbase-get-started.md)
 - [Analyse de sentiments Twitter avec HBase dans HDInsight](../hdinsight-hbase-twitter-sentiment.md)
-- [Présentation du réseau virtuel][vnet-overview].
+- [Présentation du réseau virtuel.][vnet-overview]
 
 
 [1]: http://azure.microsoft.com/services/virtual-network/
@@ -434,4 +430,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Détails de configuration pour le nouveau cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

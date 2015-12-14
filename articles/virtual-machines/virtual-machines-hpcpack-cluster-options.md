@@ -57,7 +57,7 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 
 
-### Déploiement manuel avec le portail Azure
+### Déploiement manuel avec le portail Azure Classic
 
 
 
@@ -97,4 +97,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

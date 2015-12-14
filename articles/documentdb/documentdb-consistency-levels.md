@@ -56,7 +56,7 @@ Le niveau Éventuel fournit la cohérence la plus faible en matière de lecture,
 
 ### Modification du niveau de cohérence des bases de données
 
-1.  Dans la barre de lancement du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**.
+1.  Dans la barre de lancement du [portail Azure](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**.
 
 2. Dans le panneau **Comptes DocumentDB**, sélectionnez le compte de base de données à modifier.
 
@@ -88,4 +88,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

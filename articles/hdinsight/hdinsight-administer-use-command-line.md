@@ -73,7 +73,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 
 	> [AZURE.NOTE]Il doit se trouver dans le même centre de données que le cluster HDInsight. Le type de compte de stockage ne peut pas être ZRS, car ZRS ne prend pas en charge de table.
 
-	Pour plus d'informations sur la création d'un compte Azure Storage au moyen du portail Azure en version préliminaire, consultez la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].
+	Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
 	
 	Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 	
@@ -84,7 +84,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	Pour plus d'informations sur l'obtention d'informations au moyen du portail Azure en version préliminaire, consultez la section « Affichage, copie et régénération des clés d'accès de stockage » de la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].
+	Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
 
 - **(facultatif) Conteneur d'objets blob par défaut** : la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
 
@@ -160,7 +160,7 @@ Pour modifier la taille du cluster Hadoop à l’aide d’Azure PowerShell, exé
 ##Étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Administration de HDInsight à l'aide de la version préliminaire du portail Azure][hdinsight-admin-portal]
+* [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Administration de HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 * [Utilisation de l’interface de ligne de commande Azure][azure-command-line-tools]
@@ -182,4 +182,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/12/2015"
 	ms.author="jgao"/>
 
 
@@ -22,15 +22,15 @@
 
 [AZURE.INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Il est possible de collecter automatiquement les dumps de tas de services Hadoop et de les placer dans le compte de stockage d’objets blob Azure d’un utilisateur sous HDInsightHeapDumps/. Les fichiers dump d'un service avec des tas contiennent un instantané de la mémoire de l'application. Ils comprennent notamment les valeurs des variables au moment de la création du dump.
+Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc très utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution. Il est possible de collecter automatiquement les dumps de tas de services Hadoop et de les placer dans le compte de stockage d’objets blob Azure d’un utilisateur sous HDInsightHeapDumps/.
 
 La collection des dumps de tas pour différents services doit être activée pour les services sur des clusters individuels. Par défaut, cette fonctionnalité est désactivée pour un cluster. Les dumps de tas pouvant être volumineux, nous vous recommandons de surveiller le compte de stockage d’objets blob dans lequel ils sont enregistrés une fois la collection activée.
 
 > [AZURE.NOTE]Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight sur Windows. Pour plus d’informations sur HDInsight sur Linux, consultez la rubrique [Activation des dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
-## <a name="whichServices"></a>Services éligibles pour les dumps de tas
+## Services éligibles pour le vidage de tas
 
-Les services pour lesquels les dumps de tas peuvent être activés sur demande sont les suivants :
+Vous pouvez activer des dumps de tas pour les services suivants :
 
 *  **hcatalog** - tempelton
 *  **hive** - hiveserver2, metastore, derbyserver
@@ -38,7 +38,7 @@ Les services pour lesquels les dumps de tas peuvent être activés sur demande s
 *  **yarn** - resourcemanager, nodemanager, timelineserver
 *  **hdfs** - datanode, secondarynamenode, namenode
 
-## <a name="configuration"></a>Éléments de configuration permettant d’activer les dumps de tas
+## Éléments de configuration permettant d’activer le vidage de tas
 
 Pour activer des dumps de tas sur un service, vous devez définir les éléments de configuration appropriés dans la section de ce service, qui est spécifié par **service\_name**.
 
@@ -47,7 +47,7 @@ Pour activer des dumps de tas sur un service, vous devez définir les éléments
 
 La valeur de **service\_name** peut être l’un des services répertoriés ci-dessus : tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode ou namenode.
 
-## <a name="powershell"></a>Activation des dumps de tas à l’aide d’Azure PowerShell
+## Activer à l’aide d’Azure PowerShell
 
 Par exemple, pour activer les dumps de tas à l’aide d’Azure PowerShell pour le service jobhistoryserver, procédez comme suit :
 
@@ -55,7 +55,7 @@ Par exemple, pour activer les dumps de tas à l’aide d’Azure PowerShell pour
 
 	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
-## <a name="sdk"></a>Activation des dumps de tas avec le Kit de développement logiciel (SDK) Azure HDInsight .NET
+## Activer avec le kit de développement logiciel (SDK) .NET
 
 Par exemple, pour activer les dumps de tas à l’aide du Kit de développement logiciel (SDK) Azure HDInsight pour le service jobhistoryserver, procédez comme suit :
 
@@ -63,4 +63,4 @@ Par exemple, pour activer les dumps de tas à l’aide du Kit de développement 
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

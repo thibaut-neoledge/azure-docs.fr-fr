@@ -236,4 +236,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

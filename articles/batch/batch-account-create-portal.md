@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création d'un compte Azure Batch | Microsoft Azure"
-	description="Apprenez à créer un compte Azure Batch dans le portail Azure en version préliminaire pour exécuter des charges de travail parallèles à grande échelle dans le cloud"
+	description="Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# Création et gestion d'un compte Azure Batch dans le portail Azure en version préliminaire
+# Création et gestion d'un compte Azure Batch dans le portail Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-Cet article vous montre comment utiliser le [portail Azure en version préliminaire](https://portal.azure.com) pour créer et gérer un compte Azure Batch et les paramètres tels que les clés de compte. Vous avez besoin d'une URL de compte Batch et d'une clé d'accès associée pour authentifier toutes les requêtes API Batch. Et vous associez toutes les ressources Batch (comme les pools, les travaux et les tâches) de votre charge de travail Batch à un compte Batch spécifique.
+Cet article vous montre comment utiliser le [portail Azure](https://portal.azure.com) pour créer et gérer un compte Azure Batch et les paramètres tels que les clés de compte. Vous avez besoin d'une URL de compte Batch et d'une clé d'accès associée pour authentifier toutes les requêtes API Batch. Et vous associez toutes les ressources Batch (comme les pools, les travaux et les tâches) de votre charge de travail Batch à un compte Batch spécifique.
 
 >[AZURE.NOTE]Actuellement, la version préliminaire du portail prend en charge des fonctionnalités de gestion de compte Batch et l'affichage des ressources de compte. Les fonctionnalités Batch complètes sont disponibles pour les développeurs via les API Batch.
 
 ## Création d’un compte Batch
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur **Nouveau** > **Calcul** > **Service Batch**.
 
@@ -84,4 +84,4 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

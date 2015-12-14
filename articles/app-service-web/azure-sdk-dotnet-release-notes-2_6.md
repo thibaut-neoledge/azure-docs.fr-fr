@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="juliako"/>
 
 
@@ -58,9 +58,9 @@ Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouve
 
 - **In-Role Cache** a été mis à jour pour utiliser la version 4.3 du **Kit de développement logiciel (SDK) Microsoft Azure Storage**. Jusqu'à présent, **In-Role Cache** la version 1.7 du SDK.
 
-	Les clients qui utilisent la version 2.5 du SDK Azure ou une version antérieure doivent effectuer une mise à jour vers la version 2.6 et passer à la nouvelle version du SDK Azure Storage. Notez que la version 2011-08-18 d'Azure Storage sera supprimée le 9 décembre 2015. Pour plus d'informations, lisez [cette annonce](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+	Les clients qui utilisent la version 2.5 du SDK Azure ou une version antérieure doivent effectuer une mise à jour vers la version 2.6 et passer à la nouvelle version du SDK Azure Storage.
 
-	Pour plus d'informations, consultez [In-Role Cache pour Azure Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+	À l’heure actuelle, il est prévu que la version d’Azure Storage du 18-08-2011 soit supprimée le 1er août 2016. Les migrations de In-Role Cache à partir de la version 2.5 ou une version antérieure du SDK Azure vers la version 2.6 devront avoir été effectuées à cette date. Pour plus d'informations sur le retrait de la version du 18-08-2011 d’Azure Storage, consultez [Mise à jour de Suppression de la version du service Microsoft Azure Storage : extension jusqu’en 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 ##Outils Azure App Service
 
@@ -106,4 +106,4 @@ Le compte de stockage Diagnostics peut désormais être spécifié dans le fichi
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

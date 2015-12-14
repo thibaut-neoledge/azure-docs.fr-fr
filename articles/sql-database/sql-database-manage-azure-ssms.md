@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit 
 
 Pour vous connecter à la base de données SQL, vous devez connaître le nom du serveur sur Azure. Vous devrez peut-être vous connecter au portail pour obtenir ces informations.
 
-1.  Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
+1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 
 2.  Dans le volet gauche, cliquez sur **Bases de données SQL**.
 
@@ -192,4 +192,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

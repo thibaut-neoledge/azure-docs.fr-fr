@@ -47,7 +47,7 @@ Le tableau suivant décrit les quotas DocumentDB qui peuvent être ajustés en c
 ##<a id="RequestQuotaIncrease"></a> Demande d’ajustement de quota
 Les étapes suivantes montrent comment demander un ajustement de quota.
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir**, puis sur **Aide + Support**.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir**, puis sur **Aide + Support**.
 
 	![Capture d'écran de la demande d'aide et de support](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@ Une fois le ticket de support créé, vous recevrez le numéro de demande de sup
 ##<a name="NextSteps"></a>Étapes suivantes
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

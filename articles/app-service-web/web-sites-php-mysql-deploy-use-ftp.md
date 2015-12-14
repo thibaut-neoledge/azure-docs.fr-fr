@@ -46,7 +46,7 @@ En suivant ce didacticiel, vous allez générer une application web d’inscript
 Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
-2. Cliquez sur l'icône **+ New** dans le coin inférieur gauche du portail.
+2. Cliquez sur l’icône **+ Nouveau** en bas à gauche du portail Azure.
 
 	![Créer un site Web Azure][new-website]
 
@@ -300,4 +300,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

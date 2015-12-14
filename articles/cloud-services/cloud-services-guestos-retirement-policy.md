@@ -57,7 +57,7 @@ Si les clients définissent la mise à jour automatique pour leur système d'exp
 
 Les versions de SE invité sont publiées chaque mois. En raison de la fréquence des publications régulières, chaque version est associée à un cycle de vie défini.
 
-Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail de gestion Azure. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
+Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
 
 Ultérieurement, la version du SE invité obtient le statut « *expiré* » et toutes les installations qui exécutent encore cette version sont obligatoirement mises à niveau et paramétrées pour mettre à jour automatiquement le SE invité dans le futur. L'expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l'expiration peut varier.
 
@@ -67,7 +67,7 @@ Ces périodes peuvent être allongées à la discrétion de Microsoft pour facil
 
 ### Notifications pendant la suppression 
 
-* **Suppression de famille** <br>Microsoft utilise les billets de blog et la notification du portail de gestion. Les clients qui utilisent encore une famille de systèmes d'exploitation invités supprimée sont informés par une communication directe (e-mail, messages sur le portail, appel téléphonique) aux administrateurs de service nommés. Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page. 
+* **Suppression de famille** <br>Microsoft utilise les billets de blog et la notification du portail Azure Classic. Les clients qui utilisent encore une famille de systèmes d'exploitation invités supprimée sont informés par une communication directe (e-mail, messages sur le portail, appel téléphonique) aux administrateurs de service nommés. Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page. 
 
 
 * **Suppression de version** <br>Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page, y compris les dates de publication, de désactivation et d'expiration. Les administrateurs de services recevront des e-mails s'ils ont des déploiements en cours d'exécution sur une version ou une famille de systèmes d'exploitation invités désactivée. La date d'envoi de ces e-mails peut varier. En général, ils sont envoyés au moins un mois avant la désactivation, bien que ce délai ne soit pas officiellement fixé.
@@ -90,4 +90,4 @@ Si l'architecture de votre application Web nécessite une intégration plus avan
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # Utilisation de Hive avec HDInsight pour analyser les journaux de site web
@@ -39,7 +39,7 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 
 ##Exécution de l'exemple
 
-1. Dans la [version préliminaire du portail Azure](https://ms.portal.azure.com/), depuis le tableau d'accueil (si vous y avez épinglé le cluster), cliquez sur la vignette du cluster sur lequel vous souhaitez exécuter l'exemple.
+1. Dans le [portail Azure](https://ms.portal.azure.com/), depuis le tableau d’accueil (si vous y avez épinglé le cluster), cliquez sur la mosaïque du cluster sur lequel vous souhaitez exécuter l’exemple.
 
 2. Dans le panneau du cluster, sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**, puis dans le panneau **Tableau de bord de Cluster** lame, cliquez sur **Tableau de bord de cluster HDInsight**. Vous pouvez également ouvrir directement le tableau de bord en utilisant l'URL suivante :
 
@@ -61,4 +61,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -33,7 +33,7 @@ Le cluster HDInsight à la demande est automatiquement créé par le service Azu
 Notez les points **importants** suivants sur le service lié HDInsight à la demande :
 
 - Vous ne verrez pas le cluster HDInsight à la demande créé dans votre abonnement Azure ; le service Azure Data Factory gère le cluster HDInsight à la demande pour vous.
-- Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage associé au cluster HDInsight. Vous pouvez accéder à ces journaux à partir du portail Azure dans le panneau **Détails sur l'exécution d'activité**. Pour plus de détails, consultez l'article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
+- Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage associé au cluster HDInsight. Vous pouvez accéder à ces journaux à partir du panneau **Détails sur l’exécution d’activité** du portail Azure Classic. Pour plus de détails, consultez l'article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 - Vous sera facturé uniquement lorsque le cluster HDInsight est actif et exécute des tâches.
 
 > [AZURE.IMPORTANT]Il faut généralement plus de **15 minutes** pour mettre en service un cluster Azure HDInsight à la demande.
@@ -47,7 +47,7 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 	    "typeProperties": {
 	      "clusterSize": 4,
 	      "timeToLive": "00:05:00",
-	      "version": "3.1",
+	      "version": "3.2",
 		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
@@ -65,17 +65,17 @@ Propriété | Description | Requis
 type | La propriété de type doit être définie sur **HDInsightOnDemand**. | Oui
 clusterSize | La taille du cluster à la demande. Spécifiez le nombre de nœuds souhaité dans ce cluster à la demande. | Oui
 timetolive | <p>La durée d'inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif une fois l'exécution d'une activité terminée s'il n'existe aucune autre tâche active dans le cluster.</p><p>Par exemple, si l'exécution d'une activité prend 6 minutes alors que la propriété timetolive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes de traitement d'exécution de l'activité. Si une autre activité est exécutée au cours de ces 6 minutes, elle est traitée par le même cluster.</p><p>La création d'un cluster HDInsight à la demande est une opération coûteuse (pouvant prendre du temps). Utilisez ce paramètre pour améliorer les performances d'une fabrique de données en réutilisant un cluster HDInsight à la demande.</p><p>Si vous définissez la valeur de la propriété timetolive sur 0, le cluster est supprimé dès que l'exécution de l'activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.</p><p>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété timetolive est configurée correctement</p> | Oui
-version | Version du cluster HDInsight | Non
+version | Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cluster Windows et 3.2 pour le cluster Linux. | Non
 linkedServiceName | Le magasin d'objets blob utilisé par le cluster à la demande pour le stockage et le traitement des données. | Oui
 additionalLinkedServiceNames | Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. | Non
-osType | Type de système d'exploitation. Les valeurs autorisées sont windows (par défaut) et linux | Non
+osType | Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. | Non
 
 ### Propriétés avancées
 
 Vous pouvez également spécifier les propriétés suivantes pour la configuration granulaire du cluster HDInsight à la demande.
 
 Propriété | Description | Requis
--------- | ----------- | --------
+:-------- | :----------- | :--------
 coreConfiguration | Spécifie les paramètres de configuration de base (par exemple, core-site.xml) pour le cluster HDInsight à créer. | Non
 hBaseConfiguration | Spécifie les paramètres de configuration HBase (hbase-site.xml) pour le cluster HDInsight. | Non
 hdfsConfiguration | Spécifie les paramètres de configuration HDFS (hdfs-site.xml) pour le cluster HDInsight. | Non
@@ -94,7 +94,7 @@ yarnConfiguration | Spécifie les paramètres de configuration Yarn (yarn-site.x
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.1",
+	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -119,6 +119,27 @@ yarnConfiguration | Spécifie les paramètres de configuration Yarn (yarn-site.x
 	    }
 	  }
 	}
+
+### Tailles de nœuds
+Vous pouvez spécifier la taille du nœud principal, du nœud de données et du nœud zookeeper en utilisant les propriétés suivantes.
+
+Propriété | Description | Requis
+:-------- | :----------- | :--------
+headNodeSize | Spécifie la taille du nœud principal. La valeur par défaut est « Large » (grande). Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. | Non
+dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut est « Large » (grande). | Non
+zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est « Small » (petite). | Non
+ 
+#### Spécification des tailles de nœud
+Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l'article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
+
+Si vous souhaitez créer des nœuds principaux et des nœuds de travail de taille D4, vous devez spécifier la valeur **Standard\_D4** pour les propriétés headNodeSize et dataNodeSize.
+
+	"headNodeSize": "Standard_D4",	
+	"dataNodeSize": "Standard_D4",
+
+Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez le nom des **applets de commande et API** du tableau fourni dans l’article ci-dessus.
+
+
 
 ## Apportez votre propre environnement de calcul
 
@@ -168,8 +189,8 @@ Vous pouvez créer un service lié Azure Batch pour inscrire un pool de machines
 Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Batch :
 
 
-- [Présentation de base d'Azure Batch](../batch/batch-technical-overview.md) pour une vue d'ensemble du service Azure Batch.
-- Applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) pour créer un compte Azure Batch (ou) [Portail de gestion Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l'aide du portail de gestion Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
+- Applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) pour créer un compte Azure Batch (ou) [Portail Azure Classic](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure Classic. Pour obtenir des instructions détaillées sur l’utilisation de l’applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 - Applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) pour créer un pool Azure Batch.
 
 ### Exemple
@@ -271,4 +292,4 @@ sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de 
 
 Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

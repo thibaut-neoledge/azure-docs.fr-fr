@@ -1,6 +1,6 @@
 <properties
 	pageTitle="WordPress sur Ubuntu avec un modèle ARM | Microsoft Azure"
-	description="Déployer facilement un serveur WordPress exécutant Ubuntu à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, d'Azure PowerShell et de l'interface de ligne de commande Azure."
+	description="Déployer facilement un serveur WordPress exécutant Ubuntu à l'aide d'un modèle Resource Manager et du portail Azure, d'Azure PowerShell et de l'interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Suivez les instructions de cet article pour déployer un serveur WordPress exé
 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
-Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire, Azure PowerShell ou l’interface de ligne de commande Azure.
+Vous pouvez exécuter le modèle avec le portail Azure, Azure PowerShell ou l’interface de ligne de commande Azure.
 
-## Portail Azure en version préliminaire
+## Portail Azure
 
-Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -106,4 +106,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’un serve
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

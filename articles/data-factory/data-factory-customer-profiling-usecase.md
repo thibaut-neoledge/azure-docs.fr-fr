@@ -36,7 +36,7 @@ Les entreprises de jeux doivent relever de nombreux défis lorsqu’elles tenten
 
 Ce cas d'utilisation simple peut servir d’exemple montrant comment utiliser Azure Data Factory pour recevoir, préparer, transformer, analyser et publier des données.
 
-![Workflow de bout en bout](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La figure ci-dessus montre comment les pipelines de données apparaissent dans l'interface utilisateur du portail Azure après leur déploiement.
+![Workflow de bout en bout](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La figure ci-dessus montre comment les pipelines de données apparaissent dans l’interface utilisateur du portail Azure Classic après leur déploiement.
 
 1.	Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob et crée des partitions basées sur l’année, le mois et le jour.
 2.	Le pipeline **EnrichGameLogsPipeline** associe des événements de jeu partitionnés à des données de référence de code géographique et les enrichit en mappant les adresses IP avec les emplacements géographiques correspondants.
@@ -48,4 +48,4 @@ Dans cet exemple de cas d'utilisation, Azure Data Factory sert à orchestrer les
 
 En optimisant l'analyse de leur profil d’utilisateur et en l’alignant sur les objectifs commerciaux, un développeur de jeux peut recueillir rapidement des modèles d'utilisation et analyser l'efficacité de ses campagnes marketing pour l’ensemble de ses jeux.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

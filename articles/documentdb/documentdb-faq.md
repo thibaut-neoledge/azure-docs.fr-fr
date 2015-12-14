@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Questions sur le service de base de données DocumentDB - Forum Aux Questions (FAQ) | Microsoft Azure" 
-	description="Obtenez des réponses aux questions les plus fréquentes à propos du service de base de données de documents NoSQL DocumentDB Azure. Répondez aux questions sur la capacité, les niveaux de performance et l’évolutivité de la base de données." 
+	description="Obtenez des réponses aux questions les plus fréquentes à propos du service de base de données de documents NoSQL DocumentDB Azure pour JSON. Répondez aux questions sur la capacité, les niveaux de performance et l’évolutivité de la base de données." 
 	keywords="Questions sur la base de données, Forum aux questions, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
 
@@ -49,7 +49,7 @@ Les comptes DocumentDB peuvent être mis à l’échelle en termes de stockage e
 Pour plus d’informations, consultez la page [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne, et le [niveau de performances](documentdb-performance-levels.md) de chaque collection.
 
 ### Existe-t-il une version d'évaluation gratuite ?
-Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement MSDN, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
+Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
 
 ### Comment puis-je obtenir une aide supplémentaire avec DocumentDB ?
 Si vous avez besoin d'aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [Forums de développeurs Azure DNS DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou planifiez une [conversation 1:1 avec l'équipe d'ingénierie de DocumentDB](http://www.askdocdb.com/). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
@@ -57,13 +57,13 @@ Si vous avez besoin d'aide, contactez-nous sur [Stack Overflow](http://stackove
 ## Configuration de Microsoft Azure DocumentDB
 
 ### Comment m'inscrire à Microsoft Azure DocumentDB ?
-Microsoft Azure DocumentDB est disponible dans le [portail Azure en version préliminaire][azure-portal]. Vous devez d'abord disposer d'un abonnement à Microsoft Azure. Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure. Pour obtenir des instructions sur l'ajout d'un compte DocumentDB, consultez la page [Création d’un compte de base de données DocumentDB](documentdb-create-account.md).
+Microsoft Azure DocumentDB est disponible dans le [portail Azure][azure-portal]. Vous devez d'abord disposer d'un abonnement à Microsoft Azure. Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure. Pour obtenir des instructions sur l'ajout d'un compte DocumentDB, consultez la page [Création d’un compte de base de données DocumentDB](documentdb-create-account.md).
 
 ### Qu'est-ce que la clé principale ?
-Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Keys **du [portail Azure en version préliminaire][azure-portal]. Pour plus d'informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d'accès](documentdb-manage-account.md#keys).
+Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés**du [portail Azure][azure-portal]. Pour plus d'informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d'accès](documentdb-manage-account.md#keys).
 
 ### Comment créer une base de données ?
-Vous pouvez créer des bases de données à l'aide du [portail Azure en version préliminaire](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou via les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou au moyen des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Qu'est-ce qu'une collection ?
 Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Les requêtes et les transactions sont étendues vers les collections. Vous pouvez stocker un ensemble de documents JSON hétérogènes dans une seule collection. Tous seront indexés automatiquement.
@@ -99,7 +99,7 @@ DocumentDB prend en charge les transactions intégrées au langage via les décl
 Il existe trois façons d’insérer des documents en bloc dans DocumentDB :
 
 - L'outil de migration de données, comme décrit dans la rubrique [Importation de données vers DocumentDB](documentdb-import-data.md).
-- L’Explorateur de documents dans le portail Azure en version préliminaire, comme décrit dans la rubrique [Ajouter des documents en bloc à l'aide de l'Explorateur de documents](documentdb-view-json-document-explorer.md#BulkAdd).
+- L’Explorateur de documents dans le portail Azure, comme décrit dans la rubrique [Ajouter des documents en bloc à l’aide de l’Explorateur de documents](documentdb-view-json-document-explorer.md#BulkAdd).
 - Les procédures stockées, comme décrit dans la rubrique [Programmation DocumentDB côté serveur](documentdb-programming.md).
 
 ### DocumentDB prend-il en charge la mise en cache des liens de ressource ?
@@ -112,4 +112,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

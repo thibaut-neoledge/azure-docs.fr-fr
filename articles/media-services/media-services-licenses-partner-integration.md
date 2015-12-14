@@ -45,6 +45,6 @@ Vous pouvez utiliser [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) pou
 
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 
-[Blog de Mingfei](https://azure.microsoft.com/fr-FR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

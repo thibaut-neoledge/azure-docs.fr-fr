@@ -348,7 +348,7 @@ Lors du déploiement, le résultat suivant doit s’afficher :
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure en version préliminaire](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation située sur la gauche, cliquez sur **Parcourir**, puis faites défiler les options vers le bas et cliquez sur **Groupes de ressources**.
 - Sélectionnez le groupe de ressources que vous venez de créer pour afficher le panneau « Groupe de ressources ».
@@ -670,4 +670,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,21 +1,23 @@
-Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code. The Android SDK referenced in this tutorial is version 23, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.
+En raison des développements en cours, la version du Kit de développement logiciel (SDK) Android installée dans Android Studio peut être différente de celle du code. Le kit de développement logiciel (SDK) Android utilisé dans ce didacticiel correspond à la version 23, dernière version disponible au moment de la rédaction de ce document. Le numéro de la version peut être supérieur à mesure que de nouvelles versions du Kit de développement logiciel (SDK) apparaissent, et nous vous recommandons d'utiliser la dernière version disponible.
 
-Two symptoms of version mismatch are:
+Deux symptômes permettent d'identifier des versions différentes :
 
-1. When you Build or Rebuild the project, you may get Gradle error messages like "**failed to find target Google Inc.:Google APIs:n**".
+1. Quand vous générez ou régénérez le projet, vous pouvez obtenir des messages d’erreur Gradle comme « **Impossible de trouver la cible Google Inc.:Google APIs:n** ».
 
-2. Standard Android objects in code that should resolve based on `import` statements may be generating error messages.
+2. Les objets Android standard du code dont la résolution doit reposer sur les instructions `import` peuvent générer des messages d'erreur.
 
-If either of these appear, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project.  To verify the version, make the following changes:
+Dans ce cas, la version du Kit de développement logiciel (SDK) Android installée dans Android Studio peut être différente de celle du Kit de développement logiciel (SDK) cible du projet téléchargé. Pour vérifier la version, apportez les modifications suivantes :
 
 
-1. In Android Studio, click **Tools** => **Android** => **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
+1. Dans Android Studio, cliquez sur **Outils** => **Android** => **Gestionnaire de Kit de développement (SDK)**. Si vous n'avez pas installé la dernière version de la plateforme de Kit de développement logiciel (SDK), cliquez pour l'installer. Prenez note du numéro de la version.
 
-2. In the Project Explorer tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest  SDK version installed. The tags might look like this:
+2. Dans l'onglet Explorateur de projets, sous **Scripts Gradle**, ouvrez le fichier **build.gradle (module : app)**. Vérifiez que les versions **compileSdkVersion** et **buildToolsVersion** sont définies sur la dernière version installée du Kit de développement logiciel (SDK). Les balises peuvent se présenter comme suit :
  
 	 	    compileSdkVersion 'Google Inc.:Google APIs:23'
     		buildToolsVersion "23.0.0"
 	
-3. In the Android Studio Project Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
+3. Dans l'Explorateur de projets d'Android Studio, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis, dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Project Build Target** est identique à celle de **targetSdkVersion**.
 
-4. In Android Studio, the manifest file is no longer used to specify the target SDK and minimum SDK version, unlike the case with Eclipse.
+4. Dans Android Studio, le fichier manifeste ne permet plus de spécifier le Kit de développement (SDK) cible et la version minimale du Kit de développement logiciel (SDK), contrairement à Eclipse.
+
+<!---HONumber=AcomDC_1203_2015-->

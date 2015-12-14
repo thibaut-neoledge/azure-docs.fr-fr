@@ -8,14 +8,14 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
    	Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-    Vous pouvez redémarrer l'application pour vous assurer que les modifications ont été conservées dans la base de données sous Azure. Vous pouvez aussi examiner la base de données à partir du portail de gestion Azure : les deux étapes suivantes permettent de voir les modifications apportées à votre base de données.
+    Vous pouvez redémarrer l'application pour vous assurer que les modifications ont été conservées dans la base de données sous Azure. Vous pouvez aussi examiner la base de données à partir du portail Azure Classic: les deux étapes suivantes permettent de voir les modifications apportées à votre base de données.
 
 
-4. Dans le portail de gestion Azure, cliquez sur Gérer pour la base de données associée à votre service mobile.
+4. Dans le[portail Azure Classic](https://manage.windowsazure.com/), cliquez sur Gérer pour la base de données associée à votre service mobile.
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png)
 
-5. Dans le portail de gestion, exécutez une requête pour afficher les modifications effectuées par l'application Windows Store. Votre requête sera semblable à la requête suivante mais le nom de votre base de données sera utilisé à la place de `todolist`.
+5. Dans le portail Azure Classic, exécutez une requête pour afficher les modifications effectuées par l'application Windows Store. Votre requête sera semblable à la requête suivante mais le nom de votre base de données sera utilisé à la place de `todolist`.
 
         SELECT * FROM [todolist].[todoitems]
 
@@ -23,4 +23,4 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 Cela conclut le didacticiel **Prise en main des données** pour Android.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

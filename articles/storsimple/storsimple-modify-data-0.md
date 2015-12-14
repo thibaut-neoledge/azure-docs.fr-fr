@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Modification des paramètres de l’interface réseau DATA 0 sur votre périphérique StorSimple
@@ -41,7 +41,7 @@ Vous pouvez reconfigurer les paramètres réseau de DATA 0 en vous connectant �
 
 3. Un Assistant Installation s’affiche pour vous aider à configurer l’interface DATA 0 de votre appareil. Indiquez les nouvelles valeurs de l'adresse IP, de la passerelle et du masque réseau.
 
-> [AZURE.NOTE]Les contrôleurs d’adresses IP fixes devront être reconfigurés via la page **Configurer** de l’appareil StorSimple dans le portail de gestion Azure. Pour plus d'informations, consultez la rubrique [Modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Les contrôleurs d’adresses IP fixes devront être reconfigurés via la page **Configurer** de l’appareil StorSimple dans le portail Azure Classic. Pour plus d'informations, consultez la rubrique [Modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modification des paramètres réseau de DATA 0 via l’applet de commande Set-HcsNetInterface
@@ -69,6 +69,7 @@ Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet
 
 ## Étapes suivantes
 
-Pour configurer les interfaces réseau autres que DATA 0, utilisez la [page Configurer du portail de gestion](storsimple-modify-device-config.md). Si vous rencontrez des problèmes lors de la configuration de vos interfaces réseau, consultez la page [Résolution des problèmes de déploiement](storsimple-troubleshoot-deployment.md).
+- Pour configurer les interfaces réseau autres que DATA 0, utilisez la [page Configurer du portail Azure Classic](storsimple-modify-device-config.md). 
+- Si vous rencontrez des problèmes lors de la configuration de vos interfaces réseau, consultez la page [Résolution des problèmes de déploiement](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

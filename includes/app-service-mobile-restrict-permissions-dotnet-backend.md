@@ -22,4 +22,4 @@ Par défaut, les API d’un backend d’application mobile peuvent être appelé
 
 	Pour plus d’informations, reportez-vous à la rubrique concernant l’[exigence d’une authentification pour l’accès aux tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) dans [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

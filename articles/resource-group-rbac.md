@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # Gestion de l’accès aux ressources
@@ -26,10 +26,21 @@ Cette rubrique se concentre sur les commandes qui vous permettent d'attribuer de
 
 Il importe de maîtriser quelques concepts clés à propos du contrôle d’accès en fonction du rôle (RBAC) :
 
-1. Principal : autorisation attribuée à l’entité, comme un utilisateur, un groupe de sécurité ou une application.
-2. Rôle : ensemble des actions autorisées
-3. Étendue : niveau auquel un rôle s’applique, tel que l’abonnement, le groupe de ressources ou la ressource.
-3. Attribution de rôle : processus d’ajout d’un principal à un rôle et définition de l’étendue.
+1. Principal : autorisation attribuée à l’entité, comme un utilisateur Azure Active Directory, un groupe de sécurité ou une application.
+2. Rôle : ensemble d’actions autorisées et exclues.
+3. Action : action effectuée sur une ressource (par ex. lire, créer). 
+4. Étendue : niveau auquel un rôle s’applique, tel que l’abonnement, le groupe de ressources ou la ressource.
+5. Attribution de rôle : processus d’association d’un principal à un rôle et définition de l’étendue.
+
+Une liste des **actions** prises en charge est accessible à l’aide de l’outil d’interface de ligne de commande Azure interplateforme (xPlat) ou du module Azure PowerShell.
+
+Pour l’outil d’interface de ligne de commande interplateforme Azure, utilisez la commande suivante pour répertorier **toutes** les actions, pour l’ensemble des fournisseurs de ressources.
+
+    azure provider operations show --operationSearchString '*';
+
+Si vous utilisez le module PowerShell Azure Resource Manager (AzureRm), utilisez la commande suivante pour répertorier **toutes** les actions, pour **tous** les fournisseurs de ressources.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Exemples de rôle
 Pour comprendre les concepts RBAC, examinons quelques exemples courants de définitions de rôles :
@@ -134,7 +145,7 @@ Pour obtenir une explication plus détaillée de la configuration d’une applic
 
 
 ###Listez les journaux d’audit du groupe de ressources.
-Pour obtenir le journal d’audit pour un groupe de ressources, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0).
+Pour obtenir le journal d’audit d’un groupe de ressources, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0).
 
       PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
@@ -262,11 +273,11 @@ Créez l’affectation du rôle.
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur le contrôle d'accès basé sur les rôles, consultez [Contrôle d'accès basé sur les rôles dans le portail Microsoft Azure](role-based-access-control-configure.md).
-- Pour en savoir plus sur l'utilisation des principaux de service pour la gestion de l'accès pour les applications comprises dans votre abonnement, consultez [Authentification d'un principal du service via Azure Resource Manager](resource-group-authenticate-service-principal.md) et [Création d'un principal du service Azure à l'aide du portail Azure Classic](../resource-group-create-service-principal-portal.md).
-- Pour en savoir plus sur les opérations d'audit dans votre entreprise, consultez [Opérations d'audit avec Resource Manager](resource-group-audit.md).
-- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
+- Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](role-based-access-control-configure.md).
+- Pour en savoir plus sur l’utilisation des principaux de service pour la gestion de l’accès aux applications comprises dans votre abonnement, consultez [Authentification d’un principal du service via Azure Resource Manager](resource-group-authenticate-service-principal.md) et [Création d’un principal du service Azure à l’aide du portail Azure Classic](../resource-group-create-service-principal-portal.md).
+- Pour en savoir plus sur les opérations d’audit dans votre organisation, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

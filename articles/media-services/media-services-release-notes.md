@@ -84,7 +84,7 @@ Notez que les services de distribution de licences Widevine fournis par Azure Me
 
 ##<a id="oct_changes_15"></a>Version d’octobre 2015
 
-Azure Media Services (AMS) est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l'Inde, sud de l'Inde et Inde centrale. Vous pouvez maintenant utiliser le portail de gestion Azure pour [créer des comptes Media Services](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
+Azure Media Services (AMS) est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l'Inde, sud de l'Inde et Inde centrale. Vous pouvez maintenant utiliser le portail Azure Classic pour [créer des comptes Media Services](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
 
 - Sud du Brésil : seules les unités réservées d'encodage standard et de base sont disponibles
 - Ouest de l'Inde, sud de l'Inde et Inde centrale : seules les unités réservées d'encodage de base sont disponibles
@@ -275,15 +275,15 @@ La dernière version du Kit de développement logiciel (SDK) de Media Services p
 ### <a id="sept_14_breaking_changes"></a>Dernières modifications
 
 * L'entité **Origin** a été renommée en [StreamingEndpoint].
-* Le comportement par défaut, lorsque le **portail de gestion Azure** est utilisé pour encoder puis publier les fichiers MP4, a changé. 
+* Le comportement par défaut, lorsque le **portail Azure Classic** est utilisé pour encoder puis publier les fichiers MP4, a changé.
 
-	Auparavant, lorsque vous utilisiez le portail de gestion pour publier un élément multimédia vidéo MP4 correspondant à un seul fichier, une URL SAS était créée (les URL SAS vous permettent de télécharger la vidéo depuis un stockage d'objets blob). Aujourd'hui, lorsque vous vous servez du portail de gestion pour encoder, puis publier ce type d'élément, l'URL générée pointe vers un point de terminaison de diffusion en continu Azure Media Services. Cette modification n'a pas d'incidence sur les vidéos MP4 qui sont directement téléchargées vers Media Services et publiées sans être encodées par Azure Media Services.
-	
-	Actuellement, vous disposez des deux options suivantes pour résoudre le problème.
-	
-	* Activer les unités de diffusion en continu et utiliser la mise en package dynamique pour diffuser l'élément multimédia .mp4 sous forme d'une présentation de diffusion en continu lisse.
-	
-	* Créer une URL SAS pour télécharger (ou lire de manière progressive) le fichier .mp4. Pour plus d'informations sur la création d'un localisateur SAS, consultez la page [Distribution de contenu].
+Auparavant, lorsque vous utilisiez le portail Azure Classic pour publier un élément multimédia vidéo MP4 correspondant à un seul fichier, une URL SAS était créée (les URL SAS vous permettent de télécharger la vidéo depuis un stockage d'objets blob). Aujourd'hui, lorsque vous vous servez du portail Azure Classic pour encoder, puis publier ce type d'élément, l'URL générée pointe vers un point de terminaison de diffusion en continu Azure Media Services. Cette modification n'a pas d'incidence sur les vidéos MP4 qui sont directement téléchargées vers Media Services et publiées sans être encodées par Azure Media Services.
+
+Actuellement, vous disposez des deux options suivantes pour résoudre le problème.
+
+* Activer les unités de diffusion en continu et utiliser la mise en package dynamique pour diffuser l'élément multimédia .mp4 sous forme d'une présentation de diffusion en continu lisse.
+
+* Créer une URL SAS pour télécharger (ou lire de manière progressive) le fichier .mp4. Pour plus d'informations sur la création d'un localisateur SAS, consultez la page [Distribution de contenu].
 
 
 ### <a id="sept_14_GA_changes"></a>Nouvelles fonctionnalités/nouveaux scénarios intégrés à la version grand public
@@ -602,7 +602,7 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Présentation du modèle de licence PlayReady de Media Services]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Diffusion en continu de contenu à chiffrement de stockage]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [mise en package dynamique]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blog de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protection de la diffusion en continu lisse avec PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -621,4 +621,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

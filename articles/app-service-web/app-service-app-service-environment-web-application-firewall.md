@@ -35,7 +35,7 @@ Pour configurer un environnement App Service, consultez [notre documentation](a
 Barracuda propose un [article détaillé](https://techlib.barracuda.com/WAF/AzureDeploy) sur le déploiement de son WAF sur une machine virtuelle dans Azure. Mais étant donné que nous voulons la redondance sans introduire aucun point de défaillance, vous devez déployer au moins 2 machines virtuelles d'instances WAF dans le même service cloud.
 
 ### Ajout de points de terminaison au service cloud ###
-Du moment où vous disposez d’au moins 2 instances de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail de gestion Azure](https://portal.azure.com) pour ajouter des points de terminaison HTTP et HTTPS utilisés par votre application, comme illustré dans l’image ci-dessous.
+Du moment où vous disposez d’au moins deux instances de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour ajouter des points de terminaison HTTP et HTTPS utilisés par votre application, comme illustré dans l’image ci-dessous.
 
 ![Configurer le point de terminaison][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Cliquez sur l'onglet Services pour configurer votre WAF pour les services qu'il 
 > Remarque : selon la configuration de vos applications et les fonctionnalités utilisées dans votre environnement App Service, vous devrez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré SSL IP pour une application Web. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configuration de Microsoft Azure Traffic Manager (FACULTATIF) ##
-Si votre application est disponible dans plusieurs régions, vous devez en équilibrer la charge derrière [Azure Traffic Manager](traffic-manager.md). Pour ce faire, vous pouvez ajouter un point de terminaison dans le [portail de gestion Azure](https://manage.azure.com) en utilisant le nom du service cloud de votre WAF dans le profil Traffic Manager, comme indiqué dans l’image ci-dessous.
+Si votre application est disponible dans plusieurs régions, vous devez en équilibrer la charge derrière [Azure Traffic Manager](traffic-manager.md). Pour ce faire, vous pouvez ajouter un point de terminaison dans le [portail Azure Classic](https://manage.azure.com) en utilisant le nom du service cloud de votre WAF dans le profil Traffic Manager, comme indiqué dans l’image ci-dessous.
 
 ![Point de terminaison Traffic Manager][TrafficManagerEndpoint]
 
-Si votre application requiert une authentification, vérifiez que vous disposez d'une ressource qui ne nécessite pas d'authentification pour permettre à Traffic Manager d'exécuter la commande ping pour vérifier la disponibilité de votre application. Vous pouvez configurer l’URL sous la section Configuration du [portail de gestion Azure](https://manage.azure.com), comme indiqué ci-dessous.
+Si votre application requiert une authentification, vérifiez que vous disposez d'une ressource qui ne nécessite pas d'authentification pour permettre à Traffic Manager d'exécuter la commande ping pour vérifier la disponibilité de votre application. Vous pouvez configurer l’URL sous la section Configuration du [portail Azure Classic](https://manage.azure.com), comme indiqué ci-dessous.
 
 ![Configuration de Traffic Manager][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

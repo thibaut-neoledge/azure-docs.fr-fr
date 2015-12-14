@@ -153,7 +153,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour
 - authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini sur votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Syntaxe du corps de la requête**
 
@@ -733,7 +733,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Syntaxe du corps de la requête**
 
@@ -833,7 +833,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **List Indexes** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -900,7 +900,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -915,7 +915,7 @@ Consultez l'exemple de document JSON dans [Création et mise à jour d'un index]
 <a name="DeleteIndex"></a>
 ## Suppression d'index
 
-L'opération **Delete Index** supprime de votre service Azure Search un index et les documents associés. Vous pouvez obtenir le nom de l'index à partir du tableau de bord de service dans le portail Azure ou à partir de l'API. Consultez la section [List Indexes](#ListIndexes) pour plus d'informations.
+L'opération **Delete Index** supprime de votre service Azure Search un index et les documents associés. Vous pouvez obtenir le nom de l’index à partir du tableau de bord de service dans le portail Azure Classic ou à partir de l’API. Consultez la section [List Indexes](#ListIndexes) pour plus d'informations.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
@@ -934,7 +934,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Delete Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -967,7 +967,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index Statistics** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1022,7 +1022,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](.search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](.search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1254,7 +1254,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Search** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1531,7 +1531,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Lookup Document** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1579,7 +1579,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Accept` : cette valeur doit être définie sur `text/plain`.
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Count Documents** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1678,7 +1678,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Suggestions** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1742,4 +1742,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

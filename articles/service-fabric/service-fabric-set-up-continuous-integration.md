@@ -125,7 +125,7 @@ Notez que la définition de build que vous créez à partir de ces instructions 
 
 ### Installer le Kit de développement logiciel (SDK) Service Fabric
 
-Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azure.microsoft.com/fr-FR/campaigns/service-fabric/).
+Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Inscrire le référentiel NuGet du Kit de développement logiciel (SDK) Service Fabric
 
@@ -339,4 +339,4 @@ Les instructions précédentes créent un cluster pour chaque build et le suppri
 
 Pour en savoir plus sur l’intégration continue avec les applications Service Fabric, lisez les articles suivants. - [Documentation de build - Accueil](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

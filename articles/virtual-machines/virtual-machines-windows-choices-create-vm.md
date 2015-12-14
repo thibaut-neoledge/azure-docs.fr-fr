@@ -27,9 +27,9 @@ Les modèles Microsoft Azure Resource Manager ont été récemment introduits 
 
 ## Choix des outils
 
-### Interface graphique utilisateur (GUI) : portail Azure en version préliminaire
+### Interface utilisateur graphique (GUI) : portail Azure
 
-L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Utiliser le portail Azure en version préliminaire pour créer une machine virtuelle :
+L’interface utilisateur graphique du portail Microsoft Azure Classic constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Utilisez le portail Azure pour créer la machine virtuelle.
 
 [Créer une machine virtuelle exécutant Windows][]
 
@@ -79,4 +79,4 @@ Choisissez une image basée sur le système d’exploitation que vous souhaitez 
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

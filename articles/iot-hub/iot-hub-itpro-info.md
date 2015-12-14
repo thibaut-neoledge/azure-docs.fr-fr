@@ -43,10 +43,10 @@ Cet article contient des informations destinées aux professionnels de l’infor
 
 - [Qu’est-ce qu’Azure IoT Hub ?][lnk-iothub]
 - La section [« Sécurité » du guide du développeur Azure IoT Hub][lnk-devguide] fournit des informations supplémentaires sur les jetons et le système d’autorisation d’IoT Hub.
-- [Gérer IoT Hub via le portail Azure en version préliminaire][lnk-manage-portal] explique comment utiliser le portail Azure en version préliminaire pour gérer votre concentrateur IoT.
+- [Gestion d’IoT Hub via le portail Azure][lnk-manage-portal] explique comment utiliser le portail Azure pour gérer votre IoT Hub.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

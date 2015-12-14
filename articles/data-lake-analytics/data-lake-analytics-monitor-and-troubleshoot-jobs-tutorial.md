@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Dépanner les travaux Analytique Data Lake Azure à l’aide du portail Azure en version préliminaire | Azure" 
-   description="Apprendre à utiliser le portail Azure en version préliminaire afin de dépanner les travaux Analytique Data Lake Azure." 
+   pageTitle="Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure | Azure" 
+   description="Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,18 +16,18 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Dépanner les travaux Analytique Data Lake Azure à l’aide du portail Azure en version préliminaire
+# Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure
 
-Apprendre à utiliser le portail Azure en version préliminaire afin de dépanner les travaux Analytique Data Lake Azure.
+Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics.
 
-Dans ce didacticiel, vous allez identifier un problème de fichier source manquant et utiliser le portail Azure en version préliminaire pour résoudre le problème.
+Dans ce didacticiel, vous allez identifier un problème de fichier source manquant et utiliser le portail Azure pour résoudre le problème.
 
 **Configuration requise**
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Connaissances de base du processus de travail Analytique Data Lake**. Consultez [Prise en main d’Analytique Data Lake Azure à l’aide du portail Azure en version préliminaire](data-lake-analytics-get-started-use-portal.md).
-- **Un compte Analytique Data Lake**. Consultez [Prise en main d’Analytique Data Lake Azure à l’aide du portail Azure en version préliminaire](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
+- **Connaissances de base du processus de travail Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-use-portal.md).
+- **Un compte Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
 - **Copier les données d’exemple dans le compte Data Lake Store par défaut**. Voir [Préparer les données source](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
 
 ##Envoyer le travail Analytique Data Lake
@@ -36,7 +36,7 @@ Maintenant, vous allez créer un travail U-SQL avec un nom de fichier erroné.
 
 **Pour soumettre le travail**
 
-1. À partir du portail Azure en version préliminaire, cliquez sur **Microsoft Azure** dans le coin supérieur gauche.
+1. À partir du portail Azure, cliquez sur **Microsoft Azure** dans le coin supérieur gauche.
 2. Cliquez sur la vignette indiquant le nom de votre compte Analytique Data Lake. Elle a été épinglée ici lorsque le compte a été créé. Si le compte n’est pas épinglé ici, consultez [Ouvrir un compte Analytics à partir du portail](data-lake-analytics-manage-use-portal.md#access-adla-account).
 3. Cliquez sur **Nouveau travail** dans le menu du haut.
 4. Saisissez le nom du travail et le script U-SQL suivant :
@@ -108,6 +108,6 @@ Dans la dernière section, vous avez envoyé un travail et ce dernier a échoué
 - [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md)
 - [Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio](data-lake-analytics-get-started-u-sql-studio.md).
-- [Gérer Analytique Data Lake Azure à l’aide du portail Azure en version préliminaire](data-lake-analytics-manage-use-portal.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

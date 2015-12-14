@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@ In-Role Cache offre une couche de mise en cache à vos applications Azure. La mi
 
 In-Role Cache vous permet d’assurer la mise en cache en utilisant une portion de la mémoire des machines virtuelles qui hébergent les instances de rôle dans vos services cloud Azure (aussi appelés services hébergés). Vous avez ainsi une plus grande flexibilité en termes de déploiement : les caches peuvent être très volumineux et ne pas avoir de quotas spécifiques.
 
->[AZURE.NOTE]À compter du Kit de développement logiciel (SDK) Azure 2.6, In-Role Cache utilise le Kit de développement logiciel (SDK) Microsoft Azure Storage version 4.3. Dans les versions précédentes du Kit de développement logiciel (SDK) Azure, In-Role Cache utilisait le Kit de développement logiciel Azure Storage version 1.7. Les applications utilisant In-Role Cache avec les versions antérieures du Kit de développement logiciel (SDK) Azure 2.6 doivent migrer vers le Kit de développement logiciel (SDK) Azure 2.6 avant la désactivation de la version d’Azure Storage du 18-08-2011 qui aura lieu le 9 décembre 2015. Pour plus d'informations, consultez les [Notes de publication du Kit de développement logiciel (SDK) Azure 2.6 - In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) et la rubrique [Suppression de la version du service Microsoft Azure Storage](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+>[AZURE.IMPORTANT]À compter du Kit de développement logiciel (SDK) Azure 2.6, In-Role Cache utilise le Kit de développement logiciel (SDK) Microsoft Azure Storage version 4.3. Dans les versions précédentes du Kit de développement logiciel (SDK) Azure, In-Role Cache utilisait le Kit de développement logiciel Azure Storage version 1.7. Les applications utilisant In-Role Cache avec les versions antérieures du Kit de développement logiciel (SDK) Azure 2.6 doivent migrer vers le Kit de développement logiciel (SDK) Azure 2.6 avant la désactivation de la version d’Azure Storage du 18-08-2011 qui aura lieu le 1er août 2016. Pour plus d'informations, consultez les [Notes de publication du Kit de développement logiciel (SDK) Azure 2.6 - In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) et la rubrique [Mise à jour de Suppression de la version du service Microsoft Azure Storage : extension jusqu’en 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 La mise en cache sur les instances de rôles présente certains avantages :
 
@@ -413,4 +413,4 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Choix de l'offre Azure Cache appropriée]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

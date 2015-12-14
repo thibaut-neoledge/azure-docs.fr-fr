@@ -18,6 +18,11 @@
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 Cette rubrique décrit les fonctionnalités de synchronisation hors connexion d'Azure Mobile Services dans l'application de démarrage rapide todo list. La synchronisation hors connexion vous permet de créer facilement des applications qui sont utilisables même lorsque l'utilisateur final n'a pas accès au réseau.
@@ -93,7 +98,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     Dans cet exemple, nous récupérons tous les enregistrements de la table `TodoItem` distante, mais il est également possible de filtrer les enregistrements en transmettant une requête. Le premier paramètre passé à `PullAsync()` est un ID de requête qui est utilisé pour la synchronisation incrémentielle. Il utilise l’horodatage `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `null` comme ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-    >[AZURE.NOTE]Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler `IMobileServiceSyncTable.PurgeAsync()` périodiquement pour vider le magasin local.
+    >[AZURE.NOTE]Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
 
     Notez que `MobileServicePushFailedException` peut survenir pour une opération push et une opération d'extraction. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions relatives à la synchronisation.
 
@@ -128,11 +133,11 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 1. Ouvrez `ToDoActivity.cs`. Supprimez l'URL de service mobile incorrecte et rajoutez la clé d'application et l'URL adéquates.
 
-2. Régénérez et exécutez l'application. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s'explique par le fait que l'application utilise toujours la table `IMobileServiceSyncTable` pointant vers le magasin local.
+2. Régénérez et exécutez l'application. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s’explique par le fait que l’application utilise toujours la `IMobileServiceSyncTable` pointant vers le magasin local.
 
-3. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le backend JavaScript, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile.
+3. Connectez-vous au [portail Azure Classic] et examinez la base de données de votre service mobile. Si votre service utilise le backend JavaScript, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile.
 
-    Si vous utilisez le backend .NET pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l'Explorateur d'objets SQL Server**.
+    Si vous utilisez le backend .NET pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.
 
     Notez que les données *n'ont pas* été synchronisées entre la base de données et le magasin local.
 
@@ -169,6 +174,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
- 
+[portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

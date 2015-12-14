@@ -236,4 +236,4 @@ Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pou
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

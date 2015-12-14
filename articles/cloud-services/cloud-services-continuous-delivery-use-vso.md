@@ -22,8 +22,7 @@ Vous pouvez configurer vos projets Visual Studio Team Services afin de les gén�
 
 Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE]Vous avez besoin d’un compte en ligne Visual Studio pour suivre ce didacticiel:
-> vous pouvez [ouvrir un compte Visual Studio Online gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Vous avez besoin d’un compte Visual Studio Team Services pour suivre ce didacticiel : vous pouvez [ouvrir un compte Visual Studio Team Services gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
 
@@ -33,11 +32,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 ## Étape 2 : archivage d'un projet dans le contrôle de code source
 
-1. Dans Visual Studio, ouvrez la solution à déployer, ou créez-en une.
-Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure.
-Si vous voulez créer une solution, créez un projet de service cloud Azure ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5,
-et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**.
-Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](../web-sites-dotnet-get-started.md).
+1. Dans Visual Studio, ouvrez la solution à déployer, ou créez-en une. Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Si vous voulez créer une solution, créez un projet de service cloud Azure ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**. Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](../web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE]Actuellement, Visual Studio Team Services ne prend en charge que les déploiements CI des applications web Visual Studio. Les projets de site web n’entrent pas dans ce cadre.
 
@@ -63,7 +58,7 @@ Si vous voulez créer une application Web, choisissez le modèle de projet Appli
 
 ## Étape 3 : connexion du projet à Azure
 
-1. Maintenant que vous disposez d'un projet d'équipe VSTS contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application Web, ou créez-en un en sélectionnant l'icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
+1. Maintenant que vous disposez d'un projet d'équipe VSTS contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
 
 	![][10]
 
@@ -162,7 +157,7 @@ Si vous voulez créer une application Web, choisissez le modèle de projet Appli
 
 	![][29]
 
-1. Dans le [portail de gestion Azure](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l'onglet **Déploiements** quand l'environnement intermédiaire est sélectionné.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
 
 	![][30]
 
@@ -180,13 +175,13 @@ Si vous voulez créer une application Web, choisissez le modèle de projet Appli
 
 ## Étape 5 : redéploiement d'une build antérieure
 
-Cette étape (facultative) s'applique aux services cloud. Dans le portail de gestion Azure, choisissez un déploiement antérieur et cliquez sur le bouton **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l'historique de votre déploiement.
+Cette étape (facultative) s'applique aux services cloud. Dans le portail Azure Classic, choisissez un déploiement antérieur et cliquez sur le bouton **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l’historique de votre déploiement.
 
 ![][34]
 
 ## Étape 6 : modification du déploiement de production
 
-Cette étape s'applique uniquement aux services cloud, pas aux applications Web. Une fois que vous êtes prêt, vous pouvez promouvoir l'environnement intermédiaire en environnement de production en choisissant le bouton **Swap** dans le portail de gestion. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
+Cette étape s'applique uniquement aux services cloud, pas aux applications Web. Une fois que vous êtes prêt, vous pouvez promouvoir l'environnement intermédiaire en environnement de production en choisissant le bouton **Swap** dans le portail Azure Classic. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
 
 ![][35]
 
@@ -322,4 +317,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -21,7 +21,7 @@
 
 Les points de terminaison de service Web dans Azure Machine Learning ont des niveaux de limitation sélectionnables afin de correspondre à la vitesse à laquelle le point de terminaison est utilisé.
 
-Pour contrôler le taux de limitation sur le point de terminaison, utilisez le curseur sur le portail de gestion Microsoft Azure pour définir le nombre maximum d’appels simultanés (de 20 à 200)
+Pour contrôler le taux de limitation sur le point de terminaison, utilisez le curseur sur le portail Azure Classic pour définir le nombre maximum d’appels simultanés (de 20 à 200)
 
 
 Les API synchrones sont généralement utilisées dans les situations où vous souhaitez une latence faible. La latence implique ici le temps nécessaire à l’API pour compléter une demande et ne prend pas en compte les retards de réseau. Supposons que vous avez une API avec une latence de 50 millisecondes. Pour utiliser toute la capacité disponible avec le niveau de limitation élevé et le nombre maximal d’appels simultanés = 20, vous devez appeler cette API 20 * 1000 / 50 = 400 fois par seconde. De même, un nombre maximum d’appels simultanés de 200 vous permettra d’appeler l’API 4000 fois par seconde, en supposant une latence de 50 millisecondes.
@@ -47,4 +47,4 @@ L’interface utilisateur de gestion permet de fournir un nombre d’accès conc
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

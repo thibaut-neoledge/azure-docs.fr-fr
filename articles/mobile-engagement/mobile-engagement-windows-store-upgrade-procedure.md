@@ -271,7 +271,7 @@ Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez a
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-La chaîne de connexion de votre application est affichée sur le portail de gestion Azure.
+La chaîne de connexion de votre application est affichée sur le portail Azure Classic.
 
 ### Changement de noms d'éléments
 
@@ -289,4 +289,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

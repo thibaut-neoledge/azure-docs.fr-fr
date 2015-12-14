@@ -132,7 +132,7 @@ Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer d
 Un bon moyen de voir si vous avez une base de données ou un serveur logique en cours qui s’exécute sur une version antérieure du service SQL Database est d’effectuer les opérations suivantes :
 
 
-1. Ouvrez le [portail Azure en version préliminaire](http://portal.azure.com/).
+1. Accédez au [portail Azure](http://portal.azure.com/).
 2. Cliquez sur **Parcourir**.
 3. Cliquez sur **Serveurs SQL**.
 4. L’icône en regard du serveur ou de la base de données vous dit tout :
@@ -161,4 +161,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

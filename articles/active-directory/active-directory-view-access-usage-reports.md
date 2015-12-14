@@ -13,10 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # Afficher vos rapports d'accès et d'utilisation
+
+## Articles de la documentation sur la création de rapports
+
+ - [API de création de rapports](active-directory-reporting-api-getting-started.md)
+ - [Événements d'audit](active-directory-reporting-audit-events.md)
+ - [Rétention](active-directory-reporting-retention.md)
+ - [Versions préliminaires](active-directory-reporting-previews.md)
+ - [action](active-directory-reporting-search.md)
+ - [Renvoi](active-directory-reporting-backfill.md)
+ - [Latences](active-directory-reporting-latencies.md)
+ - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
 
 Vous pouvez utiliser les rapports d'accès et d'utilisation Azure Active Directory pour obtenir une visibilité complète sur l'intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur de répertoire est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.
 
@@ -96,7 +108,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 ## Rapports d’activités anormales
 <p>Les rapports d'activités de connexion anormales signalent les connexions suspectes à Office365, au portail de gestion Azure, au panneau d'accès Azure&#160;AD, à Sharepoint Online, Dynamics CRM Online, et d'autres services en ligne de Microsoft.</p>
 <p>Tous ces rapports, à l'exception du rapport «&#160;Connexions après plusieurs échecs&#160;», signalent également les connexions <i>fédérées</i> suspectes aux services susmentionnés, quel que soit le fournisseur de fédération. </p>
-<p>Les rapports suivants sont disponibles : </p><ul> <li>[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d'adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir d’appareils potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d'identification volées</li></ul>
+<p>Les rapports suivants sont disponibles : </p><ul> <li>[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d'adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir d’appareils potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d’identification volées</li></ul>
 
 
 
@@ -159,9 +171,9 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | :-------------     | :-------        |
 | Utilisez ce rapport pour afficher l'utilisation de toutes les applications SaaS dans votre répertoire. Ce rapport est basé sur le nombre de clics effectués par les utilisateurs sur l'application dans le volet d'accès. | Répertoire > onglet Rapports |
 
-Ce rapport comprend les connexions à _toutes_ applications auxquelles votre répertoire a accès, y compris les applications Microsoft pré-intégrées.
+Ce rapport comprend les connexions à _toutes_ les applications auxquelles votre répertoire a accès, y compris les applications Microsoft pré-intégrées.
 
-Les applications Microsoft pré-intégrées incluent Office 365, Sharepoint, le portail de gestion Azure, entre autres.
+Les applications Microsoft pré-intégrées incluent Office 365, Sharepoint, le portail de gestion Azure, entre autres.
 
 ![Résumé de l’utilisation des applications](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
@@ -268,11 +280,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
+Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

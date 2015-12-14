@@ -475,69 +475,9 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 ## API de requête intégrée au langage JavaScript
 En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
 
-> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
-> <br/>
-> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
 
-Les fonctions prises en charge incluent :
-<ul>
-<li>
-<b>chain() ... .value([callback] [, options])</b>
-<ul>
-<li>
-commence un appel chaîné qui doit se terminer par la valeur ().
-</li>
-</ul>
-</li>
-<li>
-<b>filter(predicateFunction [, options] [, callback])</b>
-<ul>
-<li>
-Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/False pour filtrer les documents d’entrée/de sortie dans le jeu de résultats. Ce comportement est semblable à celui d’une clause WHERE dans SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>map(transformationFunction [, options] [, callback])</b>
-<ul>
-<li>
-Applique la projection d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>pluck([propertyName] [, options] [, callback])</b>
-<ul>
-<li>
-il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée.
-</li>
-</ul>
-</li>
-<li>
-<b>flatten([isShallow] [, options] [, callback])</b>
-<ul>
-<li>
-Combine et regroupe les tableaux à partir de chaque élément d’entrée en un tableau unique. Ce comportement est semblable à SelectMany dans LINQ.
-</li>
-</ul>
-</li>
-<li>
-<b>sortBy([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à une clause ORDER BY dans SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>sortByDescending([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY x DESC dans SQL.
-</li>
-</ul>
-</li>
-</ul>
+Les fonctions prises en charge incluent : <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> commence un appel chaîné qui doit se terminer par la valeur (). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/False pour filtrer les documents d’entrée/de sortie dans le jeu de résultats. Ce comportement est semblable à celui d’une clause WHERE dans SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Applique la projection d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combine et regroupe les tableaux à partir de chaque élément d’entrée en un tableau unique. Ce comportement est semblable à SelectMany dans LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à une clause ORDER BY dans SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY x DESC dans SQL. </li> </ul> </li> </ul>
 
 
 Lorsqu’elles sont incluses dans les fonctions de prédicat et/ou de sélecteur, les constructions JavaScript suivantes sont automatiquement optimisées pour s’exécuter directement sur les index DocumentDB :
@@ -614,141 +554,7 @@ Le tableau suivant présente différentes requêtes SQL et les requêtes JavaSc
 
 Comme pour les requêtes SQL, les clés de propriété de document (par exemple, `doc.id`) respectent la casse.
 
-<br/>
-<table border="1" width="100%">
-<colgroup>
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<th>SQL</th>
-<th>API de requête JavaScript</th>
-<th>Détails</th>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return doc;
-});
-</pre>
-</td>
-<td>Conserve tous les documents (paginés avec le jeton de continuation) tels quels.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions 
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return {
-        id: doc.id,
-        msg: doc.message,
-        actions: doc.actions
-    };
-});
-</pre>
-</td>
-<td>Projette l’ID, le message (doté de l’alias msg) et l’action à partir de tous les documents.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT * 
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(doc) {
-    return doc.id === "X998_Y998";
-});
-</pre>
-</td>
-<td>Demande au système de renvoyer les documents avec le prédicat : id = "X998\_Y998".</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-WHERE ARRAY_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>Demande au système de renvoyer les documents comportant la propriété Tags sous forme de tableau contenant la valeur 123.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.id === "X998_Y998";
-    })
-    .map(function(doc) {
-        return {
-            id: doc.id,
-            msg: doc.message
-        };
-    })
-    .value();
-</pre>
-</td>
-<td>Demande au système de renvoyer les documents avec un prédicat, id = "X998\_Y998", puis projette l’ID et le message (doté de l’alias msg).</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT VALUE tag
-FROM docs
-JOIN tag IN docs.Tags
-ORDER BY docs._ts
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
-    })
-    .sortBy(function(doc) {
-    	return doc._ts;
-    })
-    .pluck("Tags")
-    .flatten()
-    .value()
-</pre>
-</td>
-<td>Filtre les documents comportant la propriété de tableau Tags, trie les documents trouvés en fonction de la propriété système \_ts timestamp, puis projette et regroupe le tableau Tags.</td>
-</tr>
-</tbody>
-</table>
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de requête JavaScript</th> <th>détails</th> </tr> <tr> <td> <pre> Sélectionner * à partir de documents </pre> </td> <td> <pre> \_\_.map(function(doc) {doc retour;}); </pre> </td> <td>Résultats dans tous les documents (paginés avec le jeton de continuation) en tant qu'est.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Projette l’ID, le message (doté de l’alias msg) et l’action à partir de tous les documents.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Demande au système de renvoyer les documents avec le prédicat : id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Demande au système de renvoyer les documents comportant la propriété Tags sous forme de tableau contenant la valeur 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Demande au système de renvoyer les documents avec un prédicat, id = "X998\_Y998", puis projette l’ID et le message (doté de l’alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtre les documents comportant la propriété de tableau Tags, trie les documents trouvés en fonction de la propriété système \_ts timestamp, puis projette et regroupe le tableau Tags.</td> </tr> </tbody> </table>
 
 ## Prise en charge du runtime
 Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
@@ -855,8 +661,7 @@ Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'arc
 	}
 
 
-La procédure stockée est enregistrée en exécutant une demande POST sur la base de l'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement.
-Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
+La procédure stockée est enregistrée en exécutant une demande POST sur la base de l'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -909,7 +714,7 @@ Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous un
 
 ## Étapes suivantes
 
-Une fois que vous avez créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure en version préliminaire à l’aide de l’Explorateur de scripts. Pour plus d’informations, consultez la rubrique [Affichage des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide de l’Explorateur de scripts de DocumentDB](documentdb-view-scripts.md).
+Après avoir créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure à l’aide de l’Explorateur de scripts. Pour plus d’informations, consultez la rubrique [Affichage des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide de l’Explorateur de scripts de DocumentDB](documentdb-view-scripts.md).
 
 Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez également trouver utiles les références et les ressources suivantes :
 
@@ -921,4 +726,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

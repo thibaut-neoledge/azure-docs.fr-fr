@@ -23,7 +23,7 @@ Les compteurs de performances disponibles pour Windows Server, IIS et ASP.NET pe
 
 Vous pouvez examiner les données du compteur de performances 1 directement sur l’hôte d’application avec l’outil d’analyse des performances auquel on accède à l’aide de Bureau à distance 2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure 3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.
 
-Pour plus d’informations sur la configuration des performances de votre application dans le [portail de gestion Azure](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Pour plus d’informations sur la configuration des performances de votre application dans le [portail Azure Classic](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 Pour obtenir d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes et optimiser les applications Azure, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -83,7 +83,7 @@ Cette section part du principe que vous avez importé le moniteur de diagnostics
 
 ## Étape 1 : collecte et stockage de données de compteurs de performances
 
-Après avoir ajouté le fichier diagnostics à votre solution Visual Studio, vous pouvez configurer la collecte et le stockage de données de compteurs de performances dans une application Azure. Pour cela, vous devez ajouter des compteurs de performances au fichier diagnostics. Dans un premier temps, les données de diagnostic, y compris les compteurs de performances, sont collectées au niveau de l'instance. Sachant que les données sont conservées dans la table WADPerformanceCountersTable du service de Table Azure, vous serez également amené à spécifier le compte de stockage dans votre application. Si vous testez votre application en local dans l'émulateur de calcul, vous pouvez également stocker les données de diagnostic en local dans l'émulateur de stockage. Avant de stocker les données de diagnostic, vous devez accéder au [portail de gestion Azure](http://manage.windowsazure.com/) et créer un compte de stockage. Pour éviter de payer des frais de bande passante externes et réduire le temps de réponse, il est recommandé de situer votre compte de stockage dans la même région que votre application Azure.
+Après avoir ajouté le fichier diagnostics à votre solution Visual Studio, vous pouvez configurer la collecte et le stockage de données de compteurs de performances dans une application Azure. Pour cela, vous devez ajouter des compteurs de performances au fichier diagnostics. Dans un premier temps, les données de diagnostic, y compris les compteurs de performances, sont collectées au niveau de l'instance. Sachant que les données sont conservées dans la table WADPerformanceCountersTable du service de Table Azure, vous serez également amené à spécifier le compte de stockage dans votre application. Si vous testez votre application en local dans l'émulateur de calcul, vous pouvez également stocker les données de diagnostic en local dans l'émulateur de stockage. Avant de stocker les données de diagnostic, vous devez accéder au [portail Azure Classic](http://manage.windowsazure.com/) et créer un compte de stockage. Pour éviter de payer des frais de bande passante externes et réduire le temps de réponse, il est recommandé de situer votre compte de stockage dans la même région que votre application Azure.
 
 ### Ajouter des compteurs de performances au fichier de diagnostics
 
@@ -136,7 +136,7 @@ Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage p
 
 Pour définir les chaînes de connexion :
 
-1. Ouvrez le fichier ServiceConfiguration.Cloud.cscfg à l’aide de l’éditeur de texte de votre choix, puis définissez la chaîne de connexion de votre stockage. Les valeurs de *AccountName* et de *AccountKey* se trouvent dans le portail de gestion, dans le tableau de bord du compte de stockage, sous Gérer les clés.
+1. Ouvrez le fichier ServiceConfiguration.Cloud.cscfg à l’aide de l’éditeur de texte de votre choix, puis définissez la chaîne de connexion de votre stockage. Les valeurs de *AccountName* et de *AccountKey* se trouvent dans le portail Azure Classic, dans le tableau de bord du compte de stockage, sous Gérer les clés.
 
     ```
     <ConfigurationSettings>
@@ -313,4 +313,4 @@ Maintenant que vous avez appris les principes de base de la collecte de compteur
 
 [Surveillance des services cloud](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

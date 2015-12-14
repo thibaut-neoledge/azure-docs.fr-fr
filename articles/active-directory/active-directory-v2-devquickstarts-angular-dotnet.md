@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main d’Azure AD AngularJS | Microsoft Azure"
-	description="Génération d’une application AngularJS Single Page qui connecte les utilisateurs avec les comptes Microsoft personnels et les comptes professionnels ou scolaires."
+	description="Génération d’une application à page unique AngularJS qui connecte les utilisateurs avec les comptes Microsoft personnels et les comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -225,4 +225,4 @@ Pour poursuivre l’apprentissage sur la version préliminaire du modèle d’ap
 - [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

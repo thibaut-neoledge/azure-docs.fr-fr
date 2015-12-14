@@ -43,7 +43,7 @@ Recherchez le module Lecteur dans la palette d’ensemble de données et de mod
 Sélectionnez le module Lecteur et renseignez le panneau des propriétés.
 
 1. Sélectionnez la base de données SQL Azure en tant que source de données.
-2. Nom du serveur de base de données : tapez le nom du serveur. Pour le rechercher, accédez au [portail Azure][].
+2. Nom du serveur de base de données : tapez le nom du serveur. Vous pouvez obtenir cette information dans le [portail Azure Classic][].
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ Recherchez le module Lecteur dans la palette d’ensemble de données et de mod
 Sélectionnez le module Lecteur et renseignez le volet des propriétés.
 
 1. Sélectionnez la base de données SQL Microsoft Azure en tant que Destination des données.
-2. Nom du serveur de base de données : tapez le nom du serveur. Pour le rechercher, accédez au [portail Azure][]. 
+2. Nom du serveur de base de données : tapez le nom du serveur. Vous pouvez obtenir cette information dans le [portail Azure Classic][]. 
 3. Nom de la base de données : tapez le nom d’une base de données sur le serveur que vous venez de définir. 
 4. Nom du compte utilisateur du serveur : tapez le nom d’utilisateur d’un compte disposant des autorisations d’écriture sur la base de données. 
 5. Mot de passe du compte utilisateur du serveur : renseignez le mot de passe du compte utilisateur spécifié.
@@ -141,7 +141,7 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [didacticiel consacré à la création d’une expérience]: https://azure.microsoft.com/fr-FR/documentation/articles/machine-learning-create-experiment/
 [Introduction à Machine Learning sur Microsoft Azure]: https://azure.microsoft.com/fr-FR/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
-[portail Azure]: https://portal.azure.com/
+[portail Azure Classic]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

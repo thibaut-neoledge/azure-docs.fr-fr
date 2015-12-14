@@ -92,7 +92,7 @@ En interne, cette extension utilise les configurations PublicConfiguration et Pr
 
 Vous pouvez exécuter l’une des deux étapes suivantes pour ajouter AzureLogCollector à une ou plusieurs instances d’un Service Cloud ou d’une machine virtuelle des rôles sélectionnés, ce qui déclenche les collectes sur chaque machine virtuelle à exécuter et envoyer aux fichiers recueillis à un compte Azure spécifié.
 
-## Ajouter AzureLogCollector comme extension de service
+## Ajout d’une Extension de service
 
 1. Suivez les instructions pour connecter Azure PowerShell à votre abonnement.
 
@@ -186,7 +186,7 @@ Voici la définition des paramètres transmis au script. (Également copié ci-d
       { Nom de chaîne, Emplacement de chaîne, schéma de recherche, Récursive Bool }
              
             
-## Ajouter AzureLogCollector comme Extension de machine virtuelle
+## Ajout d’une extension de machine virtuelle
 
 Suivez les instructions pour connecter Azure PowerShell à votre abonnement.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Vous pouvez maintenant examiner ou copier vos journaux depuis un emplacement très simple.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

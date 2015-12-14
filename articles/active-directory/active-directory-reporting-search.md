@@ -13,10 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Recherche de rapports Azure Active Directory
+
+## Articles de la documentation sur la création de rapports
+
+ - [API de création de rapports](active-directory-reporting-api-getting-started.md)
+ - [Événements d’audit](active-directory-reporting-audit-events.md)
+ - [Rétention](active-directory-reporting-retention.md)
+ - [Versions préliminaires](active-directory-reporting-previews.md)
+ - [action](active-directory-reporting-search.md)
+ - [Renvoi](active-directory-reporting-backfill.md)
+ - [Latences](active-directory-reporting-latencies.md)
+ - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory permet aux administrateurs d’annuaires de rechercher des événements d’audit, d’activité et de sécurité de l’utilisateur sur de nombreux rapports.
 
@@ -56,4 +67,4 @@ Utilisation d’un périphérique RMS | Non
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

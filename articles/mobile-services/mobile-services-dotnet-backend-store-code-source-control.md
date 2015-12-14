@@ -10,13 +10,18 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
 # Stocker le code de votre projet de service mobile dans le contrôle de code source
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 	La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-	> [AZURE.NOTE]
-	> Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
+	> [AZURE.NOTE]Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
 2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
 
@@ -60,7 +64,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 ##<a name="deploy-scripts"></a>Publication du projet à l'aide de Git
 
-1. Créez un nouveau projet de service mobile de backend .NET dans Visual Studio 2013 ou déplacez un projet existant dans votre nouveau référentiel local.  
+1. Créez un nouveau projet de service mobile de backend .NET dans Visual Studio 2013 ou déplacez un projet existant dans votre nouveau référentiel local.
 
 	Pour effectuer un test rapide, téléchargez et enregistrez le projet de démarrage rapide Mobile Services dans ce dossier.
 
@@ -97,7 +101,6 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Ajout de notifications Push à votre application Android Mobile Services | Microsoft Azure" 
-	description="Apprenez à configurer les notifications Push avec Google Cloud Messaging pour vos applications Xamarin.Android à l’aide d’Azure Mobile Services et Azure Notification Hubs." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Ajout de notifications Push à votre application Android Mobile Services | Microsoft Azure"
+	description="Apprenez à configurer les notifications Push avec Google Cloud Messaging pour vos applications Xamarin.Android à l’aide d’Azure Mobile Services et Azure Notification Hubs."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Ajout de notifications push à votre application Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -40,7 +45,7 @@ Les composants [Xamarin.Android] et [Azure Mobile Services] doivent déjà être
 
 ##<a id="update-scripts"></a>Mettre à jour le script d'insertion inscrit pour envoyer des notifications
 
->[AZURE.TIP]Les étapes suivantes vous montrent comment mettre à jour le script inscrit avec l'opération d'insertion sur la table TodoItem dans le portail de gestion Azure. Vous pouvez également accéder et modifier ce script de service mobile directement dans Visual Studio, dans le nœud Azure de l'Explorateur de serveurs.
+>[AZURE.TIP]Les étapes suivantes montrent comment mettre à jour le script inscrit vers l’opération d’insertion sur la table TodoItem dans le portail Azure Classic. Vous pouvez également accéder et modifier ce script de service mobile directement dans Visual Studio, dans le nœud Azure de l'Explorateur de serveurs.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -81,6 +86,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

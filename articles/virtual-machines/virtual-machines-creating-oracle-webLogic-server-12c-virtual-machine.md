@@ -24,7 +24,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 ##Créer une machine virtuelle Oracle WebLogic Server 12c dans Azure
 
-1. Connectez-vous au [Portail Azure en version préliminaire](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
 
 2. Cliquez sur **Marketplace**, puis sur **Compute**, puis saisissez **Oracle** dans la zone de recherche.
 
@@ -52,7 +52,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 ##Configurer votre machine virtuelle Oracle WebLogic Server 12c dans Azure
 
-1. Connectez-vous au [Portail Azure en version préliminaire](https://ms.portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
 
 2.	Cliquez sur **Machines virtuelles**.
 
@@ -129,7 +129,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 10.	Créez un point de terminaison pour votre machine virtuelle :
 
-	1. Connectez-vous au [Portail Azure en version préliminaire](https://ms.portal.azure.com/).
+	1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
 
 	2.	Cliquez sur **Parcourir**.
 
@@ -173,7 +173,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	8.	Spécifiez un nom pour la règle, ainsi qu'une description éventuelle, puis cliquez sur **Terminer**.
 
-12.	Pour observer l'exécution de l'application shoppingcart sur Internet, ouvrez un navigateur et accédez à l'URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l'élément <<*nom\_domaine\_unique*>> dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
+12.	Pour observer l'exécution de l'application shoppingcart sur Internet, ouvrez un navigateur et accédez à l'URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*unique\_domain\_name*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
 
 
 ##Ressources supplémentaires
@@ -187,4 +187,4 @@ Maintenant que vous avez configuré votre machine virtuelle exécutant Oracle W
 
 -	[Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

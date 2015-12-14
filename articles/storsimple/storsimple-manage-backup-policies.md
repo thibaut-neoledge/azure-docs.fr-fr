@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
@@ -27,9 +27,9 @@ Sur la page **Stratégies de sauvegarde**, vous pouvez filtrer les stratégies e
 
 - **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
 
-   - stratégies planifiées, qui sont explicitement créées par l'utilisateur ;
-   - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom NomVolume\_Default, où « NomVolume » désigne le nom du volume StorSimple configuré par l’utilisateur dans le portail de gestion. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
-   - stratégies importées, qui ont été créées dans le gestionnaire d'instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
+   - stratégies planifiées, qui sont explicitement créées par l’utilisateur ;
+   - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom NomVolume\_Default, où « NomVolume » désigne le nom du volume StorSimple configuré par l’utilisateur dans le portail Azure Classic. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
+   - stratégies importées, qui ont été créées dans le gestionnaire d’instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
 
 - **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
 
@@ -49,7 +49,7 @@ Les opérations fréquentes pouvant être effectuées à partir de cette page so
 
 ## Ajouter une stratégie de sauvegarde
 
-Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Pour ajouter une stratégie de sauvegarde dédiée à votre appareil StorSimple, suivez les étapes suivantes dans le portail de gestion. Après avoir ajouté la stratégie, vous pouvez définir une planification (consultez [Ajouter ou modifier une planification](#add-or-modify-a-schedule)).
+Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Pour ajouter une stratégie de sauvegarde dédiée à votre appareil StorSimple, procédez comme suit dans le portail Azure Classic. Après avoir ajouté la stratégie, vous pouvez définir une planification (voir [Ajouter ou modifier une planification](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
@@ -60,26 +60,26 @@ Pour visionner une vidéo expliquant comment créer une stratégie de sauvegarde
 
 ## Ajouter ou modifier une planification
 
-Vous pouvez ajouter ou modifier une planification associée à une stratégie de sauvegarde existante sur votre appareil StorSimple. Pour ajouter ou modifier une planification, suivez la procédure suivante dans le portail de gestion.
+Vous pouvez ajouter ou modifier une planification associée à une stratégie de sauvegarde existante sur votre appareil StorSimple. Pour ajouter ou modifier une planification, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule.md)]
 
 ## Supprimer une stratégie de sauvegarde
 
-Pour supprimer une stratégie de sauvegarde sur votre appareil StorSimple, suivez la procédure suivante dans le portail de gestion.
+Pour supprimer une stratégie de sauvegarde sur votre appareil StorSimple, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 
 ## Exécuter une sauvegarde manuelle
 
-Pour créer une sauvegarde à la demande (manuelle) pour un volume unique, suivez les étapes suivantes dans le portail de gestion.
+Pour créer une sauvegarde à la demande (manuelle) pour un volume unique, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
 ## Créer une stratégie de sauvegarde personnalisée comportant plusieurs volumes et planifications
 
-Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs volumes et planifications, suivez les étapes suivantes dans le portail de gestion.
+Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs volumes et planifications, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
@@ -88,4 +88,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

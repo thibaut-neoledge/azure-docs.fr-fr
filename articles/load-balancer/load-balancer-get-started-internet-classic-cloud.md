@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/30/2015"
    ms.author="joaoma" />
 
 # Création d'un équilibreur de charge accessible sur Internet pour les services cloud
@@ -27,7 +27,9 @@
 
 Les services cloud sont automatiquement configurés avec un équilibrage de charge et peuvent être personnalisés via le modèle de service
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier de [définition de service](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+## Création d’un équilibreur de charge à l'aide du fichier de définition de service
+ 
+Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier .csdef de [définition de service](https://msdn.microsoft.com/library/azure/gg557553.aspx).
 
 L’exemple suivant montre la configuration d’un fichier servicedefinition.csdef pour un déploiement de cloud :
 
@@ -56,7 +58,7 @@ En vérifiant l'extrait de code du fichier .csdef généré par un déploiement 
 
 
 
-### Vérifier l'état d'intégrité de l'équilibrage de charge pour les services cloud
+## Vérifier l'état d'intégrité de l'équilibrage de charge pour les services cloud
 
 
 Voici un exemple de sonde d’intégrité :
@@ -81,4 +83,4 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

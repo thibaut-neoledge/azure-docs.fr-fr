@@ -21,7 +21,7 @@
 
 Cette section montre comment créer une machine virtuelle Linux CentOS à l'aide de machines virtuelles Azure et comment télécharger, créer et installer la bibliothèque Apache Qpid Proton-C avec des liaisons de langage Python et PHP. Après avoir effectué ces étapes, vous pourrez exécuter les exemples Python et PHP inclus dans ce guide.
 
-La première étape s’effectue à l'aide du [portail Azure][]. La capture d'écran suivante montre comment créer une machine virtuelle CentOS nommée « scott-centos » :
+La première étape s’effectue à l’aide du [portail Azure Classic][]. La capture d'écran suivante montre comment créer une machine virtuelle CentOS nommée « scott-centos » :
 
 ![Proton sur une machine virtuelle Linux Azure][0]
 
@@ -29,7 +29,7 @@ Après l’approvisionnement, le portail affiche les informations suivantes :
 
 ![Proton sur une machine virtuelle Linux Azure][1]
 
-Pour vous connecter à l'ordinateur, vous devez connaître le port de point de terminaison pour SSH. Vous pouvez obtenir cette valeur à partir du portail en sélectionnant la machine virtuelle nouvellement créée puis en cliquant sur l’onglet **Points de terminaison**. La capture d'écran suivante montre que le port SSH public pour cet ordinateur est 57146.
+Pour vous connecter à l'ordinateur, vous devez connaître le port de point de terminaison pour SSH. Vous pouvez obtenir cette valeur à partir du [portail Azure Classic][] en sélectionnant la machine virtuelle nouvellement créée puis en cliquant sur l’onglet **Points de terminaison**. La capture d'écran suivante montre que le port SSH public pour cet ordinateur est 57146.
 
 ![Proton sur une machine virtuelle Linux Azure][2]
 
@@ -112,6 +112,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
-[portail Azure]: http://manage.windowsazure.com
+[portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

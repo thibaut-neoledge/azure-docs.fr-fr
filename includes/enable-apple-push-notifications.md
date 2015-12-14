@@ -1,10 +1,6 @@
 
 * [Inscrivez un ID d'application pour votre application](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Créez un ID d'application explicite (pas un ID d’application générique) et pour la valeur **Bundle ID**, utilisez exactement la valeur**Bundle ID** qui se trouve dans votre projet de démarrage rapide Xcode. Il est également essentiel de cocher l’option **Notifications push**. 
 
-* Puis, [activez les notifications push pour l’application](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW6). Vous pouvez créer un certificat SSL de « développement » ou de « distribution » (n’oubliez pas de sélectionner l’option correspondante portail Azure ultérieurement).
+* Ensuite, [Configuration des notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6). Vous pouvez créer un certificat SSL de « développement » ou de « distribution » (n’oubliez pas de sélectionner l’option correspondante portail Azure ultérieurement).
 
-* Ensuite, [vérifiez que l’ID d’application active les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW8).
-
-* Enfin, [actualisez les profils de mise en service dans le projet de démarrage rapide Xcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) et [vérifiez que le profil de mise en service a été créé ou régénéré pour activer les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12).
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

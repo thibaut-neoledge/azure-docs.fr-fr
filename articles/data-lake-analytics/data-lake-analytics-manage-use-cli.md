@@ -26,7 +26,7 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md).
 	- Téléchargez et installez les [outils d’interface de ligne de commande Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) en **version préliminaire** pour effectuer cette démonstration.
 - **Authentication**, en utilisant la commande  suivante :
@@ -210,8 +210,8 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 ##Voir aussi 
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
-- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-use-portal.md)
-- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Prise en main des analyses Data Lake à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
+- [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-use-portal.md)
+- [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

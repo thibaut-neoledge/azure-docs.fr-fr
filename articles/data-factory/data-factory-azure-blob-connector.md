@@ -369,7 +369,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
 | type | La propriété de type doit être définie sur : **AzureStorage** | Oui |
-| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Vous pouvez obtenir la valeur connectionString pour le stockage Azure à partir du portail Azure. | Oui |
+| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Vous pouvez obtenir la valeur connectionString pour le stockage Azure à partir du portail Azure Classic. | Oui |
 
 ## Propriétés de type du jeu de données d’objet Blob Azure
 
@@ -505,4 +505,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré com
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

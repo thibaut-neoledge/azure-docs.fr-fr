@@ -28,7 +28,7 @@ Suivez ce guide pas à pas et, si vous rencontrez des problèmes, laissez-nous u
 
 ## Création d'un réseau virtuel
 
-Vous pouvez créer un réseau virtuel dans Azure via le portail Azure ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l'aide du portail Azure, consultez l'article [Création d’un réseau virtuel](../create-virtual-network.md).
+Vous pouvez créer un réseau virtuel dans Azure via le portail Azure Classic ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l’aide du portail Azure Classic, consultez l’article [Création d’un réseau virtuel](../create-virtual-network.md).
 
     #Create Virtual Network
 
@@ -147,4 +147,4 @@ Nous aimerions également connaître votre avis sur l'utilité pour vous d'avoir
 Nous espérons que cela vous a été utile !
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

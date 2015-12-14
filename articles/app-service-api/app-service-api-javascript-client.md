@@ -18,6 +18,8 @@
 
 # Utiliser une application API Azure à l'aide de HTML et JavaScript
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Vue d'ensemble
 
 Cet article montre comment créer un client HTML et JavaScript pour une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](/documentation/services/app-service/). Cet article suppose une connaissance pratique de HTML et de JavaScript. Il repose sur l’utilisation de l’infrastructure JavaScript [AngularJS](https://angularjs.org/) pour effectuer des appels REST vers l’application API.
@@ -371,4 +373,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

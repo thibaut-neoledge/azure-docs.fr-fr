@@ -29,7 +29,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 ## Configuration requise
 
 * Visual Studio 2013 ou 2015. Les instructions ci-dessous utilisent Visual Studio 2015.
-* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 
 ## Créer une application .NET
@@ -223,4 +223,4 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

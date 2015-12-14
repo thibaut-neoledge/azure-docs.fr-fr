@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création de votre première solution de recherche à l'aide du service Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Création de votre première solution de recherche à l’aide du service Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Créez votre première solution de recherche à l'aide du service Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -70,7 +70,7 @@ Appuyez sur **Entrée** pour fermer l'application. À ce stade, vous avez correc
 
 > [AZURE.NOTE]Si vous recevez des erreurs incluant « Valeur non valide pour la clé attachdbfilename » ou une autre erreur liée à l'attachement de la base de données, il s'agit peut-être d'un conflit de contrôle de compte d'utilisateur. Dans le cadre de cette démonstration, contournez ces erreurs de la manière suivante : copiez la solution dans un dossier nouveau ou existant (comme Temp) qui fournit un accès aux utilisateurs authentifiés. Utilisez **Exécuter en tant qu'administrateur** pour démarrer Visual Studio. Ouvrez la solution, générez-la, puis appuyez sur **F5** pour créer l'index.
 
-Pour vérifier la création de l'index et le téléchargement des documents, accédez à votre tableau de bord du service de recherche dans le [portail de gestion Azure](https://portal.azure.com). Dans Utilisation, le nombre d'index doit être augmenté de 1, et vous devez avoir 294 documents, un pour chaque produit de la base de données.
+Pour vérifier la création de l’index et le téléchargement de documents, accédez au tableau de bord du service de recherche dans le [portail Azure Classic](https://portal.azure.com). Dans Utilisation, le nombre d'index doit être augmenté de 1, et vous devez avoir 294 documents, un pour chaque produit de la base de données.
 
 Cliquez sur la vignette **Index** pour afficher la liste des index. Celle-ci change pour afficher le nouveau nombre d'index et de documents. Notez que vous pouvez avoir jusqu'à trois index au niveau de tarification gratuit. Si vous aviez déjà trois index, vous devrez en supprimer un pour libérer de l'espace.
 
@@ -206,4 +206,4 @@ Vous pouvez également vous référer à l'[API REST Azure Search](http://msdn.m
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

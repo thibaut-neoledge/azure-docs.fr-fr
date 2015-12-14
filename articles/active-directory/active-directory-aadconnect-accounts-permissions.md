@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Autorisations et comptes Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect : comptes et autorisations | Microsoft Azure"
    description="Cette rubrique décrit les comptes utilisés et créés, ainsi que les autorisations nécessaires."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -122,4 +122,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

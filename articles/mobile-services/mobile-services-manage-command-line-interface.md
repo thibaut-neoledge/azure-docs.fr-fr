@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="Administration d'un service mobile à partir d'une invite de commandes | Microsoft Azure" 
-	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Administration d'un service mobile à partir d'une invite de commandes | Microsoft Azure"
+	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# Automatisation des services mobiles avec les outils en ligne de commande 
+# Automatisation des services mobiles avec les outils en ligne de commande
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Vue d'ensemble
 
 Cette rubrique explique comment utiliser les outils en ligne de commande Azure pour automatiser la création et la gestion d'Azure Mobile Services. Elle montre aussi comment installer et prendre en main les outils en ligne de commande et les utiliser pour effectuer les tâches Mobile Services principales.
- 
+
 Lorsqu'elles sont combinées dans un seul script ou dans un fichier de commandes, ces commandes individuelles automatisent le processus de création, de vérification et de suppression d'un service mobile.
 
 Cette rubrique présente une sélection de tâches d'administration courantes prises en charge par les outils en ligne de commande Azure. Pour plus d'informations, consultez la [documentation sur les outils en ligne de commande Azure][reference-docs].
@@ -46,7 +51,7 @@ Pour commencer, vous devez d'abord télécharger et importer vos paramètres de 
 
 	azure account download
 
-Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au portail de gestion. Une fois que vous êtes connecté, votre fichier `.publishsettings` est téléchargé. Notez l'emplacement d'enregistrement du fichier.
+Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au portail Azure Classic. Une fois que vous êtes connecté, votre fichier `.publishsettings` est téléchargé. Notez l'emplacement d'enregistrement du fichier.
 
 Importez ensuite le fichier `.publishsettings` en exécutant la commande suivante, en remplaçant `<path-to-settings-file>` par le chemin d'accès de votre fichier `.publishsettings` :
 
@@ -104,9 +109,9 @@ La commande suivante crée une table dont l'autorisation `read` est définie sur
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-Le tableau suivant présente une comparaison entre la valeur d'autorisation du script et la valeur d'autorisation du [portail de gestion Azure].
+Le tableau suivant présente une comparaison entre la valeur d'autorisation du script et la valeur d'autorisation du [portail Azure Classic].
 
-|Valeur du script|Valeur du portail de gestion| |========|========| |`public`|Tout le monde| |`application`(par défaut)|Toute personne avec la clé d'application| |`user`|Seuls les utilisateurs authentifiés| |`admin`|Seuls les scripts et les administrateurs|
+|Valeur du script|Valeur du portail| |========|========| |`public`|Tout le monde| |`application`(par défaut)|Toute personne avec la clé d'application| |`user`|Seuls les utilisateurs authentifiés| |`admin`|Seuls les scripts et les administrateurs|
 
 La commande `mobile table create` échoue si la table spécifiée existe déjà. Dans vos scripts d'automatisation, vous devez essayer de supprimer une table avant de tenter de la recréer.
 
@@ -140,7 +145,7 @@ La déclaration de fonction du fichier de script doit également correspondre à
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 Pour plus d'informations sur l'enregistrement des scripts, consultez la page [Référence de script serveur Mobile Services].
 
@@ -173,7 +178,7 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [R�
 <!-- URLs. -->
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [R�
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Installation des outils en ligne de commande Azure pour Mac et Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

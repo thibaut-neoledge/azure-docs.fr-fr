@@ -131,7 +131,7 @@ Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb
 
 Les mises à jour futures du service développeront davantage la prise en charge de la clause Order By présentée ici. Nous travaillons sur les ajouts suivants et la publication de ces améliorations sera basée sur vos commentaires :
 
-- Stratégies d'indexation dynamique : prise en charge permettant de modifier la stratégie d'indexation après la création de la collection dans le portail Azure.
+- Stratégies d’indexation dynamique : prise en charge permettant de modifier la stratégie d’indexation après la création de la collection dans le portail Azure Classic
 - Prise en charge des index composés pour une clause Order By plus efficace et une clause Order By sur plusieurs propriétés.
 
 ## Forum Aux Questions
@@ -177,4 +177,4 @@ Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-document
 * [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

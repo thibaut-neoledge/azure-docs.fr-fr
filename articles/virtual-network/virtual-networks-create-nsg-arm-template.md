@@ -181,4 +181,4 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 	- **-f (ou --template-file)**. Chemin d'accès à votre fichier de modèle ARM.
 	- **-e (ou --parameters-file)**. Chemin d'accès à votre fichier de paramètres ARM.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

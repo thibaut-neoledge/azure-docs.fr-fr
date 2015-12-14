@@ -19,11 +19,11 @@
 
 # Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
 
-Azure AD Connect Sync s'appuie sur l'approvisionnement déclaratif introduit dans Forefront Identity Manager 2010 pour vous permettre d'implémenter votre logique d’entreprise d'intégration des identités complète sans avoir à écrire de code compilé.
+Azure AD Connect Sync s’appuie sur l’approvisionnement déclaratif introduit dans Forefront Identity Manager 2010 pour vous permettre d’implémenter votre logique d’entreprise d’intégration des identités complète sans avoir à écrire de code compilé.
 
 Le langage d’expression utilisé dans les flux d’attributs constitue une partie essentielle de l’approvisionnement déclaratif. Le langage utilisé est un sous-ensemble de Microsoft® Visual Basic® pour Applications (VBA). Ce langage est utilisé dans Microsoft Office et les utilisateurs qui ont une certaine expérience de VBScript le reconnaîtront également. Le langage d’expression de l’approvisionnement déclaratif utilise uniquement des fonctions. Il ne s’agit pas d’un langage structuré et il ne contient ni méthodes ni instructions. Les fonctions sont imbriquées pour exprimer le déroulement du programme.
 
-Pour plus d'informations, consultez [Bienvenue dans la référence linguistique Visual Basic pour Applications pour Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Pour plus d’informations, consultez [Bienvenue dans la référence linguistique Visual Basic pour Applications pour Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
 Les attributs sont fortement typés. Une fonction qui attend un attribut de chaîne à valeur unique n’accepte pas les attributs à valeurs multiples ou ceux d’un type différent. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
@@ -53,11 +53,11 @@ Le connecteur Active Directory fournissait les paramètres suivants pour les rè
 | Nom du paramètre | Commentaire |
 | --- | --- |
 | Domain.Netbios | Format NetBIOS du domaine en cours d'importation, par exemple, FABRIKAMSALES |
-| Domain.FQDN | Format NetBIOS du domaine en cours d'importation, par exemple, sales.fabrikam.com |
-| Domain.LDAP | Format LDAP du domaine en cours d'importation, par exemple, DC=sales,DC=fabrikam,DC=com |
-| Forest.Netbios | Format NetBIOS du nom de forêt en cours d'importation, par exemple, FABRIKAMCORP |
-| Forest.FQDN | Format FQDN du nom de forêt en cours d'importation, par exemple, fabrikam.com |
-| Forest.LDAP | Format LDAP du nom de forêt en cours d'importation, par exemple, DC=fabrikam,DC=com |
+| Domain.FQDN | Format NetBIOS du domaine en cours d’importation, par exemple, sales.fabrikam.com |
+| Domain.LDAP | Format LDAP du domaine en cours d’importation, par exemple, DC=sales,DC=fabrikam,DC=com |
+| Forest.Netbios | Format NetBIOS du nom de forêt en cours d’importation, par exemple, FABRIKAMCORP |
+| Forest.FQDN | Format FQDN du nom de forêt en cours d’importation, par exemple, fabrikam.com |
+| Forest.LDAP | Format LDAP du nom de forêt en cours d’importation, par exemple, DC=fabrikam,DC=com |
 
 Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :
 
@@ -89,7 +89,7 @@ Les attributs de chaîne sont par défaut définis pour être indexables et la l
 
 ### Modification de userPrincipalSuffix
 
-L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L'Assistant d’installation d'Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle veut que les utilisateurs de son client test aient juste à modifier le suffixe dans l'ID de connexion.
+L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L’Assistant d’installation d’Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle veut que les utilisateurs de son client test aient juste à modifier le suffixe dans l'ID de connexion.
 
 `userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
@@ -131,4 +131,4 @@ Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

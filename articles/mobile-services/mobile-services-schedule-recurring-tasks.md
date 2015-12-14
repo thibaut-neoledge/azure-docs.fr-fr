@@ -18,11 +18,16 @@
 
 # Planification des travaux récurrents dans Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
+Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail Azure Classic pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
 + Archivage des enregistrements de données anciens ou en double.
 + Demande et stockage de données externes, par exemple, des tweets, des entrées RSS et des informations d'emplacement.
@@ -38,11 +43,11 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 
 Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
-2. Dans le portail de gestion, cliquez sur l'onglet **Données** de votre service mobile, puis cliquez sur **+Créer**.
+2. Dans le [portail Azure Classic], cliquez sur l'onglet **Données** de votre service mobile, puis cliquez sur **+Créer**.
 
 3. Dans **Table name**, tapez _Updates_, puis cliquez sur le bouton de vérification.
 
-##<a name="add-job"></a>Créer une tâche planifiée  
+##<a name="add-job"></a>Créer une tâche planifiée
 
 Vous pouvez maintenant créer le travail planifié qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
@@ -161,9 +166,9 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 <!-- URLs. -->
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

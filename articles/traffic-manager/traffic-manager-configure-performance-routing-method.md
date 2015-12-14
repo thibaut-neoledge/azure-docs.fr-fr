@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Configurer une méthode de routage du trafic basé sur les performances
@@ -21,8 +21,8 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 
 ## Router le trafic en fonction de la latence la plus faible sur un ensemble de points de terminaison :
 
-1. Dans le volet gauche du portail de gestion, cliquez sur l’icône **Traffic Manager** pour ouvrir le volet Traffic Manager. Si vous n’avez pas encore créé votre profil Traffic Manager, consultez [Gérer les profils Traffic Manager](traffic-manager-manage-profiles.md) pour connaître les étapes de création d’un profil Traffic Manager de base.
-2. Dans le portail de gestion, dans le volet Traffic Manager, recherchez le profil Traffic Manager qui contient les paramètres que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
+1. Dans le volet gauche du portail Azure, cliquez sur l’icône **Traffic Manager** pour ouvrir le volet Traffic Manager. Si vous n’avez pas encore créé votre profil Traffic Manager, consultez [Gérer les profils Traffic Manager](traffic-manager-manage-profiles.md) pour connaître les étapes de création d’un profil Traffic Manager de base.
+2. Dans le portail Azure, dans le volet Traffic Manager, recherchez le profil Traffic Manager qui contient les paramètres que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
 3. Dans la page de votre profil, cliquez sur **Points de terminaison** en haut de la page et vérifiez que les points de terminaison de service que vous souhaitez inclure dans votre configuration sont présents. Pour savoir comment ajouter ou supprimer des points de terminaison dans votre profil, consultez [Gérer les points de terminaison dans Traffic Manager](traffic-manager-endpoints.md).
 4. Dans la page de votre profil, cliquez sur **Configurer** en haut pour ouvrir la page de configuration.
 5. Pour **Paramètres de méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Performances*. Si ce n’est pas le cas, cliquez sur **Performances** dans la liste déroulante.
@@ -49,4 +49,4 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

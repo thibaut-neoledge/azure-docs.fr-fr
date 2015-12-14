@@ -146,7 +146,7 @@ Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé 
 
 ###Services de remise de licences DRM PlayReady et de clés en clair AES
 
-Media Services fournit un service de remise de licences PlayReady et de clés en clair AES aux clients autorisés. Vous pouvez utiliser le portail de gestion Azure, l’API REST ou le kit SDK Media Services pour .NET pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
+Media Services fournit un service de remise de licences PlayReady et de clés en clair AES aux clients autorisés. Vous pouvez utiliser le portail Azure Classic, l’API REST ou le kit de développement logiciel (SDK) Media Services pour .NET pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
 
 Notez que si vous utilisez le portail, vous pouvez configurer une stratégie AES (qui sera appliquée à tout le contenu chiffré AES) et une stratégie PlayReady (qui sera appliquée à tout le contenu chiffré PlayReady). Utilisez le kit SDK Media Services pour .NET si vous souhaitez bénéficier d’un contrôle accru sur les configurations.
 
@@ -249,4 +249,4 @@ La liste suivante décrit les différents formats de diffusion en continu et don
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

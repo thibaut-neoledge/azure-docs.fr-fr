@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc;ricksal"/>
 
 # Résolution des problèmes du backend .NET Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Le développement avec Mobile Services est généralement simple et facile, mais, même dans ces conditions, les choses peuvent parfois aller de travers. Ce didacticiel aborde certaines techniques qui vous permettent de résoudre des problèmes courants susceptibles de se produire avec le backend .NET Mobile Services.
 
@@ -36,7 +41,7 @@ Vous pouvez utiliser n'importe quel débogueur HTTP pour envoyer et inspecter du
 1. Partez d'un projet de serveur Mobile Services ouvert dans **Visual Studio 2013 Update 2** ou une version ultérieure. Si vous n'avez pas de projet sous la main, vous pouvez en créer un en sélectionnant **Fichier**, **Nouveau**, **Projet**, puis en sélectionnant le nœud **Cloud** et ensuite le modèle **Microsoft Azure Mobile Services**.
 2. Appuyez sur **F5** pour créer et exécuter le projet. Sur la page de démarrage, sélectionnez **faire un essai**.
 
-    >[AZURE.NOTE]Si le service est hébergé localement, un clic sur le lien vous permet d'accéder à la page suivante. Mais si l'hébergement se fait dans le cloud, un ensemble d'informations d'identification vous est demandé. Le but est de veiller à ce que les utilisateurs non authentifiés n'aient pas accès aux informations sur votre API et vos charges utiles. Pour afficher la page, vous devez vous connecter avec un **nom d'utilisateur vide** et votre **clé d'application** comme mot de passe. Vous pouvez accéder à votre clé d'application dans le **portail de gestion Azure**, sous l'onglet **Tableau de bord** de votre service mobile, en sélectionnant **Gérer les clés**.
+    >[AZURE.NOTE]Si le service est hébergé localement, un clic sur le lien vous permet d'accéder à la page suivante. Mais si l'hébergement se fait dans le cloud, un ensemble d'informations d'identification vous est demandé. Le but est de veiller à ce que les utilisateurs non authentifiés n'aient pas accès aux informations sur votre API et vos charges utiles. Pour afficher la page, vous devez vous connecter avec un **nom d'utilisateur vide** et votre **clé d'application** comme mot de passe. Vous pouvez accéder à votre clé d'application dans le portail Azure Classic, sous l'onglet **Tableau de bord** de votre service mobile, en sélectionnant **Gérer les clés**.
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
 
@@ -107,9 +112,9 @@ Une fois votre service publié dans Azure, vous pouvez accéder aux journaux de 
 
 ![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-Ces mêmes journaux sont également disponibles dans le **portail de gestion Azure** sous l'onglet **Journaux** de votre service mobile.
+Ces mêmes journaux sont également disponibles dans le portail Azure Classic sous l'onglet **Journaux** de votre service mobile.
 
-![Logs in Azure Management Portal][LogsPortal]
+![Logs in Azure classic portal][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Débogage de la résolution d'assembly dans le cloud
@@ -154,4 +159,4 @@ Les migrations peuvent être complexes et nécessitent que l'état de la base de
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

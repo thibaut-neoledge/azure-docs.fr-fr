@@ -17,14 +17,14 @@
 	ms.date="11/19/2015"
 	ms.author="larryfr"/>
 
-# Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure en version préliminaire
+# Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
 [AZURE.INCLUDE [sélecteur](../../includes/hdinsight-portal-management-selector.md)]
 
 
-À l’aide du [portail Azure en version préliminaire][preview-portal], vous pouvez approvisionner et gérer des clusters Hadoop basés sur Linux dans Azure HDInsight.
+À l’aide du [portail Azure][preview-portal], vous pouvez approvisionner et gérer des clusters Hadoop basés sur Linux dans Azure HDInsight.
 
-> [AZURE.NOTE]Les étapes de cette procédure sont spécifiques aux clusters Hadoop basés sur Linux. Pour plus d’informations sur l’utilisation des clusters basés sur Windows, voir [Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure en version préliminaire](hdinsight-administer-use-management-portal.md)
+> [AZURE.NOTE]Les étapes de cette procédure sont spécifiques aux clusters Hadoop basés sur Linux. Pour plus d’informations sur l’utilisation des clusters basés sur Windows, voir [Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -47,11 +47,11 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en suivant les étapes ci-dessous :
 
-1. Connectez-vous au [portail Azure en version préliminaire][preview-portal].
+1. Connectez-vous au [portail Azure][preview-portal].
 
 2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__
 
-	![Création d'un nouveau cluster dans la version préliminaire du portail Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Création d’un cluster dans le portail Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez le __Type de cluster__ que vous souhaitez créer. Une coche verte s’affiche en regard du __Nom de cluster__ s’il est disponible.
 
@@ -115,7 +115,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 		>
 		> Actuellement (25/08/2015) il existe une limite disant qu’un seul cluster HDInsight basé sur Linux peut être présent sur un réseau virtuel Azure.
         >
-        > Vous ne pouvez pas utiliser un réseau Azure Virtual Network v1 (classique) avec HDInsight sur Linux. Le réseau virtuel doit être v2 (Azure Resource Manager), pour être affiché en tant qu’option pendant le processus de création du cluster HDInsight dans le portail Azure en version préliminaire, ou pour être utilisable pendant la création d’un cluster à partir de l’interface de ligne de commande Azure ou d’Azure PowerShell.
+        > Vous ne pouvez pas utiliser de réseau virtuel Azure v1 (classique) avec un cluster HDInsight Linux. Le réseau virtuel doit être v2 (Azure Resource Manager), pour être affiché en tant qu’option pendant le processus de création du cluster HDInsight dans le portail Azure, ou pour être utilisable pendant la création d’un cluster à partir de l’interface de ligne de commande Azure ou d’Azure PowerShell.
         >
         > Si vous disposez de ressources sur un réseau v1 et que vous souhaitez rendre HDInsight directement accessible à ces ressources via un réseau virtuel, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md) pour plus d’informations sur la connexion d’un réseau virtuel v2 à un réseau virtuel v1. Une fois cette connexion établie, vous pouvez créer le cluster HDInsight dans le réseau virtuel v2.
 
@@ -137,7 +137,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 
 ## Gérer un cluster
 
-Sélectionnez un cluster à partir du portail Azure en version préliminaire pour afficher des informations essentielles sur le cluster, tel que le nom, le groupe de ressources, le système d’exploitation et l’URL du tableau de bord de cluster (utilisée pour accéder à l’interface Ambari Web pour les clusters Linux).
+Sélectionnez un cluster à partir du portail Azure pour afficher des informations essentielles sur le cluster, tel que le nom, le groupe de ressources, le système d’exploitation et l’URL du tableau de bord de cluster (utilisée pour accéder à l’interface Ambari Web pour les clusters Linux).
 
 ![Détails du cluster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
@@ -157,7 +157,7 @@ Lisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, 
 
 * __Utilisateurs(![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png))__ : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 
-	> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure en version préliminaire et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
+	> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
 
 * __Balises(![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))__ : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos Cloud Services. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 
@@ -193,4 +193,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

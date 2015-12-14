@@ -261,7 +261,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 
 	
 
-12. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d'utilisateur** et un **mot de passe** de connexion au portail Azure.
+12. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d'utilisateur** et un **mot de passe** de connexion au portail Azure Classic.
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		Jane, Doe
 	 
 17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
-18. Utilisez le portail Azure en version préliminaire pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
+18. Utilisez le portail Azure pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
 	- Service lié : **LinkedService\_AzureStorage** 
 	- Jeu de données : **DatasetBlobSource** et **DatasetBlobDestination**.
 	- Pipeline : **PipelineBlobSample** 
@@ -392,4 +392,4 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

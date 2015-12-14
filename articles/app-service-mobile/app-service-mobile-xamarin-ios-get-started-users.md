@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/25/2015" 
 	ms.author="mahender"/>
 
 # Ajout de l'authentification à votre application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche.
+Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide Xamarin.iOS à l’aide d’un fournisseur d’identité pris en charge par App Service. Une fois l’utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l’ID utilisateur s’affiche ; vous pouvez alors accéder aux données de table limitées.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application Xamarin.iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Vous devez commencer par suivre le didacticiel [Création d’une application Xamarin.iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
+##Inscription de votre application pour l'authentification et configuration d'App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+##Restriction des autorisations pour les utilisateurs authentifiés
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -40,22 +38,22 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 Ensuite, vous mettrez à jour l’application cliente pour demander des ressources au backend Mobile App avec un utilisateur authentifié.
 
-##<a name="add-authentication"></a>Ajouter l'authentification à l'application
+##Ajout de l'authentification à l'application
 
 Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Quand l'application démarre, elle ne se connecte pas à votre service App Service et n'affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
 
-1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez l’instruction using et les déclarations de membre suivantes à QSTodoService :
+1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez l’instruction suivante et `MobileServiceUser` avec l’accesseur à la classe QSTodoService :
 
+	```
+		using UIKit;
+	```
 
 		// Logged in user
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Ajoutez une instruction `using` pour UIKit, ainsi qu’une nouvelle méthode nommée **Authenticate** à **QSTodoService** avec la définition suivante :
+2. Ajoutez une nouvelle méthode nommée **Authenticate** à **QSTodoService** avec la définition suivante :
 
-	```
-		using UIKit;
-	```
 
         public async Task Authenticate(UIViewController view)
         {
@@ -71,7 +69,7 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 
 	>[AZURE.NOTE]Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Ouvrez **QSTodoListViewController.cs**. Modifiez la définition de méthode de **ViewDidLoad** pour supprimer l'appel à **RefreshAsync()** vers la fin :
+3. Ouvrez **QSTodoListViewController.cs**. Modifiez la définition de méthode de **ViewDidLoad** pour supprimer l’appel à **RefreshAsync()** vers la fin :
 
 		public override async void ViewDidLoad ()
 		{
@@ -89,7 +87,7 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 		}
 
 
-4. Modifiez la méthode **RefreshAsync** pour vous authentifier et afficher un écran de connexion si la propriété **User** a la valeur null. Au code suivant en haut de la définition de méthode :
+4. Modifiez la méthode **RefreshAsync** pour vous authentifier si la propriété **User** a la valeur null. Ajoutez le code suivant en haut de la définition de méthode :
 
 		// start of RefreshAsync method
 		if (todoService.User == null) {
@@ -110,8 +108,6 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Création d’une application Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
-
-[Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

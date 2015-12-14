@@ -22,7 +22,7 @@
 
 Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue, ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
-Cet article explique comment déployer WebJobs à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
+Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
 
@@ -104,9 +104,9 @@ Autres exemples de planification CRON :
 
 L’autre technique ci-après fait appel à Azure Scheduler. Dans ce cas, votre tâche web n’a aucune connaissance directe de la planification. Au lieu de cela, Azure Scheduler est configuré pour déclencher votre tâche web selon une planification.
 
-Le portail de gestion Azure ne permet pas encore de créer une tâche Web planifiée. Pour le moment, vous pouvez utiliser l’[ancien portail](http://manage.windowsazure.com).
+Le portail Azure ne permet pas encore de créer une tâche Web planifiée. Pour le moment, vous pouvez utiliser le [portail Classic](http://manage.windowsazure.com).
 
-1. Sur l’[ancien portail](http://manage.windowsazure.com), accédez à la page des tâches Web, puis cliquez sur **Ajouter**.
+1. Sur le [portail Classic](http://manage.windowsazure.com), accédez à la page des tâches Web, puis cliquez sur **Ajouter**.
 
 1. Dans la zone **Mode d’exécution**, sélectionnez **Exécuter selon une planification**.
 	
@@ -152,7 +152,7 @@ Le portail de gestion Azure ne permet pas encore de créer une tâche Web plani
 	
 ### <a name="Scheduler"></a>Tâches planifiées et Azure Scheduler
 
-Les tâches planifiées peuvent être configurées avec plus de précision sur les pages Azure Scheduler de l’[ancien portail](http://manage.windowsazure.com).
+Les tâches planifiées peuvent être configurées avec plus de précision sur les pages Azure Scheduler du [portail Classic](http://manage.windowsazure.com).
 
 1.	Sur la page WebJobs, cliquez sur le lien **schedule** de la tâche pour accéder à la page du portail d'Azure Scheduler. 
 	
@@ -239,4 +239,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

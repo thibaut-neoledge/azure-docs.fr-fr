@@ -1,10 +1,9 @@
-## Scenario
+## Scénario
 
-You are creating an internal load balancer according to the following scenario
+Vous créez un équilibreur de charge interne selon le scénario suivant
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![IMAGE DESCRIPTIVE](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-An internal load balancer is configured in a virtual network  
-- 2 virtual machines called DB1 and DB2<BR>
-- endpoints <BR>
--  internal load balancer<BR>
+Un équilibreur de charge interne est configuré dans un réseau virtuel - 2 machines virtuelles appelées DB1 et DB2<BR> - points de terminaison <BR> - équilibreur de charge interne<BR>
+
+<!---HONumber=AcomDC_1203_2015-->

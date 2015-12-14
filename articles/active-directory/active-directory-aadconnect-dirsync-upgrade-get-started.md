@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD (synchronisation d’annuaires) | Microsoft Azure"
+   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD | Microsoft Azure"
    description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="shoatman;billmath"/>
 
-# Mise à niveau de la synchronisation Windows Azure Active Directory (DirSync) vers Azure Active Directory Connect (Azure AD Connect)
+# Mise à niveau de la synchronisation Windows Azure Active Directory (DirSync) vers Azure AD Connect
 
 Cette documentation vous aidera à mettre à niveau votre installation DirSync existante vers Azure AD Connect.
 
@@ -198,4 +198,4 @@ Notez que, lorsqu'Azure AD Connect est installé, vous pouvez [vérifier l'insta
 
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

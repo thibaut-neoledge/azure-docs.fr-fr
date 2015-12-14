@@ -30,7 +30,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 ## Configurer Threat Detection pour votre base de données
 
-1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure en version préliminaire.
+1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure.
 
 2. Accédez au volet de configuration de l'entrepôt SQL Data Warehouse que voulez surveiller. Dans le volet Paramètres, sélectionnez **Auditing & Threat Detection**.
 
@@ -55,7 +55,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 	![Volet de navigation][4]
 
-2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
+2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure Classic et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
 
 	![Volet de navigation][5]
 
@@ -89,4 +89,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure)" 
-	description="Cette procédure pas à pas étend le didacticiel à l'aide de Data Factory Editor dans le portail Azure de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
+	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure Classic)" 
+	description="Cette procédure pas à pas étend le didacticiel à l'aide de Data Factory Editor dans le portail Azure Classic de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@ Vous devez avoir installé au moins une passerelle dans votre environnement d’
 
 Si vous disposez déjà d’une passerelle de données, ignorez cette étape.
 
-1.	Créer une passerelle de données logique. Dans la **version préliminaire du portail Azure**, cliquez sur **Services liés** sur le volet **DATA FACTORY** de votre fabrique de données.
+1.	Créer une passerelle de données logique. Dans le **portail Azure**, cliquez sur **Services liés** sur le panneau **DATA FACTORY** de votre fabrique de données.
 2.	Cliquez sur **Ajouter (+) Passerelle de données** sur la barre de commandes.  
 3.	Dans le panneau **Nouvelle passerelle de données**, cliquez sur **CRÉER**.
 4.	Dans le panneau **Créer**, entrez **MyGateway** comme **nom** pour la passerelle de données.
@@ -97,7 +97,7 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 
 ### Créer le service lié
 
-1.	Dans la **version préliminaire du portail Azure**, cliquez sur la vignette **Créer et déployer** sur le volet **DATA FACTORY** pour **LogProcessingFactory**.
+1.	Dans le **portail Azure**, cliquez sur la vignette **Créer et déployer** sur le panneau **DATA FACTORY** pour **LogProcessingFactory**.
 2.	Dans **Data Factory Editor**, cliquez sur **Nouveau magasin de données** sur la barre d'outils, puis sélectionnez **Base de données SQL Server locale**.
 3.	Dans le script JSON, procédez comme suit : 
 	1.	Remplacez **<servername>** par le nom du serveur qui héberge votre base de données SQL Server.
@@ -153,7 +153,7 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

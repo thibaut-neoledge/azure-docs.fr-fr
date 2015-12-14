@@ -20,7 +20,7 @@
 
 Vérifiez le fonctionnement de votre application web avant de lancer ou de déployer des mises à jour en production. Ainsi, vous pouvez mieux vous rendre compte si votre application est prête à être publiée. Il est probable que votre application puisse gérer le trafic pendant les pics d’utilisation ou à votre prochaine publication marketing.
 
-Pendant la présentation publique, vous pouvez effectuer un test de performance de votre application dans la version préliminaire du portail Azure. Ces tests simulent la charge utilisateur sur votre application sur une période spécifique et mesurent la réponse de votre application. Par exemple, les résultats des tests affichent la vitesse à laquelle votre application répond à un nombre spécifique d’utilisateurs. Ils indiquent également le nombre de demandes ayant échoué, qui peuvent être symptomatiques des problèmes de votre application.
+Pendant la présentation publique, vous pouvez effectuer un test de performance de votre application dans le portail Azure. Ces tests simulent la charge utilisateur sur votre application sur une période spécifique et mesurent la réponse de votre application. Par exemple, les résultats des tests affichent la vitesse à laquelle votre application répond à un nombre spécifique d’utilisateurs. Ils indiquent également le nombre de demandes ayant échoué, qui peuvent être symptomatiques des problèmes de votre application.
 
 ![Rechercher des problèmes de performances dans votre application web][TestOverview]
 
@@ -34,7 +34,7 @@ Pendant la présentation publique, vous pouvez effectuer un test de performance 
 
 ## Configurer et exécuter votre test de performance
 
-0.	Connectez-vous à la [version préliminaire du portail Azure][AzurePortal]. Pour utiliser un compte Visual Studio Team Services que vous possédez, connectez-vous en tant que propriétaire du compte.
+0.	Connectez-vous au [portail Azure][AzurePortal]. Pour utiliser un compte Visual Studio Team Services que vous possédez, connectez-vous en tant que propriétaire du compte.
 
 0.	Accédez à votre application web.
 
@@ -76,7 +76,7 @@ N’hésitez pas à nous faire part de vos commentaires. Si vous avez des questi
 
 #### Q : Existe-t-il une limite de la durée d’exécution d’un test ? 
 
-R : Oui, vous pouvez exécuter votre test pendant une heure sur la version préliminaire du portail Azure.
+R : Oui, vous pouvez exécuter votre test pendant une heure dans le portail Azure.
 
 #### Q : Combien de temps ai-je pour exécuter des tests de performances ? 
 
@@ -84,7 +84,7 @@ R : Après la version d’évaluation, vous pouvez obtenir 20 000 minutes d�
 
 #### Q : Où puis-je vérifier combien de VUM ont été utilisées jusqu’ici ?
 
-R : Vous pouvez vérifier ce montant dans la version préliminaire du portail Azure.
+R : Vous pouvez vérifier ce montant dans le portail Azure.
 
 ![Accéder à votre compte Visual Studio Team Services][VSTSAccount]
 
@@ -112,4 +112,4 @@ R : Pour votre nouveau compte, accédez à ```https://{accountname}.visualstudi
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -65,7 +65,7 @@ Fournissez très rapidement un contenu statique aux utilisateurs dans le monde e
 
 Optimisez votre site .COM en le mettant automatiquement à l’échelle avec la fonction Mise à l’échelle automatique, en le mettant en cache avec le cache Redis Azure, en exécutant des tâches en arrière-plan avec WebJobs et assurant une haute disponibilité avec Azure Traffic Manager.
 
-La capacité de l’application App Service Web Apps à [adapter la taille des sites] répond aux besoins de votre site .COM, quelle que soit la taille de votre charge de travail. Augmentez la taille de votre site manuellement, via le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), par programme, via l’[API Service Management] ou des [scripts PowerShell], ou encore automatiquement, via la fonction Mise à l’échelle automatique. Dans le plan d’hébergement **standard**, la fonction Mise à l’échelle automatique vous permet d’augmenter automatiquement la taille d’un site web, selon l’utilisation de l’UC. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
+La capacité de l’application App Service Web Apps à [adapter la taille des sites] répond aux besoins de votre site .COM, quelle que soit la taille de votre charge de travail. Augmentez la taille de votre site manuellement via la [portail Azure](https://portal.azure.com) ou par programme, via l’[API Service Management] ou des [scripts PowerShell], ou encore automatiquement, via la fonction Mise à l’échelle automatique. Dans le plan d’hébergement **standard**, la fonction Mise à l’échelle automatique vous permet d’augmenter automatiquement la taille d’un site web, selon l’utilisation de l’UC. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
 
 Optimisez la réactivité de votre site web grâce au [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
 
@@ -75,7 +75,7 @@ Assurez la haute disponibilité de votre site web à l’aide [Microsoft Azure
 
 Tenez-vous informé sur les performances de votre site web au moyen d’outils Microsoft Azure ou tiers. Recevez des alertes sur des événements critiques de votre site web. Grâce à Application Insight ou à la fonction d’analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs.
 
-Consultez un [bref aperçu] des métriques de performance et des quotas de ressources du site web dans le panneau de l’application web sur le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez aussi recourir à un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour tous vos sites web.
+Bénéficiez d’un [aperçu rapide] sur les mesures de performance et les quotas de ressources actuels de votre site web, en consultant le panneau de l’application web dans le [portail Azure](https://portal.azure.com). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez aussi recourir à un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour tous vos sites web.
 
 Dans le plan d’hébergement **Standard**, vous pouvez surveiller la réactivité de votre site, en recevant des notifications par messagerie électronique chaque fois que votre site ne répond pas. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure].
 
@@ -128,7 +128,7 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 [état de session ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [cache de sortie]: https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[bref aperçu]: web-sites-monitor.md
+[aperçu rapide]: web-sites-monitor.md
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
 [New Relic]: ../store-new-relic-cloud-services-dotnet-application-performance-management.md
 [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
@@ -138,4 +138,4 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

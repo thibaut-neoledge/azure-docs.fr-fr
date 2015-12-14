@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect - Connexion utilisateur | Microsoft Azure"
+	pageTitle="Azure AD Connect : Connexion utilisateur | Microsoft Azure"
 	description="Connexion utilisateur Azure AD Connect pour une configuration personnalisée."
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@ Pour la plupart des organisations qui souhaitent juste activer l’authentificat
 	- Fonctionnalités d’intégration Active Directory telles que le verrouillage souple du compte ou une stratégie d’heures de travail et de mot de passe AD
 	- Accès conditionnel aux ressources locales et cloud via l’inscription de l’appareil, une adhésion à Azure AD ou des stratégies Intune MDM
 
-<!---HONumber=Oct15_HO3-->
+
+## Étapes suivantes
+En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # Utiliser une application API dans Azure App Service à partir d'un client .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Vue d'ensemble
 
 Ce didacticiel montre comment utiliser le Kit de développement logiciel (SDK) App Service pour écrire du code qui appelle une [application API](app-service-api-apps-why-best-platform.md) qui a été configurée pour un niveau d'accès **Public (anonyme)** ou **Public (authentifié)**. L'article aborde les exemples de scénarios suivants :
@@ -182,7 +184,7 @@ Dans cette section, vous créez un projet d'application de bureau Windows et vou
 
 L’exemple d’application illustre le [flux serveur](../app-service/app-service-authentication-overview.md#server-flow), ce qui signifie que la passerelle obtient le jeton d’accès du fournisseur d’identité. Pour le [flux client](../app-service/app-service-authentication-overview.md#client-flow), dans lequel votre application cliente obtient l’accès au jeton directement à partir du fournisseur d’identité et l’envoie à la passerelle, vous appelez `LoginAsync` plutôt que `SetCurrentUser`.
 
-L’exemple de code suivant suppose que vous disposez du jeton d’accès du fournisseur d’identité dans une variable de chaîne nommée `providerAccessToken` et l’indicateur de fournisseur d’identité (« AAD », « microsoftaccount », « google », « twitter » ou « facebook ») dans une variable de chaîne nommée `idProvider` :
+L’exemple de code suivant suppose que vous disposez du jeton d’accès du fournisseur d’identité dans une variable de chaîne nommée `providerAccessToken` et l’indicateur de fournisseur d’identité (« AAD », « microsoftaccount », « google », « twitter » ou « facebook ») dans une variable de chaîne nommée `idProvider` :
 
 		var appServiceClient = new AppServiceClient(GATEWAY_URL);
 		var providerAccessTokenJSON = new JObject();
@@ -205,4 +207,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’utilisation de l’authentification dans les applications API, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
@@ -48,13 +48,13 @@ Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle 
 
    - Démarrez l’initiateur Microsoft iSCSI sur l’hôte Windows.
    - Dans la fenêtre Propriétés de l’initiateur iSCSI, sous l’onglet Configuration, sélectionnez et copiez la chaîne affichée dans le champ Nom d’initiateur.
-   - Collez la chaîne du champ **Nom d’initiateur iSCSI** dans la table des enregistrements de contrôle d’accès du portail de gestion.
+   - Collez la chaîne du champ **Nom d’initiateur iSCSI** dans la table des enregistrements de contrôle d’accès du portail Azure Classic.
 
 4. Cliquez sur **Enregistrer** pour sauvegarder l’enregistrement de contrôle d’accès nouvellement créé. La liste de la table est mise à jour pour refléter les modifications.
 
 ## Modifier un enregistrement de contrôle d’accès
 
-Utilisez la page **Configurer** du portail de gestion pour modifier les enregistrements de contrôle d’accès.
+Utilisez la page **Configurer** du portail Azure Classic pour modifier les enregistrements de contrôle d’accès.
 
 > [AZURE.NOTE]Vous pouvez modifier uniquement les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour modifier un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
 
@@ -72,7 +72,7 @@ Effectuez les opérations suivantes pour modifier un enregistrement de contrôle
 
 ## Supprimer un enregistrement de contrôle d’accès
 
-Utilisez la page **Configurer** du portail de gestion pour supprimer les enregistrements de contrôle d’accès.
+Utilisez la page **Configurer** du portail Azure Classic pour supprimer les enregistrements de contrôle d’accès.
 
 > [AZURE.NOTE]Vous pouvez uniquement supprimer les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour supprimer un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
 
@@ -94,4 +94,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

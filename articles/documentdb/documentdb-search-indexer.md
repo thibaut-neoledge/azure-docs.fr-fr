@@ -121,7 +121,7 @@ Vous recevrez une réponse HTTP 201 Créé si la source de données a été cré
 
 ##<a id="CreateIndex"></a>Étape 2 : Création d’un index
 
-Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure](../search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure Classic](../search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
  - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

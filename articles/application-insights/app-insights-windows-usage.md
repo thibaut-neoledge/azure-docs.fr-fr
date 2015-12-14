@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 #  Analyse de l’utilisation des applications Windows Store et Windows Phone avec Application Insights
@@ -153,4 +153,4 @@ Si vous développez en configuration de version finale, les événements sont st
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -71,7 +71,7 @@ Fournissez très rapidement un contenu statique aux utilisateurs dans le monde e
 
 Optimisez votre application web en procédant à une mise à l’échelle automatique à l’aide de la fonctionnalité Échelle automatique, à la mise en cache avec le Cache Redis Azure, à l’exécution de tâches en arrière-plan avec WebJobs et au maintien d’une haute disponibilité avec Azure Traffic Manager.
 
-La capacité de [mise à l’échelle] d’App Service Web Apps est idéale pour faire face aux charges de travail imprévisibles des campagnes marketing numériques. Mettez votre application web à l’échelle manuellement, via le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), par programme, via l’[API de gestion de service] ou des [scripts PowerShell], ou encore automatiquement, via la fonctionnalité de mise à l’échelle automatique. Au niveau **Standard**, la fonctionnalité de mise à l’échelle automatique vous permet de dimensionner une application web automatiquement selon l’utilisation du processeur. Elle vous permet dans le même temps d’optimiser la flexibilité et de réduire les coûts en mettant à l’échelle l’application web uniquement lorsque cela est nécessaire en fonction de l’activité des utilisateurs. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
+La capacité de [mise à l’échelle] d’App Service Web Apps est idéale pour faire face aux charges de travail imprévisibles des campagnes marketing numériques. Mettez votre application web manuellement à l’échelle via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), par programmation via l’[API de gestion de service] ou des [scripts PowerShell] ou automatiquement via la fonctionnalité de mise à l’échelle automatique. Au niveau **Standard**, la fonctionnalité de mise à l’échelle automatique vous permet de dimensionner une application web automatiquement selon l’utilisation du processeur. Elle vous permet dans le même temps d’optimiser la flexibilité et de réduire les coûts en mettant à l’échelle l’application web uniquement lorsque cela est nécessaire en fonction de l’activité des utilisateurs. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
 
 Améliorez la réactivité de votre application web avec le [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
 
@@ -81,7 +81,7 @@ Maintenez la haute disponibilité de votre application web à l’aide d’[Azur
 
 Tenez-vous informé des performances de votre application web avec Azure ou des outils tiers. Recevez des alertes concernant les événements critiques liés à l’application web. Grâce à Application Insight ou à la fonction d’analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs.
 
-Consultez un [bref aperçu] des métriques de performance et des quotas de ressources de l’application web dans le panneau de cette dernière sur le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez également utiliser un outil tiers comme [New Relic] pour obtenir des données de surveillance avancées sur vos applications web.
+Obtenez un [aperçu rapide] des mesures de performances et des quotas de ressources actuels de l’application web dans le panneau de cette dernière sur le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez également utiliser un outil tiers comme [New Relic] pour obtenir des données de surveillance avancées sur vos applications web.
 
 Au niveau **Standard**, surveillez la réactivité de l’application et recevez des notifications par courrier électronique dès que votre application web ne répond plus. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure].
 
@@ -130,7 +130,7 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 [état de session ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [cache de sortie]: https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[bref aperçu]: /manage/services/web-sites/how-to-monitor-websites/
+[aperçu rapide]: /manage/services/web-sites/how-to-monitor-websites/
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
 [New Relic]: /develop/net/how-to-guides/new-relic/
 [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
@@ -139,4 +139,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

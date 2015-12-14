@@ -21,9 +21,9 @@
 
 ## Augmentation de l’accès concurrentiel
 
-Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées. Vous pouvez augmenter cet accès concurrentiel jusqu’à 200 requêtes simultanées via le [portail de gestion Azure](https://manage.windowsazure.com/), comme illustré dans la figure ci-dessous.
+Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées. Vous pouvez augmenter cet accès concurrentiel jusqu’à 200 requêtes simultanées via le [portail Azure Classic](https://manage.windowsazure.com/), comme illustré dans la figure ci-dessous.
 
-Accédez au [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur l’icône Machine Learning sur la gauche, sélectionnez l’espace de travail utilisé pour la publication du service web, cliquez sur le service web de votre choix, sélectionnez le point de terminaison qui a besoin de l’augmentation de l’accès concurrentiel, puis cliquez sur **CONFIGURER**. Utilisez le curseur pour augmenter l’accès concurrentiel, puis cliquez sur **ENREGISTRER** dans le panneau inférieur.
+Accédez au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur l’icône Machine Learning sur la gauche, sélectionnez l’espace de travail utilisé pour la publication du service web, cliquez sur le service web de votre choix, sélectionnez le point de terminaison qui a besoin de l’augmentation de l’accès concurrentiel, puis cliquez sur **CONFIGURER**. Utilisez le curseur pour augmenter l’accès concurrentiel, puis cliquez sur **ENREGISTRER** dans le panneau inférieur.
 
 Pour augmenter l’accès concurrentiel, consultez [Mise à l’échelle des points de terminaison des API](machine-learning-scaling-endpoints.md).
 
@@ -31,9 +31,9 @@ Pour augmenter l’accès concurrentiel, consultez [Mise à l’échelle des poi
 
 ## Ajouter de nouveaux points de terminaison pour le même service web
 
-La mise à l’échelle du service web est une tâche courante pour prendre en charge plus de 200 requêtes simultanées, augmenter la disponibilité par le biais de plusieurs points de terminaison ou fournir un point de terminaison distinct pour un consommateur différent du service web. L’utilisateur peut augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web. L’utilisateur peut ajouter des points de terminaison supplémentaires par le biais du [portail de gestion Azure](https://manage.windowsazure.com/), comme illustré dans la figure ci-dessous :
+La mise à l’échelle du service web est une tâche courante pour prendre en charge plus de 200 requêtes simultanées, augmenter la disponibilité par le biais de plusieurs points de terminaison ou fournir un point de terminaison distinct pour un consommateur différent du service web. L’utilisateur peut augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web. L’utilisateur peut ajouter des points de terminaison supplémentaires par le biais du [portail Azure Classic](https://manage.windowsazure.com/), comme illustré dans la figure ci-dessous :
 
-Accédez au [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur l’icône Machine Learning sur la gauche, sélectionnez l’espace de travail utilisé pour la publication du service web, cliquez sur le service web souhaité, cliquez sur **AJOUTER UN POINT DE TERMINAISON** dans le panneau inférieur, puis renseignez le nom, la description et l’accès concurrentiel souhaités pour le nouveau point de terminaison.
+Accédez au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur l’icône Machine Learning sur la gauche, sélectionnez l’espace de travail utilisé pour la publication du service web, cliquez sur le service web souhaité, cliquez sur **AJOUTER UN POINT DE TERMINAISON** dans le volet inférieur, puis renseignez le nom, la description et l’accès concurrentiel souhaités pour le nouveau point de terminaison.
 
 Pour ajouter de nouveaux points de terminaison, consultez [Création de points de terminaison](machine-learning-create-endpoint.md).
 
@@ -43,4 +43,4 @@ Pour ajouter de nouveaux points de terminaison, consultez [Création de points d
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

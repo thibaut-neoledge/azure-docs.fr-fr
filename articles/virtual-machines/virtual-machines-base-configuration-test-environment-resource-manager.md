@@ -118,7 +118,7 @@ Commencez par entrer le nom de votre groupe de ressources, de votre emplacement 
 
 Ensuite, connectez-vous à la machine virtuelle DC1.
 
-1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir tout** dans le volet de gauche, puis sur **Machines virtuelles** dans la liste **Parcourir**, puis sur la machine virtuelle **DC1**.  
+1.	Dans le portail Azure, cliquez sur **Parcourir tout** dans le volet de gauche, puis sur **Machines virtuelles** dans la liste **Parcourir**, puis sur la machine virtuelle **DC1**.  
 2.	Dans le volet **DC1**, cliquez sur **Se connecter**.
 3.	Lorsque vous y êtes invité, ouvrez le fichier DC1.rdp téléchargé.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
@@ -147,7 +147,7 @@ Ensuite, configurez DC1 comme contrôleur de domaine et serveur DNS pour le dom
 
 Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 
-1.	Dans le portail Azure en version préliminaire, cliquez sur Parcourir tout dans le volet de gauche, puis sur Machines virtuelles dans la liste Parcourir, puis sur la machine virtuelle DC1.
+1.	Dans le portail Azure, cliquez sur Parcourir tout dans le volet de gauche, puis sur Machines virtuelles dans la liste Parcourir, puis sur la machine virtuelle DC1.
 2.	Dans le volet DC1, cliquez sur Se connecter.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
@@ -310,4 +310,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

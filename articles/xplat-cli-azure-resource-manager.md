@@ -204,10 +204,10 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 ## Étapes suivantes
 
 * Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-* Pour plus d'informations sur l'utilisation d'Azure Resource Manager à partir du portail Azure en version préliminaire, consultez [Utilisation de groupes de ressources pour gérer vos ressources Azure][psrm].
+* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation de groupes de ressources pour gérer vos ressources Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,13 +18,17 @@
 
 # Ajouter la synchronisation des données hors connexion à votre application de services mobiles Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 ## Résumé
 
 Les applications mobiles peuvent perdre la connectivité réseau si vous entrez dans une zone sans service, ou en raison de problèmes réseau. Par exemple, une application du secteur de la construction utilisée sur un site distant peut avoir besoin d’intégrer des données de planification qui seront synchronisées ultérieurement sur Azure. Avec la synchronisation hors connexion Azure Mobile Services, vous pouvez continuer à travailler même sans connectivité réseau, ce qui est primordial pour de nombreuses applications mobiles. Grâce à la synchronisation hors connexion, vous travaillez avec une copie locale de votre table Azure SQL Server et synchronisez régulièrement les deux versions.
 
-Ce didacticiel va vous apprendre à mettre à jour l’application à partir du [didacticiel Démarrage rapide de Mobile Services] pour activer la synchronisation hors connexion, puis à tester l’application en ajoutant des données hors connexion, à synchroniser ces éléments dans la base de données en ligne et à vérifier les modifications apportées dans le portail de gestion Azure.
+Ce didacticiel va vous apprendre à mettre à jour l’application à partir du [didacticiel Démarrage rapide de Mobile Services] pour activer la synchronisation hors connexion, puis à tester l’application en ajoutant des données hors connexion, à synchroniser ces éléments dans la base de données en ligne et à vérifier les modifications apportées dans le portail Azure Classic.
 
 Que vous soyez hors connexion ou connecté, des conflits peuvent survenir chaque fois que de multiples modifications sont apportées aux données. Un futur didacticiel explorera la gestion des conflits de synchronisation, et vous pourrez choisir la version des modifications à accepter. Dans ce didacticiel, nous partons du principe qu’aucun conflit de synchronisation ni aucune modification apportée aux données existantes ne seront appliqués directement à Azure SQL Server.
 
@@ -35,16 +39,16 @@ Que vous soyez hors connexion ou connecté, des conflits peuvent survenir chaque
 
 ## Mettre à jour l’application pour prendre en charge la synchronisation hors connexion
 
-Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **Light SQL** sur votre appareil.
+Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQL Light** sur votre appareil.
 
-Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, vous faites appel à un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
+Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, faites appel à un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
 
-1. Ajoutez une autorisation pour vérifier la connectivité réseau en intégrant ce code au fichier *AndroidManifest.xml* :
+1. Ajoutez une autorisation pour vérifier la connectivité réseau en intégrant ce code au fichier *AndroidManifest.xml* :
 
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-2. Ajoutez les instructions d’**importation** suivantes au fichier *ToDoActivity.java* :
+2. Ajoutez les instructions **import** suivantes au fichier *ToDoActivity.java* :
 
 		import java.util.Map;
 
@@ -62,7 +66,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 
 	C'est là que vous définissez la table de synchronisation.
 
-4. Pour gérer l’initialisation du magasin local, dans la méthode `onCreate`, ajoutez les lignes suivantes après avoir créé l’instance `MobileServiceClient` :
+4. Pour gérer l’initialisation du magasin local, dans la méthode `onCreate`, ajoutez les lignes suivantes après avoir créé l’instance `MobileServiceClient` :
 
 			// Saves the query which will be used for pulling data
 			mPullQuery = mClient.getTable(ToDoItem.class).where().field("complete").eq(false);
@@ -175,16 +179,16 @@ One thing which is important to point out: if there are pending changes in the l
 
 1. Mettez l’appareil ou le simulateur en *Mode avion*. Cela crée un scénario hors connexion.
 
-2. Ajoutez des *tâches*, ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQL Light local.
+2. Ajoutez des *tâches* ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQL Light local.
 
 3. Affichez le contenu de la table Azure *TodoItem*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur :
 
-   - Pour le backend JavaScript, accédez au portail de gestion et cliquez sur l'onglet Données pour afficher le contenu de la table `TodoItem`.
+   - Pour le backend JavaScript, accédez au portail Azure Classic et cliquez sur l’onglet Données pour afficher le contenu de la table `TodoItem`.
    - Pour le backend .NET, affichez le contenu de la table avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*.
 
 4. Activez le Wi-Fi sur le simulateur ou l’appareil. Appuyez ensuite sur le bouton **Actualiser**.
 
-5. Affichez à nouveau les données TodoItem sur le portail Azure. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
+5. Affichez à nouveau les données TodoItem sur le portail Azure Classic. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
 
 
 ## Étapes suivantes
@@ -219,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

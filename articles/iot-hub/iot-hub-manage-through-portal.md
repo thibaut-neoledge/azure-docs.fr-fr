@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Utilisation du portail Azure en version préliminaire pour gérer IoT Hub | Microsoft Azure"
-	 description="Vue d'ensemble de la façon de créer et de gérer les concentrateurs IoT Azure via le portail Azure en version préliminaire"
+	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
+	 description="Une vue d'ensemble de la façon de créer et gérer les concentrateurs IoT Azure via le portail Azure"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Gestion de concentrateurs IoT par le biais du portail Azure en version préliminaire
+# Configuration de concentrateurs IoT par le biais du portail Azure
 
 ## Introduction
 
-Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure en version préliminaire, comment trouver les concentrateurs IoT et comment créer et gérer des concentrateurs IoT.
+Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure, comment trouver les concentrateurs IoT et comment créer et gérer des concentrateurs IoT.
 
 ## Où trouver les concentrateurs IoT
 
@@ -76,9 +76,9 @@ L’option d’emplacement fournit une liste des régions dans lesquelles IoT Hu
 
 ### Créer le concentrateur IoT
 
-Lorsque toutes les étapes précédentes sont terminées, le concentrateur IoT est prêt à être créé. Cliquez sur **Créer** pour démarrer le processus principal de création du concentrateur IoT avec des options spécifiques et le déployer à l'emplacement spécifié.
+Lorsque toutes les étapes précédentes sont terminées, le concentrateur IoT est prêt à être créé. Cliquez sur **Créer** pour démarrer le processus principal de création du concentrateur IoT avec des options spécifiques et le déployer à l'emplacement spécifié.
 
-Veuillez noter que la création du concentrateur IoT peut prendre quelques minutes, car le déploiement principal peut se produire dans les serveurs d’emplacement appropriés.
+Veuillez noter que la création du concentrateur IoT peut prendre quelques minutes, car le déploiement principal peut se produire dans les serveurs d’emplacement appropriés.
 
 ## Modifier les paramètres du concentrateur IoT
 
@@ -153,4 +153,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

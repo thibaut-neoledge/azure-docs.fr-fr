@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
@@ -35,7 +35,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils physiques Sto
 
 - **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
 
-Vous utilisez la page **Configurer** du service StorSimple Manager du portail de gestion pour gérer les modèles de la bande passante. Les tâches les plus courantes associées aux modèles de bande passante qui peuvent être effectuées sur cette page sont les suivantes :
+Utilisez la page **Configurer** du service StorSimple Manager du portail Azure Classic pour gérer les modèles de la bande passante. Les tâches les plus courantes associées aux modèles de bande passante qui peuvent être effectuées sur cette page sont les suivantes :
 
 - Ajouter un modèle de bande passante
 - Modifier un modèle de bande passante
@@ -176,4 +176,4 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

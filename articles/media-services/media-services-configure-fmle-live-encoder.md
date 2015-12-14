@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Utiliser l’encodeur FMLE pour envoyer un flux en direct à débit binaire unique 
+#Utiliser l’encodeur FMLE pour envoyer un flux en direct à débit binaire unique
 
 > [AZURE.SELECTOR]
 - [FMLE](media-services-configure-fmle-live-encoder.md)
@@ -26,42 +26,42 @@
 
 Cette rubrique explique comment configurer l’encodeur [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail de gestion Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure Classic pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
 Notez que ce didacticiel décrit l’utilisation de AAC. Cependant, FMLE ne prend pas en charge AAC par défaut. Vous devez acheter un plug-in pour l’encodage AAC, comme par exemple, le [plug-in AAC de MainConcept](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html).
 
 ##Composants requis
 
 - [Créer un compte Azure Media Services](media-services-create-account.md)
-- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md). 
-- Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer). 
+- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md).
+- Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Lancez l’outil et connectez-vous à votre compte AMS.
 
 ##Conseils
 
-- Si possible, utilisez une connexion Internet câblée. 
-- Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.  
+- Si possible, utilisez une connexion Internet câblée.
+- Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
 - Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
- 
+
 ## Créer un canal
 
-1.  Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...**.  
+1.  Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...**.
 
-	![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
 2. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTPM**. Vous pouvez laisser tous les autres paramètres inchangés.
 
 
-	 Assurez-vous que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
- 
-3. Cliquez sur **Créer le canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
+Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
+
+3. Cliquez sur **Créer un canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 >[AZURE.NOTE]Le démarrage du canal peut prendre jusqu’à 20 minutes.
 
 
 Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez la rubrique [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configurer l’encodeur FMLE
 
@@ -170,4 +170,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

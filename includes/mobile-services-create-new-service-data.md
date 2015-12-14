@@ -2,7 +2,7 @@
 
 Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour le stockage de données. Suivez cette procédure pour créer un service mobile.
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/). 
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/). 
 2.	En bas du volet de navigation, cliquez sur **+NOUVEAU**.
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)
@@ -33,4 +33,4 @@ Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour 
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles. Ensuite, vous allez ajouter une nouvelle table dans laquelle stocker les données d’application. Cette table sera utilisée par l’application au lieu de la collection en mémoire.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

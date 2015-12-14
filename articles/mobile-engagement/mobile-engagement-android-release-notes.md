@@ -19,6 +19,10 @@
 
 #Notes de publication
 
+##4\.1.2 (25/11/2015)
+
+- Améliorations de la stabilité.
+
 ##4\.1.1 (11/04/2015)
 
 - Améliorations de la stabilité.
@@ -26,8 +30,8 @@
 ##4\.1.0 (25/08/2015)
 
 - Gestion du nouveau modèle d’autorisation pour Android M.
-- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l'exécution au lieu d'utiliser `AndroidManifest.xml`.
-- Résolution d'un bogue d'autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n'est plus nécessaire.
+- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l’exécution au lieu d’utiliser `AndroidManifest.xml`.
+- Résolution d’un bogue d’autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n’est plus nécessaire.
 - Améliorations de la stabilité.
 
 ##4\.0.0 (06/07/2015)
@@ -49,4 +53,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi de Google Play et SmartAd.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

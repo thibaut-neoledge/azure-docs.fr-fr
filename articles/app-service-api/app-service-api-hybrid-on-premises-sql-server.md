@@ -18,11 +18,13 @@
 
 # Connexion à un serveur SQL Server local à partir d’une application API dans Azure App Service au moyen de connexions hybrides
 
-Les connexions hybrides permettent de connecter des applications API [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à des ressources locales qui utilisent un port TCP statique. Les ressources prises en charge incluent Microsoft SQL Server, MySQL, les API web HTTP, les services mobiles et la plupart des services web personnalisés.
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
-Dans ce didacticiel, vous allez apprendre à créer une application API App Service dans la [ version préliminaire d’Azure](http://go.microsoft.com/fwlink/?LinkId=529715) qui se connecte à une base de données SQL Server locale à l’aide de la nouvelle fonctionnalité de connexion hybride. Ce didacticiel part du principe que vous n’avez jamais utilisé Azure ni SQL Server.
+Les connexions hybrides permettent de connecter des applications API [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à des ressources locales qui utilisent un port TCP statique. Les ressources prises en charge incluent Microsoft SQL Server, MySQL, les API web HTTP, les services mobiles et la plupart des services web personnalisés.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+Dans ce didacticiel, vous allez découvrir comment créer une application API App Service dans la [ version préliminaire d’Azure](http://go.microsoft.com/fwlink/?LinkId=529715) qui se connecte à une base de données SQL Server locale à l’aide de la nouvelle fonctionnalité de connexion hybride. Ce didacticiel part du principe que vous n’avez jamais utilisé Azure ni SQL Server.
+
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Composants requis
 
@@ -30,9 +32,9 @@ Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont
 
 - **Abonnement Azure** : pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/). 
 
-- **Visual Studio** - Pour télécharger une version d’évaluation gratuite de Visual Studio 2013 ou Visual Studio 2015, consultez [Téléchargements de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez-en une des deux avant de continuer. (Les captures d’écran de ce didacticiel ont été effectuées à l’aide de Visual Studio 2013)
+- **Visual Studio** : pour télécharger une version d’évaluation gratuite de Visual Studio 2013 ou Visual Studio 2015, consultez [Téléchargements de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez-en une des deux avant de continuer. (Les captures d’écran de ce didacticiel ont été effectuées à l’aide de Visual Studio 2013)
 
-- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
+- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
 
 - **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299).
 
@@ -73,16 +75,16 @@ Si vous avez déjà installé SQL Server dans une configuration et dans un envi
 <a name="InstallSQL"></a>
 ## Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local
 
-Cette section explique comment installer SQL Server Express, activer TCP/IP et créer une base de données afin que votre application API fonctionne avec le [portail Azure en version préliminaire](https://portal.azure.com).
+Cette section explique comment installer SQL Server Express, activer TCP/IP et créer une base de données afin que votre application API fonctionne avec le [portail Azure en version préliminaire](https://portal.azure.com).
 
 <a name="InstallSQLDB"></a>
 ### Installation de SQL Server Express
 
-1. Pour installer SQL Server Express, téléchargez le fichier **SQLEXPRWT\_x64\_ENU.exe** (version 64 bits) ou **SQLEXPR\_x86\_ENU.exe** (version 32 bits) et extrayez-le dans le dossier souhaité. 
+1. Pour installer SQL Server Express, téléchargez le fichier **SQLEXPRWT\_x64\_ENU.exe** (version 64 bits) ou **SQLEXPR\_x86\_ENU.exe** (version 32 bits) et extrayez-le dans le dossier souhaité. 
 
-2. Une fois que vous avez extrait les fichiers d’installation de SQL Server Express, exécutez **setup.exe**.
+2. Une fois que vous avez extrait les fichiers d’installation de SQL Server Express, exécutez **setup.exe**.
 
-3. Quand le **Centre d’installation SQL Server** s’affiche, choisissez **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
+3. Quand le **Centre d’installation SQL Server** s’affiche, choisissez **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
 
 	![Centre d’installation SQL Server](./media/app-service-api-hybrid-on-premises-sql-server/sql-server-installation-center.png)
 
@@ -104,7 +106,7 @@ Cette section explique comment installer SQL Server Express, activer TCP/IP et
 	
 8. Parcourez les autres étapes de l’Assistant (en acceptant les valeurs par défaut au fur et à mesure) pour terminer l’installation.
 
-9. Fermez la boîte de dialogue **Centre d’installation SQL Server**.
+9. Fermez la boîte de dialogue **Centre d’installation SQL Server**.
 
 ### Activation de TCP/IP
 Pour activer TCP/IP, vous allez utiliser le Gestionnaire de configuration SQL Server, qui a été installé en même temps que SQL Server Express. Suivez la procédure décrite à la page [Activation du protocole réseau TCP/IP pour SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) avant de continuer.
@@ -112,7 +114,7 @@ Pour activer TCP/IP, vous allez utiliser le Gestionnaire de configuration SQL S
 <a name="CreateSQLDB"></a>
 ### Création d'une base de données SQL Server locale
 
-1. Dans **SQL Server Management Studio**, connectez-vous à l’instance SQL Server que vous venez d’installer. Dans la zone **Type de serveur**, choisissez **Moteur de base de données**. Dans la zone **Nom du serveur**, vous pouvez utiliser **localhost** ou le nom de l'ordinateur dont vous vous servez. Choisissez **Authentification SQL Server**, puis ouvrez une session avec le nom d’utilisateur `sa` et le mot de passe que vous avez créé précédemment.
+1. Dans **SQL Server Management Studio**, connectez-vous à l’instance SQL Server que vous venez d’installer. Dans la zone **Type de serveur**, choisissez **Moteur de base de données**. Dans la zone **Nom du serveur**, vous pouvez utiliser **localhost** ou le nom de l'ordinateur dont vous vous servez. Choisissez **Authentification SQL Server**, puis connectez-vous avec le nom d’utilisateur `sa`, et le mot de passe que vous avez créé précédemment.
 
 	![Se connecter au serveur](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
@@ -140,7 +142,7 @@ Pour activer TCP/IP, vous allez utiliser le Gestionnaire de configuration SQL S
 
 	![Nouvelles colonnes de table](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. Appuyez sur **&lt;Ctrl>S** pour enregistrer la définition de la nouvelle table. Vous serez invité à entrer un nom de table. Entrez `Speakers` et appuyez sur **OK**.
+4. Appuyez sur **<Ctrl>S** pour enregistrer la définition de la nouvelle table. Vous serez invité à entrer un nom de table. Entrez `Speakers` et appuyez sur **OK**.
 
 	![Enregistrer la nouvelle table](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -158,7 +160,7 @@ Cette section vous guide dans le processus de création de l’application API d
 
 1. Ouvrez Visual Studio 2013 et sélectionnez **Fichier > Nouveau > Projet**. 
 
-2. Sélectionnez le modèle **Visual C# > Web > Application web ASP.NET**, désactivez l’option **Ajouter Application Insights à votre projet**, nommez le projet *SpeakersList*, puis cliquez sur **OK**.
+2. Sélectionnez le modèle **Visual C# > Web > Application web ASP.NET**, désactivez l’option **Ajouter Application Insights au projet**, nommez le projet *SpeakersList*, puis cliquez sur **OK**.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project.png)
 
@@ -296,7 +298,7 @@ L’activation de l’interface utilisateur Swagger vous permet de tester facile
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/error-forbidden.png)
 
-2. Dans la barre d’adresse du navigateur, ajoutez `/swagger` à la fin de l’URL et cliquez sur **<Entrée>**. Ceci affichera l’interface utilisateur Swagger que vous avez activée dans la section précédente.
+2. Dans la barre d’adresse du navigateur, ajoutez `/swagger` à la fin de l’URL, puis cliquez sur **<Entrée>**. Ceci affichera l’interface utilisateur Swagger que vous avez activée dans la section précédente.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/swagger-ui.png)
 
@@ -320,7 +322,7 @@ Maintenant que vous avez testé l’application localement, il est temps de la d
 
 	![Option de menu Publier le projet](./media/app-service-api-hybrid-on-premises-sql-server/publish-web.png)
 
-3. Cliquez sur **Nouveau** pour configurer une nouvelle application API dans votre abonnement Azure.
+3. Cliquez sur **Nouveau** pour configurer une nouvelle application API dans votre abonnement Azure.
 
 	![Boîte de dialogue de sélection des services API existants](./media/app-service-api-hybrid-on-premises-sql-server/publish-to-existing-api-app.png)
 
@@ -328,12 +330,12 @@ Maintenant que vous avez testé l’application localement, il est temps de la d
 
 	- Sous **Nom de l’application API**, entrez un nom pour l’application. 
 	- Si vous avez plusieurs abonnements Azure, sélectionnez celui que vous souhaitez utiliser.
-	- Sous **Plan App Service**, sélectionnez un des plans App Service existants ou **Créer un plan App Service** et entrez le nom d’un nouveau plan. 
+	- Sous **Plan de service d’application**, sélectionnez l’un des plans de service d’application existants ou **Créer un plan de service d’application** et entrez le nom d’un nouveau plan. 
 	- Sous **Groupe de ressources**, sélectionnez un des groupes de ressources existants ou **Créer un groupe de ressources** et entrez un nom. Le nom doit être unique ; envisagez d'utiliser le nom de l'application en tant que préfixe et d'ajouter des informations personnelles telles que votre ID Microsoft (sans le signe @).  
 	- Sous **Niveau d’accès**, sélectionnez **Accessible à tout le monde**. Cette option rendra votre API complètement publique, ce qui convient pour ce didacticiel. Vous pouvez restreindre l’accès ultérieurement via le [portail Azure en version préliminaire](https://portal.azure.com).
 	- Sélectionnez une région.
 
-	Cliquez sur **OK** pour créer l’application API dans votre abonnement.
+	Cliquez sur **OK** pour créer l’application API dans votre abonnement.
 
 	![Boîte de dialogue de configuration de l’application web Microsoft Azure](./media/app-service-api-hybrid-on-premises-sql-server/publish-new-api-app.png)
 
@@ -341,7 +343,7 @@ Maintenant que vous avez testé l’application localement, il est temps de la d
 
 	![Message de confirmation de la création du service de l’API](./media/app-service-api-hybrid-on-premises-sql-server/create-api-app-confirmation.png)
 
-6. Pendant que le processus d’approvisionnement crée le groupe de ressources et l’application API dans votre abonnement Azure, Visual Studio affiche la progression dans la fenêtre **Activité d’Azure App Service**.
+6. Pendant que le processus de déploiement crée le groupe de ressources et l’application API dans votre abonnement Azure, Visual Studio affiche la progression dans la fenêtre **Activité d’Azure App Service**.
 
 	![Notification d’état via la fenêtre Activité d’Azure App Service](./media/app-service-api-hybrid-on-premises-sql-server/app-service-activity.png)
 
@@ -359,13 +361,13 @@ La fenêtre **Activité d’Azure App Service** affiche la progression du déplo
 
 3. Dans le panneau **Parcourir**, sélectionnez **API Apps**.
 
-4. Dans le panneau **API Apps**, localisez votre application API et cliquez dessus.
+4. Dans le panneau **API Apps**, localisez votre application API et cliquez dessus.
 
-5. Dans le panneau API Apps, cliquez sur la valeur sous **Hôte d’application d’API**.
+5. Dans le panneau API Apps, cliquez sur la valeur sous **Hôte d’application d’API**.
  
 	![Panneau Application API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Quand le panneau **Hôte d’application API** s’affiche, faites défiler l’écran vers le bas jusqu’à la section **Mise en réseau** et cliquez sur **Connexions hybrides**.
+6. Quand le panneau **Hôte d’application d’API** s’affiche, faites défiler l’écran vers le bas jusqu’à la section **Mise en réseau** et cliquez sur **Connexions hybrides**.
 	
 	![Hybrid connections](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
@@ -374,14 +376,14 @@ La fenêtre **Activité d’Azure App Service** affiche la progression du déplo
 8. Dans le volet **Créer une connexion hybride** :
 	- Sous **Nom**, entrez un nom pour la connexion.
 	- Sous **Nom d'hôte**, entrez le nom de votre ordinateur hôte SQL Server.
-	- Sous **Port**, entrez `1433` (le port par défaut pour SQL Server).
+	- Sous **Port**, entrez `1433` (port par défaut pour SQL Server).
 	- Cliquez sur **Service Biz Talk** et entrez le nom du service BizTalk.
 	
 	![Create a hybrid connection](./media/app-service-api-hybrid-on-premises-sql-server/create-biztalk-service.png)
 		
 9. Cliquez sur **OK** deux fois.
 
-	Quand le processus est terminé, la zone **Notifications** affiche la mention **SUCCÈS** en vert clignotant et le panneau **Connexions hybrides** affiche la nouvelle connexion hybride dans l’état **Non connecté**.
+	Quand le processus est terminé, la zone **Notifications** affiche la mention **SUCCÈS** en vert clignotant et le panneau **Connexions hybrides** affiche la nouvelle connexion hybride avec l’état **Non connecté**.
 	
 	![Connexion hybride créée](./media/app-service-api-hybrid-on-premises-sql-server/hybrid-not-connected-yet.png)
 	
@@ -397,9 +399,9 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 <a name="CreateASPNET"></a>
 ## Tester l’application API terminée sur Azure
 
-1. Dans le portail Azure en version préliminaire, revenez au panneau Hôte d’application API et cliquez sur la valeur sous **URL**.
+1. Dans le portail Azure en version préliminaire, revenez au panneau Hôte d’application d’API et cliquez sur la valeur sous **URL**.
 	
-2. Une fois que la page de l’hôte d’application API s’affiche dans votre navigateur, ajoutez `/swagger` à l’URL dans la barre d’adresse du navigateur et cliquez sur **<Entrée>**.
+2. Une fois que la page de l’hôte d’application d’API s’affiche dans votre navigateur, ajoutez `/swagger` à l’URL dans la barre d’adresse du navigateur et cliquez sur **<Entrée>**.
 	
 3. Cliquez sur la section **Speakers** pour la développer.
 
@@ -430,4 +432,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

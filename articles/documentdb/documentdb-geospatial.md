@@ -276,7 +276,7 @@ En bref, la géométrie est projetée à partir des coordonnées géodésiques s
 
 Si vous spécifiez une stratégie d'indexation qui inclut un index spatial pour /* (tous les chemins d'accès), tous les points trouvés dans la collection sont indexés pour des requêtes spatiales efficaces (ST\_WITHIN et ST\_DISTANCE). Les index spatiaux n'ont pas une valeur de précision et utilisent toujours une valeur de précision par défaut.
 
-L'extrait JSON suivant montre une politique d'indexation avec l’indexation spatiale activée, c'est-à-dire n'importe quel point GeoJSON trouvé au sein de documents pour l'interrogation spatiale d'index. Si vous modifiez la stratégie d'indexation à l'aide du portail Azure en version préliminaire, vous pouvez spécifier le JSON suivant pour la stratégie d'indexation pour activer l’indexation spatiale pour votre collection.
+L'extrait JSON suivant montre une politique d'indexation avec l’indexation spatiale activée, c'est-à-dire n'importe quel point GeoJSON trouvé au sein de documents pour l'interrogation spatiale d'index. Si vous modifiez la stratégie d’indexation à l’aide du portail Azure, vous pouvez spécifier le JSON suivant pour la stratégie d’indexation pour activer l’indexation spatiale pour votre collection.
 
 **Stratégie d’indexation de collection JSON avec Spatial activé**
 
@@ -355,4 +355,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

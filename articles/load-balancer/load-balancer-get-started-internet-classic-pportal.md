@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail en version préliminaire
+# Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail en version préliminaire
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Création d'un point de terminaison d'équilibreur de charge à l'aide du portail en version préliminaire	
+## Créer un point de terminaison d’équilibreur de charge à l’aide du portail en version préliminaire	
 
 Pour créer un modèle de déploiement (classique) d'équilibrage de charge accessible sur Internet à partir du portail en version préliminaire, suivez les étapes ci-dessous.
 
@@ -66,4 +66,4 @@ Pour créer un modèle de déploiement (classique) d'équilibrage de charge acce
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -132,9 +132,7 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 <!-- URLs. -->
 [Prise en main de Mobile Services]: mobile-services-html-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,8 +3,8 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Namely."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à Namely
@@ -64,7 +64,7 @@ Pour configurer l’intégration de Namely avec Azure AD, vous devez ajouter Na
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **Namely**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/tutorial_namely_01.png)<br>
-7. Dans le volet des résultats, sélectionnez **Namely**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+7. Dans le volet des résultats, sélectionnez **Namely**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/tutorial_namely_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Namely avec un utilisateur de test appelé « Britta Simon ».
@@ -74,9 +74,9 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l
 Pour configurer et tester l’authentification unique Azure AD avec Namely, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Namely](##creating-a-namely-test-user)** pour avoir un équivalent de Britta Simon dans Namely lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Création d’un utilisateur de test Namely](#creating-a-namely-test-user)** pour avoir un équivalent de Britta Simon dans Namely lié à la représentation Azure AD associée.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -88,7 +88,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 **Pour configurer l’authentification unique Azure AD avec Namely, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis sur la page d’intégration d’applications **Namely**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure AD, puis sur la page d’intégration d’applications **Namely**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
 2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Namely**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png) <br>
 
@@ -124,7 +124,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     c. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat du fournisseur d’identité**.
 
-    d. Cliquez sur **Save**.
+    d. Cliquez sur **Enregistrer**.
 
 
 6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_04.png) <br>
 
-5. Sur la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_05.png) <br>
+5. Sur la page **Parlez-nous de cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -193,9 +193,9 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Dans la boîte de dialogue **Add New Person**, procédez comme suit :
 
-    a. Dans la zone de texte **First Name**, entrez **Britta**.
+    a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
-    b. Dans la zone de texte **Last Name**, entrez **Simon**.
+    b. Dans la zone de texte **Nom**, entrez **Simon**.
 
     c. Dans la zone de texte **Email**, entrez l’adresse de messagerie de Britta dans le portail Azure.
 
@@ -211,7 +211,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Namely, procédez comme suit :**
 
-1. Dans la vue de répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Dans la vue d’annuaire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **Namely**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-namely-tutorial/tutorial_namely_50.png) <br>
 
@@ -252,4 +252,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -35,7 +35,7 @@ Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autori
 
 ## Gestion des règles de pare-feu au niveau du serveur via Transact-SQL
 
-1. Lancez une fenêtre de requête par le biais du portail de gestion ou SQL Server Management Studio.
+1. Lancez une fenêtre de requête par le biais du portail Classic ou SQL Server Management Studio.
 2. Assurez-vous d’être connecté à la base de données master.
 3. Les règles de pare-feu au niveau du serveur peuvent être sélectionnées, créées, mises à jour ou supprimées dans la fenêtre de requête.
 4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_set\_firewall\_rule. L’exemple suivant active une plage d’adresses IP sur le serveur Contoso.<br/>Commencez par regarder quelles règles existent déjà.
@@ -54,7 +54,7 @@ Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autori
  
 ## Règles de pare-feu au niveau de la base de données
 
-1. Après avoir créé un pare-feu au niveau du serveur pour votre adresse IP, lancez une fenêtre de requête par le biais du portail de gestion ou de SQL Server Management Studio.
+1. Après avoir créé un pare-feu au niveau du serveur pour votre adresse IP, lancez une fenêtre de requête par le biais du portail Classic ou de SQL Server Management Studio.
 2. Connectez-vous à la base de données pour laquelle vous souhaitez créer une règle de pare-feu de niveau base de données.
 
 	Pour créer une nouvelle règle de pare-feu au niveau de la base de données ou pour mettre à jour une règle existante, exécutez la procédure stockée sp\_set\_database\_firewall\_rule. L’exemple suivant crée une nouvelle règle de pare-feu nommée ContosoFirewallRule.
@@ -70,4 +70,4 @@ Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autori
 
 Pour consulter un didacticiel sur la création d’une base de données, voir [Création de votre première base de données SQL Azure](sql-database-get-started.md). Pour obtenir de l’aide pour vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, voir [Instructions de connexion par programmation à une base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, voir [Gestion des bases de données et des connexions dans la base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

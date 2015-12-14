@@ -108,7 +108,7 @@ Cette application Web vous permet de :
 - afficher l’historique de commande d’un appareil.
 
 ### Observer le comportement de la solution cloud
-Vous pouvez afficher vos ressources approvisionnées depuis le [portail Azure en version préliminaire](https://portal.azure.com), en accédant au groupe de ressources associé au nom de solution que vous avez spécifié.
+Vous pouvez afficher vos ressources approvisionnées depuis le [portail Azure](https://portal.azure.com), en accédant au groupe de ressources associé au nom de solution que vous avez spécifié.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@ Vous pouvez désactiver un appareil puis le supprimer :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

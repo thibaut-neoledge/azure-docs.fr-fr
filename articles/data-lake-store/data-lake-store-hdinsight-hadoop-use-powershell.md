@@ -43,7 +43,7 @@ Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide d
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
 - **Azure PowerShell 1.0 ou version ultérieure**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
@@ -96,7 +96,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 
 ## Configurer l'authentification pour définir un accès à Data Lake Store en fonction du rôle
 
-Chaque abonnement Azure est associé à un annuaire Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l'abonnement avec les API du portail Azure ou d'Azure Resource Manager doivent au préalable s'authentifier avec cette application Azure Active Directory. L'accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure. Pour les services, un principal du service identifie le service dans Azure Active Directory (AAD). Cette section montre comment accorder l'accès à une ressource Azure (le compte Azure Data Lake Store créé précédemment) à un service d'application, comme HDInsight, en créant un principal du service pour l'application et en lui attribuant des rôles avec Azure PowerShell.
+Chaque abonnement Azure est associé à un annuaire Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l’abonnement avec les API du portail Azure Classic ou d’Azure Resource Manager doivent au préalable s’authentifier avec cette application Azure Active Directory. L'accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure. Pour les services, un principal du service identifie le service dans Azure Active Directory (AAD). Cette section montre comment accorder l'accès à une ressource Azure (le compte Azure Data Lake Store créé précédemment) à un service d'application, comme HDInsight, en créant un principal du service pour l'application et en lui attribuant des rôles avec Azure PowerShell.
 
 Pour configurer l'authentification Active Directory pour Azure Data Lake, vous devez effectuer les tâches suivantes.
 
@@ -265,7 +265,7 @@ Le résultat de la tâche se présente ainsi :
 
 Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data Lake Store, vous pouvez utiliser les commandes de l'interpréteur de commandes HDFS pour accéder au magasin.
 
-1. Inscrivez-vous au nouveau [portail Azure en version préliminaire](https://portal.azure.com).
+1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur **Parcourir**, puis sur **Clusters HDInsight** et enfin sur le cluster HDInsight que vous avez créé.
 
@@ -294,4 +294,4 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 [makecert]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

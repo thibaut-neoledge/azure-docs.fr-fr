@@ -235,7 +235,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
-| TableName | Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. | Oui |
+| TableName | Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée) |
 
 ## Propriétés de type de l'activité de copie DB2.
 
@@ -248,7 +248,7 @@ Dans le cas d’une activité de copie, quand la source est de type **Relational
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------- | -------------- |
-| query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Non |
+| query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Non (si **tableName** de **dataset** est spécifiée)|
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -309,4 +309,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

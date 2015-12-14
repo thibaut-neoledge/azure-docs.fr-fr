@@ -204,7 +204,7 @@ Les paramètres sont clairs. Remplacez vos variables particulières et exécutez
 
 > [AZURE.NOTE]À l’aide de la ligne de commande, nous automatisons également les règles de filtrage du réseau de point de terminaison à l’aide du paramètre –tcp-endpoints. Nous avons ouvert les ports 80 et 3389 pour fournir l’accès à notre page Web et à la session RDP.
 
-Après avoir exécuté la commande, naviguez sur le portail Azure en version préliminaire et vous verrez votre machine commencer à se configurer.
+Après avoir exécuté la commande, naviguez sur le portail Azure et vous verrez votre machine commencer à se configurer.
 
 ![][13]
 
@@ -218,7 +218,7 @@ Une fois le déploiement terminé, nous devrions être en mesure de nous connect
 
 Comme vous pouvez le voir, le code html est créatif.
 
-N’oubliez pas que nous pouvons également nous connecter via une session RDP à partir du portail Azure via le port 3389.
+N’oubliez pas que nous pouvons également nous connecter via une session RDP à partir du portail Azure Classic via le port 3389.
 
 Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’Infrastructure en tant que code avec Azure dès aujourd’hui !
 
@@ -239,4 +239,4 @@ Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

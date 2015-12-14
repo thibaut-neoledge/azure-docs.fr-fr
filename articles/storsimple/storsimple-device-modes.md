@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Changement du mode de votre appareil StorSimple
@@ -63,7 +63,7 @@ Si votre système passe en mode Récupération, vous devez contacter le support 
 
 Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mode Normal) pour effectuer une maintenance ou installer des mises à jour du mode Maintenance. Effectuez les procédures suivantes pour entrer dans le mode Maintenance ou le quitter.
 
-> [AZURE.IMPORTANT]Avant d’activer le mode Maintenance, vérifiez que les deux contrôleurs d’appareil fonctionnent correctement en accédant à **État du matériel** dans la page **Maintenance** du portail de gestion. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, consultez la page de [contact du support technique Microsoft](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT]Avant d’activer le mode Maintenance, vérifiez que les deux contrôleurs d’appareil fonctionnent correctement en accédant à **État du matériel** dans la page **Maintenance** du portail Azure Classic. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, consultez la page de [contact du support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 #### Pour passer en mode Maintenance
 
@@ -75,7 +75,7 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 
 	`Enter-HcsMaintenanceMode`
 
-4. Un message d’avertissement s’affiche, indiquant que le mode Maintenance va interrompre toutes les demandes d’E/S et annuler la connexion au portail de gestion. Vous devez confirmer l’opération. Tapez **O** pour passer en mode Maintenance.
+4. Un message d’avertissement s’affiche pour vous indiquer que le mode Maintenance va perturber toutes les demandes d’E/S et annuler la connexion au portail Azure Classic. Vous êtes invité à confirmer l’opération. Tapez **O** pour passer en mode Maintenance.
 
 5. Les deux contrôleurs redémarrent. Lorsque le redémarrage est terminé, un autre message s’affiche, indiquant que l’appareil est en mode Maintenance.
 
@@ -97,4 +97,4 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 
 Découvrez comment [appliquer les mises à jour des modes Normal et Maintenance](storsimple-update-device.md) sur votre appareil StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

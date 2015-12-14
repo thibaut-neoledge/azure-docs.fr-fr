@@ -41,9 +41,7 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : 
-> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. 
-> + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. + Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -70,24 +68,22 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 8. Si vous n'avez pas déjà créé d'application web dans Azure, Visual Studio peut vous aider à le faire. Dans la boîte de dialogue **Configurer le site web Microsoft Azure**, vérifiez que le nom de votre site est unique. Cliquez ensuite sur **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Une fois votre application ASP.NET créée, publiez-la sur Azure dans le volet Activité de publication sur le web en cliquant sur **Publier `<app name>` sur ce site dès maintenant**. Cliquez sur **Publier** pour terminer le processus.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Une fois publiée, votre application web s'affiche dans le navigateur.
 
-1. Pour créer un point de terminaison CDN, connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Pour créer un point de terminaison CDN, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **Nouveau** > **Services d'application** > **CDN** > **Création rapide**. Sélectionnez **http://*&lt;sitename>*.azurewebsites.net/**, puis cliquez sur **Créer**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure affiche son URL et le domaine d'origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
+	> [AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure Classic affiche son URL et le domaine d’origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
 
-3. De retour dans le portail Azure, dans l'onglet **CDN**, cliquez sur le nom du point de terminaison CDN que vous venez de créer.
+3. De retour dans le portail Azure Classic, dans l’onglet **CDN**, cliquez sur le nom du point de terminaison CDN que vous venez de créer.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -523,11 +519,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mais, du fait que la première partie de l'expression || renvoie toujours la valeur true (dans la ligne juste au-dessus), la fonction document.write() ne s'exécute jamais.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Pour tester le bon fonctionnement du script de secours, revenez au tableau de bord de votre point de terminaison CDN et cliquez sur **Désactiver le point de terminaison**
 
@@ -547,4 +543,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

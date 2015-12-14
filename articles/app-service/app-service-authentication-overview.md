@@ -18,6 +18,8 @@
 
 # Authentification pour les applications d'API et les applications mobiles dans Azure App Service
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Vue d'ensemble
 
 Cet article explique les fonctionnalités d'authentification intégrées pour les [applications API](../app-service-api/app-service-api-apps-why-best-platform.md) et les [applications mobiles](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -94,7 +96,7 @@ Dans d'autres scénarios, le flux serveur peut être un meilleur choix :
 
 Vous pouvez écrire un code permettant de passer des appels sortants vers les plateformes Software-as-a-Service (SaaS) pour le compte d’un d'utilisateur connecté, ou utiliser une [application API de connecteur](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md). Par exemple, pour publier un tweet à partir du compte Twitter de l'utilisateur, vous pouvez utiliser [un Kit de développement logiciel Twitter](https://dev.twitter.com/overview/api/twitter-libraries), ou configurer un [connecteur Twitter](../app-service-mobile/app-service-logic-connector-twitter.md) dans votre abonnement Azure et appeller ce connecteur. Cette section décrit l'accès à une plateforme SaaS à partir d’un code qui s'exécute dans une application d'API ou une application mobile.
 
-### <a id="obotoidprovider"></a>Utilisation du jeton de fournisseur d’identité 
+### <a id="obotoidprovider"></a> Utilisation du jeton de fournisseur d’identité 
 
 La passerelle gère un *magasin de jetons* dans lequel elle associe un jeton Zumo à un ou plusieurs jetons d'accès à un fournisseur d’identité et jetons d'actualisation. Lorsqu'une demande HTTP avec un jeton Zumo valide est reçue, la passerelle sait à quel utilisateur les jetons du fournisseur d'identité correspondent.
   
@@ -187,17 +189,17 @@ Cet article a décrit les services d'authentification fournis par Azure App Serv
 ### <a id="apiaclient"></a>Flux client API Apps
 
 * [Protéger une application API](../app-service-api/app-service-api-dotnet-add-authentication.md) - La partie configuration d'une application API s'applique aux flux client et serveur, mais la partie test dans un navigateur concerne le flux serveur.
-* [Utiliser une application API dans Azure App Service à partir d’un client .NET](../app-service-api/app-service-api-dotnet-consume.md) - L’exemple d’application d’un appel authentifié concerne le flux serveur, mais est suivi par une section de [flux client](../app-service-api/app-service-api-dotnet-consume.md#client-flow) avec un exemple de code.
+* [Utiliser une application API dans Azure App Service à partir d’un client .NET](../app-service-api/app-service-api-dotnet-consume.md) - L’exemple d’application d’un appel authentifié concerne le flux serveur, mais est suivi par une section de [flux client](../app-service-api/app-service-api-dotnet-consume.md#client-flow) avec un exemple de code.
 
 ### <a id="apiaserver"></a>Flux serveur API Apps
 
 * [Protéger une application API](../app-service-api/app-service-api-dotnet-add-authentication.md) - La partie configuration d’une application API s’applique aux flux client et serveur, tandis que la partie test dans un navigateur concerne le flux serveur.
 * [Utiliser une application API dans Azure App Service à partir d'un client .NET](../app-service-api/app-service-api-dotnet-consume.md) - L’exemple de code d’un appel authentifié concerne le flux serveur. 
 
-### <a id="apiaobo"></a>Appels API Apps pour le compte d’un tiers
+### <a id="apiaobo"></a>Appels API Apps pour le compte d’un tiers
 
 * [Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md) - montre comment installer une application API de connecteur préconfigurée, la configurer et l'appeler à l'aide des outils du navigateur.
-* [Se connecter à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service](../app-service-api/app-service-api-dotnet-connect-to-saas.md) - montre comment écrire votre propre connecteur, c’est à dire comment approvisionner, configurer et écrire un code pour une application API personnalisée qui effectue des appels pour le compte d’un tiers vers un fournisseur SaaS.
+* [Se connecter à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service](../app-service-api/app-service-api-dotnet-connect-to-saas.md) - montre comment écrire votre propre connecteur, c’est à dire comment approvisionner, configurer et écrire un code pour une application API personnalisée qui effectue des appels pour le compte d’un tiers vers un fournisseur SaaS.
 
 ### <a id="maclient"></a>Flux client Mobile Apps
 
@@ -214,4 +216,4 @@ Cet article a décrit les services d'authentification fournis par Azure App Serv
 
 * [Obtention d’un jeton d’accès et appel de l’API SharePoint dans une app mobile](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

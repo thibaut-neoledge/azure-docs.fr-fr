@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
 
-## Portail Azure en version préliminaire
+## Portail Azure
 
-Pour réinitialiser le service Bureau à distance dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l'accès à distance**. La page suivante apparaît.
+Pour réinitialiser le service Bureau à distance dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l'accès à distance**. La page suivante apparaît.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Pour réinitialiser le nom et le mot de passe du compte d'administrateur local dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. La page suivante apparaît.
+Pour réinitialiser le nom et le mot de passe du compte d'administrateur local dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. La page suivante apparaît.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

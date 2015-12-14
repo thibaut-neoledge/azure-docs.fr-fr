@@ -57,4 +57,4 @@ La stratégie de groupe autorise une tâche planifiée sur le système qui s’e
 - [Inscription automatique d’appareils auprès d’Azure Active Directory pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

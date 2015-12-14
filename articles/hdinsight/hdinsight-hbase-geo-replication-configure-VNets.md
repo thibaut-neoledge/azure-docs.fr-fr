@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configurer une connexion VPN entre deux réseaux virtuels Azure  
@@ -71,7 +71,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 **Pour créer un réseau virtuel appelé Contoso-VNet-EU en Europe du Nord**
 
-1.	Connectez-vous au [portail Azure][azure-portal].
+1.	Connectez-vous au [portail Azure Classic][azure-portal].
 2.	Click **NOUVEAU**, **SERVICES RÉSEAU**, **RÉSEAU VIRTUEL**, **CRÉATION PERSONNALISÉE**.
 3.	Entrez :
 
@@ -144,7 +144,7 @@ Quand vous créez une configuration de réseau virtuel à réseau virtuel, vous 
 
 **Pour créer un réseau local appelé Contoso-LNet-EU correspondant à l'espace d'adressage du réseau Contoso-VNet-EU**
 
-1. Dans le portail Azure, cliquez sur **NOUVEAU**, **SERVICES RÉSEAU**, **RÉSEAU VIRTUEL**, **AJOUTER UN RÉSEAU LOCAL**.
+1. Dans le portail Azure Classic, cliquez sur **NOUVEAU**, **SERVICES RÉSEAU**, **RÉSEAU VIRTUEL**, **AJOUTER UN RÉSEAU LOCAL**.
 3. Entrez :
 
 	- **NOM** : Contoso-LNet-EU
@@ -175,7 +175,7 @@ Cette configuration se divise en deux parties. Tout d'abord, vous configurez une
 
 **Pour configurer la connexion de site à site de Contoso-VNet-EU à Contoso-LNet-US**
 
-1.	Dans le portail Azure, cliquez sur **RÉSEAUX** à gauche.
+1.	Dans le portail Azure Classic, cliquez sur **RÉSEAUX** dans le volet gauche.
 2.	Cliquez sur **Contoso-VNet-EU**.
 3.	Cliquez sur l'onglet **CONFIGURER**.
 4.	Cochez la case **Se connecter au réseau local**.
@@ -187,7 +187,7 @@ Cette configuration se divise en deux parties. Tout d'abord, vous configurez une
 
 **Pour créer une passerelle VPN pour Contoso-VNet-EU**
 
-1.	Dans le portail Azure, cliquez sur l'onglet **TABLEAU DE BORD**.
+1.	Dans le portail Azure Classic, cliquez sur l'onglet **TABLEAU DE BORD**.
 4.	Cliquez sur **CRÉER UNE PASSERELLE** en bas de la page, puis sur **Routage dynamique**.
 5.	Cliquez sur **Oui** pour confirmer. Notez que le graphique de la passerelle sur la page devient jaune et indique Création d'une passerelle. La création d'une passerelle dure généralement environ 15 minutes.
 
@@ -205,7 +205,7 @@ Dans la dernière section, vous avez créé une passerelle VPN pour chacun des r
 
 **Pour configurer l'adresse IP du périphérique VPN pour Contoso-LNet-EU**
 
-1.	Dans le portail Azure, cliquez sur **RÉSEAUX** à gauche.
+1.	Dans le portail Azure Classic, cliquez sur **RÉSEAUX** dans le volet gauche.
 2.	Cliquez sur **RÉSEAUX LOCAUX** en haut.
 3.	Cliquez sur **Contoso-LNet-EU**, puis sur **MODIFIER** en bas.
 4.	Mettez à jour l'**ADRESSE IP DU PÉRIPHÉRIQUE VPN**. C'est l'adresse située sous l'onglet TABLEAU DE BORD de Contoso-VNet-EU.
@@ -218,7 +218,7 @@ Dans la dernière section, vous avez créé une passerelle VPN pour chacun des r
 
 ###Définir des clés de passerelle de réseau virtuel
 
-Les passerelles de réseau virtuel utilisent une clé partagée pour authentifier les connexions entre les réseaux virtuels. La clé ne peut pas être configurée dans le portail Azure. Vous devez utiliser PowerShell ou le Kit de développement logiciel (SDK) .NET.
+Les passerelles de réseau virtuel utilisent une clé partagée pour authentifier les connexions entre les réseaux virtuels. La clé ne peut pas être configurée dans le portail Azure Classic. Vous devez utiliser PowerShell ou le Kit de développement logiciel (SDK) .NET.
 
 **Pour définir les clés**
 
@@ -233,7 +233,7 @@ Les passerelles de réseau virtuel utilisent une clé partagée pour authentifie
 
 ##Vérifier la connexion VPN 
 
-Si aucune machine virtuelle n'est déployée sur les réseaux virtuels, vous pouvez utiliser le schéma visuel des réseaux virtuels de la page Tableau de bord des réseaux virtuels sur le portail Azure pour vérifier l'état de la connexion :
+Si aucune machine virtuelle n'est déployée sur les réseaux virtuels, vous pouvez utiliser le schéma visuel des réseaux virtuels de la page Tableau de bord des réseaux virtuels sur le portail Azure Classic pour vérifier l'état de la connexion :
 
 ![État de la connexion VPN du réseau virtuel de la réplication HDInsight Hbase][img-vpn-status]
   
@@ -270,4 +270,4 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -49,7 +49,7 @@ Vous voulez bénéficier d’une analyse encore plus approfondie ? [Exportez](a
 
 Il existe des Kits de développement logiciel pour un nombre croissant de plateformes. Actuellement, la liste comprend :
 
- * les [serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
+ * [Serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * les [serveurs J2EE][java]
  * [les pages Web][client] : HTML + JavaScript
@@ -139,7 +139,7 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -151,4 +151,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

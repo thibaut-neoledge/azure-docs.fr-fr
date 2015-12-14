@@ -61,7 +61,7 @@ Diagramme 1 : Présentation du processus de reformation
 	![][4]
 
 	Nous cliquons ensuite sur le bouton Publier un service Web, puis sur Oui. Cette opération publie l’expérience d’apprentissage en tant que service web qui produit un modèle formé et des résultats de notation du modèle. Le tableau de bord du service Web s’affiche avec la clé d’API et la page d’aide d’API pour l’exécution par lots. Notez que la méthode d’exécution par lots peut être utilisée pour créer des modèles formés.  
-4. *Ajouter un nouveau point de terminaison* Le service Web de notation publié lors l’étape 2 ci-dessus a été créé avec un point de terminaison par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, un modèle formé du point de terminaison par défaut ne peut pas être remplacé. Pour créer un point de terminaison pouvant être mis à jour, visitez le portail Azure et cliquez sur Ajouter un point de terminaison (plus de détails [ici](machine-learning-create-endpoint.md)).
+4. *Ajouter un nouveau point de terminaison* Le service Web de notation publié lors l’étape 2 ci-dessus a été créé avec un point de terminaison par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, un modèle formé du point de terminaison par défaut ne peut pas être remplacé. Pour créer un point de terminaison pouvant être mis à jour, visitez le portail Azure Classic et cliquez sur Ajouter un point de terminaison (plus de détails [ici](machine-learning-create-endpoint.md)).
 
 5. *Reformer le modèle avec de nouvelles données et BES* Pour appeler les API de reformation, nous créons une nouvelle application console C# dans Visual Studio (Nouveau -> projet -> Bureau Windows -> Application console).
 
@@ -84,7 +84,7 @@ Diagramme 1 : Présentation du processus de reformation
 	```
 	1. Fournir des informations Azure Storage L’exemple de code pour BES télécharge un fichier à partir d’un lecteur local (par exemple « C:\\temp\\CensusIpnput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
 
-		Pour cela, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage à partir du portail de gestion Azure pour votre compte de stockage et mettre le code à jour ici. Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
+		Pour cela, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage à partir du portail Azure Classic pour votre compte de stockage et mettre le code à jour ici. Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
 
 		Nous avions paramétré cette expérience d’apprentissage avec deux sorties. Les résultats doivent donc inclure des informations d’emplacement de stockage pour les deux, comme indiqué ci-dessous. « output1 » est la sortie du modèle formé, « output2 » celle d’Évaluer le modèle. Notez également que l’extension du fichier de sortie du modèle appris (Output1) est « .ilearner » et non « .csv ».
 
@@ -156,4 +156,4 @@ Diagramme 1 : Présentation du processus de reformation
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

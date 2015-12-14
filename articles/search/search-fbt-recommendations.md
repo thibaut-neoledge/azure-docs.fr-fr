@@ -50,7 +50,7 @@ Vous devez pouvoir ouvrir ce fichier dans un navigateur tel que Chrome pour affi
 ## Commande d'exécution de Création de recommandations à l'aide de Mahout
 
 - Téléchargez le fichier data\\movie\_usage.txt dans le stockage d'objets Blob Azure 
-- Créez une instance HDInsight (activation du Bureau à distance) et connectez-vous à l'ordinateur via le Bureau à distance (disponible à partir du portail Azure)
+- Créez une instance HDInsight (activation du Bureau à distance) et connectez-vous à l’ordinateur via le Bureau à distance (disponible à partir du portail Azure Classic)
 - À partir de l'ordinateur HDInsight, ouvrez la « ligne de commande Hadoop »
 - Passez au répertoire bin de Mahout dans c:\\apps\\dist. Le mien ressemble à ceci, mais vous pouvez obtenir une version plus récente de Mahout C:\\apps\\dist\\mahout-1.0.0.2.3.3.0-2992\\bin
 - Exécutez la ligne de commande suivante, où vous remplacez [CONTAINER] et [STORAGEACT] par les détails de votre stockage Azure (où vous avez placé le fichier movie\_usage.txt) :
@@ -81,4 +81,4 @@ Données fournies par GroupLens (http://grouplens.org/datasets/hetrec-2011/)
 
 Consultez cette page pour plus d'informations sur les licences de ces données : http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

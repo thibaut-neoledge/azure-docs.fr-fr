@@ -50,7 +50,7 @@ Voici quelques scénarios d'application courants avec des recommandations sur l'
 
 ### <a id="onprem"></a> J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données principale pour exécuter des applications métier intégrées à des ressources locales.
 
-Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail de gestion et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
+Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
 * Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
@@ -71,7 +71,7 @@ Azure App Service est une excellente solution pour l’hébergement de sites web
 
 ### <a id="iis6"></a> J’ai une application IIS6 qui s’exécute sur Windows Server 2003.
 
-Azure App Service permet d’éviter facilement les coûts d’infrastructure liés à la migration d’anciennes applications IIS6. Microsoft a créé des [outils de migration simples et des informations de migration détaillées](https://www.movemetowebsites.net/) qui vous permettent de vérifier la compatibilité et d'identifier les modifications nécessaires. L'intégration à Visual Studio, TFS et autres outils de CMS simplifie le déploiement d'applications IIS6 directement dans le cloud. Une fois déployé, le portail de gestion Azure offre l'accès à des outils de gestion robustes, afin de réduire vos coûts et de faire face à la demande. Avec l'outil de migration, vous pouvez :
+Azure App Service permet d’éviter facilement les coûts d’infrastructure liés à la migration d’anciennes applications IIS6. Microsoft a créé des [outils de migration simples et des informations de migration détaillées](https://www.movemetowebsites.net/) qui vous permettent de vérifier la compatibilité et d'identifier les modifications nécessaires. L'intégration à Visual Studio, TFS et autres outils de CMS simplifie le déploiement d'applications IIS6 directement dans le cloud. Une fois déployé, le portail Azure offre l'accès à des outils de gestion robustes, afin de réduire vos coûts et de faire face à la demande. Avec l'outil de migration, vous pouvez :
 
 * Migrer rapidement et facilement vos applications web Windows Server 2003 sur le cloud.
 * Choisir de laisser votre base de données SQL attachée localement pour créer une application hybride.
@@ -154,7 +154,7 @@ Prise en charge de WebMatrix|X||X|
 Accès aux services tels que Service Bus, Storage et Base de données SQL|X|X|X|
 Hébergement des services Web ou niveaux d'une architecture multiniveau|X|X|X|
 Hébergement du niveau intermédiaire d'une architecture multiniveau|X|X|X|Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) offre encore plus de fonctionnalités pour l’hébergement de services REST.
-Prise en charge intégrée de MySQL-as-a-service|X|X|X|Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail de gestion.
+Prise en charge intégrée de MySQL-as-a-service|X|X|X|Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail Azure.
 Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python|X|X|X|
 Montée en charge vers plusieurs instances sans redéploiement|X|X|X|Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle.
 Prise en charge de SSL|X|X|X|Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
@@ -204,4 +204,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

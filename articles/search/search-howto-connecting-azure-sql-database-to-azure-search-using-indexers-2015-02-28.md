@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Connexion de la base de données SQL Azure à Azure Search à l’aide d’indexeurs | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Découvrez comment extraire des données d’Azure SQL Database à un index Azure à l'aide d'indexeurs." 
 	services="search" 
 	documentationCenter="" 
@@ -28,7 +28,7 @@ Cet article décrit l’utilisation des indexeurs, mais nous allons également e
 
 Pour installer et configurer l’indexeur Azure SQL, vous pouvez appeler l'[API REST d’Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528173) afin de créer et de gérer des **indexeurs** et des **sources de données**.
 
-Vous pouvez également utiliser la [classe Indexeur](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) du [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), ou l'Assistant d’importation des données du [portail Azure](https://portal.azure.com) pour créer et planifier un indexeur.
+Vous pouvez également utiliser la [classe Indexeur](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) du [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), ou l’Assistant d’importation des données du [portail Azure Classic](https://portal.azure.com) pour créer et planifier un indexeur.
 
 Une **source de données** spécifie les données à indexer, les informations d'identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d'identifier efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
 
@@ -66,7 +66,7 @@ Commencez par créer la source de données :
 	}
 
 
-Récupérez la chaîne de connexion sur le [portail Azure](https://portal.azure.com). Utilisez l’option `ADO.NET connection string`.
+Récupérez la chaîne de connexion sur le [portail Azure Classic](https://portal.azure.com). Utilisez l’option `ADO.NET connection string`.
 
 Ensuite, créez l’index Azure Search cible si vous n’en avez pas un. Pour ce faire, utilisez l'[interface utilisateur du portail](https://portal.azure.com) ou l’[API de création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assurez-vous que le schéma de votre index cible est compatible avec celui de la table source. Consultez le tableau suivant pour le mappage entre les types de données SQL et Azure Search.
 
@@ -279,4 +279,4 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

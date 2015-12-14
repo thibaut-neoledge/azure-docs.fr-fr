@@ -31,7 +31,7 @@ Ce didacticiel vous explique comment créer une application web PHP-MySQL et dé
 
 Vous apprendrez à effectuer les opérations suivantes :
 
-* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure](https://portal.azure.com). PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
 
 En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d'écran de l'application terminée :
@@ -153,7 +153,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 		<?php
 			// DB connection info
 			//TODO: Update the values for $host, $user, $pwd, and $db
-			//using the values you retrieved earlier from the portal.
+			//using the values you retrieved earlier from the Azure Portal.
 			$host = "value of Data Source";
 			$user = "value of User Id";
 			$pwd = "value of Password";
@@ -220,9 +220,9 @@ Vous pouvez à présent accéder à ****http://localhost:8000/** pour tester l'a
 
 Après avoir testé votre application localement, vous pouvez la publier dans Web Apps à l’aide de Git. Vous allez initialiser votre référentiel Git, puis publier l'application.
 
-> [AZURE.NOTE]Cette procédure est identique à celle affichée dans le portail à la fin de la section « Créer une application web et configurer la publication Git » précédente.
+> [AZURE.NOTE]Cette procédure est identique à celle affichée dans le portail Azure à la fin de la section « Créer une application web et configurer la publication Git » précédente.
 
-1. (Facultatif) Si vous avez oublié ou mal placé l’URL de votre référentiel distant Git, accédez aux propriétés de l’application web sur le portail.
+1. (Facultatif) Si vous avez oublié ou mal placé l’URL de votre référentiel distant Git, accédez aux propriétés de l’application web sur le portail Azure.
 
 1. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes :
 
@@ -269,7 +269,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -303,4 +302,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

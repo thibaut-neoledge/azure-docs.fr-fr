@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main d'Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Prise en main d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Prise en main d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -35,7 +35,7 @@ En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnemen
 
 Les abonnés bénéficient automatiquement d'un accès gratuit à un service de recherche mutualisé et partagé pouvant être utilisé à des fins d'apprentissage, de tests de validation technique ou de projets de recherche de faible envergure. Inscrivez-vous pour accéder à la version gratuite :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de votre abonnement existant. Notez que cette URL vous donne accès à la version préliminaire du portail. L'utilisation du portail de gestion est obligatoire. 
+1. Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. Notez que cette URL vous donne accès au portail. L’utilisation du portail est obligatoire. 
 
 2. Cliquez sur **Nouveau** en haut de la page.
  
@@ -78,7 +78,7 @@ La configuration de ressources dédiées peut prendre du temps (15 minutes ou p
 
 **Étape 1 : créer un service avec un niveau de tarification défini sur Standard**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de votre abonnement existant. 
+1. Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. 
 
 2. Cliquez sur **Nouveau** en bas de la page.
 
@@ -310,7 +310,7 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 Si vous ne savez plus où se trouvent les pages de configuration, procédez comme suit pour trouver le tableau de bord des services.
 
-1.	Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de votre abonnement existant. 
+1.	Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. 
 2.	Cliquez sur **Accueil**, puis sur la vignette du service Search.
 
  	![][22]
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

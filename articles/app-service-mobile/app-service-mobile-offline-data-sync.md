@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -127,4 +127,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

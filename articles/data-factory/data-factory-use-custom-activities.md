@@ -233,7 +233,7 @@ Si, après avoir exécuté le didacticiel [Prise en main d’Azure Data Factory]
 
 #### Pour utiliser un cluster HDInsight à la demande
 
-1. Dans le **portail Microsoft Azure**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
+1. Dans le **portail Azure Classic**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
 2. Dans Data Factory Editor, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez l’option **Cluster HDInsight à la demande** dans le menu.
 2. Procédez comme suit dans le script JSON :
 	1. Pour la propriété **clusterSize**, spécifiez la taille du cluster HDInsight.
@@ -248,7 +248,7 @@ Si, après avoir exécuté le didacticiel [Prise en main d’Azure Data Factory]
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Si, après avoir exécuté le didacticiel [Prise en main d’Azure Data Factory]
 
 	(emplacement de l’objet blob), (nom de l’objet blob), (nombre de lignes de l’objet blob), (nœud sur lequel l’activité a été exécutée), (horodatage)
 
-10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l'outil **ActivityLogger** dans le code concernant l'activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l'aide d'applets de commande.
+10.	Utilisez le [portail Azure Classic][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l'outil **ActivityLogger** dans le code concernant l'activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l'aide d'applets de commande.
 
 	![Téléchargement des journaux d’activités personnalisées][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,10 +398,10 @@ Vous pouvez exécuter vos activités personnalisées .NET à l'aide d’Azure Ba
 
 Voici les étapes générales d’utilisation du service lié Microsoft Azure Batch dans la procédure pas à pas décrite à la section précédente :
 
-1. Créez un compte Microsoft Azure Batch à l’aide du portail de gestion Microsoft Azure. Consultez l'article [Créer et gérer un compte Azure Batch][batch-create-account] pour obtenir des instructions. Notez la clé et le nom du compte Microsoft Azure Batch.
+1. Créez un compte Azure Batch à l’aide du [portail Azure Classic](http://manage.windowsazure.com). Consultez l'article [Créer et gérer un compte Azure Batch][batch-create-account] pour obtenir des instructions. Notez la clé et le nom du compte Microsoft Azure Batch.
 
 	Vous pouvez également utiliser l’applet de commande [New-AzureBatchAccount][new-azure-batch-account] pour créer un compte Microsoft Azure Batch. Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir le billet de blog [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog].
-2. Créez un pool Microsoft Azure Batch. Vous pouvez télécharger le code source de l'outil [Azure Batch Explorer][batch-explorer], compiler, l'utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
+2. Créez un pool Microsoft Azure Batch. Vous pouvez télécharger le code source de l'outil [Azure Batch Explorer][batch-explorer], compiler, l'utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
 
 	Vous pouvez également utiliser l’applet de commande [New-AzureBatchPool][new-azure-batch-pool] pour créer un pool Microsoft Azure Batch.
 
@@ -421,7 +421,7 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 		  }
 		}
 
-	> [AZURE.IMPORTANT]L'**URL** à partir du **panneau de compte Azure Batch** est au format suivant : nomducompte.région.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le « accountname ».** à partir de l'URL et utiliser **accountname** pour la propriété JSON **accountname**.
+	> [AZURE.IMPORTANT]L'**URL** à partir du **panneau de compte Azure Batch** est au format suivant : nomducompte.région.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le « accountname. »** à partir de l'URL et utiliser **accountname** pour la propriété JSON **accountname**.
 
 	Pour la propriété **poolName** (Nom du pool), vous pouvez également spécifier l'ID du pool au lieu du nom du pool.
 
@@ -474,4 +474,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

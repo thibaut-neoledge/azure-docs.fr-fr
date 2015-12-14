@@ -603,10 +603,10 @@ Résultats :
 Il existe 6 lignes dans la partition dont la clé de partition est « Web » (4 lignes et vers le bas) :
 
 - Il existe des 6 lignes avec une valeur égale ou inférieure à 500, donc le CUME\_DIST est égal à 6/6 = 1
-- Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME\_DIST est égal à 5/6 = 0.83.
-- Il existe 4 lignes avec une valeur égale ou inférieure à 300, et donc CUME\_DIST est égal à 5/6 = 0,66.
-- Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
-- Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16. 
+- Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME\_DIST est égal à 5/6 = 0,83.
+- Il existe 4 lignes avec une valeur égale ou inférieure à 300, et donc CUME\_DIST est égal à 5/6 = 0,66.
+- Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
+- Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16. 
 
 
 **Notes d’utilisation :**
@@ -732,15 +732,15 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 
 ## Voir aussi
 
-- [Vue d’ensemble de l’analytique Data Lake Microsoft Azure](data-lake-analytics-overview.md)
-- [Prise en main de l’analytique Data Lake Microsoft Azure l’aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
-- [Prise en main de l’analytique Data Lake Microsoft Azure l’aide d’Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Développer des scripts de U-SQL à l’aide d’outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Utilisation des didacticiels interactifs d’Analytique Data Lake Azure](data-lake-analytics-use-interactive-tutorials.md)
 - [Analyser les journaux du site Web à l’aide de l’analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md)
-- [Prise en main du langage Lake Analytics U-SQL Azure](data-lake-analytics-u-sql-get-started.md)
-- [Gestion de l’analytique Data Lake Azure l’aide du portail Azure en version préliminaire](data-lake-analytics-use-portal.md)
-- [Gestion de l’analytique Data Lake Azure l’aide d’Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Surveiller et résoudre les problèmes des travaux Data Lake Azure à l’aide du portail Azure Preview](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-use-portal.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

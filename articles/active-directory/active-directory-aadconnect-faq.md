@@ -1,5 +1,5 @@
 <properties
-	pageTitle="FAQ Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect : FAQ | Microsoft Azure"
 	description="Cette page comporte le Forum Aux Questions relatif à Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# FAQ Azure Active Directory Connect
+# FAQ Azure AD Connect
 
 ## Installation générale
 **Q : L’installation fonctionnera-t-elle si l’option 2FA est activée pour l’administrateur global AD Azure ?**
@@ -90,4 +90,4 @@ Non. Cette option ne récupérera pas tous les paramètres de configuration et n
 
 - Cliquez sur ce lien pour bénéficier du support par le biais du portail Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

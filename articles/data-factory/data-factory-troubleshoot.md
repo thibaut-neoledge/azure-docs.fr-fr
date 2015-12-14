@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Résolution des problèmes liés à Data Factory
-Vous pouvez résoudre les problèmes Azure Data Factory à l'aide du portail Azure ou des cmdlets PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure pour résoudre rapidement les erreurs Data Factory.
+Vous pouvez résoudre les problèmes Azure Data Factory à l’aide du portail Azure Classic ou des applets de commande Azure PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure Classic pour résoudre rapidement les erreurs Data Factory.
 
 ## Problème : impossible d’exécuter des applets de commande Data Factory
 Pour résoudre ce problème, passez au mode Azure **AzureResourceManager** :
@@ -31,23 +31,23 @@ Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pou
 
 1. Add-AzureAccount - Utilisez l’ID d’utilisateur et le mot de passe corrects.
 2. Get-AzureSubscription - Affichez tous les abonnements pour le compte. 
-3. Select-AzureSubscription <subscription name> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure en version préliminaire.
+3. Select-AzureSubscription <subscription name> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 
-## Problème : échec du lancement de l’installation rapide de la passerelle de données depuis le portail Azure
+## Problème : échec du lancement de l’installation rapide de la passerelle de données depuis le portail Azure Classic
 L’installation rapide de la passerelle de données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si vous ne pouvez pas démarrer le programme d’installation rapide, vous pouvez :
 
 1. basculer vers Internet Explorer si le processus échoue avec d’autres navigateurs ; Ou
 2. utiliser les liens « Installation manuelle » figurant dans le même panneau du portail pour effectuer l’installation, puis copier la clé fournie à l’écran et la coller lorsque la configuration de la passerelle de gestion des données est prête. Si elle ne démarre pas, vérifiez le menu de démarrage de la passerelle de gestion des données Microsoft et collez la clé lors du lancement. 
 
 
-## Problème : échec du lancement du Gestionnaire des informations d’identification depuis le portail Azure
-Lors du paramétrage ou de la mise à jour d’un service lié SQL Server par le biais du portail Azure, l’application Gestionnaire des informations d’identification est lancée pour garantir la sécurité. Elle nécessite Internet Explorer ou un navigateur web compatible Microsoft ClickOnce. Vous pouvez basculer vers Internet Explorer si le processus échoue avec d’autres navigateurs.
+## Problème : échec du lancement du Gestionnaire des informations d’identification depuis le portail Azure Classic
+Lors du paramétrage ou de la mise à jour d’un service lié SQL Server par le biais du portail Azure Classic, l’application Gestionnaire des informations d’identification est lancée pour garantir la sécurité. Elle nécessite Internet Explorer ou un navigateur web compatible Microsoft ClickOnce. Vous pouvez basculer vers Internet Explorer si le processus échoue avec d’autres navigateurs.
 
 ## Problème : échec de la connexion à un serveur SQL local 
 Vérifiez que SQL Server est accessible à partir de l'ordinateur sur lequel la passerelle est installée. Sur cet ordinateur, vous pouvez :
 
 1. exécuter une commande Ping sur l’ordinateur sur lequel est installé le serveur SQL ; Ou
-2. essayer de vous connecter à l’instance SQL Server en utilisant les informations d’identification que vous avez spécifiées sur le portail Azure à l’aide de SQL Server Management Studio (SSMS).
+2. essayer de vous connecter à l’instance SQL Server en utilisant les informations d’identification que vous avez spécifiées sur le portail Azure Classic à l’aide de SQL Server Management Studio (SSMS).
 
 
 ## Problème : l’état des tranches d’entrée est PendingExecution ou PendingValidation depuis longtemps.
@@ -92,7 +92,7 @@ Consultez la section Tables dans [Référence sur la création de scripts JSON][
 ## Problème : échec de l’opération de copie hybride
 Pour en savoir plus :
 
-1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** est défini sur le nom de passerelle logique dans le **portail Azure**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
+1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** est défini sur le nom de passerelle logique dans le **portail Azure Classic**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
 2. Lancez l’**Observateur d’événements**. Développez **Journaux des applications et des services**, puis cliquez sur **Passerelle de gestion des données**. Recherchez les erreurs liées à la passerelle de gestion des données. 
 
 ## Problème : échec de l’approvisionnement HDInsight à la demande avec erreur
@@ -110,11 +110,11 @@ En outre, il existe une seconde propriété JSON additionalLinkedServiceNames av
 ## Problème : échec de l’activité personnalisée
 Lorsque vous utilisez une activité personnalisée dans Azure Data Factory (activité pipeline de type CustomActivity), l’application personnalisée s’exécute dans le service lié spécifié pour HDInsight en tant que tâche MapReduce de diffusion en continu Map uniquement.
 
-Lorsque l’activité personnalisée est exécutée, Azure Data Factory est en mesure de capturer cette sortie à partir du cluster HDInsight et de l’enregistrer dans le conteneur de stockage *adfjobs* dans votre compte de stockage d’objets blob Azure. En cas d’erreur, vous pouvez lire le texte dans le fichier texte de sortie **stderr** après une défaillance. Les fichiers sont accessibles et lisibles depuis le portail Azure lui-même dans le navigateur web, ou grâce aux outils d’exploration du stockage qui permettent d’accéder aux fichiers sauvegardés dans le conteneur de stockage directement dans le stockage d’objets blob Azure.
+Lorsque l’activité personnalisée est exécutée, Azure Data Factory est en mesure de capturer cette sortie à partir du cluster HDInsight et de l’enregistrer dans le conteneur de stockage *adfjobs* dans votre compte de stockage d’objets blob Azure. En cas d’erreur, vous pouvez lire le texte dans le fichier texte de sortie **stderr** après une défaillance. Les fichiers sont accessibles et lisibles depuis le portail Azure Classic lui-même dans le navigateur web, ou grâce aux outils d’exploration du stockage qui permettent d’accéder aux fichiers sauvegardés dans le conteneur de stockage directement dans Azure Blob Storage.
 
 Pour énumérer et lire les journaux d’une activité personnalisée spécifique, vous pouvez suivre l’une des procédures pas à pas détaillées plus loin sur cette page. En résumé :
 
-1.  Dans le portail Azure, sélectionnez **Parcourir** pour rechercher votre fabrique de données.
+1.  Dans le portail Azure Classic, sélectionnez **Parcourir** pour rechercher votre fabrique de données.
 2.  Utilisez le bouton **Diagramme** pour afficher le diagramme de fabrique de données, puis cliquez sur la table **Jeu de données** ci-dessous qui suit le **Pipeline** spécifique présentant l’activité personnalisée. 
 3.  Dans le panneau **Table**, cliquez sur la tranche qui vous intéresse dans les **Tranches problématiques** pour l’intervalle de temps à examiner.
 4.  Le panneau **Tranche de données** détaillé s’affiche et peut lister plusieurs **Exécutions d’activité** pour la tranche. Cliquez sur une **activité** dans la liste. 
@@ -168,7 +168,7 @@ Si vous utilisez les versions abandonnées du Kit de développement logiciel (SD
 
 
 ## <a name="copywalkthrough"></a>Procédure pas à pas : dépannage d’une erreur de copie des données
-Dans cette procédure pas à pas, vous allez introduire une erreur dans le didacticiel de l'article Prise en main de Data Factory et découvrir comment vous pouvez utiliser le portail Azure pour la résoudre.
+Dans cette procédure pas à pas, vous allez introduire une erreur dans le didacticiel de l’article Prise en main de Data Factory et découvrir comment vous pouvez utiliser le portail Azure Classic pour la résoudre.
 
 ### Composants requis
 1. Suivez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted].
@@ -182,9 +182,9 @@ Dans cette procédure pas à pas, vous allez introduire une erreur dans le didac
 	Remplacez la valeur de **StartDateTime** par le jour actuel et la valeur de **EndDateTime** par le jour suivant.
 
 
-### Utilisation de la version préliminaire du portail Azure pour résoudre l'erreur
+### Utilisation du portail Azure pour résoudre l’erreur
 
-1.	Connectez-vous au [portail Azure en version préliminaire][azure-preview-portal]. 
+1.	Connectez-vous au [portail Azure][azure-portal]. 
 2.	Cliquez sur **ADFTutorialDataFactory** depuis le **tableau d’accueil**. Si vous ne voyez pas le lien de la fabrique de données dans le **tableau d’accueil**, cliquez sur le concentrateur **PARCOURIR**, puis sur **Tout**. Cliquez sur **Fabriques de données…** dans le panneau **Parcourir**, puis cliquez sur **ADFTutorialDataFactory**.
 3.	Notez que **Avec des erreurs** s’affiche sur la vignette **Jeux de données**. Cliquez sur **Avec des erreurs**. Vous devez voir le panneau **Jeux de données avec erreurs**.
 
@@ -267,10 +267,10 @@ Pour résoudre ce problème, créez la table **emp** à l’aide du script SQL d
  
 
 ## <a name="pighivewalkthrough"></a> Procédure pas à pas : dépannage d’une erreur de traitement Hive/Pig
-Cette procédure pas à pas fournit les instructions pour résoudre une erreur avec un traitement Hive/Pig à l'aide de la version préliminaire du portail Azure et d'Azure PowerShell.
+Cette procédure pas à pas fournit les instructions pour résoudre une erreur avec un traitement Hive/Pig à l’aide du portail Azure et d’Azure PowerShell.
 
 
-### Procédure pas à pas : utilisation du portail Azure pour résoudre une erreur de traitement Pig/Hive
+### Procédure pas à pas : utilisation du portail Azure Classic pour résoudre une erreur de traitement Pig/Hive
 Dans ce scénario, le jeu de données est associé à un état d'erreur dû à une défaillance dans le traitement Hive sur un cluster HDInsight.
 
 1. Cliquez sur **Avec des erreurs** sur la vignette **Jeux de données** sur la page d’accueil **FABRIQUE DE DONNÉES**.
@@ -359,7 +359,7 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
@@ -382,4 +382,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

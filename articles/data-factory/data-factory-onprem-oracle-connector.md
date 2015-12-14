@@ -224,7 +224,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-TableName | Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Oui
+TableName | Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Non (si **oracleReaderQuery** de **SqlSource** est spécifié)
 
 ## Propriétés de type de l'activité de copie Oracle
 
@@ -234,12 +234,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d'une activité de copie, lorsque la source est de type SqlSource, les propriétés suivantes sont disponibles dans la section typeProperties :
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. 
-Par exemple : select * from MyTable <p>Si non spécifié, l’instruction SQL exécutée : select from MyTable.</p> | Non
+Par exemple : select * from MyTable <p>Si non spécifié, l’instruction SQL exécutée : select from MyTable</p> | Non (si **tableName** de **dataset** est spécifiée)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -300,4 +300,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

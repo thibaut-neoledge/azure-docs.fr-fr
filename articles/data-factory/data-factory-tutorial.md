@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d'Azure Data Factory (portail Azure)" 
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Microsoft Azure Data Factory et de Data Factory Editor dans le portail Azure." 
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory (portail Azure Classic)" 
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Microsoft Azure Data Factory et de Data Factory Editor dans le portail Azure Classic." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -48,11 +48,11 @@ Dans ce didacticiel, vous allez créer des pipelines Data Factory afin d’éval
 	- **Base de données SQL Azure** : serveur, base de données, nom d’utilisateur et mot de passe.
 	- **Cluster Azure HDInsight** : nom du cluster HDInsight, nom d’utilisateur, mot de passe, nom de compte et clé de compte pour le système Microsoft Azure Storage associé à ce cluster. Si vous souhaitez utiliser un cluster HDInsight à la demande au lieu de votre propre cluster HDInsight, vous pouvez ignorer cette étape.  
 8. Lancez **Azure PowerShell** et exécutez les commandes suivantes. Laissez la fenêtre Microsoft Azure PowerShell ouverte. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire.	
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.	
 
-## Vue d’ensemble
+## Vue d'ensemble
 Le flux de travail de bout en bout est représenté ci-dessous :
 
 ![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
@@ -99,7 +99,7 @@ Le flux de travail de bout en bout est représenté ci-dessous :
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Étape 6 : Surveiller des pipelines et des tranches de données](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure.
+6. [Étape 6 : Surveiller des pipelines et des tranches de données](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure Classic.
 
 ## <a name="MainStep1"></a> Étape 1 : Télécharger des exemples de données et des scripts
 Dans cette étape, vous allez télécharger tous les exemples de données (y compris l’ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront appelés par les flux de travail. Les scripts que vous exécutez créent également une base de données SQL Microsoft Azure nommée **MarketingCampaigns**}, des tables, des types définis par l’utilisateur et des procédures stockées.
@@ -120,7 +120,7 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
 	
 	Vous pouvez également utiliser les fichiers du dossier : C:\\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
-2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
+2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le [portail Azure Classic](http://manage.windowsazure.com) ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
 4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\\ADFWalkthrough**).
 5. Exécutez le fichier **uploadSampleDataAndScripts.ps1**. 
 6. Une fois que le script s’exécute correctement, vous verrez les éléments suivants :
@@ -155,9 +155,9 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 ## <a name="MainStep2"></a> Étape 2 : Créer une fabrique de données Microsoft Azure
-Dans cette étape, vous allez créer une fabrique de données Microsoft Azure nommée **LogProcessingFactory**.
+Dans cette étape, vous allez créer une fabrique de données Microsoft Azure nommée **LogProcessingFactory**.
 
-1.	Une fois connecté au [portail Azure en version préliminaire][azure-preview-portal], cliquez sur l’option **NOUVEAU** dans l’angle inférieur gauche de la fenêtre, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Data Factory** dans le panneau **Analyse de données**. 
+1.	Une fois connecté au [portail Azure][azure-portal], cliquez sur l’option **NOUVEAU** dans l’angle inférieur gauche de la fenêtre, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Data Factory** dans le panneau **Analyse de données**. 
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -173,7 +173,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure n
 	
 		![Créer un groupe de ressources][image-data-factory-tutorial-create-resourcegroup]
 7. Sélectionnez **ADF** dans le champ **NOM DU GROUPE DE RESSOURCES**.  
-8.	Dans le panneau **Nouvelle fabrique de données**, notez que l’option **Ajouter au tableau d’accueil** est sélectionnée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d’accueil (ce que vous voyez lorsque vous vous connectez à la version préliminaire du portail Azure).
+8.	Dans le panneau **Nouvelle fabrique de données**, notez que l’option **Ajouter au tableau d’accueil** est sélectionnée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d’accueil (ce que vous voyez lorsque vous vous connectez au portail Azure).
 
 	![Panneau Créer une fabrique de données][image-data-factory-tutorial-create-datafactory]
 
@@ -192,7 +192,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure n
  
 ## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE]Cet article utilise le portail Azure, en particulier Data Factory Editor, pour créer des pipelines, des tables et des services liés. Consultez le [didacticiel utilisant Azure PowerShell][adftutorial-using-powershell] si vous souhaitez suivre ce didacticiel à l’aide de Microsoft Azure PowerShell.
+> [AZURE.NOTE]Cet article utilise le portail Azure Classic, en particulier Data Factory Editor, pour créer des pipelines, des tables et des services liés. Consultez le [didacticiel utilisant Azure PowerShell][adftutorial-using-powershell] si vous souhaitez suivre ce didacticiel à l’aide de Microsoft Azure PowerShell.
 
 Dans cette étape, vous allez créer les services liés suivants :
 
@@ -227,7 +227,7 @@ Dans cette étape, vous allez créer les services liés suivants :
 
 ### Création du service AzureSqlLinkedService
 1. Dans **Data Factory Editor**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Base de données SQL Azure** dans le menu déroulant. Le modèle JSON pour la création du service lié SQL Azure doit apparaître dans le volet droit.
-2. Remplacez les éléments **nom\_serveur**, ****username@servername** et **password** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.
+2. Remplacez les éléments **nom\_serveur**, ****username@servername** et **mot\_de\_passe** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.
 3. Remplacez l’élément **nom\_BD** par **MarketingCampaigns**. Il s’agit de la base de données SQL Microsoft Azure créée par les scripts que vous avez exécutés à l’étape 1. Vous devez confirmer que cette base de données a bien été créée par les scripts (en cas d’erreurs). 
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService.
 
@@ -248,7 +248,7 @@ Le service Azure Data Factory prend en charge la création d’un cluster à la 
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
 		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.1",
+		    	    "version": "3.2",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
 		    	}
 			}
@@ -326,7 +326,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d'accueil (panneau **DATA FACTORY **) de votre fabrique de données.
+4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d’accueil (panneau **DATA FACTORY **) de votre fabrique de données.
 
 ### Vue schématique
 
@@ -392,7 +392,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l'état **Ready** ou à l'état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Ready** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
 
 	Si la tranche n’a pas l’état **Prêt**, vous pouvez afficher les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
  
@@ -431,7 +431,7 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -524,4 +524,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

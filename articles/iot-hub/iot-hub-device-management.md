@@ -1,5 +1,5 @@
 <properties
- pageTitle="Gestion de périphériques IoT | Microsoft Azure"
+ pageTitle="Gérer des périphériques IoT | Microsoft Azure"
  description="Une vue d’ensemble de l’utilisation d’IoT Hub et IoT Suite pour gérer vos appareils IoT"
  services="iot-hub,iot-suite"
  documentationCenter=""
@@ -25,16 +25,16 @@ Azure IoT Suite et Azure IoT Hub fournissent les fonctionnalités de base qui pe
 Les prestataires et les entreprises de services, et toutes les organisations qui assurent la gestion d’un ensemble de périphériques IoT utilisent les capacités de gestion des périphériques pour exécuter les processus métiers suivants :
 
 * Inscrire et détecter les périphériques IoT.
-* Activer la connectivité.
+* Activez la connectivité.
 * Assurer la configuration à distance et mettre à jour les logiciels sur les périphériques. Par exemple, pour la gestion de périphériques au sein d’usines de production ou de champs pétrolifères, des stratégies de configuration et de mise à jour des périphériques distants sont mises en place, avec des chaînes d’approbation, des exigences d’audit réglementaires, la présence de mesures de protection physique, entre autres.
 
 Lorsque vous activez la gestion de périphériques IoT de votre solution IoT, vous devez prendre en compte les fonctionnalités suivantes et déterminer l’importance de chacune d’elles en fonction des objectifs de votre entreprise :
 
 * **[Approvisionnement et détection de périphérique](#device-provisioning-and-discovery)** : processus permettant d’inscrire un périphérique dans le système.
 * **[Registre de périphérique et modèles de périphérique](#device-registry-and-device-models)** : manière dont les modèles de périphérique représentent l’utilisation structurée de métadonnées dans les relations de périphérique, leur rôle dans le système et les méthodes de validation.
-* **[Gestion des accès au périphérique](#device-access-management)** : manière dont les périphériques contrôlent l’accès aux ressources depuis les services cloud.
+* **[Gestion d’accès au périphérique](#device-access-management)** : manière dont les périphériques contrôlent l’accès aux ressources depuis les services cloud.
 * **[Contrôle à distance](#remote-control)** : manière dont les utilisateurs distants accèdent aux périphériques et indiquent qu’ils doivent être changés.
-* **[Administration à distance](#remote-administration-and-monitoring)** : processus par lequel un administrateur détermine l’état de santé de l’ensemble des périphériques.  
+* **[Administration à distance](#remote-administration-and-monitoring)** : processus par lequel un administrateur détermine l’état de santé de l’ensemble des appareils.  
 * **[Configuration à distance](#remote-configuration)** : méthode utilisée par les administrateurs pour modifier la configuration du périphérique.
 * **[Mise à jour à distance de microprogramme et de logiciel](#remote-firmware-and-software-update)** : processus permettant aux administrateurs de mettre à jour les microprogrammes et logiciels du périphérique.
 
@@ -44,9 +44,9 @@ Les sections qui suivent offrent un examen approfondi de chacune des fonctionnal
 
 Vous configurez un périphérique avec Azure IoT Hub à l’aide de l’API de registre. Lorsque vous enregistrez votre périphérique et fournissez ou recevez une clé, vous pouvez permettre à votre périphérique de se connecter à IoT Hub en utilisant cette clé. Azure IoT Hub communique uniquement avec les périphériques inscrits présentant les informations d’identification autorisées. Les administrateurs peuvent désactiver l’accès à un périphérique Azure IoT Hub via le portail d’administration de l’appareil.
 
-Il est possible d’utiliser un processus de démarrage en fonction de la façon dont les périphériques IoT sont fabriqués, configurés et déployés. Vous pouvez créer un service de démarrage dans le cadre de votre solution pour faciliter la connectivité et retarder le processus d’attribution d’un périphérique à un IoT Hub spécifique. L’emplacement au sein duquel le périphérique va fonctionner peut être inconnu au moment de la fabrication de celui-ci. Ceci est un exemple des nombreux flux de travail potentiellement complexes pouvant permettre à Azure IoT Hub de détecter un périphérique, puis de l’intégrer à des processus métiers existants.
+Il est possible d’utiliser un processus de démarrage en fonction de la façon dont les périphériques IoT sont fabriqués, configurés et déployés. Vous pouvez créer un service de démarrage dans le cadre de votre solution pour faciliter la connectivité et retarder le processus d’attribution d’un périphérique à un IoT Hub spécifique. L’emplacement au sein duquel le périphérique va fonctionner peut être inconnu au moment de la fabrication de celui-ci. Ceci est un exemple des nombreux flux de travail potentiellement complexes pouvant permettre à Azure IoT Hub de détecter un appareil et de l’intégrer à des processus métiers existants.
 
-Lorsque vous utilisez un service de démarrage, un périphérique IoT démarre et émet une requête, qui peut finalement fournir un accès à un Azure IoT Hub affecté. La demande doit inclure des informations d’identification de démarrage et toutes les autres données du périphérique autorisé pouvant s’avérer nécessaires. Pour les périphériques autorisés, le service de démarrage doit inscrire le périphérique avec un Azure IoT Hub affecté et fournir les détails de connectivité au périphérique demandant le démarrage. IoT Hub fournit les détails de connectivité au périphérique demandant un démarrage. Pour les périphériques autorisés, le service de démarrage doit inscrire le périphérique avec un Azure IoT Hub affecté et fournir les détails de connectivité au périphérique demandant le démarrage.
+Lorsque vous utilisez un service de démarrage, un périphérique IoT démarre et émet une requête, qui peut finalement fournir un accès à un Azure IoT Hub affecté. La demande doit inclure des informations d’identification de démarrage et toutes les autres données du périphérique autorisé pouvant s’avérer nécessaires. Pour les périphériques autorisés, le service de démarrage doit inscrire l’appareil avec un Azure IoT Hub affecté et fournir les détails de connectivité au périphérique demandant le démarrage. IoT Hub fournit les détails de connectivité au périphérique demandant un démarrage.
 
 ## Registre de périphérique et modèles de périphérique
 
@@ -142,10 +142,10 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 
 * [Prise en main d’IoT Hub][]
 * [Qu’est-ce qu’Azure IoT Hub ?][]
-* [Connexion de votre périphérique][]
+* [Connexion de votre appareil][]
 
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
-[Connexion de votre périphérique]: https://azure.microsoft.com/develop/iot/
+[Connexion de votre appareil]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

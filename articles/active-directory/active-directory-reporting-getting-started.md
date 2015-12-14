@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création de rapports Azure AD : prise en main"
+   pageTitle="Création de rapports Azure Active Directory : Prise en main | Microsoft Azure"
    description="Répertorie les différents rapports disponibles dans le rapport d'Azure Active Directory"
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# Prise en main de la création de rapports Azure AD
+# Prise en main de la création de rapports Azure Active Directory
 
 ## Présentation
 
-Azure Active Directory comprend des rapports sur la sécurité, les activités et l’audit concernant votre annuaire. Voici une liste des rapports fournis :
+Azure Active Directory (Azure AD) comprend des rapports sur la sécurité, les activités et l’audit concernant votre annuaire. Voici une liste des rapports fournis :
 
 ### Rapports de sécurité
 
@@ -61,7 +61,7 @@ Le pipeline de création de rapports se compose de trois étapes principales. Ch
 
 - Tout d’abord, l’utilisateur est authentifié (ou non) et le résultat est stocké dans les bases de données du service Azure Active Directory.
 - À intervalles réguliers, toutes les connexions récentes sont traitées. À ce stade, nos algorithmes de sécurité et de surveillance des activités anormales recherchent toute activité suspecte dans les connexions récentes.
-- Après traitement, les rapports sont écrits, mis en cache et placés dans le portail de gestion Azure.
+- Après traitement, les rapports sont écrits, mis en cache et placés dans le portail Azure Classic.
 
 ### Durée de génération des rapports
 
@@ -78,9 +78,9 @@ Vous trouverez la dernière connexion traitée en examinant le texte d’aide en
 ## Prise en main
 
 
-### Connectez-vous au portail de gestion Azure.
+### Connectez-vous au portail Azure Classic
 
-Tout d’abord, vous devez vous connecter au [portail de gestion Azure](https://manage.windowsazure.com) en tant qu’administrateur global ou administrateur de conformité. Vous devez également être administrateur ou coadministrateur de service d’abonnement Azure ou utiliser l’abonnement Azure « Accès à Azure AD ».
+Tout d’abord, vous devez vous connecter au [portail Azure Classic](https://manage.windowsazure.com) en tant qu’administrateur global ou administrateur de conformité. Vous devez également être administrateur ou coadministrateur de service d’abonnement Azure ou utiliser l’abonnement Azure « Accès à Azure AD ».
 
 ### Accès aux rapports
 
@@ -156,4 +156,4 @@ Envoyez un message à [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@m
 
 > [AZURE.TIP]Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -90,9 +90,9 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Une fois que le groupe de ressources est approvisionné, vous pouvez voir toutes les ressources dans le groupe sur le portail Azure. Comme le montre la capture d’écran suivante, le groupe de ressources contient un réseau virtuel incluant trois machines virtuelles, associées au même groupe à haute disponibilité. Le groupe contient également un équilibreur de charge, qui est associé à une adresse IP publique.
+11. Une fois que le groupe de ressources est approvisionné, vous pouvez voir toutes les ressources dans le groupe sur le portail Azure Classic. Comme le montre la capture d’écran suivante, le groupe de ressources contient un réseau virtuel incluant trois machines virtuelles, associées au même groupe à haute disponibilité. Le groupe contient également un équilibreur de charge, qui est associé à une adresse IP publique.
 
-  ![Groupe de ressources provisionné sur le portail Azure](media/virtual-machines-deis-cluster/resource-group.png)
+  ![Groupe de ressources provisionné sur le portail Azure Classic](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Installation du client
 
@@ -113,7 +113,7 @@ Vous devez utiliser l’outil **deisctl** pour contrôler votre cluster Deis. B
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-Le modèle définit les règles NAT entrantes qui mappent la valeur 2223 à l’instance 1, la valeur 2224, à l’instance 2 et la valeur 2225, à l’instance 3. Cela assure la redondance liée à l’utilisation de l’outil deisctl. Vous pouvez examiner ces règles sur le portail Azure :
+Le modèle définit les règles NAT entrantes qui mappent la valeur 2223 à l’instance 1, la valeur 2224, à l’instance 2 et la valeur 2225, à l’instance 3. Cela assure la redondance liée à l’utilisation de l’outil deisctl. Vous pouvez examiner ces règles sur le portail Azure Classic :
 
 ![Règles NAT sur l’équilibreur de charge](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

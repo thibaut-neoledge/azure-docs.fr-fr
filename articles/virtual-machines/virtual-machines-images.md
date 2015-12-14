@@ -35,7 +35,7 @@ Vous pouvez créer vos propres images, basées sur une machine virtuelle dans Az
 
 ## Utilisation des images
 
-Vous pouvez utiliser l'Interface de ligne de commande Azure (CLI) pour le module Mac, Linux et Windows ou Azure PowerShell pour gérer les images disponibles dans votre abonnement Azure. Vous pouvez également utiliser le portail Azure pour certaines tâches d'image, mais la ligne de commande vous offre davantage d'options.
+Vous pouvez utiliser l'Interface de ligne de commande Azure (CLI) pour le module Mac, Linux et Windows ou Azure PowerShell pour gérer les images disponibles dans votre abonnement Azure. Vous pouvez également utiliser le portail Azure Classic pour certaines tâches d’image, mais la ligne de commande vous offre davantage d’options.
 
 Pour plus d’informations sur l’utilisation de ces outils avec les déploiements de Resource Manager, consultez [Recherche par navigation et sélection d’images de machines virtuelles Azure avec PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md).
 
@@ -59,4 +59,4 @@ Pour obtenir des exemples sur l'utilisation des outils dans un déploiement clas
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

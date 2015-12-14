@@ -108,10 +108,10 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 
 ### <a id="logon"></a>Connexion une machine virtuelle à l’aide d’une connexion Bureau à distance
 
-1.	Dans le portail Azure, cliquez sur **Machines virtuelles** dans le volet gauche.
+1.	Dans le portail Azure Classic, cliquez sur **Machines virtuelles** dans le volet gauche.
 2.	Pour vous connecter à une machine virtuelle, cliquez sur **En cours d'exécution** dans la colonne **État** en regard de son nom.
 3.	Dans la barre de commandes en bas de la page, cliquez sur **Connexion**.
-4.	Le portail Azure vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
+4.	Le portail Azure Classic vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
 5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer ComputerName.rdp depuis manage.windowsazure.com ? » Cliquez sur **Ouvrir**.
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
 7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
@@ -205,14 +205,14 @@ Ensuite, procédez comme suit pour ajouter des propriétés de compte aux nouvea
 
 Ensuite, mettez à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel).
 
-1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
+1.	Dans le volet gauche du portail Azure Classic, cliquez sur **Réseaux**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Cliquez sur **Configurer**.
 3.	Sous **Serveurs DNS**, supprimez les entrées correspondant aux serveurs DNS qui se trouvent sur votre réseau local.
 4.	Sous **Serveurs DNS**, ajoutez deux entrées avec des noms conviviaux et les adresses IP des deux éléments de tables suivants :
  - Table V – Élément 6 – Colonne Valeur
  - Table V – Élément 7 – Colonne Valeur
 5.	Dans la barre de commandes de la partie inférieure, cliquez sur **Enregistrer**.
-6.	Dans le volet gauche du portail Azure, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard du nom de votre premier contrôleur de domaine.
+6.	Dans le volet gauche du portail Azure Classic, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard du nom de votre premier contrôleur de domaine.
 7.	Dans la barre de commandes, cliquez sur **Redémarrer**.
 8.	Lorsque le premier contrôleur de domaine est démarré, cliquez sur la colonne **État** en regard du nom de votre second contrôleur de domaine.
 9.	Dans la barre de commandes, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
@@ -248,4 +248,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

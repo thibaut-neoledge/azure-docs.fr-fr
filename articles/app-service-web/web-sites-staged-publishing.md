@@ -34,7 +34,7 @@ Chaque mode de plan App Service prend en charge un nombre différent d’emplace
 
 - La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
 
-- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
+- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -44,7 +44,7 @@ Chaque mode de plan App Service prend en charge un nombre différent d’emplace
 
 Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application web doit s’exécuter en mode **Standard** ou **Premium**.
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), ouvrez le panneau de votre application web.
+1. Dans le [portail Azure](https://portal.azure.com/), ouvrez le panneau de votre application web.
 2. Cliquez sur **Emplacements de déploiement**. Puis, dans le panneau **Emplacements de déploiement**, cliquez sur **Ajouter un emplacement**.
 
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
@@ -242,7 +242,6 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -260,4 +259,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

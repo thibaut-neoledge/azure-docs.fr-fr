@@ -400,7 +400,7 @@ Les ordinateurs (appareils devices) du domaine Windows 10 synchroniseront certai
 | displayName | X| |
 | ms-DS-CreatorSID | X| Également appelé registeredOwnerReference.|
 | objectGUID | X| Également appelé deviceID.|
-| objectSID | X| Également appelé omPremisesSecurityIdentifier.|
+| objectSID | X| Également appelé onPremisesSecurityIdentifier.|
 | operatingSystem | X| Également appelé deviceOSType.|
 | operatingSystemVersion | X| Également appelé deviceOSVersion.|
 | userCertificate | X| |
@@ -435,4 +435,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

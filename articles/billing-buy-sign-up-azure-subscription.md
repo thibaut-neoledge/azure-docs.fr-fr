@@ -25,7 +25,7 @@ Pour vous inscrire à un abonnement d'essai gratuit Azure, vous devez fournir un
 
 >[AZURE.NOTE]Votre numéro de téléphone et les informations de votre carte de crédit sont uniquement utilisés pour vérifier votre identité. Même si votre carte de crédit n'est pas débitée, Microsoft effectuera une retenue d'autorisation d'un montant minimal pour vérifier que la carte de crédit est valide. Cette retenue sera validée dans les 3 à 5 jours ouvrés en fonction des politiques de votre institution financière.
 
-1. Ouvrez la [page de version d’évaluation gratuite d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/), puis sélectionnez **Essayez dès maintenant**.
+1. Ouvrez la [page de version d’essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), puis sélectionnez **Essayez dès maintenant**.
 2. Connectez-vous avec votre compte Microsoft ou à un compte scolaire/professionnel.
 3. Dans la section **À propos de vous**, entrez vos informations personnelles. ![Capture d’écran des informations personnelles](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -61,4 +61,4 @@ Si vous avez acheté des crédits Azure dans Open auprès d’un revendeur, proc
 2. Entrez la clé de produit, puis activez l'option d'accord.</br>![CLÉ OSA](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Sélectionnez **Activer**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

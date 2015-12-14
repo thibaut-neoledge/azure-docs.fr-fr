@@ -30,7 +30,7 @@ Procédez comme suit pour vous connecter à votre base de données SQL et l’in
 
 Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (****nom\_serveur**.database.windows.net*) contenant la base de données à laquelle vous souhaitez vous connecter.
 
-1. Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à la base de données à laquelle vous souhaitez vous connecter.
 3. Recherchez le nom complet du serveur :
 
@@ -95,4 +95,4 @@ Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bas
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

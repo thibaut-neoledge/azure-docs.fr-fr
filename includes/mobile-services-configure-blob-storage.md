@@ -2,7 +2,7 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 
 0. Si vous n’avez pas encore créé de compte de stockage, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
 
-1. Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
 2. Notez le **nom du compte de stockage** et la **clé d'accès**.
 
@@ -91,4 +91,4 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- URLs. -->
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

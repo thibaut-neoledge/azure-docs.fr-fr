@@ -39,7 +39,7 @@ Les scénarios définis dans la figure ci-dessus sont les suivants :
 - **Synchronisée** : ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
 - **Fédérée** : ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
  
->[AZURE.NOTE]Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect/).
+>[AZURE.NOTE]Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
 Le tableau suivant vous aidera à déterminer les avantages et inconvénients de chacune des stratégies suivantes :
 
@@ -114,7 +114,7 @@ La topologie Azure AD unique de forêts multiples doit être prise en considér
 - Si aucune boîte aux lettres n’est associée à l’utilisateur, n’importe quelle forêt peut être utilisée pour fournir ces valeurs.
 - Si vous avez une boîte aux lettres liée, il existe également un autre compte dans une forêt différente de celle utilisée pour la connexion.
 
->[AZURE.NOTE]Les objets qui existent à la fois en local et dans le cloud sont « connectés » via un identificateur unique. Dans le contexte de synchronisation de répertoire, cet identificateur unique est appelé SourceAnchor. Dans le contexte de l’authentification unique, il est appelé ImmutableId. Consultez [Principes de conception pour Azure AD Connect](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor) pour plus d’informations concernant l’utilisation de SourceAnchor.
+>[AZURE.NOTE]Les objets qui existent à la fois en local et dans le cloud sont « connectés » via un identificateur unique. Dans le contexte de synchronisation de répertoire, cet identificateur unique est appelé SourceAnchor. Dans le contexte de l’authentification unique, il est appelé ImmutableId. Consultez [Principes de conception pour Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) pour plus d’informations concernant l’utilisation de SourceAnchor.
 
 Si la partie ci-dessus n’est pas vraie et que vous avez plus d’un compte actif ou plusieurs boîtes aux lettres, Azure AD Connect choisira un élément et ignorera les autres. Si vous avez lié des boîtes aux lettres, mais aucun autre compte, ces comptes ne seront pas exportés vers Azure AD et cet utilisateur ne sera membre d’aucun groupe. La situation a évolué avec DirSync et l’intention est de mieux prendre en charge ces scénarios de forêts multiples. Un scénario de forêts multiples est illustré dans la figure ci-dessous.
  
@@ -176,7 +176,7 @@ Même si vous avez opté pour une solution pour votre stratégie, vous devez tou
 | Azure AD et local utilisant Azure AD Connect avec synchronisation de mot de passe | Les deux |
 | AD local | Serveur Multi-Factor Authentication |
 
->[AZURE.NOTE]Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception. Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la plus appropriée pour vous](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
+>[AZURE.NOTE]Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception. Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Fournisseur d’authentification multi facteurs
 Multi-Factor Authentication est disponible par défaut pour les administrateurs généraux ayant un locataire Azure Active Directory. Toutefois, si vous souhaitez étendre l’authentification multifacteur à tous vos utilisateurs et/ou souhaitez que vos administrateurs généraux puissent tirer pleinement parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports, vous devez acheter et configurer un fournisseur Multi-Factor Authentication.
@@ -187,6 +187,6 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 [Déterminer les exigences de protection des données](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

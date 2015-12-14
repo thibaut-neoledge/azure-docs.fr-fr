@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -39,7 +39,7 @@ Le nom et la clé de l'émetteur Access Control sont utilisés par les élément
 
 ### Pour copier et coller le nom et la clé de l'émetteur Access Control
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
 3. Sélectionnez votre service BizTalk. 
 4. Sélectionnez **Informations de connexion** dans la barre des tâches. L'espace de noms Access Control, l'émetteur par défaut (Nom de l'émetteur) et la clé par défaut (Clé de l'émetteur) sont répertoriés et peuvent être copiés-collés.  
@@ -49,7 +49,7 @@ En résumé : Nom de l’émetteur = Émetteur par défaut Clé de l’émett
 
 Vous pouvez également cliquer sur **Ouvrir le portail de gestion ACS** pour récupérer les valeurs Access Control :
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
 3. Sélectionnez votre service BizTalk.
 4. Sélectionnez le bouton Informations de connexion, puis **Ouvrir le portail de gestion ACS**.
@@ -67,13 +67,11 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 
 ### Pour récupérer le nom et la clé de l'émetteur Service Bus
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation de gauche, sélectionnez **Service Bus**.
 3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche l'**Émetteur par défaut** (Nom de l'émetteur) et la **Clé par défaut** (Clé de l'émetteur). Leurs valeurs peuvent être copiées.  
 
-En résumé :  
-Nom de l’émetteur = Émetteur par défaut  
-Clé de l’émetteur = Clé par défaut
+En résumé : Nom de l’émetteur = Émetteur par défaut Clé de l’émetteur = Clé par défaut
 
 ## Suivant
 Autres rubriques Azure BizTalk Services :
@@ -87,11 +85,11 @@ Autres rubriques Azure BizTalk Services :
 ## Voir aussi
 -  [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services : approvisionnement avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

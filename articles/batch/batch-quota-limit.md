@@ -41,7 +41,7 @@ Tâches par nœud de calcul|4 x nombre de cœurs de nœud
 
 ## Afficher les quotas Batch
 
-Affichez vos quotas de compte Batch dans le [portail Azure en version préliminaire](https://portal.azure.com).
+Affichez vos quotas de compte Batch dans le [portail Azure](https://portal.azure.com).
 
 1. Dans ce portail, cliquez sur **Comptes Batch**, puis sur le nom de votre compte Batch.
 
@@ -53,7 +53,7 @@ Affichez vos quotas de compte Batch dans le [portail Azure en version prélimina
 
 ## Augmenter un quota
 
-Procédez comme suit pour demander une augmentation de quota dans le portail Azure en version préliminaire (vous pouvez également demander une augmentation dans le [portail Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Procédez comme suit pour demander une augmentation de quota dans le portail Azure (vous pouvez également demander une augmentation dans le [portail Azure Classic](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
 1. Dans le tableau de bord du portail en version préliminaire, cliquez sur **Aide + support**.
 
@@ -95,4 +95,4 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

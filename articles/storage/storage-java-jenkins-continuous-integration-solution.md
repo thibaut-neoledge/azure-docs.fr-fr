@@ -80,9 +80,9 @@ Pour utiliser le service BLOB avec Jenkins, vous devez installer le plug-in Azur
 1. Dans le tableau de bord Jenkins, cliquez sur **Manage Jenkins**.
 2. Sur la page **Manage Jenkins**, cliquez sur **Configure System**.
 3. Dans la section **Configuration du compte Microsoft Azure Storage** :
-    1. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du portail Azure, <https://manage.windowsazure.com>.
-    2. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du portail Azure.
-    3. Utilisez la valeur par défaut pour **Blob Service Endpoint URL** si vous vous servez du cloud public Azure. Si vous vous servez d'un autre cloud Azure, utilisez le point de terminaison spécifié dans le portail de gestion Azure pour votre compte de stockage. 
+    1. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](portal.azure.com).
+    2. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](portal.azure.com).
+    3. Utilisez la valeur par défaut pour **Blob Service Endpoint URL** si vous vous servez du cloud public Azure. Si vous vous servez d’un autre cloud Azure, utilisez le point de terminaison spécifié dans le [portail Azure](portal.azure.com) pour votre compte de stockage. 
     4. Cliquez sur **Valider les informations d'identification de stockage** pour valider votre compte de stockage. 
     5. [Facultatif] Si vous avez d'autres comptes de stockage que vous souhaitez rendre disponibles pour votre solution Jenkins CI, cliquez sur **Add more Storage Accounts**.
     6. Cliquez sur **Save** pour enregistrer vos paramètres.
@@ -117,7 +117,7 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 12. Cliquez sur **Save** pour enregistrer vos paramètres.
 13. Dans le tableau de bord Jenkins, cliquez sur **Build Now** pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l’objet blob public.
-    1. Connectez-vous au portail de gestion Azure à l'adresse <https://manage.windowsazure.com>.
+    1. Connectez-vous au [portail Azure](portal.azure.com).
     2. Cliquez sur **Stockage**.
     3. Cliquez sur le nom du compte de stockage que vous avez utilisé pour Jenkins.
     4. Cliquez sur **Conteneurs**.
@@ -150,7 +150,7 @@ La section suivante présente les composants du service BLOB.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
     
-    Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le portail de gestion Azure pour déterminer votre URL de point de terminaison.
+    Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](portal.azure.com) pour déterminer votre URL de point de terminaison.
 
     Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
 
@@ -162,4 +162,4 @@ La section suivante présente les composants du service BLOB.
   [présentation de Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

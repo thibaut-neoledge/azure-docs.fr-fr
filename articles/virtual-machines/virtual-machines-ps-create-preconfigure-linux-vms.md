@@ -159,7 +159,7 @@ Ajoutez un bloc à votre jeu de commandes pour démarrer le processus de créati
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Le nom court du service cloud est celui qui apparaît dans la liste Azure Cloud Services dans le portail Azure ou dans la liste des groupes de ressources dans le portail Azure en version préliminaire.
+Le nom abrégé du service cloud est celui qui apparaît dans la liste Azure Cloud Services dans le portail Azure Classic ou dans la liste des groupes de ressources dans le portail Azure.
 
 **Option 2** : créez la machine virtuelle dans un service cloud et un réseau virtuel existants.
 
@@ -178,7 +178,7 @@ Une fois la machine virtuelle créée, voir [Connexion à une machine virtuelle 
 Si vous souhaitez réutiliser le jeu de commandes, vous pouvez :
 
 - Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1)
-- Enregistrer ce jeu de commandes en tant que runbook Azure Automation dans la section **Automatisation** du portail Azure
+- Enregistrez ce jeu de commandes en tant que runbook Azure Automation dans la section **Automation** du portail Azure Classic.
 
 ## <a id="examples"></a>Exemples
 
@@ -280,4 +280,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

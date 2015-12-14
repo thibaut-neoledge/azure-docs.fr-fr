@@ -18,13 +18,15 @@
 
 # Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service
 
-## Vue d’ensemble
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
-Ce didacticiel montre l’installation, la configuration et le test d’un [connecteur SaaS (Software-as-a-Service)](../app-service-logic-what-are-bizTalk-api-apps.md) dans [Azure App Service](/documentation/services/app-service/) pour l’appeler par programme, par exemple à partir d’une application mobile. Un connecteur SaaS est une [application API](app-service-api-apps-why-best-platform.md) qui simplifie l’interaction avec les plateformes SaaS, comme Office 365, Salesforce, Facebook et Dropbox. Si, au lieu d’utiliser un connecteur préconfiguré, vous souhaitez créer une application API .NET personnalisée, consultez la page [Connexion à une plateforme SaaS à partir d’une application API ASP.NET](app-service-api-dotnet-connect-to-saas.md).
+## Vue d'ensemble
+
+Ce didacticiel montre l’installation, la configuration et le test d’un [connecteur SaaS (Software-as-a-Service)](../app-service-logic-what-are-bizTalk-api-apps.md) dans [Azure App Service](/documentation/services/app-service/) pour l’appeler par programme, par exemple à partir d’une application mobile. Un connecteur SaaS est une [application API](app-service-api-apps-why-best-platform.md) qui simplifie l’interaction avec les plateformes SaaS, comme Office 365, Salesforce, Facebook et Dropbox. Si, au lieu d’utiliser un connecteur préconfiguré, vous souhaitez créer une application API .NET personnalisée, consultez la page [Connexion à une plateforme SaaS à partir d’une application API ASP.NET](app-service-api-dotnet-connect-to-saas.md).
 
 Par exemple, si vous souhaitez coder les demandes HTTP pour qu’elles lisent et écrivent des fichiers dans votre compte Dropbox, le processus d’authentification pour travailler directement avec Dropbox est complexe. Le connecteur Dropbox s’occupe de la partie complexe de l’authentification afin que vous puissiez vous concentrer sur l’écriture de votre code.
 
-> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l'utilisation de connecteurs SaaS au sein d'applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) et [Utilisation d'une application OAUTH personnalisée dans les connecteurs](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
+> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l'utilisation de connecteurs SaaS au sein d'applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) et [Utilisation d'une application OAUTH personnalisée dans les connecteurs](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Ce didacticiel utilise un connecteur DropBox à titre d’exemple et vous guide dans les étapes suivantes :
 
@@ -236,4 +238,4 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 [portail Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

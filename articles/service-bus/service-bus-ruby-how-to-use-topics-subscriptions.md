@@ -56,7 +56,7 @@ L'applet de commande PowerShell que vous avez exécutée pour créer l'espace de
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
+> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure Classic](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
 
 ## Création d'une application Ruby
 
@@ -199,7 +199,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Suppression des rubriques et des abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure](https://manage.windowsazure.com) ou par programme. L'exemple suivant montre comme supprimer la rubrique intitulée « test-topic » :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure Classic](https://manage.windowsazure.com) ou par programme. L'exemple suivant montre comme supprimer la rubrique intitulée « test-topic » :
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -216,4 +216,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 -	Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

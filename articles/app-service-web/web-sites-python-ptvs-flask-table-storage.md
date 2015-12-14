@@ -72,7 +72,7 @@ Pour utiliser les opérations de stockage, vous avez besoin d’un compte Azure 
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Cliquez sur l'icône **Nouveau** en haut à gauche du portail, puis cliquez sur **Données + stockage** > **Compte de stockage**. Cliquez sur **Créer**, puis attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
+2. Cliquez sur l’icône **Nouveau** en haut à gauche du portail, puis cliquez sur **Données + stockage** > **Compte de stockage**. Cliquez sur **Créer**, puis attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
 
@@ -184,7 +184,6 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -194,7 +193,7 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Utilisation du service de stockage de tables de Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Management Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Kit de développement logiciel (SDK) Azure pour .NET]: http://azure.microsoft.com/downloads/
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -212,4 +211,4 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

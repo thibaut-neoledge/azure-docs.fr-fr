@@ -16,31 +16,31 @@
 	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Utiliser l’encodeur Elemental Live pour envoyer un flux live à débit binaire unique 
+#Utiliser l’encodeur Elemental Live pour envoyer un flux live à débit binaire unique
 
 > [AZURE.SELECTOR]
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
-  
+
 Cette rubrique explique comment configurer l’encodeur [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. Pour plus d’informations, consultez la rubrique [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail de gestion Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure Classic pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
-##Configuration requise
+##Composants requis
 
 - Suppose une connaissance pratique de l’utilisation de l’interface web Elemental Live pour créer des événements en direct.
 - [Créer un compte Azure Media Services](media-services-create-account.md)
-- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md). 
+- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md).
 
 - Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Lancez l’outil et connectez-vous à votre compte AMS.
 
 ##Conseils
 
-- Si possible, utilisez une connexion Internet câblée. 
-- Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.  
+- Si possible, utilisez une connexion Internet câblée.
+- Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
 - Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
 
 ## Elemental Live avec réception RTP
@@ -49,22 +49,22 @@ Cette section explique comment configurer l’encodeur Elemental Live qui envoie
 
 ### Créer un canal
 
-1.  Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...**.  
+1.  Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...**.
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
+![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
 2. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTP (MPEG-TS)**. Vous pouvez laisser tous les autres paramètres inchangés.
 
 
-	 Assurez-vous que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
- 
-3. Cliquez sur **Créer le canal**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
+
+3. Cliquez sur **Créer un canal**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
 >[AZURE.NOTE]Le démarrage du canal peut prendre jusqu’à 20 minutes.
 
 Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez la rubrique [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configurer l’encodeur Elemental Live 
 
@@ -129,7 +129,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 	
 7. Cliquez sur **Create** (si un événement a été créé) ou **Update** (en cas de modification d’un événement existant), puis procédez au démarrage de l’encodeur.
 
->[AZURE.IMPORTANT]Avant de cliquer sur **Start** dans l’interface web Elemental Live, vous **devez** vous assurer que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans événement pendant plus de 15 minutes.
+>[AZURE.IMPORTANT]Avant de cliquer sur **Start** dans l’interface web Elemental Live, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans événement pendant plus de 15 minutes.
 
 Une fois que le flux a été exécuté pendant 30 secondes, revenez à l’outil AMSE et testez la lecture.
 
@@ -173,4 +173,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

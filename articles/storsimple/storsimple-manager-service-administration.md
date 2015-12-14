@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Administration du service StorSimple Manager | Microsoft Azure"
-   description="Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
+   description="Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail Azure Classic."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple
@@ -30,13 +30,13 @@ Cet article portera sur les éléments suivants :
 
 ## Connexion au service StorSimple Manager
 
-Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Vous devez utiliser un portail de gestion Microsoft Azure central s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
+Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Vous devez utiliser un portail Microsoft Azure Classic s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
 
 #### Connexion au service :
 
 1. Accédez à [http://azure.microsoft.com](http://azure.microsoft.com/)
 
-1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion Microsoft Azure (situé dans l’angle supérieur droit du volet).
+1. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
 
 1. Faites défiler le volet de navigation de gauche jusqu’au service StorSimple Manager.
 
@@ -57,11 +57,7 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 |Page d’accueil|Pages de niveau de service|Pages de niveau appareil|Pages de niveau appareil|
 |---|---|---|---|
 |Service StorSimple Manager|Tableau de bord du service|Page du tableau de bord d’un appareil||
-||Appareils →|Surveillance|| 
-||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| 
-||Configurer (Service)|Stratégies de sauvegarde|| 
-||Tâches|Configurer (Appareil)|| 
-||Alertes|Maintenance||
+||Appareils →|Surveillance| ||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| ||Configurer (Service)|Stratégies de sauvegarde|| ||Tâches|Configurer (Appareil)| ||Alertes|Maintenance|
 
 ![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
 
@@ -116,4 +112,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

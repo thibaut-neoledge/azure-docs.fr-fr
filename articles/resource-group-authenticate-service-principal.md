@@ -142,7 +142,7 @@ Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous
 
 1. Pour les deux approches, créez un objet X509Certificate à partir de votre certificat et récupérez la valeur de clé. Utilisez le chemin d’accès à votre certificat et le mot de passe pour ce certificat.
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 2. Si vous utilisez des informations d’identification de clé, créez l’objet d’informations d’identification de clé et affectez-lui la valeur `$keyValue` de l’étape précédente.
@@ -312,4 +312,4 @@ Dans cette section, vous suivrez la procédure vous permettant de créer le prin
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

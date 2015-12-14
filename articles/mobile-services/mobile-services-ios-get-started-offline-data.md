@@ -18,6 +18,11 @@
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 La synchronisation hors connexion permet d'afficher, d'ajouter ou de modifier des données dans une application mobile même en l'absence de connexion réseau. Dans ce didacticiel, vous allez apprendre comment votre application peut automatiquement stocker des modifications dans une base de données locale hors connexion et synchroniser ces modifications chaque fois qu'elle est de nouveau en ligne.
@@ -30,7 +35,7 @@ La synchronisation hors connexion présente plusieurs avantages :
 * Elle synchronise les données sur plusieurs appareils.
 * Elle détecte les conflits quand un même enregistrement est modifié par deux appareils.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page d'[essai gratuit d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
 
@@ -97,7 +102,7 @@ Le deuxième paramètre de `pullWithQuery` est un ID de requête qui est utilis�
 ```
 
 
->[AZURE.NOTE]Pour supprimer des enregistrements du magasin local de l'appareil quand ils ont été supprimés de la base de données de votre service mobile, activez la [Suppression réversible]. Sinon, votre application doit appeler `MSSyncTable.purgeWithQuery` régulièrement afin de vider le magasin local.
+>[AZURE.NOTE]Pour supprimer des enregistrements du magasin local de l'appareil quand ils ont été supprimés de la base de données de votre service mobile, activez la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `MSSyncTable.purgeWithQuery` pour vider le magasin local.
 
 
 * Dans **QSTodoService.m**, les méthodes `addItem` et `completeItem` appellent `syncData` une fois les données modifiées. Dans **QSTodoListViewController.m**, la méthode `refresh` appelle également `syncData` afin que l'interface utilisateur affiche les données les plus récentes à chaque actualisation et au lancement (`init` appelle `refresh`).
@@ -138,7 +143,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | ID (obligatoire) | Chaîne |
     | operationId | Integer 64 |
     | properties | Binary Data |
-    | tableKind | Integer 16 |
+    | tableKind | Integer 16 |
 
     #### MS\_TableConfig
 
@@ -196,8 +201,8 @@ Dans cette section, vous allez désactiver le Wi-Fi dans le simulateur pour cré
 
 3. Affichez le contenu de la table TodoItem distante. Vérifiez que les nouveaux éléments n'ont _pas_ été synchronisés avec le serveur.
 
-   - Pour le backend JavaScript, accédez au portail de gestion et cliquez sur l'onglet Données pour afficher le contenu de la table `TodoItem`.
-   - Pour le backend .NET, affichez le contenu de la table avec un outil SQL, par exemple SQL Server Management Studio ou un client REST, comme Fiddler ou Postman.
+   - Pour le backend JavaScript, accédez au [portail Azure Classic](http://manage.windowsazure.com) et cliquez sur l'onglet Données pour afficher le contenu de la table `TodoItem`.
+   - Pour le serveur principal .NET, affichez le contenu de la table avec un outil SQL, par exemple SQL Server Management Studio ou un client REST, comme Fiddler ou Postman.
 
 4. Activez le Wi-Fi dans le simulateur iOS. Ensuite, effectuez l'actualisation en faisant glisser la liste des éléments vers le bas. Vous verrez un compteur de progression et le texte « Synchronisation... ».
 
@@ -270,4 +275,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

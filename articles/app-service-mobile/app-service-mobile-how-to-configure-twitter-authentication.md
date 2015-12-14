@@ -33,7 +33,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 ## <a name="register"> </a>Inscription de votre application avec Twitter
 
 
-1. Connectez-vous au [portail de gestion Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Twitter.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Twitter.
 
 2. Accédez au site web [Twitter Developers], connectez-vous avec vos identifiants Twitter, puis cliquez sur **Create New App**.
 
@@ -55,7 +55,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 > [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis **Twitter**. Collez les valeurs obtenues précédemment et cliquez sur **Enregistrer**.
 
 
-13. Revenez au [portail de gestion Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
+13. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
 
 14. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
@@ -85,7 +85,7 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[portail de gestion Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,7 +17,7 @@
 
 # FAQ sur la tarification de Service Bus
 
-Cette section répond à certaines questions fréquemment posées sur la tarification de Service Bus. Vous pouvez également visiter le [Forum aux questions de Support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de tarification générale Microsoft Azure. Pour obtenir toutes les informations sur la tarification Service Bus, consultez la section [détails de tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
+Cette section répond à certaines questions fréquemment posées sur la tarification de Service Bus. Vous pouvez également visiter le [Forum aux questions de Support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de tarification générale Microsoft Azure. Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [détails de tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
 
 >[AZURE.NOTE]Décrit la structure de prix pour les hubs d’événements dans la rubrique [FAQ relatif à la disponibilité et au support des hubs d’événements](event-hubs-availability-and-support-faq.md), et d’autres informations figurent dans la rubrique [Tarification des hubs d’événements](http://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -32,7 +32,7 @@ Cette section répond à certaines questions fréquemment posées sur la tarific
 
 ## Quel est le coût de Service Bus ?
 
-Pour obtenir toutes les informations sur la tarification Service Bus, consultez la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ci-dessous.
+Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ci-dessous.
 
 ## Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?
 
@@ -60,7 +60,7 @@ En général, les messages facturables des relais sont calculés à l’aide de 
 
 ## Service Bus facture-t-il le stockage ?
 
-Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota limitant la quantité maximale de données qui peuvent être conservées par la file d’attente/rubrique. Consultez le Forum aux questions suivants.
+Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota limitant la quantité maximale de données qui peuvent être conservées par la file d’attente/rubrique. Voir le Forum aux questions suivants.
 
 ## Service Bus fixe-t-il des quotas d’utilisation ?
 
@@ -84,34 +84,36 @@ Nous nous réservons le droit de désactiver le compte d’un client ayant dépa
 
 - **Nombre d’écouteurs de relais simultanés par espace de noms** – Service Bus impose une limite de 2 000 écouteurs de relais simultanés par espace de noms de service. Si ce quota est atteint, les requêtes suivantes concernant des ouvertures d’écouteurs de relais supplémentaires sont rejetées et une exception sera reçue par le code appelant.
 
-- **Nombre de rubriques/files d’attente par espace de noms de service** – le nombre maximal de rubriques/files d’attente (entités soutenues par un stockage durable) sur un espace de noms de service est limité à 10 000. Si ce quota est atteint, les demandes de création de nouvelle rubrique/file d’attente dans l’espace de noms suivantes sont rejetées. Dans ce cas, le portail Azure affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée via le portail ou dans le code client.
+- **Nombre de rubriques/files d’attente par espace de noms de service** – le nombre maximal de rubriques/files d’attente (entités soutenues par un stockage durable) sur un espace de noms de service est limité à 10 000. Si ce quota est atteint, les demandes de création de nouvelle rubrique/file d’attente dans l’espace de noms suivantes sont rejetées. Dans ce cas, le [portail Azure Classic][] affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
 
 - **Quotas de taille des messages**
 	- **File d’attente/Rubrique/Abonnement**
-		- **Taille de message** – chaque message est limité au total à 256 Ko, en-têtes de message compris.
-		- **Taille de l’en-tête de message** – chaque en-tête de message est limité à 64 Ko.
+		- **Taille de message** : chaque message est limité au total à 256 Ko, en-têtes de message compris.
+		- **Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
 
-	- **Relais NetOneway et NetEvent** – chaque message est limité au total à 64 Ko, en-têtes de message compris.
-	- **Relais http et NetTcp** – Service Bus n’applique pas de limite supérieure à la taille de ces messages.
+	- **Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
+	- **Relais http et NetTcp** : Service Bus n’applique pas de limite supérieure à la taille de ces messages.
 
 	Les messages qui dépassent ces quotas de taille sont rejetés et le code appelant reçoit une exception.
 
-- **Nombre d’abonnements par rubrique** – le nombre maximal d’abonnements par rubrique est limité à 2 000. Si ce quota est atteint, les demandes de création d’abonnements supplémentaires à la rubrique seront rejetées. Dans ce cas, le portail de gestion affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée via le portail ou dans le code client.
+- **Nombre d’abonnements par rubrique** : le nombre maximal d’abonnements par rubrique est limité à 2 000. Si ce quota est atteint, les demandes de création d’abonnements supplémentaires à la rubrique seront rejetées. Dans ce cas, le [portail Azure Classic][] affiche un message d’erreur ou le code client appelant reçoit une exception, selon que la tentative de création a été effectuée par le biais du portail ou dans le code client.
 
-- **Nombre de filtres SQL par rubrique** – le nombre maximal de filtres SQL par rubrique est limité à 2 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
+- **Nombre de filtres SQL par rubrique** : le nombre maximal de filtres SQL par rubrique est limité à 2 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
 
-- **Nombre de filtres de corrélation par rubrique** – le nombre maximal de filtres de corrélation par rubrique est limité à 100 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
+- **Nombre de filtres de corrélation par rubrique** : le nombre maximal de filtres de corrélation par rubrique est limité à 100 000. Si ce quota est atteint, les requêtes de création de filtres supplémentaires sur la rubrique suivantes sont rejetées et une exception est reçue par le code appelant.
 
 Pour plus d’informations sur les quotas, consultez [Quotas Service Bus](service-bus-quotas.md).
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
+Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
 - [Présentation de la messagerie Azure Service Bus Premium (billet de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Présentation de la messagerie Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Présentation de l’architecture d’Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+[portail Azure Classic]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prise en main du masquage de données dynamiques de base de données SQL (portail Azure)"
-   description="Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure"
+   pageTitle="Prise en main du masquage des données dynamiques de base de données SQL (portail Azure Classic)"
+   description="Comment prendre en main le masquage de données dynamiques de base de données SQL dans le portail Azure Classic"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# Prise en main du masquage de données dynamiques de base de données SQL (portail Azure)
+# Prise en main du masquage des données dynamiques de base de données SQL (portail Azure Classic)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Preview portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## Vue d'ensemble
 
@@ -27,14 +27,14 @@ Le masquage des données dynamiques de base de données SQL limite l’expositio
 
 Le masquage des données dynamiques empêche tout accès non autorisé aux données sensibles en permettant aux clients d’indiquer la quantité de données sensibles à faire apparaître, avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
 
-Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur numéro de sécurité sociale ou de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au représentant du centre d’appel. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de sécurité sociale ou de carte de crédit dans l’ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les informations d’identification personnelle (PII), de telle sorte qu’un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l’encontre des réglementations de conformité.
+Par exemple, un représentant du centre d'appel peut identifier les appelants par plusieurs chiffres de leur numéro de sécurité sociale ou de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au représentant du centre d'appel. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de sécurité sociale ou de carte de crédit dans l'ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les informations d'identification personnelle (PII), de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
 
 ## Principes fondamentaux du masquage de données dynamiques de base de données SQL
 
-Vous définissez une stratégie de masquage des données dynamiques dans le portail Azure pour votre base de données, dans l’onglet Audit et sécurité.
+Vous définissez une stratégie de masquage des données dynamiques dans le portail Azure Classic pour votre base de données, dans l’onglet Audit et sécurité.
 
 
-> [AZURE.NOTE]Pour configurer le masquage des données dynamiques dans le portail Azure en version préliminaire, consultez [Prise en main du masquage des données dynamiques de base de données SQL (portail Azure en version préliminaire)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE]Pour configurer le masquage des données dynamiques dans le portail Azure, consultez [Prise en main du masquage des données dynamiques de base de données SQL (portail Azure)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Autorisations du masquage des données dynamiques
@@ -45,7 +45,7 @@ Le masquage des données dynamiques peut être configuré par l’administrateur
 
 * **Utilisateurs SQL exclus du masquage** : ensemble d'utilisateurs SQL ou d’identités AAD qui obtiendront des données non masquées dans les résultats de requête SQL. Les utilisateurs possédant des privilèges administrateur sont toujours exclus du masquage et verront les données d'origine sans masque.
 
-* **Règles de masquage** : ensemble de règles qui définissent les champs désignés à masquer et la fonction de masquage à utiliser. Les champs désignés peuvent être définis à l’aide d’un nom de schéma de base de données, d’un nom de table et d’un nom de colonne.
+* **Règles de masquage** : ensemble de règles qui définissent les champs désignés à masquer et la fonction de masquage à utiliser. Les champs désignés peuvent être définis à l'aide d'un nom de schéma de base de données, d'un nom de table et d'un nom de colonne.
 
 * **Fonctions de masquage** : ensemble de méthodes qui contrôlent l’exposition des données dans différents scénarios.
 
@@ -61,15 +61,15 @@ Le masquage des données dynamiques peut être configuré par l’administrateur
 
 <a name="Anchor1"></a>
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
+## Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure Classic
 
-1. Accédez à l’adresse [https://manage.windowsazure.com](https://manage.windowsazure.com) et exécutez le portail Azure.
+1. Lancez le portail Azure Classic à l’adresse [https://manage.windowsazure.com/](https://manage.windowsazure.com).
 
 2. Cliquez sur la base de données à masquer, puis sur l’onglet **AUDIT ET SÉCURITÉ**.
 
 3. Dans **masquage des données dynamiques**, cliquez sur **ACTIVÉ** pour activer la fonctionnalité de masquage des données dynamiques.
 
-4. Tapez les utilisateurs SQL ou les identités AAD à exclure du masquage et qui doivent avoir accès aux données sensibles non masquées. La liste d’utilisateurs doit être délimitée par des points-virgules. Les utilisateurs disposant de privilèges administrateur ont toujours accès aux données d'origine non masquées.
+4. Tapez les utilisateurs SQL ou les identités AAD à exclure du masquage et qui doivent avoir accès aux données sensibles non masquées. La liste d'utilisateurs doit être délimitée par des points-virgules. Les utilisateurs disposant de privilèges administrateur ont toujours accès aux données d'origine non masquées.
 
 	>[AZURE.TIP]Pour que la couche d’application puisse afficher des données sensibles aux utilisateurs d’application privilégiés, ajoutez l’utilisateur SQL ou l’identité AAD qu’utilise l’application pour interroger la base de données. Il est vivement recommandé de limiter le nombre d’utilisateurs privilégiés dans cette liste afin de limiter l’exposition des données sensibles.
 
@@ -96,4 +96,4 @@ Voir [Cmdlets de la base de données SQL Azure](https://msdn.microsoft.com/libra
 
 Voir [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

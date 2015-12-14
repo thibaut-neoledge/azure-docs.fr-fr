@@ -28,7 +28,7 @@ Pour enrichir votre expérience Azure Active Directory, vous pouvez ajouter des 
 Les abonnements Office 365 incluent les fonctionnalités Azure Active Directory supplémentaires décrites dans le tableau comparatif ci-dessous.
 
 
-> [AZURE.NOTE]Pour les options de tarification de ces éditions, consultez la [tarification d’Azure Active Directory](https://azure.microsoft.com/fr-FR/pricing/details/active-directory/). <br>Les éditions Azure Active Directory Premium et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations, contactez-nous via le Forum Azure Active Directory.
+> [AZURE.NOTE]Pour les options de tarification de ces éditions, consultez la [tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Les éditions Azure Active Directory Premium et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations, contactez-nous via le Forum Azure Active Directory.
 
 
 - **Azure Active Directory - version de base** : Conçue pour les employés avec des besoins principalement centrés sur le cloud, cette édition offre un accès aux applications avec des besoins principalement centrés sur le cloud ainsi que des solutions de gestion des identités en libre-service. Avec l’édition de base d’Azure Active Directory, vous disposez de fonctionnalités qui améliorent votre productivité et réduisent vos coûts comme la gestion d’accès basée sur les groupes, la réinitialisation libre-service du mot de passe pour les applications cloud et un proxy d’application Azure Active Directory (pour publier des applications web locales à l’aide d’Azure Active Directory). Le tout, avec un contrat SLA pour professionnel qui fournit 99,9 % de disponibilité.
@@ -65,7 +65,7 @@ Pour vous connecter et commencer à utiliser Active Directory Premium dès aujou
 | | [Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud](active-directory-passwords.md)| Incluse dans les abonnements Office 365 [4]| ![Vérification][12]| ![Vérification][12]|
 | | [Proxy d’application : sécurisez l’accès à distance et l’authentification unique des applications web locales](active-directory-application-proxy-get-started.md)| | ![Vérification][12]| ![Vérification][12]|
 | | [Gestion et configuration de l’accès à une application en fonction d’un groupe](active-directory-accessmanagement-group-saasapps.md)| | ![Vérification][12]| ![Vérification][12]|
-| | [Temps d’activité du contrat SLA à haute disponibilité (99,9 %)](https://azure.microsoft.com/fr-FR/support/legal/sla/)| Contrat SLA Microsoft Online Services [5]| ![Vérification][12]| ![Vérification][12]|
+| | [Temps d’activité du contrat SLA à haute disponibilité (99,9 %)](https://azure.microsoft.com/support/legal/sla/)| Contrat SLA Microsoft Online Services [5]| ![Vérification][12]| ![Vérification][12]|
 | **Fonctionnalités Premium uniquement**| [Rapport avancé sur l’utilisation des applications](active-directory-view-access-usage-reports.md)| | | ![Vérification][12]|
 | | [Gestion de groupes en libre-service pour les utilisateurs du cloud] (Gestion de groupes en libre-service pour les utilisateurs dans Azure AD)| | | ![Vérification][12]|
 | | [Réinitialisation libre-service du mot de passe en écriture différée locale](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Vérification][12]|
@@ -102,4 +102,4 @@ Pour vous connecter et commencer à utiliser Active Directory Premium dès aujou
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

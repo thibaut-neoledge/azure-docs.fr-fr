@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="11/26/2015" 
 	ms.author="bradsev" />
 
 
@@ -51,39 +51,39 @@ Avant de pouvoir créer une machine virtuelle de science des données Microsoft,
 
 Voici les étapes de création d’une instance de la machine virtuelle de sciences des données :
 
-1.	Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Accédez à la liste des machines virtuelles présentes sur le [portail Azure Classic](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Cliquez sur le bouton **Créer** au bas de l’écran pour accéder à un assistant.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les **entrées** de chacune des **5 étapes** (énumérées à droite de la figure ci-dessus) de l’Assistant utilisé pour créer la machine virtuelle de sciences de données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
   **a. Paramètres de base** :
 
-    - **Name**: Name of your data science server you are creating.
-    - **User Name**: Admin account login id
-    - **Password**: Admin account password
-    - **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed
-    - **Resource Group**: You can create a new one or use an existing group
-    - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
+   - **Name** (Nom) : nom du serveur Data Science que vous créez.
+   - **User Name** (Nom d’utilisateur) : identifiant de connexion du compte administrateur.
+   - **Password** (Mot de passe) : mot de passe du compte administrateur.
+   - **Subscription** (Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
+   - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
+   - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
 
   **b. Taille** :
 
-    - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
+   - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « View All » (Afficher tout) pour obtenir d’autres choix de tailles de machines virtuelles
 
   **c. Paramètres**
 
-    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
-    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Disk Type** (Type de disque) : choisissez Premium si vous préférez un disque SSD. Sinon, choisissez « Standard ».
+   - **Storage Account** (Compte de stockage) : vous pouvez créer un nouveau compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même *emplacement* que celui que vous avez sélectionné à l’étape de définition des paramètres de base de l’Assistant.
+   - **Other parameters** (Autres paramètres) : dans la plupart des cas, vous utiliserez simplement la valeur par défaut. Si vous ne souhaitez pas utiliser les valeurs par défaut, vous pouvez survoler le lien d'informations pour obtenir de l'aide sur des champs spécifiques.
 
   **d. Résumé** :
 
-    - Verify that all information you entered is correct.
+   - Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
   **e. Acheter** :
 
-    - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+   - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n’est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l’étape **Taille**. 
 
 
-L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
+L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure Classic.
 
 ## Accès à une machine virtuelle pour la science des données
 
@@ -100,7 +100,7 @@ Si vous souhaitez utiliser R dans le cadre de vos tâches d’analyse, l’outil
 Pour un développement basé sur Python, la version 2.7 de la distribution Anaconda Python a été installée. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win** + touche **S**).
 
 ### IPython Notebook
-La distribution Anaconda est également fournie avec un interpréteur IPython, un environnement conçu pour le partage de code et d’analyses. Un serveur d'interpréteur Ipython a été préconfiguré. Il existe une icône de bureau qui permet de lancer le navigateur pour accéder au serveur de l’interpréteur. Si vous accédez à la machine virtuelle par l’intermédiaire d’un bureau distant, vous pouvez également utiliser l’URL [https://localhost:9999 /](https://localhost:9999/) pour accéder au serveur de l’interpréteur IPython (Remarque : si vous recevez des avertissements relatifs au certificat, vous pouvez simplement les ignorer).
+La distribution Anaconda est également fournie avec un interpréteur IPython, un environnement conçu pour le partage de code et d’analyses. Un serveur d'interpréteur Ipython a été préconfiguré. Il existe une icône de bureau qui permet de lancer le navigateur pour accéder au serveur de l’interpréteur. Si vous accédez à la machine virtuelle par l’intermédiaire d’un bureau distant, vous pouvez également utiliser l’URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur de l’interpréteur IPython (Remarque : si vous recevez des avertissements relatifs au certificat, vous pouvez simplement les ignorer).
 
 ### Visual Studio 2015 Community Edition
 Visual Studio Community Edition est installé sur la machine virtuelle. Vous pouvez utiliser cette version gratuite de l’IDE populaire de Microsoft à des fins d’évaluation et dans le cadre de projets en petites équipes. Vous pouvez consulter les termes du contrat de licence [ici](https://www.visualstudio.com/support/legal/mt171547). Ouvrez Visual Studio en double-cliquant sur l’icône du bureau ou par le biais du menu **Démarrer**. Vous pouvez également lancer une recherche de programmes en utilisant les touches **Win** + **S** et en entrant « Visual Studio ».
@@ -111,15 +111,15 @@ Remarque : il est possible que vous receviez un message indiquant que votre pé
 Une version limitée de SQL Server est également fournie avec Visual Studio Community Edition. Vous pouvez accéder à SQL Server en lançant **SQL Server Management Studio**. Le nom de votre machine virtuelle sera celui du serveur. Utilisez l’authentification Windows une fois connecté à Windows en tant qu’administrateur. Dans SQL Server Management Studio, vous pouvez créer d’autres utilisateurs, créer des bases de données, importer des données et exécuter des requêtes SQL.
 
 ### Microsoft Azure 
-Plusieurs outils Azure sont installés sur la machine virtuelle. - Il existe un raccourci sur le bureau pour accéder à la documentation du SDK Azure. - **AzCopy** permet de déplacer des données vers et depuis votre compte de stockage Microsoft Azure. - **Azure Storage Explorer** est utilisé pour parcourir les objets que vous avez stockés dans votre compte de stockage Azure. - **Microsoft Azure Powershell** est un langage de script qui permet d’administrer vos ressources Azure dans un langage de script dans votre machine virtuelle .
+Plusieurs outils Azure sont installés sur la machine virtuelle. - Il existe un raccourci sur le bureau pour accéder à la documentation du SDK Azure. - **AzCopy** permet de déplacer des données vers et depuis votre compte de stockage Microsoft Azure. - **Azure Storage Explorer** est utilisé pour parcourir les objets que vous avez stockés dans votre compte de stockage Azure. - **Microsoft Azure Powershell** est un langage de script qui permet d’administrer vos ressources Azure dans un langage de script dans votre machine virtuelle.
 
 ###Power BI
 
-**Power BI Desktop** a été installé pour vous aider à créer des tableaux de bord et des visualisations de haute qualité. Utilisez cet outil pour extraire des données de différentes sources, créer vos tableaux de bord et vos rapports, puis les publier sur le cloud. Pour plus d’informations, consultez le site de [Power BI](http://powerbi.microsoft.com).
+**Power BI Desktop** a été installé pour vous aider à créer des tableaux de bord et des visualisations de haute qualité. Utilisez cet outil pour extraire des données de différentes sources, créer vos tableaux de bord et vos rapports, puis les publier sur le cloud. Pour plus d’informations, consultez le site de [Power BI](http://powerbi.microsoft.com).
 
 Remarque : vous devez disposer d’un compte Office 365 pour accéder à Power BI.
 
 ## Autres outils de développement Microsoft
 Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) vous permet de détecter et de télécharger d’autres outils de développement Microsoft. Il existe également un raccourci vers l’outil fourni sur le bureau de la machine virtuelle pour la science des données.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

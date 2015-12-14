@@ -81,7 +81,7 @@ Voici quelques exemples des types de scénarios que vous pouvez automatiser avec
 
 ## Quels sont les liens entre Azure Automation et d'autres outils d'automatisation ?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) vise à automatiser les tâches de gestion dans le cloud privé. Il est installé localement dans votre centre de données en tant que composant de [Windows Azure Pack](https://www.microsoft.com/fr-FR/server-cloud/). SMA et Azure Automation utilisent le même format de Runbook basé sur Windows PowerShell et sur le workflow Windows PowerShell, mais SMA ne prend pas en charge les [Runbooks graphiques](automation-graphical-authoring-intro.md).
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) vise à automatiser les tâches de gestion dans le cloud privé. Il est installé localement dans votre centre de données en tant que composant de [Microsoft Azure Pack](https://www.microsoft.com/fr-FR/server-cloud/). SMA et Azure Automation utilisent le même format de Runbook basé sur Windows PowerShell et sur le workflow Windows PowerShell, mais SMA ne prend pas en charge les [Runbooks graphiques](automation-graphical-authoring-intro.md).
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) est conçu pour l’automatisation de ressources locales. Il utilise un autre format de Runbooks qu'Azure Automation et Service Management Automation, et dispose d'une interface graphique permettant de créer des Runbooks sans aucun script. Ses Runbooks sont constitués d'activités provenant de packs d'intégration spécifiquement écrits pour Orchestrator.
 
@@ -92,7 +92,7 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 * Vous vous trouvez actuellement dans la **bibliothèque Azure Automation**. Les articles de cette bibliothèque fournissent une documentation complète sur la configuration et l'administration d'Azure Automation et pour la création de vos propres Runbooks. 
 * Les [applets de commande Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fournissent des informations sur les opérations d’automatisation Azure à l’aide de Windows PowerShell. Les Runbooks recourent à ces applets de commande pour utiliser les ressources Azure. 
-* Le [blog de gestion](https://azure.microsoft.com/fr-FR/blog/tag/azure-automation/) fournit les informations les plus récentes sur Azure Automation et d’autres technologies de gestion de Microsoft. Vous devriez vous abonner à ce blog pour rester à jour avec la dernière version de l'équipe Azure Automation. 
+* Le [blog de gestion](https://azure.microsoft.com/blog/tag/azure-automation/) fournit les informations les plus récentes sur Azure Automation et d’autres technologies de gestion de Microsoft. Vous devriez vous abonner à ce blog pour rester à jour avec la dernière version de l'équipe Azure Automation. 
 * Le [forum Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) vous permet de publier des questions sur Azure Automation à destination de Microsoft et de la communauté Automation. 
 * Les [applets de commande Azure Automation](https://msdn.microsoft.com/library/mt244122.aspx) fournissent des informations pour l’automatisation des tâches d’administration. Il contient des applets de commande pour gérer les comptes Automation, les ressources, les Runbooks et DSC.
 
@@ -101,4 +101,4 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 **Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

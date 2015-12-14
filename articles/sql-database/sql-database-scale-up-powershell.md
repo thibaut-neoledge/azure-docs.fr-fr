@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 **Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
@@ -134,4 +134,4 @@ Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- R
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Applets de commande de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

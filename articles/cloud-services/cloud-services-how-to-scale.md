@@ -22,7 +22,7 @@
 
 # Mise à l’échelle automatique d’une application
 
-Sur la page Scale du portail de gestion Azure, vous pouvez mettre à l'échelle manuellement votre application ou définir des paramètres afin que la mise à l'échelle soit automatique. Vous pouvez mettre à l'échelle des applications qui exécutent des rôles Web, des rôles de travail ou des machines virtuelles. Pour mettre à l'échelle une application qui exécute des instances de rôles Web ou de rôles de travail, vous ajoutez ou supprimez des instances de rôle pour absorber la charge de travail.
+Sur la page Scale du portail Azure Classic, vous pouvez mettre à l'échelle manuellement votre application ou définir des paramètres afin que la mise à l'échelle soit automatique. Vous pouvez mettre à l'échelle des applications qui exécutent des rôles Web, des rôles de travail ou des machines virtuelles. Pour mettre à l'échelle une application qui exécute des instances de rôles Web ou de rôles de travail, vous ajoutez ou supprimez des instances de rôle pour absorber la charge de travail.
 
 Lorsque vous augmentez ou diminuez l'échelle d'une application qui exécute des machines virtuelles, les nouvelles machines ne sont pas créées ni supprimées, mais sont activées ou désactivées à partir d'un groupe à haute disponibilité de machines précédemment créées. Vous pouvez spécifier la mise à l'échelle en fonction du pourcentage moyen d'utilisation de l'unité centrale ou du nombre de messages dans une file d'attente.
 
@@ -43,7 +43,7 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 
 Sur la page Scale, vous pouvez augmenter ou diminuer manuellement le nombre des instances s'exécutant dans un service cloud.
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Scale**. La mise à l'échelle automatique est désactivée par défaut pour tous les rôles, ce qui signifie que vous pouvez modifier manuellement le nombre d'instances utilisées par votre application.
 
@@ -74,7 +74,7 @@ Sur la page Scale, vous pouvez configurer votre service cloud pour augmenter ou 
 
 ## Utilisation moyenne de l'UC
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Scale**.
 
@@ -126,7 +126,7 @@ Sur la page Scale, vous pouvez configurer votre service cloud pour augmenter ou 
 
 ## Messages de file d'attente
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 2. Cliquez sur **Scale**.
 3. Faites défiler jusqu'à la section du rôle ou du groupe à haute disponibilité, puis cliquez sur **File d'attente**. Cela permet d'activer la mise à l'échelle automatique de votre application en fonction du nombre cible de messages de file d'attente.
 
@@ -176,7 +176,7 @@ Sur la page Scale, vous pouvez configurer votre service cloud pour augmenter ou 
 
 Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre également à l'échelle la base de données qui est utilisée par l'application. Si vous liez la base de données au service cloud, vous modifiez l'édition de la base de données SQL et redimensionnez la base de données sur la page Scale.
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 2. Cliquez sur **Scale**.
 3. Dans la section Linked Resources, sélectionnez l'édition à utiliser pour la base de données.
 
@@ -195,7 +195,7 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 
 **Remarque :** actuellement, les planifications ne sont pas disponibles pour les applications qui utilisent des machines virtuelles.
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 2. Cliquez sur **Scale**.
 3. Sur la page Scale, cliquez sur **set up schedule times**.
 
@@ -227,4 +227,4 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

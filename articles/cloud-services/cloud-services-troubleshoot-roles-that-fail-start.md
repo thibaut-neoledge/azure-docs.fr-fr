@@ -73,7 +73,7 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 
 2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez « Configurer les connexions Bureau à distance... ». Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. Dans le portail de gestion Azure Microsoft, une fois que l’instance affiche l’état **prêt**, cliquez sur l’une des instances de rôle.
+3. Dans le portail Azure Microsoft Classic, une fois que l’instance affiche l’état **prêt**, cliquez sur l’une des instances de rôle.
 
 4. Cliquez sur l’icône **Connexion** située dans la zone **Accès à distance** du ruban
 
@@ -165,4 +165,4 @@ Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez 
 
 Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-issue&service=cloud-services) liés aux services cloud.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

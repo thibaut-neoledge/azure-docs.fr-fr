@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilisation du tableau de bord du service StorSimple Manager
@@ -45,7 +45,7 @@ Vous pouvez utiliser la page du tableau de bord du service StorSimple Manager po
 
 ## Affichage ou régénération de la clé d’inscription
 
-La clé d’inscription auprès du service permet d’enregistrer des périphériques Microsoft Azure StorSimple à l’aide du service StorSimple Manager, de manière à ce que le périphérique apparaisse sur le portail Microsoft Azure Management pour des actions de gestion futures. La clé est créée sur le premier périphérique et partagée avec vos autres périphériques.
+La clé d’inscription auprès du service permet d’enregistrer des périphériques Microsoft Azure StorSimple à l’aide du service StorSimple Manager, de manière à ce que le périphérique apparaisse sur le portail Azure Classic pour des actions de gestion futures. La clé est créée sur le premier périphérique et partagée avec vos autres périphériques.
 
 Le fait de cliquer sur la **clé d’enregistrement** (au bas de la page) ouvre la boîte de dialogue **Clé d’enregistrement auprès du service**, à partir de laquelle vous pouvez soit copier la clé d’enregistrement dans le presse-papier, soit la régénérer.
 
@@ -59,7 +59,7 @@ Les clés de chiffrement des données de service permettent de chiffrer les donn
 
 La modification de la clé de chiffrement est un processus en 3 étapes :
 
-1. Autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail de gestion.
+1. Autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail Azure Classic.
 2. Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service.
 3. Si vous avez plusieurs périphériques StorSimple, mettez à jour la clé de chiffrement des données sur les autres périphériques.
 
@@ -78,4 +78,4 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 Azure Storage Analytics effectue la journalisation et fournit des données de métriques pour un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage
 
-Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l'activer à partir du [portail Azure](https://manage.windowsazure.com/). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
+Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](portal.azure.com). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
 
 Les données agrégées sont stockées dans un objet blob connu (pour la journalisation) et dans des tables connues (pour les métriques), qui sont accessibles via les API du service BLOB et du service de Table.
 
@@ -62,7 +62,7 @@ Les types de demandes anonymes suivants sont enregistrés :
 
 - Demandes GET ayant échoué avec le code d'erreur 304 (non modifié).
 
-Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
+Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et Format de journal de Storage Analytics](](https://msdn.microsoft.com/library/hh343259.aspx)).
 
 ### Mode de stockage des journaux
 Tous les journaux sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage. Le conteneur $logs se trouve dans l'espace de noms d'objets blob du compte de stockage, par exemple : `http://<accountname>.blob.core.windows.net/$logs`. Ce conteneur ne peut pas être supprimé une fois Storage Analytics activé, mais son contenu peut l'être.
@@ -126,7 +126,7 @@ Toutes les données du conteneur `$logs` sont accessibles à l'aide des API de s
 
 Storage Analytics peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage. Les transactions sont indiquées au niveau de l'opération d'API ainsi qu'au niveau du service de stockage, et la capacité est indiquée au niveau du service de stockage. Les données de métriques peuvent être utilisées pour analyser l'utilisation du service de stockage, diagnostiquer les problèmes au niveau des demandes effectuées auprès du service de stockage et améliorer les performances des applications qui utilisent un service.
 
-Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l'activer à partir du [portail Azure](https://manage.windowsazure.com/). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](../how-to-monitor-a-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. [Utilisez les opérations Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
+Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](portal.azure.com). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](../how-to-monitor-a-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. [Utilisez les opérations Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
 
 ### Métriques de transaction
 
@@ -206,4 +206,4 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

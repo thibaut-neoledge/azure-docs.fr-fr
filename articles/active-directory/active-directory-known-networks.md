@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Réseaux connus" 
+	pageTitle="Réseaux connus | Microsoft Azure" 
 	description="En configurant les réseaux connus, vous pouvez éviter que des adresses IP appartenant à votre organisation ne soient incluses dans les rapports Connexions depuis plusieurs zones géographiques et Connexions à partir d’adresses IP affichant une activité suspecte." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="markvi"/>
 
 # Réseaux connus
@@ -56,4 +56,4 @@ Pour empêcher ces cas de générer des rapports de sécurité incorrects, vous 
 * [Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

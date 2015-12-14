@@ -55,13 +55,13 @@ Les bases de données de niveau standard n'ont pas la possibilité d'utiliser la
 
 ##Activation de la géo-réplication
 
-Vous pouvez activer la géo-réplication à l'aide du portail Azure ou en appelant l'API REST ou la commande PowerShell.
+Vous pouvez activer la géo-réplication à l’aide du portail Azure Classic ou en appelant l’API REST ou la commande PowerShell.
 
-###Portail Azure
+###Portail Azure Classic
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Connectez-vous au [portail Azure](https://portal.Azure.com).
+1. Connectez-vous au [Portail Azure Classic](https://portal.Azure.com).
 2. Sur le côté gauche de l'écran, sélectionnez **PARCOURIR**, puis sélectionnez **Bases de données SQL**
 3. Accédez à votre panneau de base de données, sélectionnez la **carte de géo-réplication** et cliquez sur **Configurer la géo-réplication**.
 4. Accédez au panneau de géo-réplication. Sélectionnez la région cible. 
@@ -98,4 +98,4 @@ Cette API est asynchrone. Après son retour, utilisez l'API [Get Replication Lin
 
 Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions Cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

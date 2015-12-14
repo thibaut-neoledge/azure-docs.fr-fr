@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Utilisation de données hors connexion dans votre application Windows universelle | Microsoft Azure" 
-	description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows universelle." 
-	documentationCenter="mobile-services" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Utilisation de données hors connexion dans votre application Windows universelle | Microsoft Azure"
+	description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows universelle."
+	documentationCenter="mobile-services"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/06/2015"
 	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -26,11 +31,11 @@ Si vous préférez regarder une vidéo, le clip sur la droite suit la même proc
 
 > [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
-Dans ce didacticiel, vous mettez à jour le projet d'application universelle développé dans le didacticiel [Prise en main de Mobile Services] pour prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
+Dans ce didacticiel, vous mettez à jour le projet d'application universelle développé dans le didacticiel [Prise en main de Mobile Services] pour prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au [portail Azure Classic] pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
 >[AZURE.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services].
 
-##Composants requis 
+##Composants requis
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -39,7 +44,7 @@ Ce didacticiel requiert les éléments suivants :
 * [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou version ultérieure)][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][SQLite store nuget]
 * [SQLite pour Windows 8.1](http://www.sqlite.org/download.html)
-* Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
+* Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion
 
@@ -47,7 +52,7 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
 
 >[AZURE.NOTE]Vous pouvez ignorer cette section et simplement obtenir l'exemple de projet prenant déjà en charge le mode hors connexion dans le référentiel d'exemples de Github pour Mobile Services. L'exemple de projet prenant en charge le mode hors connexion se trouve ici, [Exemple de liste des tâches hors connexion].
 
-1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1. 
+1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1.
 
     * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1].
     * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1].
@@ -211,7 +216,7 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 2. Appuyez sur **F5** pour régénérer et exécuter l'application. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s'explique par le fait que l'application fonctionne toujours avec la table `IMobileServiceSyncTable` pointant vers le magasin local.
 
-3. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le backend JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile.
+3. Connectez-vous au [portail Azure Classic] et examinez la base de données de votre service mobile. Si votre service utilise le backend JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile.
 
     Si vous utilisez le backend .NET pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l'Explorateur d'objets SQL Server**.
 
@@ -232,7 +237,7 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 6. Appuyez de nouveau sur le bouton **Actualiser**, ce qui déclenche l'appel de `SyncAsync`. `SyncAsync` appelle les opérations push et pull, mais dans ce cas nous aurions pu supprimer l'appel vers `PushAsync`. La raison en est qu'une opération **Pull effectue toujours un Push d'abord**. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes.
 
     ![][10]
-  
+
 
 ##Résumé
 
@@ -276,6 +281,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
- 
+[portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

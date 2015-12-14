@@ -80,7 +80,7 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 	> [AZURE.IMPORTANT]Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l’activité/du pipeline. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
 	
 ### Créer une fabrique de données  
-4. Après vous être connecté au [portail Azure en version préliminaire](http://portal.azure.com/), procédez comme suit :
+4. Après la connexion au [portail Azure](http://portal.azure.com/), procédez comme suit :
 	1.	Cliquez sur **Nouveau**dans le menu de gauche. 
 	2.	Cliquez sur **Données + analyse** dans le panneau **Nouveau**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Données + analyse**.
@@ -92,7 +92,7 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 	4.	Cliquez sur **OK**.
 4.	Après avoir sélectionné le groupe de ressources, vérifiez que vous utilisez l’abonnement correspondant à celui dans lequel vous souhaitez créer la fabrique de données.
 5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
-6.	La fabrique de données créée s’affiche dans le **Tableau d’accueil** du portail Azure en version préliminaire. Une fois la fabrique de données créée, vous verrez la page correspondante indiquant son contenu.
+6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau d’accueil** du portail Azure. Une fois la fabrique de données créée, vous verrez la page correspondante indiquant son contenu.
 
 ### Créer un service lié Azure SQL  
 Après avoir créé la fabrique de données, vous créez un service lié Azure SQL qui relie votre base de données SQL Azure à la fabrique de données. Il s’agit de la base de données qui contient la table sampletable et la procédure stockée sp\_sample.
@@ -198,4 +198,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

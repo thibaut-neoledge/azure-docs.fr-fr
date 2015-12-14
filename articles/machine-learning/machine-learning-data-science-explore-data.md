@@ -29,4 +29,4 @@ Ce document explique comment explorer les données dans quatre environnements di
 - Les données des **tables Hive** sont explorées à l’aide de requêtes Hive.
 - Les données **Azure Machine Learning (AML) Studio** sont explorées à l'aide de modules AML.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

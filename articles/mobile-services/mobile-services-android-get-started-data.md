@@ -18,12 +18,14 @@
 
 # Ajouter Mobile Services à une application Android existante (backend JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## Résumé
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Cette rubrique montre comment utiliser Azure Mobile Services pour ajouter des données persistantes à une application Android. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer l'application au service mobile pour qu'elle stocke et mette à jour les données dans Azure Mobile Services plutôt que localement, puis utiliser le portail de gestion Azure pour afficher les modifications qui ont été apportées aux données en exécutant l'application.</p>
+<p>Cette rubrique montre comment utiliser Azure Mobile Services pour ajouter des données persistantes à une application Android. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer l'application au service mobile pour qu'elle stocke et mette à jour les données dans Azure Mobile Services plutôt que localement, puis utiliser le portail Azure Classic pour afficher les modifications qui ont été apportées aux données en exécutant l'application.</p>
 
 </div>
 
@@ -59,7 +61,7 @@ Pour afficher le code source terminé, vous pouvez y accéder <a href="https://g
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## Création d'un service mobile dans le portail de gestion
+## Création d'un service mobile dans le portail Azure Classic
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@ L'application a été mise à jour pour utiliser Mobile Services pour le stockag
 
    	Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-3. Dans le [portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile.
+3. Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile.
 
 4. Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
@@ -143,10 +145,9 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-android
 [Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[portail de gestion]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Azure Mobile Services Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

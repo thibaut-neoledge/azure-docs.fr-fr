@@ -43,7 +43,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **[Outils Data Lake pour Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **Un compte Analytique Data Lake**. Consultez [Créer un compte Analytique Data Lake Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	Les outils Data Lake ne prennent pas en charge la création de comptes Analytique Data Lake. Par conséquent, vous devez le créer avec le portail Azure en version préliminaire, Azure PowerShell, le kit de développement logiciel (SDK) .NET ou CLI Azure.
+	Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou Azure CLI.
 
 ##Création d’une application de console
 
@@ -252,7 +252,7 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 - Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md).
 - Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
-- Pour les tâches de gestion, consultez la section [Gérer le service d’analyse Azure Data Lake à l’aide du portail Azure en version préliminaire](data-lake-analytics-manage-use-portal.md).
+- Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

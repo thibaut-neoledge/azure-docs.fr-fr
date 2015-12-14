@@ -23,9 +23,9 @@ Azure Media Services prend en charge de nombreux formats de diffusion en continu
 
 >[AZURE.NOTE]Pour lire du contenu empaqueté ou chiffré dynamiquement, veillez à obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de remettre votre contenu. Pour plus d’informations sur la mise à l’échelle des unités de diffusion en continu, voir : [Mise à l’échelle des unités de diffusion en continu](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Lecteur de contenu Media Services sur le portail de gestion Azure
+###Lecteur de contenu Media Services sur le portail Azure Classic
 
-Le **portail de gestion Azure** propose un lecteur de contenu que vous pouvez utiliser pour tester vos vidéos.
+Le **portail Azure Classic** propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
 
 Cliquez sur la vidéo de votre choix (assurez-vous qu’elle a été [publiée](media-services-manage-content.md#publish)), puis sur le bouton **Lire** situé en bas du portail.
  
@@ -93,4 +93,4 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

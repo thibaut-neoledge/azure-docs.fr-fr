@@ -231,10 +231,10 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 
   [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
   [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/fr-FR/library/azure/hh694271.aspx
-  [Azure portal]: http://manage.windowsazure.com/
+  [Azure classic portal]: http://manage.windowsazure.com/
   [Files d’attente, rubriques et abonnements Service Bus]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

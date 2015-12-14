@@ -12,10 +12,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer 
+
+[AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## Vue d'ensemble
 
@@ -34,11 +36,9 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 	- **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d'informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, consultez la page [Format de journal de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx).
 
-- **Le portail de gestion Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le portail. Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes dans le portail pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
+- **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
 	
-	Ce didacticiel montre comment surveiller votre compte de stockage à l'aide du [portail de gestion Azure](https://manage.windowsazure.com/). Pour plus d'informations sur la configuration de la surveillance dans le portail, consultez la page [Surveillance d'un compte de stockage dans le portail de gestion Azure](storage-monitor-storage-account.md).
-
-	Vous pouvez également utiliser le [portail Azure Preview](https://portal.azure.com/) pour accéder à la dernière expérience, mais notez qu'il s'agit encore d'une version préliminaire.
+	Pour plus d’informations sur la configuration de la surveillance dans le portail, consultez la page [Surveillance d’un compte de stockage](storage-monitor-storage-account.md) dans le portail Azure.
 
 - **AzCopy**. Les journaux de serveur pour Azure Storage sont stockés sous forme d'objets blob ; vous pouvez donc utiliser AzCopy pour copier les objets blob de journal dans un répertoire local pour l'analyse à l'aide de Microsoft Message Analyzer. Pour plus d'informations sur AzCopy, consultez la page [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
@@ -46,7 +46,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 ## À propos de l'exemple de scénario
 
-Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite (indiquée en tant que **PercentSuccess** dans le portail Azure et dans les tables de mesures) assure le suivi des opérations qui réussissent, mais qui retournent un code d'état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite (indiquée en tant que **PercentSuccess** dans le [portail Azure](portal.azure.com) et dans les tables de mesures) assure le suivi des opérations qui réussissent, mais qui retournent un code d’état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Les opérations d'Azure Storage peuvent renvoyer les codes d'état HTTP supérieurs à 299 dans le cadre de leur fonctionnement normal. Mais dans certains cas, ces erreurs indiquent que vous pouvez peut-être optimiser votre application cliente pour améliorer les performances.
 
@@ -88,15 +88,15 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 
 ### Configuration de la journalisation et des métriques côté serveur
 
-Tout d'abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d'avoir des données de l'application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le portail de gestion Azure, à l'aide de PowerShell ou par programme. Pour plus d'informations sur la configuration de la journalisation et des métriques, consultez les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
+Tout d'abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d'avoir des données de l'application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](portal.azure.com), à l’aide de PowerShell ou par programme. Pour plus d'informations sur la configuration de la journalisation et des métriques, consultez les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
 
-**Via le portail de gestion**
+**Via le portail Azure**
 
-Pour configurer la journalisation et les métriques pour votre compte de stockage à l'aide du portail, suivez les instructions de la page [Surveillance d'un compte de stockage dans le portail de gestion Azure](storage-monitor-storage-account.md).
+Pour configurer la journalisation et les métriques pour votre compte de stockage à l’aide du [portail Azure](storage-monitor-storage-account.md), suivez les instructions de la page [Surveillance d’un compte de stockage](portal.azure.com).
 
-> [AZURE.NOTE]Il n'est pas possible de définir des métriques par minute à l'aide du portail de gestion Azure. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l'aide de PowerShell comme indiqué ci-dessous, par programme ou via le portail Azure en version préliminaire.
+> [AZURE.NOTE]Il n’est pas possible de définir des métriques par minute à l’aide du portail Azure. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l’aide de PowerShell comme indiqué ci-dessous, par programme à l’aide de la bibliothèque cliente de stockage.
 >
-> Notez que le portail de gestion Azure ne peut pas afficher les métriques par minute, mais seulement les métriques par heure.
+> Notez que le portail Azure ne peut pas afficher les métriques par minute, mais seulement les métriques par heure.
 
 **Via PowerShell**
 
@@ -168,23 +168,15 @@ Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Mess
 
 Pour plus de détails, consultez la page [Utilisation des fonctionnalités de suivi réseau](http://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
-## Revue des données des métriques dans le portail
+## Revue des données des métriques dans le portail Azure
 
-Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le portail pour observer la façon dont votre service a fonctionné. Tout d'abord, nous allons ajouter la métrique **Pourcentage de réussite** à la page de surveillance :
+Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le [portail Azure](portal.azure.com) pour observer la façon dont votre service a fonctionné. Tout d’abord, accédez à votre compte de stockage dans le portail Azure et ajoutez un graphique pour la mesure **Pourcentage de réussite**.
 
-1. Accédez au tableau de bord de votre compte de stockage dans le portail de gestion, puis sélectionnez Surveiller pour afficher la page de surveillance.
-2. Cliquez sur **Ajouter des métriques** pour afficher la boîte de dialogue **Choisir des métriques**.
-3. Faites défiler la page vers le bas jusqu'au groupe **Pourcentage de réussite**, développez-le, puis sélectionnez **Agrégation**, comme illustré ci-après. Cette métrique rassemble les données de pourcentage de réussite de toutes les opérations sur des objets blob.
-
-![Sélection des métriques](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
-
-Dans le portail, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées (le graphique peut en afficher six à la fois). Dans l'illustration ci-dessous, vous pouvez voir que le taux de pourcentage de réussite est légèrement inférieur à 100 %, ce qui correspond au scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer :
-
-![Graphique des métriques dans le portail](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
+Dans le portail Azure, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées. Dans le scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer, le taux de pourcentage de réussite est légèrement inférieur à 100 %.
 
 Pour plus d'informations sur l'ajout de métriques à la page de surveillance, consultez la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#addmonitoringmetrics).
 
-> [AZURE.NOTE]Les données de vos métriques peuvent mettre un certain temps pour apparaître dans le portail une fois que vous avez activé Storage Metrics. C'est parce que les métriques horaires correspondant à l'heure précédente ne sont pas affichées dans le portail tant que l'heure courante n'est pas écoulée. En outre, les métriques par minute ne sont pas actuellement affichées dans le portail. Donc, selon le moment où vous activez des métriques, l'affichage des données correspondantes peut prendre jusqu'à deux heures.
+> [AZURE.NOTE]Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l'affichage des données correspondantes peut prendre jusqu'à deux heures.
 
 ## Utiliser AzCopy pour copier les journaux de serveur dans un répertoire local
 
@@ -349,18 +341,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
 | HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Augmentation de la valeur PercentTimeoutError (tous) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes
@@ -375,4 +356,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

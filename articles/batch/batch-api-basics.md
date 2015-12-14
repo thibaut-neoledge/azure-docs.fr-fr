@@ -66,7 +66,7 @@ Lorsque vous utilisez le service Azure Batch, vous profiterez des ressources sui
 
 ### <a name="account"></a>Compte
 
-Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s’effectue via un compte Batch. Lorsque vous effectuez des opérations avec le service Batch, vous avez besoin du nom et de la clé du compte. Pour créer un compte de traitement par lots, consultez [Créer et gérer un compte Azure Batch dans la version préliminaire du portail Azure](batch-account-create-portal.md).
+Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s’effectue via un compte Batch. Lorsque vous effectuez des opérations avec le service Batch, vous avez besoin du nom et de la clé du compte. Pour créer un compte Batch, consultez [Créer et gérer un compte Azure Batch dans le portail Azure](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Nœud de calcul
 
@@ -354,4 +354,4 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

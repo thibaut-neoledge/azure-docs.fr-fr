@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment mettre à l'échelle le traitement multimédia à l'aide du portail Azure"
+	pageTitle="Comment mettre à l’échelle le traitement multimédia à l’aide du portail Azure Classic"
 	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Comment mettre à l'échelle le traitement multimédia à l'aide du portail Azure
+# Comment mettre à l’échelle le traitement multimédia à l’aide du portail Azure Classic
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@ En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’
 
 Pour modifier le type d’unité réservée et le nombre d’unités réservées d’encodage, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page **ENCODAGE**.
 
@@ -69,4 +69,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

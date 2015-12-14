@@ -22,11 +22,11 @@
 **Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-copy.md)
+- [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-Les étapes suivantes vous montrent comment copier une base de données SQL avec le [portail Azure en version préliminaire](https://portal.azure.com). L'opération de copie de base de données crée une nouvelle base de données SQL. La copie est une sauvegarde instantanée de votre base de données que vous créez sur le même serveur ou sur un autre serveur.
+Les étapes suivantes vous montrent comment copier une base de données SQL avec le [portail Azure](https://portal.azure.com). L'opération de copie de base de données crée une nouvelle base de données SQL. La copie est une sauvegarde instantanée de votre base de données que vous créez sur le même serveur ou sur un autre serveur.
 
 > [AZURE.NOTE]La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -47,7 +47,7 @@ Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 
 Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
-1.	Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+1.	Accédez au [portail Azure](https://portal.azure.com).
 2.	Accédez à la base de données que vous souhaitez copier : Parcourir > Bases de données SQL
 3.	Dans le panneau de la base de données SQL, cliquez sur **Copier** pour ouvrir le panneau **Copier** :
 
@@ -101,4 +101,4 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

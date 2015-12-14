@@ -128,4 +128,4 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

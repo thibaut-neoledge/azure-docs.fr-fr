@@ -80,7 +80,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 ## Niveau de base
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
 |---|---|---|---|---|---|---|
 |0A0\\Basic\_A0|1|768 Mo|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 300|
 |A1\\Basic\_A1|1|1,75 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 40 Go</p>|2|2 x 300|
@@ -90,7 +90,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 ## Niveau standard : série A
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
 |A0\\très petite|1|768 Mo|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 500|
 |A1\\petite|1|1,75 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 70 Go</p>|2|2 x 500|
@@ -107,7 +107,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 ## Niveau standard : série D
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\\identique|1|3,5 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 50 Go</p>|2|2 x 500|
 |Standard\_D2\\identique|2|7 Go|2|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 100 Go</p>|4|4 x 500|
@@ -116,25 +116,25 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_D11\\identique|2|14 Go|2|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 100 Go</p>|4|4 x 500|
 |Standard\_D12\\identique|4|28 Go|4|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 200 Go</p>|8|8 x 500|
 |Standard\_D13\\identique|8|56 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 400 Go</p>|16|16 x 500|
-|Standard\_D14\\identique|16|112 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
+|Standard\_D14\\identique|16|112 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
 
 ## Niveau standard : série Dv2
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\_v2\\same|1|3,5 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 50 Go</p>|2|2 x 500|
 |Standard\_D2\_v2\\same|2|7 Go|2|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 100 Go</p>|4|4 x 500|
 |Standard\_D3\_v2\\same|4|14 Go|4|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 200 Go</p>|8|8 x 500|
 |Standard\_D4\_v2\\same|8|28 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 400 Go</p>|16|16 x 500|
-|Standard\_D5\_v2\\same|16|56 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
+|Standard\_D5\_v2\\same|16|56 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
 |Standard\_D11\_v2\\same|2|14 Go|2|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 100 Go</p>|4|4 x 500|
 |Standard\_D12\_v2\\same|4|28 Go|4|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 200 Go</p>|8|8 x 500|
 |Standard\_D13\_v2\\same|8|56 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 400 Go</p>|16|16 x 500|
-|Standard\_D14\_v2\\same|16|112 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
+|Standard\_D14\_v2\\same|16|112 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
 
 ## Niveau standard : série DS*
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
 |---|---|---|---|---|---|---|---|
 |Standard\_DS1\\identique|1|3,5|1|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 7 Go</p>|2|43|<p>3 200</p><p>32 Mo par seconde</p>|
 |Standard\_DS2\\identique|2|7|2|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 14 Go</p>|4|86|<p>6 400</p><p>64 Mo par seconde</p>|
@@ -143,29 +143,29 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_DS11\\identique|2|14|2|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 28 Go</p>|4|72|<p>6 400</p><p>64 Mo par seconde</p>|
 |Standard\_DS12\\identique|4|28|4|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 56 Go</p>|8|144|<p>12 800</p><p>128 Mo par seconde</p>|
 |Standard\_DS13\\identique|8|56|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 112 Go</p>|16|288|<p>25 600</p><p>256 Mo par seconde</p>|
-|Standard\_DS14\\identique|16|112|16|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|32|576|<p>50 000</p><p>512 Mo par seconde</p>|
+|Standard\_DS14\\identique|16|112|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|32|576|<p>50 000</p><p>512 Mo par seconde</p>|
 
 ** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
 ## Niveau standard : série G
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail Azure Classic\\applets de commande &amp; API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
 |Standard\_G1\\identique|2|28 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 384 Go</p>|4|4 x 500|
 |Standard\_G2\\identique|4|56 Go|2|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 768 Go</p>|8|8 x 500|
 |Standard\_G3\\identique|8|112 Go|4|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 1 536 Go</p>|16|16 x 500|
 |Standard\_G4\\identique|16|224 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 3 072 Go</p>|32|32 x 500|
-|Standard\_G5\\identique|32|448 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 6 144 Go</p>|64|<p>64 x 500</p>|
+|Standard\_G5\\identique|32|448 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 6 144 Go</p>|64|<p>64 x 500</p>|
 
 ## Niveau standard : série GS
 
-|Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
+|Taille – Portail Azure Classic\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
 |---|---|---|---|---|---|---|---|
 |Standard\_GS1|2|28|1|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 56 Go</p>|4|264|<p>5 000</p><p>125 Mo par seconde</p>|
 |Standard\_GS2|4|56|2|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 112 Go</p>|8|528|<p>10 000</p><p>250 Mo par seconde</p>|
 |Standard\_GS3|8|112|4|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|16|1 056|<p>20 000</p><p>500 Mo par seconde</p>|
 |Standard\_GS4|16|224|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 448 Go</p>|32|2 112|<p>40 000</p><p>1 000 Mo par seconde</p>|
-|Standard\_GS5|32|448|16|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 896 Go</p>|64|4 224|<p>80 000</p><p>2 000 Mo par seconde</p>|
+|Standard\_GS5|32|448|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 896 Go</p>|64|4 224|<p>80 000</p><p>2 000 Mo par seconde</p>|
 
 
 ### Voir aussi
@@ -174,4 +174,4 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

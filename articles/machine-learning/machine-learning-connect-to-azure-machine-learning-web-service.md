@@ -41,12 +41,12 @@ Microsoft Azure Machine Learning propose deux types de service :
 Pour plus d’informations sur les services web Microsoft Azure Machine Learning, consultez la page [Déploiement d’un service web Microsoft Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtenir une clé d’autorisation Microsoft Azure Machine Learning ##
-Vous pouvez obtenir une clé d’API de service web auprès d’un service web ML. Vous pouvez la demander à Microsoft Azure Machine Learning Studio ou au portail de gestion Microsoft Azure.
+Vous pouvez obtenir une clé d’API de service web auprès d’un service web ML. Vous pouvez l’obtenir via Microsoft Azure Machine Learning Studio ou le portail Azure Classic.
 ### Microsoft Azure Machine Learning Studio ###
 1. Dans Microsoft Azure Machine Learning Studio, cliquez sur l’option **SERVICES WEB** figurant sur la gauche.
 2. Cliquez sur un service web. La « clé API » figure sur l’onglet **TABLEAU DE BORD**.
 
-### Portail de gestion Azure ###
+### Portail Azure Classic ###
 
 1. Cliquez sur l’option **MACHINE LEARNING** figurant sur la gauche.
 2. Cliquez sur un espace de travail.
@@ -103,4 +103,4 @@ Pour vous connecter à un service web Azure ML, utilisez la bibliothèque **url
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
 3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -70,7 +70,7 @@ La version la plus récente du fichier **eventhubs-storm-spout-0.9-jar-with-depe
 
 Event Hubs est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau concentrateur d'événements.
 
-1. À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **concentrateur d’événements** > **Création personnalisée**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **Event Hub** > **Création personnalisée**.
 
 2. Sur l’écran **Ajouter un nouveau concentrateur d’événements**, entrez un **nom de concentrateur d’événements**, sélectionnez la **région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
@@ -100,7 +100,7 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 Le stockage de table sera utilisé pour conserver les valeurs lues à partir de Event Hubs, car il est très facile d’afficher le stockage de table à partir de Visual Studio via l’**Explorateur de serveurs**. Pour créer un nouveau stockage de table, procédez comme suit :
 
-1. Dans le [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Services de données** > **Stockage** > **Création rapide**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Data Services** > **Stockage** > **Création rapide**.
 
 	![création rapide de stockage](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

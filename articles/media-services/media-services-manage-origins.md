@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion des points de terminaison de diffusion en continu dans un compte Media Services" 
-	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail de gestion Azure." 
+	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail Azure Classic." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -30,22 +30,22 @@ En outre, vous pouvez contrôler la capacité du service de point de terminaison
 
 Notez que vous êtes facturé uniquement lorsque votre StreamingEndpoint est en cours d’exécution.
 
-Cette rubrique donne une vue d’ensemble des fonctionnalités principales offertes par les points de terminaison de diffusion en continu. Elle explique également comment utiliser le portail de gestion Azure pour gérer les points de terminaison de diffusion en continu.
+Cette rubrique donne une vue d’ensemble des fonctionnalités principales offertes par les points de terminaison de diffusion en continu. Elle explique également comment utiliser le portail Azure Classic pour gérer les points de terminaison de diffusion en continu.
 
 
-##Ajout et suppression de points de terminaison de diffusion en continu 
+##Ajout et suppression de points de terminaison de diffusion en continu
 
-Vous pouvez ajouter ou supprimer des points de terminaison de diffusion en continu à l’aide du Kit de développement .NET, de l’API REST ou du portail de gestion Azure.
+Vous pouvez ajouter ou supprimer des points de terminaison de diffusion en continu à l’aide du Kit de développement (SDK) .NET, de l’API REST ou du portail Azure Classic.
 
-Pour ajouter/supprimer un point de terminaison de diffusion en continu à l’aide du portail, procédez comme suit :
+Pour ajouter/supprimer un point de terminaison de diffusion en continu à l’aide du portail Azure Classic, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
-2. Sélectionnez la page **POINTS DE TERMINAISON DE DIFFUSION EN CONTINU**. 
-3. Cliquez sur le bouton ADD ou DELETE en bas de la page. Attention : il n'est pas possible de supprimer le point de terminaison par défaut. 
-4. Cliquez sur le bouton DÉMARRER pour démarrer le point de terminaison. 
-5. Cliquez sur le nom du point de terminaison pour le configurer.   
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+2. Sélectionnez la page **POINTS DE TERMINAISON DE DIFFUSION EN CONTINU**.
+3. Cliquez sur le bouton ADD ou DELETE en bas de la page. Attention : il n'est pas possible de supprimer le point de terminaison par défaut.
+4. Cliquez sur le bouton DÉMARRER pour démarrer le point de terminaison.
+5. Cliquez sur le nom du point de terminaison pour le configurer.
 
-	![Page du point de terminaison de diffusion en continu][streaming-endpoint]
+![Page du point de terminaison de diffusion en continu][streaming-endpoint]
 
 
 Par défaut, vous bénéficiez au maximum de deux points de terminaison de diffusion en continu. Si vous avez besoin de points de terminaisons supplémentaires, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
@@ -54,7 +54,7 @@ Par défaut, vous bénéficiez au maximum de deux points de terminaison de diffu
 
 Les unités de diffusion en continu fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbits/s et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d’empaquetage dynamique](media-services-dynamic-packaging-overview.md). Par défaut, la diffusion en continu est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d’améliorer la vitesse de diffusion en continu=, il est recommandé d’acheter des unités de diffusion en continu.
 
-Vous pouvez effectuer la mise à l’échelle à l’aide du Kit de développement .NET, de l’API REST ou du portail de gestion Azure.
+Vous pouvez effectuer la mise à l’échelle à l’aide du Kit de développement (SDK) .NET, de l’API REST ou du portail Azure Classic.
 
 Pour changer le nombre d’unités de diffusion en continu à l’aide du portail, procédez comme suit :
 
@@ -82,7 +82,7 @@ Lorsque vous disposez d’au moins une unité d’échelle, le point de terminai
 
 Pour plus d’informations sur ces propriétés, consultez la rubrique [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-Vous pouvez configurer ces propriétés à l’aide du Kit de développement .NET, de l’API REST ou du portail de gestion Azure.
+Vous pouvez configurer ces propriétés à l’aide du Kit de développement logiciel (SDK) .NET, de l’API REST ou du portail Azure Classic.
 
 Pour changer le nombre d’unités de diffusion en continu à l’aide du portail, procédez comme suit :
 
@@ -149,4 +149,4 @@ Pour plus d’informations, consultez le blog [Announcing Azure Media Services i
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

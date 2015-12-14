@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour afficher et gérer vos alertes StorSimple
@@ -151,7 +151,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 	Selon la quantité de données sur les couches locales de votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l'interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures.
 
  
-- **Pour les données dans le cloud** : pour la plupart des erreurs de connectivité au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l'intervention de l'utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
+- **Pour les données dans le cloud** : pour la plupart des erreurs de connectivité au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure Classic.
  
 - **Pour les instantanés cloud en cours** : l'opération est retentée plusieurs fois pendant 4 à 5 heures et si la connectivité n'est pas restaurée, les instantanés cloud échouent.
 
@@ -234,4 +234,4 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 - En savoir plus sur les [erreurs StorSimple](storsimple-troubleshoot-operational-device.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

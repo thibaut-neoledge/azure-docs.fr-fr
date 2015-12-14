@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
@@ -111,7 +111,7 @@ Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, le
 
 Lors de la mise à l'échelle d'un cache **Standard** vers une plus grande taille, toutes les données sont généralement conservées. Lors de la mise à l'échelle d’un cache **Standard** vers une plus petite taille, il est possible que les données soient perdues si la quantité de données placée dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache).
 
-Notez que, si les caches Standard ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
+Notez que, si les caches Standard et Premium ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
 
 ## Mon cache reste-t-il disponible durant la mise à l’échelle ?
 
@@ -155,4 +155,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

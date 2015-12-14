@@ -24,7 +24,7 @@ DocumentDB est une base de données de documents NoSQL pour les solutions Big Da
 Les trois étapes suivantes permettent de découvrir JSON et de le voir à l’œuvre rapidement :
 
 1. Regardez la vidéo [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de deux minutes, qui présente les avantages liés à l'utilisation de DocumentDB.
-2. Regardez la vidéo [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de trois minutes, qui présente la prise en main de DocumentDB à l'aide du portail Azure en version préliminaire.
+2. Regardez la vidéo [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de trois minutes, qui présente la prise en main de DocumentDB à l'aide du portail Azure.
 3. Visitez le [Query Playground](http://www.documentdb.com/sql/demo) où vous pouvez utiliser différentes activités pour découvrir les riches fonctionnalités de requêtes disponibles dans DocumentDB. Ensuite, cliquez sur l'onglet Sandbox, exécutez vos propres requêtes SQL personnalisées et essayez DocumentDB.
 
 Ensuite, revenez à cet article, où nous approfondissons la question pour vous fournir les réponses aux questions suivantes :
@@ -99,7 +99,7 @@ DocumentDB vous permet d'écrire la logique d'application sous forme de programm
 L'exécution JavaScript dans DocumentDB est modélisée selon les concepts pris en charge par les systèmes de bases de données relationnelles, avec JavaScript en remplacement de Transact-SQL. Toute la logique JavaScript est exécutée dans une transaction ACID ambiante avec isolement de capture instantanée. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée.
 
 ## Étapes suivantes
-Si vous avez déjà un compte Azure, vous pouvez commencer avec DocumentDB dans le [portail Azure en version préliminaire](https://portal.azure.com/#gallery/Microsoft.DocumentDB) par la [création d'un compte de base de données DocumentDB](documentdb-create-account.md).
+Si vous avez déjà un compte Azure, vous pouvez commencer avec DocumentDB dans le [portail Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) par la [création d'un compte de base de données DocumentDB](documentdb-create-account.md).
 
 Si vous n'avez pas de compte Azure, vous pouvez :
 
@@ -112,4 +112,4 @@ Ensuite, lorsque vous êtes prêt à en savoir plus, visitez notre [cursus](http
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

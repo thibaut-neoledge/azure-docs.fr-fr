@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # Stocker le code de votre projet de service mobile dans le contrôle de code source
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -93,7 +98,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 	Une série de commandes indiquant le déploiement de la validation sur le service mobile doit s'afficher.
 
-6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**. Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
+6. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**. Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
 
 ##<a name="use-npm"></a>Exploiter le code partagé et les modules Node.js dans vos scripts serveur
 
@@ -149,8 +154,8 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
 [Utilisation des scripts serveur dans Mobile Services]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

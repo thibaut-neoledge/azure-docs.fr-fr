@@ -54,7 +54,7 @@ Il est également recommandé de configurer les serveurs DNS personnalisés sur 
 ## Création d'un groupe de sécurité réseau ##
 Pour plus d'informations sur le fonctionnement des groupes de sécurité réseau, consultez les [informations][NetworkSecurityGroups] suivantes. Les informations détaillées ci-dessous abordent les points principaux des groupes de sécurité réseau, en se concentrant sur la configuration et l'application d'un groupe de sécurité réseau à un sous-réseau contenant un environnement App Service.
 
-**Remarque :** des groupes de sécurité réseau ne peuvent être configurés qu’à l’aide des applets de commande Powershell décrites ci-dessous. Il est impossible de configurer des groupes de sécurité réseau graphiquement à l’aide du nouveau portail (portal.azure.com), car celui-ci autorise uniquement la configuration graphique de groupes de sécurité réseau associés à des réseaux virtuels « v2 ». Toutefois, les environnements App Service ne fonctionnent actuellement qu’avec des réseaux virtuels « v1 » classiques. Ainsi, seules des applets de commande Powershell permettent de configurer des groupes de sécurité de réseau associés à des réseaux virtuels « v1 ».
+**Remarque :** des groupes de sécurité réseau ne peuvent être configurés qu’à l’aide des applets de commande Powershell décrites ci-dessous. Il est impossible de configurer des groupes de sécurité réseau graphiquement à l’aide du [portail Azure](portal.azure.com), car celui-ci autorise uniquement la configuration graphique de groupes de sécurité réseau associés à des réseaux virtuels « v2 ». Toutefois, les environnements App Service ne fonctionnent actuellement qu’avec des réseaux virtuels « v1 » classiques. Ainsi, seules des applets de commande Powershell permettent de configurer des groupes de sécurité de réseau associés à des réseaux virtuels « v1 ».
 
 Les groupes de sécurité réseau sont tout d'abord créés en tant qu'entité autonome associée à un abonnement. Dans la mesure où les groupes de sécurité réseau sont créés dans une région Azure, assurez-vous que le groupe de sécurité réseau est créé dans la même région que l'environnement App Service.
 
@@ -134,4 +134,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

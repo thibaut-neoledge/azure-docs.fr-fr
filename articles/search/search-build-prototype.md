@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Générer une application de prototype pour Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Créer une application de prototype pour Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Créez votre premier prototype d'application pour prendre en main Azure Search, un service de recherche cloud hébergé." 
 	services="search" 
 	documentationCenter="" 
@@ -44,7 +44,7 @@ Pour télécharger les fichiers de données et de schéma à l'aide du code dans
 
 ## Tester la solution de prototype sur votre système
 
-1. [Création d'un service Azure Search dans le portail Azure](search-create-service-portal.md).
+1. [Création d’un service Azure Search dans le Portail Azure Classic](search-create-service-portal.md).
 
     Vous pouvez ajouter une version partagée (gratuite) du service à n'importe quel abonnement Azure existant. Le service partagé est souvent utilisé pour les prototypes. N'oubliez pas que le service partagé offre 50 Mo de données ou un total de 10 000 documents, selon ce qui se produit en premier. En outre, les documents et les données peuvent être répartis sur un maximum de 3 index.
 
@@ -133,4 +133,4 @@ Suivez ces liens pour en savoir plus :
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

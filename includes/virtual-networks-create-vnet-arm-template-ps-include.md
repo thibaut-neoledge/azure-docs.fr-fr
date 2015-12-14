@@ -92,4 +92,4 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

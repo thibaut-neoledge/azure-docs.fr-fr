@@ -37,11 +37,11 @@ Vous pouvez également signaler un incident au support Azure. Accédez au [site 
 
 Pour résoudre les échecs de connexion SSH les plus courants sur les machines virtuelles créées à l’aide du modèle de déploiement classique, essayez les étapes suivantes :
 
-1. **Réinitialisez l'accès à distance** à partir du [portail Azure en version préliminaire](https://portal.azure.com). Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
+1. **Réinitialisez l’accès à distance** à partir du [portail Azure](https://portal.azure.com). Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
 
 	![Capture d'écran qui affiche une réinitialisation de la configuration SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Redémarrez** la machine virtuelle. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail Azure](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **Redémarrer**.
+2. **Redémarrez** la machine virtuelle. À partir du [portail Azure](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail Azure Classic](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **Redémarrer**.
 
 3. [**Redimensionnez** la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -110,7 +110,7 @@ Pour résoudre les problèmes de SSH courants pour les machines virtuelles cré�
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. **Redémarrez** votre machine virtuelle Linux à partir du portail. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles** > votre machine virtuelle Windows > **Redémarrer**.
+2. **Redémarrez** votre machine virtuelle Linux à partir du portail. À partir du [portail Azure](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles** > votre machine virtuelle Windows > **Redémarrer**.
 
 	![Capture d'écran qui affiche le redémarrage d’une machine virtuelle V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
@@ -176,14 +176,14 @@ Les sections suivantes vous aident à isoler la source du problème et à déter
 
 Tout d'abord, vérifiez l'état de la machine virtuelle sur le portail.
 
-Dans le [portail Azure](https://manage.windowsazure.com), pour les machines virtuelles suivant un modèle de déploiement classique :
+Dans le [portail Azure Classic](https://manage.windowsazure.com), pour les machines virtuelles suivant un modèle de déploiement classique :
 
 1. Cliquez sur **Machines virtuelles** > *Nom de la machine virtuelle*.
 2. Cliquez sur le **tableau de bord** de la machine virtuelle pour vérifier son état.
 3. Cliquez sur **Surveiller** pour voir l’activité récente des ressources de calcul, de stockage et réseau.
 4. Cliquez sur **Points de terminaison** pour vous assurer qu’il existe un point de terminaison pour le trafic SSH.
 
-Dans le [portail Azure en version préliminaire](https://portal.azure.com) :
+Dans le [portail Azure](https://portal.azure.com) :
 
 1. Pour une machine virtuelle créée avec un modèle de déploiement classique, cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *Nom de la machine virtuelle*. Pour une machine virtuelle créée avec Resource Manager, cliquez sur **Parcourir** > **Machines virtuelles** > *Nom de la machine virtuelle*. Le volet d’état de la machine virtuelle doit afficher **En cours d’exécution**. Faites défiler vers le bas pour voir l’activité récente des ressources de calcul, de stockage et réseau.
 2. Cliquez sur **Paramètres** pour examiner les points de terminaison, les adresses IP et les autres paramètres. Pour identifier les points de terminaison sur les machines virtuelles créées avec Resource Manager, vérifiez si un [groupe de sécurité réseau](../traffic-manager/virtual-networks-nsg.md) est défini, les règles qui s'y appliquent et si elles sont référencées dans le sous-réseau.
@@ -253,7 +253,7 @@ Si vous ne disposez pas d’une autre machine virtuelle dans le même réseau vi
 
 Si vous pouvez créer une connexion SSH avec une machine virtuelle dans le même réseau virtuel, vérifiez :
 
-- la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ; le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service SSH de la machine virtuelle est à l’écoute (par défaut, il s’agit du port 22). Pour les machines virtuelles créées à l'aide de modèles dans le modèle de déploiement Resource Manager, vérifiez le numéro du port TCP de SSH dans le portail Azure en version préliminaire en accédant à **Parcourir** > **Machines virtuelles (v2)** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
+- la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ; le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service SSH de la machine virtuelle est à l’écoute (par défaut, il s’agit du port 22). Pour les machines virtuelles créées à l’aide de modèles dans le modèle de déploiement Resource Manager, vérifiez le numéro du port TCP SSH dans le portail Azure en accédant à **Parcourir** > **Machines virtuelles (v2)** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
 - La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé ou interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Vérifiez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n'est pas la source du problème, supprimez le point de terminaison actuel, créez un autre point de terminaison et spécifiez le nom **SSH** (port TCP 22 pour le numéro du port public et privé). Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle dans Azure](virtual-machines-set-up-endpoints.md).
@@ -287,4 +287,4 @@ Pour les machines virtuelles suivant un modèle de déploiement classique, suive
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Utiliser Apache Phoenix et SQuirreL avec les clusters HBase dans HDinsight  
@@ -29,7 +29,7 @@ Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HD
 Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants :
 
 - **Un cluster HBase dans HDInsight**. Pour plus d'informations sur l'approvisionnement d'un cluster HBase, consultez [Prise en main d'Apache HBase dans HDInsight][hdinsight-hbase-get-started].
-- **Une connexion au cluster HBase à l'aide du protocole RDP (Remote Desktop Protocol)**. Pour des instructions, consultez [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure][hdinsight-manage-portal].
+- **Une connexion au cluster HBase à l'aide du protocole RDP (Remote Desktop Protocol)**. Pour obtenir des instructions, consultez [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure Classic][hdinsight-manage-portal].
 
 **Pour déterminer le nom d'hôte**
 
@@ -116,7 +116,7 @@ Assurez-vous d'avoir approvisionné un cluster HBase dans un réseau virtuel Azu
 
 **Pour configurer la connexion de point à site**
 
-1. Connectez-vous au [portail Azure][azure-portal].
+1. Connectez-vous au [portail Azure Classic][azure-portal].
 2. Dans le volet gauche, cliquez sur **RÉSEAUX**.
 3. Cliquez sur le réseau virtuel que vous avez créé (voir [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]).
 4. Cliquez sur **CONFIGURER** en haut.
@@ -129,7 +129,7 @@ Assurez-vous d'avoir approvisionné un cluster HBase dans un réseau virtuel Azu
 
 **Pour créer une passerelle de routage dynamique**
 
-1. Dans le portail Azure, cliquez sur **TABLEAU DE BORD** en haut de la page.
+1. Dans le portail Azure Classic, cliquez sur **TABLEAU DE BORD** en haut de la page.
 2. Cliquez sur **CRÉER UNE PASSERELLE** en bas de la page.
 3. Cliquez sur **OUI** pour confirmer. Attendez que la passerelle soit créée.
 4. Cliquez sur **TABLEAU DE BORD** en haut. Un schéma visuel du réseau virtuel est affiché :
@@ -147,7 +147,7 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 
 1. Dans votre station de travail, ouvrez une fenêtre d'invite de commandes.
 2. Accédez au dossier des outils Visual Studio. 
-3. La commande suivante dans l'exemple ci-dessous crée et installe un certificat racine dans le magasin de certificats Personal sur votre station de travail, ainsi que le fichier .cer correspondant que vous téléchargerez plus tard dans le portail Azure. 
+3. La commande suivante dans l'exemple ci-dessous crée et installe un certificat racine dans le magasin de certificats Personal sur votre station de travail, ainsi que le fichier .cer correspondant que vous téléchargerez plus tard dans le portail Azure Classic. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 
 	Vous devez installer un certificat client sur chaque ordinateur que vous voulez connecter au réseau virtuel. Nous vous recommandons de créer un certificat client unique pour chaque ordinateur que vous souhaitez connecter au réseau virtuel. Pour exporter les certificats clients, utilisez certmgr.msc.
 
-**Pour télécharger le certificat racine sur le portail Azure**
+**Pour télécharger le certificat racine sur le portail Azure Classic**
 
-1. Dans le portail Azure, cliquez sur **RÉSEAU** à gauche.
+1. Dans le portail Azure Classic, cliquez sur **RÉSEAU** à gauche.
 2. Cliquez sur le réseau virtuel sur lequel est déployé votre cluster HBase.
 3. Cliquez sur **CERTIFICATS** en haut.
 4. Cliquez sur **TÉLÉCHARGER** en bas et spécifiez le fichier de certificat racine que vous avez créé dans l'avant-dernière procédure. Attendez que le certificat soit importé.
@@ -306,4 +306,4 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,7 +31,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 ## <a name="register"> </a>Inscription de votre application avec Google
 
-1. Connectez-vous au [portail de gestion Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Google.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Google.
  
 2. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 
@@ -58,7 +58,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 > [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis **Google**. Collez les valeurs obtenues précédemment et cliquez sur **Enregistrer**.
 
 
-8. Revenez au [portail de gestion Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
+8. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
 
 9. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
@@ -90,7 +90,7 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[portail de gestion Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

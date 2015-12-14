@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Gérer la base de données SQL Azure avec PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@ Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure
 
 ## Configurez vos informations d’identification.
 
-Pour exécuter les applets de commande PowerShell sur votre abonnement Azure, vous devez d’abord établir l’accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+Pour exécuter les applets de commande PowerShell sur votre abonnement Azure, vous devez d’abord établir l’accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l’adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure Classic.
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@ Vous pouvez également supprimer un serveur grâce à la commande [Remove-AzureR
 Si vous comptez recréer ces ressources SQL Azure ou des ressources similaires, vous pouvez :
 
 - Enregistrer ceci en tant que fichier de script PowerShell (*.ps1)
-- Enregistrer ceci en tant runbook d'automation Azure dans la section Automation du portail de gestion Azure 
+- Enregistrer ceci en tant runbook d’automation Azure dans la section Automation du portail Azure Classic 
 
 ## Étapes suivantes
 
@@ -131,4 +131,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 - [Applets de commande de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -70,4 +70,4 @@ Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) s
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

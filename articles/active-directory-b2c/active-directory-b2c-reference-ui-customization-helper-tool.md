@@ -60,7 +60,7 @@ Si vous souhaitez utiliser le stockage d'objets blob Azure pour héberger le con
 #### Créer un compte de stockage
 
 1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com/).
-2. Cliquez sur **+ Nouveau** -> **données + stockage** -> **compte de stockage**. Vous avez besoin d’un abonnement Azure pour créer un compte de stockage d’objets Blob Azure. Vous pouvez vous inscrire pour un essai gratuit [ici](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+2. Cliquez sur **+ Nouveau** -> **données + stockage** -> **compte de stockage**. Vous avez besoin d’un abonnement Azure pour créer un compte de stockage d’objets Blob Azure. Vous pouvez vous inscrire pour un essai gratuit [ici](https://azure.microsoft.com/pricing/free-trial/).
 3. Fournissez un **Nom** pour le compte de stockage (par exemple, « contoso ») et de sélectionner les options appropriées pour **Niveau de tarification**, **Groupe de ressources** et **Abonnement**. Assurez-vous que l’option **Épingler au tableau d’accueil** est activée. Cliquez sur **Create**.
 4. Revenez en arrière vers le tableau d’accueil et cliquez sur le compte de stockage que vous venez de créer.
 5. Sous le **Résumé**, cliquez sur **Conteneurs**, puis sur **+ Ajouter**.
@@ -90,4 +90,4 @@ Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de
         
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé les mêmes exemples de codes HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance de stockage d'objets blob Azure, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d'informations sur la personnalisation du code HTML et CSS, reportez-vous au [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

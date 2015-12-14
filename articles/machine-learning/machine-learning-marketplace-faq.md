@@ -40,9 +40,9 @@ Vous devez utiliser votre compte Marketplace en tant que nom d'utilisateur et la
 
 Un ou plusieurs paramètres d’entrée de votre service web peuvent avoir dépassé la limite de longueur lors de la consommation du service web sur la page **Explorer ce jeu de données** de Marketplace. Les services peuvent être appelés avec une longueur d’entrée supérieure à l’aide de méthodes HTTP POST. Pour obtenir des exemples, consultez la page [Exemples de solutions utilisant R sur Machine Learning et publiées sur Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. Pourquoi l’onglet « Explorateur d’API » du magasin du portail de gestion Azure est-il vide ?**
+**4. Pourquoi l’onglet « EXPLORATEUR D’API » du magasin du portail Azure Classic est-il vide ?**
 
-Il s’agit d’un problème connu avec le portail de gestion Azure Marketplace. Notre équipe travaille en ce moment à la résolution de ce problème.
+Il s’agit d’un problème connu sur Marketplace du portail Azure Classic. Notre équipe travaille en ce moment à la résolution de ce problème.
 
 
 ##Questions relatives à la publication à partir d’Azure Machine Learning sur Marketplace
@@ -77,4 +77,4 @@ Veuillez contacter l’équipe Azure Marketplace à l’adresse <datamarketbd@mi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

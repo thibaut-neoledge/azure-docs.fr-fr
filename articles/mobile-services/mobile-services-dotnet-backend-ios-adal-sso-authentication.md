@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="mahender"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -36,7 +41,7 @@ Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire vo
 Ce didacticiel requiert les éléments suivants :
 
 * XCode 4.5 et iOS 6.0 (ou versions ultérieures)
-* Exécution du didacticiel [Prise en main de Mobile Services]
+* Achèvement du didacticiel [Prise en main de Mobile Services].
 * Kit de développement logiciel (SDK) de Microsoft Azure Mobile Services
 * [Bibliothèque d'authentification Active Directory pour iOS]
 
@@ -90,7 +95,7 @@ Ce didacticiel requiert les éléments suivants :
         }
 
 
-6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
+6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 
 7. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-RESOURCE-URI-HERE** par l'**URI ID d'application** de votre service mobile. Si vous avez suivi les instructions de la rubrique [Inscription auprès d'Azure Active Directory], votre URI ID d'application doit être semblable à https://todolist.azure-mobile.net/login/aad.
 
@@ -106,7 +111,7 @@ Ce didacticiel requiert les éléments suivants :
 ##Test du client à l'aide de l'authentification
 
 1. Dans le menu Produit, cliquez sur Exécuter pour démarrer l'application.
-2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.  
+2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.
 3. L'application authentifie et renvoie les tâches à effectuer.
 
    ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
@@ -117,7 +122,7 @@ Ce didacticiel requiert les éléments suivants :
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Inscription auprès d'Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

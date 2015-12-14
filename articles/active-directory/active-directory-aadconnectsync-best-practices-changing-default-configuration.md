@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Meilleures pratiques pour la modification de la configuration par défaut | Microsoft Azure"
+	pageTitle="Azure AD Connect Sync : meilleures pratiques pour modifier la configuration par défaut | Microsoft Azure"
 	description="Décrit les meilleures pratiques pour la modification de la configuration par défaut d’Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
@@ -83,4 +83,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

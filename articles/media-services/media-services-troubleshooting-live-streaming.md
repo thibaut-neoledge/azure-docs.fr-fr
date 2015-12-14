@@ -65,7 +65,7 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 	**Étapes de dépannage** : accédez à l’onglet « Point de terminaison de diffusion en continu » dans l’outil AMSE et vérifiez qu’un point de terminaison de diffusion en continu est en cours d’exécution avec une unité de diffusion en continu.
 	
->[AZURE.NOTE]Si, après avoir suivi les étapes de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail de gestion Azure.
+>[AZURE.NOTE]Si, après avoir suivi la procédure de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail Azure Classic.
 
 ##Parcours d’apprentissage de Media Services
 
@@ -75,4 +75,4 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

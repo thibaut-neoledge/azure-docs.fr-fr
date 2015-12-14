@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/25/2015"
    ms.author="rajram"/>
 
 # Utilisation et ajout de l’encodeur JSON BizTalk dans votre application logique 
@@ -68,4 +68,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

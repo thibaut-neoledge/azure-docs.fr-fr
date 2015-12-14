@@ -535,17 +535,16 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 
 ## Voir aussi
 
--   [9 principes de base de la conception web réactive](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
--   [Bootstrap][BootstrapSite]
--   [Blog Bootstrap officiel][]
--   [Tutoriel Bootstrap Twitter de Tutorial Republic][]
--   [The Bootstrap Playground][]
--   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C][]
--   [Candidat à la recommandation du W3C concernant les requêtes de média][]
+-   [9 principes de base de la conception web réactive](http://blog.froont.com/9-basic-principles-of-responsive-web-design/) (en anglais)
+-   [Bootstrap][BootstrapSite] (en anglais)
+-   [Blog Bootstrap officiel][] (en anglais)
+-   [Tutoriel Bootstrap Twitter de Tutorial Republic][] (en anglais)
+-   [The Bootstrap Playground][] (en anglais)
+-   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C][] (en anglais)
+-   [Candidat à la recommandation du W3C concernant les requêtes de média][] (en anglais)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
@@ -617,4 +616,4 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

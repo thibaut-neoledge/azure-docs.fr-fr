@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Guide de dépannage et questions-réponses concernant Application Insights pour les appareils Windows
@@ -25,7 +25,7 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Wi
 
 *J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.*
 
-* Attendez une minute, puis cliquez sur Actualiser. L'actualisation n'est pas automatique pour le moment.
+* Attendez une minute, puis cliquez sur Actualiser.
 * Vérifiez que vous disposez d’une clé d’instrumentation définie dans le fichier ApplicationInsights.config, et que celle-ci est identique à la clé du portail Application Insights. Pour afficher la clé, cliquez sur Essentials sur le panneau Vue d’ensemble.
 * Assurez-vous que votre application [demande un accès au réseau sortant](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
 * Existe-t-il un pare-feu entre votre émulateur ou l’appareil test et le portail Application Insights ? Vous devrez peut-être ouvrir les ports TCP 80 et 443 pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
@@ -40,7 +40,11 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Wi
 
 ## Comment puis-je ajouter Application Insights à une application universelle ?
 
-Ajoutez les packages NuGet manuellement à chaque projet de vos appareils dans votre solution. Consultez l’article [Prise en main : applications universelles][universal].
+Si vous créez une nouvelle solution dans Visual Studio 2015, sélectionnez l'option Ajouter Application Insights dans la boîte de dialogue Nouveau projet. Cela enverra la télémétrie de tous les types d'application cible vers la même ressource Application Insights.
+
+Si vous avez déjà créé la solution d’application universelle, cliquez avec le bouton droit de la souris sur chaque projet principal et sélectionnez **Ajouter Application Insights**.
+
+
 
 ## Désactivation de la télémétrie
 
@@ -120,4 +124,4 @@ Consultez [Rétention de données et confidentialité][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

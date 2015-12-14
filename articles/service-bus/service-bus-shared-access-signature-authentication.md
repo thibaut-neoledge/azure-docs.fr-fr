@@ -94,7 +94,7 @@ Pour visionner un exemple fonctionnel d’application Service Bus qui illustre l
 
 ## Accès aux règles d’autorisation d’accès partagé sur un espace des noms
 
-Les opérations sur la racine de la racine d’espace de noms Service Bus requièrent l’authentification par certificat. Vous devez télécharger un certificat de gestion correspondant à votre abonnement Pour télécharger un certificat de gestion, cliquez sur **Paramètres** dans le volet de gauche du portail Azure. Pour plus d’informations sur la création de certificats, consultez la page [Création d’un certificat de gestion pour Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Les opérations sur la racine de la racine d’espace de noms Service Bus requièrent l’authentification par certificat. Vous devez télécharger un certificat de gestion correspondant à votre abonnement Pour télécharger un certificat de gestion, cliquez sur **Paramètres** dans le volet de gauche du [portail Azure Classic][]. Pour plus d’informations sur la création de certificats, consultez la page [Création d’un certificat de gestion pour Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 Le point de terminaison pour l’accès aux règles d’autorisation de l’accès partagé dans un espace de noms Service Bus est la suivante :
 
@@ -143,7 +143,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## Accès aux règles d’autorisation de d’accès partagé sur une entité
 
-Vous pouvez accéder à un objet [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configuré sur une file d’attente Service Bus ou une rubrique via le regroupement [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) dans la description [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx) , [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) ou [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondante.
+Vous pouvez accéder à un objet [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configuré sur une file d’attente Service Bus ou une rubrique via le regroupement [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) dans la description [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) ou [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondante.
 
 Le code suivant montre comment ajouter des règles d’autorisation à une file d’attente.
 
@@ -256,4 +256,6 @@ Pour obtenir une vue d’ensemble de SAP dans Service Bus, consultez [Signatures
 
 Pour plus de contexte au sujet de l’authentification Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Oct15_HO3-->
+[portail Azure Classic]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

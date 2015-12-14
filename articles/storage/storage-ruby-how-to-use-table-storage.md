@@ -58,15 +58,15 @@ Le module Azure lit les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** 
 
 Pour obtenir ces valeurs :
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure](portal.azure.com).
 
-2. Accédez au compte de stockage que vous souhaitez utiliser.
+2. Accédez à votre compte de stockage.
 
-3. Cliquez sur **GÉRER LES CLÉS** au bas du volet de navigation.
+3. Dans le panneau **Paramètres**, sélectionnez **Clés**.
 
-4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d’accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
+4. Copiez la valeur de clé d’accès souhaitée.
 
-## Création d'une table
+## Création d’une table
 
 L’objet **Azure::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create\_table()**. L'exemple suivant crée une table ou imprime l'erreur le cas échéant.
 
@@ -154,8 +154,7 @@ Pour supprimer une table, utilisez la méthode **delete\_table()** et transmette
 
 Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les liens ci-dessous :
 
-- Référence MSDN : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

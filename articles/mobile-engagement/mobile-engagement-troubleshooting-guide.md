@@ -29,7 +29,7 @@ En règle générale, vous devez systématiquement vérifier les éléments suiv
 2. que vous utilisez bien la dernière version du kit de développement logiciel de la plateforme, 
 3. que vous effectuez les tests sur un périphérique réel et un émulateur, car certains problèmes sont spécifiques à l’émulateur, 
 4. que vous n’atteignez pas les limites/seuils d’Engagement Mobile qui sont mentionnés [ici](azure-subscription-service-limits.md).
-5. Si vous n’êtes pas en mesure de vous connecter au serveur principal du service Engagement Mobile ou si vous ne voulez pas voir les données chargées en continu, assurez-vous qu’il n’y a pas d’incident de service en cours en sélectionnant [ici](https://azure.microsoft.com/fr-FR/status/)
+5. Si vous n’êtes pas en mesure de vous connecter au backend du service Engagement Mobile ou si voyez pas les données chargées en continu, assurez-vous qu’il n’y a pas d’incident de service en cours [ici](https://azure.microsoft.com/status/)
 
 ## problèmes d’« Analyse »
 
@@ -118,4 +118,4 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 	- Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
 	- Détails de l’erreur avec message d’erreur exact et scénario
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

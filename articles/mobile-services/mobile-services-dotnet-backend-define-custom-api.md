@@ -19,6 +19,11 @@
 
 # Procédure : définition d’un point de terminaison d’API personnalisée dans un service mobile de backend .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
 - [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
@@ -36,4 +41,4 @@ Pour plus d’informations sur la façon d’appeler une API personnalisée dans
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

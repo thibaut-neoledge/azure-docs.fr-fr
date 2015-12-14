@@ -35,15 +35,19 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engageme
 
 ##Notes de publication
 
+##4\.1.2 (25/11/2015)
+
+- Améliorations de la stabilité.
+
 ##4\.1.1 (11/04/2015)
 
-Améliorations de la stabilité.
+- Améliorations de la stabilité.
 
 ##4\.1.0 (25/08/2015)
 
 - Gestion du nouveau modèle d’autorisation pour Android M.
-- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l'exécution au lieu d'utiliser `AndroidManifest.xml`.
-- Résolution d'un bogue d'autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n'est plus nécessaire.
+- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l’exécution au lieu d’utiliser `AndroidManifest.xml`.
+- Résolution d’un bogue d’autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n’est plus nécessaire.
 - Améliorations de la stabilité.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
@@ -52,4 +56,4 @@ Pour les versions antérieures, consultez les [notes de publication complètes](
 
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

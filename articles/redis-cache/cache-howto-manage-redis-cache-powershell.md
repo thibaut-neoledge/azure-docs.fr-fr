@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="08/26/2015"
+   ms.date="12/02/2015"
    ms.author="riande"/>
 
 # Gestion du Cache Redis Azure avec Azure PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 Cette rubrique montre comment créer, mettre à jour et supprimer un cache Redis Azure.
 
@@ -42,23 +46,22 @@ Par exemple, pour obtenir de l'aide sur l'applet de commande Add-AzureAccount, t
 
 Le script suivant montre la création, la mise à jour et la suppression d’un Cache Redis Azure.
 
-		# Azure Redis Cache operations require mode set to AzureResourceManager.
-		Switch-AzureMode AzureResourceManager
+		
 		$VerbosePreference = "Continue"
 
-	        # Create a new cache with date string to make name unique. 
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm')) 
+    	# Create a new cache with date string to make name unique.
+		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
 		$location = "West US"
 		$resourceGroupName = "Default-Web-WestUS"
-
+		
 		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-
+		
 		# Wait until the Cache service is provisioned.
-
+		
 		for ($i = 0; $i -le 60; $i++)
 		{
 		    Start-Sleep -s 30
-			$cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
+		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
 		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
 		    {
 		        break
@@ -68,31 +71,32 @@ Le script suivant montre la création, la mise à jour et la suppression d’un 
 		        exit
 		    }
 		}
-
+		
 		# Update the access keys.
-
+		
 		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
 		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
 		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
 		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-
+		
 		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
 		# Set the memory policy to Least Recently Used.
-
-		Set-AzureRedisCache -MaxMemoryPolicy AllKeysLRU -Name $cacheName -ResourceGroupName $resourceGroupName
-
+		
+		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
+		
 		# Delete the cache.
-
+		
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
 
 ## Étapes suivantes
 
 Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, reportez-vous aux ressources suivantes :
 
+- [Documentation relative à l’applet de commande Cache Redis Azure sur MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Applets de commande Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765) : découvrez comment utiliser les applets de commande du module AzureResourceManager.
-- [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md) : découvrez comment créer et gérer des groupes de ressources dans la version préliminaire du portail Azure.
+- [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md) : découvrez comment créer et gérer des groupes de ressources dans le portail Azure en version préliminaire.
 - [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
 - [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
 - [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -45,15 +45,15 @@ Parmi les autres fonctionnalités pour la gestion de l’identité et de l’acc
 
 -   Azure AD permet [l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) sur les applications SaaS, quel que soit l’endroit où elles sont hébergées. Certaines applications sont fédérées avec Azure AD, d’autres utilisent le mot de passe de l’authentification unique. Les applications fédérées peuvent également prendre en charge l’approvisionnement d’utilisateurs et la mise au coffre des mots de passe.
 
--   L’accès aux données dans [Azure Storage](https://azure.microsoft.com/fr-FR/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](https://msdn.microsoft.com/library/azure/ee460785.aspx) ou SAK) et une clé secrète secondaire (la [signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) ou SAS).
+-   L’accès aux données dans [Azure Storage](https://azure.microsoft.com/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](https://msdn.microsoft.com/library/azure/ee460785.aspx) ou SAK) et une clé secrète secondaire (la [signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) ou SAS).
 
 -   Azure AD fournit l’identité en tant que service via la fédération, à l’aide d’[Active Directory Federation Services](fundamentals-identity.md), de la synchronisation et de la réplication avec les répertoires locaux.
 
 -   [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier également les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est disponible pour une utilisation avec Azure AD afin de sécuriser les ressources locales avec le serveur MFA Azure, ainsi qu’avec des applications et répertoires personnalisés, en utilisant le Kit de développement logiciel (SDK).
 
--   [Les services de domaine Azure AD](https://azure.microsoft.com/fr-FR/services/active-directory-ds/) vous permettent de joindre des machines virtuelles Azure à un domaine sans avoir besoin de déployer des contrôleurs de domaine. Les utilisateurs peuvent se connecter à ces machines virtuelles à l’aide de leurs informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des bases de sécurité sur toutes vos machines virtuelles Azure.
+-   [Les services de domaine Azure AD](https://azure.microsoft.com/services/active-directory-ds/) vous permettent de joindre des machines virtuelles Azure à un domaine sans avoir besoin de déployer des contrôleurs de domaine. Les utilisateurs peuvent se connecter à ces machines virtuelles à l’aide de leurs informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des bases de sécurité sur toutes vos machines virtuelles Azure.
 
--   Pour les applications utilisées par les consommateurs, [Azure Active Directory B2C](https://azure.microsoft.com/fr-FR/services/active-directory-b2c/) vous fournit un service de gestion de l’identité global et hautement disponible, qui s’adapte à des centaines de millions d’identités. Le service peut être intégré sur l’ensemble des plateformes web et mobiles. Vos consommateurs peuvent se connecter à toutes vos applications via une expérience personnalisable en utilisant leurs comptes de réseaux sociaux existants ou en créant des comptes avec de nouvelles informations d’identification.
+-   Pour les applications utilisées par les consommateurs, [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) vous fournit un service de gestion de l’identité global et hautement disponible, qui s’adapte à des centaines de millions d’identités. Le service peut être intégré sur l’ensemble des plateformes web et mobiles. Vos consommateurs peuvent se connecter à toutes vos applications via une expérience personnalisable en utilisant leurs comptes de réseaux sociaux existants ou en créant des comptes avec de nouvelles informations d’identification.
 
 ##Contrôle d’accès aux données et chiffrement
 
@@ -107,7 +107,7 @@ Il existe deux catégories de règles qui sont programmées ici :
 
 Maintenir une séparation pour empêcher le transfert non autorisé et non intentionnel des informations entre les déploiements dans une architecture mutualisée partagée constitue une autre exigence de sécurité cloud importante.
 
-Azure implémente le [contrôle d’accès réseau](https://azure.microsoft.com/fr-FR/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) et la répartition via l’isolation des réseaux locaux virtuels (VLAN), listes de contrôle d’accès, équilibreurs de charge et filtres IP. Le trafic externe entrant vers vos machines virtuelles est limité aux ports et protocoles que vous définissez. Le filtrage réseau est implémenté pour empêcher le trafic falsifié et limite le trafic entrant et sortant aux composants de plateforme sécurisés. Les stratégies de flux de trafic sont implémentées sur des dispositifs de protection des limites refusant le trafic par défaut.
+Azure implémente le [contrôle d’accès réseau](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) et la répartition via l’isolation des réseaux locaux virtuels (VLAN), listes de contrôle d’accès, équilibreurs de charge et filtres IP. Le trafic externe entrant vers vos machines virtuelles est limité aux ports et protocoles que vous définissez. Le filtrage réseau est implémenté pour empêcher le trafic falsifié et limite le trafic entrant et sortant aux composants de plateforme sécurisés. Les stratégies de flux de trafic sont implémentées sur des dispositifs de protection des limites refusant le trafic par défaut.
 
 ![Microsoft Antimalware dans Azure](./media/azure-security-getting-started\sec-azgsfig3.PNG)
 
@@ -133,7 +133,7 @@ Les [réseaux virtuels et distribués](http://download.microsoft.com/download/4/
 
 Votre abonnement peut contenir plusieurs réseaux privés isolés (et inclure des pare-feu, l’équilibrage de charge et la traduction d’adresses réseau).
 
-Azure fournit trois niveaux principaux de répartition réseau dans chaque cluster Azure pour séparer logiquement le trafic. Les [réseaux locaux virtuels](https://azure.microsoft.com/fr-FR/services/virtual-network/) (VLAN) sont utilisés pour séparer le trafic du client du reste du réseau Azure. L’accès au réseau Azure depuis l’extérieur du cluster est limité via les équilibreurs de charge.
+Azure fournit trois niveaux principaux de répartition réseau dans chaque cluster Azure pour séparer logiquement le trafic. Les [réseaux locaux virtuels](https://azure.microsoft.com/services/virtual-network/) (VLAN) sont utilisés pour séparer le trafic du client du reste du réseau Azure. L’accès au réseau Azure depuis l’extérieur du cluster est limité via les équilibreurs de charge.
 
 Le trafic réseau vers et depuis les machines virtuelles doit passer par le commutateur virtuel de l’hyperviseur. Le composant de filtre IP dans le système d’exploitation racine isole la machine virtuelle racine des machines virtuelles invitées, et les machines virtuelles invitées les unes des autres. Il effectue un filtrage du trafic afin de restreindre la communication entre les nœuds du client et l’Internet public (selon la configuration du service du client), les séparant des autres clients.
 
@@ -147,7 +147,7 @@ Le filtre IP contribue à empêcher les machines virtuelles invitées d’effect
 
 - Envoyer ou recevoir du trafic de diffusion inapproprié
 
-Vous pouvez placer vos machines virtuelles sur les [réseaux virtuels Azure](https://azure.microsoft.com/fr-FR/documentation/services/virtual-network/). Ces réseaux virtuels sont similaires aux réseaux que vous configurez dans les environnements locaux, où ils sont généralement associés à un commutateur virtuel. Les machines virtuelles connectées au même réseau virtuel Azure peuvent communiquer entre elles sans configuration supplémentaire. Vous avez également la possibilité de configurer différents sous-réseaux au sein de votre réseau virtuel Azure.
+Vous pouvez placer vos machines virtuelles sur les [réseaux virtuels Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Ces réseaux virtuels sont similaires aux réseaux que vous configurez dans les environnements locaux, où ils sont généralement associés à un commutateur virtuel. Les machines virtuelles connectées au même réseau virtuel Azure peuvent communiquer entre elles sans configuration supplémentaire. Vous avez également la possibilité de configurer différents sous-réseaux au sein de votre réseau virtuel Azure.
 
 Vous pouvez utiliser les technologies de réseau virtuel Azure suivantes pour contribuer à sécuriser les communications sur votre réseau virtuel Azure :
 
@@ -161,7 +161,7 @@ Vous pouvez utiliser les technologies de réseau virtuel Azure suivantes pour co
 
 -   [Listes de contrôle d’accès de **points de terminaison**](virtual-machines-set-up-endpoints.md). Vous pouvez contrôler les machines pour lesquelles les connexions entrantes sont autorisées à partir d’Internet vers une machine virtuelle sur votre réseau virtuel Azure en définissant des listes de contrôle d’accès de points de terminaison.
 
--   [**Solutions de sécurité réseau de partenaires**](https://azure.microsoft.com/fr-FR/marketplace/). Il existe un certain nombre de solutions de sécurité réseau de partenaires auxquelles vous pouvez accéder à partir d’Azure Marketplace.
+-   [**Solutions de sécurité réseau de partenaires**](https://azure.microsoft.com/marketplace/). Il existe un certain nombre de solutions de sécurité réseau de partenaires auxquelles vous pouvez accéder à partir d’Azure Marketplace.
 
 ### Comment Azure implémente des réseaux virtuels et des pare-feu
 
@@ -183,13 +183,13 @@ Si Azure déplace des données d’un client dans le cadre d’opérations norma
 
 Les données stockées dans le cloud doivent disposer de protections suffisantes activées pour empêcher les attaques et maintenir la confidentialité et l’intégrité pendant le transit. Cela inclut les contrôles réseau associés aux mécanismes de gestion de l’identité et de l’accès, vérifiables et basés sur la stratégie d’une organisation.
 
-La technologie de chiffrement intégrée vous permet de chiffrer les communications au sein de et entre les déploiements, entre les régions Azure et depuis Azure vers les centres de données locaux. L’accès de l’administrateur aux machines virtuelles via les [sessions Bureau à distance](virtual-machines-log-on-windows-server.md), [Windows PowerShell à distance](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) et le [portail de gestion Azure](https://azure.microsoft.com/fr-FR/overview/preview-portal/) est toujours chiffré.
+La technologie de chiffrement intégrée vous permet de chiffrer les communications au sein de et entre les déploiements, entre les régions Azure et depuis Azure vers les centres de données locaux. L’accès de l’administrateur aux machines virtuelles via les [sessions Bureau à distance](virtual-machines-log-on-windows-server.md), [Windows PowerShell à distance](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx), et le [portail de gestion Azure](https://azure.microsoft.com/overview/preview-portal/) est toujours chiffré.
 
 Pour étendre en toute sécurité votre centre de données local dans le cloud, Azure fournit un [VPN site à site](vpn-gateway-create-site-to-site-rm-powershell.md) et un [VPN point à site](vpn-gateway-point-to-site-create.md), ainsi que des liens dédiés avec [ExpressRoute](expressroute-introduction.md) (les connexions aux réseaux virtuels Azure via VPN sont chiffrées).
 
 ### Comment Azure implémente un accès distant sécurisé
 
-Les connexions au portail Azure doivent toujours être authentifiées et nécessitent les protocoles SSL/TLS. Vous pouvez configurer les certificats de gestion pour activer la gestion sécurisée. Les protocoles sécurisés standards tels que [SSTP](https://technet.microsoft.com/fr-FR/magazine/2007.06.cableguy.aspx) et [IPsec](https://en.wikipedia.org/wiki/IPsec) sont entièrement pris en charge.
+Les connexions au portail Azure doivent toujours être authentifiées et nécessitent les protocoles SSL/TLS. Vous pouvez configurer les certificats de gestion pour activer la gestion sécurisée. Les protocoles sécurisés standards tels que [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) et [IPsec](https://en.wikipedia.org/wiki/IPsec) sont entièrement pris en charge.
 
 [Azure ExpressRoute](expressroute-introduction.md) vous permet de créer des connexions privées entre les centres de données Azure et une infrastructure locale ou dans un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Ils offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux liens Internet classiques. Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre l’infrastructure locale et Azure peut également générer des économies substantielles.
 
@@ -233,7 +233,7 @@ Azure dispose de contrôles de sécurité en place pour implémenter l’atténu
 
 ##Étapes suivantes
 
-[Azure Trust Center](https://azure.microsoft.com/fr-FR/support/trust-center/)
+[Azure Trust Center](https://azure.microsoft.com/support/trust-center/)
 
 [Blog de l’équipe de sécurité Azure](http://blogs.msdn.com/b/azuresecurity/)
 
@@ -241,4 +241,4 @@ Azure dispose de contrôles de sécurité en place pour implémenter l’atténu
 
 [Blog Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

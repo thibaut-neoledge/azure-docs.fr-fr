@@ -93,7 +93,7 @@ Avant d'utiliser cet exemple, vous devez créer un concentrateur d'événements 
 
 Le hub d'événements est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau concentrateur d'événements.
 
-1. À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU | Service Bus | Concentrateur d'événements | Création personnalisée**.
+1. À partir du [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU | Service Bus | concentrateur d’événements | Création personnalisée**.
 
 2. Dans la boîte de dialogue **Ajouter un nouveau concentrateur d'événements**, entrez un **Nom de concentrateur d'événements**, sélectionnez la **Région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la flèche pour continuer.
 
@@ -113,7 +113,7 @@ Le hub d'événements est la source de données pour cet exemple. Procédez comm
 
 ### Création du storm sur le clsuter HDInsight
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 
 2. Cliquez sur **HDInsight** dans le volet de gauche, puis sur **+NOUVEAU** dans le coin inférieur gauche de la page.
 
@@ -258,7 +258,7 @@ Dans votre environnement de développement, procédez comme suit pour exécuter 
 
 1. Pour déployer le tableau de bord sur un site Web Azure, suivez les étapes de la section [Création et déploiement d’un site Web Node.js dans Azure](../web-sites-nodejs-develop-deploy-mac.md). Notez l'URL du site Web, qui doit être similaire à **mywebsite.azurewebsites.net**.
 
-2. Une fois le site Web créé, accédez au site via le portail Azure et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
+2. Une fois le site web créé, accédez au site via le portail Azure Classic et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
 
 2. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** et modifiez la ligne suivante pour pointer vers l'URL du tableau de bord publié :
 
@@ -288,7 +288,7 @@ Pour utiliser Storm et HBase conjointement, vous devez créer un réseau virtuel
 
 Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un réseau virtuel Azure qui contiendra un Storm sur cluster HDInsight et un HBase sur cluster HDInsight.
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 
 2. Dans le bas de la page, cliquez sur **+NOUVEAU** > **Services de réseau** > **Réseau virtuel** > **Création rapide**.
 
@@ -324,7 +324,7 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 ### Création de clusters Storm et HBase sur le réseau virtuel
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 
 2. Cliquez sur **HDInsight** dans le volet de gauche, puis sur **+NOUVEAU** dans le coin inférieur gauche de la page.
 
@@ -422,4 +422,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

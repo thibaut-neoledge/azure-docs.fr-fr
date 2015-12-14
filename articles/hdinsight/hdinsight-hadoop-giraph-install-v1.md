@@ -24,8 +24,8 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm
 
 **Articles connexes**
 
-- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md): installez Giraph à l'aide du portail Azure en version préliminaire
-- [Installation de Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md): installez Giraph à l’aide du portail Azure
+- [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight.
 - [Personnalisation d’un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l'aide d’actions de script.
 - [Développement de scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md).
@@ -171,8 +171,8 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 
 ## Voir aussi
 
-- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md): installez Giraph à l'aide du portail Azure en version préliminaire
-- [Installation de Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md): installez Giraph à l’aide du portail Azure
+- [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight.
 - [Personnalisation d’un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l'aide d’actions de script.
 - [Développement de scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md).
@@ -190,4 +190,4 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
-	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
+	description="Découvrez les commandes et surveillez les performances sous les onglets du portail Azure Classic de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,26 +23,23 @@
 
 Après avoir créé votre service BizTalk et déployé votre application, vous pouvez modifier certains paramètres du service BizTalk et surveiller les performances de l'application.
 
-La première fois que vous ouvrez le portail de gestion Azure, l'onglet **TOUS LES ÉLÉMENTS** s'affiche automatiquement. Pour afficher votre service BizTalk, sélectionnez-le sous l'onglet **Tous les éléments**. Vous pouvez aussi sélectionner l'onglet **BIZTALK SERVICES**, puis le nom de votre service BizTalk.
+La première fois que vous ouvrez le portail Azure Classic, l’onglet **TOUS LES ÉLÉMENTS** s’affiche automatiquement. Pour afficher votre service BizTalk, sélectionnez-le sous l'onglet **Tous les éléments**. Vous pouvez aussi sélectionner l'onglet **BIZTALK SERVICES**, puis le nom de votre service BizTalk.
 
 Une nouvelle fenêtre apparaît avec les onglets suivants : La présente rubrique décrit ces onglets.
 
 ## Démarrage rapide (![Quick Start][QuickStart])
-Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles.
-<table border="1">
-    <tr>
-        <td><strong>Obtenir les outils</strong></td>
+Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles. <table border="1"> <tr> <td><strong>Obtenir les outils</strong></td>
 
-        <td>Téléchargez le Kit de développement logiciel (SDK) de BizTalk Services pour installer les modèles de projet Visual Studio sur votre ordinateur de développement local. Ces modèles créent <strong>BizTalk Services</strong> (pont) et les projets Visual Studio des <strong>artefacts de service BizTalk</strong> (Transformation) qui sont déployés sur votre service BizTalk. 
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		Les pages <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> et <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> présentent les procédures de prise en main. 
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Créer des accords partenaires</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>Ouvre le portail Azure BizTalk Services hébergé sur Azure, qui vous permet d'ajouter des partenaires et de créer des contrats EDI X12, AS2 et EDIFACT.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
@@ -72,7 +69,7 @@ La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurat
 <td>Obtenir les <strong>informations de connexion</strong> de l'espace de noms Access Control</td>
 <td>Lorsque vous sélectionnez Informations de connexion, l'espace de noms Access Control, l'émetteur par défaut et la clé par défaut s'affichent. Vous pouvez copier ces valeurs.
 <br/><br/>
-Vous pouvez également ouvrir le portail de gestion Access Control. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">La création d’un espace de noms Access Control</a> offre des informations supplémentaires sur le portail de gestion Access Control.</td>
+Vous pouvez également ouvrir le portail Access Control. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">La création d’un espace de noms Access Control</a> offre des informations supplémentaires sur le portail Access Control.</td>
 </tr>
 
 <tr>
@@ -83,9 +80,9 @@ Supposons que vous vouliez que le service BizTalk utilise une nouvelle clé prim
 <br/><br/>
 <ol>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. Sélectionnez la clé secondaire. Une fois que c'est fait, le service BizTalk commence à utiliser la clé secondaire.</li>
-<li>Dans le portail de gestion Azure, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
+<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. À présent, sélectionnez la clé primaire. Il s'agit de la nouvelle clé primaire que vous avez régénérée.</li>
-<li>Dans le portail de gestion Azure, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
+<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
 </ol>
 <br/>
 On parle de «&#160;clés de substitution&#160;» pour décrire ce processus. L'objectif est de permettre aux utilisateurs de basculer entre la clé primaire et la clé secondaire sans interrompre le service BizTalk.</td>
@@ -170,7 +167,7 @@ La section <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Explication
 </tr>
 <tr>
 <td><strong>Nom d'abonnement</strong></td>
-<td>Répertorie l'abonnement qui héberge votre service BizTalk. L'abonnement régit l'accès au portail de gestion Azure.</td>
+<td>Répertorie l'abonnement qui héberge votre service BizTalk. L’abonnement régit l’accès au portail Azure Classic.</td>
 </tr>
 <tr>
 <td><strong>ID d'abonnement</strong></td>
@@ -178,7 +175,7 @@ La section <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Explication
 </tr>
 </table>
 
-L’[approvisionnement à l'aide du portail de gestion Azure de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d'un service BizTalk.
+La page [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d’un service BizTalk Services.
 
 
 ##### Gérer, Informations de connexion, Clés de synchronisation et Supprimer dans la barre des tâches :
@@ -197,9 +194,9 @@ La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurat
 <td>Obtenir les <strong>informations de connexion</strong> de l'espace de noms Access Control</td>
 <td>Affiche l'espace de noms Access Control, l'émetteur par défaut et les valeurs de clé par défaut qui peuvent être copiés.
 <br/><br/>
-Vous pouvez également ouvrir le portail de gestion Access Control. Utiliser ce portail équivaut à utiliser l'option Active Directory dans le volet de navigation de gauche.
+Vous pouvez également ouvrir le portail Access Control. Utiliser ce portail équivaut à utiliser l’option Active Directory dans le volet de navigation de gauche.
 <br/><br/>
-La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gestion de votre espace de noms ACS</a> fournit des informations supplémentaires sur le portail de gestion de contrôle d'accès.</td>
+La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gestion de votre espace de noms ACS</a> fournit des informations supplémentaires sur le portail Access Control.</td>
 </tr>
 <tr>
 <td><strong>Synchroniser les clés</strong> dans le compte de stockage</td>
@@ -209,9 +206,9 @@ Supposons que vous vouliez que le service BizTalk utilise une nouvelle clé prim
 <br/><br/>
 <ol>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. Sélectionnez la clé secondaire. Une fois que c'est fait, le service BizTalk commence à utiliser la clé secondaire.</li>
-<li>Dans le portail de gestion Azure, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
+<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. À présent, sélectionnez la clé primaire. Il s'agit de la nouvelle clé primaire que vous avez régénérée.</li>
-<li>Dans le portail de gestion Azure, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
+<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
 </ol>
 <br/>
 On parle de «&#160;clés de substitution&#160;» pour décrire ce processus. L'objectif est de permettre aux utilisateurs de basculer entre la clé primaire et la clé secondaire sans interrompre le service BizTalk.</td>
@@ -236,17 +233,15 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 
 ##### Pour supprimer ou afficher des mesures dans le graphique :
 1. Sélectionnez l'onglet **Surveiller**.
-2. Sélectionnez **Ajouter des métriques** dans la barre des tâches :  
-![Sélectionnez Ajouter des métriques.][AddMetrics]
+2. Sélectionnez **Ajouter des métriques** dans la barre des tâches : ![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
 5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.  
 
-	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique:  
-![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]  
+	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique :![La mesure Utilisation du processeur apparaît en grisé  
+][GrayedMetric]
 
-	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique:  
-![La mesure Utilisation du processeur est activée][EnabledMetric]
+	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
@@ -335,7 +330,7 @@ Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défin
 
 
 ## <a name="HybridConnections"></a>Connexions hybrides
-Les connexions hybrides connectent une application Azure, comme Sites web ou Mobile Services, à une ressource locale qui utilise un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services dans le portail de gestion Azure.
+Les connexions hybrides connectent une application Azure, comme Sites web ou Mobile Services, à une ressource locale qui utilise un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services dans le portail Azure Classic.
 
 Pour créer des connexions hybrides à l'aide de Sites Web, Azure, consultez la page [Connexion hybride : connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
@@ -355,7 +350,7 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 ## Voir aussi
 - [Connexions hybrides](integration-hybrid-connection-overview.md)  
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](biztalk-editions-feature-chart.md)  
-- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](biztalk-provision-services.md)  
+- [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](biztalk-provision-services.md)  
 - [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -365,4 +360,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

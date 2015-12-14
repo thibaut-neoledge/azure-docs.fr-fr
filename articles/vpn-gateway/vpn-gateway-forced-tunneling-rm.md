@@ -1,13 +1,4 @@
-<properties 
-   pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager | Microsoft Azure"
-   description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources"
-   services="passerelle vpn"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
-<tags 
+<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager" | Microsoft Azure" description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources. "services ="passerelle vpn"documentationCenter ="na"authors ="cherylmc"manager ="carolz"editor = » « balises = « Gestionnaire de Ressources azure » / > <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -65,7 +56,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-- Dernière version des applets de commande Azure PowerShell utilisant Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de [Web Platform Installer](http://aka.ms/webpi-azps/). Cette documentation a été écrite pour PowerShell 1.0 ou version ultérieure. Les applets de commande nécessaires pour cette configuration ne sont pas présents dans les versions antérieures. Pour plus d’informations sur PowerShell 1.0, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/)
+- Applets de commande Azure PowerShell (version 1.0 ou ultérieure). Vous pouvez télécharger et installer cette version à partir de la section Windows PowerShell de la [page Téléchargements](http://azure.microsoft.com/downloads/). Cette documentation a été écrite pour PowerShell 1.0 ou version ultérieure. Les applets de commande nécessaires pour cette configuration ne sont pas présents dans les versions antérieures.
 
 - Si vous n’êtes pas familiarisé avec l’utilisation d’Azure Resource Manager et PowerShell, consultez [cet article](../articles/powershell-azure-resource-manager.md) pour plus d’informations.
 
@@ -79,9 +70,9 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 		Get-AzureRmSubscription
 
-2. Spécifiez votre nom d’abonnement Azure.
+2. Spécifiez l’abonnement à utiliser.
 
-		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
 3. Créez un groupe de ressources
 
@@ -140,4 +131,4 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

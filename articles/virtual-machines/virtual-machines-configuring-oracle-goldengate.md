@@ -36,7 +36,7 @@ En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditio
 
 - Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de l’image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](#z3dc8d3c097cf414e9048f7a89c026f80) et [Machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-load-balance.md) et du même [réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante.
 
-- Vous avez nommé les machines virtuelles « MachineGG1 » pour le site A et « MachineGG2 » pour le site B sur le portail Azure.
+- Vous avez nommé les machines virtuelles « MachineGG1 » pour le site A et « MachineGG2 » pour le site B sur le portail Azure Classic.
 
 - Vous avez créé les bases de données de test « TestGG1 » sur le site A et « TestGG2 » sur le site B.
 
@@ -95,7 +95,7 @@ Pour les versions ultérieures d’Oracle Database et d’Oracle GoldenGate, i
 ##1\. Configurer la base de données sur les sites A et B
 Cette section explique comment configurer la base de données sur les sites A et B. Vous devez effectuer toutes les étapes décrites sur les deux sites.
 
-Tout d'abord, connectez-vous à distance aux sites A et B via le portail Azure. Ouvrez une invite de commandes Windows et créez un répertoire de base pour les fichiers de configuration d’Oracle GoldenGate :
+Tout d’abord, connectez-vous à distance aux sites A et B via le portail Azure Classic. Ouvrez une invite de commandes Windows et créez un répertoire de base pour les fichiers de configuration d’Oracle GoldenGate :
 
 	mkdir C:\OracleGG
 
@@ -183,7 +183,7 @@ Ensuite, créez et activez un déclencheur de base de données INVENTORY\_CDR\_T
 ##2\. Préparer les sites A et B pour la réplication de base de données
 Cette section explique comment préparer les sites A et B à la réplication de base de données. Vous devez effectuer toutes les étapes décrites dans cette section sur les deux sites.
 
-Tout d’abord, connectez-vous à distance aux sites A et B via le portail Azure. Basculez la base de données en mode archivelog à l’aide de la fenêtre de commande SQL*Plus :
+Tout d’abord, connectez-vous à distance aux sites A et B via le portail Azure Classic. Basculez la base de données en mode archivelog à l’aide de la fenêtre de commande SQL*Plus :
 
 	sql>shutdown immediate
 	sql>startup mount
@@ -285,7 +285,7 @@ Démarrez le processus de Manager :
 
 ###Créer des processus Extract et Data Pump sur le site A
 
-Vous devez créer les processus d'extraction et Data Pump sur les sites A et B. Connectez-vous à distance aux sites A et B via le portail Azure. Ouvrez la fenêtre de l’interpréteur de commande GGSCI. Exécutez les commandes suivantes sur le site A :
+Vous devez créer les processus d'extraction et Data Pump sur les sites A et B. Connectez-vous à distance aux sites A et B via le portail Azure Classic. Ouvrez la fenêtre de l’interpréteur de commande GGSCI. Exécutez les commandes suivantes sur le site A :
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Connectez-vous à distance au site A et vérifiez la bonne réplication :
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

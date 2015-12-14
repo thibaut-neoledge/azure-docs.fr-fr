@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
@@ -103,7 +103,7 @@ Appliquez la procédure suivante pour afficher des informations sur les volumes 
     :--------------|:-------------
     Nom | La colonne **Nom** contient la lettre de lecteur attribuée à chaque volume découvert.
     Appareil | La colonne **Appareil** comporte l’adresse IP de l’appareil connecté à l’ordinateur hôte.
-    Nom de volume d’appareil | La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail de gestion Azure pour ce volume spécifique.
+    Nom de volume d’appareil | La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure Classic pour ce volume spécifique.
     Chemins d’accès | La colonne **Chemins d’accès** affiche le chemin d’accès au volume. Il s’agit de la lettre de lecteur ou du point de montage à partir de laquelle/duquel le volume est accessible sur l’ordinateur hôte.
  
 ## Suppression d’un volume
@@ -271,4 +271,4 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

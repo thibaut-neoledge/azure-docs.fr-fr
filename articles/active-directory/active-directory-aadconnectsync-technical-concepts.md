@@ -17,7 +17,7 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync : concepts techniques
+# Azure AD Connect Sync : Concepts techniques
 
 Azure AD Connect Sync repose sur une plateforme de synchronisation de méta-annuaire solide. Les sections suivantes présentent les concepts liés à la synchronisation de méta-annuaire. S’appuyant sur MIIS, ILM et FIM, les services Azure Active Directory Sync fournissent la plateforme de nouvelle génération pour la connexion aux sources de données. Ils synchronisent les données entre des sources de données et assurent l’approvisionnement et le désapprovisionnement des identités.
 
@@ -35,7 +35,7 @@ Les sections suivantes fournissent plus de détails sur les aspects suivants du 
 
 Les modules de code utilisés pour communiquer avec un annuaire connecté sont appelés connecteurs (anciennement agents de gestion).
 
-Ils sont installés sur l'ordinateur exécutant Azure AD Connect Sync. Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
+Ils sont installés sur l’ordinateur exécutant Azure AD Connect Sync. Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
 
 Dans l’illustration ci-dessus, le connecteur est synonyme de l’espace de connecteur mais il englobe toutes les communications avec le système externe.
 
@@ -89,4 +89,4 @@ Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connec
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

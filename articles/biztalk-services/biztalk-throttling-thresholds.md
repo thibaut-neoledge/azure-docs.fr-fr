@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -28,10 +28,7 @@ Azure BizTalk Services met en place un service de limitation basé sur deux cond
 
 Le tableau suivant répertorie les sources et seuils de limitation :
 
-||Description|Seuil minimum|Seuil maximum|
-|---|---|---|---|
-|Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %|
-|Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
+||Description|Seuil minimum|Seuil maximum| |---|---|---|---| |Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %| |Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
 
 Lorsqu'un seuil maximal est atteint, Azure BizTalk Services active les limitations. La limitation s'arrête une fois le seuil minimal atteint. Par exemple, votre service utilise 65 % de la mémoire système. Dans ce cas, le service n'utilise pas de limitation. Votre service monte à 70 % d'utilisation de mémoire système. Dans ce cas, le service lance une limitation et continue de l'appliquer jusqu'à ce que le service utilise 60 % (seuil minimal) de la mémoire système.
 
@@ -62,11 +59,11 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 
 ## Voir aussi
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services : approvisionnement avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

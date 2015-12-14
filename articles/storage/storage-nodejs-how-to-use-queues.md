@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 
@@ -66,7 +66,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage]
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
 
 ## Création d'une file d'attente
 
@@ -133,7 +133,7 @@ Le traitement d'un message se fait en deux étapes :
 
 2. Supprimer le message.
 
-Pour enlever un message de la file d'attente, utilisez **getMessages**. Cela rend les messages invisibles dans la file d'attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez **deleteMessage** pour supprimer le message de la file d'attente. L'exemple suivant obtient un message, puis le supprime :
+Pour enlever un message de la file d’attente, utilisez **getMessages**. Cela rend les messages invisibles dans la file d'attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez **deleteMessage** pour supprimer le message de la file d’attente. L'exemple suivant obtient un message, puis le supprime :
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -309,16 +309,15 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
 -   Consultez le [Blog de l'équipe Azure Storage][].
 -   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
   [Création et déploiement d'une application Node.js dans un site Web Azure]: ../web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Application web Node.js avec stockage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Application web Node.js avec Storage]: ../storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -328,9 +327,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   
   
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
- [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

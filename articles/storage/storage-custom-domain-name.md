@@ -28,7 +28,7 @@ Vous pouvez configurer un domaine personnalisé pour accéder à des données d�
 
 Il existe deux méthodes pour mapper votre domaine personnalisé au point de terminaison de service BLOB de votre compte de stockage. La plus simple consiste à créer un mappage d'enregistrement CNAME entre votre domaine personnalisé et son sous-domaine et le point de terminaison de service BLOB. Un enregistrement CNAME est une fonctionnalité DNS qui mappe un domaine source à un domaine cible. Dans cet exemple, le domaine source est votre domaine personnalisé et son sous-domaine. Notez que le sous-domaine est dans tous les cas indispensable. Le domaine cible est le point de terminaison de votre service BLOB.
 
-Le processus consistant à mapper votre domaine personnalisé à votre point de terminaison de service BLOB peut entraîner un problème d'indisponibilité de courte durée du service au moment où vous enregistrez le domaine dans le portail de gestion Azure. Si votre domaine personnalisé prend en charge, à ce moment-là, une application visée par un contrat de niveau de service (SLA) interdisant toute interruption de service, vous pouvez utiliser le sous-domaine Azure **asverify** en tant qu'étape d'enregistrement intermédiaire pour permettre aux utilisateurs d'accéder à votre domaine pendant que vous procédez au mappage DNS.
+Le processus consistant à mapper votre domaine personnalisé à votre point de terminaison de service BLOB peut entraîner un problème d’indisponibilité de courte durée du service au moment où vous enregistrez le domaine dans le [portail Azure Classic](manage.windowsazure.com). Si votre domaine personnalisé prend en charge, à ce moment-là, une application visée par un contrat de niveau de service (SLA) interdisant toute interruption de service, vous pouvez utiliser le sous-domaine Azure **asverify** en tant qu'étape d'enregistrement intermédiaire pour permettre aux utilisateurs d'accéder à votre domaine pendant que vous procédez au mappage DNS.
 
 Le tableau suivant contient des exemples d'URL permettant d'accéder aux données d'objets blob dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com** :
 
@@ -48,7 +48,7 @@ Pour configurer un nom de domaine personnalisé, vous devez créer un enregistre
 
 Chaque bureau d'enregistrement possède sa propre méthode de spécification des enregistrements CNAME, même si le fonctionnement général reste souvent similaire. Notez que de nombreuses formules de base pour l'enregistrement de domaine n'offrent pas la configuration DNS. Avant de pouvoir créer l'enregistrement CNAME, vous devrez peut-être mettre à niveau votre formule d'enregistrement de domaine.
 
-1.  Dans le portail de gestion Azure, accédez à l'onglet **Stockage**.
+1.  Dans le [portail Azure Classic](manage.windowsazure.com), accédez à l’onglet **Stockage**.
 
 2.  Dans cet onglet, cliquez sur le nom du compte de stockage dont vous souhaitez mapper le domaine personnalisé.
 
@@ -74,7 +74,7 @@ Cette procédure permet d’enregistrer votre domaine personnalisé si ce dernie
 
 Le sous-domaine asverify est un sous-domaine spécial reconnu par Azure. En ajoutant le sous-domaine **asverify** à votre propre sous-domaine, vous permettez à Azure de reconnaître votre domaine personnalisé sans modifier l'enregistrement DNS du domaine. Une fois l'enregistrement DNS pour le domaine modifié, il sera mappé au point de terminaison de service BLOB sans aucune interruption de service.
 
-1.  Dans le portail de gestion Azure, accédez à l'onglet **Stockage**.
+1.  Dans le [portail Azure Classic](manage.windowsazure.com), accédez à l’onglet **Stockage**.
 
 2.  Dans cet onglet, cliquez sur le nom du compte de stockage dont vous souhaitez mapper le domaine personnalisé.
 
@@ -117,4 +117,4 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

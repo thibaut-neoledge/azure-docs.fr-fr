@@ -39,9 +39,9 @@ Pour la version 2.0, les données comprennent :
 
 
 ## Comment activer l’extension
-L'extension peut être activée via le [portail Azure en version préliminaire](https://ms.portal.azure.com/#), Azure PowerShell ou des scripts de l'interface de ligne de commande Azure.
+L’extension peut être activée via le [portail Azure](https://ms.portal.azure.com/#), Azure PowerShell ou des scripts de l’interface de ligne de commande Azure.
 
-Pour afficher et configurer les données système et de performances directement à partir du portail Azure en version préliminaire, suivez ces [étapes](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL vers le blog de Windows").
+Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL vers le blog de Windows").
 
 
 Cet article est centré sur l’activation et la configuration de l’extension via des commandes de l’interface de ligne de commande Azure. Ceci vous permet de lire et d’afficher directement les données de la table de stockage.
@@ -144,4 +144,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 - Pour la version 2.0, si vous avez activé l'extension de diagnostic Linux d'abord via un script, vous ne pouvez pas afficher les données à partir du portail. Si vous activez l’extension à partir du portail dans un premier temps, les scripts fonctionnent.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

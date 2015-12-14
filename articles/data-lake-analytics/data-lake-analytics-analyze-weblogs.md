@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/09/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Didacticiel : Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics
@@ -34,12 +34,12 @@ Découvrez comment analyser les journaux des sites web à l'aide de Data Lake An
 
 - **Connaissances de base de Data Lake Analytics et des Data Lake Tools pour Visual Studio**. Pour commencer, consultez :
  
-	- [Prise en main d'Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md).
+	- [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 	- [Développer des scripts U-SQL à l'aide des Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 - **Un compte Data Lake Analytics.** Consultez [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure en version préliminaire, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou Azure CLI. 
+	Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou Azure CLI. 
 - **Télécharger les exemples de données sur le compte Data Lake Analytics.** Consultez [Télécharger SearchLog.tsv sur le compte Data Lake Storage par défaut](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Pour lancer une tâche Data Lake Analytics, vous aurez besoin de données. Bien que Data Lake Tools prenne en charge le téléchargement de données, vous allez utiliser le portail pour télécharger les exemples de données, ce qui facilitera la progression dans ce didacticiel.
@@ -58,13 +58,13 @@ Avant de pouvoir générer et tester des scripts U-SQL, vous devez d'abord vous 
 **Pour parcourir vos comptes Data Lake Analytics**
 
 1. Dans Visual Studio, ouvrez l'**Explorateur de serveurs** en appuyant sur **CTRL+ALT+S**.
-2. Dans l'**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir du studio. Pour créer un compte, consultez [Prise en main d'Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md) ou [Prise en main d'Azure Data Lake Analytics avec Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+2. Dans l'**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir du studio. Pour créer un compte, consultez [Prise en main d'Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md) ou [Prise en main d'Azure Data Lake Analytics avec Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Développement d'application U-SQL 
 
 Une application U-SQL est essentiellement un script U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main de U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application. Pour plus d'informations, consultez [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Analytique Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application. Pour plus d'informations, consultez [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
  
 **Pour créer et soumettre une tâche Data Lake Analytics**
 
@@ -192,7 +192,7 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
 
 Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, consultez :
 
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
 
@@ -202,4 +202,4 @@ Pour afficher les autres rubriques sur le développement :
 - [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 - [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

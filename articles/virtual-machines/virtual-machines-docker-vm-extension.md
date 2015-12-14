@@ -31,7 +31,7 @@ Cette rubrique décrit :
 Pour créer des machines virtuelles Docker, consultez les pages :
 
 + [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Azure]
-+ [Utilisation de l’extension Docker VM avec le portail Azure]
++ [Utilisation de l’extension Docker VM avec le portail Azure Classic]
 + [Prise en main rapide de Docker dans Azure Marketplace]
 
 Pour plus d'informations sur l'extension et son fonctionnement, consultez la rubrique [Guide d'utilisation de l’extension Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
@@ -69,7 +69,7 @@ Vous pouvez utiliser le portail pour ajouter l’extension Docker VM à n’im
 Pour créer des machines virtuelles Docker, consultez les pages :
 
 + [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Azure]
-+ [Utilisation de l’extension Docker VM avec le portail Azure]
++ [Utilisation de l’extension Docker VM avec le portail Azure Classic]
 
 ## Extensions de machine virtuelle pour Linux et Windows
 L’[extension de machine virtuelle Docker pour Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est l’une des nombreuses extensions de ce type offrant un comportement spécial. D’autres sont en cours de développement. Par exemple, plusieurs fonctionnalités de l’[extension Agent de machine virtuelle Linux](virtual-machines-linux-agent-user-guide.md) vous permettent de modifier et de gérer l’image, y compris les fonctionnalités de sécurité, de noyau, de mise en réseau, etc. L'extension VMAccess, entre autres, vous permet de réinitialiser le mot de passe administrateur ou une clé SSH.
@@ -78,10 +78,10 @@ Pour obtenir une liste complète, consultez la page [Extensions de machine virtu
 
 <!--Anchors-->
 [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Utilisation de l’extension Docker VM avec le portail Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Utilisation de l’extension Docker VM avec le portail Azure Classic]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 [Prise en main rapide de Docker dans Azure Marketplace]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
 [Conteneurs Docker et Linux]: #Docker-and-Linux-Containers
 [Utilisation de l’extension Docker VM avec Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensions de machine virtuelle pour Linux et Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

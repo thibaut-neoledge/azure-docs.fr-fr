@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/30/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -228,7 +228,7 @@ Vous définissez des ressources avec la structure suivante :
 
 | Nom de l'élément | Requis | Description
 | :----------------------: | :------: | :----------
-| apiVersion | Oui | Version de l'API qui prend en charge la ressource. Pour connaître les versions et les schémas disponibles pour les ressources, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Oui | La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les numéros de version disponibles pour un type de ressources particulier, consultez les [versions d’API prises en charge](../resource-manager-supported-services/#supported-api-versions).
 | type | Oui | Type de la ressource. Cette valeur est une combinaison de l'espace de noms du fournisseur de ressources et du type de ressource qu'il prend en charge.
 | name | Oui | Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986.
 | location | Non | Emplacements géographiques de la ressource fournie pris en charge.
@@ -418,4 +418,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

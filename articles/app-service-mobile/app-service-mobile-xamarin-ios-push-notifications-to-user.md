@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Cette rubrique montre comment envoyer des notifications à tous les appareils inscrits d'un utilisateur spécifique à partir de votre backend mobile. Elle introduit le concept de [modèles], qui donne aux applications clientes la liberté de spécifier des formats de charge utile et divers emplacements réservés lors de l’inscription. L'envoi atteint alors chaque plateforme dotée de ces espaces réservés, générant ainsi des notifications interplateformes.
+Cette rubrique montre comment envoyer des notifications à tous les appareils inscrits d'un utilisateur spécifique à partir de votre backend mobile. Elle présente les [modèles], qui donnent aux applications clientes la liberté de spécifier des formats de charge utile et divers emplacements réservés lors de l’inscription. Lorsqu'un modèle de notification est envoyé à partir d'un serveur, le concentrateur de notification lui indique toutes les platesformes avec ces espaces réservés, activant les notifications interplateformes.
 
 > [AZURE.NOTE]Pour que les notifications push fonctionnent avec des clients interplateformes, vous devez suivre ce didacticiel pour chaque plateforme que vous souhaitez utiliser. Il vous suffit d’effectuer une fois la [mise à jour du serveur principal mobile](#backend) pour les clients qui partagent le serveur principal.
  
@@ -58,20 +56,7 @@ Avant de commencer ce didacticiel, vous devez avoir déjà effectué les didacti
         }
         ...
 
-2. Dans **AppDelegate.cs**, remplacez l’appel **RegisterAsync** dans **RegisteredForRemoteNotifications** par ce qui suit pour utiliser les modèles :
 
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>Mise à jour du serveur principal de votre service pour envoyer des notifications à un utilisateur spécifique
 
@@ -92,11 +77,14 @@ Avant de commencer ce didacticiel, vous devez avoir déjà effectué les didacti
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
+            // Sending the message so that all template registrations that contain "messageParam"
+            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string,string> templateParams = new Dictionary<string,string>();
+            templateParams["messageParam"] = item.Text + " was added to the list.";
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
             }
             catch (System.Exception ex)
             {
@@ -112,6 +100,6 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 <!-- URLs. -->
 [Prise en main de l'authentification]: app-service-mobile-xamarin-ios-get-started-users.md
 [Prise en main des notifications Push]: app-service-mobile-xamarin-ios-get-started-push.md
-[modèles]: https://msdn.microsoft.com/fr-FR/library/dn530748.aspx
+[modèles]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

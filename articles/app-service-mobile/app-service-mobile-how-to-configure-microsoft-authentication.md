@@ -30,7 +30,7 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
 ## <a name="register"> </a>Inscrivez votre application avec un compte Microsoft
 
-1. Connectez-vous au [portail de gestion Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application de compte Microsoft.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application de compte Microsoft.
 
 2. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
 
@@ -55,7 +55,7 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 > [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis **Compte Microsoft**. Collez les valeurs obtenues précédemment et cliquez sur **Enregistrer**.
 
 
-7. Revenez au [portail de gestion Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
+7. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
 
 8. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
@@ -88,6 +88,6 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 <!-- URLs. -->
 
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[portail de gestion Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

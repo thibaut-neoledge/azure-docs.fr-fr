@@ -42,14 +42,14 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 * La fonction de sauvegarde et de restauration implique que le site soit en mode Standard. Pour plus d’informations sur l’évolution de votre application Web en vue d’utiliser le mode Standard, consultez [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md). Notez que le mode Premium permet de réaliser un nombre supérieur de sauvegardes quotidiennes par rapport au mode Standard.
 
-* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne possédez pas encore de compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur **Compte de stockage** dans le panneau **Sauvegardes** du [portail Azure en version préliminaire](http://portal.azure.com), puis choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
+* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne disposez pas encore d’un compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur le **Compte de stockage**, dans le panneau **Sauvegardes** du [portail Azure](http://portal.azure.com), puis, choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
 
 * La fonctionnalité de sauvegarde et de restauration prend en charge jusqu’à 10 Go de contenu de site Web et de base de données. Une erreur est indiquée dans les journaux des opérations lorsqu’un dépassement de ce seuil empêche la sauvegarde.
 
 <a name="manualbackup"></a>
 ## Création d’une sauvegarde manuelle
 
-1. Dans le portail Azure, choisissez votre application web dans le panneau Web Apps. Les informations détaillées sur votre application web s’affichent dans un nouveau panneau.
+1. Dans le portail Azure, choisissez votre application web dans le panneau Web Apps. Les informations détaillées sur votre application web s’affichent dans un nouveau panneau.
 2. Sélectionnez l’option **Paramètres**. Le panneau **Paramètres** s’affiche : il vous permet de modifier votre application Web.
 	
 	![Page Sauvegardes][ChooseBackupsPage]
@@ -125,8 +125,7 @@ Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_ba
 
 Supposons que vous avez une application web qui contient des fichiers journaux et des images statiques provenant d'années précédentes et qui ne vont jamais changer. Vous disposez déjà d'une sauvegarde complète de l'application web qui inclut les anciennes images. Vous voulez désormais effectuer une sauvegarde quotidienne de l'application web, mais vous ne voulez pas payer pour le stockage des fichiers journaux ou des images statiques qui ne changent jamais.
 
-![Dossier des journaux][LogsFolder]
-![Dossier images][ImagesFolder]
+![Dossier des journaux][LogsFolder] ![Dossier images][ImagesFolder]
 	
 Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegarde.
 
@@ -142,7 +141,7 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 
 2. Créez un fichier sous le nom `_backup.filter` et placez la liste précédente dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. Téléchargez ce fichier vers le répertoire `D:\home\site\wwwroot` de votre site en utilisant [ftp](web-sites-deploy.md#ftp) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement dans `http://{yourapp}.scm.azurewebsites.net/DebugConsole` et y insérer le contenu.
 
@@ -204,7 +203,6 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
@@ -222,4 +220,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

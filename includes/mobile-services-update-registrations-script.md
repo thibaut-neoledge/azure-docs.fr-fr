@@ -1,6 +1,6 @@
 
 
-1. Dans le portail de gestion, cliquez sur l’onglet **Data**, puis sur la table **Registrations**. 
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur l’onglet **Data**, puis sur la table **Inscriptions**. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
@@ -28,4 +28,4 @@
 
    Le nouveau script de la fonction insert est enregistré. Il stocke les informations d’inscription dans une nouvelle table.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

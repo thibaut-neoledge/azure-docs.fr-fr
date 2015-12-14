@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques
@@ -33,9 +33,9 @@ Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans 
 
     ![Services autorisés][1]
 
-3. Créez un compte Azure Storage qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure en version préliminaire. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Données + stockage** et **Stockage**.
+3. Créez un compte Azure Storage qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Données + stockage** et **Stockage**.
 
-4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion. Accédez au portail Azure en version préliminaire. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Compute**, **Service cloud** et **Créer**.
+4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion. Accédez au portail Azure. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Compute**, **Service cloud** et **Créer**.
 
 
 ## Configuration de votre service de fractionnement/fusion
@@ -60,7 +60,7 @@ Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans 
 ### Configuration de la sécurité
 Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, reportez-vous à la [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Dans le cadre d’un simple déploiement de test permettant de mener à bien ce didacticiel, le bon fonctionnement du service nécessite d’effectuer un nombre minimum d’étapes de configuration. Ces dernières permettent uniquement à l’ordinateur/au compte qui les exécute de communiquer avec le service.
+Dans le cadre d’un simple déploiement de test pour ce didacticiel, le bon fonctionnement du service nécessite d’effectuer un nombre minimum d’étapes de configuration. Ces dernières permettent uniquement à l’ordinateur/au compte qui les exécute de communiquer avec le service.
 
 ### Création d’un certificat auto-signé
 
@@ -91,7 +91,7 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 
 ### Téléchargement du fichier PFX dans le service cloud
 
-Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+Accédez au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud créé ci-dessus pour le service de fractionnement/fusion.
@@ -154,7 +154,7 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 
 ### Connexion avec un navigateur web
 
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail de gestion Azure en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez ****http://** par ****https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez ****http://** par ****https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### Test des scripts PowerShell
 
@@ -334,4 +334,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

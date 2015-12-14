@@ -95,7 +95,7 @@ L’authentification Azure Active Directory prend en charge les bases de donnée
 
 Si vous avez déjà une base de données, vérifiez qu’elle est hébergée dans la base de données SQL V12 en se connectant à la base de données (par exemple, en utilisant SQL Server Management Studio) et en exécutant `SELECT @@VERSION;` Le résultat attendu pour une base de données SQL V12 est au moins **Microsoft SQL Azure (RTM) - 12.0**.
 
-Si votre base de données n’est pas hébergée dans SQL Database V12, consultez [Planifier et préparer la mise à niveau vers SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), puis visitez le portail Azure pour migrer la base de données vers SQL Database V12.
+Si votre base de données n’est pas hébergée dans SQL Database V12, consultez [Planifier et préparer la mise à niveau vers SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), puis visitez le portail Azure Classic pour migrer la base de données vers SQL Database V12.
 
 Vous pouvez également créer une base de données dans SQL Database V12 en exécutant les opérations répertoriées dans [Créer votre première base de données SQL Azure](sql-database-get-started.md). **Conseil** : lisez l’étape suivante avant de sélectionner un abonnement pour votre nouvelle base de données.
 
@@ -107,7 +107,7 @@ Pour associer votre base de données à l’annuaire Azure AD de votre organisat
 
 Les procédures suivantes fournissent des instructions étape par étape sur la façon de comment modifier l’annuaire associé à un abonnement donné.
 
-1. Connectez-vous à votre [portail Azure](https://manage.windowsazure.com/) à l’aide d’un administrateur d’abonnement Azure.
+1. Connectez-vous à votre [portail Azure Classic](https://manage.windowsazure.com/) à l’aide d’un administrateur d’abonnement Azure.
 2. Dans la bannière de gauche, sélectionnez **PARAMÈTRES**. 
 3. Vos abonnements s’affichent dans l’écran Paramètres. Si l’abonnement souhaité n’apparaît pas, cliquez sur **abonnements** en haut, développez la liste déroulante le **FILTRER PAR ANNUAIRE** et sélectionnez le répertoire qui contient vos abonnements, puis cliquez sur **APPLIQUER**.
 
@@ -131,9 +131,9 @@ Chaque serveur SQL Azure démarre avec un compte d’administrateur de serveur u
 
 > [AZURE.NOTE]Les utilisateurs qui ne sont pas basés sur un compte Azure AD (y compris le compte d’administrateur de serveur SQL Azure) ne peuvent pas créer des utilisateurs Azure AD, en car ils n’ont pas l’autorisation de valider les utilisateurs de base de données proposée avec Azure AD.
 
-### Approvisionner un administrateur Active Directory de Azure pour votre serveur de SQL Azure en utilisant le portail Azure 
+### Approvisionner un administrateur Azure Active Directory pour votre serveur SQL Azure en utilisant le portail Azure Classic 
 
-1. Dans le [Portail Azure](https://portal.azure.com/), dans le coin supérieur droit, cliquez sur votre connexion pour développer une liste déroulante de répertoires Active Directories. Choisissez l’annuaire Active Directory approprié en tant qu’Azure AD par défaut. Cette étape lie l’association de l’abonnement avec Active Directory et la base de données SQL Azure, ce qui garantit que c’est le même abonnement qui est utilisé à la fois pour Azure AD et pour SQL Server.
+1. Dans le [portail Azure Classic](https://portal.azure.com/), dans le coin supérieur droit, cliquez sur votre connexion pour développer une liste déroulante d’annuaires Active Directory. Choisissez l’annuaire Active Directory approprié en tant qu’Azure AD par défaut. Cette étape lie l’association de l’abonnement avec Active Directory et la base de données SQL Azure, ce qui garantit que c’est le même abonnement qui est utilisé à la fois pour Azure AD et pour SQL Server.
 
 	![choose-ad][8]
 2. Dans la bannière de gauche, sélectionnez **serveurs SQL**, sélectionnez votre **serveur SQL**, puis, en haut du panneau **Serveur SQL**, cliquez sur **paramètres**.
@@ -192,7 +192,7 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]L'**ObjectID** Azure AD est requis lorsque le **DisplayName** n'est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName**, utilisez la section Active Directory du portail Azure et affichez les propriétés d'un utilisateur ou d'un groupe.
+> [AZURE.NOTE]L'**ObjectID** Azure AD est requis lorsque le **DisplayName** n'est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName**, utilisez la section Active Directory du portail Azure Classic et affichez les propriétés d’un utilisateur ou d’un groupe.
 
 L’exemple suivant renvoie des informations sur l’administrateur Azure AD admin pour le serveur SQL Azure :
 
@@ -327,4 +327,4 @@ Pour obtenir des exemples de code spécifiques associés à l'authentification A
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

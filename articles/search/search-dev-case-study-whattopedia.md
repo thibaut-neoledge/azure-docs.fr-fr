@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Étude de cas d’un développeur Azure Search : Comment WhatToPedia.com a créé un portail infomédia sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Étude de cas d’un développeur Azure Search : Comment WhatToPedia.com a créé un portail infomédia sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Apprenez à créer un portail d'information et un moteur de méta recherche à l'aide du service Azure Search, un service de recherche cloud hébergé pour les développeurs." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
@@ -110,7 +110,7 @@ Voici comment nous avons créé le prototype.
 
 **Configuration du service Azure Search**
 
-1. Connexion au portail Azure et ajout du service de recherche à notre abonnement. Nous avons utilisé la version partagée (fournie gratuitement avec notre abonnement).
+1. Connexion au portail Azure Classic et ajout du service de recherche à notre abonnement. Nous avons utilisé la version partagée (fournie gratuitement avec notre abonnement).
 2. Création d'un index. Pour le prototype, nous avons utilisé l'interface utilisateur du portail pour définir les champs de recherche et pour créer les profils de score. Notre profil de score est basé sur des données de localisation : pays | ville | adresse (voir : Ajout de profils de score).
 3. Copie de l'URL du service et de la clé api administrateur dans nos fichiers de configuration. Cette clé se trouve sur la page du service de recherche du portail, et sert à authentifier le service.
 	
@@ -421,4 +421,4 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

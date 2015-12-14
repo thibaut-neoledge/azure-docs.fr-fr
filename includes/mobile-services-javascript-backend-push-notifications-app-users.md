@@ -1,5 +1,5 @@
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com), cliquez sur **Mobile Services**, puis sur votre service mobile.
+1. Connectez vous au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur votre service mobile.
 
 2. Cliquez sur l'onglet **Push**, sélectionnez **Seuls les utilisateurs authentifiés** pour **Autorisations**, puis cliquez sur **Enregistrer** et **Modifier le script**.
 	
@@ -42,4 +42,4 @@
 
 4. Cliquez sur la flèche Précédent. Cliquez sur l'onglet **Données**, puis sur **TodoItem** et **Script**, puis sélectionnez **Insérer**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

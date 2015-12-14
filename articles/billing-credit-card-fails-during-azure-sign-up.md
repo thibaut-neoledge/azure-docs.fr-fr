@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Ma carte de crédit ne fonctionne pas lorsque je tente de m’inscrire à Azure
 Cet article décrit les causes courantes des problèmes d’inscription liés à l’utilisation d’une carte de crédit.
@@ -64,4 +64,4 @@ Si l’activation d’une version d’évaluation gratuite échoue parce que vou
 ## Contacter le support Azure
 Si votre problème d’inscription persiste après avoir suivi ces étapes de résolution, contactez le [support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

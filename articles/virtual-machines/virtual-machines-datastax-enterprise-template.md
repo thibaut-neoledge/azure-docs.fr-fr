@@ -251,7 +251,7 @@ Lors du déploiement, n’oubliez pas qu’un nouveau compte Azure Storage doit 
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [portail Azure en version préliminaire](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation de gauche, cliquez sur « Parcourir », faites défiler vers le bas, puis cliquez sur « Groupes de ressources ».
 - Une fois que vous avez cliqué sur le groupe de ressources que vous venez de créer, le panneau « Groupe de ressources » s’affiche.
@@ -278,9 +278,7 @@ Vous pouvez vérifier l’état des différents déploiements de ressources à l
 
 ## Visite guidée de l'organisation des fichiers et la structure de modèle Datastax Enterprise
 
-Pour créer un modèle Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que DataStax Enterprise. En tirant parti des capacités de **liaison de modèles** et de **l'itération de ressource** ARM en plus de l'exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n'importe quel déploiement basé sur un modèle complexe.
-<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-Ce schéma décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
+Pour créer un modèle Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que DataStax Enterprise. En tirant parti des capacités de **liaison de modèles** et de **l'itération de ressource** ARM en plus de l'exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n'importe quel déploiement basé sur un modèle complexe. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> Le schéma ci-après décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
 
 ![datastax-enterprise-fichiers](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -385,12 +383,7 @@ La plupart des actions se déroulent dans la section « ressources ». En exam
 
 Ce premier exemple présente clairement la façon dont azuredeploy.json est organisé en mécanisme d’orchestration, pour appeler un certain nombre d’autres fichiers de modèle, chacun d’eux étant responsable d’une partie des activités de déploiement requises.
 
-Les modèles liés suivants sont utilisés pour ce déploiement :
-<!-- In list format, using bold typeface in the following manner is ok -->
--	**shared-resource.json** : contient la définition de toutes les ressources partagées sur le déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
--	**opscenter-resources.json** : déploie une machine virtuelle OpsCenter et toutes les ressources qui lui sont associées, y compris une interface réseau et une adresse IP publique.
--	**opscenter-install-resources.json** : déploie l'extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d'interpréteur de commandes spécifique (opscenter.sh) requis pour configurer le service OpsCenter au sein de cette machine virtuelle.
--	**ephemeral-nodes-resources.json** : déploie tous les nœuds de cluster de machines virtuelles et les ressources connectées (par exemple, des cartes réseau et des adresses IP privées.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d'interpréteur de commandes (dsenode.sh) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
+Les modèles liés suivants sont utilisés pour ce déploiement :<!-- In list format, using bold typeface in the following manner is ok -->-**shared-resource.json** : contient la définition de toutes les ressources partagées sur le déploiement. Par exemple, c’est le cas des comptes de stockage utilisés pour stocker des disques de système d’exploitation et des réseaux virtuels de machines virtuelles. -**opscenter-resources.json** : déploie une machine virtuelle OpsCenter et toutes les ressources qui lui sont associées, y compris une interface réseau et une adresse IP publique. -**opscenter-install-resources.json** : déploie l’extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d’interpréteur de commandes spécifique (opscenter.sh) nécessaire pour configurer le service OpsCenter au sein de cette machine virtuelle. - **ephemeral-nodes-resources.json** : déploie toutes les machines virtuelles à nœud de cluster et les ressources connectées (par exemple, des cartes réseau et des adresses IP privées.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d'interpréteur de commandes (dsenode.sh) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
 
 Penchons-nous sur l'utilisation de ce dernier modèle, car il s'agit d'un des plus intéressants, du point de vue du développement d'un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé itération de ressource.
 
@@ -503,4 +496,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

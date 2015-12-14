@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide du [portail Azure en version préliminaire](https://portal.azure.com).
+Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide du [portail Azure](https://portal.azure.com).
 
 Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
 
@@ -50,7 +50,7 @@ Exploitez les informations des sections [Mise à jour des bases de données SQL 
 
 Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmenter ou diminuer la taille :
 
-1.	Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+1.	Accédez au [portail Azure](https://portal.azure.com).
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à modifier.
@@ -98,4 +98,4 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

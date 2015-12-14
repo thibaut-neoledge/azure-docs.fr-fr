@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Visual Studio Application Insights
 
 Application Insights est un service d’analyse extensible qui surveille votre application en direct. Il vous permet de détecter et diagnostiquer les problèmes de performances et de comprendre ce que font les utilisateurs avec votre application. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité de votre application.
 
-![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
+![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-service-app-insights-get-started/00-sample.png)
 
 Il fonctionne avec les applications web et les applications autonomes sur un large éventail de plates-formes : .NET ou J2EE, hébergées sur site ou dans le cloud.
 
@@ -43,13 +43,13 @@ Les données de télémétrie recueillies à partir de votre application sont st
 
 Vous voulez bénéficier d’une analyse encore plus approfondie ? [Exportez](app-insights-export-telemetry.md) vos données [vers SQL](app-insights-code-sample-export-telemetry-sql-database.md)[vers Power BI](app-insights-export-power-bi.md) ou vers vos propres outils.
 
-![Affichage des données dans Power BI](./media/app-insights-overview/210.png)
+![Affichage des données dans Power BI](./media/app-service-app-insights-get-started/210.png)
 
 ## Plateformes et langages
 
 Il existe des Kits de développement logiciel pour un nombre croissant de plateformes. Actuellement, la liste comprend :
 
- * les [serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
+ * [Serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * les [serveurs J2EE][java]
  * [les pages Web][client] : HTML + JavaScript
@@ -65,7 +65,7 @@ Si votre application comporte un client, un serveur et d’autres composants, vo
 
 Vous installez un petit Kit de développement logiciel (SDK) dans votre application et configurez un compte dans le portail Application Insights. Le Kit de développement logiciel (SDK) surveille votre application et envoie les données de télémétrie au portail. Le portail vous montre des graphiques statistiques et fournit de puissants outils de recherche pour vous aider à diagnostiquer les problèmes.
 
-![Le Kit de développement logiciel (SDK) Application Insights dans votre application envoie la télémétrie aux ressources Application Insights dans le portail Azure.](./media/app-insights-overview/01-scheme.png)
+![Le Kit de développement logiciel (SDK) Application Insights dans votre application envoie la télémétrie aux ressources Application Insights dans le portail Azure.](./media/app-service-app-insights-get-started/01-scheme.png)
 
 Le Kit de développement logiciel (SDK) dispose de plusieurs modules qui recueillent les données de télémétrie, pour compter les utilisateurs, les sessions et les performances, par exemple. Vous pouvez également écrire votre propre code personnalisé pour envoyer des données de télémétrie au portail. La télémétrie personnalisée est particulièrement utile pour suivre les récits utilisateur : vous pouvez compter des événements comme les clics des boutons, la réalisation d’objectifs spécifiques ou les erreurs des utilisateurs.
 
@@ -132,7 +132,7 @@ Si vous n'utilisez pas Visual Studio, ou si ces options ne sont pas disponibles 
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -144,4 +144,4 @@ Si vous n'utilisez pas Visual Studio, ou si ces options ne sont pas disponibles 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

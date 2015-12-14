@@ -87,7 +87,7 @@ Cloud Explorer prend en charge les fonctionnalités suivantes :
 - Panneau Propriétés intégrées affichant les propriétés pour développeurs généralement nécessaires lors des phases de développement ou de test 
 - Changement rapide du compte à utiliser lors de l’énumération des ressources (à l’aide de la commande Paramètres de la barre d’outils) 
 - Filtrage des abonnements à utiliser lors de l’énumération des ressources (à l’aide de la commande Paramètres de la barre d’outils) 
-- Liens ciblés vers le portail Azure en version préliminaire pour la gestion des ressources et des groupes de ressources 
+- Liens ciblés vers le portail Azure pour la gestion des ressources et des groupes de ressources 
  
  
 ###Outils du gestionnaire de ressources Azure 
@@ -131,7 +131,7 @@ Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [
 
 	L’affichage est très important lorsque vous souhaitez voir si votre typologie fonctionne comme prévu. Dans cette version, nous avons ajouté l’affichage des graphes Storm. Vous pouvez visualiser les métriques importants pour votre topologie (par exemple, une couleur indique météo une certaine Bolt est « occupé » ou non). Vous pouvez également double-cliquer sur Bolt/Spout pour afficher plus de détails.
 
-- Prise en charge des clusters HDInsight qui ont été créés dans le nouveau portail Azure (résolution de bogue)
+- Prise en charge des clusters HDInsight qui ont été créés dans le portail Azure (résolution de bogue)
 
 	Vous pouvez maintenant utiliser Visual Studio pour afficher et envoyer des tâches à tous vos clusters HDInsight, peu importe où ils ont été créés.
 
@@ -159,4 +159,4 @@ Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

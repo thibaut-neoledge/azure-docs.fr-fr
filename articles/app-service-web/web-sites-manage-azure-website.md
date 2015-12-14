@@ -35,7 +35,7 @@ Azure App Service est disponibles en cinq niveaux : Gratuit, Partagé, De base, 
 
 ### Configuration
 
-Utilisez la [version préliminaire du portail Azure](https://portal.azure.com/) pour définir différentes options de configuration. Pour plus d’informations, consultez la page [Configurer des applications web dans Azure App Service](web-sites-configure.md). Voici une liste de vérification rapide :
+Utilisez le [portail Azure](https://portal.azure.com/) pour définir différentes options de configuration. Pour plus d’informations, consultez la page [Configurer des applications web dans Azure App Service](web-sites-configure.md). Voici une liste de vérification rapide :
 
 - Sélectionnez **Versions exécutables** pour .NET, PHP, Java ou Python, si nécessaire.
 - Activez **WebSockets** si votre site web utilise ce protocole. (Ceci inclut les applications qui utilisent [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).)
@@ -57,16 +57,16 @@ Configuration spécifique à la langue :
 
 Lorsque votre application web est en cours d’exécution, vérifiez qu’elle est disponible et qu’elle s’adapte au volume du trafic utilisateur. Vous pouvez également résoudre les erreurs.
 
-### Analyse
+### Surveillance
 
-- Via le portail de gestion Azure, vous pouvez [ajouter des mesures de performances](web-sites-monitor.md) comme l’utilisation du processeur et le nombre de demandes de clients.
+- Via le portail Azure, vous pouvez [ajouter des mesures de performances](web-sites-monitor.md) comme l’utilisation du processeur et le nombre de demandes de clients.
 - Pour des informations plus détaillées, utilisez New Relic pour analyser et gérer les performances. Consultez la page [Gestion des performances des applications New Relic dans les applications Web Azure Service](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Mettez votre application web à l’échelle](web-sites-scale.md) en fonction du trafic. Suivant l'option choisie, vous pouvez mettre à l'échelle le nombre de machines virtuelles et/ou la taille des instances de celles-ci. Dans les niveaux Standard et Premium, vous pouvez également configurer la mise à l’échelle automatique, qui fait évoluer votre application automatiquement soit à une planification définie, soit en fonction de la charge.  
  
 ### Sauvegarde
 
 - Configurez les [sauvegardes automatiques](web-sites-backup.md) de votre application web. Pour en savoir plus sur les sauvegardes, regardez [cette vidéo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Découvrez les options de [récupération de base de données](https://azure.microsoft.com/fr-FR/documentation/articles/sql-database-business-continuity/) dans la base de données Azure SQL.
+- Découvrez les options de [récupération de base de données](../sql-database-business-continuity.md) dans la base de données Azure SQL.
 
 ### Résolution des problèmes
 
@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploie
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

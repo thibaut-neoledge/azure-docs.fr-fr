@@ -26,10 +26,10 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d'erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l'onglet **Journaux** du service mobile sur le portail de gestion.
+    Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d’erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l’onglet **Journaux** du service mobile sur le [portail Azure Classic](https://manage.windowsazure.com/).
 
 	>[AZURE.NOTE]Vous pouvez utiliser les modèles de notifications pour envoyer une notification Push unique aux clients sur plusieurs plateformes. Pour plus d'informations, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](../articles/mobile-services-how-to-use-multiple-clients-single-service.md#push).
 
 2. Publiez à nouveau le projet de service mobile dans Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

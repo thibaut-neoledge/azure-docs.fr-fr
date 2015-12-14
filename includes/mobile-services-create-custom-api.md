@@ -1,8 +1,8 @@
 
 
-1. Connectez-vous au portail de gestion Azure, cliquez sur **Mobile Services**, puis sélectionnez le service mobile.
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sélectionnez votre service mobile.
 
-2. Cliquez sur l'onglet **API**, puis sur **Créer**. La boîte de dialogue **Créer une API personnalisée** s’affiche.
+2. Cliquez sur l'onglet **API**, puis sur **Créer**. La boîte de dialogue **Create a new custom API** s’affiche.
 
 3. Tapez _completeall_ dans **Nom API**, puis cliquez sur le bouton de vérification pour créer l'API.
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [objet mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

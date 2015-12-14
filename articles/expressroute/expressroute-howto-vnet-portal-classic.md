@@ -23,7 +23,7 @@ Cette procédure explique pas à pas comment configurer un réseau virtuel et un
 
 >[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, voir [Modèles de déploiement Azure](../azure-classic-rm.md).
 
-1. Connectez-vous au **portail Azure**.
+1. Connectez-vous au **Portail Azure Classic**.
 
 2. Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
@@ -53,7 +53,7 @@ Cette procédure explique pas à pas comment configurer un réseau virtuel et un
 	- **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Aucun sous-réseau supplémentaire n’est requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui disposeront d’adresses IP dynamiques (DIPS). Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances PaaS.
 	- **Ajouter un sous-réseau de passerelle** : cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel et est nécessaire pour cette configuration. ***Important :*** le sous-réseau de passerelle pour ExpressRoute doit avoir une taille minimale de /28. (/27, /26, etc.)
 
-7. Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Après la création de votre réseau virtuel, le statut **Créé** apparaît sous **État** dans la page **Réseaux** du portail de gestion.
+7. Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du Portail Azure Classic.
 
 8. Dans la page **Réseau**, cliquez sur le réseau virtuel que vous venez de créer, puis sur **Tableau de bord**.
 9. En bas de la page Tableau de bord, cliquez sur **CRÉER LA PASSERELLE**, puis sur **Oui**.
@@ -70,4 +70,4 @@ Cette procédure explique pas à pas comment configurer un réseau virtuel et un
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

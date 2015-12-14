@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Journaux, exceptions et diagnostics personnalisés pour ASP.NET dans Application Insights
@@ -34,6 +34,11 @@ Exécutez la fonction Recherche de diagnostic pour afficher les données de tél
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 Les informations varient selon le type d’application. Vous pouvez cliquer dans n’importe quel événement individuel pour obtenir plus de détails.
+
+## Échantillonnage 
+
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+
 
 ##<a name="events"></a>Événements personnalisés
 
@@ -271,6 +276,11 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 
 Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 
+### Certains événements ou certaines traces n’apparaissent pas
+
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>Étapes suivantes
 
 * [Configuration des tests de disponibilité et de réactivité][availability]
@@ -285,7 +295,7 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

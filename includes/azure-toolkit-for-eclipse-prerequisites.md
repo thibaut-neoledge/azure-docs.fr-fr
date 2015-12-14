@@ -1,13 +1,15 @@
-### Prerequisites ###
+### Composants requis ###
 
-The Azure Toolkit for Eclipse requires the following software components:
+Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivants :
 
-* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-* A Java Developer Kit (JDK), v1.7 or later. 
-* Operating Systems - the Azure Toolkit for Eclipse has been tested on the following operating systems:
-    * Windows 10, Windows 8 and 8.1, Windows 7
-    * Windows Server 2012, Windows Server 2008
-    * [Mac OS X](http://www.apple.com/osx)
+* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
+* Kit de développement Java (JDK) version 1.7 ou ultérieure. 
+* Systèmes d'exploitation - le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d'exploitation suivants :
+    * Windows 10, Windows 8 et 8.1, Windows 7
+    * Windows Server 2012, Windows Server 2008
+    * [Mac OS X](http://www.apple.com/osx)
     * [Ubuntu Linux](http://www.ubuntu.com)
 
->[AZURE.NOTE] More information can be found on the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
+>[AZURE.NOTE]Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) sur Eclipse Marketplace.
+
+<!---HONumber=AcomDC_1203_2015-->

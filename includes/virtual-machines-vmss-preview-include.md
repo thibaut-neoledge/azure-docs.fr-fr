@@ -2,4 +2,4 @@ La version de l'API Jeux de mise à l'échelle de machine virtuelle est 2015-06-
 
   Register-AzureRmProviderFeature -FeatureName vmssApiPreviewV2Access -ProviderNamespace Microsoft.Compute
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

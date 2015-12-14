@@ -23,7 +23,7 @@
 
 ## Introduction
 
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
+[AZURE MACHINE LEARNING](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
 
 1. **Créez une expérience de formation**. Pour ce faire, utilisez Azure ML Studio, un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analyse prédictive à l’aide de données de formation que vous fournissez.
 2. **Convertissez-la en une expérience prédictive**. Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
@@ -38,7 +38,7 @@ Au fil du temps, les modèles prédictifs dans les expériences de notation Azur
   
 Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé. Pour ce faire, procédez comme suit :
 
-1. Ajoutez un point de terminaison autre que par défaut au service web de notation. Le point de terminaison par défaut du service web ne peut pas être mis à jour ; vous devrez donc créer un point de terminaison autre que par défaut à l’aide du portail de gestion Azure. Consultez l’article [Création de points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour obtenir des informations conceptuelles et procédurales.
+1. Ajoutez un point de terminaison autre que par défaut au service web de notation. Le point de terminaison par défaut du service web ne peut pas être mis à jour ; vous devrez donc créer un point de terminaison autre que par défaut à l’aide du portail Azure Classic. Consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour obtenir des informations conceptuelles et procédurales.
 2. Mettez à jour des services liés Azure ML existants pour que la notation utilise le point de terminaison autre que par défaut. Vous devez démarrer à l’aide du nouveau point de terminaison pour utiliser le service web mis à jour.
 3. Utilisez l’**activité des ressources de mise à jour Azure ML** pour mettre à jour le service web avec le modèle qui vient d’être formé.  
 
@@ -49,8 +49,8 @@ Consultez la section [Mettre à jour les modèles Azure ML à l’aide de l’a
 Vous utilisez Azure Data Factory pour orchestrer le déplacement et le traitement des données, puis pour effectuer une exécution par lot à l’aide d’Azure Machine Learning. Pour ce faire, vous devez effectuer les opérations suivantes :
 
 1. Créer un service lié Azure Machine Learning. Les éléments suivants seront nécessaires :
-	1. L’**URI de demande** pour l’API d’exécution de lot. Pour trouver l’URI de demande, cliquez sur le lien **BATCH EXECUTION** dans la page des services web (voir ci-dessous).
-	1. La **clé API** pour le service web Azure Machine Learning publié. Vous trouverez la clé API en cliquant sur le service web que vous avez publié. 
+	1. L’**URI DE DEMANDE** pour l’API d’exécution de lot. Pour trouver l’URI de demande, cliquez sur le lien **BATCH EXECUTION** dans la page des services web (voir ci-dessous).
+	1. La **CLÉ API** pour le service web Azure Machine Learning publié. Vous trouverez la clé API en cliquant sur le service web que vous avez publié. 
  2. L’activité **AzureMLBatchExecution**.
 
 	![Tableau de bord Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -293,7 +293,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 ### Utilisation d’un module lecteur pour lire les données de plusieurs fichiers dans le stockage d’objets blob Azure
 Les pipelines Big Data (Pig, Hive, etc.) peuvent produire un ou plusieurs fichiers de sortie sans extensions. Par exemple, quand vous spécifiez une table Hive externe, les données de cette table peuvent être stockées dans le stockage d’objets blob Azure avec le nom 000000\_0 suivant. Vous pouvez utiliser le module lecteur dans une expérience pour lire plusieurs fichiers et les utiliser pour les prédictions.
 
-Quand vous utilisez le module lecteur dans une expérience Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module lecteur vous permet de lire des fichiers (sans extension) en configurant la propriété **Chemin d’accès au conteneur, répertoire ou blob** du module lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l’astérisque (*) **spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** sont lus dans le cadre de l’expérience.
+Quand vous utilisez le module lecteur dans une expérience Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant la propriété **CHEMIN D’ACCÈS AU CONTENEUR, AU RÉPERTOIRE OU À L’OBJET BLOB** du module lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l’astérisque (*) **spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** sont lus dans le cadre de l’expérience.
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -364,7 +364,7 @@ Le tableau suivant décrit les services web utilisés dans cet exemple. Consulte
 | Type du service web | description 
 | :------------------ | :---------- 
 | **Service web de formation** | Reçoit les données de formation et produit le ou les modèles formés. La sortie de la reformation est un fichier .ilearner dans un Blob Storage Azure. Le **point de terminaison par défaut** est automatiquement créé pour vous lorsque vous publiez l’expérience de formation comme un service web. Vous pouvez créer d’autres points de terminaison, mais l’exemple utilise uniquement le point de terminaison par défaut. |
-| **Service web de notation** | Reçoit des exemples de données sans étiquette et effectue des prédictions. La sortie de la prédiction peut prendre plus formes, comme un fichier .csv ou des lignes dans une base de données SQL Azure, selon la configuration de l’expérience. Le point de terminaison par défaut est automatiquement créé pour vous lorsque vous publiez l’expérience prédictive comme un service web. Vous devrez créer le deuxième **point de terminaison autre que par défaut et pouvant être mis à jour** à l’aide du [portail Azure](https://manage.windowsazure.com). Vous pouvez créer d’autres points de terminaison, mais cet exemple utilise uniquement un point de terminaison autre que par défaut pouvant être mis à jour. Consultez l’article [Création de points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour connaître les étapes.       
+| **Service web de notation** | Reçoit des exemples de données sans étiquette et effectue des prédictions. La sortie de la prédiction peut prendre plusieurs formes, comme un fichier .csv ou des lignes dans une base de données SQL Azure, selon la configuration de l’expérience. Le point de terminaison par défaut est automatiquement créé pour vous lorsque vous publiez l’expérience prédictive comme un service web. Vous devrez créer le deuxième **point de terminaison autre que par défaut et pouvant être mis à jour** à l’aide du [portail Azure](https://manage.windowsazure.com). Vous pouvez créer d’autres points de terminaison, mais cet exemple utilise uniquement un point de terminaison autre que par défaut pouvant être mis à jour. Consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour connaître les étapes.       
  
 Le schéma suivant illustre la relation entre points de terminaison de formation et de notation dans Azure ML.
 
@@ -473,8 +473,8 @@ Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour *
 
 1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
 2. Cliquez sur le **service web de formation** dans la liste des services web. 
-3. Cliquez sur Copier en regard de la zone de texte **Clé API** pour copier la clé API dans le Presse-papiers. Collez la clé dans l’éditeur JSON Data Factory.
-4. Dans **Azure ML Studio**, cliquez sur le lien **EXÉCUTION PAR LOTS**, copiez l’**URI de demande** à partir de la section **Demande** et collez-le dans l’éditeur JSON Data Factory.   
+3. Cliquez sur Copier en regard de la zone de texte **CLÉ API** pour copier la clé API dans le Presse-papiers. Collez la clé dans l’éditeur JSON Data Factory.
+4. Dans **Azure ML Studio**, cliquez sur le lien **EXÉCUTION PAR LOTS**, copiez l’**URI DE DEMANDE** à partir de la section **DEMANDE** et collez-le dans l’éditeur JSON Data Factory.   
 
 
 #### Service lié pour le point de terminaison de notation pouvant être mis à jour Azure ML :
@@ -493,7 +493,7 @@ L’extrait de code JSON suivant définit un service lié Azure Machine Learning
 	}
 
 
-Avant de créer et de déployer un service lié Azure ML, suivez les étapes de l’article [Création de points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour créer un deuxième point de terminaison (autre que par défaut et pouvant être mis à jour) pour le service web de notation.
+Avant de créer et de déployer un service lié Azure ML, suivez les étapes de l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md) pour créer un deuxième point de terminaison (autre que par défaut et pouvant être mis à jour) pour le service web de notation.
 
 Après avoir créé le point de terminaison autre que par défaut et pouvant être mis à jour, cliquez sur **EXÉCUTION PAR LOTS** pour obtenir la valeur de l’URI pour la propriété JSON **mlEndpoint** et cliquez sur le lien **METTRE À JOUR LA RESSOURCE** pour obtenir la valeur de l’URI pour la propriété JSON **updateResourceEndpoint**. La clé API est sur la page du point de terminaison même (dans le coin inférieur droit).
 
@@ -594,7 +594,7 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
 
 **Q :** j’utilise l’activité AzureMLBatchScoring. Dois-je utiliser l’activité AzureMLBatchExecution à la place ?
 
-**R :** oui. Si vous utilisez l’activité AzureMLBatchScoring en vue d’une intégration Azure Machine Learning, nous vous recommandons d’utiliser la dernière activité AzureMLBatchExecution. Nous déconseillons l’activité AzureMLBatchScoring, qui sera supprimée dans une version ultérieure.
+**R :** Oui. Si vous utilisez l’activité AzureMLBatchScoring en vue d’une intégration Azure Machine Learning, nous vous recommandons d’utiliser la dernière activité AzureMLBatchExecution. Nous déconseillons l’activité AzureMLBatchScoring, qui sera supprimée dans une version ultérieure.
 
 L’activité AzureMLBatchExecution est introduite dans la version d’août 2015 du Kit de développement logiciel (SDK) Azure et d’Azure PowerShell.
 
@@ -605,7 +605,7 @@ Si vous souhaitez continuer à utiliser l’activité AzureMLBatchScoring, consu
 
 **Q :** j’ai plusieurs fichiers qui sont générés par mes pipelines Big Data. L’activité AzureMLBatchExecution peut-elle fonctionner sur tous les fichiers ?
 
-**R :** oui. Pour plus d’informations, consultez la section **Utilisation d’un module lecteur pour lire les données de plusieurs fichiers dans le stockage d’objets blob Azure**.
+**A :** Oui. Pour plus d’informations, consultez la section **Utilisation d’un module lecteur pour lire les données de plusieurs fichiers dans le stockage d’objets blob Azure**.
 
 
 ## Voir aussi
@@ -623,4 +623,4 @@ Si vous souhaitez continuer à utiliser l’activité AzureMLBatchScoring, consu
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

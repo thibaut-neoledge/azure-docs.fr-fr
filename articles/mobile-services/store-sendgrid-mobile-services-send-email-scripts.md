@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Envoi de courriers électroniques à l'aide de SendGrid | Microsoft Azure" 
-	description="Découvrez comment utiliser le service SendGrid pour envoyer un courrier électronique à partir de votre application Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="Envoi de courriers électroniques à l'aide de SendGrid | Microsoft Azure"
+	description="Découvrez comment utiliser le service SendGrid pour envoyer un courrier électronique à partir de votre application Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="Erikre"/>
 
 
 # Envoi de courrier électronique à partir de Mobile Services avec SendGrid
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Cette rubrique vous montre comment ajouter une fonctionnalité de messagerie électronique à votre service mobile. Dans ce didacticiel, vous allez ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid. Une fois que vous aurez terminé, votre service mobile enverra un message électronique chaque fois qu'un enregistrement sera inséré.
 
@@ -37,14 +42,14 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 ## <a name="add-script"></a>Inscription d'un nouveau script qui envoie des messages électroniques
 
-1. Connectez-vous au [portail de gestion Azure], puis cliquez sur **Mobile Services** et sur votre service mobile.
+1. Connectez vous au [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile.
 
-2. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
+2. Dans le portail Azure Classic, cliquez sur l’onglet **Données**, puis cliquez sur la table **TodoItem**.
 
 	![][1]
 
 3. Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
-   
+
 	![][2]
 
 	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
@@ -52,8 +57,8 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 4. Remplacez la fonction d'insertion par le code suivant :
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +69,8 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -88,13 +93,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 	- **_from-address_** : adresse d'origine du message électronique. Envisagez d'utiliser une adresse de domaine inscrit appartenant à votre organisation.
 
-     >[AZURE.NOTE]Si vous n'avez pas de domaine enregistré, vous pouvez utiliser le domaine de votre service mobile, au format **notifications@_your-mobile-service_.azure-mobile.net*. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.
+     >[AZURE.NOTE]Si vous n’avez pas de domaine enregistré, vous pouvez utiliser le domaine de votre service mobile, au format **notifications@_your-mobile-service_.azure-mobile.net*. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.
 
 6. Cliquez sur le bouton **Enregistrer**. Vous avez maintenant configuré un script pour qu'un message électronique soit envoyé chaque fois qu'un enregistrement est inséré dans la table **TodoItem**.
 
 ## <a name="insert-data"></a>Insertion de données de test pour recevoir du courrier électronique
 
-1. Dans le projet d'application cliente, exécutez l'application de démarrage rapide. 
+1. Dans le projet d'application cliente, exécutez l'application de démarrage rapide.
 
 	Cette rubrique présente la version Windows Store du démarrage rapide.
 
@@ -130,10 +135,8 @@ Maintenant que vous avez vu à quel point il est facile d'utiliser le service de
 [Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -106,7 +106,7 @@ Redémarrez le service xrdp. Utilisez :
 
 
 ##Connectez votre machine virtuelle Linux à partir d’un ordinateur Windows
-Sur un ordinateur Windows, démarrez le client Bureau à distance, entrez le nom DNS de votre machine virtuelle Linux, ou accédez au `Dashboard` de votre machine virtuelle dans le portail Azure et cliquez sur `Connect` pour connecter votre machine virtuelle Linux. Vous verrez la fenêtre de connexion ci-dessous :
+Sur un ordinateur Windows, démarrez le client Bureau à distance, entrez le nom DNS de votre machine virtuelle Linux, ou accédez au `Dashboard` de votre machine virtuelle dans le portail Azure Classic et cliquez sur `Connect` pour connecter votre machine virtuelle Linux. Vous verrez la fenêtre de connexion ci-dessous :
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Connectez-vous avec le `user` et le `password` de votre machine virtuelle Linux,
 ##Suivant
 Pour plus d’informations sur l’utilisation de xrdp, voir [ici](http://www.xrdp.org/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Ce didacticiel explique comment utiliser les outils de Visual Studio pour déboguer une application Web pendant son exécution dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), en activant le [mode débogage](http://www.visualstudio.com/fr-FR/get-started/debug-your-app-vs.aspx) à distance ou en consultant les journaux des applications et des serveurs Web.
+Ce didacticiel explique comment utiliser les outils de Visual Studio pour déboguer une application Web pendant son exécution dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), en activant le [mode débogage](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) à distance ou en consultant les journaux des applications et des serveurs Web.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -71,7 +71,7 @@ Visual Studio permet d’accéder à un sous-ensemble des fonctionnalités de g
    
 	Pour plus d’informations sur les cases à cocher Paramètres de l’application et Chaînes de connexion de cette fenêtre, consultez l’article [Fonctionnement des chaînes d’application et de connexion dans les applications Web Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (en anglais).
 
-	Pour effectuer une tâche de gestion d’application Web non exécutable dans cette fenêtre, cliquez sur **Ouvrir dans le portail de gestion** pour ouvrir une fenêtre de navigateur sur le portail Azure en version préliminaire. Pour plus d’informations, consultez [Configurer des applications Web](/fr-FR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Pour effectuer une tâche de gestion d’application web non exécutable dans cette fenêtre, cliquez sur **Ouvrir dans le portail de gestion** pour ouvrir une fenêtre de navigateur sur le portail Azure Classic. Pour plus d’informations, consultez [Configurer des applications Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Accès aux fichiers d’applications Web dans l’Explorateur de serveurs
 
@@ -156,7 +156,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 6. Pour Visual Studio 2012 avec Update 4 ou version ultérieure :<a id="vs2012"></a>
 
-	* Sur le portail de gestion Microsoft Azure, accédez à l’option **Paramètres > Paramètres de l’application** de votre application Web, puis faites défiler la page jusqu’à la section **Débogage**.
+	* Dans le portail Azure Classic, accédez à l’option **Paramètres > Paramètres de l’application** de votre application web, puis faites défiler la page jusqu’à la section **Débogage**.
 
 	* Définissez l’option **Débogage distant** sur **Activé**, puis l’option **Visual Studio Version** sur **2012**.
 
@@ -166,7 +166,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 	* Sélectionnez **Afficher les processus de tous les utilisateurs**.
 
-	* Lorsque vous êtes invité à saisir les informations d’identification, entrez le nom d’utilisateur et le mot de passe d’un compte disposant des autorisations adéquates pour le déploiement d’un contenu sur l’application web. Pour obtenir ces informations d’identification, accédez à l’onglet Tableau de bord associé à votre application Web sur le portail de gestion, puis cliquez sur **Télécharger le profil de publication**. Ouvrez le fichier dans un éditeur de texte : vous trouverez le nom d'utilisateur et le mot de passe après les premières occurrences de **userName=** et **userPWD=**.
+	* Lorsque vous êtes invité à saisir les informations d’identification, entrez le nom d’utilisateur et le mot de passe d’un compte disposant des autorisations adéquates pour le déploiement d’un contenu sur l’application web. Pour obtenir ces informations d’identification, accédez à l’onglet Tableau de bord associé à votre application web dans le portail Azure Classic, puis cliquez sur **Télécharger le profil de publication**. Ouvrez le fichier dans un éditeur de texte : vous trouverez le nom d'utilisateur et le mot de passe après les premières occurrences de **userName=** et **userPWD=**.
 
 	* Lorsque les processus sont affichés dans la table **Processus disponibles**, sélectionnez **w3wp.exe**, puis cliquez sur **Joindre**.
 
@@ -298,7 +298,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 ### Ajout d'instructions de suivi à l'application
 
-1. Ouvrez *Controllers\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
+1. Ouvrez *Controllers\\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
 
 		using System;
 		using System.Collections.Generic;
@@ -475,9 +475,9 @@ Les journaux de serveur Web enregistrent toutes les activités HTTP de l’app
 	![Journaux de serveur Web dans la fenêtre Sortie](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-Par défaut, Azure écrit les journaux dans le système de fichiers lorsque vous activez les journaux de serveur Web en utilisant Visual Studio. Une autre méthode consiste à utiliser le portail de gestion pour indiquer que les journaux de serveur Web doivent être écrits sur un conteneur d'objets blob dans un compte de stockage. Pour plus d'informations, consultez la section **Diagnostics de site** de la rubrique [Configuration des sites Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+Par défaut, Azure écrit les journaux dans le système de fichiers lorsque vous activez les journaux de serveur Web en utilisant Visual Studio. Une autre méthode consiste à utiliser le portail Azure Classic pour indiquer que les journaux de serveur web doivent être écrits sur un conteneur d’objets blob dans un compte de stockage. Pour plus d'informations, consultez la section **Diagnostics de site** de la rubrique [Configuration des sites Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
-Si vous utilisez le portail de gestion pour activer la journalisation de serveur Web sur un compte de stockage Azure, puis que vous désactivez la journalisation dans Visual Studio, lorsque vous réactivez la journalisation dans Visual Studio, les paramètres de votre compte de stockage sont restaurés.
+Si vous utilisez le portail Azure Classic pour activer la journalisation de serveur web sur un compte de stockage Azure, puis que vous désactivez la journalisation dans Visual Studio, lorsque vous réactivez la journalisation dans Visual Studio, les paramètres de votre compte de stockage sont restaurés.
 
 ## <a name="detailederrorlogs"></a>Affichage des journaux de messages d’erreur détaillés
 
@@ -527,7 +527,7 @@ Tous les journaux que vous pouvez surveiller dans la fenêtre **Sortie** peuvent
 
 ## <a name="storagelogs"></a>Affichage des journaux de stockage
 
-Les journaux de suivi d'application peuvent également être envoyés vers un compte de stockage Azure et vous pouvez les afficher dans Visual Studio. Pour cela, vous allez créer un compte de stockage, activer les journaux de stockage sur le portail de gestion et les afficher dans l’onglet **Journaux** de la fenêtre **Application web Microsoft Azure**.
+Les journaux de suivi d'application peuvent également être envoyés vers un compte de stockage Azure et vous pouvez les afficher dans Visual Studio. Pour cela, vous allez créer un compte de stockage, activer les journaux de stockage sur le portail Azure Classic et les afficher dans l’onglet **Journaux** de la fenêtre **Application web Microsoft Azure**.
 
 Vous pouvez envoyer des journaux à l'une des trois destinations suivantes, ou aux trois :
 
@@ -567,12 +567,11 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 1. Dans la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur l’onglet **Journaux**, puis sur **Configurer la journalisation dans le portail de gestion**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	Cette opération ouvre l’onglet **Configurer** dans le portail Azure pour votre application web.
+	Cette opération ouvre l’onglet **Configurer** dans le portail Azure Classic pour votre application web.
 
-2. Sous l’onglet **Configurer** du portail, faites défiler vers le bas jusqu’à la section Diagnostic d’application, puis définissez **Journal des applications (Stockage de tables)** sur **Actif**.
+2. Sous l’onglet **Configurer** du portail Azure Classic, faites défiler vers le bas jusqu’à la section Diagnostic d’application, puis définissez **Journal des applications (Stockage de tables)** sur **Actif**.
 
 3. Définissez le **niveau de journalisation** sur **Information**.
 
@@ -586,7 +585,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 6. Dans la zone **Manage table storage for application diagnostics**, cliquez sur la coche pour fermer la zone.
 
-6. Sous l’onglet **Configurer** du portail, cliquez sur **Enregistrer**.
+6. Sous l’onglet **Configurer** du portail Azure Classic, cliquez sur **Enregistrer**.
 
 7. Dans la fenêtre de navigateur qui affiche l’application Web, cliquez sur **Accueil**, puis sur **À propos de** et sur **Contact**.
 
@@ -638,13 +637,13 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 
 2. Dans l’onglet **Configuration** de la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur **Ouvrir l’élément dans le portail de gestion**.
 
-3. Dans le panneau du portail Azure en version préliminaire de votre application web, cliquez sur **Paramètres > Informations d’identification du déploiement**, puis entrez de nouveaux nom d’utilisateur et mot de passe.
+3. Dans le panneau du portail Azure(https://portal.azure.com) de votre application web, cliquez sur **Paramètres > Informations d’identification du déploiement**, puis entrez de nouveaux nom d’utilisateur et mot de passe.
 
 	![Nouveaux nom d'utilisateur et mot de passe FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 	****Lorsque vous vous connectez, vous devez utiliser le nom d’utilisateur complet, avec pour préfixe le nom de l’application web. Par exemple, si vous entrez « monid » comme nom d’utilisateur et si le site est « monexemple », vous vous connectez en tant que « monexemple\\monid ».
 
-5. Dans une nouvelle fenêtre de navigateur, accédez à l’URL affichée sous **Nom d’hôte FTP** ou **Nom d’hôte FTPS** dans le panneau du portail **Application web** pour votre application web.
+5. Dans une nouvelle fenêtre de navigateur, accédez à l’URL affichée sous **Nom d’hôte FTP** ou **Nom d’hôte FTPS** dans le panneau **Application web** pour votre application web.
 
 6. Connectez-vous en utilisant les informations d’identification FTP que vous avez créées précédemment (nom d’utilisateur incluant le nom application web en tant que préfixe).
 
@@ -704,8 +703,8 @@ Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio,
 Pour en savoir plus sur le débogage distant des applications web Microsoft Azure et WebJobs, consultez les articles de blog suivants, en anglais :
 
 * [Présentation du débogage à distance d’Azure App Service Web Apps](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/) (en anglais).
-* [Présentation du débogage à distance d’Azure App Service Web Apps : 2e partie - au cœur du débogage distant](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/) (en anglais)
-* [Présentation du débogage à distance d’Azure App Service Web Apps : 3e partie - environnement multi-instance et GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/) (en anglais)
+* [Présentation du débogage à distance d’Azure App Service Web Apps : 2e partie - au cœur du débogage distant (en anglais)](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Présentation du débogage à distance d’Azure App Service Web Apps : 3e partie - environnement multi-instance et GIT (en anglais)](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Débogage de WebJobs (vidéo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Si votre application Web utilise une API Web Microsoft Azure ou un système Mobile Services principal qu’il vous faut déboguer, consultez l’article [Débogage du serveur principal .NET dans Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx) (en anglais).
@@ -762,4 +761,4 @@ Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une app
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

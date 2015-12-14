@@ -82,16 +82,16 @@ Pour créer le réseau virtuel avec les paramètres des tables V, S, D et L, sui
 
 > [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l'utilisation d'ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d'ExpressRoute](../expressroute/expressroute-introduction.md).
 
-Après la création du réseau virtuel Azure, le portail Azure détermine les éléments suivants :
+Après la création du réseau virtuel Azure, le portail Azure Classic détermine les éléments suivants :
 
 - l'adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel ;
 - la clé Internet Protocol security (IPsec) prépartagée pour la connexion VPN de site à site.
 
-Pour afficher ces éléments dans le portail Azure une fois le réseau virtuel créé, cliquez sur **Réseaux**, puis sur le nom du réseau virtuel, et enfin sur l'option de menu **Tableau de bord**.
+Pour afficher ces éléments dans le portail Azure Classic une fois le réseau virtuel créé, cliquez sur **Réseaux**, puis sur le nom du réseau virtuel, et enfin sur l'option de menu **Tableau de bord**.
 
-Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Vous trouverez les instructions détaillées sous [Configurer une passerelle de réseau virtuel dans le portail Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Vous trouverez les instructions détaillées sous [Configurer une passerelle de réseau virtuel dans le portail Azure Classic](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
-Créez ensuite la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Pour en savoir plus sur les instructions, consultez [Configurer une passerelle de réseau virtuel dans le portail Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+Créez ensuite la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Pour en savoir plus sur les instructions, consultez la rubrique [Configurer une passerelle de réseau virtuel dans le portail Azure Classic](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 Ensuite, assurez-vous que l'espace d'adressage du réseau virtuel est accessible à partir de votre réseau local. Pour cela, il vous suffit généralement d'ajouter un itinéraire correspondant à l'espace d'adressage du réseau virtuel à votre périphérique VPN, puis de transmettre cet itinéraire au reste de l'infrastructure de routage du réseau de votre organisation. Consultez votre service informatique pour déterminer la procédure à suivre.
 
@@ -173,4 +173,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -35,7 +35,7 @@ Pour configurer votre pare-feu de base de données, vous créez des règles de p
 
 ## Présentation du pare-feu de base de données SQL
 
-Initialement, tout accès à votre serveur de base de données SQL Azure est bloqué par le pare-feu. Pour commencer à utiliser votre serveur de base de données SQL Azure, vous devez accéder au portail de gestion et spécifier une ou plusieurs règles de pare-feu au niveau du serveur qui permettent l’accès à votre serveur Azure SQL Database. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL Database.
+Initialement, tout accès à votre serveur de base de données SQL Azure est bloqué par le pare-feu. Pour commencer à utiliser votre serveur Azure SQL Database, vous devez accéder au portail Azure Classic et spécifier une ou plusieurs règles de pare-feu au niveau du serveur qui permettent l’accès à votre serveur Azure SQL Database. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL Database.
 
 Toutefois, si vous souhaitez accorder l’accès de manière sélective à une des bases de données de votre serveur Azure SQL Database, vous devez créer une règle au niveau de la base de données pour la base de données concernée avec une plage d’adresses IP au-delà de la plage d’adresses IP spécifiée dans la règle de pare-feu au niveau du serveur et vérifier que l’adresse IP du client se situe dans la plage spécifiée dans la règle au niveau de la base de données.
 
@@ -60,7 +60,7 @@ Quand un ordinateur tente de se connecter à votre serveur de base de données �
 
 Quand une application à partir d’Azure tente de se connecter à votre serveur de base de données, le pare-feu vérifie que les connexions Azure sont autorisées. Un paramètre de pare-feu avec des adresses de début et de fin égales à 0.0.0.0 indique que ces connexions sont autorisées. Si la tentative de connexion n’est pas autorisée, la demande n’atteint pas le serveur Azure SQL Database.
 
-Vous pouvez activer des connexions à partir d’Azure dans le [portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=161793) de deux manières :
+Vous pouvez activer des connexions à partir d’Azure dans le [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=161793) de deux manières :
 
 - Cochez la case **Autoriser les services Microsoft Azure à accéder au serveur** quand vous créez un serveur.
 
@@ -68,7 +68,7 @@ Vous pouvez activer des connexions à partir d’Azure dans le [portail de gesti
 
 ## Création de la première règle de pare-feu au niveau du serveur
 
-Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=161793) ou par programmation à l’aide de l’API REST ou d’Azure PowerShell. Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, ainsi que par le biais de Transact-SQL. Pour plus d’informations sur les règles de pare-feu au niveau du serveur, consultez [Procédure : configuration des paramètres de pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=161793) ou par programmation à l’aide de l’API REST ou d’Azure PowerShell. Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, ainsi que par le biais de Transact-SQL. Pour plus d’informations sur les règles de pare-feu au niveau du serveur, consultez [Procédure : configuration des paramètres de pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Création de règles de pare-feu au niveau de la base de données
 
@@ -76,7 +76,7 @@ Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez li
 
 ## Gestion par programmation des règles de pare-feu de base de données
 
-Outre avec le portail de gestion Azure, les règles de pare-feu peuvent être gérées par programmation à l’aide de Transact-SQL, de l’API REST et d’Azure PowerShell. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles pour chaque méthode.
+Outre avec le portail Azure Classic, les règles de pare-feu peuvent être gérées par programmation à l’aide de Transact-SQL, de l’API REST et d’Azure PowerShell. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles pour chaque méthode.
 
 
 ### Transact-SQL
@@ -117,7 +117,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 - **Configuration du pare-feu local :** pour que votre ordinateur puisse accéder à Azure SQL Database, vous devez créer une exception de pare-feu sur votre ordinateur pour le port TCP 1433. Vous devrez peut-être ouvrir des ports supplémentaires si vous effectuez des connexions dans la limite du cloud Azure. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-- **Traduction d’adresses réseau (NAT) :** en raison du protocole NAT, l’adresse IP utilisée par votre ordinateur pour se connecter à la base de données SQL Azure peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au Portail de gestion et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**adresse IP client en cours** s’affiche. Cliquez sur **Ajouter** aux **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
+- **Traduction d’adresses réseau (NAT) :** en raison du protocole NAT, l’adresse IP utilisée par votre ordinateur pour se connecter à la base de données SQL Azure peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au portail Azure Classic et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**adresse IP client en cours** s’affiche. Cliquez sur **Ajouter** aux **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
 
 - **Les modifications apportées à la liste d’approbation n’ont pas encore pris effet :** jusqu’à cinq minutes peuvent s’écouler avant que les modifications apportées à la configuration du pare-feu de la base de données SQL Azure SQL ne soient effectives.
 
@@ -138,4 +138,4 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

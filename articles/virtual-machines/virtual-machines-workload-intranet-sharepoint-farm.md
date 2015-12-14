@@ -95,8 +95,8 @@ Voici les machines virtuelles et leur taille par défaut pour cette configuratio
 3\. | Premier serveur de base de données | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 4\. | Deuxième serveur de base de données | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5\. | Nœud majoritaire du cluster | Windows Server 2012 R2 Datacenter | A1 (Small)
-6\. | Premier serveur d'applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-7\. | Deuxième serveur d'applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+6\. | Premier serveur d’applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+7\. | Deuxième serveur d’applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
 8\. | Premier serveur web SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
 9\. | Deuxième serveur web SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
 
@@ -107,7 +107,7 @@ Pour calculer le coût estimé de cette configuration, consultez la [Calculatric
 	- votre région prévue
 	- le type **Windows**
 	- le niveau de tarification **Standard**
-	- La taille par défaut de la table précédente ou la **taille prévue des instances**
+	- la taille par défaut de la table précédente ou la **taille prévue des instances**
 
 > [AZURE.NOTE]La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
@@ -117,7 +117,7 @@ Pour déployer cette configuration, procédez comme suit :
 
 - Phase 1 : configuration d'Azure.
 
-	Utilisez le portail Azure et Azure PowerShell pour créer un compte de stockage, des services cloud et un réseau virtuel entre les sites. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Utilisez le portail Azure Classic et Azure PowerShell pour créer un compte de stockage, des services cloud et un réseau virtuel entre les sites. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Phase 2 : configuration de contrôleurs de domaine.
 
@@ -153,4 +153,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

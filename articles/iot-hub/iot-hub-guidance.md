@@ -78,7 +78,7 @@ Un service de jeton est un service cloud personnalisé, qui utilise une *straté
 
 Voici les principales étapes du modèle de service de jeton :
 
-1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Vous pouvez créer cette stratégie dans la [version préliminaire du portail][lnk-preview-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
+1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Vous pouvez créer cette stratégie dans le [portail Azure][lnk-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 2. Lorsqu'un appareil doit accéder à votre concentrateur IoT, il demande à votre service de jetons un jeton signé. L'appareil peut s'authentifier avec votre registre d'identité d'appareil personnalisé/schéma d'authentification pour déterminer l'identité d'appareil que le service de jeton utilise pour créer le jeton.
 3. Le service de jeton renvoie un jeton créé conformément à la section [Guide du développeur IoT Hub - Sécurité][lnk-devguide-security], en utilisant `/devices/{deviceId}` comme `resourceURI`, `deviceId` étant l'appareil en cours d'authentification. Le service de jeton utilise la stratégie d'accès partagé pour construire le jeton.
 4. Le périphérique utilise le jeton directement avec le hub IoT.
@@ -112,11 +112,11 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

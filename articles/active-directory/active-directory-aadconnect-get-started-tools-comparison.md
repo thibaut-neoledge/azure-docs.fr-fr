@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comparaison des outils d’intégration de répertoire | Microsoft Azure"
+	pageTitle="Azure AD Connect : comparaison des outils d’intégration de répertoire | Microsoft Azure"
 	description="Cette page vous donne accès à des tableaux complets de comparaison des différents outils d’intégration de répertoire."
 	services="active-directory"
 	documentationCenter=""
@@ -91,4 +91,4 @@ Autorisation de la personnalisation avancée pour les flux d’attributs | ● |
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -16,7 +16,7 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Prise en main d'Azure Data Lake Store avec le portail Azure en version préliminaire
+# Prise en main d'Azure Data Lake Store avec le portail Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Apprenez à utiliser le portail Azure en version préliminaire pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble d'Azure Data Lake Store](data-lake-store-overview.md).
+Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble d'Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Configuration requise
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Activer votre abonnement Azure pour la version d'évaluation publique de Data Lake Store
 
 Vous devez tout d'abord demander l'activation de votre abonnement Azure pour la version d'évaluation publique de Data Lake Store. Pour ce faire, procédez comme suit.
 
-1. Inscrivez-vous au nouveau [portail Azure en version préliminaire](https://portal.azure.com).
+1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, puis sur **Données + Stockage** et enfin sur **Azure Data Lake Store**.
 3. Dans le panneau **Nouveau Data Lake Store**, cliquez sur **S'inscrire à la version d'évaluation**. Lisez les informations, puis cliquez sur **OK**. Vous recevez un courrier électronique une fois votre abonnement activé pour la version d'évaluation publique.
 
@@ -44,7 +44,7 @@ Vous devez tout d'abord demander l'activation de votre abonnement Azure pour la 
 
 ## Créer un compte Azure Data Lake Store
 
-1. Inscrivez-vous au nouveau [portail Azure en version préliminaire](https://portal.azure.com).
+1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur **NOUVEAU**, puis sur **Données + Stockage** et enfin sur **Azure Data Lake Store**. Lisez les informations contenues dans le panneau **Azure Data Lake Store**, puis cliquez sur **Créer** dans le coin inférieur gauche du panneau.
 
@@ -133,4 +133,4 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer** dans l
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

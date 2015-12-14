@@ -1,5 +1,5 @@
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l’application.
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur votre application.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -17,7 +17,4 @@
 
 Vous pouvez ensuite modifier votre application pour activer les notifications Push.
 
-<!-- URLs -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

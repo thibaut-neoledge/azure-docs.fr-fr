@@ -29,7 +29,7 @@ Ce didacticiel part du principe que vous disposez des éléments suivants :
 
 - Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, consultez la page [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d'informations sur la création de ce réseau virtuel, consultez la page [Créer un réseau virtuel de site à site en utilisant le portail Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d’informations sur la création de ce réseau virtuel, consultez la page [Configurer un VPN de site à site en utilisant le portail Azure Classic](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
@@ -103,4 +103,4 @@ En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

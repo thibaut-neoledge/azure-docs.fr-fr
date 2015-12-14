@@ -70,9 +70,9 @@ Dans cette section, nous allons découvrir certaines des principales différence
 
 Vous pouvez débuter dans l’utilisation des modèles Azure en exploitant les différents outils de développement et de déploiement de la plateforme.
 
-### Portail Azure en version préliminaire
+### Portail Azure
 
-Le portail Azure en version préliminaire continuera à bénéficier de l'option de déploiement de machines virtuelles avec le modèle de déploiement classique et de déploiement de machines virtuelles avec le modèle de déploiement Resource Manager simultanément. Le portail Azure en version préliminaire permettra aussi le déploiement de modèles personnalisés.
+Le portail Azure continuera à bénéficier de l'option de déploiement de machines virtuelles avec le modèle de déploiement classique et de déploiement de machines virtuelles avec le modèle de déploiement Resource Manager simultanément. Le portail Azure permettra aussi le déploiement de modèles personnalisés.
 
 ### Azure PowerShell
 
@@ -116,4 +116,4 @@ Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connect
 
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

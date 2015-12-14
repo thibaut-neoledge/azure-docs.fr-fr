@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuration de SSL pour un service cloud (portail en version préliminaire) | Microsoft Azure" 
-	description="Découvrez comment spécifier un point de terminaison HTTPS pour un rôle web et télécharger un certificat SSL pour sécuriser votre application. Ces exemples utilisent le portail Azure en version préliminaire." 
+	pageTitle="Configuration de SSL pour un service cloud | Microsoft Azure" 
+	description="Découvrez comment spécifier un point de terminaison HTTPS pour un rôle web et télécharger un certificat SSL pour sécuriser votre application. Ces exemples utilisent le portail Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -22,8 +22,8 @@
 # Configuration de SSL pour une application dans Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
@@ -153,13 +153,11 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
       
     >Créez un certificat dont le nom commun (CN) est identique à l’URL basée sur le GUID (par exemple, **328187776e774ceda8fc57609d404462.cloudapp.net**), utilisez le portail pour ajouter le certificat au service cloud intermédiaire, ajoutez les informations de certificat aux fichiers CSDEF et CSCFG, recréez le package de l’application et mettez à jour le déploiement intermédiaire pour utiliser le nouveau package et le nouveau fichier CSCFG.
 
-[Azure Portal]: http://portal.azure.com/
-
 ## Étapes suivantes
 
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
-* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
+* Configurer un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md)
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

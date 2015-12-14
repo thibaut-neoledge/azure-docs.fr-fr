@@ -27,7 +27,7 @@ L’échantillonnage adaptatif est activé par défaut dans le Kit de développe
 Il existe deux autres modules d’échantillonnage :
 
 * L’échantillonnage adaptatif ajuste automatiquement le pourcentage d’échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur.  
-* Une option d’échantillonnage à débit fixe est également disponible. Vous spécifiez le pourcentage d’échantillonnage. Disponible pour le code d’application web ASP.NET et les pages web JavaScript. Le client et le serveur synchronisent l’échantillonnage de façon à ce que, dans Search, vous puissiez naviguer entre les demandes et les affichages de pages associés.
+* Une option d'échantillonnage à débit fixe est également disponible. Vous spécifiez le pourcentage d'échantillonnage. Disponible pour le code d'application web ASP.NET et les pages Web JavaScript. Le client et le serveur synchronisent l’échantillonnage de façon à ce que, dans Search, vous puissiez naviguer entre les demandes et les affichages de pages associés.
 
 ## Activation de l’échantillonnage adaptatif
 
@@ -66,6 +66,58 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 * `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
 
     Valeur affectée lorsque l’application vient de démarrer. Ne diminuez pas cette valeur pendant le débogage.
+
+### Solution alternative : configurer l’échantillonnage adaptatif dans le code
+
+Au lieu d’ajuster l’échantillonnage dans le fichier .config, vous pouvez utiliser le code. Cela vous permet de spécifier une fonction de rappel qui est appelée chaque fois que le taux d’échantillonnage est réévalué. Par exemple, vous pouvez utiliser cette fonction pour savoir quel est le taux d’échantillonnage utilisé.
+
+Supprimer le nœud `AdaptiveSamplingTelemetryProcessor` du fichier .config.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([En savoir plus sur les processeurs de télémétrie](app-insights-api-filtering-sampling.md#filtering).)
+
 
 <a name="other-web-pages"></a>
 ## Échantillonnage pour les pages web avec JavaScript
@@ -132,7 +184,7 @@ Si vous avez activé l’échantillonnage à débit fixe sur le serveur, les cli
 
 
 
-### Autre solution : définir l’échantillonnage dans le code serveur
+### Solution alternative : activez l’échantillonnage à taux fixe dans le code serveur
 
 
 Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, vous pouvez utiliser le code.
@@ -155,7 +207,7 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
 
 ```
 
-([En savoir plus sur les processeurs de télémétrie](app-insights-api-filtering-sampling/#filtering).)
+([En savoir plus sur les processeurs de télémétrie](app-insights-api-filtering-sampling.md#filtering).)
 
 ## Quand utiliser l’échantillonnage ?
 
@@ -221,11 +273,13 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 *Puis-je déterminer le taux de l’échantillonnage adaptatif ?*
 
- * Pas dans la version actuelle.
+ * Oui, utilisez la méthode de code de configuration d’échantillonnage adaptatif pour fournir un rappel qui obtient le taux d’échantillonnage.
 
 *Si j’utilise l’échantillonnage à débit fixe, comment déterminer le pourcentage d’échantillonnage optimal pour mon application ?*
 
-* Pour l’heure, vous devez procéder par tâtonnements. Analysez votre utilisation actuelle des données de télémétrie dans AI, observez les suppressions de données associées à la limitation, puis estimez le volume de données de télémétrie collectées. Ces trois entrées, combinées au niveau tarifaire sélectionné, vous indiqueront dans quelle mesure vous devrez réduire le volume de données de télémétrie collectées. Un changement de modèle au niveau du volume de télémétrie peut toutefois invalider le pourcentage d’échantillonnage optimal configuré (en cas d’augmentation du nombre de vos utilisateurs, par exemple).
+* Pour cela, vous pouvez commencer par l’échantillonnage adaptatif, identifier le taux obtenu (voir la question précédente) et passer à l’échantillonnage à taux fixe en utilisant ce taux. 
+
+    Autrement, vous devez procéder par tâtonnements. Analysez votre utilisation actuelle des données de télémétrie dans AI, observez les limitations qui s’appliquent, puis estimez le volume de données de télémétrie collectées. Ces trois entrées, combinées au niveau tarifaire sélectionné, vous indiquent dans quelle mesure vous devrez réduire le volume de données de télémétrie collectées. Toutefois, une augmentation du nombre d’utilisateurs ou toute autre modification au niveau du volume des données de télémétrie peut invalider votre estimation.
 
 *Que se passe-t-il si je configure le pourcentage d’échantillonnage à un niveau trop faible ?*
 
@@ -241,6 +295,6 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
- * Créez une instance distincte de TelemetryClient avec un paramètre TelemetryConfiguration différent. Utilisez cette instance pour envoyer vos événements rares.
+ * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

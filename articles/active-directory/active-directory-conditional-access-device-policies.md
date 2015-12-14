@@ -44,4 +44,4 @@ Q : quand la stratégie d’accès conditionnel aux services Office 365 sera-t
 
 R : à l’heure actuelle, l’accès conditionnel aux services Office 365 est limité aux applications riches sur l’appareil. La feuille de route indique d’étendre la stratégie d’accès conditionnel aux utilisateurs qui accèdent aux services depuis les navigateurs.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

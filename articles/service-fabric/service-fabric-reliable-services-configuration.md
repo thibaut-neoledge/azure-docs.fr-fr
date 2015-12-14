@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # Configuration des services fiables avec état
-La configuration par défaut du service fiable avec état peut être changée en modifiant le fichier « settings.xml » généré dans la racine du package Visual Studio, dans le dossier « Config » de chaque service dans l'application.
+La configuration par défaut du service fiable avec état peut être changée par le biais du package de configuration (Config) ou dans l’implémentation du service (Code).
 
-Le runtime Service Fabric recherche des noms de sections prédéfinis dans le fichier « settings.xml » et utilise les valeurs de configuration lors de la création des composants runtime sous-jacents.
++ **Config** - La configuration par le biais du package config est obtenue en modifiant le fichier « settings.xml » généré dans la racine du package Visual Studio, dans le dossier « Config » de chaque service dans l’application.
++ **Code** - La configuration par l’intermédiaire du code est obtenue en remplaçant StatefulService.CreateReliableStateManager et en créant un ReliableStateManager à l’aide d’un objet ReliableStateManagerConfiguration avec l’ensemble d’options approprié.
 
-> [AZURE.NOTE]Ne supprimez/modifiez **PAS** les noms de sections des configurations suivantes dans le fichier « settings.xml » généré dans la solution Visual Studio.
+Par défaut, le runtime Service Fabric recherche des noms de sections prédéfinis dans le fichier « Settings.xml » et utilise les valeurs de configuration lors de la création des composants runtime sous-jacents.
+
+> [AZURE.NOTE]Ne supprimez/modifiez **PAS** les noms de sections des configurations suivantes dans le fichier « settings.xml » généré dans la solution Visual Studio sauf si vous envisagez de configurer votre service au moyen du code. Renommer les noms de package ou de la section de configuration nécessite une modification du code lors de la configuration de ReliableStateManager.
+
 
 ## Configuration de la sécurité du réplicateur
 Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé lors de la réplication. Cela signifie que les services ne sont pas en mesure d'afficher leur trafic de réplication mutuel, ce qui garantit que les données hautement disponibles soient également sécurisées. Par défaut, une section de configuration de sécurité vide ne permet pas de sécuriser la réplication.
 
-### Nom de la section
+### Nom de la section par défaut
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]Pour renommer ce nom de section, substituez le paramètre replicatorSecuritySectionName avec le constructeur ReliableStateManagerConfiguration lors de la création de la classe ReliableStateManager pour ce service.
+
 
 ## Configuration du réplicateur
 Les configurations de Replicator servent à configurer le réplicateur garantissant la haute fiabilité de l'état du service fiable avec état par la réplication et la conservation de l'état localement. La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
 
-### Nom de la section
+### Nom de la section par défaut
 ReplicatorConfig
 
-### Noms des configurations
+> [AZURE.NOTE]Pour renommer ce nom de section, substituez le paramètre replicatorSettingsSectionName avec le constructeur ReliableStateManagerConfiguration lors de la création de la classe ReliableStateManager pour ce service.
 
+
+### Noms des configurations
 |Nom|Unité|Valeur par défaut|Remarques|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Secondes|0,05|Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse.|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|guid|""|Spécifie une valeur guid unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En général, les services ne doivent pas utiliser ce paramètre, mais si une valeur SharedLogId est spécifiée, alors la valeur SharedLogPath doit également être définie.|
 |SharedLogPath|Chemin d'accès complet|""|Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En général, les services ne doivent pas utiliser ce paramètre, mais si une valeur SharedLogPath est spécifiée, alors la valeur SharedLogId doit également être définie.|
 
-## Exemple de fichier de configuration
 
+## Exemple de configuration au moyen du code
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## Exemple de fichier de configuration
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## Remarques
 BatchAcknowledgementInterval contrôle la latence de réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception). Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
 
@@ -83,4 +107,4 @@ La valeur MaxRecordSizeInKB définit la taille maximale d'un enregistrement que 
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble et permettent à un service d'utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête de lecture. Cette valeur ne devrait être modifiée qu'en de rares occasions.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

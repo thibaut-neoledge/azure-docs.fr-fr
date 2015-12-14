@@ -168,7 +168,7 @@ angular.module('todoApp')
 ```
 
 ## Afficher les informations utilisateur
-Maintenant que l’utilisateur est connecté, il vous faudra probablement accéder aux données d’authentification de l’utilisateur connecté dans votre application. Adal.js expose ces informations pour vous dans l’objet `userInfo`. Pour accéder à cet objet dans une vue, ajoutez adal.js sur l’étendue racine du contrôleur correspondant :
+Maintenant que l’utilisateur est connecté, il vous faudra probablement accéder à ses données d’authentification dans votre application. Adal.js expose ces informations pour vous dans l’objet `userInfo`. Pour accéder à cet objet dans une vue, ajoutez adal.js sur l’étendue racine du contrôleur correspondant :
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -237,4 +237,4 @@ Pour poursuivre l’apprentissage sur la version préliminaire du modèle d’ap
 - [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

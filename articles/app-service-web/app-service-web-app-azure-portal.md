@@ -16,37 +16,37 @@
 	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
-# Références sur la navigation dans le portail Azure
+# Références sur la navigation dans le portail Azure Classic
 
-Le service Sites Web Azure s’appelle désormais [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Nous allons mettre à jour toute notre documentation pour refléter ce changement de nom et fournir des instructions concernant le nouveau portail Azure. En attendant que ce processus soit terminé, vous pouvez utiliser ce document pour vous guider lors de l'utilisation de Web Apps dans le nouveau portail Azure.
+Le service Sites Web Azure s’appelle désormais [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Nous sommes actuellement en train de mettre à jour l’ensemble de notre documentation afin qu’elle reflète ce changement de nom et fournisse les instructions adaptées au portail Azure. En attendant que ce processus soit terminé, vous pouvez utiliser ce document pour vous guider lors de l’utilisation de Web Apps dans le portail Azure.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
-## Ce qu'il adviendra de l'ancien portail
+## Ce qu’il adviendra du portail Azure Classic
 
-Vous aurez peut-être déjà remarqué les modifications au niveau de la marque sur l'ancien portail. Celui-ci est en train d'être entièrement remplacé par le nouveau portail Azure. L'ancien portail est en train d'être progressivement remplacé par le nouveau, et c'est sur ce dernier qu'a été déplacée la section concernant le nouveau développement. Toutes les nouvelles fonctionnalités de Web Apps arriveront avec le nouveau portail. Commencez à utiliser le nouveau portail pour bénéficier des toutes dernières fonctionnalités de Web Apps.
+Vous aurez peut-être déjà remarqué les modifications au niveau de la marque sur le portail Azure Classic. Celui-ci est en train d’être entièrement remplacé par le portail Azure. Le portail Azure Classic est en train d’être progressivement remplacé par le nouveau, et c’est sur ce dernier qu’a été déplacée la section concernant le nouveau développement. Toutes les nouvelles fonctionnalités de Web Apps arriveront avec le portail Azure. Commencez à utiliser le portail Azure pour bénéficier des toutes dernières fonctionnalités de Web Apps.
 
-## Différences de disposition entre l'ancien et le nouveau portail Azure
+## Différences de disposition entre le portail Azure Classic et le portail Azure
 
-Dans l'ancien portail, tous les services Azure étaient répertoriés sur le côté gauche. L'ancien portail possédait une structure en arborescence, depuis laquelle vous démarriez à partir du service et naviguiez dans chaque élément. Cette structure fonctionne bien lorsque vous gérez des composants indépendants. Toutefois, les applications créées à partir d'Azure sont constituées de services interconnectés, et cette arborescence n'est pas idéale pour les collections de services.
+Dans le portail Azure Classic, tous les services Azure étaient répertoriés sur le côté gauche. Le portail Azure Classic possédait une structure en arborescence, depuis laquelle vous démarriez à partir du service et naviguiez dans chaque élément. Cette structure fonctionne bien lorsque vous gérez des composants indépendants. Toutefois, les applications créées à partir d'Azure sont constituées de services interconnectés, et cette arborescence n'est pas idéale pour les collections de services.
 
-Le nouveau portail facilite la création d'applications de bout en bout avec des composants provenant de plusieurs services. Le nouveau portail Azure est organisé en .*voyages*. Un *voyage* est un ensemble de *panneaux*, qui sont les conteneurs de différents composants. Par exemple, la configuration de la mise à l’échelle automatique pour une application web est un *voyage* qui vous mène à travers plusieurs panneaux, comme le montre l’exemple suivant : le panneau **Site web** (le titre de ce panneau n’a pas encore été adapté à la nouvelle terminologie), le panneau **Paramètres** et le panneau **Échelle**. Dans cet exemple, la mise à l’échelle automatique est configurée pour dépendre de l’utilisation du processeur. Le panneau **Pourcentage UC** s’affiche donc également. Les composants des *panneaux* sont appelés des *portions* et ont l’aspect de mosaïques.
+Le nouveau portail Azure facilite la création d’applications de bout en bout avec des composants provenant de plusieurs services. Le portail Azure est organisé en *parcours*. Un *voyage* est un ensemble de *panneaux*, qui sont les conteneurs de différents composants. Par exemple, la configuration de la mise à l’échelle automatique pour une application web est un *voyage* qui vous mène à travers plusieurs panneaux, comme le montre l’exemple suivant : le panneau **Site web** (le titre de ce panneau n’a pas encore été adapté à la nouvelle terminologie), le panneau **Paramètres** et le panneau **Échelle**. Dans cet exemple, la mise à l’échelle automatique est configurée pour dépendre de l’utilisation du processeur. Le panneau **Pourcentage UC** s’affiche donc également. Les composants des *panneaux* sont appelés des *portions* et ont l’aspect de mosaïques.
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
 ## Exemple de navigation : créer une application web
 
-La création d'applications web est toujours aussi facile qu'avant. L'illustration suivante montre l'ancien portail et le nouveau portail côte à côte pour montrer que rien n'a changé dans le nombre d'étapes nécessaires à la création et à l'exécution d'applications.
+La création d'applications web est toujours aussi facile qu'avant. L’illustration suivante montre le portail Azure Classic et le portail Azure côte à côte pour montrer que rien n’a changé dans le nombre d’étapes nécessaires à la création et à l’exécution d’applications web.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
 
-Dans le nouveau portail, vous pouvez choisir parmi les types d'applications web les plus courants, comme les applications de galerie telles que WordPress. Pour obtenir une liste complète des applications disponibles, rendez-vous sur [Azure Marketplace].
+Dans le portail Azure, vous pouvez choisir parmi les types d’applications web les plus courants, comme les applications de galerie telles que WordPress. Pour obtenir une liste complète des applications disponibles, rendez-vous sur [Azure Marketplace].
 
-Quand vous créez une application web, vous spécifiez l'URL, le plan App Service et l'emplacement dans le nouveau portail, comme vous le faisiez dans l'ancien portail.
+Quand vous créez une application web, vous spécifiez l’URL, le plan App Service et l’emplacement dans le portail Azure, comme vous le faisiez dans le portail Azure Classic.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)
 
-De plus, le nouveau portail permet de définir d'autres paramètres courants. Par exemple, les [groupes de ressources](../resource-group-overview.md) facilitent l’affichage et la gestion des ressources Azure connexes.
+De plus, le portail Azure permet de définir d’autres paramètres courants. Par exemple, les [groupes de ressources](../resource-group-overview.md) facilitent l’affichage et la gestion des ressources Azure connexes.
 
 ## Exemple de navigation : paramètres et fonctionnalités
 
@@ -78,14 +78,13 @@ Outre le nom de la marque, quelques autres éléments du portail ont été renom
 
 [Plateforme d’applications cloud Azure](../app-service-cloud-app-platform.md)
 
-[New portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

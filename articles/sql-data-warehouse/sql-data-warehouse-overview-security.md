@@ -24,7 +24,7 @@ Cet article présente les principes de base de la sécurisation de votre base de
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre à l’adresse IP publique de l’ordinateur client ou à votre application de tenter de se connecter à une nouvelle base de données, vous devez d’abord créer une règle de pare-feu au niveau du serveur, via le portail de gestion de Microsoft Azure, l’API REST ou PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure][].
+Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre à l’adresse IP publique de l’ordinateur client ou à votre application de tenter de se connecter à une nouvelle base de données, vous devez d’abord créer une règle de pare-feu au niveau du serveur, via le portail Classic de Microsoft Azure, l’API REST ou PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure][].
 
 
 ## Authentification
@@ -72,7 +72,7 @@ Il existe d’autres méthodes pour limiter le nombre d’actions que peut réal
 - Des [autorisations][] granulaires vous permettent de contrôler les opérations que vous pouvez exécuter sur des colonnes, des tables, des vues, des procédures et d’autres objets individuels dans la base de données.
 - Grâce aux [procédures stockées][], vous pouvez limiter le nombre d’actions susceptibles d’être exécutées sur la base de données.
 
-La gestion des bases de données et serveurs logiques à partir du portail de gestion Microsoft Azure et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure][].
+La gestion des bases de données et serveurs logiques à partir du portail Azure Classic et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans le portail Azure][].
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [portail Azure][].
+Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [portail Azure Classic][].
 
 
 
@@ -114,9 +114,9 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
 [chiffrement transparent des données]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Prise en main de l’audit de base de données SQL]: sql-database-auditing-get-started.md
-[portail Azure]: https://portal.azure.com/
+[portail Azure Classic]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Contrôle d’accès en fonction du rôle dans le portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

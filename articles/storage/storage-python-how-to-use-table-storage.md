@@ -133,15 +133,13 @@ Le code suivant permet de supprimer une table d'un compte de stockage.
 
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes :
 
--   Consultez la référence MSDN suivante : [Azure Storage][].
+-   Consultez la référence MSDN [Azure Storage][].
 -   Consultez le [blog de l’équipe Azure Storage][].
 
 Pour plus d’informations, consultez également le [Centre pour développeurs Python](/develop/python/).
 
-
-[Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

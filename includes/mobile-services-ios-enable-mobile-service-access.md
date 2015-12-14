@@ -27,7 +27,7 @@ Remplacez ce commentaire par la ligne suivante dans la déclaration `@interface`
 ```
 
 
-* Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile. Cliquez sur l'onglet **Tableau de bord**, puis notez l'**URL du site**. Ensuite, cliquez sur **Gérer les clés** et prenez note de la **Clé de l'application**. Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
+* Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur le service mobile. Cliquez sur l'onglet **Tableau de bord**, puis notez l'**URL du site**. Ensuite, cliquez sur **Gérer les clés** et prenez note de la **Clé de l'application**. Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
 
 * Dans **TodoService.m**, recherchez la ligne suivante :
@@ -146,4 +146,4 @@ Remplacez le corps de la méthode à partir de ce point jusqu'à la fin de la m�
 }
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

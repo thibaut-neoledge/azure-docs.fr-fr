@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flux de travail de la sauvegarde hors connexion dans Azure Backup
 
@@ -27,7 +27,7 @@ Avec Azure Backup et Azure Import/Export, vous téléchargez simplement et direc
 7. Téléchargez l’outil Azure Import/Export [ici](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
 
 ## Workflow
-Les informations fournies dans cette section concernent la fin du flux de travail **Sauvegarde hors connexion** afin que vos données puissent être remises à un centre de données Azure et téléchargées vers le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la vue d’ensemble du service Import traitée [ci-dessus](../storage-import-export-service.md).
+Les informations fournies dans cette section concernent la fin du flux de travail **Sauvegarde hors connexion** afin que vos données puissent être remises à un centre de données Azure et téléchargées vers le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation [Vue d’ensemble du service Import](../storage-import-export-service.md) susmentionnée.
 
 ### Lancer la sauvegarde hors connexion
 
@@ -108,4 +108,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

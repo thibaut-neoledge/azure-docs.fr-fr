@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Déployer votre appareil StorSimple local (Update 1)
@@ -71,7 +71,7 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | **Configuration et inscription de l'appareil** | Paramètres réseau Data 0 | Adresse IP Data 0 :</br>Masque de sous-réseau :</br>Passerelle :</br>Serveur DNS principal :</br>Serveur NTP principal :</br>Adresse IP/nom de domaine complet (facultatif) du serveur proxy Web :</br>Port proxy Web :| |
 | | Mot de passe d'administrateur de l'appareil | Le mot de passe doit contenir entre 8 et 15 caractères en minuscules, en majuscules, numériques et spéciaux. | |
 | | Mot de passe de gestionnaire d’instantanés StorSimple | Le mot de passe doit contenir 14 ou 15 caractères en minuscules, en majuscules, numériques et spéciaux.| |
-| | Clé d'inscription du service | Cette clé est générée à partir du portail Azure. | |
+| | Clé d'inscription du service | Cette clé est générée à partir du portail Azure Classic. | |
 | | Clé de chiffrement des données du service | Cette clé est créée lorsque l'appareil est inscrit auprès du service de gestion par le biais de Windows PowerShell pour StorSimple. Copiez-la et enregistrez-la en lieu sûr.| |
 | | | | |
 | **Mener à bien l'installation minimale de l’appareil** | Nom convivial pour votre appareil | Il s'agit d'un nom descriptif pour l'appareil. | |
@@ -152,7 +152,7 @@ Un service StorSimple Manager peut gérer plusieurs appareils StorSimple. Procé
 
 Une fois le service StorSimple Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
-Procédez comme suit dans le portail Azure.
+Procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -171,7 +171,7 @@ Pour pouvoir mener à bien la configuration minimale de votre appareil StorSimpl
 - activer la norme iSCSI sur au moins une interface réseau ;
 - affecter des adresses IP fixes aux deux contrôleurs.
 
-Procédez comme suit dans le portail Azure pour mener à bien la configuration minimale requise.
+Pour mener à bien la configuration minimale requise, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
@@ -179,13 +179,13 @@ Procédez comme suit dans le portail Azure pour mener à bien la configuration m
 
 Un conteneur de volumes dispose de paramètres de compte de stockage, de bande passante et de chiffrement pour tous les volumes qu’il contient. Vous devez créer un conteneur de volumes avant de commencer la configuration des volumes sur votre appareil StorSimple.
 
-Procédez comme suit dans le portail Azure pour créer un conteneur de volumes.
+Pour créer un conteneur de volumes, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Étape 6 : Création d’un volume
 
-Après avoir créé un conteneur de volumes, vous pouvez configurer un volume de stockage sur l’appareil StorSimple pour vos serveurs. Procédez comme suit dans le portail Azure pour créer un volume.
+Après avoir créé un conteneur de volumes, vous pouvez configurer un volume de stockage sur l’appareil StorSimple pour vos serveurs. Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
 > [AZURE.IMPORTANT]StorSimple Manager peut créer uniquement des volumes alloués dynamiquement. Vous ne pouvez pas créer des volumes configurés entièrement ou partiellement.
 
@@ -212,7 +212,7 @@ Si vous décidez de ne pas configurer MPIO, procédez comme suit pour monter, in
 
 Les sauvegardes fournissent une protection jusqu’à une date et une heure des volumes et optimisent la récupération tout en réduisant les délais de restauration. Vous pouvez effectuer deux types de sauvegarde sur votre appareil StorSimple : les instantanés locaux et les instantanés cloud. Chacun de ces types de sauvegarde peut être **Planifié** ou **Manuel**.
 
-Procédez comme suit dans le portail Azure pour créer une sauvegarde planifiée.
+Pour créer une sauvegarde planifiée, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -224,7 +224,7 @@ Il s’agit d’une étape facultative que vous devez exécuter uniquement si vo
 
 Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) pour obtenir des instructions détaillées.
 
-Procédez comme suit dans le portail Azure, sur la page **Service StorSimple Manager**.
+Procédez comme suit dans le portail Azure Classic, sur la page **Service StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -238,8 +238,7 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 ## Recherche et application des mises à jour
 
-La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
-<!-- > can take 1-4 hours-->
+La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil. <!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -265,7 +264,7 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI d’un hôte Windows ex
 
 ## Création d’une sauvegarde manuelle
 
-Procédez comme suit dans le portail Azure pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre appareil StorSimple.
+Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre appareil StorSimple, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [Création d’une sauvegarde manuelle](../../includes/storsimple-create-manual-backup.md)]
 
@@ -287,4 +286,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

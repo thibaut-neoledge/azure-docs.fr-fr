@@ -39,11 +39,11 @@ Commencez par régénérer la clé de stockage secondaire. Par défaut, la clé 
 
 Mettez à jour Media Services pour utiliser la clé d’accès de stockage secondaire. Vous pouvez utiliser l’une des deux méthodes suivantes pour synchroniser la clé de stockage régénérée avec Media Services.
 
-- Utilisez le portail Azure : sélectionnez votre compte Media Service, puis cliquez sur l’icône « GÉRER LES CLÉS » en bas de la fenêtre du portail. Selon la clé de stockage que vous souhaitez synchroniser avec Media Services, sélectionnez le bouton de synchronisation de la clé primaire ou secondaire. Dans le cas présent, utilisez la clé secondaire.
+- Utilisez le portail Azure Classic : sélectionnez votre compte Media Service, puis cliquez sur l’icône « GÉRER LES CLÉS » en bas de la fenêtre du portail. Selon la clé de stockage que vous souhaitez synchroniser avec Media Services, sélectionnez le bouton de synchronisation de la clé primaire ou secondaire. Dans le cas présent, utilisez la clé secondaire.
 
 - Utilisez l’API REST de gestion de Media Services.
 
-	L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion des services de média](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion de Media Services](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -159,4 +159,4 @@ Utilisez la même procédure que celle décrite dans l’[étape 3](media-servi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

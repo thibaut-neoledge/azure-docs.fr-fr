@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -104,22 +104,26 @@ Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'
 
     telemetry.trackEvent("WinGame");
 
-Ici, « WinGame » est le nom qui apparaît dans le portail Application Insights. Cliquez sur la vignette Événements personnalisés dans le panneau Vue d’ensemble :
+Ici, « WinGame » est le nom qui apparaît dans le portail Application Insights.
 
-![Accédez aux ressources de votre application dans portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+Pour voir un nombre de vos événements, ouvrez un panneau [Metrics Explorer](app-insights-metrics-explorer.md), ajoutez un nouveau graphique, puis sélectionnez les événements.
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+Pour comparer le nombre d'événements différents, définissez le type de graphique sur Grille et groupez par nom d'événement :
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-Le graphique est regroupé par nom d’événement, pour que vous puissiez voir les contributions correspondantes des événements les plus importants. Pour contrôler ce processus, sélectionnez le graphique et utilisez le contrôle de regroupement.
-
-![Sélectionnez le graphique et définissez le groupe](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-Dans la liste sous le graphique, sélectionnez un nom d'événement. Cliquez pour voir les occurrences individuelles de l'événement.
+Dans la grille, cliquez sur un nom d'événement pour voir les occurrences individuelles de cet événement.
 
 ![Extrayez les événements](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Cliquez sur n'importe quelle occurrence pour afficher plus d’informations.
 
+Pour vous concentrer sur des événements spécifiques dans la recherche ou Metrics Explorer, définissez le filtre du panneau sur les noms d'événements qui vous intéressent :
 
+![Ouvrez Filtres, développez Nom de l'événement et sélectionnez une ou plusieurs valeurs](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Suivi des mesures
 
@@ -296,7 +300,7 @@ Utilisez cet appel pour suivre les temps de réponse et les taux de réussite de
             }
 ```
 
-N’oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C'est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
+N'oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C'est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
 
 Pour désactiver le module de suivi des dépendances standard, modifiez le fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -654,16 +658,24 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
 ## Limites
 
-Il existe certaines limites au nombre de mesures et d’événements par application.
+Il existe certaines limites au nombre de mesures et d’événements par application (c'est-à-dire, par clé d'instrumentation).
 
-1. Jusqu'à 500 points de données de télémétrie par seconde par clé d'instrumentation (autrement dit, par application). Cela inclut la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code.
+1. Un taux maximum par seconde qui s'applique séparément à chaque clé d'instrumentation. Au-dessus de la limite, certaines données seront supprimées.
+ * Jusqu'à 500 points de données par seconde pour les appels TrackTrace et les données de journal capturées. (100 par seconde pour le niveau de tarification gratuit.)
+ * Jusqu'à 50 points de données par seconde pour les exceptions, capturées par nos modules ou par des appels TrackException. 
+ * Jusqu'à 500 points de données par seconde pour toutes les autres données, y compris la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code. (100 par seconde pour le niveau de tarification gratuit.)
+1. Volume total mensuel des données, selon votre [niveau de tarification](app-insights-pricing.md).
 1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l'envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les noms de mesure et de propriété sont globaux pour chaque clé d'instrumentation et ne s’étendent pas au type de données.
 2.	Les propriétés peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
 3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
 
-* *Q : combien de temps sont conservées les données ?*
+*Comment puis-je éviter d'atteindre la limite de débit de données ?*
 
-    Consultez [Rétention de données et confidentialité][data].
+* Installez la dernière version du SDK pour utiliser l'[échantillonnage](app-insights-sampling.md).
+
+*Combien de temps les données sont-elles conservées ?*
+
+* Consultez [Rétention de données et confidentialité][data].
 
 
 ## Documents de référence
@@ -715,7 +727,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

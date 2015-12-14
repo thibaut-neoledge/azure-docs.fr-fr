@@ -39,11 +39,11 @@ La base de données SQL fournit des services de stockage de données relationnel
 
 ## Création et configuration d’une base de données SQL
 
-Ensuite, créez et configurez un serveur et une base de données. Le portail de gestion Azure propose une refonte des workflows qui vous permettent de commencer par la création d’une base de données avant de déployer un serveur.
+Ensuite, créez et configurez un serveur et une base de données. Le portail Azure Classic propose une refonte des workflows qui vous permettent de commencer par la création d’une base de données avant de déployer un serveur.
 
 **Créer une instance de base de données et un serveur logique :**
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 
 2. Cliquez sur **NOUVEAU** en bas de la page.
 
@@ -77,7 +77,7 @@ Ensuite, créez et configurez un serveur et une base de données. Le portail de 
 
 12. Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
 
-13. Veillez à ce que l'option **Allow Azure Services to access the server** reste activée pour pouvoir vous connecter à cette base de données avec le portail de gestion pour la base de données SQL, les services de stockage et d'autres services sur Azure.
+13. Veillez à ce que l’option **Allow Azure Services to access the server** reste activée pour pouvoir vous connecter à cette base de données avec le portail Classic pour la base de données SQL, les services de stockage et d’autres services sur Azure.
 
 14. Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
 
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Ent
 Maintenant que vous avez appris les principes de base de la connexion à une base de données SQL, consultez [Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

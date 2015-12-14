@@ -31,8 +31,8 @@ Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* Un **cluster Azure HDInsight**. Pour obtenir des instructions, consultez [Prendre en main HDInsight][hdinsight-get-started] ou [Créer des clusters Hadoop dans HDInsight][hdinsight-provision].
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- Un **cluster Azure HDInsight**. Pour obtenir des instructions, consultez [Prendre en main HDInsight][hdinsight-get-started] ou [Créer des clusters Hadoop dans HDInsight][hdinsight-provision].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Envoi de tâches MapReduce avec PowerShell
 
@@ -266,4 +266,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

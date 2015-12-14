@@ -33,7 +33,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 	![invite de commande][1]
 
 2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
-3.  Le [portail Azure en version préliminaire](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
+3.  Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
 
 	![Confirmation Visual Studio][2]
 
@@ -43,7 +43,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 ## Créez une base de données de requête élastique
 
-1. Ouvrez la [version préliminaire du portail Azure](https://portal.azure.com) et connectez-vous.
+1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
 2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ». Pour le niveau de tarification, vous devez sélectionner l’une des offres premium. La requête de base de données élastique n’est actuellement disponible qu’au niveau premium.
 
 	![Portail Azure et tarification][3]
@@ -142,4 +142,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configuration d’un cluster Service Fabric à l’aide d’un modèle ARM
@@ -37,7 +37,7 @@ Cette page vous permet de configurer un cluster Service Fabric à l’aide d’u
 
 ## Création d’un modèle ARM personnalisé
 
-2. Plusieurs choix s’offrent à vous 
+2. Deux choix s’offrent à vous 
 	1. Vous pouvez récupérer un modèle d’exemple à partir de [la galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates) et le modifier.
 	2. Connectez-vous au portail Azure et utilisez les pages du portail Service Fabric pour générer le modèle que vous souhaitez personnaliser. La procédure à suivre est décrite ci-dessous.
 3. Connectez-vous au portail Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
@@ -45,7 +45,7 @@ Cette page vous permet de configurer un cluster Service Fabric à l’aide d’u
 
 ## Déploiement du modèle ARM sur Azure à l'aide d'Azure PS
 
-Reportez-vous à [Déploiement de modèles ARM à l'aide de PS](https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-template-deploy/) pour obtenir des instructions détaillées sur la procédure à suivre.
+Reportez-vous à [Déploiement de modèles ARM à l’aide de PS](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la procédure à suivre.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
@@ -56,4 +56,4 @@ Reportez-vous à [Déploiement de modèles ARM à l'aide de PS](https://azure.mi
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

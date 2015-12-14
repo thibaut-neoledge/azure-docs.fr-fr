@@ -22,4 +22,4 @@ Les nouvelles fonctions et fonctionnalités seront ajoutées aux nouvelles versi
 
 Nous vous recommandons de mettre à niveau vers la dernière version du kit de développement logiciel dès que possible. Une fois le kit de développement logiciel marqué pour la mise hors-service, vous aurez 12 mois pour mettre à jour votre application. Si, pour une raison quelconque, vous ne pouvez pas terminer votre mise à jour de l’application au cours de cette période, puis contactez l’[équipe DocumentDB](mailto:askdocdb@microsoft.com) et demandez une assistance avant la date limite.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

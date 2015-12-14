@@ -29,7 +29,7 @@ Notez que les exemples de messagerie répartie requièrent une chaîne de connex
 
 ### Pour obtenir une chaîne de connexion pour Azure Service Bus.
 
-1. Connectez-vous au [portail Azure](http://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 
 1. Dans la colonne de gauche, cliquez sur **Service Bus**.
 
@@ -132,4 +132,4 @@ Consultez les rubriques suivantes pour plus de présentations Service Bus.
 - [Architecture de Service Bus](service-bus-architecture.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

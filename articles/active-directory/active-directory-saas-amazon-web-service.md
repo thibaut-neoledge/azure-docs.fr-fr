@@ -186,7 +186,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
      a. Dans la zone de texte **Nom d’attribut**, tapez ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Dans la zone de texte **Valeur d’attribut**, tapez **mail**.
+     b. Dans la zone de texte **Valeur d’attribut**, tapez **userprincipalname**.
 
      c. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
 
@@ -249,7 +249,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 5. Dans la boîte de dialogue Create User, procédez comme suit : <br><br>![Configurer l’authentification unique][30]<br>
 
-     a. Dans les zones de texte **Enter User Names**, tapez le nom d’utilisateur de Britta Simon dans Azure AD.
+     a. Dans les zones de texte **Entrer les noms d’utilisateur**, tapez le nom d’utilisateur de Brita Simon (userprincipalname) dans Azure AD.
 
      b. Cliquez sur **Create**.
 
@@ -320,4 +320,4 @@ Cette section vous permet de tester la configuration de l’authentification uni
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

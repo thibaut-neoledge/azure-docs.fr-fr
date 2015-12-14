@@ -33,7 +33,7 @@ Ces restrictions et remarques sont susceptibles de changer, car nous améliorons
 ## Utilisation du bouton « Open in Power BI »
 La méthode la plus simple pour basculer entre SQL Data Warehouse et Power BI consiste à utiliser le bouton Open in Power BI. Ce bouton vous permet de commencer à créer des tableaux de bord en toute transparence dans Power BI.
 
-1.	Pour démarrer, accédez à votre instance SQL Data Warehouse dans le portail Azure.
+1.	Pour démarrer, accédez à votre instance SQL Data Warehouse dans le portail Azure Classic.
 2.	Cliquez sur le bouton Open in Power BI.
 3.	Si nous ne sommes pas en mesure de vous connecter directement, ou que vous ne disposez pas d’un compte Power BI, vous devrez vous connecter.  
 4.	Vous serez alors dirigé vers la page de connexion SQL Data Warehouse, préremplie avec les informations de votre instance SQL Data Warehouse.
@@ -50,7 +50,7 @@ Outre l’utilisation du bouton Open in Power BI, les utilisateurs peuvent se c
 6.	 Vous pouvez cliquer sur le nouveau jeu de données pour explorer toutes les tables et les affichages dans votre base de données. La sélection d’une colonne renverra une requête à la source, ce qui entraînera la création dynamique de votre élément visuel. Ces éléments visuels peuvent être enregistrés dans un nouveau rapport, puis ré-épinglés dans votre tableau de bord.
 
 ## Emplacement des valeurs de paramètre
-Le nom de serveur complet et le nom de base de données sont spécifiés dans le portail Azure. Notez que pour l’instant, SQL Data Warehouse est uniquement présent dans le portail Azure en version préliminaire.
+Le nom de serveur complet et le nom de base de données sont spécifiés dans le portail Azure Classic. Notez que pour l’instant, SQL Data Warehouse est uniquement présent dans le portail Azure.
 
 
 <!--Image references-->
@@ -63,4 +63,4 @@ Le nom de serveur complet et le nom de base de données sont spécifiés dans le
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

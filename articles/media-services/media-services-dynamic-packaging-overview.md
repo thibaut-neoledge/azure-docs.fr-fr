@@ -60,11 +60,11 @@ Pour préparer un élément multimédia pour sa diffusion en continu dynamique, 
 Pour plus d'informations sur le téléchargement et l'encodage d'éléments multimédias, consultez les articles suivants :
 
 
-Télécharger vos fichiers à l'aide du **portail de gestion Azure**, de **.NET** ou de l'**API REST**
+Téléchargez vos fichiers à l’aide du **portail Azure Classic**, de **.NET** ou de l’**API REST**
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Encoder à l'aide de l'**encodeur multimédia Azure** en utilisant le **portail de gestion Azure**, **.NET** ou l'**API REST**
+Procédez à l’encodage à l’aide d’**Azure Media Encoder** en utilisant le **portail Azure Classic**, **.NET** ou l’**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@ Configurer la stratégie de remise d'éléments multimédias à l'aide de **.NET
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publiez des ressources (en créant des localisateurs) à l’aide du **portail de gestion Azure** ou de **.NET**.
+Publiez des éléments multimédias (en créant des localisateurs) à l’aide du **portail Azure Classic** ou de **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

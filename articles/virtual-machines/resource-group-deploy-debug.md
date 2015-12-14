@@ -22,7 +22,7 @@ Lorsque vous rencontrez un problème lors du déploiement, vous devez découvrir
 
 Cette rubrique se concentre principalement sur l'utilisation de commandes de déploiement pour résoudre les problèmes de déploiement. Pour plus d'informations sur l’utilisation des journaux d'audit pour effectuer le suivi de toutes les opérations sur vos ressources, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 
-Cette rubrique montre comment récupérer des informations de dépannage via PowerShell Azure, Azure CLI et API REST. Pour plus d'informations sur l'utilisation du portail en version préliminaire pour résoudre les problèmes de déploiement, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+Cette rubrique montre comment récupérer des informations de dépannage via PowerShell Azure, Azure CLI et API REST. Pour plus d’informations sur l’utilisation du portail en version préliminaire pour résoudre les problèmes de déploiement, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
 Les solutions aux erreurs courantes que rencontrent les utilisateurs sont également décrites dans cette rubrique.
 
@@ -292,30 +292,12 @@ Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
-<!-- -->
-Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions. <!-- --> Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json. <!-- --> azure provider show Microsoft.Compute --json | jq ’.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}’ { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Vérification de l’inscription du fournisseur de ressources
 
-Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement peut être activé pour utiliser un fournisseur particulier. Si vous êtes configuré pour utiliser un fournisseur, il doit également être enregistré pour être utilisé. La plupart des fournisseurs sont enregistrés automatiquement par le portail Azure en version préliminaire ou l'interface de ligne de commande que vous utilisez, mais pas tous.
+Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement peut être activé pour utiliser un fournisseur particulier. Si vous êtes configuré pour utiliser un fournisseur, il doit également être enregistré pour être utilisé. La plupart des fournisseurs sont enregistrés automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous.
 
 ### PowerShell
 
@@ -434,4 +416,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

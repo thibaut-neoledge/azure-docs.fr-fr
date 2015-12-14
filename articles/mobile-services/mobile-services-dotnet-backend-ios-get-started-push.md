@@ -19,19 +19,24 @@
 
 # Ajout de notifications Push à l’application iOS et au système principal .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 Cette rubrique vous montre comment ajouter des notifications push au [projet quickstart](mobile-services-dotnet-backend-ios-get-started.md), de sorte que votre service mobile envoie une notification push chaque fois qu'un enregistrement est inséré. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services].
 
 [AZURE.INCLUDE [Activer les notifications Push Apple](../../includes/enable-apple-push-notifications.md)]
 
-## <a id="configure"></a>Configuration d’Azure pour l’envoi de notifications push
+## <a id="configure"></a>Configurer Azure pour l’envoi de notifications Push
 
 [AZURE.INCLUDE [Configuration de notifications Push dans Azure Mobile Services](../../includes/mobile-services-apns-configure-push.md)]
 
 ##<a id="update-server"></a>Mise à jour du code de backend pour l'envoi de notifications push
 
-* Ouvrez un projet Visual Studio > dossier **Controllers** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
+* Ouvrez un projet Visual Studio > dossier **Contrôleurs** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
 
 
 ```
@@ -119,7 +124,6 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
@@ -128,4 +132,4 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

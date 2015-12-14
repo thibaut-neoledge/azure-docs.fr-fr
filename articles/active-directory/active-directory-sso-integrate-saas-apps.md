@@ -1,8 +1,8 @@
 <properties
     pageTitle="Intégrer l’authentification unique Azure Active Directory aux applications SaaS | Microsoft Azure"
-    description="Activer l'authentification unique, l'approvisionnement de l'utilisateur et la gestion centralisée de l'accès aux applications SaaS dans Azure Active Directory Vue d'ensemble de l'intégration d'Azure AD dans des applications SaaS."
+    description="Activer l'authentification unique, l'approvisionnement de l'utilisateur et la gestion centralisée de l'accès aux applications SaaS dans Azure Active Directory Vue d’ensemble de l’intégration d’Azure Active Directory dans des applications SaaS."
     services="active-directory"
-	keywords="intégrer Azure AD avec des applications SaaS"
+	  keywords="intégrer Azure AD avec des applications SaaS"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# Intégrer l’authentification unique Azure Active Directory (Azure AD) aux applications SaaS  
+# Intégrer l’authentification unique Azure Active Directory aux applications SaaS  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-Pour commencer à configurer l'authentification unique pour une application que vous importez dans votre organisation, vous utiliserez un annuaire existant dans Azure Active Directory. Vous pouvez utiliser un annuaire Azure AD que vous obtenez via Microsoft Azure, Office 365 ou Windows Intune. Si vous avez deux ou plusieurs de ces éléments, consultez [Administration de votre annuaire Azure AD](active-directory-administer.md) afin de déterminer celui à utiliser.
+Pour commencer à configurer l’authentification unique pour une application que vous importez dans votre organisation, vous utiliserez un annuaire existant dans Azure Active Directory (Azure AD). Vous pouvez utiliser un annuaire Azure AD que vous obtenez via Microsoft Azure, Office 365 ou Windows Intune. Si vous avez deux ou plusieurs de ces éléments, consultez [Administration de votre annuaire Azure AD](active-directory-administer.md) afin de déterminer celui à utiliser.
 
 ## Authentification
 
@@ -41,7 +41,7 @@ Azure AD offre plusieurs moyens personnalisables pour déployer des application
 
 ## Considérations supplémentaires pour les applications déjà en cours d’utilisation
 
-Configurer l’authentification unique pour une application que votre organisation utilise déjà est un processus différent de la création de comptes pour une nouvelle application. Il existe quelques étapes préliminaires, notamment : mapper les identités d'utilisateurs dans l'application à des identités Azure Active Directory (AD), et comprendre l’expérience de connexion des utilisateurs à une application après son intégration.
+Configurer l’authentification unique pour une application que votre organisation utilise déjà est un processus différent de la création de comptes pour une nouvelle application. Il existe quelques étapes préliminaires, notamment : mapper les identités d’utilisateurs dans l’application à des identités Azure AD, et comprendre l’expérience de connexion des utilisateurs à une application après son intégration.
 
 > [AZURE.NOTE]Afin de configurer l'authentification unique pour une application existante, vous devez disposer des droits d'administrateur global à la fois pour Azure AD et l'application SaaS.
 
@@ -62,10 +62,10 @@ En outre, la section *Suppression du consentement de l'utilisateur* de l’artic
 ## Étapes suivantes
 
 
-Pour les applications SaaS figurant dans la galerie d'applications, Azure Active Directory fournit un certain nombre de [didacticiels sur la manière d'intégrer des applications SaaS](active-directory-saas-tutorial-list.md).
+Pour les applications SaaS figurant dans la galerie d’applications, Azure AD fournit un certain nombre de [didacticiels sur la manière d’intégrer des applications SaaS](active-directory-saas-tutorial-list.md).
 
-Si l'application n'apparaît pas dans la galerie d'applications, vous pouvez [l'ajouter à la galerie d’applications Azure Active Directory comme application personnalisée](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Si l’application n’apparaît pas dans la galerie d’applications, vous pouvez [l’ajouter à la galerie d’applications Azure AD comme application personnalisée](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Qu'est-ce que l'accès aux applications et l'authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Test des paramètres de Traffic Manager
@@ -52,9 +52,9 @@ Pour tester efficacement une méthode d’équilibrage de charge des performance
 
 Vous trouverez différents services de recherche et d’obtention de DNS gratuits sur Internet. Certains d’entre eux permettent de contrôler la résolution de noms DNS à partir de différents emplacements. Faites une recherche sur « Recherche DNS » pour obtenir des exemples. Vous pouvez également utiliser une solution tierce, telle que Gomez ou Keynote, pour vérifier que vos profils répartissent le trafic comme prévu.
 
-## Voir aussi
+## Étapes suivantes
 
 [À propos des méthodes de routage du trafic de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

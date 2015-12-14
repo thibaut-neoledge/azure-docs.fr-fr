@@ -18,9 +18,11 @@
 
 # Déployer une application API dans Azure App Service 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous déployez le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous utilisez Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) et déployez votre code d’API web vers l’application API Azure.
+Dans ce didacticiel, vous déployez le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous utilisez Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md), puis déployez votre code d’API web vers l’application API Azure.
 
 ### Autres options de déploiement
 
@@ -54,7 +56,7 @@ Vous utilisez le même Assistant **Publier le site Web** pour déployer votre co
 
 3. Ajoutez « /swagger » à la fin de l’URL dans la barre d’adresse du navigateur.
 
-4. Sur la page Swagger qui s'affiche, cliquez sur **Contacts > Obtenir > Faire un essai**.
+4. Sur la page Swagger qui s’affiche, cliquez sur **Contacts > Obtenir > Faire un essai**.
 
 	![Faites un essai](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
 
@@ -107,7 +109,7 @@ Ensuite, vous apporterez une modification à la définition de l'API et vous vis
 
 9. Cliquez sur l’onglet **Aperçu**
 
-10. Cliquez sur **Démarrer l'aperçu** pour voir quel(s) fichier(s) seront copiés vers Azure.
+10. Cliquez sur **Démarrer l’aperçu** pour voir quels fichiers seront copiés vers Azure.
 
 	![Boîte de dialogue Publier le site web](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
@@ -123,8 +125,8 @@ Ensuite, vous apporterez une modification à la définition de l'API et vous vis
 
 Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent le test permettant de vérifier que l’API fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
 
-Les application API sont des applications web avec des fonctionnalités supplémentaires pour l’hébergement d’API, ce qui signifie que vous pouvez utiliser n’importe quelle méthode qui fonctionne avec des applications web. Pour plus d’informations sur les options de déploiement des applications web, voir [Déployer une applications web dans Azure App Service](../app-service-web/web-sites-deploy.md).
+Les application API sont des applications web avec des fonctionnalités supplémentaires pour l’hébergement d’API, ce qui signifie que vous pouvez utiliser n’importe quelle méthode qui fonctionne avec des applications web. Pour plus d’informations sur les options de déploiement des applications web, consultez [Déployer une applications web dans Azure App Service](../app-service-web/web-sites-deploy.md).
 
-Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
+Pour en savoir plus sur les fonctionnalités API Apps, consultez [Qu’est-ce qu’API Apps ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

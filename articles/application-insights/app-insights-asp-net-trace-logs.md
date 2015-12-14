@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Exploration des journaux .NET dans Application Insights  
@@ -79,6 +79,7 @@ Vous pouvez par exemple :
 * Rechercher d’autres données de télémétrie relatives à la même demande utilisateur (autrement dit, avec la même OperationId) 
 * Enregistrer la configuration de cette page en tant que favori
 
+> [AZURE.NOTE]**Échantillonnage.** Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 ## Étapes suivantes
 
@@ -104,6 +105,10 @@ Le passage des événements et des demandes dans le pipeline peut prendre un cer
 
 Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 
+### Certaines entrées du journal ne sont pas affichées
+
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+
 ## <a name="add"></a>Étapes suivantes
 
 * [Configuration des tests de disponibilité et de réactivité][availability]
@@ -124,4 +129,4 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

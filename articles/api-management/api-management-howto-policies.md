@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 
@@ -36,7 +36,7 @@ L’éditeur de stratégies se compose de trois sections principales : la port�
 
 ![Policies editor][policies-editor]
 
-Pour configurer une stratégie, vous devez d'abord sélectionner la portée à laquelle elle doit s'appliquer. Dans la capture d’écran ci-dessous, le produit Starter est sélectionné. Notez que le symbole carré à côté du nom de la stratégie indique qu'une stratégie est déjà appliquée à ce niveau.
+Pour configurer une stratégie, vous devez d'abord sélectionner la portée à laquelle elle doit s'appliquer. Dans la capture d'écran ci-dessous, le produit **Starter** est sélectionné. Notez que le symbole carré à côté du nom de la stratégie indique qu'une stratégie est déjà appliquée à ce niveau.
 
 ![Scope][policies-scope]
 
@@ -48,17 +48,17 @@ Initialement, la stratégie est affichée uniquement en lecture seule. Pour pouv
 
 ![Modifier][policies-edit]
 
-La définition de la stratégie est un simple document XML qui décrit une séquence d'instructions entrantes et sortantes. Le code XML peut être modifié directement dans la fenêtre de définition. Une liste d'instructions est fournie à droite. Les instructions applicables à la portée actuelle sont activées et mises en surbrillance, comme l'instruction Limit Call Rate dans la capture d'écran ci-dessus.
+La définition de la stratégie est un simple document XML qui décrit une séquence d'instructions entrantes et sortantes. Le code XML peut être modifié directement dans la fenêtre de définition. Une liste d'instructions est fournie à droite. Les instructions applicables à la portée actuelle sont activées et mises en surbrillance, comme l'instruction **Limit Call Rate** dans la capture d'écran ci-dessus.
 
 Lorsque vous cliquez sur une instruction active, le code XML correspondant est inséré à l'emplacement du curseur dans la fenêtre de définition.
 
 La liste complète des instructions et des paramètres des stratégies se trouve dans la section [Référence de stratégie][].
 
-Par exemple, pour ajouter une nouvelle instruction pour limiter les demandes entrantes à certaines adresses IP, placez le curseur juste à l'intérieur du contenu de l'élément XML « Inbound », puis cliquez sur l'instruction Restrict caller IP.
+Par exemple, pour ajouter une nouvelle instruction pour limiter les demandes entrantes à certaines adresses IP, placez le curseur juste à l'intérieur du contenu de l'élément `inbound` XML, puis cliquez sur l'instruction **Restrict caller IP**.
 
 ![Restriction policies][policies-restrict]
 
-Ceci ajoute un code XML à l'élément entrant, indiquant comment configurer l'instruction.
+Ceci ajoute un code XML à l'élément `inbound`, indiquant comment configurer l'instruction.
 
 	<ip-filter action="allow | forbid">
 		<address>address</address>
@@ -73,22 +73,40 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 
 ![Enregistrer][policies-save]
 
-Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur Enregistrer. Les modifications sont ajoutées immédiatement à la passerelle Gestion des API.
+Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur **Enregistrer**. Les modifications sont ajoutées immédiatement à la passerelle Gestion des API.
 
 ##<a name="sections"> </a>Configuration de la stratégie
 
-Une stratégie est une série d'instructions qui s'exécutent dans l'ordre pour une demande et une réponse. La configuration se compose de deux parties, une partie entrante (demande) et une partie sortante (stratégie), comme présenté dans la configuration.
+Une stratégie est une série d'instructions qui s'exécutent dans l'ordre pour une demande et une réponse. La configuration se compose des sections `inbound`, `backend`, `outbound` et `on-error`, comme présenté dans la configuration suivante.
 
 	<policies>
-		<inbound>
-			<!-- statements to be applied to the request go here -->
-		</inbound>
-		<outbound>
-			<!-- statements to be applied to the response go here -->
-		</outbound>
-	</policies>
+	  <inbound>
+	    <!-- statements to be applied to the request go here -->
+	  </inbound>
+	  <backend>
+	    <!-- statements to be applied before the request is forwarded to 
+	         the backend service go here -->
+	  </backend>
+	  <outbound>
+	    <!-- statements to be applied to the response go here -->
+	  </outbound>
+	  <on-error>
+	    <!-- statements to be applied if there is an error condition go here -->
+	  </on-error>
+	</policies> 
 
-Comme les stratégies peuvent être spécifiées à différents niveaux (globale, produits, API et opérations), la configuration vous permet de spécifier l'ordre dans lequel les instructions de la définition sont exécutées par rapport à la stratégie parente.
+S'il existe une erreur lors du traitement d'une demande, les autres étapes des sections `inbound`, `backend` ou `outbound` sont ignorées et l'exécution passe aux instructions de la section `on-error`. En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez consulter l'erreur à l'aide de la propriété `context.LastError`, inspecter et personnaliser la réponse à l'erreur à l'aide de la stratégie `set-body`, puis configurer ce qui se passe si une erreur se produit. Il existe des codes d'erreur pour les étapes intégrées et pour les erreurs qui peuvent se produire pendant le traitement d'instructions de stratégie. Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+
+Comme les stratégies peuvent être spécifiées à différents niveaux (globale, produits, API et opérations), la configuration vous permet de spécifier l'ordre dans lequel les instructions de la définition de la stratégie sont exécutées par rapport à la stratégie parente.
+
+Les étendues de stratégie sont évaluées dans l'ordre suivant.
+
+1. Étendue globale
+2. Étendue produit
+3. Étendue API
+4. Étendue opération
+
+Les instructions qu'elles contiennent sont évaluées en fonction de l'emplacement de l'élément `base`, s'il est présent.
 
 Par exemple, si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l'élément de base.
 
@@ -100,9 +118,11 @@ Par exemple, si vous avez une stratégie configurée au niveau global et une str
     	</inbound>
 	</policies>
 
-Dans l'exemple de définition de stratégie ci-dessus, l'instruction interdomaines s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie rechercher/remplacer.
+Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-domain` s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie `find-and-replace`.
 
-Remarque : une stratégie globale n’a aucune stratégie parente et l’utilisation de l’élément `<base>` n’a aucun effet.
+Si la même stratégie apparaît deux fois dans l'instruction de stratégie, la stratégie la plus récemment évaluée est appliquée. Cela permet de remplacer les stratégies qui sont définies dans une étendue plus élevée. Pour afficher les stratégies dans l'étendue actuelle dans l'éditeur de stratégie, cliquez sur **Recalculer la stratégie en vigueur pour l'étendue sélectionnée**.
+
+Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet.
 
 ## Étapes suivantes
 
@@ -128,4 +148,4 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

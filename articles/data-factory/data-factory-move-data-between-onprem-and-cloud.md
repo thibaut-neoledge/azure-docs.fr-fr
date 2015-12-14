@@ -47,7 +47,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 Étant donné que l’activité de copie s’exécute selon une fréquence spécifique, l’utilisation des ressources (processeur, mémoire) sur l’ordinateur suit également le même modèle avec des pics et des baisses d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs tâches sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe. L’exemple ci-dessus représente la configuration minimale, et il est toujours préférable d'avoir une configuration avec plus de ressources que cette configuration minimale en fonction de votre charge spécifique pour le déplacement des données.
 
 ## Installation
-La passerelle de gestion des données peut être installée en téléchargeant un package d'installation MSI à partir du Centre de téléchargement Microsoft. Le fichier MSI peut également servir à mettre à niveau la passerelle de gestion des données existante vers la version la plus récente, en conservant tous les paramètres. Vous trouverez le lien vers le package MSI sur le portail Azure en suivant la procédure étape par étape ci-dessous.
+La passerelle de gestion des données peut être installée en téléchargeant un package d'installation MSI à partir du Centre de téléchargement Microsoft. Le fichier MSI peut également servir à mettre à niveau la passerelle de gestion des données existante vers la version la plus récente, en conservant tous les paramètres. Vous trouverez le lien vers le package MSI sur le portail Azure Classic en suivant la procédure étape par étape ci-dessous.
 
 ### Meilleures pratiques d’installation :
 1.	Définissez un plan d'alimentation sur l'ordinateur hôte de la passerelle afin d’empêcher la mise en veille prolongée. Si l’ordinateur hôte est en veille prolongée, la passerelle n’est pas en mesure de répondre à la demande de données.
@@ -73,7 +73,7 @@ Ces messages sont dus à une configuration incorrecte du pare-feu ou du serveur 
 Les deux pare-feu concernés peuvent être : les pare-feu d'entreprise en cours d'exécution sur le routeur central de l'entreprise et le pare-feu Windows configuré en tant que démon sur l'ordinateur local où la passerelle est installée. Voici quelques considérations :
 
 - Il est inutile de modifier la stratégie entrante du pare-feu d'entreprise.
-- Le pare-feu d'entreprise et le Pare-feu Windows doivent activer la règle sortante pour les ports TCP 80, 443 et de 9305 à 9354. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre les services de cloud et la passerelle de gestion des données.
+- Le pare-feu d’entreprise et le Pare-feu Windows doivent activer la règle sortante pour les ports TCP 80, 443 et de 9305 à 9354. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre les services de cloud et la passerelle de gestion des données.
 
 Le programme d'installation MSI configurera automatiquement les règles de pare-feu Windows pour les ports entrants de l'ordinateur de la passerelle (voir la section consacrée aux ports et à la sécurité ci-dessus).
 
@@ -85,9 +85,9 @@ Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure
 Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
 
 ### Étape 1 : Création d’une fabrique de données Microsoft Azure
-Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l’aide des cmdlets Azure Data Factory.
+Dans cette étape, utilisez le portail Azure Classic pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l’aide des cmdlets Azure Data Factory.
 
-1.	Une fois connecté au [portail Azure en version préliminaire](https://portal.azure.com), cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Data Factory** dans le panneau **Analyse de données**.
+1.	Une fois que vous êtes connecté au [portail Azure](https://portal.azure.com), cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**.
 
 	![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
@@ -157,7 +157,7 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 	![Onglet Diagnostic](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
 	Vous pouvez également utiliser cette page pour **tester la connexion** à une source de données locale à l’aide de la passerelle.
-10. Dans le portail Azure, cliquez sur **OK** dans le panneau **Configurer**, puis dans le panneau **Nouvelle passerelle de données**.
+10. Dans le portail Azure Classic, cliquez sur **OK** dans le panneau **Configurer**, puis dans le panneau **Nouvelle passerelle de données**.
 6. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence de gauche. Si vous cliquez dessus, vous devez voir le code JSON associé. 
 	
 
@@ -385,7 +385,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités sont de **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -402,7 +402,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 **Félicitations !** Vous avez correctement créé une fabrique de données Azure, les services liés, les tables et un pipeline et avez planifié le pipeline.
 
 #### Affichage d’une vue schématique d’une fabrique de données 
-1. Dans la **version préliminaire du portail Azure**, cliquez sur la vignette **Diagramme** sur la page d’accueil de la fabrique de données **ADFTutorialOnPremDF**.
+1. Dans le **portail Azure**, cliquez sur la vignette **Diagramme** sur la page d’accueil de la fabrique de données **ADFTutorialOnPremDF**.
 
 	![Lien Diagramme](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
@@ -413,9 +413,9 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d'entrée/de sortie) pour afficher les propriétés associées.
 
 ### Étape 6 : surveiller les jeux de données et les pipelines
-Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
+Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
 
-1. Ouvrez la **version préliminaire du portail Azure** (si vous l’avez fermée).
+1. Ouvrez le **portail Azure** (si vous l’avez fermé).
 2. Si le panneau **ADFTutorialOnPremDF** n’est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialOnPremDF** dans le **tableau d’accueil**.
 3. Vous devez voir le **nombre** et les **noms** des tables et du pipeline que vous avez créés dans ce panneau.
 
@@ -514,19 +514,14 @@ Vous pouvez également créer un service lié SQL Server à l’aide du panneau 
 7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
 8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
 
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Sélectionnez l’**authentification** que le service Data Factory doit utiliser pour se connecter à la base de données. 
-	2.	Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 
-	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.  
-	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
+	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Sélectionnez l’**authentification** que le service Data Factory doit utiliser pour se connecter à la base de données. 2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**. 4. Cliquez sur **OK** pour fermer la boîte de dialogue. 
 4. Cliquez sur **OK** pour fermer le panneau **Informations d’identification**. 
 5. Cliquez sur **OK** dans le panneau **Nouvelle banque de données**. 	
-6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.
-	![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
-Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
+Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure Classic pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
 
 Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Les informations d’identification chiffrées retournées par cette applet de commande peuvent être ajoutées à l’élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou dans l’extrait de code JSON dans Data Factory Editor sur le portail.
 
@@ -594,10 +589,9 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Flux de données pour la copie à l’aide de la passerelle de gestion des données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données :
-![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure](http://portal.azure.com)ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
+1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure Classic](http://portal.azure.com) ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Le développeur des données utilise le panneau « Services liés » afin de définir un nouveau service lié pour un magasin de données local à l’aide de la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l'application de configuration des informations d’identification comme indiqué dans la procédure étape par étape pour spécifier les types d'authentification et les informations d’identification. La boîte de dialogue de l’application de configuration des informations d'identification communiquera avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d'identification.
 3.	La passerelle chiffrera les informations d'identification avec le certificat associé à la passerelle (fourni par le développeur des données) avant d'enregistrer les informations d'identification dans le cloud.
 4.	Le service de déplacement de Data Factory communique avec la passerelle pour la planification et la gestion des tâches via un canal de contrôle qui utilise une file d'attente de bus de service Azure partagé. Lorsque la tâche de l’activité de copie doit être lancée, Data Factory place en file d'attente la requête ainsi que les informations d'identification. La passerelle lance la tâche après avoir interrogé la file d'attente.
@@ -618,4 +612,4 @@ Voici un flux de données global et un résumé des opérations servant à la co
 	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

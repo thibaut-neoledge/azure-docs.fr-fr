@@ -129,11 +129,11 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
 6.  Assurez-vous que les comptes valides de service cloud et de stockage créés dans votre abonnement peuvent être utilisés par le script de publication. Le compte de stockage (stockage d'objets blob) est utilisé pour télécharger et stocker de façon temporaire le package de déploiement et le fichier de configuration pendant la création du déploiement.
 
-    -   Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
+    -   Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le portail Azure Classic. Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
+    -   Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le portail Azure Classic. Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
@@ -169,7 +169,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d’informations, consultez l’article suivant : [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail Azure Classic. Pour plus d’informations, consultez l’article suivant : [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Mise à niveau du déploiement et suppression du déploiement -> Nouveau déploiement**
 
@@ -576,4 +576,4 @@ Pour activer le débogage à distance quand vous utilisez la remise continue, co
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -45,7 +45,7 @@ Voici les composants impliqués.
 Avant de vous plonger dans un processus de dépannage détaillé, nous vous recommandons de réfléchir à tout ce qui a changé depuis que vous avez créé des connexions Bureau à distance et de vous baser sur ces modifications pour résoudre le problème. Par exemple :
 
 - Si vous avez créé des connexions Bureau à distance et modifié l’adresse IP publique de la machine virtuelle ou du service cloud contenant votre machine virtuelle (également appelée adresse IP virtuelle [VIP]), le cache du client DNS peut contenir une entrée pour le nom DNS et l’*ancienne adresse IP*. Videz le cache client DNS et réessayez. Vous pouvez aussi essayer de vous connecter à l’aide de la nouvelle adresse VIP.
-- Si vous avez effectué des modifications à partir du portail Azure ou du portail Azure en version préliminaire afin d’utiliser une application pour gérer vos connexions Bureau à distance, vérifiez que la configuration de l’application inclut bien le port TCP déterminé de façon aléatoire pour le trafic de Bureau à distance.
+- Si vous avez effectué des modifications à partir du portail Azure Classic ou du portail Azure afin d’utiliser une application pour gérer vos connexions Bureau à distance, vérifiez que la configuration de l’application inclut bien le port TCP déterminé de façon aléatoire pour le trafic de Bureau à distance.
 
 Les paragraphes suivants traitent de l’identification et de la détermination des causes premières du problème, et fournissent des solutions.
 
@@ -54,7 +54,7 @@ Les paragraphes suivants traitent de l’identification et de la détermination 
 
 Effectuez ces étapes avant de passer à la procédure de dépannage détaillé.
 
-- Vérifiez l’état de la machine virtuelle sur le portail Azure ou le portail Azure en version préliminaire
+- Vérifiez l’état de la machine virtuelle sur le portail Azure Classic ou le portail Azure
 - Redémarrez la machine virtuelle.
 - [Redimensionnez la machine virtuelle](virtual-machines-size-specs.md).
 
@@ -207,4 +207,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

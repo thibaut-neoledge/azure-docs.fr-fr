@@ -16,11 +16,11 @@ Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azu
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail Azure Classic][].
 
-2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. ![][0]
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![][0]
 
 4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][2]
 
@@ -35,7 +35,7 @@ Pour créer un espace de noms de service :
 
 ## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
 
-Afin d’effectuer des opérations de gestion, comme la création d’une rubrique ou d’un abonnement, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail de gestion Azure.
+Afin d’effectuer des opérations de gestion, comme la création d’une rubrique ou d’un abonnement, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail.
 
 ### Pour obtenir les informations de gestion du portail
 
@@ -48,7 +48,7 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
 4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
 
-  [portail de gestion Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -57,4 +57,4 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

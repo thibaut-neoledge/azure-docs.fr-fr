@@ -23,7 +23,7 @@
 Dans Azure Media Services, un **canal** représente un pipeline de traitement du contenu de diffusion dynamique. Un **canal** reçoit des flux d’entrée dynamiques de l’une des deux manières suivantes :
 
 - Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
-- Un flux à débit binaire unique (dans l’un des formats suivants : **RTP** [MPEG-TS], **RTMP** ou **Smooth Streaming** [MP4 fragmenté]) est envoyé au **canal** qui est activé pour effectuer un encodage en temps réel avec Media Services. Le **canal** procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients. 
+- Un flux à débit binaire unique (dans l’un des formats suivants : **RTP** [MPEG-TS], **RTMP** ou **Smooth Streaming** [MP4 fragmenté]) est envoyé au **canal** qui est activé pour effectuer un encodage en temps réel avec Media Services. Le **canal** procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
@@ -36,9 +36,9 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 
 ##Implications de facturation
 
-La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API. Vous pouvez également afficher l'état dans le portail Azure ou dans l'outil Azure Media Services Explorer (http://aka.ms/amse)).
+La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API. Vous pouvez également afficher l’état dans le portail Azure Classic ou dans l’outil Azure Media Services Explorer (http://aka.ms/amse)).
 
-Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l'API et le portail. Notez que les états sont légèrement différentes entre l'API et le portail. Dès qu'un canal est dans l'état « En cours d'exécution » via l'API, ou dans l'état « Prêt » ou « Diffusion en continu » dans le portail Azure, la facturation est active. Pour arrêter la facturation, vous devez arrêter le canal via l'API ou dans le portail Azure. Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel. Ne pas arrêter un canal d'encodage provoque la facturation continue.
+Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure Classic. Notez que les états sont légèrement différentes entre l'API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure Classic, la facturation est active. Pour arrêter la facturation, vous devez arrêter le canal par le biais de l’API ou du portail Azure Classic. Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel. Ne pas arrêter un canal d'encodage provoque la facturation continue.
 
 ###<a id="states"></a>États du canal et mappage au mode de facturation 
 
@@ -93,7 +93,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 3. Créez un programme.
 
-	Lors de l’utilisation du portail de gestion Azure, la création d’un programme crée également une ressource.
+	Lors de l’utilisation du portail Azure Classic, la création d’un programme crée également une ressource.
 
 	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
 1. Publiez la ressource associée au programme.   
@@ -244,7 +244,7 @@ Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obte
 
 Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-**Remarque** Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail de gestion Azure pour afficher votre flux.
+**Remarque** Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure Classic pour afficher votre flux.
 
 ###Adresses IP autorisées
 
@@ -466,4 +466,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

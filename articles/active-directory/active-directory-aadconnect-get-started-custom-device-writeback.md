@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Activation de l’écriture différée des appareils dans Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect : Activation de l’écriture différée des appareils | Microsoft Azure"
 	description="Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -24,10 +24,11 @@ Activer l’accès conditionnel basé sur les appareils pour les applications pr
 
 Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) et [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
->[AZURE.NOTE]Un abonnement à Office 365 ou à Azure AD Premium est nécessaire pour utiliser des appareils enregistrés dans les stratégies d’accès conditionnel du service d’inscription d’appareils Azure Active Directory. Ces stratégies incluent les stratégies appliquées par les services AD FS (Active Directory Federation Services) pour les ressources locales.
+>[AZURE.NOTE]L’écriture différée sur appareil nécessite un abonnement Azure AD Premium.
+
 
 ## 1ère partie : Installer Azure AD Connect
-1. Installer Azure AD Connect à l'aide de paramètres personnalisés ou Express. Il est recommandé de commencer par synchroniser correctement tous les utilisateurs et groupes avant d'activer l'écriture différée des appareils.
+1. Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Il est recommandé de commencer par synchroniser correctement tous les utilisateurs et groupes avant d'activer l'écriture différée des appareils.
 
 ## Partie 2 : Préparer Active Directory
 Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture différée des appareils.
@@ -59,7 +60,7 @@ Paramètres :
 - DomainName : domaine Active Directory où les objets d’appareil seront créés. Remarque : tous les appareils pour une forêt Active Directory donnée seront créés dans un domaine unique.
 - AdConnectorAccount : compte Active Directory qui servira à Azure AD Connect pour gérer des objets dans le répertoire. C'est le compte utilisé par la synchronisation Azure AD Connect pour se connecter à AD. Si vous avez procédé à l'installation à l'aide de paramètres Express, c'est le compte précédé de MSOL\_.
 
-## 3ème partie : Activer l'écriture différée des appareils dans Azure AD Connect
+## 3ème partie : Activer l’écriture différée des appareils dans Azure AD Connect
 Utilisez la procédure suivante pour activer l’écriture différée des appareils dans Azure AD Connect.
 
 1.	Réexécutez l’Assistant d’installation. Sélectionnez **Personnalisation des options de synchronisation** à partir de la page Tâches supplémentaires et cliquez sur **Suivant**. ![Installation personnalisée](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback2.png)
@@ -123,6 +124,6 @@ Vérifier la configuration dans Active Directory : - Vérifiez que le Service d
 - [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
 ## Étapes suivantes
-En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

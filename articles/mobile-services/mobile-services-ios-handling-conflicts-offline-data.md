@@ -19,6 +19,11 @@
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services. Ce didacticiel s’appuie sur le didacticiel [Prise en main des données hors connexion].
@@ -139,4 +144,4 @@ Effectuez le geste d'actualisation dans les instances de l'application en faisan
 [Prise en main des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

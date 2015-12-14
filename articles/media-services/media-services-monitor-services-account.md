@@ -24,11 +24,11 @@ Le tableau de bord Azure Media Services présente des mesures d'utilisation et d
 
 Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâches d'encodage ayant échoué, de travaux d'encodage actifs, représentés par les données d'entrée et de sortie de l'encodeur, ainsi que l'utilisation du stockage d'objets blob associée à votre compte Media Services. En outre, si vous diffusez du contenu en continu à vos clients, vous pouvez également récupérer diverses mesures de diffusion en continu. Vous pouvez choisir de surveiller vos données sur les 6 dernières heures, les dernières 24 heures ou les 7 derniers jours.
  
->[AZURE.NOTE]La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE]La surveillance des données de stockage dans le portail Azure Classic occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Procédure : surveillance d'un compte Media Services
 
-1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -73,4 +73,4 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,9 +58,9 @@ Effectuez les opérations suivantes à partir d'un ordinateur qui contient les f
 
 Une fois que vous avez publié la définition de service de mise à jour, vous pouvez vous connecter à l'instance de rôle.
 
-1.  Dans le [Portail de gestion Azure], sélectionnez **Cloud Services**, puis sélectionnez votre service.
+1.  Dans le [Portail Azure Classic], sélectionnez **Cloud Services**, puis sélectionnez votre service.
 
-	![portail de gestion azure][cloud-services]
+	![Portail Azure Classic][cloud-services]
 
 2.  Cliquez sur **Instances**, puis sur **Production** ou **Intermédiaire** pour afficher les instances de votre service. Sélectionnez une instance, puis cliquez sur **Connexion** en bas de la page.
 
@@ -74,7 +74,7 @@ Une fois que vous avez publié la définition de service de mise à jour, vous p
 
     ![Invite de sécurité Windows][5]
 
-4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1](Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell), puis cliquez sur **OK**.
+4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
 
     ![invite du nom d'utilisateur/mot de passe][6]
 
@@ -102,7 +102,7 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Portail de gestion Azure]: http://manage.windowsazure.com
+[Portail Azure Classic]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
   [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

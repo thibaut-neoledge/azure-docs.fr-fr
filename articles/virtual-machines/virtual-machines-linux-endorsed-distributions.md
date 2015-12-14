@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@ L’agent Azure Linux, qui est pré-installé sur les images de la galerie Azu
 
 Distribution|Version|Pilotes|Agent
 ---|---|---|---
-Ubuntu de Canonical|Ubuntu 12.04, 14.04, 15.04 et 15.10|Dans le noyau|Package : dans le référentiel sous "walinuxagent" <p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-CentOS par OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3 : [Téléchargement LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+ : Dans le noyau|Package : dans le référentiel <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic sous "WALinuxAgent"<p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 et 15.10|Dans le noyau|Package : dans le référentiel sous "WALinuxAgent" <p><p>Source : [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS par OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3 : [Téléchargement LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+ : Dans le noyau|Package : dans le référentiel <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic sous "WALinuxAgent"<p><p>Source : [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |Dans le noyau|Source : [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|Dans le noyau|Package : dans le référentiel sous "WALinuxAgent" <p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ et <p><p> SLES pour SAP 11.3+ |Dans le noyau|Package : dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), sous "WALinuxAgent"<p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|Dans le noyau|Package : dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), sous "WALinuxAgent"<p><p>Code source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|Dans le noyau|Package : dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), sous "WALinuxAgent"<p><p>Code source : [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian par Credativ |Debian 7.9+, 8.2+|Dans le noyau|Package : dans le référentiel sous "waagent" <p><p>Code source : [GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## Partenaires
 
@@ -79,4 +80,9 @@ La stratégie d'Oracle vise à offrir un portefeuille complet de solutions pour 
 
 SUSE Linux Enterprise Server sur Azure est une plateforme éprouvée qui offre une fiabilité et un niveau de sécurité supérieurs pour le cloud computing. Polyvalente, la plateforme Linux de SUSE s'intègre en toute transparence aux services cloud Azure pour fournir un environnement cloud facile à gérer. Et avec plus de 9 200 applications certifiées issues de plus de 1 800 éditeurs de logiciels indépendants pour SUSE Linux Enterprise Server, SUSE est l'assurance que les charges de travail prises en charge dans les centres de données peuvent être déployées en toute confiance sur Azure.
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ est une société de conseil et de services indépendante, spécialisée dans le développement et la mise en œuvre de solutions professionnelles grâce à l’utilisation de logiciels libres. En tant que leaders spécialistes de l’open source, nous sommes reconnus au niveau international du fait que de nombreux services informatiques font appel à notre support. En collaboration avec Microsoft, credativ prépare actuellement les images Debian correspondantes pour Debian 8 (Jessica) et Debian avant version 7 (Wheezy), qui sont spécialement conçues pour s’exécuter sur Azure et qui peuvent être facilement gérées par le biais de la plateforme. credativ prendra également en charge la maintenance à long terme et la mise à jour des images Debian pour Azure via ses centres de support Open Source.
+
+<!---HONumber=AcomDC_1203_2015-->

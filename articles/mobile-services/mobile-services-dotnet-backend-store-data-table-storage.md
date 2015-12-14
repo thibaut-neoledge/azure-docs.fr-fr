@@ -1,26 +1,31 @@
-<properties 
-	pageTitle="Créer un service mobile de backend .NET qui utilise le stockage de tables | Azure Mobile Services" 
-	description="Découvrez comment utiliser le stockage de tables Azure avec votre service mobile principal .NET." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Créer un service mobile de backend .NET qui utilise le stockage de tables | Azure Mobile Services"
+	description="Découvrez comment utiliser le stockage de tables Azure avec votre service mobile principal .NET."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Créer un service mobile de backend .NET qui utilise le stockage de tables
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 Cette rubrique vous explique comment utiliser un magasin de données non relationnelles pour votre service mobile principal .NET. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Azure Mobile Services pour utiliser le stockage de tables Azure à la place de Base de données SQL Azure comme magasin de données par défaut.
 
-Pour suivre ce didacticiel, vous devez avoir effectué le didacticiel [Prise en main de Mobile Services]. Vous aurez également besoin d’un compte de stockage Azure.
+Avant de suivre ce didacticiel, vous devez suivre le didacticiel [Prise en main de Mobile Services]. Vous aurez également besoin d’un compte de stockage Azure.
 
 ##Configurer le stockage de tables Azure dans votre service mobile principal .NET
 
@@ -34,12 +39,12 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
   	Le support des services de stockage Azure est alors ajouté au projet de service mobile principal .NET.
 
-3. Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage](../storage-create-storage-account.md).
+3. Si vous n’avez pas encore créé de compte de stockage, voir la rubrique [Création d’un compte de stockage](../storage-create-storage-account.md).
 
-4. Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
+4. Dans le [portail Azure Classic], cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
-5. Notez le **nom du compte de stockage** et la **clé d'accès**.
- 
+5. Notez le **nom du compte de stockage** et la **clé d’accès**.
+
 6. Dans votre service mobile, cliquez sur l’onglet **Configurer**, faites défiler jusqu’à **Chaînes de connexion**, puis entrez une chaîne de connexion composée d’un **Nom** `StorageConnectionString` et d’une **Valeur** qui correspond à la chaîne de connexion de votre compte de stockage au format suivant.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
@@ -58,7 +63,7 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
 	Le service mobile utilise cette chaîne de connexion quand il est exécuté sur votre ordinateur local, ce qui vous permet de tester le code avant de le publier. Au cours de l’exécution dans Azure, le service mobile utilise la valeur de la chaîne de connexion définie dans le portail et ignore la chaîne de connexion dans le projet.
 
-## <a name="modify-service"></a>Modifier les types de données et les contrôleurs de table
+## <a name="modify-service"></a>Modification des types de données et des contrôleurs de table
 
 Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une base de données SQL via Entity Framework, vous devez effectuer certaines mises à jour dans le projet pour utiliser le stockage de tables.
 
@@ -72,7 +77,7 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
 
 	>[AZURE.NOTE]Le type **StorageData** a une propriété d’ID qui nécessite une clé composée, laquelle est une chaîne au format *partitionId*,*rowValue*.
 
-2. Dans **TodoItemController**, ajoutez l’instruction using suivante :
+2. Dans **TodoItemController**, ajoutez l’instruction Using suivante :
 
 		using System.Web.Http.OData.Query;
 		using System.Collections.Generic;
@@ -83,12 +88,12 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	Cela crée un nouveau gestionnaire de domaine de stockage pour le contrôleur demandé à l’aide de la chaîne de connexion du compte de stockage.
@@ -99,9 +104,9 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
-	Contrairement à SQL Database, cette version ne retourne pas IQueryable<TEntity> ; le résultat peut donc être lié, mais pas plus composé dans une requête.
+	Contrairement à SQL Database, cette version ne renvoie pas IQueryable<TEntity>. Le résultat peut donc être lié, mais plus composé dans une requête.
 
 ## Mettre à jour l’application cliente
 
@@ -109,7 +114,7 @@ Vous devez apporter une modification côté client pour que l’application de d
 
 1. Ouvrez le fichier de code client qui contient le code d’accès aux données et identifiez la méthode dans laquelle l’opération d’insertion est effectuée.
 
-2. Mettez à jour l’instance TodoItem ajoutée pour explicitement définir le champ d’ID au format de chaîne `<partitionID>,<rowValue>`.
+2. Mettez à jour l’instance TodoItem ajoutée pour définir explicitement le champ d’ID au format de chaîne `<partitionID>,<rowValue>`.
 
 	Il s’agit d’un exemple de la façon dont cet ID peut être défini dans une application C#, où la partie de la partition est fixe et la partie de la ligne est basée sur le GUID.
 
@@ -119,8 +124,8 @@ Vous êtes maintenant prêt à tester l’application.
 
 ## <a name="test-application"></a>Testez l’application
 
-1. (Facultatif) Publiez à nouveau votre projet principal .NET de service mobile. 
-	
+1. (Facultatif) Publiez à nouveau votre projet principal .NET de service mobile.
+
 	Vous pouvez également tester votre service mobile localement avant de publier le projet principal .NET sur Azure. Si vous effectuez le test en local ou dans Microsoft Azure, le service mobile utilise le stockage de tables Azure.
 
 4. Exécutez l’application cliente de démarrage rapide connectée à votre service mobile.
@@ -128,14 +133,14 @@ Vous êtes maintenant prêt à tester l’application.
 	Notez que les éléments que vous avez ajoutés précédemment à l’aide du didacticiel de démarrage rapide ne sont pas visibles. Ceci est dû au fait que le magasin de tables est actuellement vide.
 
 5. Ajoutez de nouveaux éléments pour générer des modifications de la base de données.
- 
+
 	L’application et le service mobile doivent se comporter comme avant, excepté qu’à présent vos données sont stockées dans votre magasin de données non relationnelles plutôt que dans la base de données SQL.
 
 ##Étapes suivantes
 
 Vous savez désormais qu’il est facile d’utiliser le stockage de table avec le serveur principal .NET. Vous pouvez donc explorer d’autres options de stockage principal :
 
-+ [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
++ [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l’aide d’Azure. Les ressources prises en charge incluent toute ressource s’exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
 
 + [Télécharger des images dans le stockage Azure à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Vous montre comment étendre l’exemple de projet TodoList pour vous permettre de télécharger des images à partir de votre application pour le stockage d’objets Blob Azure.
 
@@ -150,9 +155,8 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

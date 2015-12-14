@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment rechercher des données StackExchange avec Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
+	pageTitle="Comment rechercher des données StackExchange avec Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Apprenez à effectuer des recherches REST à l'aide du service Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Comment rechercher des données StackExchange avec Azure Search
 
-Cet article est une procédure pas à pas qui met en évidence certaines des fonctionnalités de base de recherche en texte intégral qui peuvent être exécutées avec [Azure Search](https://azure.microsoft.com/fr-FR/services/search/). Les données Stack Exchange [disponibles](https://archive.org/details/stackexchange) sont utilisées par Creative Commons avec l’[attribution](http://blog.stackoverflow.com/2009/06/attribution-required/) suivante.
+Cet article est une procédure pas-à-pas qui met en évidence certaines des fonctionnalités de base de recherche en texte intégral qui peuvent être exécutées avec [Azure Search](https://azure.microsoft.com/services/search/). Les données Stack Exchange [disponibles](https://archive.org/details/stackexchange) sont utilisées par Creative Commons avec l’[attribution](http://blog.stackoverflow.com/2009/06/attribution-required/) suivante.
 
 ## Prise en main
 
@@ -104,9 +104,9 @@ Brent a déjà accompli la majeure partie du travail montrant comment organiser 
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Une fois cette opération terminée, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour « Importer des données » de la vue de SQL Azure, ce qui crée par la suite un index basé sur Azure Search et obéissant au schéma des champs de la vue. Si vous souhaitez utiliser la base de données SQL Azure que j’ai préparée, voici la chaîne de connexion en lecture seule que vous pouvez utiliser :
+Une fois cette opération terminée, vous pouvez utiliser le [portail Azure Classic](https://portal.azure.com) pour « Importer des données » de la vue de SQL Azure, ce qui crée par la suite un index basé sur Azure Search et obéissant au schéma des champs de la vue. Si vous souhaitez utiliser la base de données SQL Azure que j’ai préparée, voici la chaîne de connexion en lecture seule que vous pouvez utiliser :
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

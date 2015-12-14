@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Fonctionnalités Azure AD dans la version préliminaire | Microsoft Azure"
+   pageTitle="Azure AD Connect : fonctionnalités de la version préliminaire | Microsoft Azure"
    description="Cette rubrique décrit en détail les fonctionnalités disponibles en version préliminaire dans Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Plus de détails sur les fonctionnalités de la version préliminaire
@@ -60,4 +60,4 @@ Poursuivez votre [installation personnalisée d’Azure AD Connect](active-direc
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

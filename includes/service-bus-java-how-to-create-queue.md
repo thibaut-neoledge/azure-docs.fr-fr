@@ -19,7 +19,7 @@ Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous deve
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail Azure][].
+1.  Connectez-vous au [portail Azure Classic][].
 
 2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
@@ -39,7 +39,7 @@ L’espace de noms que venez de créer apparaît alors dans le portail Azure. So
 
 ## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
 
-Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles dans le portail Azure.
+Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail.
 
 ###Pour obtenir les informations de gestion du portail
 
@@ -51,8 +51,8 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
-  [portail Azure]: http://manage.windowsazure.com
+  [portail Azure Classic]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

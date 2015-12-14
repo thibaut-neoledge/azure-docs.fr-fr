@@ -139,13 +139,13 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 3. Fermez votre navigateur. Dans la fenêtre de commande, appuyez sur **Ctrl+C** pour arrêter l'application ou fermer la fenêtre de commande.
 
-## Création d’une application web dans la version préliminaire du portail Azure
+## Créer une application web dans le portail Azure
 
-La procédure suivante vous guidera dans la création d'une application Web dans le portail Azure en version préliminaire.
+La procédure suivante vous guidera dans la création d'une application Web dans le portail Azure.
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **NOUVEAU** dans la partie supérieure gauche du portail.
+2. Cliquez sur l’option **NOUVEAU** située dans la partie supérieure gauche du portail.
 
 3. Cliquez sur **Applications Web > Application Web**.
 
@@ -165,7 +165,7 @@ La procédure suivante vous guidera dans la création d'une application Web dans
 
 Git est un système de contrôle de version distribué permettant de déployer votre application Web Azure App Service. Vous stockerez le code que vous écrivez pour votre application Web dans un référentiel Git local, et vous déploierez votre code dans Azure par transmission de type Push vers un référentiel distant.
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur **Parcourir**.
 
@@ -258,7 +258,7 @@ Cette opération peut être réalisée de deux manières :
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* Dans le portail Azure en version préliminaire, localisez le panneau de l'application Web pour votre application Web, puis cliquez sur **Parcourir** pour afficher votre application
+* Dans le portail Azure, localisez le panneau de l'application Web pour votre application Web, puis cliquez sur **Parcourir** pour afficher votre application
 * dans votre navigateur par défaut.
 
 ![Application Web Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi Visual Studio Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@ Ce didacticiel vous explique comment créer une application web PHP dans [Azure�
 
 Vous apprendrez à effectuer les opérations suivantes :
 
-* Créer une application web Azure et une base de données SQL à l’aide du [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* Création d’une application web Azure et d’une base de données SQL à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
  
 En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d’écran de l’application terminée :
@@ -39,7 +39,7 @@ En suivant ce didacticiel, vous allez générer une application Web d'inscriptio
 
 Suivez cette procédure pour créer une application web Azure et une base de données SQL :
 
-1. Connectez-vous au [Portail Azure en version préliminaire](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Ouvrez Azure Marketplace en cliquant sur l'icône **Nouveau** dans le coin supérieur gauche du tableau de bord, cliquez sur **Sélectionner tout** en regard de Marketplace et sélectionnez **Web + Mobile**.
 	
@@ -284,7 +284,6 @@ Pour publier des modifications apportées à votre application, procédez comme 
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 
@@ -296,4 +295,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

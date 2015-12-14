@@ -453,7 +453,7 @@ Dans l'Assistant Importation de certificat :
 
 ## Téléchargement d’un certificat
 
-Dans le [portail de gestion Azure](http://portal.azure.com/) :
+Dans le [portail Azure Classic](http://portal.azure.com/)
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud.
@@ -473,4 +473,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,7 +59,7 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 1.  Lancez une nouvelle fenêtre **Terminal**.
     
-1.  Entrez la commande suivante pour vous connecter à votre machine virtuelle Azure : Si vous n'avez pas créé de nom de domaine complet (FQDN), vous pouvez vous connecter à l'aide de l'adresse IP publique affichée dans le résumé de la machine virtuelle, dans le portail Azure.
+1.  Entrez la commande suivante pour vous connecter à votre machine virtuelle Azure : Si vous n’avez pas créé de nom de domaine complet (FQDN), vous pouvez vous connecter à l’aide de l’adresse IP publique affichée dans le résumé de la machine virtuelle, dans le portail Azure Classic.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -126,4 +126,4 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

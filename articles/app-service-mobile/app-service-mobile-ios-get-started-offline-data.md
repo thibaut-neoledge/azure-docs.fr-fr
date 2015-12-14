@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Vue d'ensemble
 
@@ -88,7 +86,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
     La méthode `pullWithQuery` vous permet de spécifier une requête pour filtrer les enregistrements que vous souhaitez récupérer. Dans cet exemple, la requête récupère simplement tous les enregistrements de la table `TodoItem` distante.
 
-    Le deuxième paramètre `pullWithQuery` est un ID de requête qui est utilisé pour la *synchronisation incrémentielle*. La synchronisation incrémentielle récupère uniquement les enregistrements modifiés depuis la dernière synchronisation, à l’aide de l’horodatage `UpdatedAt` de l’enregistrement (appelé `ms_updatedAt` dans le magasin local). L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `nil` comme ID de requête. Notez que cette opération peut ne pas être très efficace, dans la mesure où elle récupère tous les enregistrements de chaque opération d'extraction.
+    Le deuxième paramètre `pullWithQuery` est un ID de requête qui est utilisé pour la *synchronisation incrémentielle*. La synchronisation incrémentielle récupère uniquement les enregistrements modifiés depuis la dernière synchronisation, à l’aide de l’horodatage `UpdatedAt` de l’enregistrement (appelé `updatedAt` dans le magasin local). L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `nil` comme ID de requête. Notez que cette opération peut ne pas être très efficace, dans la mesure où elle récupère tous les enregistrements de chaque opération d'extraction.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +103,9 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
       * MS\_TableOperations : pour le suivi des éléments qui doivent être synchronisés avec le serveur
       * MS\_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
       * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
-      * TodoItem : pour le stockage des actions. Les colonnes système **ms\_createdAt**, **ms\_updatedAt** et **ms\_version** sont des propriétés système facultatives.
+      * TodoItem : pour le stockage des actions. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
 
->[AZURE.NOTE]Le kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **`ms_`** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
+>[AZURE.NOTE]Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -150,17 +148,16 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     ### Table de données
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | Attribut | Type | Remarque |
     |-----------   |  ------ | -------------------------------------------------------|
     | id | Chaîne, marquée requise | clé primaire dans le magasin distant |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
+    | createdAt | Date | (facultatif) correspond à la propriété système createdAt |
+    | updatedAt | Date | (facultatif) correspond à la propriété système updatedAt |
+    | version | String | (facultatif) permet de détecter les conflits, correspond à version |
 
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
@@ -181,22 +178,24 @@ Dans cette section, vous allez modifier l'application afin qu'elle ne se synchro
                 dispatch_async(dispatch_get_main_queue(), completion);
             }
 
-## <a name="test-app"></a>Test de l’application
+## <a name="test-app"></a>Tester l'application
 
+Dans cette section, vous allez vous connecter à une URL incorrecte pour simuler un scénario hors connexion. Quand vous ajoutez des éléments de données, ils sont placés dans le magasin local des données de base, mais ne sont pas synchronisés vers le backend mobile.
 
-Dans cette section, vous allez désactiver le Wi-Fi dans le simulateur pour créer un scénario hors connexion. Quand vous ajoutez des éléments de données, ils sont placés dans le magasin local des données de base, mais ne sont pas synchronisés vers le backend mobile.
+1. Définissez l’URL de l’application mobile dans **QSTodoService.m** sur une URL non valide, puis réexécutez l’application :
 
-1. Désactivez le Wi-Fi dans le simulateur iOS.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Ajoutez des tâches ou marquez-en certaines comme terminées. Fermez le simulateur (ou forcez la fermeture de l'application) et redémarrez. Vérifiez que vos modifications ont bien été rendues persistantes.
 
 3. Affichez le contenu de la table TodoItem distante :
-   - Pour le serveur principal JavaScript, accédez au portail de gestion et cliquez sur l’onglet Données pour afficher le contenu de la table `TodoItem`.
-   - Pour le serveur principal .NET, affichez le contenu de la table avec un outil SQL, par exemple SQL Server Management Studio ou un client REST, comme Fiddler ou Postman.
+
+    + Pour un backend Node.js, accédez au [portail Azure](https://portal.azure.com/), puis dans votre backend d’application mobile, cliquez sur **Easy Tables** > **TodoItem** pour afficher le contenu de la table `TodoItem`.
+   	+ Pour un backend .NET, affichez le contenu de la table avec un outil SQL, par exemple SQL Server Management Studio ou un client REST, comme Fiddler ou Postman.
 
     Vérifiez que les nouveaux éléments n’ont *pas* été synchronisés avec le serveur :
 
-4. Activez le Wi-Fi dans le simulateur iOS, puis effectuez le geste d'actualisation en tirant la liste des éléments vers le bas. Vous verrez un compteur de progression et le texte « Synchronisation... ».
+4. Remplacez l’URL par l’URL correcte dans **QSTodoService.m** et réexécutez l’application. Effectuez l’actualisation en faisant glisser la liste des éléments vers le bas. Vous verrez un compteur de progression et le texte « Synchronisation... ».
 
 5. Affichez de nouveau les données TodoItem. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
 
@@ -248,4 +247,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

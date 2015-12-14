@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configuration de MPIO sur un hôte StorSimple exécutant CentOS
@@ -163,9 +163,9 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
 
 Votre appareil StorSimple doit disposer des éléments suivants :
 
-- Deux interfaces activées pour iSCSI minimum. Pour vérifier que deux interfaces sont compatibles iSCSI sur votre appareil StorSimple, effectuez les opérations suivantes dans le portail de gestion de votre appareil StorSimple :
+- Deux interfaces activées pour iSCSI minimum. Pour vérifier que deux interfaces sont compatibles iSCSI sur votre appareil StorSimple, effectuez les opérations suivantes dans le portail Azure Classic de votre appareil StorSimple :
 
-	1. Connectez-vous au portail de gestion de votre appareil StorSimple.
+	1. Connectez-vous au portail Classic de votre appareil StorSimple.
 
 	1. Sélectionnez votre service StorSimple Manager, cliquez sur **Appareils** et choisissez l’appareil StorSimple concerné. Cliquez sur **Configurer** et vérifiez les paramètres d’interface réseau. Une capture d’écran avec deux interfaces réseau compatibles iSCSI est affichée ci-dessous. Ici, pour DATA 2 et DATA 3, les deux interfaces 10 Gigabit Ethernet sont activées pour iSCSI.
 	
@@ -339,10 +339,10 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+		Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 	
-	1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](https://sandboxmsdnstage.redmond.corp.microsoft.com/fr-FR/library/azure/dn772357.aspx) via le portail de gestion sur votre appareil StorSimple.
+	1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via le portail Azure Classic sur votre appareil StorSimple.
 
 	1. Vérifiez les chemins d’accès disponibles. Tapez :
 
@@ -459,7 +459,7 @@ A. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez l
     dm-3 devnode blacklisted, unmonitored
 
 
-Pour plus d’informations, consultez [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Pour plus d’informations, accédez à [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## Liste des commandes utiles
 
@@ -475,4 +475,4 @@ Pour plus d’informations, consultez [Utilisation de la commande interactive de
 - [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

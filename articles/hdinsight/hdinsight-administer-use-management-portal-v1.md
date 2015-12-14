@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure | Microsoft Azure"
+	pageTitle="Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure Classic | Microsoft Azure"
 	description="Découvrez la façon d'administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop."
 	services="hdinsight"
 	documentationCenter=""
@@ -16,16 +16,16 @@
 	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
-# Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
+# Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure Classic
 
-Le [portail Azure](https://manage.windowsazure.com) vous permet d’approvisionner des clusters Hadoop dans Azure HDInsight, de modifier le mot de passe utilisateur Hadoop et d’activer le protocole RDP (Remote Desktop Protocol) afin d’accéder à la console de commandes Hadoop sur le cluster.
+Le [portail Azure Classic](https://manage.windowsazure.com) vous permet d’approvisionner des clusters Hadoop dans Azure HDInsight, de modifier le mot de passe utilisateur Hadoop et d’activer le protocole RDP (Remote Desktop Protocol) afin d’accéder à la console de commandes Hadoop sur le cluster.
 
 [AZURE.INCLUDE [portail azure hdinsight](../../includes/hdinsight-azure-portal.md)]
 
-* [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure en version préliminaire](hdinsight-administer-use-management-portal.md)
+* [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
 
 ## Autres outils d’administration de HDInsight
-Outre le portail Azure, d’autres outils sont également disponibles pour administrer HDInsight.
+Outre le portail Azure Classic, d’autres outils sont disponibles pour administrer HDInsight.
 
 - Pour plus d’informations sur l’administration de HDInsight avec Azure PowerShell, consultez la rubrique [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -39,9 +39,9 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 - **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](../storage-create-storage-account.md).
 
 
-##Configuration de clusters HDInsight
+##Approvisionnement de clusters HDInsight
 
-Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure à l’aide de l’option Création rapide ou Création personnalisée. Consultez les liens suivants pour obtenir des instructions :
+Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure Classic à l’aide de l’option Création rapide ou Création personnalisée. Consultez les liens suivants pour obtenir des instructions :
 
 - [Approvisionnement d’un cluster à l’aide de l’option Création rapide](../hdinsight-get-started.md#provision)
 - [Approvisionnement d’un cluster à l’aide de l’option Création personnalisée](hdinsight-provision-clusters.md#portal)
@@ -70,7 +70,7 @@ Un cluster HDInsight peut disposer de deux comptes d'utilisateur. Le compte d’
 
 **Modification du nom d’utilisateur et du mot de passe d’un cluster HDInsight**
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters HDInsight déployés s'affiche.
 3. Cliquez sur le cluster HDInsight dont vous souhaitez réinitialiser le nom d’utilisateur et le mot de passe.
 4. En haut de la page, cliquez sur **CONFIGURATION**.
@@ -87,7 +87,7 @@ Les informations d’identification du cluster fournies lors de sa création don
 
 **Activation du Bureau à distance**
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters HDInsight déployés s'affiche.
 3. Cliquez sur le cluster HDInsight auquel vous souhaitez vous connecter.
 4. En haut de la page, cliquez sur **CONFIGURATION**.
@@ -105,7 +105,7 @@ Les informations d’identification du cluster fournies lors de sa création don
 
 **Pour vous connecter à un cluster à l’aide de RDP**
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters HDInsight déployés s'affiche.
 3. Cliquez sur le cluster HDInsight auquel vous souhaitez vous connecter.
 4. En haut de la page, cliquez sur **CONFIGURATION**.
@@ -121,7 +121,7 @@ Si vous voulez effectuer des opérations dans le cluster au moyen du Kit de dév
 
 2. Accédez à l'emplacement du certificat, cliquez avec le bouton droit sur ce dernier, cliquez sur **Installer le certificat**, et installez le certificat dans le magasin personnel de l'ordinateur. Modifiez les propriétés du certificat pour lui affecter un nom convivial.
 
-3. Importez le certificat dans le portail Azure. À partir du portail, cliquez sur **PARAMÈTRES** dans la partie inférieure gauche de la page, puis cliquez sur **CERTIFICATS DE GESTION**. Dans le bas de la page, cliquez sur **TÉLÉCHARGER** et suivez les instructions pour télécharger le fichier .cer que vous avez créé à l’étape précédente.
+3. Importez le certificat dans le portail Azure Classic. À partir du portail, cliquez sur **PARAMÈTRES** dans la partie inférieure gauche de la page, puis cliquez sur **CERTIFICATS DE GESTION**. Dans le bas de la page, cliquez sur **TÉLÉCHARGER** et suivez les instructions pour télécharger le fichier .cer que vous avez créé à l’étape précédente.
 
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
@@ -136,13 +136,13 @@ Les clusters HDInsight disposent des services web HTTP suivants (tous ces servic
 - Oozie
 - Templeton
 
-Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer/octroyer l’accès à partir du portail Azure.
+Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer/octroyer l’accès à partir du portail Azure Classic.
 
 >[AZURE.NOTE]En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
 **Pour octroyer/révoquer l’accès aux services web HTTP**
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters HDInsight déployés s'affiche.
 3. Cliquez sur le cluster HDInsight que vous souhaitez configurer.
 4. En haut de la page, cliquez sur **CONFIGURATION**.
@@ -158,7 +158,7 @@ Pour vous connecter au cluster à l’aide du Bureau à distance et utiliser la 
 
 **Pour ouvrir une ligne de commande Hadoop**
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. Une liste de clusters Hadoop déployés s'affiche.
 3. Cliquez sur le cluster HDInsight auquel vous souhaitez vous connecter.
 3. En haut de la page, cliquez sur **CONFIGURATION**.
@@ -185,7 +185,7 @@ Sur la capture d’écran précédente, le numéro de la version d’Hadoop est 
 Consultez la rubrique [Mise à l’échelle des clusters Hadoop dans HDInsight](hdinsight-hadoop-cluster-scaling.md).
 
 ##Étapes suivantes
-Cet article vous a appris à créer un cluster HDInsight à l’aide du portail Azure et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
+Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du portail Azure Classic et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
@@ -198,4 +198,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -102,6 +102,12 @@ L’exemple suivant indique comment utiliser une URL de base afin de créer deux
         }
     }
 
+Vous pouvez également utiliser [deployment()](resource-group-template-functions.md/#deployment) pour obtenir l'URL de base pour le modèle actuel, qui permet d'obtenir l'URL d'autres modèles dans le même emplacement. Cela est utile si l’emplacement des modèles change (à cause des versions notamment) ou si vous voulez éviter de coder en dur les URL dans le fichier de modèle.
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## Transmettre des valeurs à partir d’un modèle lié
 
 Si vous devez transmettre une valeur du modèle lié vers le modèle principal, vous pouvez créer une valeur dans la section **outputs** du modèle lié. Pour consulter un exemple, accédez à la page [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
@@ -110,4 +116,4 @@ Si vous devez transmettre une valeur du modèle lié vers le modèle principal, 
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
 - [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

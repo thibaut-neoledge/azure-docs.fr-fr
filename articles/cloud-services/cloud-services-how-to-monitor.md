@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Surveillance d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment surveiller des services cloud dans le portail de gestion Azure." 
+	description="Découvrez comment surveiller des services cloud dans le portail Azure Classic." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="rboucher" 
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [Clause d’exclusion de responsabilité](../../includes/disclaimer.md)]
 
-Vous pouvez surveiller les indicateurs de performances clés de vos services cloud dans le portail de gestion Azure. Vous pouvez régler un niveau de surveillance minimal ou détaillé pour chaque rôle de service, et vous pouvez personnaliser les affichages de la surveillance. Les données de la surveillance détaillée sont stockées dans un compte de stockage, auquel vous pouvez accéder en dehors du portail.
+Vous pouvez surveiller les indicateurs de performances clés de vos services cloud dans le portail Azure Classic. Vous pouvez régler un niveau de surveillance minimal ou détaillé pour chaque rôle de service, et vous pouvez personnaliser les affichages de la surveillance. Les données de la surveillance détaillée sont stockées dans un compte de stockage, auquel vous pouvez accéder en dehors du portail.
 
-Les affichages de surveillance dans le portail de gestion sont configurables à loisir. Vous pouvez choisir les mesures à surveiller dans la liste des mesures de la page **Monitor**, et choisir les mesures à afficher dans les graphiques sur la page **Monitor** et dans le tableau de bord.
+Les affichages de surveillance du portail Azure Classic sont configurables à loisir. Vous pouvez choisir les mesures à surveiller dans la liste des mesures de la page **Monitor**, et choisir les mesures à afficher dans les graphiques sur la page **Monitor** et dans le tableau de bord.
 
 ##Concepts##
 
@@ -38,7 +38,7 @@ Notez que l'activation de la surveillance détaillée va augmenter les coûts de
 
 ##Procédure de configuration de la surveillance des services cloud##
 
-Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail de gestion.
+Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail Azure Classic.
 
 ###Avant de commencer###
 
@@ -62,25 +62,25 @@ Assurez-vous que la chaîne de connexion de diagnostic est présente dans la con
 
 ###Pour modifier le niveau de surveillance détaillée ou minimale###
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), ouvrez la page **Configure** du déploiement du service cloud.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), ouvrez la page **Configurer** du déploiement du service cloud.
 
 2. Dans **Level**, cliquez sur **Verbose** ou **Minimal**.
 
-3. Cliquez sur **Save**.
+3. Cliquez sur **Enregistrer**.
 
-Une fois la surveillance détaillée activée, vous devriez commencer à voir les données de surveillance dans le portail de gestion dans l'heure qui suit.
+Une fois la surveillance détaillée activée, vous devez commencer à voir les données de surveillance dans le portail Azure Classic dans l’heure qui suit.
 
 Les données des compteurs de performances brutes et les données de surveillance consolidées sont stockées dans le compte de stockage dans les tables définies par l'ID de déploiement pour les rôles.
 
 ##Procédure de réception d’alertes pour les mesures des services cloud##
 
-Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votre service cloud. Dans la page **Management Services** du portail de gestion Azure, vous pouvez créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votre service cloud. Dans la page **Services de gestion** du portail Azure Classic, vous pouvez créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##Ajout de mesures au tableau des mesures##
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com/), ouvrez la page **Monitor** du service cloud.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), ouvrez la page **Surveiller** du service cloud.
 
-	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
+	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Ajouter des métriques** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail Azure Classic.
 
 	![Affichage détaillé](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -133,7 +133,7 @@ Pour afficher les compteurs de performance personnalisés dans le portail, vous 
 	</PerformanceCounterConfiguration>
 	```
 4. Enregistrez les modifications et téléchargez le fichier de configuration au même emplacement en remplaçant le fichier existant dans l'objet blob.
-5. Passez au mode détaillé dans la configuration du portail de gestion. Si vous étiez déjà en mode détaillé, vous devez passer au niveau minimum puis de nouveau en mode détaillé.
+5. Passez au mode détaillé dans la configuration du portail Azure Classic. Si vous étiez déjà en mode détaillé, vous devez passer au niveau minimum puis de nouveau en mode détaillé.
 6. Le compteur de performance personnalisé sera alors disponible dans la boîte de dialogue **Ajouter des mesures**. 
 
 ##Procédure de personnalisation des graphiques de mesures##
@@ -159,7 +159,7 @@ Pour afficher les compteurs de performance personnalisés dans le portail, vous 
 
 2. Ajoutez ou supprimez des mesures du graphique :
 
-	- Pour tracer une mesure, activez la case à cocher correspondante dans les en-têtes du graphique. Sur un écran étroit, cliquez sur la flèche vers le bas à côté de ***n*??metrics** pour créer le graphique d'une mesure que la zone d'en-têtes du graphique ne peut pas afficher.
+	- Pour tracer une mesure, activez la case à cocher correspondante dans les en-têtes du graphique. Sur un écran étroit, cliquez sur la flèche vers le bas à côté de ***n*??metrics** pour créer le graphique d’une mesure que la zone d’en-têtes du graphique ne peut pas afficher.
 
 	- Pour supprimer une mesure du graphique, désactivez la case à cocher à côté de son en-tête.
 
@@ -167,7 +167,7 @@ Pour afficher les compteurs de performance personnalisés dans le portail, vous 
 
 4. Choisissez 1 heure, 24 heures ou 7 jours de données à afficher.
 
-##Procédure d’accès aux données de la surveillance détaillée en dehors du portail de gestion##
+##Accès aux données de la surveillance détaillée en dehors du portail Azure Classic##
 
 Les données de la surveillance détaillée sont stockées dans des tables dans les comptes de stockage que vous avez spécifiés pour chaque rôle. Pour chaque déploiement de service cloud, six tables sont créées pour le rôle. Deux tables sont créées toutes les (5 minutes, 1 heure et 12 heures). Une de ces tables stocke les consolidations au niveau du rôle, et l'autre table stocke les consolidations pour les instances de rôle.
 
@@ -192,4 +192,4 @@ Par exemple, les tables suivantes stockent les données de la surveillance déta
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

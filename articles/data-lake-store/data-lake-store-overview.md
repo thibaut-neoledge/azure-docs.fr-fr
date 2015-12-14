@@ -20,7 +20,7 @@
 
 Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Azure Data Lake vous permet de capturer les données de toute taille, de tout type et à toute vitesse d'ingestion dans un emplacement unique en vue d'une analyse opérationnelle et exploratoire.
 
-> [AZURE.TIP]Utilisez le [Parcours d'apprentissage Data Lake Store](https://azure.microsoft.com/fr-FR/documentation/learning-paths/data-lake-store-self-guided-training/) pour commencer à explorer le service Azure Data Lake Store.
+> [AZURE.TIP]Utilisez le [Parcours d’apprentissage Data Lake Store](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) pour commencer à explorer le service Azure Data Lake Store.
 
 Azure Data Lake Store est accessible à partir de Hadoop (disponible avec le cluster HDInsight) avec les API REST compatibles WebHDFS. Il est conçu spécifiquement pour permettre l'analyse des données stockées et met l'accent sur les performances des scénarios d'analyse des données. En standard, il inclut toutes les capacités de niveau entreprise (sécurité, facilité de gestion, évolutivité, fiabilité et disponibilité) essentielles pour les cas d'usage professionnels réels.
 
@@ -79,11 +79,11 @@ Vous pouvez accéder à vos données dans Data Lake Store à l'aide de `adl://<d
 
 ## Comment commencer à utiliser Azure Data Lake Store ?
 
-Consultez [Prise en main de Data Lake Store avec le portail Azure en version préliminaire](data-lake-store-get-started-portal.md) pour savoir comment approvionner un Data Lake Store avec le portail Azure en version préliminaire. Une fois que vous avez approvisionné Azure Data Lake, vous pouvez apprendre à utiliser les offres de Big Data, comme Azure Data Lake Analytics ou Azure HDInsight avec Data Lake Store. Vous pouvez également créer une application .NET pour créer un compte Azure Data Lake Store et effectuer des opérations comme télécharger des données, etc.
+Consultez [Prise en main de Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md) pour savoir comment approvisionner un Data Lake Store avec le portail Azure. Une fois que vous avez approvisionné Azure Data Lake, vous pouvez apprendre à utiliser les offres de Big Data, comme Azure Data Lake Analytics ou Azure HDInsight avec Data Lake Store. Vous pouvez également créer une application .NET pour créer un compte Azure Data Lake Store et effectuer des opérations comme télécharger des données, etc.
 
 - [Prise en main d'Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

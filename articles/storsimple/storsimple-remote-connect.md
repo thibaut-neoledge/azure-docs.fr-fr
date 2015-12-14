@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Connexion à distance à votre appareil StorSimple
@@ -37,9 +37,9 @@ Vous pouvez vous connecter à distance à l’interface Windows PowerShell. Cepe
 
 La connexion à Windows PowerShell pour StorSimple via une session HTTP offre davantage de sécurité que la connexion via la console série de votre appareil StorSimple. Bien que cela ne soit pas la méthode la plus sécurisée, elle est acceptable sur des réseaux approuvés.
 
-Vous pouvez utiliser le portail Azure ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
+Vous pouvez utiliser le portail Azure Classic ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
 
-- [Utiliser le portail Azure pour activer la gestion à distance via HTTP](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [Utiliser le portail Azure Classic pour activer la gestion à distance via HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [Utiliser la console série pour activer la gestion à distance via HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Après avoir activé la gestion à distance, procédez comme suit pour préparer
 
 - [Préparer le client pour une connexion à distance](#prepare-the-client-for-remote-connection)
 
-### Utiliser le portail Azure pour activer la gestion à distance via HTTP 
+### Utiliser le portail Azure Classic pour activer la gestion à distance via HTTP 
 
-Procédez comme suit dans le portail Azure pour activer la gestion à distance via HTTP.
+Procédez comme suit dans le portail Azure Classic pour activer la gestion à distance via HTTP.
 
-#### Pour activer la gestion à distance via le portail Azure
+#### Pour activer la gestion à distance via le portail Azure Classic
 
 1. Accédez à **Appareils** > **Configurer** pour votre appareil.
 
@@ -122,9 +122,9 @@ Procédez comme suit sur le client pour activer la gestion à distance.
 
 La connexion à Windows PowerShell pour StorSimple via une session HTTPS est la méthode la plus sécurisée et elle est recommandée pour la connexion à distance à votre appareil Microsoft Azure StorSimple. Les procédures suivantes expliquent comment configurer la console série et les ordinateurs clients pour pouvoir utiliser HTTPS pour se connecter à Windows PowerShell pour StorSimple.
 
-Vous pouvez utiliser le portail Azure ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
+Vous pouvez utiliser le portail Azure Classic ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
 
-- [Utiliser le portail Azure pour activer la gestion à distance via HTTPS](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [Utiliser le portail Azure Classic pour activer la gestion à distance via HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [Utiliser la console série pour activer la gestion à distance via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Après avoir activé la gestion à distance, utilisez les procédures suivantes 
 
 - [Se connecter à l’appareil à partir de l’hôte distant](#connect-to-the-device-from-the-remote-host)
 
-### Utiliser le portail Azure pour activer la gestion à distance via HTTPS
+### Utiliser le portail Azure Classic pour activer la gestion à distance via HTTPS
 
-Procédez comme suit dans le portail Azure pour activer la gestion à distance via HTTPS.
+Procédez comme suit dans le portail Azure Classic pour activer la gestion à distance via HTTPS.
 
-#### Pour activer la gestion à distance via HTTPS à partir du portail Azure
+#### Pour activer la gestion à distance via HTTPS à partir du portail Azure Classic
 
 1. Accédez à **Appareils** > **Configurer** pour votre appareil.
 
@@ -272,4 +272,4 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

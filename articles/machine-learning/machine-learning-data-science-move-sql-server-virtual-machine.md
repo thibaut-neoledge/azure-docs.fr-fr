@@ -37,7 +37,7 @@ Le tableau suivant récapitule les options de déplacement de données vers SQL�
 
 Notez que ce document suppose que les commandes SQL sont exécutées à partir de SQL Server Management Studio ou Visual Studio Database Explorer.
 
-> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/fr-FR/services/data-factory/) pour créer et planifier un pipeline qui déplace des données vers une machine virtuelle SQL Server sur Azure. Pour plus d’informations, consultez [Copie de données avec Azure Data Factory (activité de copie)](../data-factory/data-factory-copy-activity.md)
+> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour créer et planifier un pipeline qui déplace des données vers une machine virtuelle SQL Server sur Azure. Pour plus d’informations, consultez [Copie de données avec Azure Data Factory (activité de copie)](../data-factory/data-factory-copy-activity.md)
 
 
 ## <a name="prereqs"></a>Configuration requise
@@ -58,7 +58,7 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)</a>
+### <a name="insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
@@ -223,4 +223,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

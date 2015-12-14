@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="12/01/2015"
    ms.author="seanmck"/>
 
 # Polymorphisme dans l’infrastructure Reliable Actor
 
-L'infrastructure Reliable Actor simplifie la programmation des systèmes distribués en vous permettant de concevoir votre service à l'aide des nombreuses techniques identiques à celles que vous utiliseriez dans la conception orientée objet. L’une de ces techniques est le polymorphisme, qui permet à des types et à des interfaces d'hériter de parents plus généralisés. L'héritage dans l’infrastructure d’acteur suit généralement le modèle .NET avec quelques contraintes supplémentaires.
+L'infrastructure Reliable Actor simplifie la programmation des systèmes distribués en vous permettant de concevoir votre service à l'aide des nombreuses techniques identiques à celles que vous utiliseriez dans la conception orientée objet. L’une de ces techniques est le polymorphisme, qui permet à des types et à des interfaces d’hériter de parents plus généralisés. L'héritage dans l’infrastructure d’acteur suit généralement le modèle .NET avec quelques contraintes supplémentaires.
 
 ## Interfaces
 
@@ -78,4 +78,4 @@ Notez l’attribut `ActorService` sur le type d'intervenant. Cela indique au kit
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -292,7 +292,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 ## Notes pour la version du 27/02/2015 de Data Factory
 
 ### Nouvelles améliorations
-- **Azure Data Factory Editor** Azure Data Factory Editor, qui fait partie du portail Azure en version préliminaire, vous permet de créer, de modifier et de déployer des fichiers JSON qui définissent des services liés, des jeux de données et des pipelines. L'objectif principal de l'éditeur est de vous fournir une interface utilisateur (IU) rapide et facile d'utilisation pour créer des artefacts Azure Data Factory sans avoir à installer Azure PowerShell et accélérer l'utilisation des applets de commande PowerShell. Consultez le billet de blog [Azure Data Factory Editor - Un éditeur web compact][adf-editor-blog] pour accéder à une présentation rapide et à une vidéo sur Data Factory Editor. Pour obtenir une présentation détaillée de l’éditeur, consultez l’article [Data Factory Editor][adf-editor].          
+- **Azure Data Factory Editor** Azure Data Factory Editor, qui fait partie du portail Azure, vous permet de créer, de modifier et de déployer des fichiers JSON qui définissent des services liés, des jeux de données et des pipelines. L'objectif principal de l'éditeur est de vous fournir une interface utilisateur (IU) rapide et facile d'utilisation pour créer des artefacts Azure Data Factory sans avoir à installer Azure PowerShell et accélérer l'utilisation des applets de commande PowerShell. Consultez le billet de blog [Azure Data Factory Editor - Un éditeur web compact][adf-editor-blog] pour accéder à une présentation rapide et à une vidéo sur Data Factory Editor. Pour obtenir une présentation détaillée de l’éditeur, consultez l’article [Data Factory Editor][adf-editor].          
 
 ### Changements
 
@@ -313,7 +313,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 - Intégration d'Azure Machine Learning
 	- Cette version du service Azure Data Factory vous permet d’intégrer Azure Data Factory à Azure Machine Learning (ML) via **AzureMLLinkedService** et **AzureMLBatchScoringActivity**. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning][adf-azure-ml]. 
 - Indication de l'état de la version de la passerelle
-	- L'état « NewVersionAvailable » est affiché dans le portail Azure en version préliminaire et dans la sortie de l'applet de commande Get-AzureDataFactoryGateway, s'il existe une version de la passerelle plus récente que celle qui est actuellement installée. Vous pouvez ensuite suivre les indications du portail pour télécharger le nouveau fichier d'installation (.msi), et l'exécuter pour installer la passerelle la plus récente. Aucune configuration supplémentaire n'est nécessaire.
+	- L'état « NewVersionAvailable » est affiché dans le portail Azure et dans la sortie de l'applet de commande Get-AzureDataFactoryGateway, s'il existe une version de la passerelle plus récente que celle qui est actuellement installée. Vous pouvez ensuite suivre les indications du portail pour télécharger le nouveau fichier d'installation (.msi), et l'exécuter pour installer la passerelle la plus récente. Aucune configuration supplémentaire n'est nécessaire.
 
 ### Changements
 
@@ -354,4 +354,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

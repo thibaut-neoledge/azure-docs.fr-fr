@@ -1,18 +1,19 @@
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials, and then click **Select a project**, then **Create a project**.
+1. Accédez à [Google Cloud Console](https://console.developers.google.com/project), connectez-vous avec vos informations d’identification de compte Google, puis cliquez sur **Select a project**, puis sur **Create a project**.
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Entrez un nom de projet, acceptez les conditions de service et cliquez sur **Create**. Si nécessaire, procédez à la vérification par SMS, puis cliquez de nouveau sur **Create**.
 
-3. Make a note of the project number in the **Projects** section. 
+3. Notez le numéro du projet dans la section **Projects**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Plus loin dans le didacticiel, vous allez définir cette valeur en tant que variable PROJECT\_ID dans le client.
 
-4. Click **Enable and manage APIs** under **User Google APIs** and click **Cloud Messaging for Android**. Then on the next page click **Enable API**. 
+4. Cliquez sur **Enable and manage APIs** sous **User Google APIs**, puis sur **Cloud Messaging for Android**. Sur la page suivante, cliquez sur **Enable API**.
 
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
+5. Cliquez sur **Credentials**, puis sur **Add Credential**->**API Key**
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. Dans **Create a new key**, cliquez sur **Server key**. Dans la fenêtre suivante, cliquez sur **Create**.
 
-7. Make a note of the **API KEY** value.
+7. Prenez note de la valeur de **API KEY**.
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application.
 
+<!---HONumber=AcomDC_1203_2015-->

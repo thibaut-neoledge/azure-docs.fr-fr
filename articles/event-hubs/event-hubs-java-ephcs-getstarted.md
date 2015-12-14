@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Event Hubs dans Java | Microsoft Azure"
+	pageTitle="Prise en main d’Event Hubs dans Java | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en Java et à en recevoir en C# à l’aide d’EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -24,7 +24,7 @@
 
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d'informations, consultez la [Vue d'ensemble d’Event Hubs][].
+Pour plus d'informations, consultez la [Vue d'ensemble d’Event Hubs][].
 
 Ce didacticiel explique comment recevoir les messages dans un hub d’événements à l’aide d’une application console en Java et les récupérer en parallèle à l’aide de la bibliothèque de l’[hôte du processeur d’événements][] en C#.
 
@@ -38,7 +38,7 @@ Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
 ## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
 
 2. Cliquez successivement sur **App Services**, **Service Bus**, **Concentrateur d’événements**, puis sur **Création rapide**.
 
@@ -111,12 +111,12 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portail Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
+[Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

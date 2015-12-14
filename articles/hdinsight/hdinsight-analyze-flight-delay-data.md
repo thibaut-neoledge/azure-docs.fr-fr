@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -25,7 +25,7 @@ Hive permet d’exécuter des tâches Hadoop MapReduce via un langage de créati
 L’un des principaux avantages d’Azure HDInsight est la séparation du calcul et du stockage des données. HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Une tâche classique comprend 3 parties :
 
 1. **Le stockage des données dans un stockage d’objets blob Azure.** Il peut s'agir d'un processus continu. Par exemple, les données météorologiques, les données de capteur, les journaux web et, en l’occurrence, les données liées aux retards de vol, sont enregistrés dans un stockage d’objets blob Azure.
-2. **L’exécution des tâches.** Au moment de traiter des données, vous exécutez un script Windows PowerShell (ou une application cliente) pour créer un cluster HDInsight, exécuter des tâches et supprimer le cluster. Les tâches enregistrent les données de sortie dans le stockage d'objets blob Azure. Les données de sortie sont conservées même après la suppression du cluster. De cette façon, vous ne payez que ce que vous avez consommé.
+2. **L’exécution des tâches.** Au moment de traiter des données, exécutez un script Windows PowerShell (ou une application cliente) pour créer un cluster HDInsight, exécuter des tâches et supprimer le cluster. Les tâches enregistrent les données de sortie dans le stockage d'objets blob Azure. Les données de sortie sont conservées même après la suppression du cluster. De cette façon, vous ne payez que ce que vous avez consommé.
 3. **La récupération du résultat à partir du stockage d’objets blob Azure** ou, dans le cas présent, l’exportation des données vers une base de données SQL Azure.
 
 Le schéma suivant illustre le scénario et la structure de ce didacticiel :
@@ -36,7 +36,7 @@ Le schéma suivant illustre le scénario et la structure de ce didacticiel :
 
 La partie principale de ce didacticiel indique comment utiliser un script Windows PowerShell pour effectuer les tâches suivantes :
 
-- Création d'un cluster HDInsight.
+- Création d’un cluster HDInsight
 - Exécution d’une tâche Hive sur le cluster pour calculer les retards moyens enregistrés dans les aéroports. Les données sur les retards de vol sont stockées dans un compte de stockage d’objets blob Azure.
 - Exécution d'une tâche Sqoop pour exporter le résultat de la tâche Hive dans une base de données SQL Azure.
 - Suppression du cluster HDInsight.
@@ -51,11 +51,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 **Fichiers utilisés dans ce didacticiel**
 
-Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). Une copie des données a été téléchargée dans un conteneur de stockage d'objets blob Azure avec l'autorisation d'accès aux objets blob publics. Une partie de votre script PowerShell copie les données à partir du conteneur d'objets blob public dans le conteneur d'objets blob par défaut de votre cluster. Le script HiveQL est également copié dans le même conteneur d'objets blob. Pour savoir comment obtenir/télécharger les données sur votre propre compte de stockage et comment créer/télécharger le fichier de script HiveQL, consultez l’[annexe A](#appendix-a) et l’[annexe B](#appendix-b).
+Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). Une copie des données a été téléchargée dans un conteneur de stockage d’objets blob Azure avec l’autorisation d’accès aux objets blob publics. Une partie de votre script PowerShell copie les données à partir du conteneur d'objets blob public dans le conteneur d'objets blob par défaut de votre cluster. Le script HiveQL est également copié dans le même conteneur d’objets blob. Pour savoir comment obtenir/télécharger les données sur votre propre compte de stockage et comment créer/télécharger le fichier de script HiveQL, consultez l’[annexe A](#appendix-a) et l’[annexe B](#appendix-b).
 
 Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 
@@ -68,11 +68,11 @@ Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 </table>
 
 
-##Création d'un cluster HDInsight et exécution de tâches Hive/Sqoop
+##Création d’un cluster et exécution de tâches Hive/Sqoop
 
-Hadoop MapReduce correspond au traitement par lots. La manière la plus économique d'exécuter une tâche Hive consiste à créer un cluster pour la tâche et à supprimer cette dernière une fois qu'elle est terminée. Le script suivant couvre le processus dans son intégralité. Pour plus d'informations sur la création d'un cluster HDInsight et l'exécution de tâches Hive, consultez les rubriques [Création de clusters Hadoop dans HDInsight][hdinsight-provision] et [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
+Hadoop MapReduce correspond au traitement par lots. La manière la plus économique d’exécuter une tâche Hive consiste à créer un cluster pour la tâche et à supprimer cette dernière une fois qu’elle est terminée. Le script suivant couvre le processus dans son intégralité. Pour plus d’informations sur la création d’un cluster HDInsight et l’exécution de tâches Hive, consultez les rubriques [Création de clusters Hadoop dans HDInsight][hdinsight-provision] et [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
 
-**Pour exécuter des requêtes Hive à l'aide d'Azure PowerShell**
+**Pour exécuter des requêtes Hive à l’aide d’Azure PowerShell**
 
 1. Créez une base de données SQL Azure et la table pour le résultat de tâche Sqoop au moyen des instructions figurant dans l’[annexe C](#appendix-c).
 3. Ouvrez Windows PowerShell ISE et exécutez le script suivant :
@@ -234,10 +234,10 @@ Hadoop MapReduce correspond au traitement par lots. La manière la plus économi
 
 ---
 ##<a id="appendix-a"></a>Annexe A - Téléchargement de données de retard de vol vers le stockage d’objets blob Azure
-Le téléchargement du fichier de données et des fichiers de script HiveQL (voir l’[annexe B](#appendix-b)) nécessite un minimum de planification. Il s'agit de stocker les fichiers de données et le fichier HiveQL avant de créer un cluster HDInsight et d'exécuter la tâche Hive. Deux options s'offrent à vous :
+Le téléchargement du fichier de données et des fichiers de script HiveQL (voir l’[annexe B](#appendix-b)) nécessite un minimum de planification. Il s’agit de stocker les fichiers de données et le fichier HiveQL avant de créer un cluster HDInsight et d’exécuter la tâche Hive. Deux options s'offrent à vous :
 
 - **Utiliser le même compte Azure Storage qui sera utilisé par le cluster HDInsight en tant que système de fichier par défaut.** Étant donné que le cluster HDInsight disposera de la clé d’accès au compte de stockage, vous n’avez pas besoin d’effectuer des modifications supplémentaires.
-- **Utiliser un compte Azure Storage différent du système de fichier par défaut du cluster HDInsight.** Le cas échéant, vous devez modifier la partie de création du script Windows PowerShell figurant dans [Création d'un cluster HDInsight et exécution de tâches Hive/Sqoop](#runjob) de manière à lier le compte de stockage comme compte supplémentaire. Pour plus d'informations, consultez la rubrique [Création de clusters Hadoop dans HDInsight][hdinsight-provision]. Le cluster HDInsight connaît ainsi la clé d’accès du compte de stockage.
+- **Utiliser un compte Azure Storage différent du système de fichier par défaut du cluster HDInsight.** Le cas échéant, vous devez modifier la partie de création du script Windows PowerShell figurant dans [Création d’un cluster HDInsight et exécution de tâches Hive/Sqoop](#runjob) de manière à lier le compte de stockage comme compte supplémentaire. Pour plus d’informations, consultez la rubrique [Création de clusters Hadoop dans HDInsight][hdinsight-provision]. Le cluster HDInsight connaît ainsi la clé d’accès du compte de stockage.
 
 >[AZURE.NOTE]Le chemin d’accès au stockage d’objets blob pour le fichier de données est codé en dur dans le fichier de script HiveQL. Vous devez le mettre à jour en conséquence.
 
@@ -342,11 +342,11 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
 
 4. Appuyez sur **F5** pour exécuter le script.
 
-Si vous décidez d'utiliser une autre méthode pour télécharger les fichiers, vérifiez que le chemin d'accès au fichier est tutorials/flightdelay/data. La syntaxe permettant d'accéder aux fichiers est la suivante :
+Si vous décidez d’utiliser une autre méthode pour télécharger les fichiers, vérifiez que le chemin d’accès au fichier est tutorials/flightdelay/data. La syntaxe permettant d'accéder aux fichiers est la suivante :
 
 	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-Le chemin d'accès tutorials/flightdelay/data correspond au dossier virtuel que vous avez créé lors du chargement des fichiers. Assurez-vous qu'il existe 12 fichiers, un par mois.
+Le chemin d’accès tutorials/flightdelay/data correspond au dossier virtuel que vous avez créé lors du chargement des fichiers. Assurez-vous qu'il existe 12 fichiers, un par mois.
 
 >[AZURE.NOTE]Vous devez mettre à jour la requête Hive pour lire à partir du nouvel emplacement.
 
@@ -742,4 +742,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

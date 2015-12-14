@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'API REST de gestion Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Prise en main de l’API REST de gestion Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Gérez votre service cloud Azure Search hébergé à l'aide d'une API REST de gestion" 
 	services="search" 
 	documentationCenter="" 
@@ -58,7 +58,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ###Création d'un service Active Directory
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 
 2. Faites défiler le volet de navigation gauche, puis cliquez sur **Active Directory**.
 
@@ -204,4 +204,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

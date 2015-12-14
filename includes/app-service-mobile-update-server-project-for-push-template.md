@@ -46,4 +46,6 @@
 
     Ce code indique au hub de notification d'envoyer une notification modèle à toutes les inscriptions de modèle qui contiennent « messageParam ». La chaîne est insérée à la place de messageParam dans chaque PNS qui comporte une inscription à l'aide de « messageParam ». Cela vous permet d'envoyer la notification à APNS, GCM, WNS ou tout autre PNS.
 
-<!---HONumber=AcomDC_1125_2015-->
+	Pour plus d’informations sur l’utilisation des modèles avec Notification Hubs, consultez [Modèles](notification-hubs-templates.md).
+
+<!---HONumber=AcomDC_1203_2015-->

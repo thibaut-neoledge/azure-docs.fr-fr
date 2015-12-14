@@ -52,7 +52,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 9. Recherchez la classe *ProgressFilter* en bas du fichier et supprimez les marques de commentaire sur cette dernière. Cette classe affiche un indicateur « chargement » lorsque *MobileServiceClient* exécute des opérations réseau.
 
 
-10. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+10. Dans le portail Azure Classic, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 11. Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du site**, puis cliquez sur **Gérer les clés** et notez la valeur de **Clé de l'application**.
 
@@ -162,4 +162,4 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

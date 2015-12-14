@@ -55,7 +55,7 @@ Pour permettre un accès conditionnel, vous pouvez créer une stratégie qui aut
 
 Azure AD Connect permettra aux ordinateurs locaux d'être configurés en tant qu'objets Appareil dans le cloud. Pour déployer Azure AD Connect, consultez Activation de votre annuaire pour la gestion hybride avec Azure AD Connect.
 
- - Si vous avez effectué une [installation personnalisée pour Azure AD Connect](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect-get-started-custom/) (pas l'installation Express), vous devez suivre la procédure, **Créer un point de connexion de service (SCP) dans Active Directory local** décrite ci-dessous.
+ - Si vous avez effectué une [installation personnalisée pour Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (pas l’installation Express), vous devez suivre la procédure **Créer un point de connexion de service (SCP) dans Active Directory local** décrite ci-dessous.
  - Si vous avez une configuration fédérée avec Azure AD avant l'installation d'Azure AD Connect (par exemple, si vous avez préalablement déployé des services de fédération Active Directory (AD FS)), vous devrez suivre la procédure **Configurer les règles de revendication AD FS** ci-dessous.
 
 ### Créer un point de connexion de service (SCP) dans Active Directory local
@@ -137,4 +137,4 @@ Vous pouvez utiliser une stratégie de groupe Active Directory pour configurer v
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

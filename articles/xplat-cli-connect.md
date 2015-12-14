@@ -94,11 +94,11 @@ Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de
 
 		azure account download
 
-Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au [portail Azure][portal]. Une fois que vous êtes connecté, un fichier `.publishsettings` se télécharge. Prenez note de son emplacement.
+Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au [portail Azure Classic][portal]. Une fois que vous êtes connecté, un fichier `.publishsettings` se télécharge. Prenez note de son emplacement.
 
 	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Once selected using the download page, or by visiting the Azure portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * Exécutez la commande suivante **pour importer le fichier de paramètres de publication** :
 
@@ -158,4 +158,4 @@ Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous im
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -130,4 +130,4 @@ Vous verrez que la version d’Azure Linux Agent a été mise à jour vers la 
 
 Pour plus d’informations sur Azure Linux Agent, consultez le fichier [Lisezmoi d’Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

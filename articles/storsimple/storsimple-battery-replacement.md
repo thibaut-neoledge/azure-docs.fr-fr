@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Remplacer le module de batterie de secours sur votre appareil StorSimple
@@ -35,7 +35,7 @@ Le module de batterie de secours pour votre appareil Microsoft Azure StorSimple 
 
 #### Pour retirer le module de batterie de secours
 
-1. Dans le portail de gestion, accédez à **Appareils** > **Maintenance** > **Statut matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
+1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **Statut matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
 
 2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
 
@@ -89,13 +89,13 @@ Procédez comme suit pour installer le module de batterie de remplacement dans l
 
 3. Remplacez le PCM dans le boîtier principal en procédant de la manière décrite dans [Remplacement d’un module d’alimentation et de refroidissement (PCM) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md).
 
-4. Une fois le remplacement terminé, accédez au portail de gestion, puis à **Appareils** > **Maintenance** > **Statut matériel**, et contrôlez l’état de la batterie pour vérifier que l’installation est réussie. Si le voyant LED est vert, la batterie est saine.
+4. Une fois le remplacement terminé, accédez au portail Azure Classic, puis à **Appareils** > **Maintenance** > **Statut matériel**, et contrôlez l’état de la batterie pour vérifier que l’installation est réussie. Si le voyant LED est vert, la batterie est saine.
 
 ## Entretenir le module de batterie de secours
 
 Le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
 
-Dans le portail de gestion, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
+Dans le portail Azure Classic, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
 
 >[AZURE.NOTE]La batterie peut signaler **ÉCHEC** quand elle a juste besoin d’être chargée.
  
@@ -115,4 +115,4 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

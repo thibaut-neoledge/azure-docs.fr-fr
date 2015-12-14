@@ -19,6 +19,11 @@
 
 # Modifications des modèles de données pour un service mobile de backend .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 Cette rubrique montre comment utiliser Code First Migrations dans Entity Framework pour apporter des modifications de modèles de données à une base de données SQL existante afin d'éviter de perdre les données existantes. Cette procédure suppose que vous avez déjà publié votre projet de service principal .NET sur Azure, que votre base de données comporte des données existantes et que les modèles de données distants et locaux sont toujours synchronisés. Cette rubrique décrit également les initialiseurs Code First par défaut implémentés par Azure Mobile Services qui sont utilisés pendant le développement. Ces initialiseurs vous permettent de réaliser facilement des modifications du schéma sans utiliser Code First Migrations lorsqu’il n’est pas nécessaire de conserver vos données existantes.
 
 >[AZURE.NOTE]Le nom de schéma utilisé pour préfixer les tables de la base de données SQL est défini par le paramètre d’application MS\_MobileServiceName dans le fichier web.config. Quand vous téléchargez le projet de démarrage à partir du portail, cette valeur est déjà définie sur le nom du service mobile. Quand votre nom de schéma correspond au service mobile, plusieurs services mobiles peuvent partager en toute sécurité la même instance de base de données.
@@ -41,7 +46,7 @@ Mobile Services fournit deux classes de base d’initialiseurs de modèle de don
 
 Les deux initialiseurs suppriment toutes les tables, les vues, les fonctions et les procédures dans le schéma utilisé par le service mobile.
 
-+ **Effacer les changements de modèles de schéma de base de données** <br/> Les objets du schéma sont supprimés uniquement lorsque Code First détecte un changement apporté au modèle de données. Dans un projet de backend .NET, l'initialiseur par défaut téléchargé à partir du [portail de gestion Azure] hérite de cette classe de base.
++ **Effacer les changements de modèles de schéma de base de données** <br/> Les objets du schéma sont supprimés uniquement lorsque Code First détecte un changement apporté au modèle de données. Dans un projet de backend .NET, l'initialiseur par défaut téléchargé à partir du [portail Azure Classic] hérite de cette classe de base.
 
 + **ClearDatabaseSchemaAlways** : <br/> les objets du schéma sont supprimés chaque fois que vous accédez au modèle de données. Utilisez cette classe de base pour réinitialiser la base de données sans devoir modifier le modèle de données.
 
@@ -109,7 +114,7 @@ Les étapes suivantes activent Migrations et appliquent les modifications de mod
 
 10. Publiez à nouveau le service mobile sur Azure, puis exécutez l'application cliente afin d'accéder aux données et de vérifier que les données se chargent sans erreur.
 
-13. (Facultatif) Dans le [portail de gestion Azure], sélectionnez votre service mobile, cliquez sur **Configurer** > **Base de données SQL**. Vous accédez ainsi à la page de la base de données SQL de la base de données de votre service mobile.
+13. (Facultatif) Dans le [portail Azure Classic], sélectionnez votre service mobile, cliquez sur **Configurer** > **Base de données SQL**. Vous accédez ainsi à la page de la base de données SQL de la base de données de votre service mobile.
 
 14. (Facultatif) Cliquez sur **Gérer**, connectez-vous au serveur de base de données SQL, puis cliquez sur **Conception** et vérifiez que les modifications de schéma ont été effectuées dans Azure.
 
@@ -122,7 +127,7 @@ Avant d'utiliser Code First Migrations avec votre projet de service principal .N
         AutomaticMigrationsEnabled = false;
         SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
     }
-    
+
 ##<a name="seeding"></a>Données d'amorçage dans Migrations
 
 Migrations peut ajouter des données d'amorçage à la base de données lorsqu'une migration est exécutée. La classe **Configuration** comporte une méthode **Seed** que vous pouvez remplacer afin d'insérer ou de mettre à jour des données. Le fichier de code Configuration.cs est ajouté au dossier Migrations lorsque Migrations est activé. Ces exemples montrent comment remplacer la méthode [Seed] pour amorcer des données à la table **TodoItems**. La méthode [Seed] est appelée après la migration vers la version la plus récente.
@@ -169,11 +174,11 @@ Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajout
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

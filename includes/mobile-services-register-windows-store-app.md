@@ -41,7 +41,7 @@
 
     >[AZURE.NOTE]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.
 
-10. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+10. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur votre application.
 
 11. Cliquez sur l'onglet **Identité**, entrez les valeurs **Clé secrète client** et **SID du package** obtenues à partir de WNS à l'étape 4, puis cliquez sur **Enregistrer**.
 
@@ -60,6 +60,5 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

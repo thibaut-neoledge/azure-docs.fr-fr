@@ -18,14 +18,14 @@
 
 
 # Préparation d'une machine virtuelle Red Hat pour Azure
-Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Les versions de RHEL couvertes dans cet article sont 6.7 et 7.1, et les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM et VMWare.
+Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Les versions de RHEL couvertes dans cet article sont 6.7 et 7.1, et les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM et VMWare. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
 
 
 
 
 ##Préparation d'une image à partir du Gestionnaire Hyper-V 
 ###Composants requis
-Cette section suppose que vous avez déjà installé une image RHEL à partir d'un fichier ISO obtenu depuis le site web Red Hat sur un disque dur virtuel (VHD). Pour plus d'informations sur l'utilisation du Gestionnaire Hyper-V pour installer une image de système d'exploitation, consultez [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
+Cette section suppose que vous avez déjà installé une image RHEL à partir d'un fichier ISO obtenu depuis le site web Red Hat sur un disque dur virtuel (VHD). Pour plus d’informations sur l’utilisation du Gestionnaire Hyper-V pour installer une image de système d’exploitation, consultez [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation de RHEL**
 
@@ -112,7 +112,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Remarque :** l'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
+    **Remarque :** l’installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s’ils n’ont pas déjà été supprimés comme indiqué à l’étape 2.
 
 13.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après un approvisionnement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
@@ -192,7 +192,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service 
 
-12.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+12.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -233,7 +233,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         ><fs> exit
     Modifiez le second champ de l'utilisateur racine en remplaçant « !! » par le mot de passe chiffré.
 
-3.	Créez une machine virtuelle dans KVM à partir de l'image qcow2, définissez le type de disque sur **qcow2**, définissez le modèle de périphérique de l'interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
+3.	Créez une machine virtuelle dans KVM à partir de l’image qcow2, définissez le type de disque sur **qcow2**, définissez le modèle de périphérique de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
 
 4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
@@ -303,7 +303,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
+14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -356,7 +356,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
     Modifiez le second champ de l'utilisateur racine en remplaçant « !! » par le mot de passe chiffré.
 
-3.	Créez une machine virtuelle dans KVM à partir de l'image qcow2, définissez le type de disque sur **qcow2**, définissez le modèle de périphérique de l'interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
+3.	Créez une machine virtuelle dans KVM à partir de l’image qcow2, définissez le type de disque sur **qcow2**, définissez le modèle de périphérique de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
 
 4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
@@ -427,7 +427,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # systemctl enable waagent.service
 
-14.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+14.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -469,7 +469,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 ##Préparation d'une image à partir de VMWare
 ###Composants requis
-Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d'informations sur la manière d'installer un système d'exploitation dans VMWare, consultez le [Guide d'installation de système d'exploitation invité VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d’informations sur la manière d’installer un système d’exploitation dans VMWare, consultez le [Guide d’installation de système d’exploitation invité VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou RAID peuvent être utilisées sur des disques de données si vous préférez.
 
@@ -542,7 +542,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 11.	Ne créez pas d'espace swap sur le disque du système d'exploitation :
     
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -621,7 +621,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 7.	Ajoutez des modules de Hyper-V dans initramfs :
 
-    Modifiez `/etc/dracut.conf`, ajoutez le contenu suivant :
+    Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
@@ -644,7 +644,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+11.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -684,7 +684,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 ##Préparation automatique à partir d'un fichier ISO Kickstart
 ###RHEL 7.1
 
-1.	Créez le fichier Kickstart avec le contenu ci-dessous et enregistrez le fichier. Pour plus d'informations sur l'installation du fichier de démarrage, reportez-vous au [Guide d'installation Kickstart](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Créez le fichier Kickstart avec le contenu ci-dessous et enregistrez le fichier. Pour plus d’informations sur l’installation du fichier de démarrage, reportez-vous au [Guide d’installation Kickstart](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -798,17 +798,17 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 2.	Placez le fichier Kickstart vers un emplacement accessible à partir du système d'installation.
  
-3.	Créez une machine virtuelle dans le Gestionnaire Hyper-V. Dans la page **Connecter un disque dur virtuel**, sélectionnez **Attacher un disque dur virtuel ultérieurement**, et complétez l'Assistant Nouvelle machine virtuelle.
+3.	Créez une machine virtuelle dans le Gestionnaire Hyper-V. Sur la page **Connecter un disque dur virtuel**, sélectionnez **Connecter un disque dur virtuel ultérieurement**, et complétez l’Assistant Nouvelle machine virtuelle.
 
 4.	Ouvrez les paramètres de la machine virtuelle :
 
-    a. Connectez un disque dur virtuel à la machine virtuelle, veillez à sélectionner **Format VHD** et **Taille fixe**.
+    a. Connectez un disque dur virtuel à la machine virtuelle. Veillez à sélectionner **Format VHD** et **Taille fixe**.
     
     b. Connectez l'ISO d'installation au lecteur DVD.
 
     c. Configurez le BIOS de manière à exécuter le démarrage depuis un CD.
 
-5.	Démarrez la machine virtuelle. Lorsque le guide d'installation s'affiche, appuyez sur **Onglet** pour configurer les options de démarrage.
+5.	Démarrez la machine virtuelle. Lorsque le guide d’installation s’affiche, appuyez sur **Onglet** pour configurer les options de démarrage.
 
 6.	Entrez `inst.ks=<the location of the Kickstart file>` à la fin des options de démarrage, puis appuyez sur **Entrée**.
 
@@ -830,4 +830,4 @@ le problème est aléatoire. Toutefois, il se produit plus souvent lors d'opéra
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

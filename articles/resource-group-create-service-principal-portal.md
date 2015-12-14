@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Création de l'application Active Directory et du principal du service à l'aide du portail
@@ -111,7 +111,7 @@ Sélectionnez le rôle auquel vous souhaitez affecter l'application et recherche
 
 ![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-Pour plus d'informations sur l'utilisation des utilisateurs, des applications et des rôles, consultez la rubrique [Gérer l'accès à l'aide du portail de gestion Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles via le portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obtention d'un jeton d'accès dans le code
 
@@ -162,4 +162,4 @@ Dans votre application, ajoutez une méthode comme suit pour récupérer le jeto
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

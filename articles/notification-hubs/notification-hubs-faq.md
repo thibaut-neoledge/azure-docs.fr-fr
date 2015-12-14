@@ -3,7 +3,7 @@
 	description="FAQ sur la conception et l'implémentation de solutions sur Notification Hubs"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc" />
 
 #Azure Notification Hubs - Forum aux Questions (FAQ)
@@ -70,7 +70,7 @@ En raison de la nature même des notifications Push, qui sont remises par un ser
 ###9\. Quels sont les points à prendre en compte lors de la conception d'une solution avec des espaces de noms et des hubs de notification ?
 *Application mobile/Environnement :*vous devez prévoir un concentrateur de notification par application mobile et par environnement. Dans un scénario d'architecture mutualisée, chaque locataire doit disposer d'un hub distinct. Vous ne devez jamais utiliser le même hub de notification pour les environnements de test et de production, au risque de rencontrer plus tard des problèmes lors de l'envoi des notifications. Par exemple, Apple fournit des points de terminaison Push pour les environnements de bac à sable (sandbox) et de production, chaque environnement étant défini avec des informations d'identification distinctes. Si un hub initialement configuré avec le certificat de bac à sable (sandbox) d'Apple était ensuite reconfiguré pour utiliser le certificat de production d'Apple, les anciens jetons de l'appareil ne seraient plus valides avec le nouveau certificat et provoqueraient l'échec des notifications Push. C'est pour cela qu'il est préférable de séparer vos environnements de test et de production, et d'utiliser des hubs différents pour chaque environnement.
 
-*Identifiants PNS :* quand une application mobile est inscrite sur le portail des développeurs d'une plateforme (par exemple, Apple ou Google), vous obtenez un identifiant et des jetons de sécurité pour cette application. Le serveur principal de l'application doit fournir ces informations aux services de notifications Push de la plateforme en question pour pouvoir envoyer des notifications Push aux appareils. Ces jetons de sécurité peuvent être fournis sous la forme de certificats (par exemple, pour Apple iOS ou Windows Phone) ou de clés de sécurité (pour Google Android ou Windows, notamment). Ils doivent être configurés dans Notification Hubs. Leur configuration s'effectue généralement au niveau du hub de notification, mais peut aussi être réalisée au niveau de l'espace de noms dans un scénario d'architecture mutualisée.
+*Identifiants PNS :* quand une application mobile est inscrite sur le portail des développeurs d'une plateforme (par exemple, Apple ou Google), vous obtenez un identifiant et des jetons de sécurité pour cette application. Le serveur principal de l'application doit fournir ces informations aux services de notifications Push de la plateforme en question pour pouvoir envoyer des notifications Push aux appareils. Ces jetons de sécurité peuvent être fournis sous la forme de certificats (par exemple, pour Apple iOS ou Windows Phone) ou de clés de sécurité (pour Google Android ou Windows, notamment). Ils doivent être configurés dans Notification Hubs. Leur configuration s'effectue généralement au niveau du hub de notification, mais peut aussi être réalisée au niveau de l'espace de noms dans un scénario d'architecture mutualisée.
 
 *Espaces de nom :* les espaces de noms s'utilisent également dans le cadre du regroupement de déploiements. Dans un scénario d'architecture mutualisée, ils permettent aussi de représenter tous les hubs de notification de tous les locataires de la même application.
 
@@ -83,7 +83,7 @@ Il est préférable de réaliser les inscriptions sur le serveur principal des a
 Azure Notification Hubs utilise un modèle de sécurité par signature d'accès partagé(SAP). Vous pouvez utiliser les jetons SAP au niveau de l'espace de noms racine ou au niveau granulaire des hubs de notification. Ces jetons SAP peuvent être définis avec des règles d'autorisation différentes, par exemple, des autorisations pour envoyer les messages, des autorisations pour écouter les notifications, etc. Pour plus d'informations, consultez [Modèle de sécurité de Notification Hubs].
 
 ###12\. Comment gérez-vous la charge utile sensible dans les notifications ?
-Toutes les notifications sont remises aux appareils par les services de notifications Push (PNS) des plateformes. Quand un expéditeur envoie une notification à Azure Notification Hubs, nous traitons la notification, puis la transmettons au PNS correspondant. Toutes les connexions entre l'expéditeur, Azure Notifications Hubs et le PNS utilisent le protocole HTTPS. Azure Notifications Hubs n'enregistre en aucune façon la charge utile du message. Pour l'envoi des charges utiles sensibles, nous recommandons toutefois d'utiliser un modèle Push sécurisé qui fonctionne ainsi : l'expéditeur envoie à l'appareil une notification ping dotée d'un ID de message mais sans la charge utile sensible. Lorsque l'application sur l'appareil reçoit cette charge utile, elle appelle directement une API sécurisée du serveur principal de l'application pour récupérer les données du message. Pour plus d'informations sur la mise en œuvre du modèle, consultez le [Didacticiel sur les notifications Push sécurisées avec Notification Hubs].
+Toutes les notifications sont remises aux appareils par les services de notifications Push (PNS) des plateformes. Quand un expéditeur envoie une notification à Azure Notification Hubs, nous traitons la notification, puis la transmettons au PNS correspondant. Toutes les connexions entre l'expéditeur, Azure Notifications Hubs et le PNS utilisent le protocole HTTPS. Azure Notifications Hubs n'enregistre en aucune façon la charge utile du message. Pour l'envoi des charges utiles sensibles, nous recommandons toutefois d'utiliser un modèle Push sécurisé qui fonctionne ainsi : l'expéditeur envoie à l'appareil une notification ping dotée d'un ID de message mais sans la charge utile sensible. Lorsque l'application sur l'appareil reçoit cette charge utile, elle appelle directement une API sécurisée du serveur principal de l'application pour récupérer les données du message. Pour plus d'informations sur la mise en œuvre du modèle, consultez le [Didacticiel sur les notifications Push sécurisées avec Notification Hubs].
 
 ##Opérations
 ###1\. En quoi consiste la récupération d'urgence ?
@@ -128,10 +128,10 @@ Azure Notification Hubs permet d'afficher des données de télémétrie dans le 
 [Inscription auprès du serveur principal de votre application]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Gestion des inscriptions - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Modèle de sécurité de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Didacticiel sur les notifications Push sécurisées avec Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Didacticiel sur les notifications Push sécurisées avec Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Guide de dépannage de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Mesures de Notification Hubs]: https://msdn.microsoft.com/library/dn458822.aspx
 [exemple de mesures de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exporter/importer des inscriptions]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

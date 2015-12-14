@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure en version préliminaire | Microsoft Azure"
-   description="Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure en version préliminaire."
+   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure | Microsoft Azure"
+   description="Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure."
    services="virtual-machines"
    documentationCenter=""
    authors="dsk-2015"
@@ -17,12 +17,12 @@
    ms.date="08/21/2015"
    ms.author="dkshir"/>
 
-# Créer un nom de domaine complet dans le portail Azure en version préliminaire
+# Créer un nom de domaine complet dans le portail Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Lorsque vous créez une machine virtuelle dans le [portail Azure en version préliminaire](https://portal.azure.com) à l’aide du modèle de déploiement du **Gestionnaire des ressources**, le portail crée une ressource d’adresse IP publique pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Toutefois, par défaut, le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN). Dans la mesure où il est plus facile de retenir un nom de domaine complet qu’une adresse IP, cet article vous explique comment en ajouter un à votre machine virtuelle.
+Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal.azure.com) à l’aide du modèle de déploiement du **Gestionnaire des ressources**, le portail crée une ressource d’adresse IP publique pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Toutefois, par défaut, le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN). Dans la mesure où il est plus facile de retenir un nom de domaine complet qu’une adresse IP, cet article vous explique comment en ajouter un à votre machine virtuelle.
 
 Cet article suppose que vous vous êtes connecté à votre abonnement dans le portail et créé une machine virtuelle avec les images disponibles, à l’aide de **Gestionnaire des ressources**. Une fois que votre machine virtuelle commence à s’exécuter, suivez ces étapes.
 
@@ -54,4 +54,4 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
 
     Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.eastus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

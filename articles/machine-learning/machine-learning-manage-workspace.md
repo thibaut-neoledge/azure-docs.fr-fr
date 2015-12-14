@@ -18,7 +18,7 @@
 
 
 # Gestion d'un espace de travail Azure Machine Learning
-À l’aide du portail de gestion Azure, vous pouvez gérer vos espaces de travail Machine Learning pour :
+À l’aide du portail Azure Classic, vous pouvez gérer vos espaces de travail Machine Learning pour :
 
 - surveiller l’utilisation de l’espace de travail
 - configurer l’espace de travail pour autoriser ou refuser l’accès
@@ -34,7 +34,7 @@ De plus, l’onglet du tableau de bord affiche l’utilisation de l’espace de 
 Pour gérer un espace de travail :
 
 1.	Connectez-vous à votre compte Microsoft Azure : utilisez le compte associé à l’abonnement Azure.
-2.	Dans le [portail de gestion Azure](https://manage.windowsazure.com/), sous le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
+2.	Dans le [portail Azure Classic](https://manage.windowsazure.com/), sous le panneau des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 3.	Cliquez sur l’espace de travail que vous souhaitez gérer.
 
 La page de l’espace de travail comporte trois onglets :
@@ -54,7 +54,7 @@ Dans le tableau de bord, vous pouvez afficher l’utilisation globale de votre e
 - La **Présentation de l’utilisation** affiche le stockage Azure utilisé par l’espace de travail.
 - L’**Aperçu rapide** fournit un résumé des informations de l’espace de travail ainsi que des liens utiles.
 
-> [AZURE.NOTE]Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
+> [AZURE.NOTE]Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
 
 
 ## Pour octroyer ou suspendre un accès pour les utilisateurs ##
@@ -94,4 +94,4 @@ Cliquez sur l’onglet **CONFIGURER** pour modifier la description, contrôler l
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

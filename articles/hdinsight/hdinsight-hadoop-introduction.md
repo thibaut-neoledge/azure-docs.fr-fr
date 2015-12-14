@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Description de Hadoop dans HDInsight : analyse des données volumineuses dans le cloud | Microsoft Azure"
-	description="Introduction aux composants Hadoop dans le cloud dans HDInsight. Découvrez comment HDInsight utilise des clusters Hadoop pour gérer les données volumineuses, les analyser et créer des rapports sur ces données."
-	keywords="Big Data, analyse du Big Data, hadoop, introduction à hadoop, nouveautés hadoop"
+	pageTitle="Qu’est-ce que Hadoop dans le cloud ? Introduction à HDInsight | Microsoft Azure"
+	description="Qu'est-ce que Hadoop dans le cloud et comment est-il géré dans HDInsight ? Introduction aux composants Hadoop et analyse de données volumineuses."
+	keywords="analyse de données volumineuses, introduction à hadoop, nouveautés hadoop, hadoop dans le cloud"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="12/02/2015"
    ms.author="cgronlun"/>
 
 
-# Présentation de Hadoop dans HDInsight : traitement et analyse des données volumineuses dans le cloud
+# Qu’est-ce que Hadoop dans le cloud ? Introduction aux composants Hadoop dans HDInsight pour l’analyse de données volumineuses.
 
-Obtenez une présentation de Hadoop, de son écosystème et des données volumineuses (Big Data) dans Azure HDInsight : description de Hadoop dans HDInsight, composants de Hadoop, terminologie commune et scénarios d’analyse de données volumineuses. En outre, apprenez-en plus sur la documentation, les didacticiels et les ressources pour l’utilisation de Hadoop dans HDInsight.
+Obtenez une présentation de Hadoop, de son écosystème et des données volumineuses (Big Data) dans Azure HDInsight : description de Hadoop dans HDInsight, composants de Hadoop, terminologie commune et scénarios d’analyse de données volumineuses. En outre, apprenez-en plus sur la documentation, les didacticiels et les ressources pour l’utilisation de Hadoop dans le cloud dans HDInsight.
 
-## Présentation de Hadoop dans HDInsight
+## Qu’est-ce que Hadoop dans le cloud dans HDInsight ?
 
-Azure HDInsight déploie et approvisionne des clusters Apache Hadoop dans le cloud, en fournissant une infrastructure logicielle conçue pour gérer et analyser les données volumineuses (Big Data) avec une haute disponibilité et une haute fiabilité, et générer des rapports à leur sujet. HDInsight utilise la distribution **HDP (Hortonworks Data Platform)** de Hadoop. Hadoop fait souvent référence à l’écosystème Hadoop de composants, qui inclut des clusters Storm et HBase, ainsi que d’autres technologies sous l’égide Hadoop. Pour plus d’informations, consultez la page [Présentation de l’écosystème Hadoop dans HDInsight](#overview).
+Azure HDInsight déploie et approvisionne des clusters Apache Hadoop dans le cloud gérés, en fournissant une infrastructure logicielle conçue pour traiter et analyser les données volumineuses (Big Data) avec une haute disponibilité et une haute fiabilité, et générer des rapports à leur sujet. HDInsight utilise la distribution **HDP (Hortonworks Data Platform)** de Hadoop. Hadoop fait souvent référence à l’écosystème Hadoop de composants, qui inclut Apache HBase, Apache Spark et Apache Storm, ainsi que d’autres technologies sous l’égide Hadoop. Pour plus d’informations, consultez la page [Présentation de l’écosystème Hadoop dans HDInsight](#overview).
 
 
 ## Que sont les données volumineuses ?
@@ -32,38 +32,34 @@ Les données volumineuses font référence aux données qui sont collectées dan
 
 Les données volumineuses correspondent à des ensembles importants d'informations numériques, depuis le texte d'un flux Twitter jusqu'aux informations de capteurs provenant d'équipements industriels, en passant par les informations relatives à la navigation et aux achats d'un client sur un catalogue en ligne. Les données volumineuses peuvent être historiques (c'est-à-dire des données stockées) ou en temps réel (c'est-à-dire diffusées directement à partir de la source).
 
-Pour que ces données aient une valeur sous la forme de renseignements ou d'informations exploitables, non seulement il est indispensable de poser les bonnes questions et de collecter des données en rapport avec les problématiques rencontrées, mais les données doivent également être accessibles, nettoyées, analysées, puis présentées de manière utile. C'est dans ce contexte qu’une analyse de données volumineuses sur Hadoop dans HDInsight peut vous aider.
+Pour que ces données aient une valeur sous la forme de renseignements ou d'informations exploitables, non seulement il est indispensable de collecter les bonnes données et de poser les bonnes questions, mais les données doivent également être accessibles, nettoyées, analysées, puis présentées de manière utile. C'est dans ce contexte qu’une analyse de données volumineuses sur Hadoop dans HDInsight peut vous aider.
 
 
 ## <a name="overview"></a>Présentation de l'écosystème Hadoop dans HDInsight
 
-HDInsight est une implémentation dans le cloud Microsoft Azure de la pile de technologies Apache Hadoop, qui connaît actuellement un développement rapide. Cette implémentation constitue la solution pertinente pour l'analyse des données volumineuses. Elle comprend, entre autres, des implémentations de Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari. HDInsight peut également être intégré aux outils décisionnels tels qu’Excel, SQL Server Analysis Services et SQL Server Reporting Services.
+HDInsight est une implémentation dans le cloud Microsoft Azure de la pile de technologies Apache Hadoop, qui connaît actuellement un développement rapide. Cette implémentation constitue la solution pertinente pour l'analyse des données volumineuses. Elle comprend, entre autres, des implémentations de Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari. HDInsight peut également être intégré aux outils décisionnels tels que Power BI, Excel, SQL Server Analysis Services et SQL Server Reporting Services.
 
-### Clusters Linux et Windows
+### Clusters sur Linux
 
-Azure HDInsight déploie et approvisionne les clusters Hadoop dans le cloud, en utilisant **Linux** ou **Windows** en tant que système d’exploitation sous-jacent.
+Azure HDInsight déploie et approvisionne les clusters Hadoop dans le cloud sur **Linux**. Pour plus d’informations, consultez le tableau ci-dessous.
 
-* **HDInsight sur Linux** - Cluster Hadoop sur Ubuntu. Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, effectuez une migration à partir d'une solution Hadoop Linux existante ou souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux.
-
-* **HDInsight sur Windows** - Cluster Hadoop sur Windows Server. Utilisez cette option si vous maîtrisez Windows, migrez à partir d’une solution Hadoop Windows ou souhaitez utiliser .NET ou d’autres technologies Windows.
-
-Le tableau suivant compare les deux systèmes d’exploitation :
-
-Catégorie | Hadoop sur Linux | Hadoop sur Windows
----------| -------------------| --------------------
-**Système d’exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04 | Windows Server 2012 R2
-**Type de cluster** | Hadoop, Hbase, Storm | Hadoop, Hbase, Storm
-**Déploiement** | Portail Azure en version préliminaire, interface de ligne de commande Azure, Azure PowerShell | Portail Azure, portail Azure en version préliminaire, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
-**IU du cluster** | Ambari | Tableau de bord du cluster
-**Accès à distance** | Secure Shell (SSH), API REST, ODBC, JDBC | Protocole RDP (Remote Desktop Protocol), API REST, ODBC, JDBC
+Catégorie | Hadoop sur Linux
+---------| -------------------
+**Système d’exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04
+**Type de cluster** | Hadoop, Spark, HBase, Storm
+**Déploiement** | Portail Azure, interface de ligne de commande Azure, Azure PowerShell
+**IU du cluster** | Ambari
+**Accès à distance** | Secure Shell (SSH), API REST, ODBC, JDBC
 
 
 
-### Clusters Hadoop, HBase, Storm, Spark et personnalisés
+### Clusters Hadoop, HBase, Spark, Storm et personnalisés
 
-HDInsight fournit des configurations de cluster pour Hadoop, HBase ou Storm. Vous pouvez également [personnaliser les clusters avec des actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+HDInsight fournit des configurations de cluster pour Apache Hadoop, Spark, HBase ou Storm. Vous pouvez également [personnaliser les clusters avec des actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 * **Hadoop** (charge de travail de requête) : fournit un stockage fiable des données avec [HDFS](#HDFS) et un simple modèle de programmation [MapReduce](#mapreduce) pour traiter et analyser les données en parallèle.
+
+* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>** : infrastructure de traitement parallèle prenant en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de données volumineuses, Spark fonctionne avec SQL, les données de diffusion et l'apprentissage automatique. Voir [Vue d’ensemble : qu'est-ce qu'Apache Spark dans HDInsight ?](hdinsight-apache-spark-overview.md)
 
 * **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** (charge de travail NoSQL) : base de données NoSQL basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées (potentiellement, des milliards de lignes multipliées par des millions de colonnes). Consultez la rubrique [Présentation de HBase dans HDInsight](hdinsight-hbase-overview.md).
 
@@ -71,31 +67,25 @@ HDInsight fournit des configurations de cluster pour Hadoop, HBase ou Storm. Vou
 
 #### Exemples de scripts de personnalisation
 
-Les actions de script sont des scripts exécutés pendant l’approvisionnement du cluster et peuvent être utilisées pour installer des composants supplémentaires sur le cluster. Pour les clusters HDInsight Windows, utilisez des scripts PowerShell. Pour les clusters Linux, utilisez des scripts Bash.
+Les actions de script sont des scripts exécutés pendant l’approvisionnement du cluster et peuvent être utilisées pour installer des composants supplémentaires sur le cluster. Pour les clusters Linux, utilisez des scripts Bash.
 
 Voici des exemples de scripts fournis par l’équipe HDInsight :
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Hue](hdinsight-hadoop-hue-linux.md) : ensemble d’applications web permettant d’interagir avec un cluster. Clusters Linux uniquement.
 
-	> [AZURE.NOTE]Le script Hue est disponible uniquement pour les clusters Linux.
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md) : traitement de graphiques pour modéliser des relations entre des éléments ou des personnes.
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md) : se compose d'un langage et d'un environnement open source destinés au calcul de statistiques lors de l’apprentissage machine.
 
-* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md) : plateforme de recherche d'entreprise qui permet d'effectuer des recherches en texte intégral sur des données.
 
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développer des actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
+## Quels sont les composants et utilitaires d'Hadoop ?
 
-Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
-
-## Quels sont les composants d'Hadoop ?
-
-Outre les configurations globales précédentes, les composants individuels suivants sont également inclus dans les clusters HDInsight.
+Les composants et les utilitaires suivants sont inclus dans les clusters HDInsight.
 
 * **[Ambari](#ambari)** : approvisionnement, gestion et surveillance des clusters.
-
-	> [AZURE.NOTE]Seul un sous-ensemble de l’API REST Ambari est fourni pour les clusters HDInsight Windows.
 
 * **[Avro](#avro)** (bibliothèque Microsoft .NET pour Avro) : sérialisation de données pour l’environnement Microsoft .NET.
 
@@ -194,10 +184,10 @@ Pour plus d'informations sur les avantages de Hadoop dans HDInsight, consultez l
 
 ## <a id="resources"></a>Ressources supplémentaires sur l'analyse des données volumineuses, Hadoop et HDInsight
 
-Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données volumineuses avec les ressources ci-dessous.
+Créez sur cette présentation de Hadoop dans le cloud et l'analyse de données volumineuses avec les ressources ci-dessous.
 
 
-### HDInsight sur Linux
+### Documentation Hadoop pour HDInsight.
 
 * [Documentation HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) : page de documentation sur Azure HDInsight proposant des liens vers des articles, des vidéos et d’autres ressources.
 
@@ -212,19 +202,6 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 * [Gestion des clusters HDInsight avec Ambari](hdinsight-hadoop-manage-ambari.md) : découvrez comment gérer et contrôler votre cluster Hadoop Linux sur HDInsight à l’aide d’Ambari Web ou de l’API REST d’Ambari.
 
 
-### HDInsight sur Windows
-
-* [Documentation HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) : page de documentation sur Azure HDInsight proposant des liens vers des articles, des vidéos et d’autres ressources.
-
-* [Carte d’apprentissage de HDInsight](hdinsight-learn-map.md) : visite guidée de la documentation Hadoop pour HDInsight.
-
-* [Prise en main d’Azure HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md) : didacticiel de prise en main rapide pour l’utilisation de Hadoop dans HDInsight.
-
-* [Exécution des exemples HDInsight](hdinsight-run-samples.md) : didacticiel expliquant comment exécuter les exemples fournis avec HDInsight.
-
-* [Kit de développement logiciel (SDK) Azure HDinsight](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx) : documentation de référence pour le Kit de développement logiciel (SDK) HDinsight.
-
-
 ### Apache Hadoop
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a> : découvrez plus en détail la bibliothèque de logiciels Apache Hadoop, infrastructure autorisant le traitement distribué de jeux de données volumineux sur des clusters d’ordinateurs.
@@ -235,9 +212,9 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 
 ### Base de données SQL sur Azure
 
-* [Base de données SQL Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx) : documentation MSDN pour Base de données SQL.
+* [Base de données SQL Azure](/documentation/services/sql-database/) : documentation, didacticiels et vidéos pour base de données SQL.
 
-* [Portail de gestion de Base de données SQL](https://msdn.microsoft.com/library/azure/dn771027.aspx) : outil de gestion de base de données léger et simple d’utilisation pour gérer Base de données SQL dans le cloud.
+* [Base de données SQL sur le portail Azure](sql-database-manage-portal.md) : outil de gestion de base de données léger et simple d’utilisation pour gérer Base de données SQL dans le cloud.
 
 * [Adventure Works pour Base de données SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304) : page de téléchargement de l’exemple Base de données SQL.
 
@@ -273,4 +250,4 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

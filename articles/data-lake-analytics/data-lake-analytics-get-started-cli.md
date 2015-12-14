@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md).
 	- Téléchargez et installez les [outils d’interface de ligne de commande Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) en **version préliminaire** pour effectuer cette démonstration.
 - **Authentication**, en utilisant la commande  suivante :
@@ -95,7 +95,7 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 
 Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d'objets blobs Azure.
 
-Le portail Azure en version préliminaire fournit une interface utilisateur pour la copie de fichiers de données d'exemple vers le compte Data Lake par défaut, y compris un fichier de journal de recherche. Voir [Préparer des données sources](data-lake-analytics-get-started-portal.md#prepare-source-data) pour charger les données dans le compte Data Lake Store par défaut.
+Le portail Azure fournit une interface utilisateur pour la copie de fichiers de données d’exemple vers le compte Data Lake par défaut, y compris un fichier de journal de recherche. Voir [Préparer des données sources](data-lake-analytics-get-started-portal.md#prepare-source-data) pour charger les données dans le compte Data Lake Store par défaut.
 
 Pour télécharger des fichiers à l'aide de l’interface de ligne de commande, utilisez la commande suivante :
 
@@ -166,7 +166,7 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 - Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Pour les tâches de gestion, consultez [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-manage-use-portal.md).
+- Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

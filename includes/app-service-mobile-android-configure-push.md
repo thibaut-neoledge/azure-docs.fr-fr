@@ -1,14 +1,15 @@
 
-1. Dans le portail Azure, cliquez sur **Parcourir tout**, cliquez sur **Applications mobiles**, puis sur l’application mobile que vous venez de créer.
+1. Dans le [portail Azure](https://azure.portal.com/), cliquez sur **Parcourir** > **App Services**, recherchez et cliquez sur votre serveur principal d’applications mobiles > **Tous les paramètres**, puis sous **Mobile** cliquez sur **Push**.
 
-2. Dans la section **Associés** du panneau, cliquez sur **Services de notifications Push**, sur **Google Cloud Messaging**, entrez la valeur **Clé d’API** fournie par GCM dans la procédure précédente, puis cliquez sur le bouton **Enregistrer**.
+2. Dans les Services de notification Push, cliquez sur **Google (GCM)**, entrez la valeur de la **clé API** obtenue de GCM au cours de la procédure précédente, puis cliquez sur **Enregistrer**.
 
-    ![][1]
+    ![Définition de la clé API GCM dans le portail](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
+
+Le serveur principal d'applications mobiles est maintenant configuré pour utiliser GCM pour envoyer des notifications Push à votre application en cours d'exécution sur un appareil Android à l'aide du concentrateur de notification.
 
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
+
 
 <!-- images -->
-[1]: ./media/app-service-mobile-android-configure-push/mobile-push-api-key.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

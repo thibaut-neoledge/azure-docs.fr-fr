@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Principes de conception d’Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect : principes de conception | Microsoft Azure"
    description="Cette rubrique détaille certains aspects de la conception de l’implémentation"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Principes de conception pour Azure AD Connect
@@ -69,4 +69,4 @@ Pour cette raison, les restrictions suivantes s’appliquent à Azure AD Connect
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

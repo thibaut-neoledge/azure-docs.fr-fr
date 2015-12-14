@@ -37,7 +37,7 @@ Les files d’attente Service Bus sont une technologie à usage généraliste po
 L’utilisation de files d’attente permet une meilleure montée en charge de vos applications et une plus grande résilience dans votre architecture.
 
 ## Création d'un espace de noms de service
-Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application. Vous devez créer l’espace de noms via l’interface de ligne de commande car le portail ne crée pas le bus des services avec une connexion ACS.
+Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application. Vous devez créer l’espace de noms via l’interface de ligne de commande, car le portail ne crée pas le service bus avec une connexion ACS.
 
 Pour créer un espace de noms de service :
 
@@ -56,7 +56,7 @@ L'applet de commande PowerShell que vous avez exécutée pour créer l'espace de
 
 ![Copier la clé](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
+> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure Classic](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
 
 ## Création d'une application Ruby
 
@@ -151,4 +151,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure](/develop/ruby/how-to-guides/queue-service/), voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

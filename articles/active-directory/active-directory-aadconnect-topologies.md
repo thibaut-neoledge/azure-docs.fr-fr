@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Topologies pour Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect : topologies prises en charge | Microsoft Azure"
    description="Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -147,7 +147,7 @@ La condition requise d’un ensemble d’objets mutuellement exclusifs s’appli
 ### Chaque objet plusieurs fois dans un annuaire Azure AD
 ![Une seule forêt, plusieurs annuaires – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Une seule forêt, plusieurs connecteurs – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
-La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaisse comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. La modification d’Azure AD Connect Sync pour qu’il se connecte à plusieurs annuaires Azure AD n’est pas non plus prise en charge.
+La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaissent comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. La modification d’Azure AD Connect Sync pour qu’il se connecte à plusieurs annuaires Azure AD n’est pas non plus prise en charge.
 
 ### GALsync à l’aide de l’écriture différée
 ![Plusieurs forêts, plusieurs annuaires, GALSync1, Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Plusieurs forêts, plusieurs annuaires, GALSync2, Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
@@ -167,4 +167,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

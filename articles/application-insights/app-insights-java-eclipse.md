@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Prise en main d’Application Insights avec Java dans Eclipse
@@ -99,7 +99,7 @@ Insérez l'extrait de code dans l’en-tête de vos fichiers HTML.
 
 #### Affichage des données côté client
 
-Ouvrez et utilisez vos pages web mises à jour. Attendez une minute ou deux, puis revenez dans Application Insights et actualisez le panneau d'utilisation.
+Ouvrez et utilisez vos pages web mises à jour. Attendez une minute ou deux, puis revenez dans Application Insights et ouvrez le panneau d'utilisation. (Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur Utilisation.)
 
 Les mesures liées au nombre de consultations de la page, à l’utilisateur et à la session s’affichent dans le panneau d’utilisation :
 
@@ -129,7 +129,7 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 Les exceptions non gérées sont collectées automatiquement :
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
@@ -144,10 +144,10 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
+Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur la vignette **Serveurs**. Vous verrez un ensemble de compteurs de performances.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![Faites défiler vers le bas pour cliquer sur la vignette des serveurs](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Personnaliser la collecte des compteurs de performances
 
@@ -198,7 +198,7 @@ Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/win
 
 Les compteurs de performances sont visibles en tant que mesures personnalisées dans [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Compteurs de performances Unix
@@ -207,7 +207,9 @@ Les compteurs de performances sont visibles en tant que mesures personnalisées 
 
 ## Tests web de disponibilité
 
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour cela, cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste vers le bas pour cliquer sur Disponibilité.
+
+![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
 
@@ -238,7 +240,7 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 * [Ajoutez la télémétrie de client web][usage] pour obtenir la télémétrie des performances du client web.
 * [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
-* [Capturez le suivi Log4J ou Logback][javalogs].
+* [Capturez le suivi Log4J ou Logback.][javalogs]
 
 #### Suivi de l'utilisation
 
@@ -258,4 +260,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

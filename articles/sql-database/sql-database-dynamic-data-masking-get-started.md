@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prise en main du masquage des données dynamiques de base de données SQL (portail Azure en version préliminaire)"
-   description="Comment prendre en main le masquage de données dynamiques de base de données SQL dans le portail Azure en version préliminaire"
+   pageTitle="Prise en main du masquage de données dynamiques de base de données SQL (portail Azure)"
+   description="Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# Prise en main du masquage des données dynamiques de base de données SQL (portail Azure en version préliminaire)
+# Prise en main du masquage de données dynamiques de base de données SQL (portail Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Vue d'ensemble
 
@@ -32,7 +32,7 @@ Par exemple, un représentant du centre d'appel peut identifier les appelants pa
 
 ## Principes fondamentaux du masquage de données dynamiques de base de données SQL
 
-Pour définir une stratégie de masquage de données dynamiques dans le portail Azure en version préliminaire, sélectionnez l'opération de masquage des données dynamiques dans le panneau de configuration ou le panneau des paramètres de votre base de données SQL.
+Pour définir une stratégie de masquage de données dynamiques dans le portail Azure, sélectionnez l’opération de masquage des données dynamiques dans le panneau de configuration ou le panneau des paramètres de votre base de données SQL.
 
 
 ### Autorisations du masquage des données dynamiques
@@ -62,9 +62,9 @@ Le masquage des données dynamiques peut être configuré par l’administrateur
 
 Le moteur de recommandations DDM signale certains champs de votre base de données en tant que champs potentiellement sensibles, qui peuvent être de bons candidats pour le masquage. Dans le volet Masquage des données dynamiques du portail, vous verrez les colonnes recommandées pour votre base de données. Il vous suffit de cliquer sur **Ajouter un masque** pour une ou plusieurs colonnes, puis de cliquer sur **Enregistrer** pour appliquer un masque à ces champs.
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure en version préliminaire
+## Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
 
-1. Accédez à l'adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure en version préliminaire.
+1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et exécutez le portail Azure.
 
 2. Accédez au volet des paramètres de la base de données comprenant les données sensibles que vous souhaitez masquer.
 
@@ -109,4 +109,4 @@ Voir [Cmdlets de la base de données SQL Azure](https://msdn.microsoft.com/libra
 
 Voir [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure en version préliminaire | Microsoft Azure" 
-	description="Explique comment effectuer une mise à niveau vers la base de données SQL Azure V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l'aide du portail Azure en version préliminaire." 
+	pageTitle="Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure | Microsoft Azure" 
+	description="Explique comment effectuer une mise à niveau vers Azure SQL Database V12, notamment la mise à niveau des bases de données Web et Business et la mise à niveau d’un serveur V11 migrant ses bases de données directement dans un pool de base de données élastique à l’aide du portail Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,11 +17,11 @@
 	ms.author="sstein"/>
 
 
-# Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure en version préliminaire
+# Mise à niveau vers Azure SQL Database V12 à l’aide du portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -29,15 +29,15 @@ SQL Database V12 est la version la plus récente. Il est donc recommandé d’
 
 - Compatibilité améliorée avec SQL Server.
 - Plus de performances pour le niveau Premium, nouveaux niveaux de performances.
-- [Pools de bases de données élastique](sql-database-elastic-pool.md).
+- [Pools de base de données élastique](sql-database-elastic-pool.md).
 
 Cet article fournit des instructions sur la mise à niveau des serveurs et bases de données SQL Database V11 existants vers SQL Database V12.
 
 Lors du processus de mise à niveau vers la version V12, vous allez mettre à niveau toutes les bases de données Web et Business vers un nouveau niveau de service. C’est pourquoi des instructions pour la mise à niveau des bases de données Web et Business sont incluses.
 
-En outre, la migration vers un [pool de base de données élastique](sql-database-elastic-pool.md) peut être plus économique que la mise à niveau vers des niveaux de performances individuels (niveaux de tarification) pour des bases de données uniques. Les pools simplifient également la gestion des bases de données, car vous devez uniquement gérer les paramètres de performances du pool, et non gérer séparément les niveaux de performances des bases de données individuelles. Si vous disposez de bases de données sur plusieurs serveurs, envisagez de les déplacer dans le même serveur et de tirer parti de leur regroupement au sein d’un pool. Vous pouvez facilement [auto-migrer des bases de données à partir de serveurs V11 directement dans des pools de base de données élastique à l'aide de PowerShell](sql-database-upgrade-server.md). Vous pouvez également utiliser le portail pour migrer des bases de données V11 dans un pool, mais vous devez déjà disposer d'un serveur V12 dans le portail pour créer un pool. Des instructions sont fournies plus loin dans cet article pour créer le pool après la mise à niveau du serveur si vous disposez de [bases de données qui peuvent retirer des avantages d'un pool](sql-database-elastic-pool-guidance.md).
+En outre, la migration vers un [pool de base de données élastique](sql-database-elastic-pool.md) peut être plus économique que la mise à niveau vers des niveaux de performances individuels (niveaux de tarification) pour des bases de données uniques. Les pools simplifient également la gestion des bases de données, car vous devez uniquement gérer les paramètres de performances du pool, et non gérer séparément les niveaux de performances des bases de données individuelles. Si vous disposez de bases de données sur plusieurs serveurs, envisagez de les déplacer dans le même serveur et de tirer parti de leur regroupement au sein d’un pool. Vous pouvez facilement [auto-migrer des bases de données à partir de serveurs V11 directement dans des pools de base de données élastique à l’aide de PowerShell](sql-database-upgrade-server.md). Vous pouvez également utiliser le portail pour migrer des bases de données V11 dans un pool, mais vous devez déjà disposer d’un serveur V12 dans le portail pour créer un pool. Des instructions sont fournies plus loin dans cet article pour créer le pool après la mise à niveau du serveur si vous disposez de [bases de données qui peuvent retirer des avantages d’un pool](sql-database-elastic-pool-guidance.md).
 
-Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à jour.
+Notez que vos bases de données resteront en ligne et continueront à fonctionner pendant toute la durée de l’opération de mise à niveau. Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant une très courte durée, généralement pendant environ 90 secondes, mais cette durée peut atteindre 5 minutes. Si votre application [gère les problèmes temporaires d’interruption de connexion](sql-database-connect-central-recommendations.md), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à niveau.
 
 Il n’est pas possible d’annuler la mise à niveau vers SQL Database V12. Après une mise à niveau, le serveur ne peut pas être restauré vers la version V11.
 
@@ -54,12 +54,12 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure en version préliminaire](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+1. Dans le [portail Azure](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
 2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
 
-## Mettez à niveau toutes les bases de données Web et Business.
+## Mettre à niveau toutes les bases de données Web et Business
 
 Si votre serveur dispose d’une base de données Web ou Business, vous devez la mettre à niveau. Au cours du processus de mise à niveau vers la version SQL Database V12, vous allez également mettre à jour toutes les bases de données Web et Business vers un nouveau niveau de service.
 
@@ -93,28 +93,28 @@ Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez com
 
     Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant quelques secondes. Si une application gère les problèmes temporaires d’interruption de connexion (logique de nouvelle tentative), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à jour.
 
-5. Après l'opération de mise à niveau, le panneau **Dernière mise à jour** affichera **Activé**.
+5. Après l’opération de mise à niveau, le panneau **Dernière mise à jour** affichera **Activé**.
 
     ![V12 activé][5]
 
 ## Déplacer vos bases de données dans un pool de base de données élastique
 
-Dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
+Dans le [portail Azure](https://ms.portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
 
 - ou -
 
-Si vous voyez un message indiquant **Click here to view the recommended elastic database pools for this server** (Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur), cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez la rubrique [Pools de base de données élastique recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez la rubrique [Pools de base de données élastique recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
 
 ![Ajouter un pool à un serveur][7]
    
 Suivez les instructions de l’article [Créer un pool de base de données élastique](sql-database-elastic-pool.md) pour terminer de créer votre pool.
 
-## Surveillance des bases de données après la mise à niveau vers SQL Database V12
+## Surveiller les bases de données après la mise à niveau vers SQL Database V12
 
 
 Après la mise à niveau, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et pour optimiser l’utilisation en fonction des besoins.
 
-Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [à l'aide du portail](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou de [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [à l’aide du portail](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou de [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
 **Données sur la consommation de ressources :** pour les bases de données De base, Standard et Premium, des données sur la consommation des ressources sont disponibles via la vue de gestion dynamique (DMV) [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
@@ -131,15 +131,15 @@ Outre les bases de données individuelles, vous pouvez surveiller les pools de b
 Informations de surveillance supplémentaires :
 
 - [Guide des performances de base de données SQL Azure pour les bases de données uniques](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database=elastic-pool-guidance.md).
+- [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database=elastic-pool-guidance.md).
 - [Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
 
 
 
-**Alertes :** configurer les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
+**Alertes :** configurez les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
 
-Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Réception de notifications d'alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d'alerte.
+Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Réception de notifications d’alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d’alerte.
 
 
 
@@ -148,7 +148,7 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 ## Étapes suivantes
 
 - [Consulter les recommandations relatives au pool de base de données élastique](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
-- [Créer un pool de base de données élastique](sql-database-elastic-pool-portal.md) et ajouter quelques bases de données, ou toutes, dans un pool.
+- [Créer un pool de base de données élastique](sql-database-elastic-pool-portal.md) et ajouter quelques-unes ou l’ensemble de vos bases de données dans un pool.
 - [Modifier les niveaux de service et de performances de votre base de données](sql-database-scale-up.md).
 
 
@@ -168,4 +168,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

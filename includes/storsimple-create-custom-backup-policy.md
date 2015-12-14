@@ -1,6 +1,4 @@
-
 <!--author=SharS last changed: 9/15/15-->
-
 
 #### Pour créer une stratégie de sauvegarde personnalisée
 
@@ -42,4 +40,4 @@
 
     ![Stratégie de sauvegarde personnalisée](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

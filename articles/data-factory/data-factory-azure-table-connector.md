@@ -348,7 +348,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory avec un s
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
 | type | La propriété de type doit être définie sur : AzureStorage | Oui |
-| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Vous pouvez obtenir la valeur connectionString pour le stockage Azure à partir du portail Azure. | Oui |
+| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Vous pouvez obtenir la valeur connectionString pour le stockage Azure à partir du portail Azure Classic. | Oui |
 
 ## Propriétés de type du jeu de données Table Azure
 
@@ -504,4 +504,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

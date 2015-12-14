@@ -41,12 +41,12 @@ Pour une application web de production, vous souhaitez probablement afficher un 
 
 > [AZURE.NOTE]N'essayez pas d'acheter un domaine avec un abonnement qui n'est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement.
 
-Si vous n'avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail de gestion Azure](https://portal.azure.com). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
+Si vous n’avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail Azure](https://portal.azure.com). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
 
 
 Procédez comme suit pour acheter des noms de domaine et les attribuer à votre application web.
 
-1. Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).
+1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
 
 2. Sous l’onglet **Web Apps**, cliquez sur le nom de votre application web et sélectionnez **Paramètres**, puis **Domaines personnalisés et SSL**.
 
@@ -98,4 +98,4 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

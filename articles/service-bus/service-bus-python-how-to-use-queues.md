@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Le nom et la valeur de la clé de signature d’accès partagé se trouvent dans les informations de connexion du [portail Azure][] ou dans le volet **Propriétés** de Visual Studio quand vous sélectionnez l’espace de noms Service Bus dans l’Explorateur de serveurs (comme indiqué dans la section précédente).
+Le nom et la valeur de la clé de signature d’accès partagé se trouvent dans les informations de connexion du [portail Azure Classic][] ou dans le volet **Propriétés** de Visual Studio quand vous sélectionnez l’espace de noms Service Bus dans l’Explorateur de serveurs (comme indiqué dans la section précédente).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
 -   Consultez [Files d’attente, rubriques et abonnements][].
 
-[portail Azure]: http://manage.windowsazure.com
+[portail Azure Classic]: http://manage.windowsazure.com
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
 [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

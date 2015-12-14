@@ -36,7 +36,7 @@ Pour obtenir des instructions sur l’installation d’AzCopy et des information
 
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
-- Pour configurer un abonnement Azure, consultez la page [Évaluation d’un mois gratuite](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- Pour configurer un abonnement Azure, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
 - Pour obtenir des instructions sur la création d’un compte de stockage, ainsi que des informations sur le compte et la clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 ## Téléchargement de fichiers vers un objet blob Azure
@@ -71,4 +71,4 @@ Pour transférer des objets blob entre des conteneurs Azure, utilisez la command
 
 > [AZURE.TIP]1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés. 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu’à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés. 3. Vous ne pouvez pas spécifier un fichier de blob à télécharger, à l’aide du paramètre /Source. Pour télécharger un fichier spécifique, spécifiez le nom du fichier à télécharger à l’aide du paramètre /Pattern. Le paramètre /S peut être utilisé pour qu’AzCopy recherche un modèle de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

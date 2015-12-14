@@ -69,4 +69,4 @@ Grâce à cette analyse, le responsable de projet mobile décide de créer des s
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

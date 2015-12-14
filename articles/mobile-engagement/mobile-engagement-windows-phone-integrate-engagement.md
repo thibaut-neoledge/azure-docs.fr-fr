@@ -69,7 +69,7 @@ Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez a
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-La chaîne de connexion de votre application est affichée sur le portail de gestion Azure.
+La chaîne de connexion de votre application est affichée sur le portail Azure Classic.
 
 ### Initialisation d'Engagement
 
@@ -247,4 +247,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 > [AZURE.WARNING]Il n'est pas possible de configurer un seuil de rafale inférieur à une seconde. Si vous essayez de le faire, le SDK affichera une erreur et réinitialisera automatiquement la valeur par défaut, c'est-à-dire zéro seconde. Le SDK génère alors les journaux en temps réel.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -33,7 +33,7 @@ Procurez-vous le processeur multimédia avec **.NET** ou l’**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Création de travaux 
+##Création de travaux
 
 Un travail est une entité qui contient des métadonnées sur un ensemble de tâches (par exemple, l’encodage ou l’indexation). Chaque tâche effectue une opération atomique sur la ou les ressources d’entrée. Pour obtenir un exemple sur la façon de créer des travaux d’encodage, consultez :
 
@@ -43,22 +43,22 @@ Un travail est une entité qui contient des métadonnées sur un ensemble de tâ
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Encodage 
+##Encodage
 
-Procédez à l’encodage à l’aide de l’**Encodeur multimédia Azure** en utilisant le **portail de gestion Azure**, **.NET** ou l’**API REST**.
- 
+Procédez à l’encodage à l’aide d’**Azure Media Encoder** en utilisant le **portail Azure Classic**, **.NET** ou l’**API REST**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Surveillance de la progression des travaux
 
-Vous pouvez surveiller la progression des travaux à l’aide du **portail de gestion Azure**, de **.NET** ou de l’**API REST**.
+Vous pouvez surveiller la progression des travaux à l’aide du **portail Azure Classic**, de **.NET** ou de l’**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##Liens connexes
 
 [Quotas et limitations](media-services-quotas-and-limitations.md) : décrit les quotas utilisés et les limitations de l’Encodeur de Media Services
- 
+
 
 ##Parcours d’apprentissage de Media Services
 
@@ -68,4 +68,4 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail de ge
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

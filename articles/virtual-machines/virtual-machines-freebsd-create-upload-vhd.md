@@ -104,9 +104,9 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
 ## Étape 2 : création d'un compte de stockage dans Azure ##
 
-Pour télécharger vers Azure un fichier .vhd permettant de créer une machine virtuelle, vous avez besoin d’un compte de stockage Azure. Pour créer un tel compte, vous pouvez utiliser le portail Azure.
+Pour télécharger vers Azure un fichier .vhd permettant de créer une machine virtuelle, vous avez besoin d’un compte de stockage Azure. Pour créer un tel compte, vous pouvez utiliser l’édition classique du portail Azure.
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous à la version classique du portail Azure.
 
 2. Dans la barre de commandes, cliquez sur **New**.
 
@@ -181,7 +181,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 ## Étape 4 : téléchargement du fichier .vhd ##
 
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé lors de l'étape 2 ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l'étiquette affichée dans le portail Azure pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé lors de l'étape 2 ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l’étiquette affichée dans le portail Azure Classic pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
 
 
 1. Depuis la fenêtre Azure PowerShell utilisée lors de l’étape précédente, tapez :
@@ -197,7 +197,7 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
     **Important** : utilisez Linux comme type de système d’exploitation pour le moment, car la version actuelle de Microsoft Azure PowerShell accepte uniquement le paramètre « Linux » ou « Windows ».
 
-2. À l'issue de ces étapes, la nouvelle image apparaît sous l'onglet **Images** du portail Azure.
+2. À l’issue de ces étapes, la nouvelle image apparaît sous l’onglet **Images** du portail Azure Classic.
 
     ![ajouter une image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
@@ -209,4 +209,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

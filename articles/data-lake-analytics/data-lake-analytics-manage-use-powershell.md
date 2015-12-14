@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
@@ -27,35 +27,55 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure]https://azure.microsoft.com/fr-FR/pricing/free-trial/).
-- **Azure PowerShell 1.0 ou version ultérieure**. Consultez [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Après avoir installé Azure PowerShell 1.0 ou version ultérieure, exécutez l'applet de commande suivante pour installer le module Azure Data Lake Analytics.
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##Installer Azure PowerShell 1.0 et versions ultérieures
+
+Vous devez tout d’abord désinstaller les versions 0.9x.
+
+Pour connaître la version de PowerShell installée :
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalités dans le panneau de configuration.
 
-	Pour plus d'informations sur le module **AzureRM.DataLakeStore**, consultez [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Pour plus d'informations sur le module **AzureRM.DataLakeAnalytics**, consultez [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
+Il existe deux options principales pour l’installation d’Azure PowerShell.
 
-	Si vous créez un compte Data Lake pour la première fois, exécutez :
+- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Pour vous connecter à Azure, utilisez les applets de commande suivantes :
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Pour plus d’informations, consultez [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Programme d’installation de la plate-forme web Microsoft (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous serez invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, ils doivent être supprimés avant de procéder à l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez la rubrique [Installation d’Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI recevra des mises à jour mensuelles. La PowerShell Gallery recevra des mises à jour en continu. Si vous êtes familiarisé avec l’installation à partir de PowerShell Gallery, il s’agit du premier canal pour bénéficier des dernières nouveautés d’Azure PowerShell.
+
 **Pour répertorier les applets de commande** :
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**Pour vous connecter à Azure, utilisez les applets de commande suivantes** :
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## Gérer les comptes
 
 Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez pas pour un compte Analytics lorsque celui-ci n'exécute aucun travail. Vous payez uniquement lorsqu'il exécute un travail. Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -332,7 +352,7 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
 
 ## Utilisation des groupes Azure Resource Manager
 
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md).
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
 Un service Data Lake Analytics peut inclure les composants suivants :
 
@@ -350,9 +370,9 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 ##Voir aussi 
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
-- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-use-portal.md)
-- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-use-portal.md)
+- [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Annexe A - Modèle ARM Data Lake Analytics
 
@@ -411,4 +431,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

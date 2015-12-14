@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Présentation des sorties Stream Analytics
 
 Lorsque vous créez une tâche Stream Analytics, vous devez penser à la façon dont sa sortie sera consommée. De quelle façon les consommateurs de la transformation de données voient-ils les résultats de la tâche Stream Analytics ? Quels outils utiliseront-ils pour analyser la sortie ? La rétention et l’entreposage des données sont-ils requis ?
 
-Pour permettre un éventail de modèles d’application, Azure Stream Analytics fournit sept méthodes différentes pour stocker et afficher les sorties de tâche : les bases de données SQL, le stockage d’objets blob, Event Hubs, les files d’attente Service Bus, les rubriques Service Bus, Power BI et le stockage de tables sont des sorties prises en charge. Cela permet à la fois de faciliter l’affichage des sorties de tâche et de rendre plus flexibles la consommation et le stockage des sorties de tâche pour l’entreposage de données et autres utilisations.
+Pour permettre un éventail de modèles d’application, Azure Stream Analytics fournit des méthodes différentes pour stocker et afficher les sorties de tâche. Cela permet de faciliter l’affichage des sorties de tâche et de rendre plus flexibles la leur consommation et leur stockage pour l’entreposage de données et autres utilisations. Toute sortie configurée dans la tâche doit exister avant que la tâche soit démarrée et que les événements commencent à transiter. Par exemple, si vous utilisez le stockage d’objets blob en tant que sortie, la tâche ne crée pas de compte de stockage automatiquement. Celui-ci doit être créé par l’utilisateur avant que la tâche ASA démarre.
 
 
 ## Base de données SQL ##
@@ -118,11 +118,11 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche aux utilisateurs de Stream Analytics. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par les métriques.
 
-> [AZURE.NOTE]À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+> [AZURE.NOTE]À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure.
 
 ### Autorisation d’un compte Power BI
 
-1.	Lorsque Power BI est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
+1.	Lorsque Power BI est sélectionné en tant que sortie dans le portail Azure Classic, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
 
     ![Autoriser un utilisateur de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -267,4 +267,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

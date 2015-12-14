@@ -18,6 +18,11 @@
 
 # Comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l'utilisation du [Kit de développement logiciel (SDK) iOS] Azure Mobile Services. Si vous débutez avec Mobile Services, vous devez d’abord suivre le didacticiel [Démarrage rapide de Mobile Services] pour configurer votre compte, créer une table et créer un service mobile.
@@ -328,4 +333,4 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

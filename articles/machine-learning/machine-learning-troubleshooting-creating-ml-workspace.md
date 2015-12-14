@@ -27,7 +27,7 @@ Ce guide propose des solutions pour quelques-uns des défis qui se posent souven
 
 Quand vous créez un espace de travail Machine Learning, le code que vous entrez dans le champ PROPRIÉTAIRE DE L'ESPACE DE TRAVAIL doit être un compte Microsoft valide (anciennement Windows Live ID), par exemple, john-contoso@live.com ou john-contoso@hotmail.com. Il ne peut pas s'agir d'un compte autre que Microsoft, tel que votre compte de messagerie d'entreprise. Pour créer un compte Microsoft gratuit, accédez à [www.live.com](http://www.live.com).
 
-Notez que le compte que vous utilisez pour vous connecter au portail Azure afin de créer l’espace de travail n’est pas automatiquement autorisé à *ouvrir* cet espace de travail, sauf si vous spécifiez ce compte comme propriétaire. Pour ouvrir un espace de travail de Machine Learning Studio, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l'espace de travail ou recevoir une invitation du propriétaire à rejoindre l'espace de travail. À partir du portail Azure, cependant, vous pouvez *gérer* l'espace de travail, notamment modifier le propriétaire et configurer l'accès.
+Notez que le compte que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à *ouvrir* cet espace de travail, sauf si vous spécifiez ce compte comme propriétaire. Pour ouvrir un espace de travail de Machine Learning Studio, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l'espace de travail ou recevoir une invitation du propriétaire à rejoindre l'espace de travail. À partir du portail Azure Classic, cependant, vous pouvez *gérer* l'espace de travail, notamment modifier le propriétaire et configurer l'accès.
 
 Pour plus d'informations sur la gestion d'un espace de travail, consultez [Gestion d'un espace de travail Azure Machine Learning].
 
@@ -37,7 +37,7 @@ Pour plus d'informations sur la gestion d'un espace de travail, consultez [Gesti
 
 Machine Learning est actuellement disponible dans un nombre limité de régions. Si votre abonnement n’inclut une de ces régions, le message d’erreur suivant risque de s’afficher : « Vous ne disposez d’aucun abonnement dans les régions autorisées ».
 
-Pour demander qu’une région soit ajoutée à votre abonnement, sélectionnez **Contacter le support Microsoft** dans le portail de gestion Azure, choisissez **Facturation** comme type de problème, puis suivez les invites pour envoyer votre demande.
+Pour demander qu’une région soit ajoutée à votre abonnement, sélectionnez **Contacter le support Microsoft** dans le portail Azure Classic, choisissez **Facturation** comme type de problème, puis suivez les invites pour envoyer votre demande.
 
 ![Contact Microsoft support][screen1]
 
@@ -46,7 +46,7 @@ Pour demander qu’une région soit ajoutée à votre abonnement, sélectionnez 
 Le service Machine Learning a besoin d'un compte de stockage pour stocker les données. Vous pouvez utiliser un compte de stockage existant ou vous pouvez en créer un quand vous créez l’espace de travail Machine Learning (si vous disposez d’un quota pour la création d’un compte de stockage).
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with
-To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+To see if you can create a new storage account, in the Classic Portal, go to **Settings** and then click **Usage**.
 -->
 
 ![Create workspace][screen2]
@@ -80,4 +80,4 @@ Notre objectif est de vous offrir une expérience de Machine Learning qui soit a
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

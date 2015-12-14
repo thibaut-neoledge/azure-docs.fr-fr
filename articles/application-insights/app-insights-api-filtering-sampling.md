@@ -32,7 +32,7 @@ Actuellement, ces fonctionnalités sont disponibles pour le Kit de développemen
 
 Avant de commencer :
 
-* Installez le [Kit de développement logiciel (SDK) Application Insights](app-insights-start-monitoring-app-health-usage.md) dans votre application. Installez manuellement les packages NuGet et sélectionnez la dernière version *préliminaire*.
+* Installez le [Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans votre application. Installez manuellement les packages NuGet et sélectionnez la dernière version *préliminaire*.
 * Essayez l'[API Application Insights](app-insights-api-custom-events-metrics.md) 
 
 
@@ -43,11 +43,11 @@ Avant de commencer :
 L'[échantillonnage](app-insights-sampling.md) est la méthode recommandée pour réduire le trafic tout en conservant la précision des statistiques. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments en cours de diagnostic. Le nombre d’événements est ajusté dans Metrics Explorer pour compenser les éléments filtrés.
 
 * L'échantillonnage adaptatif est recommandé. Il ajuste automatiquement le pourcentage d'échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur.  
-* Une option d'échantillonnage à débit fixe est également disponible. Vous spécifiez le pourcentage d'échantillonnage. Disponible pour le code d'application web ASP.NET et les pages Web JavaScript. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
+* Une option d'[échantillonnage à débit fixe](app-insights-sampling.md) est également disponible. Vous spécifiez le pourcentage d'échantillonnage. Disponible pour le code d'application web ASP.NET et les pages Web JavaScript. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
 
 ### Pour activer l'échantillonnage
 
-**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d'Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
+**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d'Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
 Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez ajuster le taux maximal de télémétrie défini comme objectif de l'algorithme adaptatif :
 
@@ -55,7 +55,7 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 
 ### Échantillonnage côté client
 
-Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
+Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
 
 *JavaScript*
 
@@ -395,7 +395,7 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

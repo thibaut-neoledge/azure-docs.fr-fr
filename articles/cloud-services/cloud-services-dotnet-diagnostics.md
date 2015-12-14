@@ -154,7 +154,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEve
 4.	Dans la boîte de dialogue **Créer un service de cloud computing et Compte de stockage**, saisissez un **Nom** (par exemple « WadExample »), puis sélectionnez une région ou un groupe d’affinités.
 5.	Définissez l'**Environnement** sur **Intermédiaire**.
 6.	Modifiez d'autres **Paramètres** le cas échéant, puis cliquez sur **Publier**.
-7.	Une fois que le déploiement a été réalisé, vérifiez dans le portail Azure que votre service cloud est en cours d'**Exécution**.
+7.	Une fois que le déploiement terminé, vérifiez dans le portail Azure Classic que votre service cloud est en cours d’**Exécution**.
 
 ### Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension
 1.	Téléchargez la définition de schéma de fichier de configuration publique en exécutant la commande PowerShell suivante :
@@ -512,4 +512,4 @@ ETW basé sur les manifestes|Non|Table|Événements ETW générés par n'importe
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

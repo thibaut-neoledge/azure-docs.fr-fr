@@ -156,7 +156,7 @@ Utilisez l’interface de ligne de commande Azure pour charger l'image. La comma
 
 Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage-create-storage-account.md)
 
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l'étiquette affichée dans le [portail Azure](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l’étiquette affichée dans le [portail Azure Classic](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
 
 Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tapez :
 
@@ -164,11 +164,11 @@ Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tap
 
 Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [version préliminaire d’Azure Powershell 1.0](https://azure.microsoft.com/fr-FR/blog/azps-1-0-pre/) modifie de manière significative la façon dont les applets de commande sont traitées pour les modèles de déploiements classique et Resource Manager. Cet article n'utilise pas encore la version préliminaire.
+> [AZURE.NOTE]La [version préliminaire d’Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) modifie de manière significative la façon dont les applets de commande sont traitées pour les modèles de déploiements classiques et Resource Manager. Cet article n'utilise pas encore la version préliminaire.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

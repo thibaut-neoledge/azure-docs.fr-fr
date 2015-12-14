@@ -34,7 +34,7 @@ Cette partie concerne les entrées/sorties suivantes :
 Pour les autres entrées/sorties, passez à la partie 2.
 
 ###Stockage d’objets blob/de tables
-1.  Dans le portail de gestion Azure, accédez à l’extension Stockage : ![graphic1][graphic1]
+1.  Dans le portail Azure Classic, accédez à l’extension Storage : ![graphic1][graphic1]
 2.  Recherchez le stockage utilisé par votre travail et accédez-y : ![graphic2][graphic2]
 3.  Cliquez sur la commande Gérer les clés d’accès : ![graphic3][graphic3]
 4.  Entre la clé d’accès primaire et la clé d’accès secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.
@@ -43,7 +43,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 7.  Passez à la partie 2.
 
 ###Event Hubs
-1.  Accédez à l’extension Service Bus dans le portail de gestion Azure : ![graphic6][graphic6]
+1.  Dans le portail Azure Classic, accédez à l’extension Service Bus : ![graphic6][graphic6]
 2.  Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y : ![graphic7][graphic7]
 3.  Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6  
 4.  Accédez à l’onglet Concentrateurs d’événements : ![graphic8][graphic8]
@@ -57,9 +57,9 @@ Pour les autres entrées/sorties, passez à la partie 2.
 
 ###Base de données SQL
 
->[AZURE.NOTE]Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
+>[AZURE.NOTE]Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail Azure Classic, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
 
-1.  Accédez à l’extension Bases de données SQL dans le portail de gestion Azure : ![graphic14][graphic14]
+1.  Accédez à l’extension Bases de données SQL dans le portail Azure Classic : ![graphic14][graphic14]
 2.  Recherchez la base de données SQL utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne : ![graphic15][graphic15]
 3.  Cliquez sur la commande Gérer : ![graphic16][graphic16]
 4.  Tapez Base de données principale : ![graphic17][graphic17]
@@ -77,7 +77,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 16. Passez à la partie 2.
 
 ##Partie 2 – Arrêt du travail Stream Analytics
-1.  Accédez à l’extension Stream Analytics sur le portail de gestion Azure : ![graphic26][graphic26]
+1.  Accédez à l’extension Stream Analytics sur le portail Azure Classic : ![graphic26][graphic26]
 2.  Recherchez votre travail et accédez-y : ![graphic27][graphic27]
 3.  Accédez à l’onglet Entrées ou à l’onglet Sorties selon que vous remplacez les informations d’identification d’une entrée ou d’une sortie. ![graphic28][graphic28]
 4.  Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté : ![graphic29][graphic29] Attendez que le travail s’arrête.
@@ -193,4 +193,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

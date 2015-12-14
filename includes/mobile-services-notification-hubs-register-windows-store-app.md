@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.
 
-11. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+11. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur votre application.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -57,6 +57,5 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: ../articles/mobile-services-windows-store-get-started.md
 [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

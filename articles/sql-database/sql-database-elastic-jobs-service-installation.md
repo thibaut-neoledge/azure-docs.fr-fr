@@ -17,7 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble de l’installation de Tâches de bases de données élastiques
-Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-overview.md) peuvent être installées à l'aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l'aide de l'API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
+Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-overview.md) peuvent être installées à l’aide de PowerShell ou du portail Azure Classic. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
 Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
@@ -155,7 +155,7 @@ Une fois que vous avez [créé un pool de bases de données élastique](sql-data
 
 **Durée estimée :** 10 minutes.
 
-1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure en version préliminaire](https://ms.portal.azure.com/#), cliquez sur **Créer une tâche**.
+1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure](https://ms.portal.azure.com/#), cliquez sur **Créer une tâche**.
 2. Si vous créez une tâche pour la première fois, vous devez installer **Tâches de bases de données élastiques** en cliquant sur **PREVIEW TERMS**. 
 3. Acceptez les termes en cliquant sur la case à cocher.
 4. Dans la vue « Installer les services », cliquez sur **JOB CREDENTIALS**.
@@ -187,4 +187,4 @@ Vérifiez que les informations d'identification disposant des droits appropriés
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

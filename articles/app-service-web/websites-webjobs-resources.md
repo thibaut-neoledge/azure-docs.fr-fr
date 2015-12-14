@@ -54,7 +54,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 ##<a name="deploy"></a>Déploiement de WebJobs
 
 * [Déploiement d’Azure WebJobs à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [Déploiement de WebJobs à l’aide du portail de gestion Azure](web-sites-create-web-jobs.md)
+* [Déploiement de WebJobs à l’aide du portail Azure](web-sites-create-web-jobs.md)
 * [Activation de la ligne de commande ou livraison en continu d’Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Déploiement avec Git d’une application de console .NET sur Azure à l’aide de WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Déploiement d’un WebJob F# dans Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 ##<a name="schedule"></a>Planification de WebJobs
 
 * [Boîte de dialogue Ajouter une tâche web Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Créer une tâche web planifiée dans le portail de gestion Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Créer une tâche WebJob planifiée dans le portail Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Liaison d’une tâche du planificateur à une tâche web](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Planification de tâches web Azure avec des expressions cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -142,4 +142,4 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

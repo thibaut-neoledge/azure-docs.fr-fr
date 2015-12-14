@@ -32,7 +32,7 @@ Par défaut, les clusters Hadoop ne sont pas optimisés pour les performances. C
 
 L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploiter l’exécution de mappeurs et de raccords de réduction en parallèle. Il existe deux manières d’accroître la montée en charge dans HDInsight :
 
-- Au moment de l'approvisionnement, vous pouvez spécifier le nombre de nœuds worker à l'aide de la version préliminaire du portail Azure, d'Azure PowerShell ou d'une interface de ligne de commande multiplateforme. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d'écran suivante montre la configuration du nœud worker sur la version préliminaire portail Azure :
+- Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

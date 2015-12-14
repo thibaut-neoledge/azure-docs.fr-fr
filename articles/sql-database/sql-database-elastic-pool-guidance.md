@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -140,7 +140,7 @@ Pour les tailles disponibles, voir [Limites relatives aux eDTU et au stockage po
 
 STA et DMV fournissent diverses options et fonctionnalités pour le redimensionnement d'un pool élastique de bases de données. Indépendamment de l'outil utilisé, l'estimation du dimensionnement doit uniquement être utilisée pour l’évaluation initiale et la création de pools élastiques de bases de données. Après la création d'un pool, son utilisation des ressources doit être correctement surveillée et les paramètres de performance du pool doivent être ajustés vers le haut et le bas selon les besoins.
 
-**STA**<br>STA est un outil intégré au [portail en version préliminaire](https://portal.azure.com), qui évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur de base de données SQL existant et recommande une configuration de pool de base de données élastique approprié. Pour plus d’informations, voir [Recommandations relatives aux niveaux de tarification du pool élastique de bases de données](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA est un outil intégré au [portail Azure](https://portal.azure.com), qui évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur de base de données SQL existant et recommande une configuration de pool de base de données élastique approprié. Pour plus d’informations, voir [Recommandations relatives aux niveaux de tarification du pool élastique de bases de données](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **Outil de dimensionnement DMV**<br>L’outil de dimensionnement DMV est fourni en tant que script PowerShell et permet de personnaliser les estimations de dimensionnement d’un pool de base de données élastique pour les bases de données existantes dans un serveur.
 
@@ -160,7 +160,7 @@ Sélectionnez l'outil convenant à l’analyse de votre application spécifique.
 
 STA évalue l’historique d’utilisation des bases de données et recommande un pool élastique de bases de données lorsque ce dernier est plus rentable que l’utilisation des niveaux de performances pour les bases de données uniques. Si un pool est recommandé, cet outil fournit la liste des bases de données recommandées, ainsi que la quantité recommandée d’eDTU du pool et les paramètres eDTU min/max pour chaque base de données élastique. Pour qu’une base de données soit considérée comme candidate à un pool, elle doit exister depuis au moins 7 jours.
 
-STA est disponible dans la version préliminaire du portail Azure lorsque vous ajoutez un pool élastique de bases de données à un serveur existant. Si des recommandations pour un pool élastique de bases de données sont disponibles pour ce serveur, elles sont affichées dans la page de création « Pool de bases de données élastique ». Les clients peuvent toujours modifier les configurations recommandées pour créer leur propre regroupement pool élastique de bases données.
+STA est disponible dans le portail Azure lorsque vous ajoutez un pool élastique de bases de données à un serveur existant. Si des recommandations pour un pool élastique de bases de données sont disponibles pour ce serveur, elles sont affichées dans la page de création « Pool de bases de données élastique ». Les clients peuvent toujours modifier les configurations recommandées pour créer leur propre regroupement pool élastique de bases données.
 
 Pour plus d’informations, voir [Recommandations relatives aux niveaux de tarification du pool élastique de bases de données](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
@@ -435,4 +435,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

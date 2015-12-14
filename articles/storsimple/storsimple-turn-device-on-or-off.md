@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Activation ou désactivation de votre appareil StorSimple 
@@ -189,11 +189,11 @@ Il peut être nécessaire d'arrêter un appareil Microsoft Azure StorSimple en c
 
 ### Appareil avec boîtier principal <a name="8100a"> 
 
-Il n'existe actuellement aucun moyen d'arrêter un appareil StorSimple en cours d'exécution à partir du portail de gestion. La seule façon de l'arrêter est d'utiliser Windows PowerShell pour StorSimple. Pour arrêter l'appareil de manière ordonnée et contrôlée, accédez à Windows PowerShell pour StorSimple et suivez les étapes ci-dessous.
+Il n'existe actuellement aucun moyen d'arrêter un appareil StorSimple en cours d'exécution à partir du portail Azure Classic. La seule façon de l'arrêter est d'utiliser Windows PowerShell pour StorSimple. Pour arrêter l'appareil de manière ordonnée et contrôlée, accédez à Windows PowerShell pour StorSimple et suivez les étapes ci-dessous.
 
 >[AZURE.IMPORTANT]N'arrêtez pas un appareil en cours d'exécution à l'aide du bouton d'alimentation situé à l'arrière de l'appareil.
 >
->Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail de gestion, accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Si le système est sur le point d’être arrêté pour procéder au remplacement d'un composant défaillant, vous verrez s'afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs sous **État du matériel**.
+>Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail Azure Classic accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Si le système est sur le point d’être arrêté pour procéder au remplacement d'un composant défaillant, vous verrez s'afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs sous **État du matériel**.
 
 Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la console série de l'appareil ou à l'aide de l'accès distant Windows PowerShell. Lorsque vous avez accédé à Windows PowerShell pour StorSimple, procédez comme suit pour arrêter un appareil en cours d'exécution.
 
@@ -241,4 +241,4 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 [Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

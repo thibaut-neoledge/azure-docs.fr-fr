@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@ Après avoir lu ce didacticiel, vous pourrez :
 - déchiffrer et modifier un package de support.
 
 
-## Création d'un package de support dans le portail de gestion
+## Création d'un package de support dans le portail Azure Classic
 
-Pour résoudre les problèmes que vous pourriez rencontrer avec le service StorSimple Manager, vous pouvez créer et télécharger un package de support sur le site de support technique de Microsoft à l'aide de la page **Maintenance** du service dans le portail de gestion. Vous devrez fournir une clé de sécurité de support pour autoriser le téléchargement. La clé de sécurité de support doit vous être fournie par un ingénieur du support technique dans un message électronique. Un package de support non crypté et compressé est créé (fichier .cab). Ce package peut ensuite être récupéré par l'ingénieur du support technique à partir du site de support lorsqu'il vous fournit la clé de sécurité.
+Pour résoudre les problèmes que vous pourriez rencontrer avec le service StorSimple Manager, vous pouvez créer et télécharger un package de support sur le site de support technique de Microsoft à l'aide de la page **Maintenance** du service dans le portail Azure Classic. Vous devrez fournir une clé de sécurité de support pour autoriser le téléchargement. La clé de sécurité de support doit vous être fournie par un ingénieur du support technique dans un message électronique. Un package de support non crypté et compressé est créé (fichier .cab). Ce package peut ensuite être récupéré par l'ingénieur du support technique à partir du site de support lorsqu'il vous fournit la clé de sécurité.
 
-Procédez comme suit dans le portail de gestion pour créer un package de support :
+Procédez comme suit dans le portail classique pour créer un package de support :
 
-#### Pour créer un package de support dans le portail de gestion
+#### Pour créer un package de support dans le portail Azure Classic
 
 1. Accédez à **Appareils > Maintenance**.
 
@@ -123,7 +123,7 @@ Les différents paramètres qui peuvent être utilisés avec l'applet de command
 
 Une fois que vous avez généré un package de support, vous devrez peut-être le modifier pour supprimer les informations spécifiques au client, comme les noms de volumes, les adresses IP d'appareils et les noms des sauvegardes des fichiers journaux.
 
-> [AZURE.IMPORTANT]Vous pouvez uniquement modifier un package de support qui a été généré à l'aide de Windows PowerShell pour StorSimple. Vous ne pouvez pas modifier un package créé dans le portail de gestion avec le service StorSimple Manager.
+> [AZURE.IMPORTANT]Vous pouvez uniquement modifier un package de support qui a été généré à l'aide de Windows PowerShell pour StorSimple. Vous ne pouvez pas modifier un package créé dans le portail Azure Classic avec le service StorSimple Manager.
 
 Pour modifier un package de support avant de le télécharger sur le site de support technique de Microsoft, vous devez déchiffrer le package de support, modifier les fichiers et le chiffrer de nouveau. Procédez comme suit pour modifier un package de support :
 
@@ -199,4 +199,4 @@ Vous trouverez ci-dessous un exemple illustrant comment déchiffrer, modifier et
 - Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

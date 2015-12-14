@@ -39,15 +39,15 @@ Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
 ## Étape 1. Configuration d’un cluster HPC Pack dans Azure
 
-Nous allons vous montrer deux méthodes de configuration du cluster : tout d'abord à l'aide d'un modèle de démarrage rapide Azure et du portail Azure en version préliminaire, et, deuxièmement, à l'aide d'un script de déploiement Azure PowerShell.
+Nous allons vous montrer deux méthodes de configuration du cluster : tout d'abord à l'aide d'un modèle de démarrage rapide Azure et du portail Azure, et, deuxièmement, à l'aide d'un script de déploiement Azure PowerShell.
 
 
 ### Utilisation d’un modèle de démarrage rapide
-Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et facilement un cluster HPC Pack dans le portail Azure en version préliminaire. Lorsque vous ouvrez le modèle dans le portail en version préliminaire, vous obtenez une interface utilisateur simple vous permettant de saisir les paramètres pour votre cluster. Voici la procédure à suivre.
+Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et facilement un cluster HPC Pack dans le portail Azure. Lorsque vous ouvrez le modèle dans le portail en version préliminaire, vous obtenez une interface utilisateur simple vous permettant de saisir les paramètres pour votre cluster. Voici la procédure à suivre.
 
 1. Consultez [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si vous le souhaitez, examinez les informations sur le modèle et le code source.
 
-2. Cliquez sur **Déployer vers Azure** pour lancer un déploiement avec le modèle dans le portail Azure en version préliminaire.
+2. Cliquez sur **Déployer vers Azure** pour lancer un déploiement avec le modèle dans le portail Azure.
 
     ![Modèle de déploiement vers Azure][github]
 
@@ -81,7 +81,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
 
 3.	Lorsque le déploiement est terminé (cela dure environ 30 minutes généralement), exportez le fichier de certificat de cluster depuis le nœud principal du cluster. Par la suite, ce certificat public sera importé sur l'ordinateur client pour fournir l'authentification côté serveur pour une liaison HTTP sécurisée.
 
-    a. Connectez-vous au nœud principal par le Bureau à distance à partir du portail Azure en version préliminaire.
+    a. Connectez-vous au nœud principal par le Bureau à distance à partir du portail Azure.
 
      ![Connexion au nœud principal][connect]
 
@@ -347,7 +347,7 @@ Pour ce faire, vous devez définir explicitement l’indicateur UseAzureQueue su
 
 ### Utilisation de la liaison NetTcp
 
-Pour utiliser une liaison NetTcp, la configuration est semblable à la connexion à un cluster local. Vous devrez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Dans le portail Azure, procédez comme suit :
+Pour utiliser une liaison NetTcp, la configuration est semblable à la connexion à un cluster local. Vous devrez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Dans le portail Azure Classic, procédez comme suit :
 
 
 1. Arrêtez la machine virtuelle.
@@ -381,4 +381,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

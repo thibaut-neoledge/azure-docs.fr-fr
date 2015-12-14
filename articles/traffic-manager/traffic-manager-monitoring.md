@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # À propos de la surveillance avec Traffic Manager
 
-Azure Traffic Manager surveille vos points de terminaison, y compris les services cloud et sites web, pour vérifier qu’ils sont disponibles. Afin que la surveillance fonctionne correctement, vous devez la configurer de la même façon pour chaque point de terminaison que vous spécifiez dans votre profil Traffic Manager. Dès lors que vous avez configuré la surveillance, Traffic Manager affiche l’état de vos points de terminaison et de votre profil dans le Portail de gestion. Vous pouvez configurer les paramètres de surveillance dans le Portail de gestion sur la page Configurer de votre profil Traffic Manager. Vous pouvez spécifier les paramètres suivants :
+Azure Traffic Manager surveille vos points de terminaison, y compris les services cloud et sites web, pour vérifier qu’ils sont disponibles. Afin que la surveillance fonctionne correctement, vous devez la configurer de la même façon pour chaque point de terminaison que vous spécifiez dans votre profil Traffic Manager. Dès lors que vous avez configuré la surveillance, Traffic Manager affiche l’état de vos points de terminaison et de votre profil dans le Portail Azure. Vous pouvez configurer les paramètres de surveillance dans le Portail Azure sur la page Configurer de votre profil Traffic Manager. Vous pouvez spécifier les paramètres suivants :
 
 - **Protocole** : choisissez HTTP ou HTTPS. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement qu’il est présent.
 
@@ -27,7 +27,7 @@ Azure Traffic Manager surveille vos points de terminaison, y compris les service
 
 ## À propos de la surveillance de l’état d’intégrité
 
-Azure Traffic Manager indique l’intégrité du service du point de terminaison et du profil dans le Portail de gestion. La colonne d’état affiche l’état d’analyse le plus récent pour le profil et le point de terminaison. Cet état vous permet de connaître l’intégrité de vos profils en fonction de vos paramètres de surveillance Traffic Manager. Lorsque votre profil est intègre, les requêtes DNS sont distribuées à vos services selon les paramètres de routage du trafic du profil (tourniquet (round robin), performances ou basculement). Lorsque le système de surveillance de Traffic Manager détecte une modification de l’état d’analyse, il met à jour l’entrée d’état dans le Portail de gestion. L’actualisation de l’état peut prendre jusqu’à cinq minutes.
+Azure Traffic Manager indique l’intégrité du service du point de terminaison et du profil dans le Portail Azure. La colonne d’état affiche l’état d’analyse le plus récent pour le profil et le point de terminaison. Cet état vous permet de connaître l’intégrité de vos profils en fonction de vos paramètres de surveillance Traffic Manager. Lorsque votre profil est intègre, les requêtes DNS sont distribuées à vos services selon les paramètres de routage du trafic du profil (tourniquet (round robin), performances ou basculement). Lorsque le système de surveillance de Traffic Manager détecte une modification de l’état d’analyse, il met à jour l’entrée d’état dans le Portail Azure. L’actualisation de l’état peut prendre jusqu’à cinq minutes.
 
 ### État d’analyse des points de terminaison
 
@@ -103,7 +103,7 @@ Le tableau suivant décrit le comportement de surveillance de Traffic Manager po
 
 1. Créez un fichier portant le même nom sur chaque point de terminaison que vous envisagez d’inclure dans votre profil.
 2. Pour chaque point de terminaison, utilisez un navigateur web pour tester l’accès au fichier. L’URL est constituée du nom de domaine du point de terminaison spécifique (service cloud ou site web), du chemin d’accès au fichier et du nom de fichier. 
-3. Dans le portail de gestion, sous **Paramètres de surveillance**, indiquez le chemin d’accès et le nom du fichier dans le champ **Chemin d’accès relatif et nom de fichier**.
+3. Dans le portail Azure, sous **Paramètres de surveillance**, indiquez le chemin d’accès et le nom du fichier dans le champ **Chemin d’accès relatif et nom de fichier**.
 4. Après avoir modifié la configuration, cliquez sur **Enregistrer** en bas de la page.
 
 ## Voir aussi
@@ -115,4 +115,4 @@ Le tableau suivant décrit le comportement de surveillance de Traffic Manager po
 [Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

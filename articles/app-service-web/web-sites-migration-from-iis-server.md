@@ -123,7 +123,7 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
  
 20.	Cliquez sur les liens vers les applications web Azure et vérifiez que la migration s’est correctement déroulée.
 
-21. Vous pouvez désormais gérer les applications web migrées dans Azure App Service. Pour ce faire, connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+21. Vous pouvez désormais gérer les applications web migrées dans Azure App Service. Pour ce faire, connectez-vous au [portail Azure](https://portal.azure.com).
 
 22. Dans le portail Azure, ouvrez le panneau Applications web pour visualiser les sites web dont vous avez effectué la migration (représentés sous la forme d’applications web), puis cliquez sur l’un d’eux pour démarrer les tâches de gestion de l’application web, telles que la configuration de la publication continue, la création de sauvegardes, l’ajustement automatique et la surveillance de l’utilisation ou des performances.
 
@@ -133,7 +133,6 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

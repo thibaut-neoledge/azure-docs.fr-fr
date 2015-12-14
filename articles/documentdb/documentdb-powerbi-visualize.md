@@ -39,7 +39,7 @@ Avant de suivre les instructions de ce didacticiel pour Power BI, assurez-vous d
 	- Le compte de démonstration comprend les données relatives au volcan présentées dans ce didacticiel. Ce compte de démonstration n’est lié à aucun contrat de niveau de service et est réservé uniquement à des fins de démonstration. Nous nous réservons le droit d’apporter à tout moment des modifications à ce compte de démonstration sans préavis et sans raison, y compris sans toutefois s’y limiter, à résilier le compte, à modifier la clé d’accès, à restreindre l’accès, à modifier et supprimer les données. 
 		- URL :https://analytics.documents.azure.com
 		- Clé en lecture seule : MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw ==
-	- Sinon, créez votre propre compte ; pour cela, consultez l’article [Création d’un compte de base de données DocumentDB avec le portail Azure en version préliminaire](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Ensuite, pour obtenir des exemples de données de volcan semblables à celles utilisées dans ce didacticiel (mais qui ne contiennent pas les blocs GeoJSON), consultez le [site NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) puis importez les données à l’aide de l’[outil de migration de données DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Sinon, créez votre propre compte ; pour cela, consultez l’article [Création d’un compte de base de données DocumentDB avec le portail Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Ensuite, pour obtenir des exemples de données de volcan semblables à celles utilisées dans ce didacticiel (mais qui ne contiennent pas les blocs GeoJSON), consultez le [site NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) puis importez les données à l’aide de l’[outil de migration de données DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com. Pour en savoir plus sur la version gratuite de Power BI et sur Power BI Pro, visitez le site [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -86,7 +86,7 @@ Prêt à vous lancer ? Allons-y.
 
 	![Power BI Desktop - Obtenir des données](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. Spécifiez l’URL du point de terminaison du compte DocumentDB dont vous souhaitez récupérer les données (voir ci-dessous), puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **Clés** de la version préliminaire du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus. Pour plus d’informations, consultez la page relative aux [Clés](documentdb-manage-account.md#keys).
+6. Spécifiez l’URL du point de terminaison du compte DocumentDB dont vous souhaitez récupérer les données (voir ci-dessous), puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **Clés** du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus. Pour plus d’informations, consultez la page relative aux [Clés](documentdb-manage-account.md#keys).
 
 
 	*Remarque : dans ce didacticiel, nous n’allons pas spécifier ni le nom de la base de données, ni le nom de la collection ni l’instruction SQL car ces champs sont facultatifs. Nous allons utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.*
@@ -95,7 +95,7 @@ Prêt à vous lancer ? Allons-y.
 
 7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Entrez la clé du compte et cliquez sur **Se connecter**.
 	
-	*Remarque : nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau correspondant de la version préliminaire du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.*
+	*Remarque : nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau correspondant du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.*
 
     ![Power BI Desktop - Clé du compte](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -194,4 +194,4 @@ Pour partager votre rapport, vous devez disposer d’un compte dans PowerBI.com.
 - Cliquez [ici](https://support.powerbi.com/knowledgebase) pour en savoir plus sur Power BI.
 - Pour en savoir plus sur DocumentDB, cliquez [ici](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

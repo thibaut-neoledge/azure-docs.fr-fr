@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Désactiver, activer ou supprimer un profil
 
 
-Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvoie pas les demandes utilisateur vers ses points de terminaison configurés. Lorsque vous désactivez un profil Traffic Manager, le profil et les informations qu’il contient demeurent intacts et peuvent être modifiés via l’interface de Traffic Manager. Vous pouvez réactiver le profil facilement via le Portail de gestion. Dans ce cas, les références seront rétablies. Lorsque vous créez un profil Traffic Manager dans le Portail de gestion, il est automatiquement activé.
+Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvoie pas les demandes utilisateur vers ses points de terminaison configurés. Lorsque vous désactivez un profil Traffic Manager, le profil et les informations qu’il contient demeurent intacts et peuvent être modifiés via l’interface de Traffic Manager. Vous pouvez réactiver le profil facilement via le portail Azure. Dans ce cas, les références seront rétablies. Lorsque vous créez un profil Traffic Manager dans le portail Azure, il est automatiquement activé.
 
 ## Désactivation d’un profil
 
@@ -54,4 +54,4 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

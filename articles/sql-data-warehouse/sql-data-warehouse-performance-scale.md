@@ -36,9 +36,9 @@ Si votre application présente une charge de travail fluctuante, augmentez et r�
 ## Montée et descente en puissance des ressources de calcul
 Indépendante du stockage de type cloud, la flexibilité de SQL Data Warehouse vous permet d’augmenter, de réduire ou d’interrompre la capacité de calcul à l’aide d’une mise à l’échelle par glissement des unités d’entrepôt de données (DWU). Ainsi, vous disposez de la latitude nécessaire pour configurer une capacité de calcul optimale pour votre activité.
 
-Pour augmenter votre puissance de calcul, vous pouvez ajouter d’autres DWU au service à l’aide du curseur de montée en puissance parallèle dans le portail Azure. Vous pouvez également ajouter des DWU via les applets de commande T-SQL, API REST ou Powershell. La montée et la descente en puissance annulent l’ensemble des activités en cours et en attente, mais s’exécutent en quelques secondes. Ainsi, vous pouvez reprendre en quelques secondes, avec une capacité de calcul approximativement égale.
+Pour augmenter votre puissance de calcul, vous pouvez ajouter d’autres DWU au service à l’aide du curseur de montée en puissance parallèle dans le portail Azure Classic. Vous pouvez également ajouter des DWU via les applets de commande T-SQL, API REST ou Powershell. La montée et la descente en puissance annulent l’ensemble des activités en cours et en attente, mais s’exécutent en quelques secondes. Ainsi, vous pouvez reprendre en quelques secondes, avec une capacité de calcul approximativement égale.
 
-Dans le [Portail Azure][], vous pouvez cliquer sur l’icône de « Montée en puissance parallèle » en haut de votre page SQL Data Warehouse, puis utiliser le curseur pour augmenter ou baisser la quantité d’unités DWU appliquée à votre entrepôt de données avant de cliquer sur « Enregistrer ». Si vous souhaitez chanter l’échelle par programmation, le code T-SQL ci-dessous indique comment ajuster l’allocation de DWU pour votre instance SQL Data Warehouse :
+Dans le [Portail Azure Classic][], vous pouvez cliquer sur l’icône de « Montée en puissance parallèle » en haut de votre page SQL Data Warehouse, puis utiliser le curseur pour augmenter ou baisser la quantité d’unités DWU appliquée à votre entrepôt de données avant de cliquer sur « Enregistrer ». Si vous souhaitez chanter l’échelle par programmation, le code T-SQL ci-dessous indique comment ajuster l’allocation de DWU pour votre instance SQL Data Warehouse :
 
 ```
 ALTER DATABASE MySQLDW 
@@ -58,7 +58,7 @@ SQL Data Warehouse est la seule solution qui prend en charge l’interruption 
 
 L’action d’interruption renvoie vos ressources de calcul vers le pool de ressources disponible du centre de données et l’action de reprise rassemble les ressources de calcul nécessaires pour le volume défini de DWU et les alloue à votre instance Data Warehouse.
 
-L’interruption et la reprise de votre capacité de calcul s’effectuent via le [portail Azure][], via des API REST ou par le biais de PowerShell. L’interruption annule l’ensemble des activités en cours ou en attente. Le moment venu, vous pouvez relancer vos ressources de calcul en quelques secondes.
+L’interruption et la reprise de votre capacité de calcul s’effectuent via le [portail Azure Classic][], via des API REST ou par le biais de PowerShell. L’interruption annule l’ensemble des activités en cours ou en attente. Le moment venu, vous pouvez relancer vos ressources de calcul en quelques secondes.
 
 Le code ci-dessous indique comment effectuer une pause à l’aide de PowerShell :
 
@@ -91,7 +91,7 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 
 <!--Other Web references-->
 
-[Portail Azure]: http://portal.azure.com/
-[portail Azure]: http://portal.azure.com/
+[Portail Azure Classic]: http://portal.azure.com/
+[portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

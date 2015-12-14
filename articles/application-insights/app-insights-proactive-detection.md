@@ -49,7 +49,7 @@ La détection proactive est en version préliminaire et n'est pas encore disponi
 * *Puis-je créer mes propres règles de détection d’anomalies ?*
  * Pas encore. Mais vous pouvez :
  * [configurer des alertes](app-insights-alerts.md) qui vous indiquent qu'une métrique dépasse un seuil ;
- * [exporter la télémétrie](app-insights-export-telemetry.md) vers une [base de données](app-insights-code-sample-export-sql-stream-analytics.md) ou vers [PowerBI](app-insights-export-power-bi.md) ou d'[autres](app-insights-code-sample-export-telemetry-sql-database.md) outils, où vous pourrez les analyser vous-même.
+ * [exporter la télémétrie](app-insights-export-telemetry.md) vers une [base de données](app-insights-code-sample-export-sql-stream-analytics.md), vers [PowerBI](app-insights-export-power-bi.md) ou d'[autres](app-insights-code-sample-export-telemetry-sql-database.md) outils, où vous pourrez les analyser vous-même.
 * *À quelle fréquence sont réalisées les analyses ?*
  * Nous exécutons l’analyse tous les jours sur la télémétrie du jour précédent.
 * **Cela remplace-t-il les [alertes de métrique](app-insights-alerts.md) ?
@@ -62,7 +62,7 @@ Ouvrez le rapport des anomalies à partir de l'adresse e-mail ou de la liste des
 ![](./media/app-insights-proactive-detection/03.png)
 
 
-* **Quand** (When) montre l’heure à laquelle le problème a été détecté.
+* **Quand** (When) montre l'heure à laquelle le problème a été détecté.
 * **Quoi** (What) décrit :
  * le problème qui a été détecté ;
  * les caractéristiques du jeu d’événements qui a affiché le comportement du problème.
@@ -92,8 +92,8 @@ Ouvrez le panneau métrique des navigateurs. L'[affichage segmenté du temps de 
 
 * Si le **Temps d'envoi de demande** est élevé, le serveur répond lentement ou la demande contient une importante quantité de données. Examinez les [mesures de performances](app-insights-web-monitor-performance.md#metrics) pour étudier les temps de réponse. 
 * Configurez le [suivi des dépendances](app-insights-dependencies.md) pour voir si cette lenteur est due à des services externes ou à votre base de données.
-* Si la **réception de réponse** est prédominante, votre page et ses composants dépendants (JavaScript, CSS, images, etc., mais pas de données chargées de manière asynchrone) sont longs. Configurez un [test de disponibilité](app-insights-monitor-web-app-availability.md) et veillez à définir l’option de chargement des éléments dépendants. Lorsque vous obtenez des résultats, ouvrez les détails d’un résultat et développez-les pour afficher les temps de chargement de différents fichiers.
-* Des **durées de traitement du client** prolongés suggèrent que l'exécution des scripts est lente. Si la raison n’est pas évidente, pensez à ajouter un code de minutage et à envoyer les heures dans les appels trackMetric.
+* Si la **réception de réponse** est prédominante, votre page et ses composants dépendants (JavaScript, CSS, images, etc., mais pas de données chargées de manière asynchrone) sont longs. Configurez un [test de disponibilité](app-insights-monitor-web-app-availability.md) et veillez à définir l'option de chargement des éléments dépendants. Lorsque vous obtenez des résultats, ouvrez les détails d’un résultat et développez-les pour afficher les temps de chargement de différents fichiers.
+* Des **durées de traitement du client** prolongées suggèrent que l'exécution des scripts est lente. Si la raison n’est pas évidente, pensez à ajouter un code de minutage et à envoyer les heures dans les appels trackMetric.
 
 ### Améliorer les pages lentes
 
@@ -128,4 +128,4 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir de la fenêtre **Informations de connexion** du [portail Azure][].
+Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir de la fenêtre **Informations de connexion** du [portail Azure Classic][].
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Suppression de rubriques et d'abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du portail Azure ou par programme. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure Classic][] ou par programme. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 -   Consultez [Files d’attente, rubriques et abonnements][].
 -   Référence pour [SqlFilter.SqlExpression][].
 
-[portail Azure]: http://manage.windowsazure.com
+[portail Azure Classic]: http://manage.windowsazure.com
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

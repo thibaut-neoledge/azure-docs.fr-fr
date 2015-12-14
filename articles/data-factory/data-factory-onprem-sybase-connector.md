@@ -235,7 +235,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-TableName | Nom de la table dans l'instance de base de données Sybase à laquelle le service lié fait référence. | Oui
+TableName | Nom de la table dans l'instance de base de données Sybase à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée)
 
 ## Propriétés de type de l'activité de copie Sybase 
 
@@ -243,11 +243,11 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource**(qui inclut Sybase), les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Sybase), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
-query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Non
+query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Non (si **tableName** de **dataset** est spécifiée)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -258,10 +258,10 @@ Comme mentionné dans l’article consacré aux activités de déplacement des d
 1. Conversion de types natifs source en types .NET
 2. Conversion de types .NET en types récepteur natifs
 
-Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de types sql en un type .NET, consultez l’article [Connecteur Azure SQL](data-factory-azure-sql-connector.md).
+Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de types SQL en un type .NET, consultez l’article [Connecteur Azure SQL](data-factory-azure-sql-connector.md).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

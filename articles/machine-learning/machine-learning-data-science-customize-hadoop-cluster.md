@@ -29,7 +29,7 @@ Cette personnalisation permet de mettre à disposition de nombreux modules Pytho
 
 ## <a name="customize"></a>Personnaliser le cluster Hadoop Azure HDInsight
 
-Pour créer un cluster Hadoop HDInsight personnalisé, les utilisateurs doivent se connecter au [**portail de gestion Azure**](https://manage.windowsazure.com/), cliquer sur l’option **Nouveau** dans l’angle inférieur gauche de la page et sélectionner SERVICES DE DONNÉES -> HDINSIGHT -> **CRÉATION PERSONNALISÉE** pour faire apparaître la fenêtre **Détails du cluster**.
+Pour créer un cluster Hadoop HDInsight personnalisé, les utilisateurs doivent se connecter au [**portail Azure Classic**](https://manage.windowsazure.com/), cliquer sur l’option **Nouveau** dans l’angle inférieur gauche de la page et sélectionner SERVICES DE DONNÉES -> HDINSIGHT -> **CRÉATION PERSONNALISÉE** pour faire apparaître la fenêtre **Détails du cluster**.
 
 ![Create workspace][1]
 
@@ -68,7 +68,7 @@ Enfin, cliquez sur la coche pour démarrer la création du cluster Hadoop HDIns
 
 Les utilisateurs doivent activer l’accès à distance au cluster Hadoop dans Microsoft Azure pour pouvoir accéder au nœud principal du cluster Hadoop, via RDP.
 
-1. Connectez-vous au [**portail de gestion Azure**](https://manage.windowsazure.com/), sélectionnez la valeur **HDInsight** sur la gauche, choisissez le cluster Hadoop dans la liste des clusters, cliquez sur l’onglet **CONFIGURATION** puis sur l’icône **ACTIVER DISTANT**, dans la partie inférieure de la page.
+1. Connectez-vous au [**portail Azure Classic**](https://manage.windowsazure.com/), sélectionnez la valeur **HDInsight** sur la gauche, choisissez le cluster Hadoop dans la liste des clusters, cliquez sur l’onglet **CONFIGURATION** puis sur l’icône **ACTIVER DISTANT**, dans la partie inférieure de la page.
 	
 	![Create workspace][7]
 
@@ -102,4 +102,4 @@ Consultez la section [Envoyer des requêtes Hive à des clusters Hadoop HDInsigh
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,11 +15,11 @@
 
     ![Créer un conteneur de volumes avec le modèle de bande passante 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-3. Si vous avez spécifié **Sélectionner un modèle de bande passante**, choisissez dans la liste déroulante des modèles de bande passante existants. Vérifiez les paramètres de planification et cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+3. Si vous avez spécifié **Sélectionner un modèle de bande passante**, choisissez un modèle de bande passante existant dans la liste déroulante. Vérifiez les paramètres de planification et cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
 
     ![Créer un conteneur de volumes avec le modèle de bande passante 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
 Le conteneur de volumes est enregistré et le nouveau conteneur de volumes apparaît sur la page **Conteneur de volumes**.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

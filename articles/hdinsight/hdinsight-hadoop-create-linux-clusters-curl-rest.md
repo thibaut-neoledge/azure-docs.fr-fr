@@ -33,7 +33,7 @@ L’API REST Azure vous permet d’effectuer des opérations de gestion sur les 
 
 - __Interface de ligne de commande Azure__. Cette interface est utilisée pour créer un principal du service, qui sert ensuite à générer des jetons d’authentification pour les demandes envoyées à l’API REST Azure.
 
-    Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
+    Pour plus d’informations sur l’installation de la CLI, consultez [Installer la CLI Azure](xplat-cli-install.md).
 
 - __cURL__. Cet utilitaire est disponible via votre système de gestion des packages, ou il peut être téléchargé à partir de [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -274,7 +274,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 > * L’ID d’application renvoyé lors de la création du principal du service
 > * Le mot de passe du principal du service utilisé lors de la création de ce dernier
 
-Suivez les étapes décrites dans la section _Authentifier le principal du service avec mot de passe - Azure CLI_ du document [Authentification d’un principal du service à l’aide d’Azure Resource Manager](https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Cette procédure crée un principal du service qui peut être utilisé pour authentifier la demande de création de cluster.
+Suivez les étapes décrites dans la section _Authentifier le principal du service avec un mot de passe - Azure CLI_ dans le document [Authentification d’un principal du service à l’aide d’Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Cette procédure crée un principal du service qui peut être utilisé pour authentifier la demande de création de cluster.
 
 ##Obtenir un jeton d’authentification
 
@@ -355,4 +355,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

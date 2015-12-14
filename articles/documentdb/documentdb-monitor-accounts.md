@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Surveillance d’un compte DocumentDB avec le portail Azure en version préliminaire | Microsoft Azure" 
+	pageTitle="Surveillance d’un compte DocumentDB avec le portail Azure | Microsoft Azure" 
 	description="Découvrez comment surveiller, dans votre compte DocumentDB, les mesures de performances (notamment les demandes et les erreurs de serveur) et les mesures d'utilisation (par exemple, l'espace de stockage utilisé)." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -18,10 +18,10 @@
 
 # Surveillance d'un compte DocumentDB 
 
-Vous pouvez surveillez vos comptes DocumentDB dans le [portail Azure en version préliminaire de Microsoft](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
+Vous pouvez surveiller vos comptes DocumentDB dans le [portail Microsoft Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
 ## Affichage des mesures de performances pour un compte DocumentDB
-1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
+1.	Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
 2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
 	*	le nombre total de demandes pour le jour en cours ;
 	*	la moyenne des demandes par seconde pour le jour en cours. 
@@ -48,7 +48,7 @@ Vous pouvez surveillez vos comptes DocumentDB dans le [portail Azure en version 
 
 
 ## Création de graphiques de performances côte à côte
-La version préliminaire du portail Azure vous permet de créer des graphiques côte à côte.
+Le portail Azure vous permet de créer des graphiques côte à côte.
 
 1.	Tout d'abord, cliquez avec le bouton droit sur le graphique à cloner et à modifier, puis sélectionnez **Personnaliser**. 
 
@@ -62,7 +62,7 @@ La version préliminaire du portail Azure vous permet de créer des graphiques c
 Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en personnalisant les mesures et la plage horaire affichées. Ainsi, vous pouvez afficher deux graphiques de mesures différents, côte à côte, en même temps. ![Capture d'écran du graphique du nombre total des demandes et le graphique nouveau nombre total des demandes pour l’heure précédente](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## Affichage des mesures d'utilisation pour un compte DocumentDB
-1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures d'utilisation.
+1.	Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures d’utilisation.
 2.	Dans le filtre **Utilisation**, vous pouvez afficher les informations suivantes par défaut :
 	*	le coût du compte DocumentDB estimé à ce jour pour la période de facturation actuelle ;
 	*	la consommation du stockage sur le compte ;
@@ -73,7 +73,7 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 	![Capture d'écran du filtre Utilisation](./media/documentdb-monitor-accounts/madocdb9.png)
  
 ## Configuration d'alertes de mesures de performances pour un compte DocumentDB
-1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
+1.	Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir tout**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
 2.	Dans le filtre **Opérations**, cliquez sur la partie **Règles d'alerte**. ![Capture d'écran du filtre Opérations, avec la partie Règles d'alerte sélectionnée](./media/documentdb-monitor-accounts/madocdb10.png)
 
 3.	Dans le panneau Règles d'alerte, cliquez sur** Ajouter une alerte**. ![Capture d'écran du panneau Règles d'alerte, avec le bouton Ajouter une alerte mis en surbrillance](./media/documentdb-monitor-accounts/madocdb11.png)
@@ -90,4 +90,4 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

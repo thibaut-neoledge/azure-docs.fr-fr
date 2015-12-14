@@ -17,7 +17,7 @@
 # Création et gestion des tâches de bases de données SQL élastiques à l'aide de PowerShell (version préliminaire)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -209,7 +209,7 @@ Ouvrez une connexion des tâches de bases de données élastiques :
 
 Les informations d’identification de la base de données peuvent être insérées dans la *base de données de contrôle des tâches* avec un mot de passe chiffré. Il est nécessaire de stocker les informations d’identification pour activer des tâches à exécuter ultérieurement (à l’aide de planifications de tâches).
  
-Le chiffrement utilise un certificat créé dans le cadre du script d'installation. Le script d'installation crée et télécharge le certificat dans le Azure Cloud Service pour le déchiffrement des mots de passe chiffrés stockés. Azure Cloud Service stocke ultérieurement la clé publique dans la *base de données de contrôle* des tâches de bases de données, ce qui permet à l’interface de l’API PowerShell ou du portail Azure de chiffrer un mot de passe fourni sans que l’installation locale du certificat ne soit requise.
+Le chiffrement utilise un certificat créé dans le cadre du script d'installation. Le script d'installation crée et télécharge le certificat dans le Azure Cloud Service pour le déchiffrement des mots de passe chiffrés stockés. Azure Cloud Service stocke ultérieurement la clé publique dans la *base de données de contrôle* des tâches de bases de données, ce qui permet à l’interface de l’API PowerShell ou du portail Azure Classic de chiffrer un mot de passe fourni sans que l’installation locale du certificat ne soit requise.
  
 Les mots de passe des informations d’identification sont chiffrés et sécurisés auprès des utilisateurs ayant un accès en lecture seule aux objets des tâches de bases de données élastiques. Mais un utilisateur malveillant bénéficiant d’un accès en lecture-écriture aux objets de bases de données élastiques aura toujours la possibilité d’extraire un mot de passe. Les informations d’identification sont conçues pour être réutilisées lors des exécutions de tâches. Les informations d'identification sont transmises aux bases de données cibles lors de l'établissement des connexions. Il n’y a actuellement aucune restriction sur les bases de données cibles utilisées pour chaque information d’identification ; un utilisateur malveillant pourrait donc ajouter une cible de base de données pour une base de données dont il a le contrôle. L’utilisateur pourrait ensuite démarrer une tâche ciblant cette base de données afin d’obtenir le mot de passe associé aux informations d’identification.
 
@@ -248,7 +248,7 @@ Dans cet exemple, vous allez créer un gestionnaire des cartes de partitions ave
 
 2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
   
-3.  Le [portail Azure en version préliminaire](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
+3.  Le [portail Azure](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
 
 	![Confirmation Visual Studio][2]
 
@@ -694,4 +694,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

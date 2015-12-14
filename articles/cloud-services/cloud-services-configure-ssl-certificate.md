@@ -22,8 +22,8 @@
 # Configuration de SSL pour une application dans Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
@@ -114,9 +114,9 @@ Maintenant que les fichiers de définition du service et de configuration de ser
 
 ## Étape 3 : chargement d’un certificat
 
-Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le package et le certificat dans Azure via le portail de gestion.
+Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le certificat dans Azure via le portail Azure Classic.
 
-1. Connectez-vous au [portail de gestion Azure][]. 
+1. Connectez-vous au [portail Azure Classic][]. 
 2. Cliquez sur **Cloud Services** dans le volet de navigation de gauche.
 3. Cliquez sur le service cloud de votre choix.
 4. Cliquez sur l’onglet **Certificats**.
@@ -133,7 +133,7 @@ Votre package de déploiement a été mis à jour pour utiliser le certificat, e
 
 Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous y connecter via HTTPS.
 
-1.  Dans le portail de gestion, sélectionnez le déploiement, puis cliquez sur le lien sous **Site URL**.
+1.  Dans le portail Azure Classic, sélectionnez le déploiement, puis cliquez sur le lien sous **Site URL**.
 
     ![Déterminer l'URL du site][2]
 
@@ -143,7 +143,7 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 
     ![Exemple de site Web SSL][3]
 
-Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un déploiement de production, vous devez d'abord déterminer l'URL utilisée pour le déploiement intermédiaire. Déployez votre service cloud dans l'environnement intermédiaire sans inclure de certificat ou d'informations de certificat. Une fois le déploiement effectué, vous pouvez déterminer l'URL basée sur le GUID, qui se trouve dans le champ **Site URL** du portail de gestion. Créez un certificat dont le nom commun est le même que l'URL basée sur le GUID (par exemple, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), utilisez le portail de gestion pour ajouter le certificat à votre service de cloud intermédiaire, ajoutez les informations de certificat à vos fichiers CSDEF et CSCFG, recréez le package de votre application et mettez à jour le déploiement intermédiaire pour utiliser le nouveau package et le nouveau fichier CSCFG.
+Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un déploiement de production, vous devez d'abord déterminer l'URL utilisée pour le déploiement intermédiaire. Déployez votre service cloud dans l'environnement intermédiaire sans inclure de certificat ou d'informations de certificat. Une fois le déploiement effectué, vous pouvez déterminer l'URL basée sur le GUID, qui se trouve dans le champ **Site URL** du portail Azure Classic. Créez un certificat dont le nom commun est le même que l'URL basée sur le GUID (par exemple, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), utilisez le portail Azure Classic pour ajouter le certificat à votre service de cloud intermédiaire, ajoutez les informations de certificat à vos fichiers CSDEF et CSCFG, recréez le package de votre application et mettez à jour le déploiement intermédiaire pour utiliser le nouveau package et le nouveau fichier CSCFG.
 
 ## Étapes suivantes
 
@@ -153,11 +153,11 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 
 
-  [portail de gestion Azure]: http://manage.windowsazure.com
+  [portail Azure Classic]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

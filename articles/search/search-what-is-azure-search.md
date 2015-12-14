@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Présentation d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
+	pageTitle="Présentation d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Azure Search est un service de recherche cloud hébergé. Apprenez-en davantage dans cette présentation technique et ce résumé des fonctionnalités."
 	services="search"
 	documentationCenter=""
@@ -29,7 +29,7 @@ Azure Search est un service basé sur les API destiné aux développeurs et int�
 
 Azure Search est un [service PaaS](https://wikipedia.org/wiki/Platform_as_a_service) qui délègue la gestion du serveur et de l'infrastructure à Microsoft, et vous laisse un service prêt à l'emploi que vous remplissez avec des données de recherche, puis auquel vous accédez à partir de votre application. Selon la façon dont vous configurez le service, vous utiliserez le service gratuit partagé avec d'autres abonnés Azure Search ou le niveau de tarification Standard, qui offre des ressources dédiées utilisées uniquement par votre service. La recherche Standard est évolutive, avec des options pour répondre aux demandes croissantes en stockage ou en charges de requêtes.
 
-Azure Search stocke vos données dans un index qui peut être consulté via des requêtes de texte intégral. Le schéma de ces index peut être créé dans le portail Azure, ou par programme à l'aide de la bibliothèque cliente ou des API REST. Une fois le schéma défini, vous pouvez télécharger vos données vers le service Azure Search où elles seront indexées par la suite.
+Azure Search stocke vos données dans un index qui peut être consulté via des requêtes de texte intégral. Le schéma de ces index peut être créé dans le portail Azure Classic, ou par programme à l’aide de la bibliothèque cliente ou des API REST. Une fois le schéma défini, vous pouvez télécharger vos données vers le service Azure Search où elles seront indexées par la suite.
 
 Vous pouvez utiliser des modèles d’émission ou de collecte pour télécharger des données vers l'index. Le modèle de collecte est fourni par des indexeurs qui peuvent être configurés pour des mises à jour à la demande ou planifiées (consultez la rubrique [Opérations d'indexeur (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), ce qui vous permet de recevoir facilement les données et les modifications de données à partir d'une base de données Azure DocumentDB, Azure SQL ou SQL Server hébergée dans une machine virtuelle Azure. Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données, à condition d’utiliser le format JSON. Consultez la rubrique [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) pour obtenir des conseils sur le chargement des données.
 
@@ -131,4 +131,4 @@ Vous pouvez également essayer ces didacticiels :
 
 [Utilisation d’Azure Search dans .NET](search-howto-dotnet-sdk.md) [Prise en main d’Azure Search .NET](search-get-started-dotnet.md) [Azure Search : didacticiels, démonstrations vidéo et exemples](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

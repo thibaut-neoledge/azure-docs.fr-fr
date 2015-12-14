@@ -66,4 +66,4 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

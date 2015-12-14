@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Découvrez Data Lake Analytics et U-SQL en utilisant les didacticiels interactifs du portail Azure en version préliminaire | Azure" 
+   pageTitle="Découvrez Data Lake Analytics et U-SQL en utilisant les didacticiels interactifs du portail Azure | Azure" 
    description="Démarrage rapide avec Data Lake Analytics et U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -19,7 +19,7 @@
 
 # Utiliser les didacticiels interactifs Azure Data Lake Analytics
 
-Le portail Azure en version préliminaire fournit un didacticiel interactif pour vous familiariser avec Data Lake Analytics. Cet article vous montre comment parcourir le didacticiel pour l'analyse des journaux de sites web.
+Le portail Azure fournit un didacticiel interactif pour vous familiariser avec Data Lake Analytics. Cet article vous montre comment parcourir le didacticiel pour l'analyse des journaux de sites web.
 
 
 >[AZURE.NOTE]Si vous souhaitez suivre ce même didacticiel à l'aide de Visual Studio, consultez [Analyser les journaux des sites web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). D'autres didacticiels interactifs à ajouter au portail.
@@ -27,7 +27,7 @@ Le portail Azure en version préliminaire fournit un didacticiel interactif pour
 
 Pour les autres didacticiels, consultez :
 
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -36,17 +36,17 @@ Pour les autres didacticiels, consultez :
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un compte Data Lake Analytics**. Consultez [Prise en main d'Azure Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md).
+- **Un compte Data Lake Analytics**. Consultez [Prise en main d’Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md).
 
-##Créer un compte Data Lake Analytics 
+##Créer un compte Analytique Data Lake 
 
 Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir exécuter des travaux quelconques.
 
 Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](data-lake-store-overview.md) dépendant. Ce compte est désigné comme le compte Data Lake Store par défaut. Vous pouvez créer le compte Data Lake Store au préalable ou lorsque vous créez votre compte Data Lake Analytics. Dans ce didacticiel, vous allez créer le compte Data Lake Store avec le compte Analytics.
 
-**Pour créer un compte Data Lake Analytics**
+**Pour créer un compte Analytique Data Lake**
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Cliquez sur **Microsoft Azure** dans le coin supérieur gauche pour ouvrir le Tableau d'accueil.
 3. Cliquez sur la vignette **Marketplace**.  
 3. Tapez **Azure Data Lake Analytics** dans la zone de recherche du volet **Tout**, puis appuyez sur **ENTRÉE**. Vous devez voir **Azure Data Lake Analytics** dans la liste.
@@ -70,7 +70,7 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](dat
 
 **Pour ouvrir le didacticiel interactif d'analyse des journaux des sites web**
 
-1. À partir de la version préliminaire du portail, cliquez sur **Microsoft Azure** dans le menu de gauche pour ouvrir le Tableau d'accueil.
+1. Dans le portail, cliquez sur **Microsoft Azure** dans le menu de gauche pour ouvrir le Tableau d'accueil.
 2. Cliquez sur la vignette liée à votre compte Data Lake Analytics.
 3. Cliquez sur **Explorer les didacticiels interactifs** à partir de la barre **Essentials**.
 
@@ -83,9 +83,9 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](dat
 ##Voir aussi
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Prise en main de Data Lake Analytics à l'aide du portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
@@ -30,7 +30,7 @@ En fonction de vos sélections **Affichage**, le volet **Résultats** indique le
 
 | Colonne de résultats |Description |
 |:----------------|:--------------------| 
-| Nom | Le nom de l’appareil, tel que configuré dans le portail de gestion Microsoft Azure|
+| Nom | Le nom de l’appareil, tel que configuré dans le portail Azure Classic|
 | Modèle | Le numéro de modèle de l’appareil|
 | Version | La version du logiciel installé sur l’appareil |
 | Statut | La disponibilité de l’appareil |
@@ -82,7 +82,7 @@ Exécutez la procédure suivante pour ajouter ou remplacer un appareil StorSimp
 
 3. Dans la liste déroulante **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel.
 
-4. Dans la zone de texte **Mot de passe**, entrez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail de gestion Azure. Cliquez sur **OK**. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié.
+4. Dans la zone de texte **Mot de passe**, entrez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail Azure Classic. Cliquez sur **OK**. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié.
 
     - Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. 
 
@@ -190,11 +190,11 @@ Utilisez la procédure suivante pour supprimer une configuration d’appareil St
 
 ## Modification d’un mot de passe expiré d’appareil
 
-Vous devez entrer un mot de passe pour authentifier un appareil StorSimple avec le Gestionnaire d’instantanés StorSimple. Vous définissez ce mot de passe lorsque vous utilisez l’interface Windows PowerShell pour configurer l’appareil. Toutefois, le mot de passe peut expirer. Le cas échéant, vous avez la possibilité de le modifier à l’aide du portail de gestion Microsoft Azure. Ensuite, l’appareil ayant été configuré dans le Gestionnaire d’instantanés StorSimple avant l’expiration du mot de passe, vous devez de nouveau authentifier l’appareil dans le Gestionnaire d’instantanés StorSimple.
+Vous devez entrer un mot de passe pour authentifier un appareil StorSimple avec le Gestionnaire d’instantanés StorSimple. Vous définissez ce mot de passe lorsque vous utilisez l’interface Windows PowerShell pour configurer l’appareil. Toutefois, le mot de passe peut expirer. Le cas échéant, vous avez la possibilité de le modifier à l’aide du portail Azure Classic. Ensuite, l’appareil ayant été configuré dans le Gestionnaire d’instantanés StorSimple avant l’expiration du mot de passe, vous devez de nouveau authentifier l’appareil dans le Gestionnaire d’instantanés StorSimple.
 
 #### Pour modifier le mot de passe expiré
 
-1. Sur le portail de gestion Azure, démarrez le service StorSimple Manager.
+1. Sur le portail Azure Classic, démarrez le service StorSimple Manager.
 
 2. Cliquez sur **Appareils** > **Configurer** pour l’appareil.
 
@@ -263,4 +263,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

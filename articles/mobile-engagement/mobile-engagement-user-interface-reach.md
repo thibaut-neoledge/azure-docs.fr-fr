@@ -13,50 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 
 # Comment atteindre les utilisateurs de votre application avec des notifications Push
+
+Cet article décrit l’onglet **REACH** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
 La section Reach de l'interface utilisateur est l'outil de gestion des campagnes Push qui vous permet de créer, modifier, activer, terminer ou surveiller et obtenir des statistiques relatives aux campagnes de notifications Push et des fonctionnalités. Vous pouvez accéder à celles-ci via l'API Reach (ainsi que certains éléments de l'API Push de bas niveau). Que vous utilisiez ces API ou l'interface utilisateur, il vous faudra intégrer Azure Mobile Engagement et Reach à votre application pour chaque plateforme à l'aide du Kit de développement logiciel (SDK) avant de pouvoir utiliser les campagnes Reach.
 
-### Voir aussi
--  [Documentation sur les API - API Reach][Link 4], [Documentation sur les API - API Push][Link 4], [Guide de résolution des problèmes - Push/Reach][Link 23]
--  [Reach - Campagne][Link 27], [Reach - Critère][Link 28], [Reach - Contenu][Link 29], [Reach - Procédure][Link 3]
+>[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+
  
 ## Quatre types de notifications Push
 1.    Annonces : elles vous permettent d'envoyer aux utilisateurs des messages publicitaires qui les redirigent vers un autre emplacement dans votre application ou les envoient vers une page Web ou un Store en dehors de votre application. 
 2.    Sondages : ces notifications vous permettent de regrouper des informations sur les utilisateurs finaux en leur posant des questions.
 3.    Push de données : ces notifications vous permettent d'envoyer un fichier de données binaire ou base 64. Les informations contenues dans un Push de données sont envoyées à votre application pour modifier l'expérience actuelle des utilisateurs de votre application. Votre application doit être en mesure de traiter les données dans un Push de données.
-4.    Vignettes (Windows Phone uniquement) : ces notifications vous permettent d'utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications Push Windows natives contenant des données XML. (Prises en charge depuis la version 0.9.0 du Kit de développement logiciel (SDK). La charge utile finale des vignettes ne peut excéder 32 kilo-octets.)
 
-### Voir aussi
--  [Concepts - Glossaire][Link 6]
 
 ## Trois catégories de statistiques en temps réel sont indiquées pour chaque campagne
+
 1.    Envoyées par notification Push : combien de notifications Push ont été envoyées selon les critères indiqués dans la campagne. 
 2.    Répondues : combien d'utilisateurs ont répondu à la notification en l'ouvrant en dehors de l'application ou en la fermant dans l'application. 
 3.    Activées : combien d'utilisateurs ont cliqué sur le lien dans la notification pour être redirigés vers un nouvel emplacement dans l'application, vers un Store ou un navigateur web. 
 
-> Remarque : consultez plus de statistiques de campagne détaillées disponibles dans les statistiques de l'API Reach
+> [AZURE.NOTE]Consultez plus de statistiques de campagne détaillées disponibles dans les statistiques de l'API Reach
 
-### Voir aussi
--  [Concepts - Glossaire][Link 6], [Documentation sur les API - API Reach - Statistiques][Link 4]
 
 
 ## Informations relatives à la campagne
+
 Vous pouvez modifier, cloner, supprimer ou activer les campagnes qui n'ont pas encore été activées en plaçant le curseur sur leurs noms ou en cliquant pour les ouvrir. Vous pouvez cloner les campagnes qui ont déjà été activées en plaçant le curseur sur leurs noms ou en cliquant pour les ouvrir. Toutefois, vous ne pouvez pas modifier une campagne une fois celle-ci activée.
  
 ![Reach1][18]
 
 ## Commentaire Reach
-Vous pouvez passer de l'affichage des informations à l'affichage des statistiques d'une campagne ouverte qui a déjà été activée. Vous pouvez également passer d'un affichage simple à un affichage avancé des statistiques pour voir plus d'informations détaillées (selon vos autorisations). Vous pouvez aussi utiliser les informations du commentaire Reach d'une campagne précédente comme critères de ciblage d'une nouvelle campagne. Les statistiques du commentaire Reach peuvent également être regroupées à l'aide de « Statistiques » dans l'API Reach. Vous pouvez également personnaliser l'audience de vos campagnes Push en fonction des campagnes précédentes.
 
+Pour afficher les détails ou les statistiques d'une campagne, cliquez sur celle-ci. Vous pouvez passer de l'affichage des informations à l'affichage des statistiques d'une campagne ouverte qui a déjà été activée. Vous pouvez également passer d'un affichage simple à un affichage avancé des statistiques pour voir plus d'informations détaillées (selon vos autorisations). Vous pouvez aussi utiliser les informations du commentaire Reach d'une campagne précédente comme critères de ciblage d'une nouvelle campagne. Les statistiques du commentaire Reach peuvent également être regroupées à l'aide de **Statistiques** dans l'API Reach. Vous pouvez également personnaliser l'audience de vos campagnes Push en fonction des campagnes précédentes.
 
-### Voir aussi 
--  [Documentation sur l'interface utilisateur (IU) - Reach - Nouvelle campagne Push][27], [Documentation sur les API - API Reach - Statistiques][Link 4]
 
 ![Reach2][19]
+
+
+## Voir aussi
+
+- [Concepts][Link 6]
+- [Guide de résolution des problèmes - Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -150,4 +153,4 @@ Vous pouvez passer de l'affichage des informations à l'affichage des statistiqu
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

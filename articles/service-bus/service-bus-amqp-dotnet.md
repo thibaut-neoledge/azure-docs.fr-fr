@@ -25,13 +25,13 @@ La prise en charge d’AMQP 1.0 est disponible dans le Kit de développement lo
 
 ## Configuration des applications .NET pour utiliser AMQP 1.0
 
-Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
+Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l’exception de cette modification, le code de l’application reste inchangé lors de l’utilisation d’AMQP 1.0.
 
-Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Celles-ci sont répertoriées plus bas dans la section [Fonctionnalités non prises en charge, restrictions et différences de comportement](#unsupported-features-restrictions-and-behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l'utilisation d'AMQP.
+Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Celles-ci sont répertoriées plus bas dans la section [Fonctionnalités non prises en charge, restrictions et différences de comportement](#unsupported-features-restrictions-and-behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
 
 ### Configuration à l’aide d’App.config
 
-Il est conseillé pour les applications d'utiliser le fichier de configuration App.config afin de stocker les paramètres. Pour les applications Service Bus, vous pouvez utiliser App.config pour stocker les paramètres pour la valeur **ConnectionString** de Service Bus. Voici un exemple de fichier App.config :
+Il est conseillé pour les applications d’utiliser le fichier de configuration App.config afin de stocker les paramètres. Pour les applications Service Bus, vous pouvez utiliser App.config pour stocker les paramètres pour la valeur **ConnectionString** de Service Bus. Voici un exemple de fichier App.config :
 
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
@@ -41,11 +41,11 @@ Il est conseillé pour les applications d'utiliser le fichier de configuration A
 	    </appSettings>
 	</configuration>
 
-La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne de connexion Service Bus utilisée pour configurer la connexion à Service Bus, au format suivant :
+La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne de connexion Service Bus utilisée pour configurer la connexion à Service Bus. au format suivant :
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Où `[namespace]` et `SharedAccessKey` sont obtenues à partir du portail Azure. Pour plus d'informations, consultez la page [Utilisation des files d'attente Service Bus][].
+Où les valeurs `[namespace]` et `SharedAccessKey` sont obtenues à partir du [portail Azure Classic][]. Pour plus d’informations, consultez [Utilisation des files d’attente Service Bus][].
 
 Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType=Amqp`. Cette notation informe la bibliothèque cliente afin qu’elle effectue sa connexion à Service Bus à l’aide d’AMQP 1.0.
 
@@ -53,7 +53,7 @@ Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType
 
 Lorsque vous utilisez le protocole par défaut, le comportement de sérialisation par défaut de la bibliothèque cliente .NET consiste à utiliser le type [DataContractSerializer][] pour sérialiser une instance [BrokeredMessage][] pour le transport entre la bibliothèque cliente et le service Service Bus. Lorsque vous utilisez le mode de transport AMQP, la bibliothèque cliente utilise le système de type AMQP pour la sérialisation du [message réparti][BrokeredMessage] dans un message AMQP. Cette sérialisation permet au message d’être reçu et interprété par une application réceptrice potentiellement exécutée sur une plateforme différente, par exemple, une application Java qui utilise l’API JMS pour accéder à Service Bus.
 
-Lorsque vous construisez une instance [BrokeredMessage][], vous pouvez fournir un objet .NET en tant que paramètre au constructeur pour servir de corps du message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé sur un type primitif AMQP, c’est-à-dire, un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][] et les octets sérialisés sont envoyés dans un message de données AMQP.
+Lorsque vous construisez une instance [BrokeredMessage][], vous pouvez fournir un objet .NET en tant que paramètre au constructeur pour servir de corps du message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé à un type primitif AMQP, c’est-à-dire, un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][] et les octets sérialisés sont envoyés dans un message de données AMQP.
 
 Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez uniquement des types .NET qui peuvent être sérialisés directement en types AMQP pour le corps du message. Le tableau suivant détaille ces types et le mappage correspondant sur le système de types AMQP.
 
@@ -157,7 +157,7 @@ Les API .NET exposent plusieurs paramètres pour contrôler le comportement du p
 
 -   **MessageReceiver.PrefetchCount** : contrôle le crédit initial appliqué à un lien. La valeur par défaut est 0.
 
--   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation lors de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
+-   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation au moment de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
 
 -   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval** : si les transferts sont exécutables par lots, cette valeur détermine le délai maximal pour l’envoi des dispositions. Héritée par les expéditeurs/destinataires par défaut. Un expéditeur/destinataire individuel peut remplacer la valeur par défaut, qui est de 20 millisecondes.
 
@@ -168,10 +168,10 @@ Les API .NET exposent plusieurs paramètres pour contrôler le comportement du p
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 - [Vue d’ensemble d’AMQP de Service Bus]
-- [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
+- [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
 - [AMQP dans Service Bus pour Windows Server]
 
-  [Utilisation des files d'attente Service Bus]: service-bus-dotnet-how-to-use-queues.md
+  [Utilisation des files d’attente Service Bus]: service-bus-dotnet-how-to-use-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -199,8 +199,9 @@ Prêt à en savoir plus ? Visitez les liens suivants :
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[portail Azure Classic]: http://manage.windowsazure.com
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

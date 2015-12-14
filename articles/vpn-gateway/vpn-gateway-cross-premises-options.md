@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/05/2015"
+   ms.date="12/01/2015"
    ms.author="cherylmc" />
 
 # À propos des connexions sécurisées entre locaux pour les réseaux virtuels
@@ -31,20 +31,8 @@ L’option que vous choisirez peut dépendre de la réponse à différentes ques
 
 Le tableau ci-après peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
-| - | **Point à site** | **Site à site** | **ExpressRoute - EXP** | **ExpressRoute - NSP** |
-|------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Services Azure pris en charge** | Cloud Services Virtual Machines | Cloud Services Virtual Machines | [Liste des services](../expressroute/expressroute-faqs.md#supported-azure-services) | [Liste des services](../expressroute/expressroute-faqs.md#supported-azure-services) |
-| **Bandes passantes classiques** | Débit agrégé généralement < 100 Mbits/s | Débit agrégé généralement < 100 Mbits/s | 200 Mbits/s, 500 Mbits/s, 1 Gbits/s et 10 Gbits/s | 10 Mbits/s, 50 Mbits/s, 100 Mbits/s, 500 Mbits/s, 1 Gbits/s |
-| **Protocoles pris en charge** | SSTP (Secure Sockets Tunneling Protocol) | [IPsec](http://go.microsoft.com/fwlink/p/?LinkId=618592) | Connexion directe sur réseaux locaux virtuels | Technologies de réseau privé virtuel de NSP (MPLS, VPLS, …) |
-| **Routage** | Statique | Statique – Nous prenons en charge les réseaux basés sur des stratégies (routage statique) et basés sur l’itinéraire (VPN à routage dynamique) | BGP | BGP |
-| **Résilience de connexion** | active-passive | active-passive | active-active | active-active |
-| **Cas d’utilisation classique** | Scénarios de prototypage, de développement, de test et de laboratoire pour les services cloud et les machines virtuelles | Scénarios de développement, de test et de laboratoire et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles | Accès à l’ensemble des services Azure (liste validée), charges de travail d’entreprise et stratégiques, Backup, Big Data, Azure en tant que site de récupération d’urgence | Accès à l’ensemble des services Azure (liste validée), charges de travail d’entreprise et stratégiques, Backup, Big Data, Azure en tant que site de récupération d’urgence |
-| **Contrat de niveau de service** | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.Microsoft.com/support/legal/sla/) |
-| **Tarification** | [Tarification](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](http://azure.microsoft.com/pricing/details/expressroute/) | [Tarification](http://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentation technique** | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation d’ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | [Documentation d’ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
-                                                                                 
 
+| - | **Point à site** | **Site à site** | **ExpressRoute** | |------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------| | **Services Azure pris en charge** | Cloud Services et machines virtuelles | Cloud Services et machines virtuelles | [Liste des services](../expressroute/expressroute-faqs.md#supported-services) | | **Bandes passantes classiques** | Débit agrégé généralement < 100 Mbits/s | Débit agrégé généralement < 100 Mbits/s | 50 Mbits/s, 100 Mbits/s, 200 Mbits/s et 500 Mbits/s, 1 Gbits/s, 2 Gbits/s, 5 Gbits/s, 10 Gbits/s | | **Protocoles pris en charge** | SSTP (Secure Sockets Tunneling Protocol) | IPsec | Connexion directe sur réseaux locaux virtuels, technologies de réseau privé virtuel de NSP (MPLS, VPLS, …) | | **Routage** Basé sur l’itinéraire (dynamique) | Nous prenons en charge les réseaux basés sur des stratégies (routage statique) et basés sur l’itinéraire (VPN à routage dynamique) | BGP | | **Résilience de connexion** | active-passive | active-passive | active-active | | **Cas d’utilisation classique** | Scénarios de prototypage, de développement, de test et de laboratoire pour les services cloud et les machines virtuelles | Scénarios de développement, de test et de laboratoire et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles | Accès à l’ensemble des services Azure (liste validée), charges de travail d’entreprise et stratégiques, Backup, Big Data, Azure en tant que site de récupération d’urgence | | **Contrat de niveau de service** | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | | **Tarification** | [Tarification](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](http://azure.microsoft.com/pricing/details/expressroute/) | | **Documentation technique** | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation d’ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | | **FAQ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Connexions site à site
@@ -60,14 +48,14 @@ Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion
 **Configuration requise**
 
 - Le périphérique VPN local doit disposer d’une adresse IP IPv4 d’accès à Internet. Il ne peut pas se trouver derrière un processus de traduction d’adresses réseau (NAT).
-- Vous devez disposer d’un périphérique VPN compatible. Voir l’article [À propos des périphériques VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- Vous devez disposer d’un périphérique VPN compatible. Consultez [À propos des périphériques VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
 - Le périphérique VPN que vous utilisez doit être compatible avec le type de passerelle requis pour votre solution. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 - La référence SKU de passerelle aura également une incidence sur le débit agrégé. Pour plus d’informations, voir la section [SKU de passerelle](vpn-gateway-about-vpngateways.md#gateway-skus). 
 
-Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, voir l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
+Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, à l’aide du portail Classic et d’un modèle de déploiement classique, consultez l’article [Configurer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md). Pour plus d’informations sur la configuration d’un VPN site à site avec un déploiement Resource Manager, consultez l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
-## Connectivité de point à site
+## Connexions de point à site
 
 Un VPN point à site vous permet également de créer une connexion sécurisée à votre réseau virtuel. Dans une configuration point à site, la connexion est configurée individuellement sur chaque ordinateur client que vous souhaitez connecter au réseau virtuel. Les connexions point à site ne nécessitent aucun périphérique VPN. Ce type de connexion utilise un client VPN que vous installez sur chaque ordinateur client. Vous établissez le VPN en démarrant manuellement la connexion à partir de l’ordinateur client local.
 
@@ -100,4 +88,4 @@ Pour plus d’informations sur ExpressRoute, consultez [Présentation technique 
 
 Pour plus d’informations, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

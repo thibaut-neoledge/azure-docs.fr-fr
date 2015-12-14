@@ -26,7 +26,7 @@ Pour copier les données d’efficacité de la campagne marketing depuis un obje
 
 > [AZURE.IMPORTANT]cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
 >    
-> Si vous utilisez la version préliminaire d'Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
+> Si vous utilisez Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
 
 ## Configuration requise
 
@@ -44,7 +44,7 @@ Dans cette procédure pas à pas, vous allez effectuer les étapes suivantes :
 2. [Étape 2 : création d’un service lié pour le serveur SQL Server local](#OnPremStep2). Dans cette étape, vous créez d’abord une base de données et une table sur votre ordinateur SQL Server local, avant de créer le service lié : **OnPremSqlLinkedService**.
 3. [Étape 3 : création d’une table et d’un pipeline](#OnPremStep3). Dans cette étape, vous allez créer une table **MarketingCampaignEffectivenessOnPremSQLTable** et un pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Étape 4 : surveillance du pipeline et affichage du résultat](#OnPremStep4). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure.
+4. [Étape 4 : surveillance du pipeline et affichage du résultat](#OnPremStep4). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure Classic.
 
 
 ## <a name="OnPremStep1"></a>Étape 1 : création d’un portail de gestion des données
@@ -55,7 +55,7 @@ Vous devez avoir installé au moins une passerelle dans votre environnement d’
 
 Si vous disposez déjà d’une passerelle de données, ignorez cette étape.
 
-1.	Créer une passerelle de données logique. Dans le **portail Azure en version préliminaire**, cliquez sur **Services liés** dans le panneau **DATA FACTORY**.
+1.	Créer une passerelle de données logique. Dans le **portail Azure**, cliquez sur **Services liés** dans le panneau **DATA FACTORY**.
 2.	Cliquez sur **Ajouter (+) Passerelle de données** sur la barre de commandes.  
 3.	Dans le panneau **Nouvelle passerelle de données**, cliquez sur **CRÉER**.
 4.	Dans le panneau **Créer**, entrez **MyGateway** comme **nom** pour la passerelle de données.
@@ -101,7 +101,7 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 
 ### Créer le service lié
 
-1.	Dans le **portail Azure en version préliminaire**, cliquez sur la vignette **Services liés** du panneau **DATA FACTORY** pour **LogProcessingFactory**.
+1.	Dans le **portail Azure**, cliquez sur la vignette **Services liés** du panneau **DATA FACTORY** pour **LogProcessingFactory**.
 2.	Dans le panneau **Services liés**, cliquez sur **Ajouter (+) un magasin de données**.
 3.	Dans le panneau **Nouveau magasin de données**, saisissez **OnPremSqlLinkedService** dans le champ **Nom**. 
 4.	Cliquez sur **Type (paramètres requis)** et sélectionnez **SQL Server**. Maintenant, vous devez voir apparaître les paramètres **PASSERELLE DE DONNÉES**, **Serveur**, **Base de données** et **INFORMATIONS D’IDENTIFICATION** dans le panneau **Nouveau magasin de données**. 
@@ -158,7 +158,7 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -174,4 +174,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

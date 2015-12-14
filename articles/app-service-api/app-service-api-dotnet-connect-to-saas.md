@@ -18,11 +18,13 @@
 
 # Connexion à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Vue d'ensemble
 
-Ce didacticiel explique comment coder et configurer une [application API](app-service-api-apps-why-best-platform.md) qui se connecte à une [plateforme SaaS (Software-as-a-Service)](../app-service/app-service-authentication-overview.md#obotosaas) à l’aide du [Kit de développement logiciel (SDK) d’application API App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). Il indique également comment appeler l’application API à partir d’un client .NET à l’aide du [Kit de développement d’application (SDK) App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Lorsque vous l’aurez terminé, vous aurez donc un client d’application console .NET appelant une application API .NET s’exécutant dans Azure App Service. L’application API appelle l’API Dropbox et renvoie une liste de fichiers et de dossiers dans le compte Dropbox de l’utilisateur.
+Ce didacticiel explique comment coder et configurer une [application API](app-service-api-apps-why-best-platform.md) qui se connecte à une [plateforme SaaS (Software-as-a-Service)](../app-service/app-service-authentication-overview.md#obotosaas) à l’aide du [Kit de développement logiciel (SDK) d’application API App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). Il indique également comment appeler l’application API à partir d’un client .NET à l’aide du [Kit de développement logiciel (SDK) App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Lorsque vous l’aurez terminé, vous aurez donc un client d’application console .NET appelant une application API .NET s’exécutant dans Azure App Service. L’application API appelle l’API Dropbox et renvoie une liste de fichiers et de dossiers dans le compte Dropbox de l’utilisateur.
 
-Si vous voulez utiliser une autre méthode que l’écriture de code appelant une API SaaS directement depuis une application API personnalisée, vous pouvez appeler une [application de connecteur API](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) préconfigurée. Pour plus d’informations sur la méthode à suivre, consultez la page [Déployer et configurer une application API de connecteur SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
+Si vous voulez utiliser une autre méthode que l’écriture de code appelant une API SaaS directement depuis une application API personnalisée, vous pouvez appeler une [application API de connecteur](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) préconfigurée. Pour plus d’informations sur la méthode à suivre, consultez [Déployer et configurer une application API de connecteur SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
 Ce didacticiel vous familiarise avec les procédures suivantes :
 
@@ -40,15 +42,15 @@ Ce didacticiel vous familiarise avec les procédures suivantes :
 
 Ce didacticiel part des principes suivants :
 
-* Vous avez terminé les didacticiels [Créer une application API ASP.NET dans Azure App Service](app-service-dotnet-create-api-app.md) et [Déployer une application API dans Azure App Service](app-service-dotnet-deploy-api-app.md).
+* Vous avez terminé les didacticiels [Créer une application API](app-service-dotnet-create-api-app.md) et [Déployer une application API](app-service-dotnet-deploy-api-app.md).
   
-* Vous avez une connaissance de base de l’architecture de la passerelle Azure App Service pour l’authentification, comme indiqué dans [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](app-service-authentication-overview.md).
+* Vous possédez des connaissances élémentaires sur l’architecture de la passerelle Azure App Service pour l’authentification, comme indiqué dans [Authentification pour les applications API et les applications mobiles](app-service-authentication-overview.md).
 
-* Vous savez comment fonctionnent les applications API dans le portail Azure en version préliminaire, comme indiqué dans [Accéder aux panneaux Application API et Passerelle](app-service-api-manage-in-portal.md#navigate).
+* Vous savez comment fonctionnent les applications API dans le portail Azure en version préliminaire, comme expliqué dans [Accéder aux panneaux Application API et Passerelle](app-service-api-manage-in-portal.md#navigate).
 
 ## Création du projet d’application API
  
-Lorsque les instructions vous invitent à entrer un nom pour le projet, entrez *SimpleDropbox*.
+Quand les instructions vous invitent à entrer un nom pour le projet, entrez *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -98,7 +100,7 @@ Le fait de configurer la propriété `authentication` a deux effets :
 
 La propriété `authentication` est un tableau, mais cette version préliminaire ne prend pas en charge la spécification de plusieurs fournisseurs.
 
-Pour obtenir la liste des plateformes prises en charge, consultez la page [Obtenir le consentement de l’utilisateur pour accéder à d’autres ressources](../app-service/app-service-authentication-overview.md#obotosaas).
+Pour obtenir la liste des plateformes prises en charge, consultez [Obtenir le consentement de l’utilisateur pour accéder à d’autres ressources](../app-service/app-service-authentication-overview.md#obotosaas).
 
 Vous pouvez également spécifier des étendues, comme dans cet exemple :
 
@@ -169,7 +171,7 @@ Les étendues sont disponibles en fonction de chaque fournisseur SaaS et se trou
 
 ## Créer une application API dans Azure
 
-Dans cette section, vous utilisez l’Assistant **Publier le site Web** de Visual Studio pour créer une application API dans Azure. Lorsque les instructions vous invitent à entrer un nom pour l’application API, entrez *SimpleDropbox*.
+Dans cette section, vous utilisez l’Assistant **Publier le site Web** de Visual Studio pour créer une application API dans Azure. Quand les instructions vous invitent à entrer un nom pour l’application API, entrez *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
@@ -205,7 +207,7 @@ Pour que votre application API puisse appeler l’API Dropbox, vous devez échan
 
 Au cous des étapes suivantes, nous partons du principe que vous utilisez une application API de connecteur Dropbox, mais les procédures à suivre et l’interface utilisateur sont les mêmes pour l’application API SimpleDropbox que vous avez créée dans ce didacticiel.
 
-> **Remarque :** si les champs ID client et Clé secrète client pour Dropbox ne sont pas affichés dans le volet **Authentification** de l’application API SimpleDropbox contrairement à ce qui est affiché sur la capture d’écran, veuillez vérifier que vous avez bien redémarré la passerelle, comme indiqué après le déploiement du projet d’application API vers l’application API. La valeur « dropbox » située dans la propriété `authentication` du fichier *apiapp.json* que vous avez déployé précédemment déclenche l’affichage de ces champs dans le portail.
+> **Remarque :** si les champs ID client et Clé secrète client pour Dropbox ne sont pas affichés dans le panneau **Authentification** de l’application API SimpleDropbox contrairement à ce qui est affiché sur la capture d’écran, vérifiez que vous avez bien redémarré la passerelle, comme indiqué après le déploiement du projet d’application API vers l’application API. La valeur « dropbox » située dans la propriété `authentication` du fichier *apiapp.json* que vous avez déployé précédemment déclenche l’affichage de ces champs dans le portail.
 
 [AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
@@ -340,7 +342,7 @@ Les captures d’écran de cette section montrent un projet ContactsList et une 
 
 1. Remplacez {gateway url} par l’URL de votre passerelle.
  
-	Cette URL se trouve dans le volet **Passerelle** du portail :
+	Cette URL se trouve dans le panneau **Passerelle** du portail :
 
 	![](./media/app-service-api-dotnet-connect-to-saas/gwurl.png)
 
@@ -370,19 +372,13 @@ Voici un aperçu des effets du code :
 
 Informations complémentaires :
 
-* L’attribut `STAThread` de la méthode `Main` est requis par le contrôle du navigateur web et n’est pas associé à la configuration ou à l’appel de l’application API.
+* L’attribut `STAThread` de la méthode `Main` est requis par le contrôle du navigateur web et n’est pas associé à la configuration ni à l’appel de l’application API.
 
 * L’URL de connexion à la passerelle indiquée se termine dans `/aad` pour Azure Active Directory.
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Voici les valeurs à utiliser pour les autres fournisseurs : 
-	* "microsoftaccount" 
-	* "facebook" 
-	* "twitter" 
-	* "google" 
-<br/><br/>
-
+	Voici les valeurs à utiliser pour les autres fournisseurs : * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * Le second paramètre de la méthode `GetConsentLinkAsync()` est l’URL de rappel vers laquelle redirige le serveur d’autorisation une fois que l’utilisateur s’est connecté à Dropbox et a autorisé l’accès à son compte.
 
@@ -420,37 +416,37 @@ Cette section traite des sujets suivants :
 * [Erreur HTTP 400 au lieu de la page de connexion à Dropbox](#400)
 * [Erreur HTTP 403 lors de l’appel de l’application API](#403)
 
-### <a id="405"></a>Erreur HTTP 405 après la connexion à la passerelle
+### <a id="405"></a> Erreur HTTP 405 après la connexion à la passerelle
 
 Si vous obtenez une erreur HTTP 405 lorsque le code appelle GetConsentLinkAsync, veuillez vérifier que vous avez bien utilisé https://, et non pas http:// dans l’URL de la passerelle.
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-L’erreur 405 Méthode non autorisée est reçue lorsque le client tente d’effectuer une requête POST HTTP non-SSL, que la passerelle redirige vers **https://* et que la redirection provoque une demande GET. L’URL de récupération d’un lien d’autorisation accepte uniquement les demandes POST.
+L’erreur 405 Méthode non autorisée est reçue quand le client tente d’effectuer une requête POST HTTP non-SSL, que la passerelle redirige vers **https://* et que la redirection provoque une demande GET. L’URL de récupération d’un lien d’autorisation accepte uniquement les demandes POST.
 
 ### <a id="400"></a>Erreur HTTP 400 au lieu de la page de connexion à Dropbox
 
-Veuillez vérifier que l’**ID client** entré dans le volet **Authentification** de l’application API est correct, et qu’il n’y a pas d’espace superflu au début ou à la fin.
+Vérifiez que l’**ID client** entré dans le volet **Authentification** de l’application API est correct, et qu’il n’y a pas d’espace superflu au début ou à la fin.
 
-### <a id="403"></a>Erreur HTTP 403 lors de l’appel de l’application API
+### <a id="403"></a> Erreur HTTP 403 pendant l’appel de l’application API
 
-* Veuillez vérifier que le **Niveau d’accès** de l’application API est défini sur **Public (authentifié)** et non sur **Interne**.
+* Vérifiez que le **Niveau d’accès** de l’application API est défini sur **Public (authentifié)** et non sur **Interne**.
 
-* Veuillez vérifier que la **Clé secrète client** entrée dans le panneau **Authentification** de l’application API est correcte, et qu’il n’y a pas d’espace superflu au début ou à la fin.
+* Vérifiez que la **Clé secrète client** entrée dans le panneau **Authentification** de l’application API est correcte, et qu’il n’y a pas d’espace superflu au début ou à la fin.
 
 L’URL de redirection après la connexion à Dropbox peut ressembler à cet exemple :
 
 	https://sd1aeb4ae60b7cb4f3d966dfa43b6607f30.azurewebsites.net/?error=RmFpbGVkIHRvIGV4Y2hhbmdlIGNvZGUgZm9yIHRva2VuLiBEZXRhaWxzOiB7ImVycm9yX2Rlc2NyaXB0aW9uIjogIkludmFsaWQgY2xpZW50X2lkIG9yIGNsaWVudF9zZWNyZXQiLCAiZXJyb3IiOiAiaW52YWxpZF9jbGllbnQifQ%3d%3d
 
-Supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une chaîne encodée en base64 valide. Si vous décodez la chaîne, vous obtenez le message d’erreur suivant :
+Si vous supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une chaîne encodée en base64 valide. Si vous décodez la chaîne, vous obtenez le message d’erreur suivant :
 
 	Failed to exchange code for token. Details: {"error_description": "Invalid client_id or client_secret", "error": "invalid_client"}
 
 ## Étapes suivantes
 
-Vous avez appris à coder et à configurer une application API se connectant à une plateforme SaaS. Pour consulter des liens vers d’autres didacticiels sur la gestion de l’authentification dans les applications API, consultez [la section Étapes suivantes de la page Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md#next-steps).
+Vous avez appris à coder et à configurer une application API se connectant à une plateforme SaaS. Pour consulter des liens vers d’autres didacticiels sur la gestion de l’authentification dans les applications API, consultez [Authentification pour les applications API et les applications mobiles - Étapes suivantes](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

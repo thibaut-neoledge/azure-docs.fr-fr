@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -27,6 +27,16 @@ Liens connexes :
 - Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.0.9131.0
+Publication : décembre 2015
+
+**Problèmes résolus :**
+
+- La synchronisation de mot de passe peut ne pas fonctionner lorsque vous modifiez les mots de passe dans AD DS, mais elle fonctionne lorsque vous définissez un mot de passe.
+- Lorsque vous avez un serveur proxy, l’authentification à Azure AD peut échouer durant le processus d’installation ou de mise à niveau sur la page de configuration.
+- La mise à jour à partir d’une version précédente d’Azure AD Connect avec un serveur SQL Server complet échoue si vous n’êtes pas administrateur dans SQL.
+- La mise à jour à partir d’une version précédente d’Azure AD Connect avec un serveur SQL Server distant affiche l’erreur « Impossible d’accéder à la base de données SQL ADSync ».
+
 ## 1\.0.9125.0
 Publié : novembre 2015
 
@@ -39,12 +49,12 @@ Publié : novembre 2015
 
 **Nouvelles fonctionnalités préliminaires :**
 
-- [Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
-- Prise en charge de la synchronisation de mot de passe des [services de domaine Azure AD](active-directory-ds-getting-started.md).
+- [Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
+- Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](active-directory-ds-getting-started.md).
 
 **Nouveau scénario pris en charge :**
 
-- Prise en charge de plusieurs organisations Exchange locales Pour plus d'informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://technet.microsoft.com/fr-FR/library/jj873754.aspx)
+- Prise en charge de plusieurs organisations Exchange locales Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://technet.microsoft.com/library/jj873754.aspx).
 
 **Problèmes résolus :**
 
@@ -83,7 +93,7 @@ Publiée : août 2015
 
 **Fonctionnalités préliminaires supprimées :**
 
-- La fonctionnalité préliminaire [Écriture différée d'utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) a été temporairement supprimée suite aux commentaires des clients de la version préliminaire. Nous la rajouterons une fois que nous aurons traité ces commentaires.
+- La fonctionnalité préliminaire [Écriture différée d’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) a été temporairement supprimée suite aux commentaires des clients de la version préliminaire. Nous la rajouterons une fois que nous aurons traité ces commentaires.
 
 ## 1\.0.8641.0
 Publiée : juin 2015
@@ -94,11 +104,11 @@ Changement de nom d’Azure AD Sync en Azure AD Connect.
 
 **Nouvelles fonctionnalités :**
 
-- Installation de la [configuration rapide](active-directory-aadconnect-get-started-express.md)
-- [Configuration d'AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- Installation à l’aide de la [configuration rapide](active-directory-aadconnect-get-started-express.md)
+- [Configuration d’AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-- Introduction du [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode)
+- Introduction du [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -155,7 +165,7 @@ Publiée : décembre 2014
 
 **Nouvelles fonctionnalités :**
 
-- Il est maintenant possible d’effectuer la synchronisation de mot de passe avec le filtrage basé sur les attributs. Pour plus d'informations, consultez [Synchronisation de mot de passe avec filtrage](active-directory-aadconnectsync-configure-filtering.md).
+- Il est maintenant possible d’effectuer la synchronisation de mot de passe avec le filtrage basé sur les attributs. Pour plus d’informations, consultez [Synchronisation de mot de passe avec filtrage](active-directory-aadconnectsync-configure-filtering.md).
 - L’attribut msDS-ExternalDirectoryObjectID est écrit en différé dans Active Directory. Ceci permet aux applications Office 365 utilisant OAuth2 d’accéder à la fois aux boîtes aux lettres en ligne et locales dans un déploiement hybride d’Exchange.
 
 **Problèmes de mise à niveau résolus :**
@@ -197,6 +207,6 @@ Publiée : septembre 2014
 **Version initiale d’Azure AD Sync.**
 
 ## Étapes suivantes
-En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

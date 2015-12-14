@@ -120,9 +120,9 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-Vous pouvez également rechercher les informations de stockage à l’aide du portail Azure en version préliminaire :
+Vous pouvez également rechercher les informations de stockage à l’aide du portail Azure :
 
-1. Ouvrez le [portail Azure en version préliminaire](https://portal.azure.com/), puis sélectionnez votre cluster HDInsight.
+1. Ouvrez le [portail Azure](https://portal.azure.com/) et sélectionnez votre cluster HDInsight.
 
 2. Dans la section __Base__, sélectionnez __Tous les paramètres__.
 
@@ -207,7 +207,7 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
 Pour obtenir des informations spécifiques sur la mise à l’échelle de votre cluster HDInsight, consultez :
 
-* [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure en version préliminaire](hdinsight-administer-use-portal-linux.md#scaling)
+* [Gérer les clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

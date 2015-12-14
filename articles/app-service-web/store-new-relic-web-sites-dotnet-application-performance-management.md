@@ -46,7 +46,7 @@ Pour vous inscrire à New Relic directement depuis Azure Marketplace, procédez
 
 ## Étape 1. Créer un compte New Relic
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et cliquez sur **Nouveau** dans le coin.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Nouveau** dans le coin.
 3. Cliquez sur **Services de développement** > **New Relic APM**.
 4. Configurez votre compte New Relic en spécifiant ce qui suit, puis cliquez sur **Créer**.
 	- **Name**
@@ -62,7 +62,7 @@ Pour vous inscrire à New Relic directement depuis Azure Marketplace, procédez
 
 ## Étape 2. Configurer l'intégration de New Relic pour votre application web
 
-1. Ouvrez le panneau de votre application web dans le [portail Azure en version préliminaire](https://portal.azure.com).
+1. Ouvrez le panneau de votre application web dans le [portail Azure](https://portal.azure.com).
 2. Dans le menu « ... », situé en haut du panneau, cliquez sur **Ajouter des vignettes**.
 3. Dans l’onglet **Analyse**, sélectionnez**Résumé des applications** et faites-le glisser vers l'emplacement désiré sur le panneau de votre application web.
 4. Cliquez sur Terminer pour terminer l'ajout de vignettes.
@@ -83,7 +83,7 @@ Publiez votre application web à l’aide de Visual Studio. Si vous avez précé
 
 Pour consulter votre tableau de bord New Relic :
 
-2. Ouvrez le panneau de votre application web dans le [portail Azure en version préliminaire](https://portal.azure.com).
+2. Ouvrez le panneau de votre application web dans le [portail Azure](https://portal.azure.com).
 3. Cliquez sur **Surveillance des applications** > **nom de l'application** > **Afficher dans New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -163,8 +163,7 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -178,4 +177,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

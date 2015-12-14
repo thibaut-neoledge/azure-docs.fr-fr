@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # Utilisation de la bibliothèque cliente gérée pour Azure Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Vue d'ensemble 
+##Vue d'ensemble
 
 Ce guide vous montre comment exécuter des scénarios courants à l'aide de la bibliothèque cliente gérée pour Azure Mobile Services dans des applications Windows et Xamarin. Les scénarios traités incluent l'interrogation des données, l'insertion, la mise à jour et la suppression des données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide de Mobile Services](mobile-services-dotnet-backend-xamarin-ios-get-started.md).
 
@@ -58,7 +63,7 @@ Le code suivant permet de créer l'objet `MobileServiceClient` utilisé pour acc
 		"AppKey"
 	);
 
-Dans le code ci-dessus, remplacez `AppUrl` et `AppKey` par l'URL et la clé d'application du service mobile, dans cet ordre. Tous deux sont disponibles sur le portail de gestion Azure. Pour y accéder, sélectionnez votre service mobile, puis cliquez sur « Tableau de bord ».
+Dans le code ci-dessus, remplacez `AppUrl` et `AppKey` par l'URL et la clé d'application du service mobile, dans cet ordre. Tous deux sont disponibles sur le portail Azure Classic. Pour y accéder, sélectionnez votre service mobile, puis cliquez sur « Tableau de bord ».
 
 >[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire sur votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#authentication).
 
@@ -69,7 +74,7 @@ L'ensemble du code qui permet d'accéder aux données de la table Mobile Service
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Il s'agit du modèle de sérialisation typé ; consultez la section traitant du [modèle de sérialisation non typé](#untyped) ci-après.
+Il s’agit du modèle de sérialisation typé ; consultez la section traitant du [modèle de sérialisation non typé](#untyped) ci-après.
 
 ##<a name="querying"></a>Procédure : interrogation des données à partir d'un service mobile
 
@@ -278,7 +283,7 @@ Si vous essayez de supprimer un élément sans que le champ « Id » ne soit d
 
 ##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
 
-Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison dans une API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
+Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison d’API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
 
 Vous appelez une API personnalisée en appelant l'une des surcharges de la méthode [InvokeApiAsync] sur le client. Par exemple, la ligne de code suivante envoie une requête POST à l'API **completeAll** sur le service mobile :
 
@@ -304,9 +309,9 @@ Le client Mobile Services permet de s'inscrire aux notifications push avec Azure
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-Notez que dans cet exemple, deux balises sont incluses dans l'inscription. Pour plus d'informations sur les applications Windows, consultez [Ajout de notifications Push à votre application](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Notez que dans cet exemple, deux balises sont incluses dans l'inscription. Pour en savoir plus sur les applications Windows, consultez [Ajouter des notifications Push à votre application](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
-Les applications Xamarin nécessitent du code supplémentaire pour pouvoir enregistrer une application Xamarin s'exécutant respectivement sur une application iOS ou Android avec le Apple Push Notification Service et les services Google Cloud Messaging (GCM). Pour plus d'informations, consultez **Ajout de notifications Push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Les applications Xamarin nécessitent du code supplémentaire pour pouvoir enregistrer une application Xamarin s'exécutant respectivement sur une application iOS ou Android avec le Apple Push Notification Service et les services Google Cloud Messaging (GCM). Pour plus d’informations, consultez **Ajout de notifications Push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]Lorsque vous devez envoyer des notifications à des utilisateurs inscrits spécifiques, il est important d'exiger une authentification avant l'inscription, puis de vérifier que l'utilisateur est autorisé à s'inscrire avec une balise spécifique. Par exemple, vous devez vous assurer qu'un utilisateur ne s'inscrit pas avec une balise qui est l'ID utilisateur d'une autre personne. Pour plus d'informations, consultez [Envoyer des notifications push aux utilisateurs authentifiés](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
@@ -319,11 +324,11 @@ L’exemple suivant active les notifications périodiques pour demander les donn
     TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
         new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
         PeriodicUpdateRecurrence.Hour
-    ); 
+    );
 
 Sélectionnez la valeur [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) qui correspond le mieux à la fréquence de mise à jour de vos données.
 
-##<a name="optimisticconcurrency"></a>Procédure : utilisation de l'accès concurrentiel optimiste
+##<a name="optimisticconcurrency"></a>Procédure : utilisation de l’accès concurrentiel optimiste
 
 Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Le contrôle d'accès concurrentiel optimiste considère que chaque transaction peut être validée et qu'à ce titre, elle ne fait appel à aucun verrouillage de ressources. Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée.
 
@@ -430,7 +435,7 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Certains contrôles dans le runtime géré prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Il existe une prise en charge intégrée de cette interface pour les applications Windows 8.1 via `MobileServiceIncrementalLoadingCollection`, qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
+Certains contrôles dans l’exécution gérée prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Il existe une prise en charge intégrée de cette interface pour les applications Windows 8.1 au moyen de `MobileServiceIncrementalLoadingCollection`. Elle traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -440,14 +445,14 @@ Certains contrôles dans le runtime géré prennent en charge une interface appe
 		lb.ItemsSource = items;
 
 
-Pour utiliser la nouvelle collection sur Windows Phone 8 et « Silverlight », utilisez les méthodes d'extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
+Pour utiliser la nouvelle collection sur les applications Windows Phone 8 et « Silverlight », utilisez les méthodes d’extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 Lorsque vous utilisez la collection créée par l'appel de `ToCollectionAsync` ou `ToCollection`, vous obtenez une collection qui peut être liée aux contrôles d'interface utilisateur. Cette collection prend en charge la pagination, ce qui signifie qu'un contrôle peut demander à la collection de « charger plus d'éléments », ce qu'elle fera pour le contrôle. À ce stade, aucun code utilisateur n'intervient ; c'est le contrôle qui démarre le flux. Toutefois, sachant que la collection charge les données à partir du réseau, ce chargement peut parfois échouer. Pour gérer ces échecs, vous pouvez ignorer la méthode `OnException` au niveau de `MobileServiceIncrementalLoadingCollection` pour traiter les exceptions résultant des appels de `LoadMoreItemsAsync` émis par les contrôles.
 
-Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section « [Sélection de colonnes spécifiques](#selecting) » pour sélectionner les colonnes à afficher dans l'interface utilisateur.
+Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section « [Sélectionner des colonnes spécifiques](#selecting) » pour sélectionner les colonnes à afficher dans l’interface utilisateur.
 
 ##<a name="authentication"></a>Procédure : authentification des utilisateurs
 
@@ -530,7 +535,7 @@ Dans la forme la plus simple, vous pouvez utiliser le flux client comme indiqué
 
 ####Authentification unique à l’aide d’un compte Microsoft avec le Kit de développement logiciel (SDK) Live
 
-Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès du Centre des développeurs de compte Microsoft. Vous devez ensuite connecter cette inscription à votre service mobile. Effectuez les étapes décrites dans la rubrique [Inscrire votre application pour utiliser un compte Microsoft pour l'authentification](mobile-services-how-to-register-microsoft-authentication.md) pour créer une inscription de compte Microsoft et la connecter à votre service mobile. Si vous disposez des versions Windows Store et Windows Phone 8/Silverlight de votre application, inscrivez d'abord la version Windows Store.
+Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès du Centre des développeurs de compte Microsoft. Vous devez ensuite connecter cette inscription à votre service mobile. Effectuez les étapes décrites dans la rubrique [Inscrire votre application pour utiliser un compte Microsoft pour l’authentification](mobile-services-how-to-register-microsoft-authentication.md) pour créer une inscription de compte Microsoft et la connecter à votre service mobile. Si vous disposez des versions Windows Store et Windows Phone 8/Silverlight de votre application, inscrivez d'abord la version Windows Store.
 
 Le code suivant s’authentifie à l’aide du SDK Live et utilise le jeton retourné pour se connecter à votre service mobile.
 
@@ -685,7 +690,7 @@ Pour prendre en charge votre scénario d'application spécifique, vous devrez pe
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -764,4 +769,4 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [API personnalisée dans les kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

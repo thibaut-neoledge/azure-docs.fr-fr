@@ -3,8 +3,8 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à StatusPage
@@ -64,7 +64,8 @@ Pour configurer l’intégration de StatusPage avec Azure AD, vous devez ajoute
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **StatusPage**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_01.png)<br>
-7. Dans le volet des résultats, sélectionnez **StatusPage**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+7. Dans le volet des résultats, sélectionnez **StatusPage**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_02.png)<br>
+
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec StatusPage au moyen d’un utilisateur de test appelé « Britta Simon ».
@@ -74,9 +75,9 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l
 Pour configurer et tester l’authentification unique Azure AD avec StatusPage, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test StatusPage](#creating-a-statuspage-test-user)** pour avoir un équivalent de Britta Simon dans StatusPage qui soit lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -141,27 +142,27 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_09.png) <br> 
 
-2. Dans la liste **Répertoire**, sélectionnez le répertoire pour lequel vous voulez activer l'intégration de répertoire.
+2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
 3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_03.png) <br>
  
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_04.png) <br>
 
-5. Sur la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_05.png) <br>
+5. Sur la page **Parlez-nous de cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **BrittaSimon**.
 
     c. Cliquez sur **Next**.
 
 6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png) <br>
  
-    a. Dans la zone de texte **Prénom**, entrez **Britta**.
+    a. Dans la zone de texte **Prénom**, tapez **Britta**.
 
-    b. Dans la zone de texte **Nom**, entrez **Simon**.
+    b. Dans la zone de texte **Nom**, tapez **Simon**.
 
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, tapez **Britta Simon**.
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**. e. Cliquez sur **Next**.
 
@@ -190,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Cliquez sur l’onglet **Add Team Member**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_11.png) <br>
 
-1. Entrez l’adresse électronique, le prénom et le nom de l’utilisateur valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Email Address**, **First Name** et **Sur Name**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_12.png) <br>
+1. Entrez l’adresse électronique, le prénom et le nom de l’utilisateur valide que vous souhaitez configurer dans les zones de texte correspondantes, à savoir, **Email Address**, **First Name** et **Sur Name**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_12.png) <br>
 
 1. Pour **Role**, choisissez **Client Administrator**.
 
@@ -202,7 +203,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour attribuer Britta Simon à StatusPage, procédez comme suit :**
 
-1. Dans la vue de répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Dans la vue d’annuaire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **StatusPage**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_50.png) <br>
 
@@ -243,4 +244,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

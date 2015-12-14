@@ -99,18 +99,16 @@ Informations supplémentaires sur IoT Hub :
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/fr-FR/library/hh680901(v=pandp.50).aspx
-[Gestion des erreurs temporaires]: https://msdn.microsoft.com/fr-FR/library/hh680901(v=pandp.50).aspx
 
 [Conseils pour IoT Hub - Compatibilité avec Event Hubs]: iot-hub-guidance.md#eventhubcompatible
 
 [Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/fr-FR/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
 
 [Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
@@ -121,4 +119,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

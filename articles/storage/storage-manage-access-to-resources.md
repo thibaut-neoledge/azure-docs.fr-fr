@@ -38,13 +38,13 @@ Les conteneurs fournissent les options suivantes pour gérer leur accès :
 
 Vous pouvez définir les autorisations du conteneur de différentes manières :
 
-- Sur le [portail de gestion Azure](https://manage.windowsazure.com/) :
+- À partir du [portail Azure](portal.azure.com).
 - Dans un programme, en utilisant la bibliothèque cliente de stockage ou l’API REST.
 - En utilisant PowerShell. Pour en savoir plus sur la définition des autorisations du conteneur à partir d’Azure PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full#how-to-manage-azure-blobs).
 
 ### Définition des autorisations du conteneur à partir du portail Azure
 
-Pour définir les autorisations du conteneur à partir du portail Azure, procédez comme suit :
+Pour définir les autorisations du conteneur à partir du [portail Azure](portal.azure.com), procédez comme suit :
 
 1. Accédez au tableau de bord de votre compte de stockage.
 2. Dans la liste, sélectionnez le nom du conteneur. Notez que vous devez cliquer à droite de la colonne Nom pour sélectionner le nom du conteneur. Lorsque vous cliquez sur le nom, vous accédez aux objets Blob du conteneur.
@@ -155,4 +155,4 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 - [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 - [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -34,7 +34,7 @@ Pour tirer parti de l’[empaquetage dynamique](media-services-dynamic-packaging
 Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
 
 - **Media Encoder Standard**
-- **Encodeur multimédia Azure** 
+- **Encodeur multimédia Azure**
 - **Media Encoder Premium Workflow**
 
 Cet article donne un bref aperçu des encodeurs multimédia à la demande et fournit des liens vers des articles fournissant des informations plus détaillées. Cette rubrique compare également les encodeurs.
@@ -45,7 +45,7 @@ Remarque : par défaut, chaque compte Media Services peut avoir une tâche d’
 
 ###Vue d’ensemble
 
-Il est recommandé d’utiliser l’encodeur Media Encoder Standard. Toutefois, il ne figure pas actuellement sur le portail Azure.
+Il est recommandé d’utiliser l’encodeur Media Encoder Standard. Toutefois, il ne figure pas actuellement sur le portail Azure Classic.
 
 Par rapport à Azure Media Encoder, cet encodeur prend en charge plusieurs formats d’entrée et de sortie et plusieurs codecs. Autres avantages :
 
@@ -265,4 +265,4 @@ Windows Media Audio|Non|Oui|Oui
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

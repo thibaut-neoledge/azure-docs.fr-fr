@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nouveautés de la dernière mise à jour d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Nouveautés de la dernière mise à jour d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Notes de publication relatives à Azure Search sur les dernières mises à jour du service" 
 	services="search" 
 	documentationCenter="" 
@@ -22,7 +22,7 @@ Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Il
 
 ##Contrôle de version et déploiement des fonctionnalités
 
-Les fonctionnalités sont publiées séparément ou conjointement par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), du [Kit de développement logiciel (SDK) .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou du tableau de bord des services du [portail Azure](https://portal.azure.com).
+Les fonctionnalités sont publiées séparément ou conjointement par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), du [Kit de développement logiciel (SDK) .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou du tableau de bord des services du [portail Azure Classic](https://portal.azure.com).
 
 La bibliothèque .NET et les API REST existent dans différentes versions. Les API plus anciennes restent opérationnelles lors du déploiement de nouvelles fonctionnalités. Vous pouvez consulter [Contrôle de version de service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) pour en savoir plus sur notre stratégie de contrôle de version.
 
@@ -87,7 +87,7 @@ Lisez le billet de blog [Azure Search est désormais mis à la disposition gén
 
 - Les [analyseurs de langue Lucene](search-api-2014-10-20-preview.md) ont été ajoutés pour offrir une prise en charge multilingue des analyseurs de langue personnalisés qui sont distribués avec Lucene. 
 
-- La prise en charge des outils a été introduite pour la création d’index, y compris les profils de score, sur le [portail de gestion Azure](https://portal.azure.com).
+- La prise en charge des outils a été introduite pour la création d’index, y compris les profils de score, sur le [portail Azure Classic](https://portal.azure.com).
 
 ##Version d’API 2014-07-31-Preview
 **Publié : 21 août 2014**
@@ -100,7 +100,7 @@ Cette version était la version préliminaire publique d’Azure Search et four
 
 - La prise en charge géospatiale a toujours été disponible par le biais du type de données `Edm.GeographyPoint` faisant partie d’Azure Search depuis le début.
 
-- Déploiement dans la version préliminaire du [portail de gestion Azure](https://portal.azure.com). Azure Search constituait l’un des quelques services inédits du nouveau portail.
+- Déploiement dans la version préliminaire du [portail Azure Classic](https://portal.azure.com). Azure Search constituait l’un des quelques services inédits du nouveau portail.
 
 ##Version d’API de gestion 2015-08-19
 **Date de publication : 11 septembre 2015**
@@ -125,4 +125,4 @@ L’ajout de la version préliminaire de l’[API REST de gestion](search-manage
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

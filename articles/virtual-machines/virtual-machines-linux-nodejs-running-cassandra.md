@@ -124,7 +124,7 @@ Lors de cette étape du processus, nous allons créer une image Ubuntu avec les 
 Au moment du déploiement, Azure requiert une clé publique X509 encodée PEM ou DER. Générez une paire de clés publiques/privées en suivant les instructions de la rubrique Utilisation de SSH avec Linux sur Azure. Si vous prévoyez d'utiliser putty.exe comme client SSH sur Windows ou Linux, vous devez convertir la clé privée RSA codée PEM au format PPK en utilisant puttygen.exe. Les instructions se trouvent dans la page web ci-dessus.
 
 ####ÉTAPE 2 : Création du modèle de machine virtuelle Ubuntu
-Pour créer le modèle de machine virtuelle, connectez-vous au portail Azure et procédez comme suit : Cliquez sur Nouveau, Calculer, Machine virtuelle, À partir de la galerie, Ubuntu, Ubuntu Server 14.04 LTS, puis cliquez sur la flèche droite. Un didacticiel décrivant la création d'une machine virtuelle Linux est disponible à la rubrique Création d'une machine virtuelle exécutant Linux.
+Pour créer le modèle de machine virtuelle, connectez-vous au portail Azure Classic et procédez comme suit : Cliquez sur Nouveau, Calculer, Machine virtuelle, À partir de la galerie, Ubuntu, Ubuntu Server 14.04 LTS, puis cliquez sur la flèche droite. Un didacticiel décrivant la création d'une machine virtuelle Linux est disponible à la rubrique Création d'une machine virtuelle exécutant Linux.
 
 Entrez les informations suivantes dans l'écran « Configuration de la machine virtuelle » n°1 :
 
@@ -293,7 +293,7 @@ Assurez-vous que la machine virtuelle est sélectionnée et cliquez sur le lien 
 Cela prendra quelques secondes et l'image devrait être disponible dans la section Mes images de la galerie d'images. La machine virtuelle source sera automatiquement supprimée une fois l'image capturée correctement.
 
 ##Processus de déploiement dans une seule région
-**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attributs représentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d'un réseau virtuel de cloud uniquement dans le portail Azure](../virtual-network/virtual-networks-create-vnet.md).
+**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure Classic, puis créez un réseau virtuel avec les attributs présentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail Azure Classic](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
@@ -340,7 +340,7 @@ La création de la liste de machines virtuelles ci-dessus nécessite la procédu
 3.	Ajout d'un équilibreur de charge interne au service cloud et association au sous-réseau de « données »
 4.	Pour chaque machine virtuelle créée précédemment, ajout d'un point de terminaison à équilibrage de la charge pour le trafic Thrift via un jeu à équilibrage de la charge connecté à l'équilibreur de charge interne créé précédemment
 
-La procédure ci-dessus peut être exécutée à l'aide du portail Azure ; utilisez un ordinateur Windows (utilisez une machine virtuelle sur Azure si vous n'avez pas accès à un ordinateur Windows), utilisez le script PowerShell suivant pour approvisionner les huit machines virtuelles automatiquement.
+La procédure ci-dessus peut être exécutée à l’aide du portail Azure Classic ; utilisez un ordinateur Windows (utilisez une machine virtuelle sur Azure si vous n’avez pas accès à un ordinateur Windows), utilisez le script PowerShell suivant pour approvisionner les huit machines virtuelles automatiquement.
 
 **List1: Script PowerShell dédié au provisionnement des machines virtuelles**
 		
@@ -459,7 +459,7 @@ Notez que le keyspace créé à l'étape 4 utilise SimpleStrategy avec un replic
 Nous allons tirer parti du déploiement à une seule région que nous venons d'effectuer et répéter la même procédure pour installer la deuxième région. La principale différence entre le déploiement dans une seule région et dans plusieurs régions concerne la configuration du tunnel VPN pour la communication inter-région ; nous allons commencer par l'installation du réseau, puis approvisionner les machines virtuelles et configurer Cassandra.
 
 ###Étape 1 : Création du réseau virtuel dans la seconde région
-Connectez-vous au portail Azure et créez un réseau virtuel avec les attributs indiqués dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d'un réseau virtuel de cloud uniquement dans le portail Azure](../virtual-network/virtual-networks-create-vnet.md).
+Connectez-vous au portail Azure Classic et créez un réseau virtuel avec les attributs indiqués dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail Azure Classic](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur	</th><th>Remarques</th></tr>
@@ -488,7 +488,7 @@ Créez deux réseaux locaux avec les détails suivants :
 
 
 ###Étape 3 : Mappage du réseau « Local » aux réseaux virtuels respectifs
-À partir du portail Azure, sélectionnez chaque réseau virtuel, cliquez sur « Configurer », cochez la case « Se connecter au réseau local » et sélectionnez les réseaux locaux avec les détails suivants :
+À partir du portail Azure Classic, sélectionnez chaque réseau virtuel, cliquez sur Configurer, cochez la case Se connecter au réseau local et sélectionnez les réseaux locaux avec les détails suivants :
 
 
 | Réseau virtuel | Réseau local |
@@ -512,7 +512,7 @@ Modifiez les deux réseaux locaux pour remplacer l'espace réservé d'adresse IP
 Utilisez le script PowerShell suivant pour mettre à jour la clé IPSec de chaque passerelle VPN [utilisez la même clé pour les deux passerelles] : Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###Étape 6 : Établissement d’une connexion de réseau virtuel à réseau virtuel
-À partir du portail Azure, utilisez le menu « Tableau de bord » des deux réseaux virtuels pour établir la connexion de passerelle à passerelle. Utilisez les éléments de menu « Se connecter » dans la barre d'outils inférieure. Après quelques minutes, le tableau de bord doit afficher les informations de connexion sous forme graphique.
+Dans le portail Azure Classic, utilisez le menu Tableau de bord des deux réseaux virtuels pour établir la connexion de passerelle à passerelle. Utilisez les éléments de menu « Se connecter » dans la barre d'outils inférieure. Après quelques minutes, le tableau de bord doit afficher les informations de connexion sous forme graphique.
 
 ###Étape 7 : Création des machines virtuelles dans la région n° 2 
 Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la procédure de déploiement de la région n°1 ou copiez le fichier de disque dur virtuel d'image dans le compte de stockage Azure situé dans la région n°2 et créez l'image. Utilisez cette image et créez la liste suivante de machines virtuelles dans un nouveau service cloud hk-c-svc-east-us :
@@ -692,4 +692,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,9 +31,9 @@ Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous po
 
 ## Installation de l’agent Deep Security sur une nouvelle machine virtuelle
 
-Le [portail Azure](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la galerie** pour créer la machine virtuelle. Il s’agit d’une méthode simple pour ajouter une protection Trend Micro en cas de création d’une seule machine virtuelle.
+Le [portail Azure Classic](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la galerie** pour créer la machine virtuelle. Il s’agit d’une méthode simple pour ajouter une protection Trend Micro en cas de création d’une seule machine virtuelle.
 
-L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l’Assistant pour installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro. Pour des instructions générales, consultez la page [Création d’une machine virtuelle exécutant Windows dans le portail Azure](virtual-machines-windows-tutorial-classic-portal.md). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
+L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l’Assistant pour installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro. Pour des instructions générales, consultez la page [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](virtual-machines-windows-tutorial-classic-portal.md). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
 
 1.	Sous **Agent de machine virtuelle**, cochez **Installer l’agent de machine virtuelle**.
 
@@ -87,4 +87,4 @@ Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre
 [Connexion à une machine virtuelle exécutant Windows Server]: virtual-machines-log-on-windows-server.md
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

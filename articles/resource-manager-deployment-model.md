@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Présentation du déploiement de Resource Manager et du déploiement classique
@@ -42,19 +42,19 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
 - Elles sont créées via l’une des méthodes suivantes :
 
-  - [Portail en version préliminaire](https://portal.azure.com/).
+  - Le [portail Azure](https://portal.azure.com/).
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, les commandes PowerShell s’exécutent en mode **AzureResourceManager**.
+  - Pour les versions d’Azure PowerShell antérieures à la version 1.0, les commandes PowerShell s’exécutent en mode **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Pour la version préliminaire d’Azure PowerShell 1.0, utilisez la version Resource Manager des commandes. Ces commandes ont le format *verbe-AzureRm*, comme illustré ci-dessous.
+  - Pour la version d’Azure PowerShell 1.0, utilisez la version Resource Manager des commandes. Ces commandes ont le format *verbe-AzureRm*, comme illustré ci-dessous.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
 - Elles sont créées via l’une des méthodes suivantes :
 
-  - [Portail Azure](https://manage.windowsazure.com)
+  - [Portail classique](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, les commandes PowerShell s’exécutent en mode **AzureServiceManagement** (celui-ci étant le mode par défaut, si vous ne passez pas explicitement en mode AzureResourceManager, vous êtes en mode AzureServiceManagement).
+  - Pour les versions d’Azure PowerShell antérieures à la version 1.0, les commandes PowerShell s’exécutent en mode **AzureServiceManagement** (celui-ci étant le mode par défaut, si vous ne passez pas explicitement en mode AzureResourceManager, vous êtes en mode AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Pour la version préliminaire d’Azure PowerShell 1.0, utilisez la version Service Management des commandes. Ces noms de commande **n’ont pas** le format *verbe-AzureRm*, comme illustré ci-dessous.
+  - Pour la version d’Azure PowerShell 1.0, utilisez la version Service Management des commandes. Ces noms de commande **n’ont pas** le format *verbe-AzureRm*, comme illustré ci-dessous.
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
     ![type classique](./media/resource-manager-deployment-model/classic-type.png)
 
-Vous pouvez toujours utiliser le portail en version préliminaire pour gérer les ressources qui ont été créées via un déploiement classique.
+Vous pouvez toujours utiliser le portail pour gérer les ressources qui ont été créées via un déploiement classique.
 
 ## Avantages de l’utilisation de Resource Manager et de groupes de ressources
 
@@ -109,7 +109,7 @@ Resource Manager a ajouté le concept de groupe de ressources. Chaque ressource 
 - Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources dans votre abonnement.
 
 
-Avant Resource Manager, aucune ressource créée via un déploiement classique n’existait dans un groupe de ressources. Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources par défaut pour ce service, même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager. Pour les machines virtuelles, le stockage et les réseaux virtuels, si la ressource a été créée via un déploiement classique, vous devez continuer à l’utiliser via des opérations classiques.
+Avant Resource Manager, aucune ressource créée via un déploiement classique n’existait dans un groupe de ressources. Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources par défaut pour ce service, même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager. Pour les machines virtuelles, le stockage et les réseaux virtuels, si la ressource a été créée via un déploiement classique, vous devez continuer à l’utiliser via des opérations classiques.
 
 Vous pouvez déplacer des ressources vers un groupe de ressources différent et ajouter de nouvelles ressources à un groupe de ressources existant. Par conséquent, votre groupe de ressources peut contenir une combinaison de ressources créées via Resource Manager et un déploiement classique. Cette combinaison de ressources peut générer des résultats inattendus, car les ressources ne prennent pas en charge les mêmes opérations.
 
@@ -168,4 +168,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

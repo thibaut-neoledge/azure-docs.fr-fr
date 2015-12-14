@@ -130,4 +130,4 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 
 Pour en savoir plus sur le développement de solutions à l’aide des appareils **certifiés pour IoT**, cliquez [ici](http://azure.com/iotdev).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

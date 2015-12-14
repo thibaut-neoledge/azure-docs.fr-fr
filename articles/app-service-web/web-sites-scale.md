@@ -24,14 +24,13 @@ Si vous souhaitez améliorer les performances et le débit de vos applications w
 
 La montée en puissance des applications web Azure implique deux actions associées : évolution du mode de votre plan App Service vers un niveau de service supérieur et configuration de certains paramètres après le passage à ce niveau de service supérieur. Cet article décrit ces deux étapes. Les niveaux de service supérieurs comme les modes **Standard** et **Premium** augmentent la robustesse et la souplesse dont vous disposez pour déterminer le mode d’utilisation de vos ressources sur Azure.
 
-Vous pouvez facilement modifier les modes et les configurer sous l'onglet Scale du portail de gestion. Vous pouvez augmenter ou diminuer la taille des instances au besoin. Ces modifications sont applicables en quelques secondes et affectent toutes les applications web de votre plan App Service. Vous ne devez pas modifier votre code ni redéployer vos applications.
+Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications web de votre plan App Service. Vous ne devez pas modifier votre code ni redéployer vos applications.
 
 Pour plus d’informations sur les plans App Service, consultez les pages [Qu’est-ce qu’un plan App Service ?](../web-sites-web-hosting-plan-overview.md) et [Présentation approfondie des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
 
 > [AZURE.NOTE]Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Évolution vers le mode Partagé ou De base
 <!-- ===================================== -->
 
@@ -51,8 +50,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 	
 	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Évolution vers le mode Standard ou Premium
 <!-- ================================= -->
 
@@ -176,7 +174,6 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -201,4 +198,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

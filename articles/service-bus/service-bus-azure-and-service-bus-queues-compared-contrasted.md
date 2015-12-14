@@ -187,7 +187,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Service Bus applique les limites en termes de taille de file d'attente. La taille de file d'attente maximale est spécifiée lors de la création de la file d'attente et peut avoir une valeur comprise entre 1 Go et 80 Go. Si la valeur de taille de la file d'attente définie lors de la création de celle-ci est atteinte, les messages entrants supplémentaires seront rejetés et une exception sera reçue par le code appelant. Pour plus d'informations sur les quotas dans Service Bus, consultez [Quotas Service Bus](service-bus-quotas.md).
 
-- Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d'attente de 5 Go, avec 16 partitions la taille maximale de la file d'attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d'attente ou rubrique partitionnée en examinant son entrée dans le portail Azure.
+- Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d'attente de 5 Go, avec 16 partitions la taille maximale de la file d'attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure Classic][].
 
 - Avec les files d'attente Azure, si le contenu du message n'est pas sécurisé pour XML, il doit être encodé au format **Base64**. Si vous encodez le message au format **Base64**, la charge utilisateur peut atteindre 48 Ko, au lieu de 64 Ko.
 
@@ -195,7 +195,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Lorsque des clients communiquent avec des files d'attente Service Bus au moyen du protocole TCP, le nombre maximal de connexions simultanées à une file d'attente Service Bus unique est limité à 100. Ce nombre est partagé entre les expéditeurs et les destinataires. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Cette limite n'est pas appliquée aux clients qui se connectent aux files d'attente à l'aide d'une API REST.
 
-- Si vous avez besoin de plus de 10 000 files d'attente dans un seul espace de noms Service Bus, vous pouvez contacter l'équipe de support Azure et demander l'augmentation du nombre de files d'attente. Pour aller au-delà de 10 000 files d'attente avec Service Bus, vous pouvez également créer des espaces de noms supplémentaires à l'aide du portail Azure.
+- Si vous avez besoin de plus de 10 000 files d'attente dans un seul espace de noms Service Bus, vous pouvez contacter l'équipe de support Azure et demander l'augmentation du nombre de files d'attente. Pour aller au-delà de 10 000 files d’attente avec Service Bus, vous pouvez également créer des espaces de noms supplémentaires à l’aide du [portail Azure Classic][].
 
 ## Gestion et opérations
 
@@ -238,7 +238,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 ### Informations supplémentaires
 
-- Une seule file d'attente Azure peut traiter jusqu'à 2 000 transactions par seconde. Une transaction est une opération **Put**, **Get** ou **Delete**. Le fait d'envoyer un message unique à une file d'attente (**Put**) est considéré comme une seule transaction, mais la réception d'un message correspond souvent à un processus en deux étapes impliquant la récupération (**Get**), suivie d'une requête de suppression du message de la file d'attente (**Delete**). Par conséquent, une opération de suppression de la file d'attente réussie implique généralement deux transactions. La récupération de plusieurs messages dans un lot peut en réduire l'impact, car vous pouvez **récupérer** jusqu'à 32 messages en une seule transaction, puis **supprimer** chacun d'eux. Pour un meilleur débit, vous pouvez créer plusieurs files d'attente (un compte de stockage peut avoir un nombre illimité de files d'attente).
+- Une seule file d'attente Azure peut traiter jusqu'à 2 000 transactions par seconde. Une transaction est une opération **Put**, **Get** ou **Delete**. Le fait d’envoyer un message unique à une file d’attente (**Put**) est considéré comme une seule transaction, mais la réception d’un message correspond souvent à un processus en deux étapes impliquant la récupération (**Get**), suivie d’une requête de suppression du message de la file d’attente (**Delete**). Par conséquent, une opération de suppression de la file d'attente réussie implique généralement deux transactions. La récupération de plusieurs messages dans un lot peut en réduire l'impact, car vous pouvez **récupérer** jusqu'à 32 messages en une seule transaction, puis **supprimer** chacun d'eux. Pour un meilleur débit, vous pouvez créer plusieurs files d'attente (un compte de stockage peut avoir un nombre illimité de files d'attente).
 
 - Lorsque l'application atteint le débit maximal pour une file d'attente Azure, une réponse « Serveur occupé HTTP 503 » est généralement renvoyée à partir du service de file d'attente. Dans ce cas, l'application doit déclencher la logique de nouvelle tentative avec un délai de temporisation exponentiel.
 
@@ -246,7 +246,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Les files d'attente Azure et les files d'attente Service Bus appliquent le comportement de limitation en rejetant les requêtes pour une file d'attente qui est limitée. Toutefois, aucune de ces files d'attente ne traite les requêtes limitées comme facturables.
 
-- Les tests d'évaluation sur les files d'attente Service Bus ont démontré qu'une seule file d'attente peut atteindre un débit de 2 000 messages par seconde avec une taille de message d'environ 1 Ko. Pour obtenir un débit plus élevé, utilisez plusieurs files d'attente. Pour plus d'informations sur l'optimisation des performances avec Service Bus, consultez [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md).
+- Les tests d'évaluation sur les files d'attente Service Bus ont démontré qu'une seule file d'attente peut atteindre un débit de 2 000 messages par seconde avec une taille de message d'environ 1 Ko. Pour obtenir un débit plus élevé, utilisez plusieurs files d'attente. Pour plus d’informations sur l’optimisation des performances avec Service Bus, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md).
 
 - Lorsque le débit maximal est atteint pour une file d'attente Service Bus, une réponse [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (avec l'utilisation de l'API de messagerie répartie .NET) ou HTTP 503 (avec l'utilisation de l'API REST) est renvoyée au client de file d'attente, indiquant que la file d'attente est limitée.
 
@@ -264,7 +264,7 @@ Cette section traite des fonctionnalités d'authentification et d'autorisation p
 
 - Chaque requête à l'une des technologies de file d'attente doit être authentifiée. Les files d'attente publiques avec accès anonyme ne sont pas prises en charge. À l'aide de SAS, vous pouvez résoudre ce scénario en publiant un SAS en écriture seule, un SAS en lecture seule ou un SAS à accès total.
 
-- Le schéma d'authentification fourni par les files d'attente Azure implique l'utilisation d'une clé symétrique, qui est un code d'authentification de message basé sur hachage (HMAC), calculée avec l'algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d'informations sur le protocole respectif, consultez [Authentification pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d'informations, consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
+- Le schéma d'authentification fourni par les files d'attente Azure implique l'utilisation d'une clé symétrique, qui est un code d'authentification de message basé sur hachage (HMAC), calculée avec l'algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d’informations sur le protocole respectif, consultez [Authentification pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d'informations, consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Coût
 
@@ -272,7 +272,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
 |Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
@@ -288,7 +288,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Étant donné la prise en charge de l'interrogation longue, l'utilisation de files d'attente Service Bus peut être rentable dans les situations où une remise à latence faible est requise.
 
->[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d'informations sur la tarification Service Bus, consultez [Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
@@ -309,6 +309,9 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Architecture de stockage Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Utilisation du service de mise en file d'attente dans Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+
+
+[portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

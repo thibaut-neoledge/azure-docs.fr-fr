@@ -32,6 +32,6 @@ Pour trouver une solution, consultez l'article [Pourquoi avez-vous reçu une not
 
 ### L'abonnement Azure est annulé
 
-Pour réactiver un abonnement, vous devez créer un ticket de support. Pour créer un ticket de support pour réactiver un abonnement Azure, consultez l'article [Création d'un ticket de support pour les problèmes liés à l'abonnement et à la facturation Azure (en anglais)](../billing-create-billing-support-ticket.md).
+Pour réactiver un abonnement, vous devez créer un ticket de support. Pour créer un ticket de support pour réactiver un abonnement Azure, consultez l’article [Création d’un ticket de support pour les problèmes liés à l’abonnement et à la facturation Azure](../billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

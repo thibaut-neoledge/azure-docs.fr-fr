@@ -3,7 +3,7 @@
    description="L’article fournit une introduction à la génération, la collecte et l’analyse des journaux de sécurité à partir des services hébergés sur Azure. Il est destiné aux professionnels de l’informatique et analystes de sécurité qui s’occupent quotidiennement de la gestion des ressources d’informations, y compris ceux qui sont responsables de la sécurité et de la conformité de leur organisation."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Gestion des journaux d’audit et de sécurité Microsoft Azure
@@ -614,4 +614,4 @@ Les ressources suivantes fournissent des informations générales sur Microsoft 
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

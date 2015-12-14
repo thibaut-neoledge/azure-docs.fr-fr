@@ -26,7 +26,7 @@ Cet article vous montre comment configurer un ordinateur client local sous Windo
 
 ## Composants requis
 
-* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : vous pouvez utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/fr-FR/documentation/templates/) ou un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) pour déployer le nœud principal et le cluster, ou vous pouvez déployer le cluster manuellement dans Azure comme vous le feriez pour un cluster local. Vous aurez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
+* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : vous pouvez utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) ou un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) pour déployer le nœud principal et le cluster, ou vous pouvez déployer le cluster manuellement dans Azure comme vous le feriez pour un cluster local. Vous aurez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 
     Si vous avez déployé manuellement le nœud principal, assurez-vous que le point de terminaison HTTPS est configuré dans la machine virtuelle. Si tel n’est pas le cas, configurez-en un. Consultez [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
@@ -183,4 +183,4 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

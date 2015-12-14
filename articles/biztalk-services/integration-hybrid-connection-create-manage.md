@@ -31,13 +31,13 @@ Cette rubrique répertorie ces étapes.
 
 ## <a name="CreateHybridConnection"></a>Création d’une connexion hybride
 
-Vous pouvez créer une connexion hybride dans le portail de gestion Azure avec Web Apps **ou** BizTalk Services.
+Vous pouvez créer une connexion hybride dans le portail Azure avec Web Apps **ou** BizTalk Services.
 
 **Pour créer des connexions hybrides à l’aide de Web Apps**, consultez la page [Connexion d’Azure Web Apps à une ressource locale](../web-sites-hybrid-connection-get-started.md).
 
 **Pour créer des connexions hybrides dans BizTalk Services** :
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
 
 	Si vous n’avez pas de service BizTalk, vous pouvez en [créer un](biztalk-provision-services.md).
@@ -70,7 +70,7 @@ Pour lier l’application Azure Mobile Apps à une connexion hybride existante, 
 
 Après la création d’une connexion hybride, installez le Gestionnaire de connexions hybrides sur la ressource locale. Vous pouvez le télécharger via vos applications web Azure ou à partir de votre service BizTalk. Procédure pour BizTalk Services :
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
 3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
 4. Dans la barre des tâches, sélectionnez **Installation locale** : ![On-Premises Setup][HCOnPremSetup]
@@ -112,14 +112,14 @@ Pour gérer vos connexions hybrides, vous pouvez :
 
 #### Copie/régénération des chaînes de connexion hybride
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
 3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
 4. Sélectionnez la connexion hybride. Dans la barre des tâches, sélectionnez **Gérer la connexion** : ![Gérer les options][HCManageConnection]
 
 	**Gérer la connexion** répertorie les chaînes de connexion locales et d'application. Vous pouvez copier les chaînes de connexion ou régénérer la clé d’accès utilisée dans la chaîne de connexion.
 
-	**Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Procédez comme suit : - Dans le portail de gestion Azure, sélectionnez **Clés de synchronisation** dans l’application Azure. - Réexécutez l’**Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
+	**Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Procédez comme suit : - Dans le portail Azure Classic, sélectionnez **Clés de synchronisation** dans l’application Azure. - Réexécutez l’**Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
 
 
 #### Utilisation d’une stratégie de groupe pour contrôler les ressources locales utilisées par une connexion hybride
@@ -143,11 +143,11 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 
 ## Voir aussi
 
-[API REST pour la gestion des services BizTalk sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) [Créer un service BizTalk à l’aide du portail de gestion Azure](biztalk-provision-services.md) [Onglets Tableau de bord, Surveiller et Mettre à l’échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)
+[API REST pour la gestion des services BizTalk sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) [Création d'un service BizTalk à l'aide du portail Azure Classic](biztalk-provision-services.md) [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

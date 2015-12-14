@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # Activités de déplacement des données
@@ -109,4 +109,4 @@ Des propriétés telles que le nom, la description, les tables d’entrée et de
 
 Pour l'activité de copie, la section **typeProperties** varie selon le type de source et de récepteur. Chaque page spécifique du magasin de données répertoriée ci-dessus décrit les propriétés spécifiques au type de magasin de données.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

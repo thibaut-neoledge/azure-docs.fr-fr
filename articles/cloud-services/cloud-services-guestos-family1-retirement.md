@@ -37,7 +37,7 @@ Vos services cloud sont concernés si l'une des conditions suivantes s'applique�
 
 1. Vous avez une valeur de « osFamily = "1" » explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. 
 2. Vous n'avez pas de valeur pour osFamily explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. Actuellement, le système utilise la valeur par défaut « 1 » dans ce cas.
-3. Le portail de gestion Azure répertorie votre valeur de famille des systèmes d'exploitation invités en tant que « Windows Server 2008 ». Cliquez [ici](https://msdn.microsoft.com/library/azure/gg456325.aspx) pour rechercher cette valeur.
+3. Le portail Azure Classic répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ». Cliquez [ici](https://msdn.microsoft.com/library/azure/gg456325.aspx) pour rechercher cette valeur.
 
 Pour connaître la famille de systèmes d'exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois [configurer Azure PowerShell](../install-configure-powershell.md) Pour plus d'informations sur ce script, consultez la rubrique [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
@@ -81,4 +81,4 @@ Les services cloud de la famille 1 des SE invités ne sont plus pris en charge.
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

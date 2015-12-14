@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Afficher les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB | Microsoft Azure"
-	description="Découvrez l'Explorateur de scripts de DocumentDB, un outil du portail Azure en version préliminaire qui permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur."
+	description="Découvrez l'Explorateur de scripts de DocumentDB, un outil du portail Azure qui permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="12/01/2015"
 	ms.author="anhoh"/>
 
 # Afficher, modifier et créer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB
 
-Cet article fournit une présentation de l'Explorateur de scripts [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un outil du portail Azure en version préliminaire qui vous permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur. Plus d'informations sur la programmation côté serveur de DocumentDB sont disponibles [ici](documentdb-programming.md).
+Cet article fournit une présentation de l'Explorateur de scripts [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui vous permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur. Plus d'informations sur la programmation côté serveur de DocumentDB sont disponibles [ici](documentdb-programming.md).
 
 Ce didacticiel vous permettra de pouvoir répondre aux questions suivantes :
 
@@ -106,4 +106,4 @@ L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

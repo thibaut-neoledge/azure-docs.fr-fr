@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -42,6 +42,7 @@ Tout le code est disponible dans l'[exemple de wrapper REST Python].
 
 Par exemple, pour créer un client :
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 Pour envoyer une notification toast de Windows :
@@ -390,4 +391,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->
