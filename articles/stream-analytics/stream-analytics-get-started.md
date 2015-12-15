@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prise en main de Stream Analytics : détection des fraudes en temps réel | Microsoft Azure"
 	description="Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel."
-	keywords="concentrateurs d’événements, détection de fraude, temps réel, traitement en temps réel"
+	keywords="détection des anomalies, détection des fraudes, détection d’anomalies en temps réel"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,14 +14,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok" />
 
 
 
 # Prise en main de l’utilisation d’Azure Stream Analytics : détection des fraudes en temps réel
 
-Apprenez à créer une solution de bout en bout pour la détection des fraudes en temps réel avec Azure Stream Analytics. Importez des événements dans un concentrateur d’événements Azure, écrivez des requêtes Stream Analytics à des fins d’agrégation ou d’alerte et envoyez les résultats à un récepteur de sortie pour obtenir des informations sur les données grâce au traitement en temps réel.
+Apprenez à créer une solution de bout en bout pour la détection des fraudes en temps réel avec Azure Stream Analytics. Importez des événements dans un concentrateur d’événements Azure, écrivez des requêtes Stream Analytics à des fins d’agrégation ou d’alerte et envoyez les résultats à un récepteur de sortie pour obtenir des informations sur les données grâce au traitement en temps réel. La détection en temps réel des anomalies de télécommunication est traitée, mais la technique présentée est adaptée à d’autres types de détection des fraudes, comme l’usurpation d’identité ou le vol de carte de crédit.
 
 Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et un traitement d'événements complexes évolutif à l'aide d'une diffusion de données dans le cloud. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md).
 
@@ -257,4 +257,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

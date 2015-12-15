@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Gérer votre première API dans Gestion des API Azure
@@ -61,7 +61,7 @@ Le système est constitué des composants suivants :
 
 >[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
 
-La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure][] et cliquez sur **Nouveau**, **App Services**, **Gestion des API**, **Créer**.
+La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure Classic][] et cliquez sur **Nouveau**, **App Services**, **Gestion des API**, **Créer**.
 
 ![Nouvelle instance Gestion des API][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ Il est possible de créer des API (et d’ajouter des opérations) manuellement 
 
 >[AZURE.NOTE]Pour plus d’informations sur la création d’une API et l’ajout manuel d’opérations, consultez les rubriques [Création d’API](api-management-howto-create-apis.md) et [Ajout d’opérations à une API](api-management-howto-add-operations.md).
 
-Les API sont configurées à partir du portail des éditeurs, accessible via le portail Azure. Pour accéder au portail des éditeurs, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API.
+Les API sont configurées à partir du portail des éditeurs accessible via le portail Azure Classic. Pour accéder au portail des éditeurs, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -206,7 +206,7 @@ La section **Analyse** comporte les quatre onglets suivants :
 [Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
 [tarification du service Gestion des API]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portail Azure]: https://manage.windowsazure.com/
+[Portail Azure Classic]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -243,4 +243,4 @@ La section **Analyse** comporte les quatre onglets suivants :
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

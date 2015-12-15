@@ -116,10 +116,12 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 *Cas d’utilisation : données déclaratives* 1. Segmentez les alertes de contenu : collectez des données déclaratives pour segmenter l'audience en fonction des préférences. De cette façon, vous pouvez envoyer une notification push sur un sujet particulier qui intéresse vraiment une audience spécifique. 2. Segmentez l'audience en fonction de l'état de connexion. Collectez des données pour savoir si un utilisateur est connecté ou s'il a créé un compte. Ces données ciblent les utilisateurs finaux qui ne sont pas encore connectés et d’envoyer une notification Push pour inciter l’utilisateur final à effectuer la conversion. ![][2]
 
 ### Étapes suivantes
+
 - Consultez la page [Concepts de Mobile Engagement] pour en savoir plus sur les concepts Mobile Engagement de base.
-- Consultez [Meilleures pratiques](mobile-engagement-getting-started-best-practices.md) pour une étude approfondie
-- Consultez [Scénario d’application de jeu](mobile-engagement-gaming-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec une application de jeu exemple. 
-- Consultez [Scénario d’application multimédia](mobile-engagement-media-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec une application multimédia exemple. 
+- [Créer un compte Azure Mobile Engagement](mobile-engagement-create-account.md).
+- Consultez les [Meilleures pratiques](mobile-engagement-getting-started-best-practices.md) pour une étude approfondie.
+- Consultez le [Scénario d’application de jeu](mobile-engagement-gaming-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec un exemple d’application de jeu. 
+- Consultez le [Scénario d’application multimédia](mobile-engagement-media-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec un exemple d’application multimédia. 
 - Consultez la page [Didacticiels] pour en savoir plus sur l'implémentation.
 
 <!-- Images. -->
@@ -130,4 +132,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 [Concepts de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

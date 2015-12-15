@@ -139,6 +139,7 @@ Pour plus d'informations sur le mappage d'un domaine personnalisé, consultez la
 
 - [Comment activer le réseau de distribution de contenu pour Azure](cdn-create-new-endpoint.md)
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
+- [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

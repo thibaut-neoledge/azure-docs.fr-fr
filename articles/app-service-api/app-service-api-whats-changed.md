@@ -18,7 +18,7 @@
 
 # App Service API Apps : les nouveautés
 
-À l’occasion de l’événement Connect() de novembre 2015, un certain nombre d’améliorations ont été [annoncées](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) pour Azure App Service. Parmi celles-ci figurent les modifications sous-jacentes apportées à API Apps pour assurer une meilleure conformité avec Mobile Apps et Web Apps, réduire le nombre de concepts et améliorer les performances de déploiement et d’exécution. À compter du 30 novembre 2015, les applications API que vous créerez à partir du portail de gestion Azure ou des outils les plus récents reflèteront ces modifications. Cet article décrit ces modifications et explique comment redéployer les applications existantes pour profiter des fonctionnalités.
+À l’occasion de l’événement Connect() de novembre 2015, un certain nombre d’améliorations ont été [annoncées](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) pour Azure App Service. Parmi celles-ci figurent les modifications sous-jacentes apportées à API Apps pour assurer une meilleure conformité avec Mobile Apps et Web Apps, réduire le nombre de concepts et améliorer les performances de déploiement et d’exécution. À compter du 30 novembre 2015, les applications API que vous créerez à partir du portail de gestion Azure ou des outils les plus récents reflèteront ces modifications. Cet article décrit ces modifications et explique comment redéployer les applications existantes pour profiter des fonctionnalités.
 
 
 > [AZURE.NOTE]La version préliminaire initiale d’API Apps prenait en charge deux scénarios principaux : (1) les API personnalisées pour une utilisation dans Logic Apps ou vos propres clients et (2) l’API Marketplace (souvent des connecteurs SaaS) pour une utilisation dans Logic Apps. Cet article porte sur le premier scénario : les API personnalisées. Pour les API Marketplace, une expérience améliorée du concepteur Logic Apps et une base de connectivité sous-jacente seront introduites début 2016. Les API Marketplace existantes restent disponibles dans le concepteur Logic Apps.
@@ -120,9 +120,9 @@ L’ancien modèle API Apps proposait des API qui permettaient de découvrir pen
 Le concepteur Logic Apps proposera une intégration particulièrement transparente au nouveau modèle API Apps début 2016. Ceci dit, le connecteur HTTP intégré à Logic Apps peut appeler n’importe quel point de terminaison HTTP et il prend en charge l’authentification du principal du service, qui est aussi prise en charge en mode natif par les services d’authentification App Service. Découvrez comment utiliser une API hébergée par App Service dans Logic Apps en consultant l’article [Utilisation de votre API personnalisée hébergée sur App Service avec Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Étapes suivantes
-Pour en savoir plus, lisez les articles de la [section Documentation API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour et prennent en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
+Pour en savoir plus, lisez les articles de la [section Documentation API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour pour prendre en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ Vous ne pourrez plus déployer d'autres ponts ou créer d'autres contrats. Pour 
 
 #### Comment migrer d'un niveau de BizTalk Services à un autre ?
 
-Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Pour plus d'informations sur les chemins de migration pris en charge, consultez la page [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md).
+L’édition gratuite ne peut pas être migrée ou « mise à l’échelle » vers un autre niveau ; de même, la sauvegarde et la restauration sur un autre niveau sont impossibles. Si vous avez besoin d’un autre niveau, créez un service BizTal en utilisant le nouveau niveau. Tous les artefacts créés à l’aide de l’édition gratuite, y compris les connexions hybrides, doivent être recréés dans le nouveau service BizTalk.
+
+Pour les autres éditions, utilisez la fonction de sauvegarde et restauration pour migrer vos artefacts d’un niveau à l’autre. Par exemple, sauvegardez vos artefacts de niveau Standard avant de les restaurer au niveau Premium. L’article [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) décrit les chemins de migration pris en charge et dresse la liste des artefacts sauvegardés. Notez que les connexions hybrides ne sont pas sauvegardées. Après la sauvegarde et la restauration vers un nouveau niveau, vous devez recréer les connexions hybrides.
+
 
 #### Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
 
@@ -254,6 +257,6 @@ Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisi
 - [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)<br/>
 - [Limitation BizTalk Services](biztalk-throttling-thresholds.md)<br/>
 - [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335) <br/>
+- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

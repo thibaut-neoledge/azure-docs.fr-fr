@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
@@ -23,19 +23,13 @@
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Microsoft Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de Big Data en temps réel.
 
-[AZURE.INCLUDE [Portail](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Didacticiel Apache Storm : prise en main d’exemples Storm Starter pour l’analyse de données volumineuses (« Big Data ») sur HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
-   
-
 > [AZURE.NOTE]Les étapes décrites dans cet article créent un cluster HDInsight Windows. Pour savoir comment créer un cluster Storm sur HDInsight sous Linux, consultez le [Didacticiel Apache Storm : prise en main de l’exemple Storm Starter à l’aide de l’analyse de données sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Composants requis
 
 Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel Storm Apache :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Créer un cluster Storm
 
@@ -43,11 +37,11 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 1. Connectez-vous au [portail Azure][preview-portal].
 
-2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__
+2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__.
 
 	![Créer un cluster dans le portail Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez __Storm__ pour __Type de cluster__. Une coche verte s’affiche en regard de __Nom de cluster__ s’il est disponible.
+3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez __Storm__ pour __Type de cluster__. Une coche verte s’affiche en regard du __Nom de cluster__ s’il est disponible.
 
 	![Nom du cluster, type de cluster et type de système d’exploitation](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -65,13 +59,13 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	![Panneau Source de données](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau __Source de données__.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau __Source de données__.
 
-	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __Nom de stockage__ et la __Clé d’accès__ d’un compte de stockage existant.
+	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __nom de stockage__ et la __clé d’accès__ d’un compte de stockage existant.
 
-	- __Créer nouveau__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- __Créer un nouveau__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
-	- __Choisir un conteneur par défaut__ : utilisez cette option pour entrer le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
+	- __Choisir le conteneur par défaut__ : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
 	- __Emplacement__ : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
@@ -245,4 +239,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

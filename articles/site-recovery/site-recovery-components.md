@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment Azure Site Recovery fonctionne-t-il ?"
+	pageTitle="Comment Site Recovery fonctionne-t-il ? | Microsoft Azure"
 	description="Cet article propose une vue d’ensemble de l’architecture de Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # Comment Azure Site Recovery fonctionne-t-il ?
@@ -43,7 +43,7 @@ Si vous voulez protéger des machines virtuelles VMware ou des ordinateurs physi
 
 **Emplacement** | **Ce dont vous avez besoin** 
 --- | --- 
- Local | **Serveur de traitement** : ce serveur optimise les données des machines virtuelles VMware ou des ordinateurs physiques Linux/Windows protégés avant de les envoyer vers Azure. Il gère aussi l’installation Push du composant du service Mobilité sur la machine protégée et assure une détection automatique des machines virtuelles VMware. <br/><br/> **Serveur VMware vCenter** : si vous protégez des machines virtuelles VMware, vous avez besoin d’un serveur VMwave vCenter qui gère vos hyperviseurs vSphere.<br/><br/> **Serveur ESX** : si vous protégez des machines virtuelles VMware, vous avez besoin d’un serveur exécutant ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.<br/><br/> **Machines** : si vous protégez VMware, vous devez disposer de machines virtuelles VMware avec les outils VMware installés et en cours d’exécution. Si vous protégez des ordinateurs physiques, ils doivent exécuter un système d’exploitation Windows ou Linux pris en charge. Voyez [ce qui est pris en charge](site-recovery-vmware-to-azure/#before-you-start). <br/><br/> **Service Mobilité** : s’installe sur les machines que vous voulez protéger pour capturer les modifications et les communiquer au serveur de traitement. <br/><br/>Composants tiers : ce déploiement dépend de certains [composants tiers](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
+ Local | **Serveur de traitement** : ce serveur optimise les données des machines virtuelles VMware ou des ordinateurs physiques Linux/Windows protégés avant de les envoyer vers Azure. Il gère aussi l’installation Push du composant du service Mobilité sur la machine protégée et assure une détection automatique des machines virtuelles VMware. <br/><br/> **Serveur VMware vCenter** : si vous protégez des machines virtuelles VMware, vous avez besoin d’un serveur VMwave vCenter qui gère vos hyperviseurs vSphere.<br/><br/> **Serveur ESX** : si vous protégez des machines virtuelles VMware, vous avez besoin d’un serveur exécutant ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.<br/><br/> **Machines** : si vous protégez VMware, vous devez disposer de machines virtuelles VMware avec les outils VMware installés et en cours d’exécution. Si vous protégez des ordinateurs physiques, ils doivent exécuter un système d’exploitation Windows ou Linux pris en charge. Découvrez [ce qui est pris en charge](site-recovery-vmware-to-azure.md/#before-you-start). <br/><br/> **Service Mobilité** : s’installe sur les machines que vous voulez protéger pour capturer les modifications et les communiquer au serveur de traitement. <br/><br/>Composants tiers : ce déploiement dépend de certains [composants tiers](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
 Microsoft Azure | **Serveur de configuration **: machine virtuelle A3 Azure standard qui coordonne la communication entre les machines protégées, le serveur de traitement et les serveurs cibles maîtres dans Azure. Il configure la réplication et coordonne la récupération quand un basculement intervient. <br/><br/>**Serveur cible maître** : machine virtuelle Azure qui stocke les données répliquées à partir des machines protégées en utilisant des disques durs virtuels attachés, créés sur le stockage d’objets blob de votre compte de stockage Azure. Un serveur cible maître de restauration s’exécute en local pour vous permettre de restaurer des machines virtuelles Azure en machines virtuelles VMware. <br/><br/> **Coffre Site Recovery** : au moins un coffre Azure Site Recovery (installé avec un abonnement au service Site Recovery) <br/><br/> **Réseau virtuel** : réseau Azure sur lequel sont situés le serveur de configuration et les serveurs cibles maîtres, dans le même abonnement et la même région que le service Site Recovery. <br/><br/> **Stockage Azure** : compte de stockage Azure destiné à stocker les données répliquées. Il doit s’agir d’un compte géo-redondant standard ou premium de la même région que l’abonnement Site Recovery.
 
 
@@ -155,4 +155,4 @@ Dans ce scénario, les modifications de la réplication différentielle sont env
 
 [Préparer le déploiement](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

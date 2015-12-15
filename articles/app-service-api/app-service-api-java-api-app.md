@@ -289,8 +289,10 @@ Dans cette section, vous allez apprendre à créer une nouvelle application API 
 	![Utilisation de l’API REST de contacts de Java en direct dans Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
 	
 ## Étapes suivantes
-Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code avec structure Java obtenu à partir de l’éditeur Swagger.io. À partir de là, quelques modifications simples et le processus de déploiement Git vous ont permis d’obtenir une application API fonctionnelle rédigée en Java. À présent, vous pouvez revenir en arrière et en apprendre davantage sur le [kit de développement logiciel de stockage pour Java](../storage/storage-java-how-to-use-blob-storage.md) pour conserver les objets blobs JSON. Vous pouvez également utiliser le [kit de développement logiciel Java Document DB](../documentdb/documentdb-java-application.md) pour enregistrer vos données de contact pour la base de données de Document Azure.
+Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code avec structure Java obtenu à partir de l’éditeur Swagger.io. À partir de là, quelques modifications simples et le processus de déploiement Git vous ont permis d’obtenir une application API fonctionnelle rédigée en Java. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
+
+À partir de cet exemple, vous pouvez en apprendre davantage sur le [kit de développement logiciel de stockage pour Java](../storage/storage-java-how-to-use-blob-storage.md) pour conserver les objets blob JSON. Vous pouvez également utiliser le [kit de développement logiciel Java Document DB](../documentdb/documentdb-java-application.md) pour enregistrer vos données de contact pour la base de données de Document Azure.
 
 Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

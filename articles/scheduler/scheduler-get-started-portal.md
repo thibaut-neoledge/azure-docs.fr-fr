@@ -12,36 +12,32 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="08/18/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-# Prise en main de Scheduler dans le portail Azure
-
-## Configurer Scheduler à l’aide du portail Azure pour créer rapidement et facilement des travaux
-
-Pour suivre ce didacticiel, vous devez disposer d'un compte Azure avec la fonctionnalité Azure Scheduler activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+# Prise en charge d’Azure Scheduler dans le portail Azure Classic
 
 ## Prise en main
 
-Il est facile de créer des travaux et des collections de travaux dans Azure Scheduler à l’aide du portail Azure. Ce didacticiel vous guide lors de la création de la collection de travaux que vous utilisez pour stocker les travaux et la création d’un travail dans une collection de travaux. Il vous présente également les tâches de surveillance et de gestion des travaux disponibles dans le portail. Vous devez avoir une expérience préalable avec Azure pour pouvoir suivre ce didacticiel.
+Il est facile de créer des travaux et des collections de travaux dans Azure Scheduler. Ce didacticiel détaille la création de la collection de travaux que vous allez utiliser pour stocker les travaux, la création d’un travail dans une collection de travaux et une présentation des tâches de surveillance et de gestion des travaux disponibles. Vous devez avoir une expérience préalable avec Azure pour pouvoir suivre ce didacticiel.
 
-La première fois que vous ouvrez le portail Azure, l’onglet **Tous les éléments** s’affiche automatiquement. Les colonnes de cet onglet peuvent être triées. Pour afficher vos travaux et collections de travaux de Scheduler, cliquez sur l'onglet **SCHEDULER**.
+La première fois que vous ouvrez le portail Azure Classic, l’onglet **Tous les éléments** s’affiche automatiquement. Les colonnes de cet onglet peuvent être triées. Pour afficher vos travaux et collections de travaux de Scheduler, cliquez sur l’onglet **Scheduler**.
 
 ![][1]
 
 ## Créer une collection de travaux et un travail
 
-1.  Connectez-vous au [portail Azure](https://manage.windowsazure.com/).  
+1.  Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).  
 
-2.  Cliquez sur **App Services** > **Créer** > **Scheduler**, puis cliquez sur **Création personnalisée**. <br /><br /> ![][2]
+2.  Cliquez sur **App Services** > **Créer** > **Scheduler**, puis sur **Création personnalisée**. <br /><br /> ![][2]
 
-3.  Dans **Collection de travaux**, sélectionnez le nom de la collection de travaux existants sous la liste déroulante **Collection de travaux**. Si vous n'avez de collection de travaux existante à laquelle ajouter le travail, sélectionnez **Créer** et entrez un nom pour identifier votre nouvelle collection de travaux.<br /><br /> ![][3]
+3.  Dans **Collection de travaux**, sélectionnez le nom de la collection de travaux sous la liste déroulante **Collection de travaux**. Si vous n’avez de collection de travaux à laquelle ajouter le travail, sélectionnez **Créer** et entrez le nom de votre nouvelle collection de travaux.<br /><br /> ![][3]
 
 4.  Dans **Région**, sélectionnez la région géographique de la collection de travaux.
 
 5.  Cliquez sur la touche de direction pour créer la collection de travaux et passer à l'étape suivante ; la création d'un travail.
 
-6.  Nous allons créer un travail qui atteint simplement http://www.microsoft.com/ avec une demande GET. Dans l’écran **Action du travail**, définissez les valeurs suivantes pour les champs de formulaire requis :
+6.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Action du travail**, définissez les valeurs suivantes pour les champs de formulaire requis :
 
     1.  **Nom :** ` getmicrosoft`  
 
@@ -59,7 +55,7 @@ La première fois que vous ouvrez le portail Azure, l’onglet **Tous les élém
 
     2.  **Début :** ` Now`
 
-    3.  **Se terminant :** ` Select date 2 days after current day and any time`
+    3.  **Fin :** ` Select date 2 days after current day and any time`
 
    	![][5]
 
@@ -147,7 +143,7 @@ Azure Scheduler implémente des quotas en fonction de plusieurs conditions. Cett
 
 ### Historique
 
-L’onglet **Historique** affiche les informations suivantes pour le travail sélectionné :
+L’onglet **Historique** affiche les informations suivantes sur le travail sélectionné :
 
 ![][11]
 
@@ -261,4 +257,4 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

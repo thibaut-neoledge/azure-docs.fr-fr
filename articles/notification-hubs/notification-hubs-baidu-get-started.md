@@ -141,7 +141,7 @@ Le message **保存成功！** (**Enregistrement réussi !**) apparaîtra.
 
 ##Configuration de votre hub de notification
 
-1. Connectez-vous au [portail Azure] et cliquez sur **+NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [Portail Azure Classic], puis cliquez sur **+NOUVEAU** en bas de l’écran.
 
 2. Cliquez sur **Services d’application**, sur **Service Bus**, sur **Hub de notification**, puis cliquez sur **Création rapide**.
 
@@ -264,7 +264,7 @@ Le message **保存成功！** (**Enregistrement réussi !**) apparaîtra.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Définissez **API\_KEY** sur la valeur que vous avez récupérée précédemment du projet cloud Baidu, **NotificationHubName** sur le nom de votre hub de notification issu du portail Azure et **NotificationHubConnectionString** sur la valeur DefaultListenSharedAccessSignature issue du portail Azure.
+	Définissez **API\_KEY** sur la valeur que vous avez récupérée précédemment du projet cloud Baidu, **NotificationHubName** sur le nom de votre hub de notification issu du portail Azure Classic et **NotificationHubConnectionString** sur la valeur DefaultListenSharedAccessSignature issue du portail Azure Classic.
 
 11. Ajoutez une nouvelle classe appelée **DemoApplication.java** et ajoutez-lui le code suivant :
 
@@ -399,7 +399,7 @@ Le message **保存成功！** (**Enregistrement réussi !**) apparaîtra.
 ##Envoi de notifications à votre application
 
 
-Vous pouvez tester la réception de notifications dans votre application en envoyant des notifications dans le portail Azure via l’onglet Déboguer du hub de notification, comme indiqué dans l’écran ci-dessous.
+Vous pouvez tester la réception de notifications dans votre application en envoyant des notifications dans le portail Azure Classic via l’onglet Déboguer du hub de notification, comme indiqué dans l’écran ci-dessous.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ Pour tester cette application avec l’émulateur, dans la barre d’outils sup�
 
 L’application récupère les paramètres userId et channelId à partir du service de notification push Baidu et s’inscrit auprès du hub de notification.
 
-Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débogage du portail. Si vous avez intégré l’application de console .NET, appuyez sur la touche F5 dans Visual Studio pour exécuter l’application. L’application envoie une notification qui s’affiche dans la zone de notification supérieure de votre appareil ou de l’émulateur.
+Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débogage du portail Azure Classic. Si vous avez intégré l’application de console .NET, appuyez sur la touche F5 dans Visual Studio pour exécuter l’application. L’application envoie une notification qui s’affiche dans la zone de notification supérieure de votre appareil ou de l’émulateur.
 
 
 <!-- Images. -->
@@ -501,7 +501,7 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Kit de développement logiciel (SDK) Android pour transmissions push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[portail Azure]: https://manage.windowsazure.com/
+[Portail Azure Classic]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Concepts, terminologie et hiérarchie d’entités de Scheduler
@@ -190,7 +190,7 @@ L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval*
 ## Voir aussi
 
  [Présentation d'Azure Scheduler](scheduler-intro.md)
-
+ 
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval*
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -3,8 +3,8 @@
 	description="Actions permettant de dépanner, de diagnostiquer et d’éviter des erreurs de connexion et d’autres erreurs temporaires lors de l’interaction avec la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="dalechen"
+	manager="msmets"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/30/2015"
-	ms.author="genemi"/>
+	ms.date="12/10/2015"
+	ms.author="daleche"/>
 
 
 # Résoudre les erreurs transitoires et de connexion à la base de données SQL
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Personnaliser le portail des développeurs dans Gestion des API Azure
@@ -24,7 +24,7 @@ Ce guide vous montre comment modifier l’aspect du portail des développeurs da
 
 L'un des principaux aspects de la personnalisation de portail est le remplacement du texte en haut de toutes les pages par le nom ou le logo de votre société.
 
-Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure. Pour accéder au portail des éditeurs de l’API, cliquez sur **Gérer** dans le portail Azure pour votre service Gestion des API.
+Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure Classic. Pour accéder au portail des éditeurs d’API, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -85,7 +85,7 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

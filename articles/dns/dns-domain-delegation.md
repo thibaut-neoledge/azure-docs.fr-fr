@@ -32,7 +32,7 @@ Un domaine est un nom unique dans le système DNS, par exemple, « contoso.com�
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
 
-Azure DNS vous permet d’héberger une zone DNS et ainsi de gérer les enregistrements DNS pour un domaine dans Azure. N’oubliez pas qu’Azure DNS n’est pas un bureau d’enregistrement de domaines.
+Azure DNS vous permet d’héberger une zone DNS et ainsi de gérer les enregistrements DNS pour un domaine dans Azure. GardeN’oubliez pas qu’Azure DNS n’est pas le bureau d’enregistrement de domaines.
 
 DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement « . ». Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ». Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Et ainsi de suite.
 
@@ -159,4 +159,4 @@ De la même façon que pour la délégation à l’aide d’un bureau d’enregi
 
 [Référence de l’API REST d’Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

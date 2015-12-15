@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Prise en main avec Azure Multi-Factor Authentication dans le cloud
@@ -25,13 +25,13 @@
 Maintenant que nous avons déterminé que nous utilisons l’authentification multifacteur dans le cloud, nous pouvons commencer ! Veuillez noter que si vous utilisez Multi-Factor Authentication pour Office 365 ou Multi-Factor Authentication pour les administrateurs Azure, vous pouvez passer à l'étape 3. En outre, ce document traite des points suivants
 
 
-1. **Souscrivez un abonnement Azure**
+1. [Souscrivez un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 	- Si vous n'avez pas encore d'abonnement Azure, vous pouvez vous inscrire gratuitement. Si vous êtes nouveau et si vous faites vos premiers pas avec Azure MFA, vous pouvez utiliser un abonnement d'évaluation
-2. **Créez un fournisseur Multi-Factor Auth ou attribuez une licence Azure AD Premium ou Enterprise Mobility Suite aux utilisateurs**
+2. [Créez un fournisseur Multi-Factor Auth](#creating-an-azure-multi-factor-auth-provider) ou [attribuez une licence Azure AD Premium ou Enterprise Mobility Suite aux utilisateurs](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
 	- Vous devez créer un fournisseur Azure Multi-Factor Auth et l’attribuer à votre répertoire ou bien, attribuez des licences à vos utilisateurs Azure AD Premium ou EMS. Azure Multi-Factor Authentication est inclus dans Azure Active Directory Premium et par conséquent il est également inclus dans Enterprise Mobility Suite. Si vous disposez d’Azure AD Premium ou d’EMS, vous n'avez pas besoin de créer un fournisseur Multi-Factor Auth. En revanche, pour activer MFA pour un utilisateur Azure AD Premium ou EMS, une licence Azure AD Premium ou EMS doit être attribuée à cet utilisateur. Ensuite, un administrateur peut attribuer MFA à l'utilisateur via le portail de gestion. Pour savoir comment attribuer des licences aux utilisateurs, consultez la section ci-dessous.
-3. **Activez Multi-Factor Authentication pour vos utilisateurs** 
+3. [Activez Multi-Factor Authentication pour vos utilisateurs](#turn-on-multi-factor-authentication-for-users)
 	- Activez Azure MFA sur vos utilisateurs via Office 365 ou le portail Azure. Consultez la section ci-dessous pour plus d'informations sur la procédure à suivre.
-4. **Envoyez un e-mail aux utilisateurs pour les informer de MFA**
+4. [Envoyez un e-mail aux utilisateurs pour les informer de MFA](#send-email-to-end-users)
 	- Une fois que l’authentification multifacteur est activée dans le compte d’un utilisateur, il est recommandé de lui envoyer un e-mail pour l’informer de ce changement. L'utilisateur ne sera donc pas surpris lorsqu’il sera invité à terminer le processus la prochaine fois qu’il se connectera. Consultez la section ci-dessous pour un exemple de modèle d’e-mail.
 
 
@@ -68,7 +68,7 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 
 Si vous avez Azure AD Premium ou Enterprise Mobility Suite, il est inutile de créer un fournisseur Multi-Factor Auth. Vous devez simplement attribuer un utilisateur à une licence puis vous pourrez activer MFA pour les utilisateurs.
 
-### Attribuer une licence Azure AD Premium ou Enterprise Mobility Suite
+### Pour l’attribution d’une licence Azure AD Premium ou Enterprise Mobility Suite
 --------------------------------------------------------------------------------
 <ol>
 
@@ -156,4 +156,4 @@ Une fois que vous avez activé les utilisateurs, il est recommandé d’envoyer 
 ## Étapes suivantes
 Maintenant que vous avez configuré l’authentification multifacteur dans le cloud, vous pouvez passer à l’étape suivante qui consiste à [configurer Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Ici, vous accéderez à des informations sur la création de rapports, l'alerte de fraudes, la personnalisation des messages vocaux et toutes les fonctionnalités qu’offre Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

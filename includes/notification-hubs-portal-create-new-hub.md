@@ -1,6 +1,6 @@
 
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/) et cliquez sur **+NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/), puis cliquez sur **+NOUVEAU** en bas de l’écran.
 
 2. Cliquez sur **Services d'application**, puis sur **Service Bus**, **Concentrateur de notification**, **Création rapide**.
 
@@ -25,4 +25,4 @@
 
 	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->
