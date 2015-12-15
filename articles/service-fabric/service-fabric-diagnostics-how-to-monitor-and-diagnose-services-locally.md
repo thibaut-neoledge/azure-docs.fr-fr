@@ -31,7 +31,7 @@ Le [Suivi d'événements pour Windows](https://msdn.microsoft.com/library/window
 
 ## Afficher les événements système de Service Fabric dans Visual Studio
 
-Service Fabric émet des événements ETW pour aider les développeurs d'applications à comprendre ce qui se passe dans la plateforme. Si vous ne l'avez pas déjà fait, suivez les étapes de l’article [Creating your first application in Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md) pour obtenir une application fonctionnelle, avec un affichage des messages de trace par l'Observateur d'événements de diagnostic.
+Service Fabric émet des événements ETW pour aider les développeurs d'applications à comprendre ce qui se passe dans la plateforme. Si vous ne l'avez pas déjà fait, suivez les étapes de l’article [créer votre première application dans Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md) pour obtenir une application fonctionnelle, avec un affichage des messages de trace par l'Observateur d'événements de diagnostic.
 
 1. Si la fenêtre Diagnostics d'événements ne s'affiche pas automatiquement, accédez à l'onglet Explorateur de serveurs dans Visual Studio, cliquez avec le bouton droit sur le cluster Service Fabric et choisissez « Afficher les événements de diagnostic » dans le menu contextuel.
 
@@ -58,6 +58,8 @@ Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec
 Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous pouvez générer, déployer et exécuter l'application à nouveau pour afficher vos événements dans la visionneuse de diagnostics. Si vous déboguez l'application en appuyant sur F5, la visionneuse de diagnostics s'ouvre automatiquement.
 
 ## Étapes suivantes
-Le code de suivi que vous avez ajouté à votre application ci-dessus pour les diagnostics locaux fonctionne également avec les outils que vous pouvez utiliser pour afficher ces événements lors de l'exécution de votre application sur un cluster Azure, consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les définir. *[Collecting logs from a Service Fabric cluster in Azure using WAD(Windows Azure Diagnostics) and Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Using ElasticSearch as a Service Fabric application trace store](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+Le code de suivi que vous avez ajouté à votre application ci-dessus pour les diagnostics locaux fonctionne également avec les outils que vous pouvez utiliser pour afficher ces événements lors de l'exécution de votre application sur un cluster Azure, consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les définir.
+* [Collecte de journaux d’un cluster Service Fabric dans Azure à l’aide de WAD (Windows Azure Diagnostics) et d’Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
 <!---HONumber=Nov15_HO4-->
