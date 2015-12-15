@@ -126,7 +126,7 @@ Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Cette opération ajoute une référence au kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
+	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
 6. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
