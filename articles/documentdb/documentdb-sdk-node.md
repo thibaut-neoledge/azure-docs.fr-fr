@@ -83,13 +83,28 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
-> [AZURE.WARNING]Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+> [AZURE.WARNING]
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.4.0](#1.4.0) | 6 octobre 2015 |--- | [1\.3.0](#1.3.0) | 6 octobre 2015 |--- | [1\.2.2](#1.2.2) | 10 septembre 2015 |--- | [1\.2.1](#1.2.1) | 15 août 2015 |--- | [1\.2.0](#1.2.0) | 5 août 2015 |--- | [1\.1.0](#1.1.0) | 9 juillet 2015 |--- | [1\.0.3](#1.0.3) | 4 juin 2015 |--- | [1\.0.2](#1.0.2) | 23 mai 2015 |--- | [1\.0.1](#1.0.1) | 15 mai 2015 |--- | [1\.0.0](#1.0.0) | 8 avril 2015 |--- | 0.9.4-version préliminaire | 6 avril 2015 | 29 février 2016 | 0.9.3-version préliminaire | 14 janvier 2015 | 29 février 2016 | 0.9.2-version préliminaire | 18 décembre 2014 | 29 février 2016 | 0.9.1-version préliminaire | 22 août 2014 | 29 février 2016 | 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
+| [1\.4.0](#1.4.0) | 6 octobre 2015 |---
+| [1\.3.0](#1.3.0) | 6 octobre 2015 |---
+| [1\.2.2](#1.2.2) | 10 septembre 2015 |---
+| [1\.2.1](#1.2.1) | 15 août 2015 |---
+| [1\.2.0](#1.2.0) | 5 août 2015 |---
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |---
+| [1\.0.3](#1.0.3) | 4 juin 2015 |---
+| [1\.0.2](#1.0.2) | 23 mai 2015 |---
+| [1\.0.1](#1.0.1) | 15 mai 2015 |---
+| [1\.0.0](#1.0.0) | 8 avril 2015 |---
+| 0.9.4-version préliminaire | 6 avril 2015 | 29 février 2016
+| 0.9.3-version préliminaire | 14 janvier 2015 | 29 février 2016
+| 0.9.2-version préliminaire | 18 décembre 2014 | 29 février 2016
+| 0.9.1-version préliminaire | 22 août 2014 | 29 février 2016
+| 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
 
 
 ## Forum Aux Questions
