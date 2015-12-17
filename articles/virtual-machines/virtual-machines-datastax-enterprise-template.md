@@ -89,7 +89,8 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quand vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\\Azure\\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
+Quand vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\\Azure\\Templates.
+<!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
 Lorsque vous déployez des solutions importantes comme un cluster Apache Cassandra basé sur DataStax, vous devez spécifier un ensemble de paramètres de configuration pour gérer plusieurs paramètres requis. En déclarant ces paramètres dans la définition du modèle, vous pouvez spécifier des valeurs pendant l'exécution du déploiement au moyen d’un fichier externe ou dans la ligne de commande.
@@ -500,4 +501,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->
