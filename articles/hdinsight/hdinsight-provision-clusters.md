@@ -430,7 +430,7 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
 	
 	###########################################
 	# Préparer le conteneur et le compte de stockage par défaut
-	########################################### 
+	###########################################
 	New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
 	
 	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName | %{ $\_.Key1 }
@@ -755,4 +755,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop avec le compte
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
