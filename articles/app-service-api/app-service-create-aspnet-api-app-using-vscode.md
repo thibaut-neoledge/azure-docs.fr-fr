@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/04/2015" 
 	ms.author="erikre"/>
 
 # Créer une application API ASP.NET 5 dans Visual Studio Code
@@ -444,4 +444,4 @@ Dans le portail Microsoft Azure en version préliminaire, accédez au panneau *
 Ce didacticiel vous a montré comment créer une application API dans Visual Studio Code. Pour en savoir plus sur ce logiciel, voir [Visual Studio Code](https://code.visualstudio.com/Docs/). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

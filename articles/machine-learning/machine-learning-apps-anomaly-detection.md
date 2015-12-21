@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="07/28/2015" 
-	ms.author="luisca"/>
+	ms.date="12/08/2015" 
+	ms.author="pingf"/>
 
 
 # Service de détection des anomalies Machine Learning#
@@ -89,4 +89,4 @@ Time|Données|Tspike|Zspike|Valeurs martingales|Indicateur d’alerte|Valeurs ma
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

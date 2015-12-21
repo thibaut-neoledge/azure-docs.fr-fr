@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Planificateur de capacité de récupération de sites | Microsoft Azure" 
+	pageTitle="Planifier les capacités pour la protection de machine virtuelle et de serveur physique dans Azure Site Recovery | Microsoft Azure"
 	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques situés en local sur Microsoft Azure, ou sur un site local secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="prateek9us" 
-	manager="abhiag" 
+	authors="rayne-wiselman" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
@@ -13,99 +13,124 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/27/2015" 
-	ms.author="pratshar"/>
+	ms.date="12/07/2015" 
+	ms.author="raynew"/>
 
-# Planificateur de capacité de récupération de sites
+# Planifier la capacité pour la protection de machine virtuelle et de serveur physique dans Azure Site Recovery
 
-Ce document explique comment utiliser l’outil Microsoft ASR Capacity Planning, qui fournit des conseils sur les ressources qui doivent être configurées pour effectuer des opérations de récupération de sites transparentes. Vous pouvez utiliser cet outil de planification de la capacité pour analyser l’environnement source (charges de travail), les besoins en bande passante, les besoins en ressources (machines virtuelles, stockage) sur la cible et les éventuelles ressources serveur supplémentaires nécessaires du côté source (SC VMM, serveurs de configuration, serveurs de traitement, etc.). Télécharger l’outil [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel)
- 
-Vous pouvez utiliser le planificateur de capacité dans deux modes :
- 
-- **Planification rapide** : bénéficiez de projections réseau et serveur sur la base de la quantité moyenne de machines virtuelles, de disques et de stockage, et sur le taux de changement moyen. 
-- **Planification détaillée** : fournissez les détails de chaque charge de travail au niveau de la machine virtuelle. Analysez la compatibilité au niveau de la machine virtuelle et obtenez également les projections réseau et serveur.
-     
-Ce document part du principe que l’utilisateur sait utiliser Azure Site Recovery. Consultez [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
+L’outil Capacity Planner vous aide à prévoir vos besoins en capacité pour la protection des machines virtuelles Hyper-V, les machines virtuelles VMware et les serveurs physiques Windows/Linux avec Azure Site Recovery.
 
-## Mise en route
-###Conditions préalables
-Les détails nécessaires pour continuer varient en fonction du mode dans lequel vous souhaitez utiliser le planificateur. Outre les détails de l’infrastructure tels que les machines virtuelles, le nombre de disques par machine virtuelle et le stockage par disque, certaines informations supplémentaires sont nécessaires. La plus importante est le taux de changement quotidien. Si l’environnement source est Hyper-V, utilisez l’[Outil de planification de la capacité Hyper-V](https://www.microsoft.com/en-in/download/details.aspx?id=39057) pour obtenir le taux de changement. Consultez les instructions d’utilisation de l’[Outil de planification de la capacité Hyper-v](site-recovery-capacity-planning-for-hyper-v-replication.md). Pour VMWare, utilisez l’[Outil de planification de la capacité VMware](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
 
-##Quick Planner
-1.	Ouvrez le fichier **ASR Capacity Planner.xlsm**. Cela nécessite l’exécution de macros. Vous devez donc accepter d’**« Activer la modification »** et d’**« Activer le contenu »** quand vous y êtes invité. 
-1.	Sélectionnez **Quick Planner** dans la zone de liste. Une autre feuille de calcul intitulée **Capacity Planner** s’ouvre.
+## Vue d’ensemble
 
-	![Mise en route](./media/site-recovery-capacity-planner/getting-started.png)
+Utilisez l’outil pour analyser votre environnement source et vos charges de travail et déterminez vos besoins en bande passante et les ressources serveur dont vous aurez besoin à l’emplacement source, et les ressources (machines virtuelles et stockage, etc.) qu’il vous faut à votre emplacement cible.
 
-1.	Dans la feuille de calcul « Capacity Planner », tapez les entrées en fonction des besoins. Tous les champs entourés sont des champs d’entrée obligatoires.
-	1.	La zone de liste « Select your scenario » vous permet de choisir l’environnement source « Hyper-V to Azure » ou « VMware/Physical to Azure ».
-	1. 	Vous devez mesurer la valeur Average Daily Data Change Rate. Dans les environnements Hyper-V, vous pouvez utiliser l’outil de planification de la capacité Hyper-V. Pour VMWare, vous pouvez utiliser l’outil VMWare Capacity Planner. Nous vous conseillons d’exécuter l’outil pendant au moins une semaine, pour que les éventuels pics de valeurs puissent être capturés et normalisés. 
-	1. 	Compression : il s’agit de la compression offerte par ASR dans le scénario VMWare/Physical to Azure. Dans le scénario Hyper-V to Azure, cela est possible grâce à des appliances tierces telles que Riverbed. 
-	1. Dans le scénario VMWare/Physical to Azure, vous devez entrer le nombre de rétentions en journées. Dans le scénario Hyper-V, vous devez l’entrer en heures. 
-	1. Les deux dernières entrées servent à calculer la réplication initiale. Quand vous déployez le programme d’installation ASR, vous devez charger l’intégralité du jeu de données initial. Number of hours in which initial replication for the batch of virtual machines should complete et Number of virtual machines per initial replication batch : ces valeurs doivent être prises comme entrées. Vous pouvez également modifier ces chiffres pour régler la bande passante existante. 
+L’outil peut s’utiliser en deux façons :
+
+- **Planification rapide** : exécutez l’outil dans ce mode pour obtenir des projections réseau et serveur sur la base de la quantité moyenne de machines virtuelles, de disques et de stockage, et sur le taux de changement moyen.
+- **Planification détaillée** : exécutez l’outil dans ce mode et fournissez des détails de chaque charge de travail au niveau de la machine virtuelle. Analysez la compatibilité de machine virtuelle et obtenez des projections réseau et serveur.
+
+## Avant de commencer
+
+Avant d’exécuter l’outil :
+
+1. Collecter des informations relatives à votre environnement, et notamment les machines virtuelles, le nombre de disques par machine virtuelle, le stockage par disque.
+2. Déterminer le taux de modification (l’évolution) quotidienne des données répliquées. Pour ce faire :
+
+	- Si vous répliquez des machines virtuelles Hyper-V, téléchargez l’[outil de planification de la capacité Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) pour obtenir le taux de modification. [En savoir plus](site-recovery-capacity-planning-for-hyper-v-replication.md) sur cet outil. Nous vous recommandons d’exécuter cet outil sur une semaine pour enregistrer les moyennes.
+	- Si vous répliquez des machines virtuelles VMware, utilisez l’[équipement de planification de capacité vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) pour déterminer le taux d’évolution.
+	- Si vous dupliquez des serveurs physiques, vous devrez faire les estimations manuellement.
+
+## Exécutez Quick Planner
+1.	Téléchargez et ouvrez l’outil [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Vous devrez exécuter des macros, et donc, sélectionner cette option pour activer la modification et activer le contenu lorsque vous y êtes invité. 
+2.	Dans **Sélectionner un type de planificateur**, sélectionnez **Quick Planner** dans la zone de liste.
+
+	![Prise en main](./media/site-recovery-capacity-planner/getting-started.png)
+
+3.	Dans la feuille de calcul **Capacity Planner**, saisissez les informations requises. Vous devez renseigner tous les champs cerclés de rouge de la capture d’écran ci-dessous.
+
+	- Dans **Sélectionner votre scénario**, choisissez **Hyper-V to Azure** (Hyper-V vers Azure) ou **VMware/Physical to Azure** (VMware/Physique vers Azure).
+	- Dans **Taux de modification de données moyen par jour**, entrez les informations que vous recueillez à l’aide de l’[outil de planification de la capacité Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou l’[équipement de planification de capacités vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+	- Le paramètre de **compression** s’applique uniquement à la compression proposée lors de la réplication des machines virtuelles VMware ou des serveurs physiques vers Azure. Nous estimons ce paramètre à 30 % ou plus. Modifiez le paramètre comme il se doit. Pour répliquer des machines virtuelles Hyper-V pour la compression Azure, vous pouvez utiliser un équipement tiers, tels que Riverbed. 
+	-  Dans **Number of retention** (Nombre de jours de rétention) spécifiez la durée de conservation des réplicas. Si vous répliquez des serveurs VMware ou des serveurs physiques, saisissez la valeur en jours. Si vous répliquez Hyper-V, spécifiez la durée en heures.
+	-  Dans **Number of hours in which initial replication for the batch of virtual machines should complete** (Nombre d’heures prévu pour la réplication initiale du lot de machines virtuelles) et **Number of virtual machines per initial replication batch** (Nombre de machines virtuelles par lot de réplication initiale), vous devez saisir les paramètres de saisie utilisés pour calculer les exigences de réplication initiales. Lorsque vous déployez Site Recovery, vous devez charger l’intégralité du jeu de données initial. 
 
 	![Entrées](./media/site-recovery-capacity-planner/inputs.png)
 
-1. Une fois que vous avez entré les détails de l’environnement source, la sortie affiche des conseils parmi lesquels :
-	1.	Besoins en bande passante
-		1. Bandwidth required for delta replication (in Megabits/sec). Cette valeur est calculée en fonction du taux de changement de données quotidien moyen. 
-		1. Bandwidth required for initial replication (In Megabits/sec) is also presented. Cette valeur est calculée en fonction des entrées de réplication initiales présentées dans les entrées (deux dernières lignes). 
-	1.	Conditions requises pour Azure
-		1. 	Cette section détaille le stockage, les E/S par seconde, les comptes de stockage et les disques nécessaires dans Azure. 
-	1. 	Autres conditions requises pour l’infrastructure 
-		1. Exigences supplémentaires pour le scénario VMware/Physical to Azure, telles que celles liées aux serveurs de configuration et aux serveurs de traitement. 
-		1. 	Exigences supplémentaires pour le scénario Hyper-V to Azure, telles que le stockage supplémentaire nécessaire sur la source.
+2.	Une fois que vous avez placé les valeurs de l’environnement source, la sortie affichée inclut :
+
+	- Besoins en bande passante :
+		- **Bande passante totale requise pour la réplication delta** (Mo/s) Cette valeur est calculée en fonction du taux de changement de données quotidien moyen.
+		- **Bande passante requise pour la réplication initiale** (Mo/s) Elle est calculée à partir des valeurs de réplication initiales que vous avez saisies. 
+	- Configuration requise pour Azure : fournit des détails sur les comptes de stockage, le nombre d’E/S par seconde, les comptes de stockage et les disques nécessaires dans Azure.
+		- **Stockage requis (en Go)** correspond au stockage Azure total requis.
+		- **Nombre d’E/S par seconde sur les comptes de stockage standard** est calculé en fonction d’une taille d’unité d’E/S par seconde de 8K sur le total de comptes de stockage standard. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machines virtuelles source et du taux de changement de données par jour. Pour Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées sur des machines virtuelles Azure standard et du taux de modification de données sur ces dernières. 
+		- **Nombre de comptes de stockage standard requis** fournit le nombre total de comptes de stockage standard nécessaires pour protéger les machines virtuelles. Notez qu’un compte de stockage standard peut contenir jusqu’à 20 000 E/S par secondes sur toutes les machines virtuelles appartenant à un stockage standard et qu’un maximum de 500 E/S par seconde est pris en charge pour chaque disque. 
+		- **Nombre de disques blob requis** donne le nombre de disques qui seront créés sur le stockage Azure.
+		- **Nombre de comptes de stockage premium requis** fournit le nombre total de comptes de stockage premium nécessaire pour protéger les machines virtuelles. Notez qu’une machine virtuelle source avec une valeur d’E/S par seconde élevée (supérieure à 20 000) a besoin d’un compte de stockage premium. Un compte de stockage premium peut contenir jusqu’à 80 000 E/S par seconde.
+		- **Nombre d’E/S par seconde sur les comptes de stockage premium** est calculé en sur la base d’une taille d’unité d’E/S par seconde de 256K sur l’ensemble des comptes de stockage premium. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machines virtuelles source et du taux de changement de données par jour. Concernant le Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées sur des machines virtuelles Azure premium (séries DS et GS) et du taux de modification des données sur ces dernières. 
+
+	- Autres exigences de l’infrastructure :
+		- Inclut des exigences supplémentaires pour VMware/la réplication physique sur Azure, et notamment les serveurs de configuration et de processus.
+		- Nombre de serveurs de traitement supplémentaires requis : indique si des serveurs de traitement supplémentaires sont nécessaires en plus du serveur de traitement configuré sur le serveur de configuration par défaut. N
+		- Indique les exigences supplémentaires pour la réplication d’Hyper-V vers Azure, par exemple, s’il faut davantage d’espace de stockage au niveau de la source.
 			
 	![Sortie](./media/site-recovery-capacity-planner/output.png)
  
-##Detailed Planner
+## Exécuter Detailed Planner
 
-1.	Ouvrez le fichier **ASR Capacity Planner.xlsm**. Cela nécessite l’exécution de macros. Vous devez donc accepter d’**« Activer la modification »** et d’**« Activer le contenu »** quand vous y êtes invité. 
-1.	Sélectionnez **Detailed Planner** dans la zone de liste. Une autre feuille de calcul intitulée **Workload Qualification** s’ouvre.
+
+1.	Téléchargez et ouvrez l’outil [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Vous devrez exécuter des macros, et donc, sélectionner cette option pour activer la modification et activer le contenu lorsque vous y êtes invité. 
+2.	Dans **Select a planner type**, sélectionnez **Detailed Planner** dans la zone de liste.
 
 	![Mise en route](./media/site-recovery-capacity-planner/getting-started-2.png)
 
+3.	Dans la feuille de calcul **Workload Qualification**, saisissez les informations obligatoires. Vous devez renseigner tous les champs marqués.
 
-1.	Dans la feuille de calcul Workload Qualification, tapez les entrées en fonction des besoins. Toutes les colonnes marquées en rouge sont obligatoires. Les autres colonnes sont facultatives.
-	1.	Process Cores : spécifiez le nombre total de cœurs d’un serveur source.
-	1. Memory Allocation in MB : spécifiez la taille de mémoire RAM d’un serveur source.
-	1.	Number of NICs : spécifiez le nombre de cartes réseau d’un serveur source.
-	1. Total Storage (in GBs) : spécifiez la taille totale de votre stockage pour la machine virtuelle. Par exemple, si le serveur source contient trois disques de 500 Go chacun, la taille de stockage totale est de 1500 Go.
-	1. Number of disks attached : spécifiez le nombre total de disques d’un serveur source.
-	1. Disk capacity utilization : spécifiez l’utilisation moyenne. 
-	1. Daily Change rate(%) : spécifiez le taux de changement de données quotidien d’un serveur source.
-	1. Mapping Azure size : vous pouvez soit entrer la taille de machine virtuelle Azure que vous souhaitez mapper, soit utiliser le bouton Compute IaaS VMs pour calculer la meilleure correspondance possible. 
+	- Dans **Cœurs de processeur**, spécifiez le nombre total de cœurs sur un serveur source.
+	- Dans **Allocation de mémoire en Mo** spécifiez la taille de la mémoire RAM d’un serveur source. 
+	- Le **nombre de cartes réseau** spécifie le nombre de cartes réseau sur un serveur source. 
+	-  Dans **Stockage total : (en Go)** spécifiez la taille totale du stockage de machine virtuelle. Par exemple, si le serveur source contient trois disques de 500 Go chacun, la taille de stockage totale est de 1 500 Go.
+	-  Dans **Nombre de disques rattaché** : spécifiez le nombre total de disques d’un serveur source.
+	-  Dans **Taux d’utilisation de capacité de disque**, spécifiez son utilisation moyenne.
+	-  Dans **Taux de changement par jour (%)** spécifiez le taux de changement de données par jour d’un serveur source.
+	-  Dans **taille du mappage d’Azure** saisissez la taille de machine virtuelle Azure que vous souhaitez mapper. Si vous ne souhaitez pas effectuer cette opération manuellement, cliquez sur **Calcul de machines virtuelles IaaS**.
+
+4.	Si vous cliquez sur **Calcul des machines virtuelles IaaS**, voilà les opérations qui seront effectuées :
+
+	- Valide vos entrées et obtient la meilleure correspondance de machine virtuelle Azure pour chaque machine virtuelle éligible à la réplication vers Azure. Si la détection d’une machine virtuelle de taille inappropriée ne peut être détectée, une erreur est émise. Par exemple, si le nombre de disques rattaché est 65, une erreur est émise. En effet, la taille de machine la plus élevée est 64.
+	- Suggère un compte de stockage pouvant être utilisé pour une machine virtuelle Azure.
+	- Calcule le nombre total de comptes de stockage standard et premium nécessaires pour la charge de travail. Faites défiler vers la droite pour afficher le type de stockage Azure et le compte de stockage pouvant être utilisés pour un serveur source.
+	- Se termine et trie le reste de la table en fonction du type de stockage (standard ou premium) affecté à une machine virtuelle et du nombre de disques attachés. Pour toutes les machines virtuelles qui répondent aux exigences de sauvegarde d’Azure, la colonne A (La machine virtuelle est-elle qualifiée ?) affiche Oui. Si une machine virtuelle ne peut pas être sauvegardée sur Azure, une erreur s’affiche.
 
 	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification.png)
- 
-
-1. Un clic sur le bouton **Compute IaaS VMs** valide les entrées ci-dessus et suggère la meilleure correspondance Azure VM possible. Si l’outil ne peut pas trouver la taille de machine virtuelle Azure appropriée pour un serveur source, il signale une erreur pour le serveur. Par exemple, si vous spécifiez la valeur 65 comme nombre de disques attachés pour une machine virtuelle source, une erreur est générée car le nombre maximal de disques pouvant être attachés à une machine virtuelle Azure est de 64.
 
 
-La commande **Compute IaaS VMs** calcule également si une machine virtuelle a besoin d’un compte de stockage Azure standard ou premium. Elle suggère aussi le nombre de comptes de stockage standard et premium nécessaires pour la charge de travail. Faites défiler vers le bas à droite pour afficher le type de stockage Azure et le compte de stockage qui peuvent être utilisés pour un serveur source.
- 
-**Exemple** : pour cinq machines virtuelles avec les valeurs suivantes, l’outil a calculé et affecté la meilleure correspondance de taille de machine virtuelle Azure et a suggéré si la machine virtuelle avait besoin de stockage standard ou premium.
+- **Exemple**: pour les six machines virtuelles avec les valeurs indiquées dans le tableau, l’outil calcule et affecte la meilleure correspondance de machine virtuelle Azure, ainsi que les exigences de stockage Azure.
 
-![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
-Dans l’exemple, deux comptes de stockage standard et un compte de stockage premium sont nécessaires pour cinq machines virtuelles. VM1 et VM2 peuvent utiliser le premier compte de stockage standard, tandis que VM3 peut utiliser le deuxième compte de stockage standard. VM4 et VM5 ont besoin d’un compte de stockage premium et peuvent partager le même compte.
+- Dans le résultat de l’exemple, notez les points suivants :
+	- Pour cinq machines virtuelles, deux comptes de stockage standard et un compte de stockage premium sont nécessaires. 
+	-  VM 3 ne se qualifie pas pour la protection, car un ou plusieurs disques ont un volume supérieur à 1 To.
+	-  VM1 et VM2 peuvent utiliser le premier compte de stockage standard
+	-  VM4 peut utiliser le deuxième compte de stockage standard
+	-  VM5 et VM6 ont besoin d’un compte de stockage premium et peuvent tous les deux utiliser un compte simple.
 
-![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+
+	>[AZURE.NOTE]Les E/S par seconde du stockage sont calculées au niveau de la machine virtuelle et non au niveau du disque. Si l’un des disques d’une machine virtuelle source présente une valeur d’E/S par seconde supérieure à 500, mais que le nombre total d’E/S par seconde de la machine virtuelle est compris dans les limites de machine virtuelle Azure standard prises en charge, et si toutes les autres valeurs (nombre de disques, nombre de cartes réseau, nombre de cœurs de processeur, taille de la mémoire) sont comprises dans les limites de machine virtuelle standard, l’outil choisit une machine virtuelle standard plutôt que le stockage premium. Vous devez mettre à jour manuellement la correspondance des tailles de cellule Azure avec la machine virtuelle de série DS ou GS appropriée.
+
+	>[AZURE.NOTE]La première colonne est une colonne de validation pour les machines virtuelles, les disques et les taux de changement. Les E/S par seconde du stockage sont calculées au niveau de la machine virtuelle et non au niveau du disque. Si l’un des disques d’une machine virtuelle source présente une valeur d’E/S par seconde supérieure à 500, mais que le nombre total d’E/S par seconde de la machine virtuelle est compris dans les limites de machine virtuelle Azure standard prises en charge, et si toutes les autres valeurs (nombre de disques, nombre de cartes réseau, nombre de cœurs de processeur, taille de la mémoire) sont comprises dans les limites de machine virtuelle standard, l’outil choisit une machine virtuelle standard plutôt que le stockage premium. Vous devez mettre à jour manuellement la correspondance des tailles de cellule Azure avec la machine virtuelle de série DS ou GS appropriée.
+
+5. Une fois que tous les détails sont en place, cliquez sur **Envoyer des données à l’outil Planificateur** pour ouvrir **Capacity Planner** les charges de travail sont mis en surbrillance, afin d’indiquer si elles sont éligibles ou non à la protection.
 
 
->[AZURE.NOTE]Les E/S par seconde sont calculées au niveau de la machine virtuelle, et non au niveau du disque. Si l’un des disques d’une machine virtuelle source présente une valeur d’E/S par seconde supérieure à 500, mais que le nombre total d’E/S par seconde de la machine virtuelle est compris dans les limites de machine virtuelle Azure standard prises en charge, et si toutes les autres valeurs (nombre de disques, nombre de cartes réseau, nombre de cœurs de processeur, taille de la mémoire) sont comprises dans les limites de machine virtuelle standard, l’outil choisit une machine virtuelle standard plutôt que le stockage premium. L’utilisateur doit mettre à jour manuellement la cellule Mapping Azure size avec la machine virtuelle de série DS ou GS appropriée.
+### Exécuter l’outil de planification de la capacité
 
-
-1.	La première colonne est une colonne de validation pour les machines virtuelles, disques et taux de changement. 
-1.	Une fois tous les détails en place, cliquez sur le bouton **Submit data to the planner tool** affiché en haut. La feuille de calcul **Capacity Planner** s’ouvre et indique les moyennes remplies automatiquement, comme illustré dans la figure ci-dessous. 
-1.	Cette action met également en évidence les charges de travail qui sont éligibles pour la protection et celles qui ne le sont pas.
-
-
-###Capacity Planner
-
-1.	Dans la feuille de calcul **Capacity Planner**, la première ligne Infra Inputs source **Workload** suggère que les informations d’entrée soient remplies à partir de la feuille de calcul **Workload Qualification**.  
-1.	Chaque fois que des modifications sont nécessaires, apportez ces modifications dans la feuille de calcul **Workload Qualification** et appuyez sur le bouton **Submit Data To the planner tool**. 
+1.	Renseignez la feuille de calcul **Capacity Planner**. Le mot « Workload » apparaît dans la cellule de source des entrées Infra pour indiquer les entrées de la feuille de calcul **Qualification de la charge de travail**.  
+2.	Modifiez les paramètres que vous souhaitez modifier, puis cliquez sur **Envoyer des données à l’outil Planificateur**. 
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

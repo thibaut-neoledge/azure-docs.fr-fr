@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Étapes de configuration d'un circuit ExpressRoute à l’aide de PowerShell | Microsoft Azure"
+   pageTitle="Étapes de configuration d’un circuit ExpressRoute à l’aide de PowerShell | Microsoft Azure"
    description="Cet article vous guide tout au long des étapes de création et d’approvisionnement d'un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement de votre circuit."
    documentationCenter="na"
    services="expressroute"
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="12/08/2015"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
@@ -22,14 +22,14 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-Cet article vous guide tout au long des étapes de création d'un circuit ExpressRoute à l'aide des applets de commande PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute.
+Cet article vous guide tout au long des étapes de création d’un circuit ExpressRoute à l’aide des applets de commande PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d’utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md) et aux [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
 ## Pour créer et approvisionner un circuit ExpressRoute
@@ -43,7 +43,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 2. **Récupérez la liste des fournisseurs, des emplacements et des bandes passantes pris en charge.**
 
-	Avant de créer un circuit ExpressRoute, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante. L'applet de commande PowerShell *Get-AzureDedicatedCircuitServiceProvider* retourne ces informations, que vous utiliserez dans les étapes ultérieures.
+	Avant de créer un circuit ExpressRoute, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante. L’applet de commande PowerShell *Get-AzureDedicatedCircuitServiceProvider* retourne ces informations, que vous utiliserez dans les étapes ultérieures.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -108,11 +108,11 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
 	Ou, si vous souhaitez créer un circuit ExpressRoute avec le module complémentaire premium, utilisez l'exemple suivant. Consultez la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour plus d’informations sur le module complémentaire premium.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
 	La réponse contiendra la clé de service. Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
@@ -137,7 +137,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 		Sku                              : Standard
 		Status                           : Enabled
 
-	Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande *Get-AzureDedicatedCircuit*. L'appel sans paramètre répertorie tous les circuits. Votre clé de service apparaît dans le champ *ServiceKey*.
+	Vous pouvez récupérer ces informations à tout moment à l’aide de l’applet de commande *Get-AzureDedicatedCircuit*. L'appel sans paramètre répertorie tous les circuits. Votre clé de service apparaît dans le champ *ServiceKey*.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -162,7 +162,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service et Status indique l’état du côté de Microsoft. Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être utilisé.
+	*ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de services et Status indique l’état du côté de Microsoft. Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être utilisé.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -254,7 +254,7 @@ Reportez-vous à la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md
 
 ### Activation du module complémentaire ExpressRoute premium
 
-Vous pouvez activer le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de la cmdlet PowerShell suivante :
+Vous pouvez activer le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de l’applet de commande PowerShell suivante :
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
@@ -271,7 +271,7 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 ### Désactivation du module complémentaire ExpressRoute premium
 
-Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de la cmdlet PowerShell suivante :
+Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de l’applet de commande PowerShell suivante :
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
@@ -327,6 +327,5 @@ Si le fournisseur de services a annulé l’approvisionnement du circuit (l’é
 ## Étapes suivantes
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
-- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

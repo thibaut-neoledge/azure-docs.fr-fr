@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connexion de PHP sur Windows à SQL DB | Microsoft Azure"
-	description="Présente un exemple de programme PHP qui se connecte à Azure SQL Database à partir d'un client Windows et fournit des liens vers les composants logiciels nécessaires requis par le client."
+	pageTitle="Connexion à la base de données SQL à l'aide de PHP sous Windows"
+	description="Présente un exemple de programme PHP qui se connecte à la base de données SQL Azure à partir d'un client Windows et fournit des liens vers les composants logiciels nécessaires requis par le client."
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,14 +29,17 @@ Cette rubrique montre comment vous connecter à Azure SQL Database à partir d'u
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### Base de données SQL
 
-## Créer une base de données et récupérer la chaîne de connexion
-
-
-Consultez la [rubrique Prise en main](sql-database-get-started.md) pour découvrir comment créer un exemple de base de données et obtenir votre chaîne de connexion. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
+Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
 
-## Se connecter à la base de données SQL Database
+## Étape 1 : obtenir les informations de connexion
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+
+## Étape 2 : se connecter
 
 
 La fonction **OpenConnection** est appelée presque en premier dans toutes les fonctions qui suivent.
@@ -60,9 +63,9 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 	}
 
 
-## Exécution d'une requête et récupération du jeu de résultats
+## Étape 3 : exécuter une requête
 
-La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -88,12 +91,11 @@ La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 			echo("Error!");
 		}
 	}
-	
-
-## Insérer une ligne, transmettre des paramètres et récupérer la clé primaire générée
 
 
-Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
+## Étape 4 : insérer une ligne
+
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de l’injection de code SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
 
 	function InsertData()
@@ -107,7 +109,7 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 			$insertReview = sqlsrv_query($conn, $tsql);
 			if($insertReview == FALSE)
 				die(FormatErrors( sqlsrv_errors()));
-			echo "Product Key inserted is :";	
+			echo "Product Key inserted is :";
 			while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
 			{   
 				echo($row['ProductID']);
@@ -121,7 +123,7 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 		}
 	}
 
-## Transactions
+## Étape 5 : restaurer une transaction
 
 
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
@@ -142,14 +144,14 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 			if (sqlsrv_begin_transaction($conn) == FALSE)
 				die(FormatErrors(sqlsrv_errors()));
 
-			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice) 
+			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice)
 			VALUES (71774, 22, 709, 33)";
 			$stmt1 = sqlsrv_query($conn, $tsql1);
-			
+
 			/* Set up and execute the second query. */
 			$tsql2 = "UPDATE SalesLT.SalesOrderDetail SET OrderQty = (OrderQty + 1) WHERE ProductID = 709";
 			$stmt2 = sqlsrv_query( $conn, $tsql2);
-			
+
 			/* If both queries were successful, commit the transaction. */
 			/* Otherwise, rollback the transaction. */
 			if($stmt1 && $stmt2)
@@ -173,11 +175,9 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 	}
 
 
-## Pour aller plus loin
+## Étapes suivantes
 
 
 Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [Accès aux bases de données du serveur SQL avec PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

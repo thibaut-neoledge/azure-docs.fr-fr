@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Stream Analytics : inverser les informations d'identification de connexion pour les entrées et sorties | Microsoft Azure" 
-	description="Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics." 
+	description="Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics."
+	keywords="informations d’identification"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,28 +14,28 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Remplacement des informations d’identification des entrées/sorties
+#Rotation des informations d’identification
 
 ##Résumé
 Actuellement, Azure Stream Analytics n’autorise pas le remplacement des informations d’identification d’une entrée/sortie pendant l’exécution du travail.
 
-Bien qu’Azure Stream Analytics ne prenne pas en charge la reprise d’un travail à partir de la dernière sortie, nous souhaitons partager l’ensemble du processus pour réduire le délai entre l’arrêt et le démarrage du travail.
+Bien qu’Azure Stream Analytics ne prenne pas en charge la reprise d’une tâche à partir de la dernière sortie, nous souhaitons partager l’ensemble du processus pour réduire le délai entre l’arrêt et le démarrage de la tâche et pour procéder à la rotation des informations d’identification.
 
 ##Partie 1 – Préparation du nouveau jeu d’informations d’identification :
 Cette partie concerne les entrées/sorties suivantes :
 
 * Stockage d'objets blob
-* Concentrateurs d'événements
+* Hubs d'événements
 * Base de données SQL
 * Stockage de tables
 
 Pour les autres entrées/sorties, passez à la partie 2.
 
 ###Stockage d’objets blob/de tables
-1.  Dans le portail Azure Classic, accédez à l’extension Storage : ![graphic1][graphic1]
+1.  Dans le portail de gestion Azure, accédez à l’extension Stockage : ![graphic1][graphic1]
 2.  Recherchez le stockage utilisé par votre travail et accédez-y : ![graphic2][graphic2]
 3.  Cliquez sur la commande Gérer les clés d’accès : ![graphic3][graphic3]
 4.  Entre la clé d’accès primaire et la clé d’accès secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.
@@ -43,11 +44,11 @@ Pour les autres entrées/sorties, passez à la partie 2.
 7.  Passez à la partie 2.
 
 ###Event Hubs
-1.  Dans le portail Azure Classic, accédez à l’extension Service Bus : ![graphic6][graphic6]
+1.  Accédez à l’extension Service Bus dans le portail de gestion Azure : ![graphic6][graphic6]
 2.  Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y : ![graphic7][graphic7]
 3.  Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6  
-4.  Accédez à l’onglet Concentrateurs d’événements : ![graphic8][graphic8]
-5.  Recherchez le concentrateur d’événements utilisé par votre travail et accédez-y : ![graphic9][graphic9]
+4.  Accédez à l’onglet Hubs d’événements : ![graphic8][graphic8]
+5.  Recherchez le hub d’événements utilisé par votre travail et accédez-y : ![graphic9][graphic9]
 6.  Cliquez sur l’onglet Configurer : ![graphic10][graphic10]
 7.  Dans la liste déroulante Nom de la stratégie, recherchez la stratégie d’accès partagé utilisée par votre travail : ![graphic11][graphic11]
 8.  Entre la clé primaire et la clé secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.  
@@ -57,9 +58,9 @@ Pour les autres entrées/sorties, passez à la partie 2.
 
 ###Base de données SQL
 
->[AZURE.NOTE]Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail Azure Classic, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
+>[AZURE.NOTE]Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
 
-1.  Accédez à l’extension Bases de données SQL dans le portail Azure Classic : ![graphic14][graphic14]
+1.  Accédez à l’extension Bases de données SQL dans le portail de gestion Azure : ![graphic14][graphic14]
 2.  Recherchez la base de données SQL utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne : ![graphic15][graphic15]
 3.  Cliquez sur la commande Gérer : ![graphic16][graphic16]
 4.  Tapez Base de données principale : ![graphic17][graphic17]
@@ -77,7 +78,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 16. Passez à la partie 2.
 
 ##Partie 2 – Arrêt du travail Stream Analytics
-1.  Accédez à l’extension Stream Analytics sur le portail Azure Classic : ![graphic26][graphic26]
+1.  Accédez à l’extension Stream Analytics sur le portail de gestion Azure : ![graphic26][graphic26]
 2.  Recherchez votre travail et accédez-y : ![graphic27][graphic27]
 3.  Accédez à l’onglet Entrées ou à l’onglet Sorties selon que vous remplacez les informations d’identification d’une entrée ou d’une sortie. ![graphic28][graphic28]
 4.  Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté : ![graphic29][graphic29] Attendez que le travail s’arrête.
@@ -93,7 +94,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 4.	Passez à la partie 4.
 
 ###Event Hubs
-1.	Recherchez le champ Clé de la stratégie du concentrateur d’événements et collez votre nouvelle clé dans ce dernier : ![graphic33][graphic33]
+1.	Recherchez le champ Clé de la stratégie du hub d’événements et collez votre nouvelle clé dans ce dernier : ![graphic33][graphic33]
 2.	Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications : ![graphic34][graphic34]
 3.	Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
 4.	Passez à la partie 4.
@@ -120,12 +121,12 @@ Pour les autres entrées/sorties, passez à la partie 2.
 4.	Passez à la partie 5.  
 
 ##Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes : * Stockage d’objets Blob * Concentrateurs d’événements * Base de données SQL * Stockage de tables
+Cette partie concerne les entrées/sorties suivantes : * Stockage d’objets Blob * Hubs d’événements * Base de données SQL * Stockage de tables
 
 ###Stockage d’objets blob/de tables
 Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
 
-###Event Hubs
+###Hubs d’événements
 Répétez la partie 1 pour la clé qui était précédemment utilisée par votre travail afin de renouveler la clé maintenant inutilisée.
 
 ###Base de données SQL
@@ -193,4 +194,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

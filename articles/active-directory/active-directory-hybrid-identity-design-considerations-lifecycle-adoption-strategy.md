@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : Déterminer la stratégie d’adoption du cycle de vie des identités hybrides | Microsoft Azure"
+	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer la stratégie d’adoption du cycle de vie des identités hybrides | Microsoft Azure"
 	description="Permet de définir les tâches de gestion des identités hybrides selon les options disponibles pour chaque phase du cycle de vie."
 	documentationCenter=""
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 
@@ -93,4 +93,4 @@ Consultez le tableau suivant pour comparer les options de synchronisation :
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

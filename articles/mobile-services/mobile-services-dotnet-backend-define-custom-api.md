@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 
@@ -41,4 +41,4 @@ Pour plus d’informations sur la façon d’appeler une API personnalisée dans
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

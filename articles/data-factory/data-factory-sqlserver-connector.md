@@ -397,7 +397,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. | Non |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non |
 
-Vous pouvez chiffrer les informations d'identification à l'aide de l'applet de commande **New-AzureDataFactoryEncryptValue** et les utiliser dans la chaîne de connexion comme indiqué dans l'exemple suivant (propriété **EncryptedCredential**) :
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande **New-AzureRmDataFactoryEncryptValue** et les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -493,7 +493,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 ### Mappage de type pour SQL server et Azure SQL
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types de sources en types de récepteurs à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -543,4 +543,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

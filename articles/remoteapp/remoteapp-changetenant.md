@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Modification du client Azure Active Directory dans Azure RemoteApp"
+    pageTitle="Modifier le client Azure Active Directory dans Azure RemoteApp | Microsoft Azure"
     description="Apprenez à modifier le client Azure Active Directory associé à Azure RemoteApp"
     services="remoteapp"
-    documentationCenter="" 
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -38,7 +38,7 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 
 
 4. Cliquez sur **New -> App Services -> Active Directory -> Annuaire -> Créer personnalisée**.
-5. Sous **Annuaire**, choisissez **Utiliser un annuaire existant**. Vous allez devoir vous déconnecter du portail maintenant. Appuyez sur **Je suis prêt à me déconnecter**. 
+5. Sous **Annuaire**, choisissez **Utiliser un annuaire existant**. Vous allez devoir vous déconnecter du portail maintenant. Appuyez sur **Je suis prêt à me déconnecter**.
 6. Reconnectez-vous au portail en tant qu'un administrateur général de l'annuaire que vous souhaitez ajouter. (Si vous n'étiez pas déjà un administrateur général, vous le serez après vous être reconnecté et déconnecté.)
 7. Lors de votre connexion, il vous sera demandé si vous souhaitez utiliser votre locataire Active Directory existant avec votre abonnement. Cliquez sur **Continuer**, puis sur **Se déconnecter maintenant**.
 5. Connectez-vous à nouveau et revenez à **Paramètres -> Abonnements**. Sélectionnez votre abonnement, puis cliquez sur **Modifier l'annuaire**. Sélectionnez le locataire Azure AD à utiliser.
@@ -47,4 +47,4 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 
 Vous pouvez à présent utiliser le client Azure AD pour contrôler l’accès à l’abonnement Azure et configurer l’accès utilisateur dans Azure RemoteApp.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

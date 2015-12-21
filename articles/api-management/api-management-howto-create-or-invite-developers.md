@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Gestion des comptes d’utilisateur dans Gestion des API Azure
@@ -22,7 +22,7 @@ Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que 
 
 ## <a name="create-developer"> </a>Création d’un développeur
 
-Pour créer un développeur, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+Pour créer un développeur, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -91,4 +91,4 @@ Une fois le compte de développeur créé, vous pouvez l'associer à des rôles 
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Configuration des modèles de courrier électronique]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

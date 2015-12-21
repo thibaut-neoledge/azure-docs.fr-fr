@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="11/30/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # Migrer un Service de cache géré vers le Cache Redis Azure
@@ -64,9 +64,9 @@ L’idéal pour commencer la migration consiste à sélectionner une taille corr
 
 ## Création d’un cache
 
-Vous pouvez créer des caches dans le Cache Redis Azure à partir de la [version préliminaire du portail Azure](https://portal.azure.com) ou à l’aide de modèles ARM, de PowerShell ou de l’interface de ligne de commande Azure.
+Vous pouvez créer des caches dans le Cache Redis Azure à partir du [portail Azure](https://portal.azure.com) ou à l’aide de modèles ARM, de PowerShell ou de l’interface de ligne de commande Azure.
 
--	Pour créer un cache dans la version préliminaire du portail Azure, voir [Création d'un cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+-	Pour créer un cache dans le portail Azure, consultez [Créer un cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 -	Pour créer un cache à l’aide de modèles ARM, voir [Créer un cache Redis à l’aide d’un modèle](cache-redis-cache-arm-provision.md).
 -	Pour créer un cache à l’aide d’Azure PowerShell, voir [Gestion du Cache Redis Azure avec Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Pour créer un cache à l’aide de l’interface de ligne de commande Azure, voir [Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)](cache-manage-cli.md).
@@ -195,4 +195,4 @@ Le Cache Redis Azure dispose de fournisseurs pour l’état de session ASP.NET e
 
 Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) pour accéder à des didacticiels, des exemples, des vidéos et de nombreuses autres ressources.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

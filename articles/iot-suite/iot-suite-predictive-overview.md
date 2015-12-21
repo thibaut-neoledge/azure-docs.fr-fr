@@ -33,7 +33,7 @@ En prédisant le moment où une maintenance est requise, Fabrikam peut optimiser
 
 ## Comment la solution de gestion prédictive est générée
 
-Pour comprendre comment les fonctionnalités d’[Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, reportez-vous à cette [infographie][lnk_infographic].
+Pour comprendre comment les fonctionnalités d’[Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, consultez cette [infographie][lnk_infographic].
 
 Pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques recueillies via les services IoT Suite et pour les présenter aux utilisateurs dans une application web, la solution s'appuie sur un modèle Microsoft Azure Machine Learning existant disponible en tant que modèle. Microsoft a créé un modèle de régression et publié le modèle complet, les données<sup>[1]</sup> et des instructions détaillées [ici][lnk_regression_model].
 
@@ -45,11 +45,14 @@ La solution préconfigurée de gestion prédictive Azure IoT utilise le modèle 
 
 Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azure IoT, consultez [Saisir la valeur de l'Internet des objets][lnk_capture_value].
 
+[Examinez pas à pas][lnk-predictive-walkthrough] la solution préconfigurée de maintenance prédictive.
+
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/fr-FR/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

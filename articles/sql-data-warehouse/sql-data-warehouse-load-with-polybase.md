@@ -49,7 +49,7 @@ Toute d’abord, vous allez créer les objets dont a besoin PolyBase pour se con
 Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer un fichier d’informations d’identification de niveau base de données qui conserve les informations d’identification dont vous avez besoin pour accéder à votre compte Microsoft Azure Storage. Procédez comme suit pour stocker des informations d'identification avec votre base de données.
 
 1. Connectez-vous à votre base de données SQL Data Warehouse .
-2. Utilisez [CREATE MASTER KEY (Transact-SQL)][] pour créer une clé principale pour votre base de données. Si votre base de données a déjà une clé principale, vous n'avez pas besoin d'en créer une autre. Cette clé est utilisée pour chiffrer vos informations d'identification « secrètes » au cours de l'étape suivante.
+2. Utilisez [CREATE MASTER KEY (Transact-SQL)][] pour créer une clé principale pour votre base de données. Si votre base de données a déjà une clé principale, vous n'avez pas besoin d'en créer une autre. Cette clé est utilisée pour chiffrer vos informations d’identification « secrètes » au cours de l’étape suivante.
 
     ```
     -- Create a E master key
@@ -58,15 +58,13 @@ Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer 
 
 1. Vérifiez si vous disposez déjà d'informations d'identification de base de données. Pour ce faire, utilisez la vue système sys.database\_credentials, et non les sys.credentials qui affichent uniquement les informations d'identification du serveur.
 
-    ```
-    -- Vérifiez les informations d'identification de base de données existantes.
-    SELECT * FROM sys.database\_credentials;
+    ``` -- Vérifiez les informations d'identification de base de données existantes. SELECT * FROM sys.database\_credentials;
 
-3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d'identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n'affecte aucunement l'authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
+3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d’identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n’affecte aucunement l’authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
 
     -- Créer un fichier d'informations d'identification de niveau base de données CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
-1. Si vous devez supprimer des informations d'identification de niveau base de données, utilisez [DROP CREDENTIAL (Transact-SQL)][] :
+1. Si vous devez supprimer des informations d’identification de niveau base de données, utilisez [DROP CREDENTIAL (Transact-SQL)][] :
 
 ```
 -- Dropping credential
@@ -132,11 +130,11 @@ DROP EXTERNAL FILE FORMAT text_file_format
 La définition de table externe est similaire à la définition d’une table relationnelle. Les principales différences sont l’emplacement et le format des données.
 
 - La définition de la table externe est stockée comme métadonnée dans la base de données SQL Data Warehouse. 
-- Les données sont stockées dans l'emplacement externe spécifié par la source de données.
+- Les données sont stockées dans l’emplacement externe spécifié par la source de données.
 
 Utilisez [CREATE EXTERNAL TABLE (Transact-SQL)][] pour définir la table externe.
 
-L’option LOCATION spécifie le chemin d’accès aux données à partir de la racine de la source de données. Dans cet exemple, les données sont conservées à l'emplacement « wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/ ». L'ensemble des fichiers d'une même table doit être stocké dans le même dossier logique du stockage d'objets Blob Microsoft Azure.
+L’option LOCATION spécifie le chemin d’accès aux données à partir de la racine de la source de données. Dans cet exemple, les données sont conservées à l’emplacement suivant : wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/. L’ensemble des fichiers d’une même table doit être stocké dans le même dossier logique d’Azure Blob Storage.
 
 Si vous le souhaitez, vous pouvez également spécifier des options de rejet (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) qui déterminent la façon dont PolyBase gérera les enregistrements à l’intégrité compromise qu'il reçoit de la source de données externe.
 
@@ -350,13 +348,13 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

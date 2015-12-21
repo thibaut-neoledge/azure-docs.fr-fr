@@ -14,7 +14,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache des données Azure 
 -   de meilleures performances et une expérience utilisateur plus agréable pour les utilisateurs finaux qui se trouvent éloignés d’une source de contenu et qui utilisent des applications ayant recours à de nombreux « trajets Internet » pour charger le contenu ;
 -   une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début d’un événement comme le lancement d’un produit.
 
-Les clients du CDN existants peuvent désormais utiliser le CDN Azure dans le [portail de gestion Azure]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation] distinct.
+Les clients existants du CDN peuvent désormais utiliser le CDN Azure dans le [portail Azure Classic]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation] distinct.
 
 <a id="Step1"> </a> <h2>Étape 1 : création d’un compte de stockage</h2>
 
@@ -26,7 +26,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 **Pour créer un compte de stockage pour un abonnement Azure**
 
-1.  Connectez-vous au [portail de gestion Azure].
+1.  Connectez-vous au [portail Azure Classic].
 2.  Dans le coin inférieur gauche, cliquez sur **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Data Services**, cliquez sur **Stockage**, puis sur **Création rapide**.
 
     La boîte de dialogue **Create Storage Account** s’affiche.
@@ -57,7 +57,7 @@ Dès que vous activez un accès au CDN pour un compte de stockage ou un service 
 
 **Pour créer un point de terminaison CDN pour votre compte de stockage**
 
-1. Dans le [portail de gestion Azure], dans le volet de navigation, cliquez sur **CDN**.
+1. Dans le [portail Azure Classic], dans le volet de navigation, cliquez sur **CDN**.
 
 2. Dans le ruban, cliquez sur **New**. Dans la boîte de dialogue **New**, sélectionnez **App Services**, **CDN**, puis **Quick Create**.
 
@@ -100,7 +100,7 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Emplacements des nœuds CDN Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [portail de gestion Azure]: https://manage.windowsazure.com/
+  [portail Azure Classic]: https://manage.windowsazure.com/
   [profil de facturation]: /pricing/calculator/?scenario=full
   [Création d’un groupe d’affinités dans Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -111,4 +111,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="v-darmi"/>
 
 
@@ -24,7 +24,7 @@ Les stratégies disponibles dans le service de gestion des API Azure permettent 
 Nous avons vu précédemment comment interagir avec le service [Azure Event Hub pour la journalisation, la surveillance et l’analyse](api-management-sample-logtoeventhub.md). Dans cet article, nous allons décrire les stratégies qui vous permettent d’interagir avec n’importe quel service HTTP externe. Ces stratégies peuvent être utilisées pour déclencher des événements à distance ou récupérer des informations servant à manipuler la requête d’origine et la réponse d’une certaine façon.
 
 ## Send-One-Way-Request (Envoyer une requête à sens unique)
-L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. Nous pouvons utiliser la stratégie de flux de contrôle <choose> pour détecter tout type de condition qui nous intéresse et puis, si la condition est remplie, nous pouvons effectuer une requête HTTP externe. Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie ont des API HTTP simples que nous pouvons facilement appeler.
+L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. Nous pouvons utiliser la stratégie de flux de contrôle `choose` pour détecter tout type de condition qui nous intéresse et puis, si la condition est remplie, nous pouvons effectuer une requête HTTP externe à l’aide de la stratégie [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie ont des API HTTP simples que nous pouvons facilement appeler.
 
 ### Alerte avec Slack
 L’exemple suivant montre comment envoyer un message à une salle de conversation Slack si le code d’état de la réponse HTTP est supérieur ou égal à 500. Une erreur incluse dans la plage 500 indique un problème avec notre API principale que le client de notre API ne peut pas résoudre lui-même. Elle nécessite généralement une intervention de notre part.
@@ -57,16 +57,16 @@ Slack inclut la notion de Webhook entrant. Quand vous configurez un Webhook entr
 ![Webhook Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Le style « fire and forget » est-il suffisant ?
-L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison ou une autre, la requête échoue, alors l’échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie `send-request` est une meilleure option.
+L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison ou une autre, la requête échoue, alors l’échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constitue une meilleure option.
 
 ## Send-Request (Envoyer une requête)
-La stratégie `send-request` permet d’utiliser un service externe pour utiliser des fonctions de traitement complexes et retourner des données au service de gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
+La stratégie `send-request` permet d’utiliser un service externe pour exécuter des fonctions de traitement complexes et retourner des données au service Gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
 
 ### Autorisation des jetons de référence
 Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](http://jwt.io/) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/active-directory-aadconnect.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Toutefois, certains serveurs d’autorisation créent des [jetons de référence](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) qui ne peuvent pas être vérifiés sans rappeler le serveur d’autorisation.
 
 ### Introspection normalisée
-Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence avec un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662), a été publiée par l’IETF qui définit comment un serveur de ressources peut vérifier la validité d’un jeton.
+Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence avec un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662), qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
 
 ### Extraction du jeton
 La première étape consiste à extraire le jeton de l’en-tête d’autorisation. La valeur d’en-tête doit être mise en forme à l’aide du modèle d’autorisation `Bearer`, d’un seul espace, puis du jeton d’autorisation conformément à la norme [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, nous fractionnons la valeur d’en-tête sur un espace et sélectionnons la dernière chaîne dans le tableau de chaînes retourné. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
@@ -193,7 +193,7 @@ Ces requêtes s’exécutent en séquence, ce qui n’est pas idéal. Dans une p
 
 ### Réponse
 
-Pour construire la réponse composite, nous pouvons utiliser la stratégie `return-response`. L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
+Pour construire la réponse composite, nous pouvons utiliser la stratégie [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
 
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
@@ -264,4 +264,4 @@ Pendant la configuration de l’opération d’espace réservé, nous pouvons co
 ## Résumé
 Le service de gestion des API Azure offre des stratégies flexibles que vous pouvez appliquer de façon sélective au trafic HTTP et permet de composer des services principaux. Que vous vouliez améliorer votre passerelle API avec des fonctions d’alerte, des fonctionnalités de vérification et de validation ou créer des ressources composites reposant sur plusieurs services principaux, la stratégie `send-request` et les stratégies associées vous ouvrent un monde de possibilités.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

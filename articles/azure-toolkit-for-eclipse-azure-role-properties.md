@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
 # Propriétés du rôle Azure #
 
@@ -439,4 +439,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

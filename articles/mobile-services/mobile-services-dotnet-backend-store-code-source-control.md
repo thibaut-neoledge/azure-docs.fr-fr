@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Stocker le code de votre projet de service mobile dans le contrôle de code source
@@ -104,4 +104,4 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

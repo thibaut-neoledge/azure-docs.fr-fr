@@ -3,7 +3,7 @@
  description="Description des solutions préconfigurées IoT Azure et de leur architecture avec des liens vers des ressources supplémentaires."
  services=""
  documentationCenter=""
- authors="aguilaaj"
+ authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
@@ -13,82 +13,105 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
- ms.author="araguila"/>
+ ms.date="11/30/2015"
+ ms.author="dobett"/>
 
-# Que sont les solutions préconfigurées IoT Azure ?
+# Que sont les solutions préconfigurées Azure IoT Suite ?
 
-Vous pouvez déployer des solutions préconfigurées qui implémentent des scénarios IoT (Internet des objets) courants dans Microsoft Azure en utilisant votre abonnement Azure. Vous pouvez utiliser des solutions préconfigurées :
+Les solutions Azure IoT Suite préconfigurées sont des implémentations de modèles de solution IoT courants que vous pouvez déployer sur Microsoft Azure en utilisant votre abonnement Azure. Vous pouvez utiliser les solutions préconfigurées :
 
 - Comme point de départ de vos propres solutions IoT.
-- Pour en savoir plus sur les modèles les plus courants en matière de développement et de conception d’une solution IoT.
+- Pour en savoir plus sur les modèles courants en matière de développement et de conception d’une solution IoT.
 
-Chaque solution préconfigurée implémente un scénario IoT courant et est une implémentation complète de bout en bout.
+Chaque solution préconfigurée implémente un scénario IoT courant et est une implémentation complète de bout en bout utilisant les appareils simulés pour générer la télémétrie.
 
-En plus de déployer et d’exécuter les solutions préconfigurées dans Azure, vous pouvez télécharger le code source complet pour personnaliser et étendre la solution pour répondre à vos besoins spécifiques.
+En plus de déployer et d’exécuter les solutions préconfigurées dans Azure, vous pouvez télécharger le code source complet, puis personnaliser et étendre la solution pour répondre à vos besoins IoT spécifiques.
 
 Les solutions préconfigurées disponibles sont les suivantes :
 
-- Surveillance à distance
-- Maintenance prédictive
+- [Surveillance à distance][lnk-remote-monitoring]
+- [Maintenance prédictive][lnk-predictive-maintenance]
 
 Le tableau suivant montre le mappage entre ces solutions préconfigurées et des fonctionnalités IoT spécifiques :
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
-|------------------------|----------------|-----------------|---------------------|-------------------|----------------------|
+|------------------------|-----|-----|-----|-----|-----|
 | Surveillance à distance | Oui | Oui | Oui | Oui | - | | Maintenance prédictive | Oui | Oui | Oui | Oui | Oui |
 
-## Vue d’ensemble de l’exemple Surveillance à distance
+## Présentation de la solution préconfigurée de surveillance à distance
 
-Surveillance à distance est la plus simple des solutions préconfigurées offrant des fonctionnalités complètes. Cette section décrit certaines des fonctionnalités clés de la solution préconfigurée de surveillance à distance par le biais d’une introduction à l’ensemble des solutions préconfigurées.
+Cette section décrit certains des éléments clés de la solution préconfigurée de surveillance à distance. La surveillance à distance est la plus simple des solutions préconfigurées et illustre les éléments de conception communs que partagent les autres solutions préconfigurées.
 
-Le diagramme suivant illustre les principales fonctionnalités de la solution et les sections suivantes. Les sections suivantes fournissent plus d’informations sur les éléments contenus dans le diagramme.
+Le schéma suivant illustre les éléments clés de la solution de surveillance à distance. Les sections ci-dessous fournissent des informations supplémentaires sur ces éléments.
 
 ![Architecture de la solution préconfigurée Surveillance à distance][img-remote-monitoring-arch]
 
-### Appareil
+## Appareils
 
-L’appareil qui est préconfiguré avec la solution préconfigurée de surveillance à distance est une simulation logicielle d’un refroidisseur qui envoie des données de télémétrie de température et d’humidité. L’appareil peut également répondre à un ensemble de commandes envoyées par le portail de la solution via IoT Hub. Les commandes déjà implémentés dans le simulateur sont les suivantes : Ping Device, Start Telemetry, Stop Telemetry, Change Set Point Temp, Diagnostic Telemetry et Change Device State.
+Lorsque vous déployez la solution préconfigurée de surveillance à distance, le déploiement inclut des instances d’un simulateur de logiciel qui simule un refroidisseur physique. Les appareils simulés envoient les données de télémétrie de température et d’humidité à un point de terminaison IoT Hub. Les appareils simulés répondent également aux commandes suivantes, envoyées à partir du portail de la solution via l’IoT Hub :
 
-Les refroidisseurs dans cette solution préconfigurée correspondent aux **appareils et sources de données** dans une architecture de solution IoT classique.
+- Effectuer un test Ping
+- Démarrer la télémétrie
+- Arrêter la télémétrie
+- Modifier la température nominale
+- Diagnostiquer la télémétrie
+- Modifier l’état de l’appareil
 
-### IoT Hub
+## IoT Hub
 
-Un hub IoT reçoit les données de télémétrie en provenance des refroidisseurs à un point de terminaison unique et tient à jour des points de terminaison spécifiques aux appareils où ceux-ci peuvent récupérer des commandes telles que PingDevice.
+Un IoT Hub reçoit la télémétrie provenant des refroidisseurs à un seul point de terminaison. Un IoT Hub gère également les points de terminaison spécifiques des appareils où chaque appareil peut récupérer les commandes, notamment la commande **Effectuer un test Ping**, qui lui sont envoyées.
 
-Le hub IoT expose les données de télémétrie qu’il reçoit via un point de terminaison de groupe de consommateurs.
+L’IoT Hub met les données de télémétrie qu’il reçoit à disposition via un point de terminaison de groupe de consommateurs.
 
-L’instance IoT Hub de cette solution préconfigurée correspond à une **passerelle cloud** dans une architecture de solution IoT classique.
+Dans cette solution préconfigurée, l’instance IoT Hub correspond à une *passerelle cloud* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
-### Azure Stream Analytics
+## Azure Stream Analytics
 
-La solution préconfigurée utilise des tâches [Azure Stream Analytics][] pour filtrer le flux d’événements en provenance des refroidisseurs. Une tâche envoie toutes les données de télémétrie aux objets blob de stockage Azure pour le stockage à froid. La deuxième tâche filtre le flux d’événements pour les messages de réponse de commande et les messages de mise à jour de statut d’appareil et elle envoie ces messages spécifiques à un point de terminaison de hub d’événements Azure. La troisième tâche filtre les alertes déclenchées et les affiche dans le tableau d’historique des alertes dans le tableau de bord du portail de la solution.
+La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des refroidisseurs :
 
+- La tâche 1 envoie toutes les données de télémétrie au Blob Storage Azure pour le stockage à froid.
+- La tâche 2 filtre le flux de télémétrie pour identifier les messages de réponse aux commandes et les messages de mise à jour de statut d’appareil des appareils, et elle envoie ces messages spécifiques à un point de terminaison Azure Event Hub.
+- La tâche 3 filtre le flux de télémétrie pour les valeurs qui déclenchent des alertes. Lorsqu’une valeur déclenche une alerte, la solution affiche la notification dans la table d’historique des alertes dans la vue Tableau de bord du portail de la solution.
 
-### Processeur d’événements
+Dans cette solution préconfigurée, les tâches ASA font partie du *serveur principal de solution IoT* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
-Une instance de processeur d’événements, exécutée dans un projet web, traite les données de statut d’appareil et de réponse de commande et elle stocke ces informations dans une base de données Azure DocumentDB.
+## Processeur d’événements
 
-### Portail de la solution
+Une instance [EventPocessorHost][lnk-event-processor], exécutée dans un [WebJob][lnk-web-job], traite les messages de réponse aux commandes et de statut d’appareil identifiés par la tâche 2 ASA, puis stocke ces informations dans une base de données [Azure DocumentDB][lnk-document-db].
 
-Le portail de la solution est une interface utilisateur web qui vous permet de :
+Dans cette solution préconfigurée, le processeur d’événements fait partie du *serveur principal de solution IoT* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
-- Afficher l'historique de télémétrie et d'alarme dans le tableau de bord.
+## Portail de la solution
+
+Le portail de la solution est une interface utilisateur web qui est déployée dans le cloud dans le cadre de la solution préconfigurée. Il vous permet d’effectuer les opérations suivantes :
+
+- Afficher l’historique de télémétrie et d’alertes dans un tableau de bord.
 - Approvisionner de nouveaux appareils.
 - Gérer et surveiller des appareils.
 - Envoyer des commandes à des appareils spécifiques.
 - Gérer les règles et les actions.
 
-> [AZURE.NOTE]L’affichage d’appareils du portail de la solution assure également la synchronisation du Registre d’identités d’appareils IoT Hub avec la banque d’informations d’état d’appareils enrichie dans la base de données DocumentDB.
+> [AZURE.NOTE]Le portail de la solution assure également la synchronisation du [Registre d’identités d’appareils][lnk-identity-registry] IoT Hub avec la banque d’informations d’état d’appareils enrichie dans la base de données DocumentDB de la solution.
+
+Dans cette solution préconfigurée, le portail de la solution fait partie du *serveur principal de solution IoT* et de la *connectivité de traitement et d’entreprise* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
 ## Étapes suivantes
 
 Explorez ces ressources pour en savoir plus sur les solutions IoT préconfigurées :
 
-- [Vue d’ensemble des solutions préconfigurées Azure IoT](iot-suite-overview.md)
-- [Prise en main des solutions préconfigurées IoT](iot-suite-getstarted-preconfigured-solutions.md)
+- [Vue d’ensemble des solutions préconfigurées Azure IoT][lnk-suite-overview]
+- [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
-[Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
+[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
+[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-processor]: event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: web-sites-create-web-jobs.md
+[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
+[lnk-identity-registry]: iot-hub-devguide.md#device-identity-registry
+[lnk-suite-overview]: iot-suite-overview.md
+[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
+[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,15 +80,13 @@ Les erreurs temporaires doivent inviter le programme client à exécuter la *log
 |49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 |49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
-**Remarque :** les erreurs 10053 et 10054 peuvent également être incluses dans la logique de votre nouvelle tentative.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
 ## Erreurs de copie de base de données
 
 
-Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer lors de la copie d'une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d'une base de données SQL Azure](sql-database-copy.md).
+Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer lors de la copie d'une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
 
 |Numéro d'erreur|Niveau de gravité|Description|
@@ -119,10 +117,10 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 - Votre transaction a peut-être été ouverte trop longtemps.
 - Votre transaction comporte peut-être trop de verrous.
 - Votre programme consomme peut-être trop de mémoire.
-- Votre programme consomme peut-être trop d'espace `TempDb`.
+- Votre programme consomme peut-être trop d’espace `TempDb`.
 
 
-**Conseil :** le lien suivant fournit des informations supplémentaires qui s'appliquent à la plupart, voire à toutes les erreurs de cette section :
+**Conseil :** le lien suivant fournit des informations supplémentaires qui s’appliquent à la plupart, voire à toutes les erreurs de cette section :
 
 
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
@@ -130,20 +128,20 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 
 |Numéro d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
-|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d'informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l'ID de ressource = 2.<br/><br/>* Remarque :* pour plus d'informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
-|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d'informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L'ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l'ID de ressource = 2.<br/><br/>* Remarque :* pour plus d'informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
+|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>* Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
+|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>* Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
 |40544|20|La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles.|
 |40549|16|La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir.|
 |40550|16|La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique.|
-|40551|16|La session a été arrêtée en raison de l'utilisation excessive de `TEMPDB`. Essayez de modifier votre requête pour réduire l'espace utilisé par la table temporaire.<br/><br/>*Conseil :* Si vous utilisez des objets temporaires, conservez de l'espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu'ils ne sont plus nécessaires à la session.|
-|40552|16|La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique.<br/><br/>*Conseil :* Si vous effectuez des insertions en bloc à l'aide de l'utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d'utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index en utilisant l'instruction `ALTER INDEX`, essayez d'utiliser l'option `REBUILD WITH ONLINE = ON`.|
-|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Conseil :* La diminution du nombre d'opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
+|40551|16|La session a été arrêtée en raison de l’utilisation excessive de `TEMPDB`. Essayez de modifier votre requête pour réduire l’espace utilisé par la table temporaire.<br/><br/>*Conseil :* Si vous utilisez des objets temporaires, conservez de l’espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu’ils ne sont plus nécessaires à la session.|
+|40552|16|La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique.<br/><br/>*Conseil :* Si vous effectuez des insertions en bloc à l’aide de l’utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d’utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index en utilisant l’instruction `ALTER INDEX`, essayez d’utiliser l’option `REBUILD WITH ONLINE = ON`.|
+|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Conseil :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 
 
 Pour plus d'informations sur la gouvernance des ressources et les erreurs associées, voir :
 
 
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
+- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
 
 
@@ -157,7 +155,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 
 |Numéro d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
-|15006|16|<AdministratorLogin> n'est pas un nom valide, car il contient des caractères non valides.|
+|15006|16|<AdministratorLogin> n’est pas un nom valide, car il contient des caractères non valides.|
 |18452|14|La connexion a échoué. La connexion provient d'un domaine non approuvé et ne peut pas être utilisée avec l’authentification Windows.%.&#x2a;ls (Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.)|
 |18456|14|Échec de la connexion pour l'utilisateur ’%.&#x2a;ls’.%.&#x2a;ls%.&#x2a;ls(Échec de la connexion pour l’utilisateur "%.&#x2a;ls". La modification du mot de passe a échoué. La modification du mot de passe lors de la connexion n'est pas prise en charge dans cette version de SQL Server.)|
 |18470|14|Échec de la connexion pour l'utilisateur '%.&#x2a;ls'. Raison : le compte est désactivé.%.&#x2a;ls|
@@ -187,7 +185,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 |40528|16|Les utilisateurs ne peuvent pas être mappés à des certificats, clés asymétriques ou connexions Windows dans cette version de SQL Server.|
 |40529|16|La fonction intégrée '%.&#x2a;ls' dans le contexte d'emprunt d'identité n'est pas prise en charge dans cette version de SQL Server.|
 |40532|11|Impossible d'ouvrir le serveur "%.&#x2a;ls" demandé par la connexion. La connexion a échoué.|
-|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d'opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
+|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 |40604|16|Opération CREATE/ALTER DATABASE impossible car elle dépasse le quota du serveur.|
 |40606|16|L'association de bases de données n'est pas prise en charge dans cette version de SQL Server.|
 |40607|16|Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.|
@@ -202,8 +200,8 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 |40631|16|Le mot de passe que vous avez spécifié est trop long. Le mot de passe doit avoir au maximum 128 caractères.|
 |40632|16|Échec de la validation de mot de passe. Le mot de passe ne respecte pas les exigences de la stratégie car il n'est pas assez complexe.|
 |40636|16|Impossible d'utiliser un nom de base de données réservé '%.&#x2a;ls' dans cette opération.|
-|40638|16|ID d'abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
-|40639|16|La requête n'est pas conforme au schéma : <schema error>.|
+|40638|16|ID d’abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
+|40639|16|La requête n’est pas conforme au schéma : <schema error>.|
 |40640|20|Le serveur a rencontré une exception inattendue.|
 |40641|16|L'emplacement spécifié n'est pas valide.|
 |40642|17|Le serveur est actuellement trop occupé. Veuillez réessayer plus tard.|
@@ -214,12 +212,11 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 |40647|16|L'abonnement <subscription-id ne contient pas de nom de serveur.|
 |40648|17|Trop de demandes ont été effectuées. Veuillez réessayer ultérieurement.|
 |40649|16|Un type de contenu non valide est spécifié. Seul application/xml est pris en charge.|
-|40650|16|L'abonnement <subscription-id> n'existe pas ou n'est pas prêt pour l'opération.|
-|40651|16|Impossible de créer le serveur, car l'abonnement <subscription-id> est désactivé.|
-|40652|16|Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> va dépasser le quota du serveur.|
+|40650|16|L’abonnement <subscription-id> n’existe pas ou n’est pas prêt pour l’opération.|
+|40651|16|Impossible de créer le serveur, car l’abonnement <subscription-id> est désactivé.|
+|40652|16|Impossible de déplacer ou de créer le serveur. L’abonnement <subscription-id> va dépasser le quota du serveur.|
 |40671|17|Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement.|
-|45168|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.|
-|45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.|
+|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| |45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| |45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
 
 
 ## Liens connexes
@@ -227,4 +224,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

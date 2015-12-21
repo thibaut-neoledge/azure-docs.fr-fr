@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
@@ -28,7 +28,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
 ## <a name="step1"> </a>Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
 
-Pour commencer, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -160,4 +160,4 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

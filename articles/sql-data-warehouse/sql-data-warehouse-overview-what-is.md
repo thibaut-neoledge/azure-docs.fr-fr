@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -29,9 +29,9 @@ SQL Data Warehouse repose essentiellement sur l’utilisation de l’architect
 
 ![Architecture de SQL Data Warehouse][1]
 
-- **Nœud de contrôle :** vous vous connectez au nœud de contrôle lorsque vous utilisez SQL Data Warehouse avec n'importe quel outil de développement, de chargement ou d'analyse décisionnelle. Dans SQL Data Warehouse, le nœud de calcul est une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaires à ceux d’une base de données SQL standard. Mais, sous la surface, le nœud de contrôle coordonne tous les déplacements et calculs de données qui interviennent au niveau du système. Lorsqu’une commande est transmise au nœud de contrôle, celui-ci la divise en un ensemble de requêtes qui seront transmises aux nœuds de calcul du service.
+- **Nœud de contrôle :** vous vous connectez au nœud de contrôle lorsque vous utilisez SQL Data Warehouse avec n'importe quel outil de développement, de chargement ou d'analyse décisionnelle. Dans SQL Data Warehouse, le nœud de contrôle est une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaires à ceux d’une base de données SQL standard. Mais, sous la surface, le nœud de contrôle coordonne tous les déplacements et calculs de données qui interviennent au niveau du système. Lorsqu’une commande est transmise au nœud de contrôle, celui-ci la divise en un ensemble de requêtes qui seront transmises aux nœuds de calcul du service.
 
-- **Nœuds de calcul :** comme le nœud de contrôle, les nœuds de calcul de SQL Data Warehouse sont alimentés à l'aide de bases de données SQL. Leur tâche consiste à délivrer la puissance de calcul du service. En arrière-plan, à chaque fois que des données sont chargées dans SQL Data Warehouse, celles-ci sont distribuées entre les nœuds du service. Ensuite, dès que le nœud de contrôle reçoit une commande, il la décompose en éléments pour chaque nœud de calcul qui, à son tour, agit sur les données qui lui sont affectées. Une fois le calcul effectué, les nœuds de calcul transmettent les résultats partiels au nœud de contrôle qui agrège ensuite les résultats avant de renvoyer une réponse.
+- **Nœuds de calcul :** comme le nœud de contrôle, les nœuds de calcul de SQL Data Warehouse sont alimentés à l’aide de bases de données SQL. Leur tâche consiste à délivrer la puissance de calcul du service. En arrière-plan, à chaque fois que des données sont chargées dans SQL Data Warehouse, celles-ci sont distribuées entre les nœuds du service. Ensuite, dès que le nœud de contrôle reçoit une commande, il la décompose en éléments pour chaque nœud de calcul qui, à son tour, agit sur les données qui lui sont affectées. Une fois le calcul effectué, les nœuds de calcul transmettent les résultats partiels au nœud de contrôle qui agrège ensuite les résultats avant de renvoyer une réponse.
 
 - **Stockage :** tout le stockage de SQL Data Warehouse repose sur une forme standard d'Azure Storage - Objets blob. Cela signifie que lors de l’interaction avec les données, les nœuds de calcul écrivent et lisent directement à partir des objets Blob. La capacité d’Azure Storage à s’étendre en toute transparence et de façon quasi-illimitée nous permet de redimensionner automatiquement le stockage, et ce séparément du calcul. Azure Storage nous permet également de conserver le stockage en cas de mise à l’échelle ou de pause, de rationaliser notre processus de sauvegarde et de restauration, et de bénéficier d’un stockage plus sûr et plus tolérant aux pannes.
 
@@ -138,4 +138,4 @@ Simple d’utilisation, PolyBase vous permet de valoriser vos données de diffé
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -132,11 +132,11 @@ Dans l'exemple ci-dessus, otherLinkedServiceName1 et otherLinkedServiceName2 rep
 Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
 - Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail. 
-- Exécutez l'applet de commande **Set-AzureDataFactorySliceStatus** en ayant affecté à l'état de la tranche la valeur **PendingExecution**.   
+- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté à l’état de la tranche la valeur **PendingExecution**.   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-Consultez [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] pour plus d'informations sur l'applet de commande.
+Consultez [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] pour plus d’informations sur l’applet de commande.
 
 ### Combien de temps dure le traitement d'une tranche ?
 1. Cliquez sur la vignette **Jeux de données** dans le panneau **DATA FACTORY** de votre fabrique de données.
@@ -147,7 +147,7 @@ Consultez [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] 
 6. Une valeur doit apparaître dans le champ **DURÉE**. Il s'agit du temps nécessaire pour traiter la tranche.   
 
 ### Comment arrêter une tranche en cours d'exécution ?
-Si vous devez arrêter l'exécution du pipeline, vous pouvez utiliser l'applet de commande [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx). Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
+Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
 
 Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul moyen est de supprimer le pipeline et de le recréer. Si vous choisissez de supprimer le pipeline, il est INUTILE de supprimer les tables et les services liés qu'il utilise.
 
@@ -169,7 +169,7 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -177,4 +177,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

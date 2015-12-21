@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
@@ -23,7 +23,7 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'
 
 > [AZURE.NOTE]Si le code Python dans ce document peut être utilisé avec un cluster HDInsight basés sur Windows, les étapes décrites dans ce document sont spécifiques aux clusters basés sur Linux.
 
-Il est basé sur des informations et des exemples publiés par Michael Noll à l’adresse [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Rédaction d’un programme MapReduce Hadoop dans Python).
+Cet article est basé sur des informations et des exemples publiés par Michael Noll dans le didacticiel [Writing an Hadoop MapReduce Program in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ##Composants requis
 
@@ -205,4 +205,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

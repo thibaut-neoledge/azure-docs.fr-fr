@@ -3,7 +3,6 @@
 	description="Une comparaison des modèles de régression linéaire dans Excel et dans Azure Machine Learning Studio" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/11/2015" 
 	ms.author="kbaroni;garye" />
 
 # Utilisation de la régression linéaire dans Azure Machine Learning
@@ -144,4 +143,4 @@ Certaines ressources sont répertoriées pour vous aider à utiliser la régress
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -29,12 +29,12 @@ Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les
 
 Pour utiliser le Centre de sécurité Azure, vous devez disposer d’un abonnement à Microsoft Azure. Le Centre de sécurité Azure est activé avec votre abonnement. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
 
-Le Centre de sécurité Azure est accessible via le [portail Microsoft Azure en version préliminaire](http://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail Microsoft Azure en version préliminaire](https://azure.microsoft.com/documentation/services/azure-portal/).
+Le Centre de sécurité Azure est accessible à partir du [portail Azure](http://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 
 ## Accès au Centre de sécurité Azure
 
-Dans le portail Azure, procédez comme suit pour accéder au Centre de sécurité Azure :
+Dans le portail, procédez comme suit pour accéder au Centre de sécurité Azure :
 
 1. Sélectionnez **Parcourir** et faites défiler jusqu’à l’option **Centre de sécurité**. ![][1]
 
@@ -103,4 +103,4 @@ Ce document vous a présenté les composants de surveillance de sécurité et de
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

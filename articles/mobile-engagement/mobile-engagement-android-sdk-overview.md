@@ -35,11 +35,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engageme
 
 ##Notes de publication
 
-##4\.1.2 (25/11/2015)
-
-- Améliorations de la stabilité.
-
-##4\.1.1 (11/04/2015)
+##4\.1.3 (12/9/2015)
 
 - Améliorations de la stabilité.
 
@@ -56,4 +52,4 @@ Pour les versions antérieures, consultez les [notes de publication complètes](
 
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

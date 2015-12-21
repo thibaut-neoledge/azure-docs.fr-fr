@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Accéder aux journaux des applications YARN dans HDInsight sous Linux
@@ -96,4 +96,4 @@ Une fois que vous avez créé un tunnel SSH, procédez comme suit pour afficher 
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

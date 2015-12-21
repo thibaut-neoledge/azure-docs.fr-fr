@@ -47,10 +47,8 @@ Exploitez les informations des sections [Mise à jour des bases de données SQL 
 - base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 - Azure PowerShell.
 
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-
-Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -58,17 +56,17 @@ Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure
 
 Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 Après vous être connecté, vous voyez des informations sur l’écran, notamment l’ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
 
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureSubscription** et copier les informations d’abonnement souhaitées à partir des résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
+Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement ou votre nom d’abonnement (**-SubscriptionName**). Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
 
@@ -78,7 +76,7 @@ Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l
 
 ## Modification des niveaux de service et de performances de votre base de données SQL
 
-Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- RequestedServiceObjectiveName** sur le niveau de performances correspondant au niveau de tarification souhaité. Par exemple *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, et ainsi de suite.
+Exécutez l’applet de commande **Set-AzureRmSqlDatabase** et affectez à **-RequestedServiceObjectiveName** le niveau de performances correspondant au niveau tarifaire souhaité. Par exemple *S0*, *S1*, *S2*, *S3*, *P1*, *P2* et ainsi de suite.
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -88,7 +86,7 @@ Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- R
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 
 
   
@@ -112,10 +110,10 @@ Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- R
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -132,6 +130,6 @@ Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- R
 
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Applets de commande de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
+- [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt163521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

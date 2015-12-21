@@ -38,17 +38,14 @@ Pour configurer la géo-réplication, vous devez disposer des éléments suivant
 
 - Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
-- Version préliminaire 1.0 d’Azure PowerShell. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+- Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](powershell-install-configure.md).
 
 
 
 
+## Configurer vos informations d'identification et sélectionner votre abonnement
 
-## Configurer vos informations d’identification et sélectionner votre abonnement
-
-Tout d’abord, vous devez établir l’accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l’adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
 
 	Login-AzureRmAccount
@@ -75,9 +72,9 @@ Pour activer une base de données secondaire, vous devez être le propriétaire 
 
 Vous pouvez utiliser l’applet de commande **New-AzureRmSqlDatabaseSecondary** pour ajouter une base de données secondaire sur un serveur partenaire à une base de données locale sur le serveur auquel vous êtes connecté (base de données primaire).
 
-Cette applet de commande remplace **Start-AzureSqlDatabaseCopy** avec le paramètre **– IsContinuous**. Elle génère en sortie un objet **AzureRmSqlDatabaseSecondary** qui peut être utilisé par d’autres applets afin d’identifier clairement un lien de réplication spécifique. Cette applet de commande est renvoyée lorsque la base de données secondaire est créée et entièrement amorcée. Notez que, selon la taille de la base de données, l’opération peut prendre de quelques minutes à plusieurs heures.
+Cette applet de commande remplace **Start-AzureSqlDatabaseCopy** avec le paramètre **–IsContinuous**. Elle génère en sortie un objet **AzureRmSqlDatabaseSecondary** qui peut être utilisé par d’autres applets de commande pour identifier clairement un lien de réplication spécifique. Cette applet de commande est renvoyée lorsque la base de données secondaire est créée et entièrement amorcée. Notez que, selon la taille de la base de données, l’opération peut prendre de quelques minutes à plusieurs heures.
 
-La base de données répliquée sur le serveur secondaire aura le même nom que la base de données sur le serveur primaire et aura, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, voir [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) et [niveaux de Service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence. Les étapes ci-dessous décrivent comment accomplir cette tâche à l’aide de PowerShell pour créer des bases de données secondaires, accessibles en lecture ou non, avec une base de données unique ou une base de données élastique.
+La base de données répliquée sur le serveur secondaire aura le même nom que la base de données sur le serveur primaire et aura, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) et [Niveaux de Service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence. Les étapes ci-dessous décrivent comment accomplir cette tâche à l’aide de PowerShell pour créer des bases de données secondaires, accessibles en lecture ou non, avec une base de données unique ou une base de données élastique.
 
 Si la base de données de partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication précédente), la commande échoue.
 
@@ -123,7 +120,7 @@ La commande suivante crée un réplica secondaire accessible en lecture de la ba
 
 ## Supprimer une base de données secondaire
 
-Utilisez l’applet de commande **Remove-AzureRmSqlDatabaseSecondary** pour mettre définitivement fin au partenariat de réplication entre une base de données secondaire et sa base de données primaire. Après la fin de la relation, la base de données secondaire devient une base de données en lecture-écriture. Si la connectivité à la base de données secondaire est interrompue, cette commande réussit mais la base de données secondaire devient accessible en lecture-écriture une fois la connectivité rétablie. Pour plus d’informations, consultez [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) et [niveaux de Service](sql-database-service-tiers.md).
+Utilisez l’applet de commande **Remove-AzureRmSqlDatabaseSecondary** pour mettre définitivement fin au partenariat de réplication entre une base de données secondaire et sa base de données primaire. Après la fin de la relation, la base de données secondaire devient une base de données en lecture-écriture. Si la connectivité à la base de données secondaire est interrompue, cette commande réussit mais la base de données secondaire devient accessible en lecture-écriture une fois la connectivité rétablie. Pour plus d’informations, consultez [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) et [Niveaux de Service](sql-database-service-tiers.md).
 
 Cette applet de commande remplace Stop-AzureSqlDatabaseCopy pour la réplication.
 
@@ -143,7 +140,7 @@ Ce qui suit permet de supprimer le lien de réplication de la base de données n
 
 ## Initier un basculement planifié
 
-Utilisez l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec le paramètre **- Failover ** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire, la rétrogradation la base de données primaire existante pour qu’elle se transforme en base de données secondaire. Cette fonctionnalité est conçue pour un basculement planifié, comme au cours des exercices de récupération d’urgence et exige que la base de données primaire soit disponible.
+Utilisez l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec le paramètre **-Failover** pour promouvoir une base de données secondaire pour qu’elle devienne la nouvelle base de données primaire, rétrogradant ainsi la base de données primaire existante en base de données secondaire. Cette fonctionnalité est conçue pour un basculement planifié, comme au cours des exercices de récupération d’urgence et exige que la base de données primaire soit disponible.
 
 La commande exécute le flux de travail suivant :
 
@@ -151,7 +148,7 @@ La commande exécute le flux de travail suivant :
 
 2. Changer les rôles des deux bases de données dans le partenariat de géo-réplication.
 
-Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE]Si la base de données primaire n’est pas disponible lorsque la commande est émise, elle échoue avec un message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas se terminer et apparaisse bloquée. Dans ce cas, l’utilisateur peut appeler la commande de basculement forcé (basculement non planifié) et accepter une perte de données.
@@ -170,7 +167,7 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 ## Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales
 
 
-Vous pouvez utiliser l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec les paramètres **– Failover ** et **- AllowDataLoss** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière non planifiée, en forçant la rétrogradation de la base de données primaire existante vers la base de données secondaire lorsque la base de données primaire n’est plus disponible.
+Vous pouvez utiliser l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec les paramètres **-Failover** et **-AllowDataLoss** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière non planifiée, forçant ainsi la rétrogradation de la base de données primaire existante en base de données secondaire quand la base de données primaire n’est plus disponible.
 
 Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la restauration de la disponibilité de la base de données est essentielle et une perte de données est acceptable. Lorsque le basculement forcé est appelé, la base de données secondaire devient la base de données primaire immédiatement et commence à accepter des transactions d’écriture. Dès que la base de données primaire d’origine est en mesure de se reconnecter à la nouvelle base de données primaire après l’opération de basculement forcé, une sauvegarde incrémentielle est effectuée sur la base de données primaire d’origine et l’ancienne base de données primaire est transformée en base de données secondaire de la nouvelle base de données primaire. Par conséquent, il s’agit simplement d’un réplica de la nouvelle base de données primaire.
 
@@ -218,4 +215,4 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

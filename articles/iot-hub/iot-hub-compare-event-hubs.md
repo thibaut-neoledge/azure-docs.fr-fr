@@ -26,7 +26,7 @@ Les services, cependant, présentent de nombreuses différences répertoriées d
 | ---- | ------- | ---------- |
 | Modèles de communication | Entrée d’événement appareil vers cloud et messagerie cloud vers appareil. | Entrée d’événement seulement (en général utilisé pour les scénarios appareil vers cloud). |
 | Sécurité | Identité par appareil et contrôle d’accès révocable. Consultez [Guide du développeur IoT Hub - Sécurité]. | [Stratégies d’accès partagé][Event Hub - security] à l’échelle du hub d’événements avec prise en charge de révocation limitée à l’aide des [stratégies de l’éditeur][Event Hub publisher policies]. Dans le cadre des solutions IoT, il est souvent nécessaire de mettre en œuvre une solution personnalisée pour prendre en charge les informations d’identification par appareil et les mesures anti-usurpation d’identité. |
-| Mise à l'échelle | IoT Hub est optimisé pour prendre en charge des millions d’appareils connectés simultanément. | Les hubs d’événements peuvent prendre en charge un nombre de connexions simultanées moindre : jusqu’à 5 000 connexions AMQP, conformément à ce qui est défini dans [Quotas Service Bus][]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
+| Mise à l'échelle | IoT Hub est optimisé pour prendre en charge des millions d’appareils connectés simultanément. | Event Hubs peut prendre en charge un nombre de connexions simultanées moindre : jusqu’à 5 000 connexions AMQP, conformément à ce qui est défini dans [Quotas Service Bus][]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
 | Kits de développement logiciel (SDK) d’appareil | IoT Hub fournit [des Kits de développement logiciel (SDK) d’appareil][Azure IoT Hub SDKs] pour une grande variété de plateformes et de langages. | L’option Event hubs est prise en charge sur .NET, C et offre des interfaces d’envoi HTTP et AMQP. |
 
 En résumé, même si le seul cas d’utilisation est l’entrée de mesures de télémétrie d’un appareil vers le cloud, IoT Hub offre un service spécialement conçu pour la connectivité d’appareil IoT et va continuer de développer les propositions de valeur de ces scénarios grâce à des fonctionnalités IoT spécifiques. Event Hubs est conçu pour saisir des événements à grande échelle, dans les contextes inter et intra centres de données.
@@ -49,4 +49,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

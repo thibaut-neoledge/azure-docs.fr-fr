@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Créer des définitions d'application logique" 
-	description="Apprenez à écrire la définition JSON pour les applications logiques." 
+	pageTitle="Créer des définitions d’application logique | Microsoft Azure" 
+	description="Apprenez à écrire la définition JSON pour les applications logiques" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#Créer des définitions d'application logique
+# Créer des définitions d'application logique
 Cette rubrique montre comment utiliser les définitions des [applications logiques App Services](app-service-logic-what-are-logic-apps.md), qui constituent un langage JSON déclaratif simple. Si nécessaire, commencez par consulter [comment créer une application logique](../app-service-create-a-logic-app.md). Vous pouvez également lire les [documents de référence complets du langage de définition sur MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Plusieurs étapes qui se répètent dans une liste
 
-Il est courant d'avoir une étape qui obtient une liste d'éléments, puis une série de deux actions ou plus à effectuer sur la liste.
+Il est courant d’avoir une étape qui obtient une liste d’éléments, puis une série de deux actions ou plus à effectuer dans la liste :
 
 ![Répétition sur des listes](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-Dans cet exemple, il existe 3 actions :
+Dans cet exemple, il existe 3 actions :
 
 1. Obtenir une liste d'articles. Ceci renvoie un objet qui contient un tableau.
 
-2. Une action qui accède à une propriété de lien sur chaque article, qui renvoie l'emplacement réel de l'article.
+2. Une action qui accède à une propriété de lien sur chaque article, qui retourne l’emplacement réel de l’article.
 
 3. Une action qui effectue une itération sur tous les résultats de la seconde action pour télécharger les articles réels.
 
@@ -79,7 +79,7 @@ Dans l'action, vous pouvez utiliser les fonctions [`repeatItem()`](https://msdn.
 
 ## Mappage d'éléments dans une liste à une autre configuration
 
-Ensuite, supposons que nous voulions obtenir du contenu complètement différent selon une valeur d'une propriété. Nous pouvons créer un mappage des valeurs aux destinations en tant que paramètre.
+Ensuite, supposons que nous voulions obtenir du contenu complètement différent selon une valeur d'une propriété. Nous pouvons créer un mappage des valeurs aux destinations en tant que paramètre :
 
 ```
 {
@@ -234,14 +234,14 @@ Puis, dans l'application logique enfant, vous utiliserez la fonction [`triggerBo
 }
 ```
 
-Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/fr-FR/library/azure/dn948511.aspx).
+Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]Le concepteur d'applications logiques ne prend pas en charge les actions de type application logique, donc vous devrez modifier la définition manuellement.
 
 
 ## Une étape de gestion des erreurs en cas de problème
 
-En général, vous voulez être en mesure d'écrire une *étape de correction*, une logique qui s'exécute, si, **et seulement si**, un ou plusieurs de vos appels échouent. Dans cet exemple, nous obtenons des données à partir de différents emplacements, mais si l'appel échoue, je veux PUBLIER un message quelque part afin de pouvoir pister cet échec ultérieurement.
+En général, vous voulez être en mesure d’écrire une *étape de correction*, une logique qui s’exécute, si, **et seulement si**, un ou plusieurs de vos appels échouent. Dans cet exemple, nous obtenons des données à partir de différents emplacements mais, si l’appel échoue, je veux PUBLIER un message quelque part afin de pouvoir pister cet échec ultérieurement :
 
 ```
 {
@@ -287,7 +287,7 @@ En général, vous voulez être en mesure d'écrire une *étape de correction*, 
 }
 ```
 
-J'utilise deux conditions car dans la première étape, j'effectue la répétition sur une liste. Si n'avez qu'une seule action, vous n'avez besoin que d'une seule condition (la première). Notez également que vous pouvez utiliser les *entrées* de l'action qui a échoué dans l'étape de correction ; ici, je transmets l'URL ayant échoué à la deuxième étape.
+J'utilise deux conditions car dans la première étape, j'effectue la répétition sur une liste. Si n'avez qu'une seule action, vous n'avez besoin que d'une seule condition (la première). Notez également que vous pouvez utiliser les *entrées* de l’action qui a échoué dans l’étape de correction ; ici, je transmets l’URL ayant échoué à la deuxième étape :
 
 ![Correction](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -723,4 +723,4 @@ Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse ava
 
 Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

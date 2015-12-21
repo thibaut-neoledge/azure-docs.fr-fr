@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Intégrer un serveur SAP local dans Microsoft Azure App Service"
+	pageTitle="Intégrer un serveur SAP local dans Azure App Service | Microsoft Azure"
 	description="Découvrez comment intégrer un serveur SAP local"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="sameerch"/>
 
 
@@ -40,15 +40,13 @@ Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinat
 
 
 ## Créer un connecteur SAP
-1. Connectez-vous au portail de gestion Azure.
+1. Connectez-vous au portail Azure.
 2. Sélectionnez **Nouveau**.
 3. Dans le panneau de création, sélectionnez **Calculer** > **Azure Marketplace**.
-4. Dans le panneau Marketplace, sélectionnez **Applications API** et recherchez SAP dans la barre de recherche :
-
-	![Application API du connecteur SAP][2]
+4. Dans le panneau Marketplace, sélectionnez **API Apps** et recherchez SAP dans la barre de recherche : ![Application API du connecteur SAP][2]
 5. Sélectionnez le **Connecteur SAP** publié par Microsoft.
 6. Dans le panneau du connecteur SAP, sélectionnez **Créer**.
-7. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :
+7. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :  
 	1. **Emplacement** : choisissez l’emplacement géographique où vous souhaitez déployer le connecteur.
 	2. **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
 	3. **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
@@ -71,7 +69,7 @@ Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinat
 
 
 ## Installer l'écouteur hybride
-Accédez au connecteur SAP que vous avez créé via **Parcourir** > **Applications API** > *nom de votre connecteur*
+Accédez au connecteur SAP que vous avez créé via **Parcourir** > **API Apps** > *nom de votre connecteur*
 
 Dans le panneau du connecteur, notez que l'état de la connexion hybride est En attente. Sélectionnez Connexion hybride. Le panneau Connexion hybride s'ouvre :
 
@@ -94,7 +92,7 @@ Sélectionnez **Installer** pour terminer l’installation du Gestionnaire de co
 ![Installation du gestionnaire de connexion hybride terminée][7]
 
 ## Valider la connexion hybride
-Accédez au connecteur SAP que vous avez créé via **Parcourir** > **Applications API** > *nom de votre connecteur*
+Accédez au connecteur SAP que vous avez créé via **Parcourir** > **API Apps** > *nom de votre connecteur*
 
 Dans le panneau du connecteur, notez que l’état de la connexion hybride est *En attente* :
 
@@ -102,7 +100,7 @@ Dans le panneau du connecteur, notez que l’état de la connexion hybride est *
 
 
 ## Utilisation du connecteur SAP dans des applications logiques
-Une fois le connecteur SAP créé, vous pouvez l'utiliser dans votre flux de travail d'application logique. Pour ce faire, créez une application logique par le biais de **Nouveau** > **Applications logiques** > **Créer**. Entrez les métadonnées de l'application logique, y compris le groupe de ressources.
+Une fois le connecteur SAP créé, vous pouvez l'utiliser dans votre flux de travail d'application logique. Pour ce faire, créez une application logique par le biais de **Nouveau** > **Applications logiques** > **Créer**. Entrez les métadonnées de l’application logique, y compris le groupe de ressources.
 
 Sélectionnez **Déclencheurs et actions**. Le concepteur de flux de travail d'applications logiques s'ouvre.
 
@@ -123,4 +121,4 @@ Pour l'action sélectionnée, les paramètres d'entrée et de sortie sont affich
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

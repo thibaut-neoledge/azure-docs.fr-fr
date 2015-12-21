@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Concepts Azure Media Services 
@@ -104,9 +104,11 @@ Pour plus d’informations sur les encodeurs pris en charge, consultez la page [
 
 ##Vidéo en flux continu
 
-###Transcodeur dynamique local (tiers)
+Dans Azure Media Services, un canal représente un pipeline de traitement du contenu de diffusion en direct. Un canal reçoit des flux d’entrée en direct de l’une des deux manières suivantes :
 
-Un encodeur dynamique (ou transcodeur) local convertit le contenu audio ou vidéo transmis en continu à partir de votre caméra dans un format RTMP à débit binaire multiple ou un format de diffusion en continu lisse. Le transcodeur transmet ensuite les flux lisses ou RTMP à débit binaire multiple adaptatifs dans un canal Media Services. Media Services diffuse ensuite l’événement en direct.
+- Un encodeur en direct local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les canaux sans traitement supplémentaire. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+
+- Un flux à débit binaire unique (dans l’un des formats suivants : RTP [MPEG-TS], RTMP ou Smooth Streaming [MP4 fragmenté]) est envoyé au canal qui est activé pour effectuer un encodage en direct avec Media Services. Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 ###Canal
 
@@ -116,9 +118,6 @@ Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la cré
 
 Chaque compte Media Services peut contenir plusieurs canaux, plusieurs programmes et plusieurs StreamingEndpoints. Selon les besoins en matière de bande passante et de sécurité, les services StreamingEndpoint peuvent être affectés à un ou plusieurs canaux. N’importe quel StreamingEndpoint peut assurer l’extraction à partir de n’importe quel canal.
 
-Par défaut, vous pouvez ajouter 5 canaux à votre compte Media Services. Pour demander une limite plus élevée, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).
-
-Vous êtes facturé uniquement lorsque votre canal est en cours d’exécution.
 
 ###Programme 
 
@@ -130,37 +129,37 @@ Chaque programme est associé à un élément multimédia. Pour publier le progr
 
 Un canal prend en charge jusqu’à trois programmes exécutés simultanément, ce qui rend possible la création de plusieurs archives du même flux entrant. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Par exemple, imaginez que vous devez archiver 6 heures d’un programme, mais diffuser uniquement les 10 dernières minutes. Pour ce faire, vous devez créer deux programmes exécutés simultanément. Un programme est configuré pour archiver 6 heures de l’événement, mais il n’est pas publié. L’autre programme est configuré pour archiver pendant 10 minutes et il est publié.
 
+
+Pour plus d’informations, consultez :
+
+- [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md)
+- [Quotas et limitations](media-services-quotas-and-limitations.md)  
+
 ##Protection du contenu
 
 ###Chiffrement dynamique
 
-Microsoft Azure Media Services vous permet de transmettre du contenu chiffré de manière dynamique avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et la gestion des droits numériques (DRM) PlayReady.
+Azure Media Services vous permet de sécuriser votre contenu multimédia dès lors qu’il quitte votre ordinateur via le stockage, le traitement et la remise. Media Services permet de transmettre un contenu chiffré dynamiquement avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le chiffrement commun CENC (Common Encryption) en utilisant PlayReady et/ou Widevine DRM. Media Services fournit également un service de distribution de clés AES et licences PlayReady aux clients autorisés. Les services de livraison Widevine fournis par Azure Media Services sont actuellement en version préliminaire.
 
 Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
 
 Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à votre élément multimédia et configurer des stratégies d’autorisation pour la clé.
 
-Vous devez également configurer la stratégie de remise de l’élément multimédia. Si vous souhaitez diffuser un élément multimédia avec chiffrement de stockage, assurez-vous de spécifier comment vous souhaitez le remettre en configurant la stratégie de remise d’élément multimédia.
+Si vous souhaitez diffuser un élément multimédia avec chiffrement de stockage, vous devez configurer la stratégie de remise de l’élément multimédia de manière à indiquer la façon dont il sera remis.
 
-Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
+Quand un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide d’un chiffrement d’enveloppe (avec AES) ou d’un chiffrement commun (avec PlayReady ou Widevine). Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-###Services de remise de licences DRM PlayReady et de clés en clair AES
-
-Media Services fournit un service de remise de licences PlayReady et de clés en clair AES aux clients autorisés. Vous pouvez utiliser le portail Azure Classic, l’API REST ou le kit de développement logiciel (SDK) Media Services pour .NET pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
-
-Notez que si vous utilisez le portail, vous pouvez configurer une stratégie AES (qui sera appliquée à tout le contenu chiffré AES) et une stratégie PlayReady (qui sera appliquée à tout le contenu chiffré PlayReady). Utilisez le kit SDK Media Services pour .NET si vous souhaitez bénéficier d’un contrôle accru sur les configurations.
-
-###Modèle de licence PlayReady
-
-Media Services fournit un service de remise de licences PlayReady. Lorsque le lecteur de l’utilisateur final (par exemple Silverlight) tente de lire votre contenu PlayReady protégé, une demande est envoyée au service de remise de licence pour obtenir une licence. Si le service de licence approuve la demande, il émet la licence, qui est envoyée au client et peut être utilisée pour déchiffrer et lire le contenu spécifié.
-
-Les licences contiennent les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur tente de lire du contenu protégé. Media Services propose des API qui vous permettent de configurer vos licences PlayReady. Pour plus d’informations, voir [Présentation du modèle de licence PlayReady de Media Services](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ###Restriction à jeton
 
 La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT (Simple Web Tokens) et JWT (JSON Web Token). Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé (ou licence) demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé (ou licence).
 
 Lorsque vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres principaux de clé de vérification, émetteur et public. La clé de vérification principale contient la clé utilisée pour signer le jeton, l’émetteur est le service de jeton sécurisé qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
+
+Pour plus d’informations, consultez les articles suivants :
+
+[Vue d’ensemble de la protection du contenu](media-services-content-protection-overview.md) [Protéger avec AES-128](media-services-protect-with-aes128.md) [Protéger par DRM](media-services-protect-with-drm.md)
 
 ##Remise
 
@@ -249,4 +248,4 @@ La liste suivante décrit les différents formats de diffusion en continu et don
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

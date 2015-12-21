@@ -20,7 +20,7 @@
 
 Le réseau de distribution de contenu (CDN) Azure met en cache les objets blob Azure et le contenu statique utilisés par les services cloud à des emplacements stratégiques afin de fournir une bande passante maximale pour la distribution de contenu aux utilisateurs.
 
-Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail de gestion Microsoft Azure](https://portal.azure.com).
+Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com).
 
 
 Le CDN offre aux développeurs une solution globale pour la distribution de contenu haut débit en mettant en cache le contenu sur des nœuds physiques dans le monde entier. Pour obtenir la liste actuelle des emplacements des nœuds CDN, consultez la page [Emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure](cdn-pop-locations.md).
@@ -48,7 +48,7 @@ Le niveau Standard de CDN inclut les fonctionnalités suivantes :
 - [Prise en charge de HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Équilibrage de la charge
 - Protection DDOS
-- Purge rapide
+- [Purge rapide](cdn-purge-endpoint.md)
 
  
 ## Fonctionnalités Premium
@@ -59,4 +59,4 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 - [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 - [Statistiques en temps réel](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

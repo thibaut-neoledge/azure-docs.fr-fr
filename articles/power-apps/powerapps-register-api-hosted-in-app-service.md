@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Inscription d’une API hébergée dans votre environnement App Service
@@ -27,11 +27,11 @@ Lorsque vous hébergez vos API dans votre environnement App Service, vous tirez 
 
 Pour utiliser ces API dans vos applications, vous devez « inscrire » les API dans le portail Azure. Les options suivantes sont disponibles :
 
-- Inscrire une [API gérée par Microsoft ou par le service informatique](powerapps-register-from-available-apis.md).
-- Inscrire une API hébergée dans votre environnement App Service.
-- Inscrire des applications à l’aide d’une [définition d’API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+- Inscrire une [API gérée par Microsoft ou par le service informatique](powerapps-register-from-available-apis.md) préconstruite
+- Inscrire une application web, une application API et une application mobile hébergées dans votre environnement App Service Environment (dans cette rubrique)
+- Inscrire l’une de vos propres API Swagger à l’aide d’une [définition d’API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
 
-Cet article montre comment **inscrire une API hébergée dans votre environnement App Service**.
+Cet article montre comment **inscrire une application web, une application API et une application mobile hébergées dans votre environnement App Service Environment**.
 
 #### Conditions préalables
 
@@ -67,8 +67,9 @@ Une fois l’API déployée dans votre environnement App Service, procédez comm
 ## Résumé et étapes suivantes
 Cette rubrique vous a montré comment inscrire une API hébergée dans votre environnement App Service. Pour plus d’informations sur PowerApps, consultez les rubriques et ressources connexes suivantes :
 
-- [Configuration d’API](../powerapps-configure-apis.md)
-- [Ajout d’une API](../powerapps-register-from-available-apis.md)
+- [Configurer les propriétés de l’API](powerapps-configure-apis.md)
+- [Octroyer aux utilisateurs l’accès aux API](powerapps-manage-api-connection-user-access.md)
+- [Créer des applications dans PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -76,4 +77,4 @@ Cette rubrique vous a montré comment inscrire une API hébergée dans votre env
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

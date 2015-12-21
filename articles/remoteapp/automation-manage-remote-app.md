@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion d'Azure RemoteApp à l'aide d'Azure Automation"
+	pageTitle="Gérer Azure RemoteApp avec Azure Automation | Microsoft Azure"
 	description="Découvrez comment le service Azure Automation peut être utilisé pour gérer Azure RemoteApp."
 	services="remoteapp, automation"
 	documentationCenter=""
@@ -42,4 +42,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 
 * Consultez le [Didacticiel de prise en main](../automation-create-runbook-from-samples.md) d'Azure Automation
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

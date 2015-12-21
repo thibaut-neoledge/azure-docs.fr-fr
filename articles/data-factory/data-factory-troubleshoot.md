@@ -20,6 +20,8 @@
 Vous pouvez résoudre les problèmes Azure Data Factory à l’aide du portail Azure Classic ou des applets de commande Azure PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure Classic pour résoudre rapidement les erreurs Data Factory.
 
 ## Problème : impossible d’exécuter des applets de commande Data Factory
+Si vous utilisez une version antérieure à 1.0 d’Azure PowerShell :
+ 
 Pour résoudre ce problème, passez au mode Azure **AzureResourceManager** :
 
 Lancez **Azure PowerShell** et exécutez la commande suivante pour basculer vers le mode **AzureResourceManager**. Les applets de commande Azure Data Factory sont disponibles en mode **AzureResourceManager**.
@@ -52,9 +54,9 @@ Vérifiez que SQL Server est accessible à partir de l'ordinateur sur lequel la 
 
 ## Problème : l’état des tranches d’entrée est PendingExecution ou PendingValidation depuis longtemps.
 
-Les tranches peuvent avoir l’état **PendingExecution** ou **PendingValidation** pour plusieurs raisons, par exemple parce que la propriété **external** n’est pas définie sur **true**. Tout jeu de données généré en dehors de la portée d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
+Les tranches peuvent avoir l’état **PendingExecution** ou **PendingValidation** pour plusieurs raisons, par exemple parce que la propriété **external** n’a pas la valeur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
 
-Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** lorsque vous définissez external sur true.
+Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
 
 Consultez la section Tables dans [Référence sur la création de scripts JSON][json-scripting-reference] pour plus d’informations sur cette propriété.
 	
@@ -92,7 +94,7 @@ Consultez la section Tables dans [Référence sur la création de scripts JSON][
 ## Problème : échec de l’opération de copie hybride
 Pour en savoir plus :
 
-1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** est défini sur le nom de passerelle logique dans le **portail Azure Classic**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
+1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** a pour valeur le nom de passerelle logique dans le **portail Azure Classic**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
 2. Lancez l’**Observateur d’événements**. Développez **Journaux des applications et des services**, puis cliquez sur **Passerelle de gestion des données**. Recherchez les erreurs liées à la passerelle de gestion des données. 
 
 ## Problème : échec de l’approvisionnement HDInsight à la demande avec erreur
@@ -173,11 +175,11 @@ Dans cette procédure pas à pas, vous allez introduire une erreur dans le didac
 ### Composants requis
 1. Suivez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted].
 2. Confirmez qu'**ADFTutorialDataFactory** produit des données dans la table **emp** de la base de données Azure SQL.  
-3. Supprimez la table **emp** (**drop table emp**) de la base de données SQL Azure. Cette action introduit une erreur.
+3. Supprimez maintenant la table **emp** (**drop table emp**) de la base de données SQL Azure. Cette action introduit une erreur.
 4. Exécutez la commande suivante dans **Azure PowerShell** pour mettre à jour la période active pour le pipeline de sorte qu’il tente d’écrire des données dans la table **emp**, qui n’existe plus.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Remplacez la valeur de **StartDateTime** par le jour actuel et la valeur de **EndDateTime** par le jour suivant.
 
@@ -185,7 +187,7 @@ Dans cette procédure pas à pas, vous allez introduire une erreur dans le didac
 ### Utilisation du portail Azure pour résoudre l’erreur
 
 1.	Connectez-vous au [portail Azure][azure-portal]. 
-2.	Cliquez sur **ADFTutorialDataFactory** depuis le **tableau d’accueil**. Si vous ne voyez pas le lien de la fabrique de données dans le **tableau d’accueil**, cliquez sur le concentrateur **PARCOURIR**, puis sur **Tout**. Cliquez sur **Fabriques de données…** dans le panneau **Parcourir**, puis cliquez sur **ADFTutorialDataFactory**.
+2.	Cliquez sur **ADFTutorialDataFactory** depuis le **tableau d’accueil**. Si vous ne voyez pas le lien de la fabrique de données dans le **tableau d’accueil**, cliquez sur le hub **PARCOURIR**, puis sur **Tout**. Cliquez sur **Fabriques de données…** dans le panneau **Parcourir**, puis cliquez sur **ADFTutorialDataFactory**.
 3.	Notez que **Avec des erreurs** s’affiche sur la vignette **Jeux de données**. Cliquez sur **Avec des erreurs**. Vous devez voir le panneau **Jeux de données avec erreurs**.
 
 	![Liaison Data Factory avec erreurs][image-data-factory-troubleshoot-with-error-link]
@@ -212,19 +214,14 @@ Dans cette procédure pas à pas, vous allez introduire une erreur dans le didac
 Pour résoudre ce problème, créez la table **emp** à l’aide du script SQL de l’article [Prise en main de Data Factory][adfgetstarted].
 
 
-### Utilisation des cmdlets Azure PowerShell pour résoudre l'erreur
+### Utilisation des applets de commande Azure PowerShell pour résoudre l'erreur
 1.	Lancez **Azure PowerShell**. 
-2.	Passez en mode **AzureResourceManager**, car les applets de commande Data Factory sont disponibles uniquement dans ce mode.
+3. Exécutez la commande Get-AzureRmDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Exécutez la commande Get-AzureDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureDataFactoryPipelineActivePeriod**.
+	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@ Pour résoudre ce problème, créez la table **emp** à l’aide du script SQL d
 		LongRetryCount    		: 0
 
 	Notez l’heure de **Début** pour la tranche problématique (celle dont l’**état** est défini sur **Échec**) dans la sortie. 
-4. Exécutez maintenant l'applet de commande **Get-AzureDataFactoryRun** pour obtenir des détails sur l'exécution d'activité de la tranche.
+4. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	La valeur de **StartDateTime** est l’heure de début de la tranche problématique/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
 5. Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
@@ -296,17 +293,12 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
     
 ### Procédure pas à pas : utilisation d’Azure PowerShell pour résoudre une erreur avec un traitement Pig/Hive
 1.	Lancez **Azure PowerShell**. 
-2.	Passez en mode **AzureResourceManager**, car les applets de commande Data Factory sont disponibles uniquement dans ce mode.
+3. Exécutez la commande Get-AzureRmDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Exécutez la commande Get-AzureDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureDataFactoryPipelineActivePeriod**.
+	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 
 
 	Notez l’heure de **Début** pour la tranche problématique (celle dont l’**état** est défini sur **Échec**) dans la sortie. 
-4. Exécutez maintenant l'applet de commande **Get-AzureDataFactoryRun** pour obtenir des détails sur l'exécution d'activité de la tranche.
+4. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	La valeur de **StartDateTime** est l’heure de début de la tranche problématique/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
 5. Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
@@ -346,7 +338,7 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. Vous pouvez exécuter l’applet de commande **Save-AzureDataFactoryLog** avec la valeur ID indiquée dans la sortie ci-dessus et télécharger les fichiers journaux à l’aide de l’option **-DownloadLogs** pour l’applet de commande.
+6. Vous pouvez exécuter l’applet de commande **Save-AzureRmDataFactoryLog** avec la valeur d’ID indiquée dans la sortie ci-dessus et télécharger les fichiers journaux à l’aide de l’option **-DownloadLogs** pour l’applet de commande.
 
 
 
@@ -382,4 +374,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

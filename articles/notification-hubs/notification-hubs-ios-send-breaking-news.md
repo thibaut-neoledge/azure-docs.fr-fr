@@ -379,9 +379,8 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

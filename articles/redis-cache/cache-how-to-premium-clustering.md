@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Comment configurer le clustering Redis pour un Cache Redis Azure Premium
@@ -36,7 +36,7 @@ Pour plus d’informations sur la taille, le débit et la bande passante des cac
 Dans Azure, le cluster Redis est proposé sous forme de modèle principal/réplica où chaque partition a une paire principal/réplica avec réplication gérée par le service Cache Redis Azure.
 
 ## Clustering
-La configuration du clustering s'effectue dans le panneau **Nouveau cache Redis** lors de la création du cache. Pour créer un cache, connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
+La configuration du clustering s'effectue dans le panneau **Nouveau cache Redis** lors de la création du cache. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
 
 ![Création d’un cache Redis][redis-cache-new-cache-menu]
 
@@ -166,4 +166,4 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

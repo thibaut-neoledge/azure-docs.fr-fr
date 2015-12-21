@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="12/03/2015"
    ms.author="sdanie" />
 
 # Fournisseur d’état de session ASP.NET pour Cache Redis Azure
@@ -59,7 +59,7 @@ Le package NuGet télécharge et ajoute les références d'assembly nécessaires
 
 La section commentée fournit un exemple d’attributs et de paramétrage pour chacun de ces attributs.
 
-Configurez les attributs avec les valeurs du panneau de votre cache sur la version préliminaire du portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, consultez la section [Configuration des paramètres de cache Redis](cache-configure.md#configure-redis-cache-settings).
+Configurez les attributs avec les valeurs du panneau de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, consultez la section [Configuration des paramètres de cache Redis](cache-configure.md#configure-redis-cache-settings).
 
 -	**host** : spécifiez le point de terminaison de votre cache.
 -	**port** : utilisez votre port non SSL ou votre port SSL, selon les paramètres ssl.
@@ -106,4 +106,4 @@ Pour plus d'informations sur l’état de session et obtenir d’autres meilleur
 
 Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure](cache-asp.net-output-cache-provider.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

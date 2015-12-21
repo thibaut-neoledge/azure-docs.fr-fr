@@ -27,9 +27,9 @@ Les Kits de développement logiciel (SDK) clients et serveurs Mobile Apps se fon
 
 Remarque : chaque fois que ce document fait référence à un backend *Mobile Services*, il n'est pas nécessaire qu'il soit hébergé sur Mobile Services. Il est désormais possible de faire migrer un service mobile sur App Service sans aucune modification de code, mais dans ce cas le service utilisera toujours les versions du SDK *Mobile Services*.
 
-Pour en savoir plus sur la migration sur App Service sans aucune modification de code, consultez l'article [Migrer un service Mobile Services sur Azure App Service].
+Pour en savoir plus sur la migration vers App Service sans aucune modification de code, consultez l’article [Migrer un service Mobile Services sur Azure App Service].
 
-## Spécification de l'en-tête
+## Spécification de l’en-tête
 
 La clé `ZUMO-API-VERSION` peut être spécifiée dans l'en-tête HTTP ou dans la chaîne de requête. La valeur est une chaîne de version sous la forme **x.y.z**.
 
@@ -118,7 +118,7 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 | .NET | [Microsoft.Azure.Mobile.Server.* Version 0.3.x (ou ultérieure)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
 | Node.js | [azure-mobile-apps Version 1.0-beta1 (or ultérieure)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
-### Comportement des backends Mobile Apps
+### Comportement des serveurs principaux Mobile Apps
 
 | ZUMO-API-VERSION | Valeur de MS\_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
@@ -139,6 +139,6 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

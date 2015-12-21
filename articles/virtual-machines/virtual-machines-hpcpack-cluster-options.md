@@ -49,11 +49,13 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 ### Didacticiels
 
-* [Didacticiel : prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Didacticiel : prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Didacticiel : exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Didacticiel : exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Didacticiel : prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Didacticiel : Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Didacticiel : prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

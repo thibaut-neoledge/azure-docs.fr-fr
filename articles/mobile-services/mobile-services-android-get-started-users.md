@@ -55,15 +55,15 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ## Ajout de l'authentification à l'application
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app](../../includes/mobile-services-android-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Mise en cache de jetons d'authentification sur le client
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Actualisation du cache de jeton
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-refresh-token](../../includes/mobile-android-authenticate-app-refresh-token.md)]
 
 
 
@@ -106,4 +106,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

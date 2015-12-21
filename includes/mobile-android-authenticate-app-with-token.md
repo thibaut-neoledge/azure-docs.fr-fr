@@ -1,23 +1,23 @@
 
-The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the backend Azure service every time that the app starts. Not only is this method inefficient, you can run into usage-related issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by the Azure service and try to use this first before using a provider-based sign-in. 
+L’exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d’identité et le service principal Azure à chaque démarrage de l’application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d’autorisation retourné par le service Azure et à l’utiliser en premier avant de faire appel à la connexion basée sur un fournisseur.
 
->[AZURE.NOTE]You can cache the token issued by the backend Azure service regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
+>[AZURE.NOTE]Vous pouvez mettre en cache le jeton émis par le service principal Azure, que vous utilisiez l’authentification gérée par le client ou gérée par le service. Ce didacticiel utilise cette dernière.
 
 
-1. Open the ToDoActivity.java file and add the following import statements:
+1. Ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes :
 
         import android.content.Context;
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. Add the the following members to the `ToDoActivity` class.
+2. Ajouter les membres suivants à la classe `ToDoActivity`.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. In the ToDoActivity.java file, add the the following definition for the `cacheUserToken` method.
+3. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode `cacheUserToken`.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -28,12 +28,12 @@ The previous example showed a standard sign-in, which requires the client to con
 	        editor.commit();
     	}	
   
-    This method stores the user id and token in a preference file that is marked private. This should protect access to the cache so that other apps on the device do not have access to the token because the preference is sandboxed for the app. However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means. 
+    Cette méthode stocke l'ID d'utilisateur et le jeton dans un fichier de préférences marqué comme privé. Ceci doit protéger l'accès au cache afin que les autres applications de l'appareil n'aient pas accès au jeton, car les préférences sont exécutées dans le bac à sable (sandbox) de l'application. Toutefois, si une personne tente d'accéder à l'appareil, il est possible qu'elle puisse accéder au cache du jeton par d'autres moyens.
 
-    >[AZURE.NOTE]You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device. However, a completely secure solution is beyond the scope of this tutorial and dependent on your security requirements.
+    >[AZURE.NOTE]Vous pouvez protéger davantage le jeton avec chiffrement si le jeton accès à vos données est considéré comme très sensible et que quelqu’un peut accéder au périphérique. Toutefois, une solution sécurisée complète sort du cadre de ce didacticiel et dépend de vos besoins en matière de sécurité.
 
 
-4. In the ToDoActivity.java file, add the the following definition for the `loadUserTokenCache` method.
+4. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode `loadUserTokenCache`.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@ The previous example showed a standard sign-in, which requires the client to con
 
 
 
-5. In the *ToDoActivity.java* file, replace the `authenticate` method with the following method which uses a token cache. Change the login provider if you want to use an account other than Google.
+5. Dans le fichier *ToDoActivity.java*, remplacez la méthode `authenticate` par la méthode suivante qui utilise un cache de jeton. Modifiez le fournisseur de connexion si vous voulez utiliser un compte autre que Google.
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -85,7 +85,6 @@ The previous example showed a standard sign-in, which requires the client to con
 		    }
 		}
 
-6. Build the app and test authentication using a valid account. Run it at least twice. During the first run, you should receive a prompt to login and create the token cache. After that, each run will attempt to load the token cache for authentication and you should not be required to login.
+6. Générez l'application et testez l'authentification à l'aide d'un compte valide. Exécutez ceci au moins deux fois. À la première exécution, vous devez recevoir une invite vous indiquant de vous connecter et de créer le cache de jeton. Ensuite, chaque exécution tente de charger le cache de jeton à des fins d'authentification et vous n'êtes plus invité à vous connecter.
 
-
-
+<!---HONumber=AcomDC_1210_2015-->

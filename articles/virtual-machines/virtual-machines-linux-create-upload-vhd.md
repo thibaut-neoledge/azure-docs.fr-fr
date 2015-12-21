@@ -46,7 +46,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 - **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) pour charger le fichier VHD.
 
-- **Outils Azure Powershell** : la cmdlet `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les cmdlets Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+- **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 <a id="prepimage"> </a>
 ## Étape 1 : préparation de l'image pour le téléchargement
@@ -54,6 +54,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](../linux-endorsed-distributions.md)). Les articles suivants vous montrent comment préparer les diverses distributions de Linux prises en charge dans Azure :
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 Par défaut, l’interface de ligne de commande Azure est configurée pour le modèle de déploiement Resource Manager. Par conséquent, assurez-vous que vous êtes bien dans le modèle de déploiement classique à l'aide de cette commande :
 
-		azure change mode asm  
+		azure config mode asm  
 
 Exécutez ensuite l’une des méthodes suivantes pour vous connecter à votre abonnement Azure.
 
@@ -88,7 +89,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Lorsque vous y êtes invité, tapez votre nom d'utilisateur et votre mot de passe.
 
-**OU**, utilisez un fichier PublishSettings à la place :
+**OU** utilisez un fichier PublishSettings à la place :
 
 1. Ouvrez une fenêtre d'Azure CLI
 
@@ -106,7 +107,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
 
-	Pour plus d’informations, consultez [Se connecter à Azure avec la CLI Azure](../xplat-cli-connect.md).
+	Pour plus d’informations, lisez [Se connecter à Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
 
 ### En cas d’utilisation d’Azure PowerShell
@@ -121,7 +122,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Quand vous y êtes invité, entrez votre ID et votre mot de passe d’entreprise.
 
-**OU**, utilisez les fichiers PublishSettings :
+**OU** utilisez les fichiers PublishSettings à la place :
 
 1. Ouvrez une fenêtre Azure PowerShell.
 
@@ -164,11 +165,11 @@ Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tap
 
 Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [version préliminaire d’Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) modifie de manière significative la façon dont les applets de commande sont traitées pour les modèles de déploiements classiques et Resource Manager. Cet article n'utilise pas encore la version préliminaire.
+> [AZURE.NOTE]La [version préliminaire d’Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) modifie de manière significative la façon dont les applets de commande sont traitées pour les modèles de déploiement classiques et Resource Manager. Cet article n'utilise pas encore la version préliminaire.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

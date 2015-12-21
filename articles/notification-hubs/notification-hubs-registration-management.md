@@ -128,7 +128,7 @@ Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
 
-        // Parse connection string (https://msdn.microsoft.com/fr-FR/library/azure/dn495627.aspx)
+        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
         ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
@@ -137,7 +137,7 @@ Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
-		// See, https://msdn.microsoft.com/fr-FR/library/azure/dn495627.aspx
+		// See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
 
         using (var httpClient = new HttpClient())
@@ -332,4 +332,4 @@ Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch
 
 Le serveur principal doit gérer l’accès concurrentiel entre les mises à jour des inscriptions. Service Bus offre un contrôle de l’accès concurrentiel optimiste pour la gestion des inscriptions. Au niveau HTTP, cette implémentation est effectuée à l’aide d’ETag lors des opérations de gestion des inscriptions. Cette fonctionnalité est utilisée de manière transparente dans les Kits de développement logiciel (SDK) Microsoft, lesquels lèvent une exception si une mise à jour est refusée en raison d’accès concurrentiel. Le serveur principal d’application est chargé de gérer ces exceptions et, le cas échéant, de tenter une nouvelle mise à jour.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -87,11 +87,11 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 |conditionType |O |"Metric", "Event" |Deux types d’alertes sont pris en charge. L’un est basé sur une métrique, l’autre sur un événement. À l’avenir, comme nous prendrons en charge les alertes liées aux événements, utilisez cette valeur pour vérifier si l’alerte est basée sur une métrique ou sur un événement.|
 |condition |O | |Les champs à vérifier associés à ce champ dépendent du champ conditionType.|
 |metricName |Pour les alertes de métrique | |Nom de la métrique qui définit ce que la règle surveille|
-|metricUnit |Pour les alertes de métrique |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 Unité autorisée dans la métrique Valeurs autorisées : https://msdn.microsoft.com/fr-FR/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit |Pour les alertes de métrique |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 Unité autorisée dans la métrique Valeurs autorisées : https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |Pour les alertes de métrique | |Valeur réelle de la métrique qui a provoqué l’alerte|
 |threshold |Pour les alertes de métrique | |Valeur de seuil qui active l’alerte|
 |windowSize |Pour les alertes de métrique | |Période de temps qui est utilisée pour surveiller l’activité d’alerte en fonction du seuil. Doit être comprise entre 5 minutes et 1 jour. Le format de la durée répond à la norme ISO 8601.|
-|timeAggregation |Pour les alertes de métrique |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Valeurs autorisées : https://msdn.microsoft.com/fr-FR/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |Pour les alertes de métrique |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Valeurs autorisées : https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |Pour les alertes de métrique | |Opérateur utilisé pour comparer les données et le seuil.|
 |subscriptionId |O | |GUID d’abonnement Azure|
 |resourceGroupName |O | |Nom du groupe de ressources de la ressource affectée|
@@ -123,4 +123,4 @@ Utilisez des alertes Azure pour envoyer des messages à d’autres services. Uti
 
 [Utilisez une application logique pour envoyer des messages à une file d’attente Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

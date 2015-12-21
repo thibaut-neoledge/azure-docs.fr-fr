@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
 
@@ -42,25 +42,28 @@ Oui, DocumentDB prend en charge les transactions entre documents exprimées en p
 ### Dans quels cas utilise-t-on généralement DocumentDB ?  
 DocumentDB est le choix idéal pour les nouvelles applications web et mobiles lorsque l'évolutivité, les performances et la possibilité d'interroger des données sans schéma sont primordiales. DocumentDB permet un développement rapide et prend en charge l'itération continue des modèles de données d'application. Les applications qui gèrent du contenu généré par l’utilisateur et des données sont [communément utilisées dans DocumentDB](documentdb-use-cases.md).
 
+### DocumentDB est-il conforme à HIPAA ?
+DocumentDB n’est pas actuellement conforme à la réglementation HIPAA, bien que ce service Azure devrait prochainement se mettre en conformité. Pour plus d’informations sur Microsoft et HIPAA, consultez la page [HIPAA et la loi HITECH](https://www.microsoft.com/fr-FR/TrustCenter/Compliance/HIPAA).
+
 ### Quelles sont les limites de mise à l’échelle de DocumentDB ?
 Les comptes DocumentDB peuvent être mis à l’échelle en termes de stockage et de débit en ajoutant des collections. Consultez la rubrique [Limites de DocumentDB](documentdb-limits.md) pour connaître les quotas de service du nombre de collections. S’il vous faut des collections supplémentaires, [contactez le support technique](documentdb-increase-limits.md) pour augmenter le quota de votre compte.
 
 ### Combien coûte Microsoft Azure DocumentDB ?
-Pour plus d’informations, consultez la page [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne, et le [niveau de performances](documentdb-performance-levels.md) de chaque collection.
+Pour plus d’informations, consultez la page [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne et le [niveau de performances](documentdb-performance-levels.md) de chaque collection.
 
 ### Existe-t-il une version d'évaluation gratuite ?
 Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
 
 ### Comment puis-je obtenir une aide supplémentaire avec DocumentDB ?
-Si vous avez besoin d'aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [Forums de développeurs Azure DNS DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou planifiez une [conversation 1:1 avec l'équipe d'ingénierie de DocumentDB](http://www.askdocdb.com/). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
+Si vous avez besoin d’aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [Forums de développeurs Azure DNS DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou planifiez une [conversation 1:1 avec l’équipe d’ingénierie de DocumentDB](http://www.askdocdb.com/). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
 
 ## Configuration de Microsoft Azure DocumentDB
 
 ### Comment m'inscrire à Microsoft Azure DocumentDB ?
-Microsoft Azure DocumentDB est disponible dans le [portail Azure][azure-portal]. Vous devez d'abord disposer d'un abonnement à Microsoft Azure. Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure. Pour obtenir des instructions sur l'ajout d'un compte DocumentDB, consultez la page [Création d’un compte de base de données DocumentDB](documentdb-create-account.md).
+Microsoft Azure DocumentDB est disponible dans le [portail Azure][azure-portal]. Vous devez d'abord disposer d'un abonnement à Microsoft Azure. Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure. Pour obtenir des instructions sur l’ajout d’un compte DocumentDB, consultez la page [Création d’un compte de base de données DocumentDB](documentdb-create-account.md).
 
 ### Qu'est-ce que la clé principale ?
-Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés**du [portail Azure][azure-portal]. Pour plus d'informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d'accès](documentdb-manage-account.md#keys).
+Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés**du [portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](documentdb-manage-account.md#keys).
 
 ### Comment créer une base de données ?
 Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou au moyen des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -68,7 +71,7 @@ Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme
 ### Qu'est-ce qu'une collection ?
 Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Les requêtes et les transactions sont étendues vers les collections. Vous pouvez stocker un ensemble de documents JSON hétérogènes dans une seule collection. Tous seront indexés automatiquement.
 
-Les collections sont également les entités de facturation de DocumentDB. Vos frais d'utilisation mensuels de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d'heures durant lequel les collections sont en ligne, et le [niveau de performances](documentdb-performance-levels.md) de chaque collection. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
+Les collections sont également les entités de facturation de DocumentDB. Vos frais d’utilisation mensuels de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne et le [niveau de performances](documentdb-performance-levels.md) de chaque collection. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### Quelles sont les limites des bases de données et des collections ?
 Chaque collection est fournie avec une allocation de stockage de base de données et de débit configuré à l’un des [niveaux de performances](documentdb-performance-levels.md) pris en charge. Des quotas existent également pour chaque ressource gérée par le service. Pour obtenir la liste de toutes les limites, consultez la rubrique [Limites de DocumentDB](documentdb-limits.md). Pour demander une modification des limites de votre compte, consultez la rubrique [Demande d’augmentation des limites de compte DocumentDB](documentdb-increase-limits.md).
@@ -79,9 +82,9 @@ Vous pouvez créer des utilisateurs et des autorisations en utilisant un [Kit de
 ## Questions à propos du développement avec Microsoft Azure DocumentDB
 
 ### Comment développer avec DocumentDB ?
-Des [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) sont disponibles pour .NET, Python, Node.js, JavaScript et Java. Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
+Des [kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) sont disponibles pour .NET, Python, Node.js, JavaScript et Java. Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
 
-Des exemples de Kits de développement logiciel (SDK) DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) et [Python](https://github.com/Azure/azure-documentdb-python) sont disponibles sur GitHub.
+Des exemples de kits de développement logiciel (SDK) DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) et [Python](https://github.com/Azure/azure-documentdb-python) sont disponibles sur GitHub.
 
 ### DocumentDB prend-il en charge SQL ?
 Le langage de requête SQL de DocumentDB fournit des opérateurs relationnels et hiérarchiques enrichis, ainsi qu'une extensibilité, via des fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes en tant que nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le langage de requête SQL de ce dernier. Pour plus d’informations sur l’utilisation de la syntaxe SQL, consultez l’article [Interrogation de DocumentDB][query].
@@ -98,9 +101,9 @@ DocumentDB prend en charge les transactions intégrées au langage via les décl
 ### Comment insérer des documents en bloc dans DocumentDB ? 
 Il existe trois façons d’insérer des documents en bloc dans DocumentDB :
 
-- L'outil de migration de données, comme décrit dans la rubrique [Importation de données vers DocumentDB](documentdb-import-data.md).
-- L’Explorateur de documents dans le portail Azure, comme décrit dans la rubrique [Ajouter des documents en bloc à l’aide de l’Explorateur de documents](documentdb-view-json-document-explorer.md#BulkAdd).
-- Les procédures stockées, comme décrit dans la rubrique [Programmation DocumentDB côté serveur](documentdb-programming.md).
+- L’outil de migration de données, décrit dans la rubrique [Importation de données vers DocumentDB](documentdb-import-data.md).
+- L’Explorateur de documents dans le portail Azure, décrit dans la rubrique [Ajouter des documents en bloc à l’aide de l’Explorateur de documents](documentdb-view-json-document-explorer.md#BulkAdd).
+- Les procédures stockées, décrites dans la rubrique [Programmation DocumentDB côté serveur](documentdb-programming.md).
 
 ### DocumentDB prend-il en charge la mise en cache des liens de ressource ?
 Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables et peuvent être mis en cache. Les clients DocumentDB peuvent spécifier un en-tête « If-None-Match » pour des lectures en comparaison avec des ressources telles que des documents ou des collections. Ils peuvent également mettre à jour les copies locales uniquement lorsque la version du serveur a été modifiée.
@@ -112,4 +115,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,37 +1,37 @@
-<properties 
-	pageTitle="Découvrir comment utiliser le Kit de développement logiciel (SDK) .NET Stream Analytics Management | Microsoft Azure" 
-	description="Familiarisez-vous avec le SDK .NET Stream Analytics Management. Découvrez comment configurer et exécuter des travaux d’analyse : créez un projet, des entrées, des sorties et des transformations." 
-	keywords=".net skd,analytics jobs,event hub"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="Kit de développement logiciel (SDK) de gestion pour Stream Analytics | Microsoft Azure"
+	description="Familiarisez-vous avec le SDK .NET Stream Analytics Management. Découvrez comment configurer et exécuter des travaux d’analyse : créez un projet, des entrées, des sorties et des transformations."
+	keywords="Kit de développement logiciel (SDK) .NET, API d’analyse"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
 
-# Configurer et exécuter des tâches d’analyse à l’aide du Kit de développement logiciel (SDK) .NET Azure Stream Analytics Management
+# Kit de développement logiciel (SDK) .NET de gestion : configurer et exécuter des tâches d’analyse à l’aide de l’API Azure Stream Analytics pour .NET
 
-Découvrez comment configurer et exécuter des tâches d’analyse à l’aide du SDK .NET Stream Analytics Management, configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un concentrateur d’événements.
+Découvrez comment configurer et exécuter des tâches d’analyse à l’aide de l’API Stream Analytics pour .NET avec le Kit de développement logiciel (SDK) .NET de gestion. configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un hub d’événements.
+
+Consultez la [documentation de référence de gestion de l’API Stream Analytics pour .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
 Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Stream Analytics permet aux clients de configurer des tâches de diffusion en continu pour analyser des flux de données et de mener à bien des analyses en quasi-temps réel.
-
-Pour accéder aux informations de référence sur l’API .NET, consultez [Kit de développement logiciel (SDK) .NET Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
 
 ## Composants requis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Installez Visual Studio 2012 ou 2013
-- Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](http://azure.microsoft.com/downloads/). 
+- Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](http://azure.microsoft.com/downloads/).
 - Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell : Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).  
 
 
@@ -46,14 +46,14 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 		# Create an Azure resource group
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-		
+
 
 -	Configurez une source d’entrée et une cible de sortie à utiliser. Pour plus d'informations, consultez [Ajouter des entrées](stream-analytics-add-inputs.md) pour configurer un exemple d'entrée et [Ajouter des sorties](stream-analytics-add-outputs.md) pour configurer un exemple de sortie.
 
 
 ## Configuration d’un projet
 
-Pour créer un travail d’analyse, commencez par configurer votre projet.
+Pour créer une tâche d’analyse à l’aide de l’API Stream Analytics pour .NET, commencez par configurer votre projet.
 
 1. Créez une application console Visual Studio .NET C#.
 2. Dans la console du Gestionnaire de package, exécutez les commandes suivantes pour installer les packages NuGet. Le premier est le Kit de développement logiciel (SDK) .NET de gestion Azure Stream Analytics. Le second est le client Azure Active Directory utilisé pour l’authentification.
@@ -75,7 +75,7 @@ Pour créer un travail d’analyse, commencez par configurer votre projet.
 		</appSettings>
 
 
-	Remplacez les valeurs de **SubscriptionId** et **ActiveDirectoryTenantId** par votre ID d’abonnement et votre ID de locataire Azure. Vous pouvez obtenir ces valeurs en exécutant la cmdlet Azure PowerShell suivante :
+	Remplacez les valeurs de **SubscriptionId** et **ActiveDirectoryTenantId** par votre ID d’abonnement et votre ID de locataire Azure. Vous pouvez obtenir ces valeurs en exécutant l’applet de commande Azure PowerShell suivante :
 
 		Get-AzureAccount
 
@@ -101,7 +101,7 @@ Pour créer un travail d’analyse, commencez par configurer votre projet.
 		            var context = new AuthenticationContext(
 						ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
 						ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-		
+
 		            result = context.AcquireToken(
 		                resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
 		                clientId: ConfigurationManager.AppSettings["AsaClientId"],
@@ -113,17 +113,17 @@ Pour créer un travail d’analyse, commencez par configurer votre projet.
 		            Console.WriteLine(threadEx.Message);
 		        }
 		    });
-		
+
 		    thread.SetApartmentState(ApartmentState.STA);
 		    thread.Name = "AcquireTokenThread";
 		    thread.Start();
 		    thread.Join();
-		
+
 		    if (result != null)
 		    {
 		        return result.AccessToken;
 		    }
-		
+
 		    throw new InvalidOperationException("Failed to acquire token");
 		}  
 
@@ -139,13 +139,13 @@ Ajoutez le code suivant au début de la méthode **Main** :
 	string streamAnalyticsInputName = "<YOUR JOB INPUT NAME>";
 	string streamAnalyticsOutputName = "<YOUR JOB OUTPUT NAME>";
 	string streamAnalyticsTransformationName = "<YOUR JOB TRANSFORMATION NAME>";
-	
+
 	// Get authentication token
 	TokenCloudCredentials aadTokenCredentials =
 	    new TokenCloudCredentials(
 	        ConfigurationManager.AppSettings["SubscriptionId"],
 	        GetAuthorizationHeader());
-	
+
 	// Create Stream Analytics management client
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
@@ -174,13 +174,13 @@ Le code suivant crée un travail Stream Analytics sous le groupe de ressources q
 	        }
 	    }
 	};
-	
+
 	JobCreateOrUpdateResponse jobCreateResponse = client.StreamingJobs.CreateOrUpdate(resourceGroupName, jobCreateParameters);
 
 
 ## Création d’une source d’entrée Stream Analytics
 
-Le code suivant crée une source d’entrée Stream Analytics avec objet blob comme type de source d’entrée et sérialisation CSV. Pour créer une source d’entrée de concentrateur d’événements, utilisez **EventHubStreamInputDataSource** au lieu de **BlobStreamInputDataSource**. De même, vous pouvez personnaliser le type de sérialisation de la source d’entrée.
+Le code suivant crée une source d’entrée Stream Analytics avec objet blob comme type de source d’entrée et sérialisation CSV. Pour créer une source d’entrée de hub d’événements, utilisez **EventHubStreamInputDataSource** au lieu de **BlobStreamInputDataSource**. De même, vous pouvez personnaliser le type de sérialisation de la source d’entrée.
 
 	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -217,11 +217,11 @@ Le code suivant crée une source d’entrée Stream Analytics avec objet blob co
 	        }
 	    }
 	};
-	
-	InputCreateOrUpdateResponse inputCreateResponse = 
+
+	InputCreateOrUpdateResponse inputCreateResponse =
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Les sources d’entrée, qu’elles proviennent d’un stockage d’objets blob ou d’un concentrateur d’événements, sont liées à une tâche spécifique. Pour utiliser la même source d’entrée pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
+Les sources d’entrée, qu’elles proviennent d’un stockage d’objets blob ou d’un hub d’événements, sont liées à une tâche spécifique. Pour utiliser la même source d’entrée pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
 
 
 ## Test d’une source d’entrée Stream Analytics
@@ -229,7 +229,7 @@ Les sources d’entrée, qu’elles proviennent d’un stockage d’objets blob 
 La méthode **TestConnection** teste si le travail Stream Analytics est en mesure de se connecter à la source d’entrée, ainsi que d’autres aspects spécifiques au type de source d’entrée. Par exemple, pour la source d’entrée d’objet blob que vous avez créée à l’étape précédente, la méthode vérifie que le nom et la paire de clés du compte de stockage peuvent être utilisés pour se connecter au compte de stockage et que le conteneur spécifié existe.
 
 	// Test input source connection
-	DataSourceTestConnectionResponse inputTestResponse = 
+	DataSourceTestConnectionResponse inputTestResponse =
 		client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
 ## Création d’une cible de sortie Stream Analytics
@@ -260,8 +260,8 @@ Le code suivant crée une cible de sortie (base de données SQL Azure). Vous pou
 	        }
 	    }
 	};
-	
-	OutputCreateOrUpdateResponse outputCreateResponse = 
+
+	OutputCreateOrUpdateResponse outputCreateResponse =
 		client.Outputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobOutputCreateParameters);
 
 ## Test d’une cible de sortie Stream Analytics
@@ -269,7 +269,7 @@ Le code suivant crée une cible de sortie (base de données SQL Azure). Vous pou
 Une cible de sortie Stream Analytics dispose également de la méthode **TestConnection** pour tester les connexions.
 
 	// Test output target connection
-	DataSourceTestConnectionResponse outputTestResponse = 
+	DataSourceTestConnectionResponse outputTestResponse =
 		client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
 ## Création d’une transformation Stream Analytics
@@ -290,8 +290,8 @@ Le code suivant crée une transformation Stream Analytics avec la requête « s
 	        }
 	    }
 	};
-	
-	var transformationCreateResp = 
+
+	var transformationCreateResp =
 		client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
 Tout comme l’entrée et la sortie, une transformation est liée au travail Stream Analytics spécifique où elle a été créée.
@@ -307,7 +307,7 @@ L’exemple de code suivant démarre un travail Stream Analytics avec une heure 
 	    OutputStartMode = OutputStartMode.CustomTime,
 	    OutputStartTime = new DateTime(2012, 12, 12, 0, 0, 0, DateTimeKind.Utc)
 	};
-	
+
 	LongRunningOperationResponse jobStartResponse = client.StreamingJobs.Start(resourceGroupName, streamAnalyticsJobName, jobStartParameters);
 
 
@@ -363,6 +363,5 @@ Vous avez appris les principes de base de l’utilisation d’un Kit de dévelop
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

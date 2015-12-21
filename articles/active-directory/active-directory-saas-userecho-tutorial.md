@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer UserEcho à
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à UserEcho. 
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à UserEcho (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration d’UserEcho à Azure AD, vous devez ajouter U
 
 **Pour ajouter UserEcho à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -81,14 +81,14 @@ Pour configurer et tester l’authentification unique Azure AD avec UserEcho, v
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application UserEcho.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application UserEcho.
 
 
 
 
 **Pour configurer l’authentification unique Azure AD avec UserEcho, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis sur la page d’intégration d’application **UserEcho**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **UserEcho**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
 2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à UserEcho**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
@@ -120,16 +120,16 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Pour **SAML-enabled**, sélectionnez **Yes**.
 
-    b. Dans le portail Azure, sur la page **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL du service d’authentification unique** et collez-la. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte **URL d’authentification unique SAML**.
+    b. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL du service d’authentification unique** et collez-la. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez le contenu et collez-le dans la zone de texte **URL d’authentification unique SAML**.
 
-    c. Dans le portail Azure, sur la page **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL de déconnexion distante**. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte **URL de déconnexion distante**.
+    c. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion distante**.
 
     d. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat X.509**.
 
     e. Cliquez sur **Enregistrer**.
 
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
@@ -137,11 +137,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -198,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     a. Dans la zone de texte **Name**, entrez **Britta Simon**.
 
-    b. Dans la zone de texte **Email**, entrez l’adresse de messagerie de Britta dans le portail Azure.
+    b. Dans la zone de texte **Email**, tapez l’adresse de messagerie de Britta dans le portail Azure Classic.
 
     c. Cliquez sur **Invite**.
 
@@ -212,7 +212,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à UserEcho, procédez comme suit :**
 
-1. Dans la vue d’annuaire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Dans l’affichage des annuaires du portail Azure Classic, pour ouvrir l’affichage des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **UserEcho**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
@@ -253,4 +253,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

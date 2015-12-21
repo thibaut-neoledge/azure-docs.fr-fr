@@ -20,7 +20,7 @@
 
 # Démarrage rapide pour l'API Graph Azure AD
 
-L’API Graph Azure Active Directory (AD) donne accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire. Par exemple, vous pouvez utiliser l'API Graph pour créer un nouvel utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier l'appartenance au groupe d'accès basé sur un rôle, et désactiver ou supprimer l'utilisateur. Pour plus d'informations sur les fonctionnalités de l'API Graph et les scénarios d'application, consultez [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Configuration requise pour l'API Graph Azure AD](https://msdn.microsoft.com/fr-FR/library/hh974476(Azure.100).aspx)).
+L’API Graph Azure Active Directory (AD) donne accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire. Par exemple, vous pouvez utiliser l'API Graph pour créer un nouvel utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier l'appartenance au groupe d'accès basé sur un rôle, et désactiver ou supprimer l'utilisateur. Pour plus d’informations sur les fonctionnalités de l’API Graph et les scénarios d’application, consultez [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Configuration requise pour l’API Graph Azure AD](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx)).
 
 > [AZURE.IMPORTANT]La fonctionnalité API Graph Azure AD est également disponible au moyen de [Microsoft Graph](https://graph.microsoft.io/), une API unifiée qui inclut des API d'autres services Microsoft tels qu'Outlook, OneDrive, OneNote, Planner et Office Graph, accessible à travers un point de terminaison unique et avec un jeton d'accès unique.
 
@@ -125,4 +125,4 @@ Pour plus d'informations sur les entités et les types Azure AD exposés par Gr
 
 En savoir plus sur l'[API Graph d'Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

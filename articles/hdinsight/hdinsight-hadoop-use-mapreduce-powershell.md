@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/16/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
@@ -53,7 +53,6 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 		#Specify the values
 		$clusterName = "CLUSTERNAME"
-		$creds=Get-Credential
         		
 		# Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -107,7 +106,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
             -HttpCredential $creds
         # Download the output
         Get-AzureStorageBlobContent `
-            -Blob example/data/WordCountOutput/* `
+            -Blob 'example/data/WordCountOutput/part-r-00000' `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -183,4 +182,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

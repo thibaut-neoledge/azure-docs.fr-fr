@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # Votre application Service Fabric et étapes suivantes
@@ -59,17 +59,21 @@ Service Fabric offre une intégration avec ASP.NET 5 pour la création de points
 ### Création d’un cluster Azure
 Le SDK Service Fabric fournit un cluster local pour le développement et les tests. Pour créer un cluster dans Azure, consultez la page [Configuration d'un cluster Service Fabric à partir du portail Azure][create-cluster-in-portal].
 
+### Essayer gratuitement de déployer des applications vers Azure grâce au service Party Clusters
+
+Si vous souhaitez essayer de déployer et de gérer vos applications dans Azure sans configurer vos propres clusters, vous pouvez utiliser le [service Party Clusters](http://aka.ms/tryservicefabric) gratuit.
+
 ### Publication de votre application dans Azure
-Vous pouvez publier votre application directement à partir de Visual Studio vers un cluster Azure. Pour en savoir plus, voir [Publication de votre application dans Azure][publish-app-to-azure].
+Vous pouvez publier votre application directement à partir de Visual Studio vers un cluster Azure. Pour en savoir plus, consultez [Publication de votre application dans Azure][publish-app-to-azure].
 
 ### Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer
-Service Fabric Explorer offre un moyen facile de visualiser votre cluster, y compris les applications déployées et la disposition physique. Pour en savoir plus, voir [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer][visualize-with-sfx].
+Service Fabric Explorer offre un moyen facile de visualiser votre cluster, y compris les applications déployées et la disposition physique. Pour en savoir plus, consultez [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer][visualize-with-sfx].
 
 ### Contrôle de la version et mise à niveau de vos services
-Service Fabric permet un contrôle de version indépendant et la mise à niveau de services indépendants d'une application. Pour en savoir plus, voir [Contrôle de la version et mise à niveau de vos services][app-upgrade-tutorial].
+Service Fabric permet un contrôle de version indépendant et la mise à niveau de services indépendants d'une application. Pour en savoir plus, consultez [Gestion de version et mise à niveau de vos services][app-upgrade-tutorial].
 
 ### Configuration de l'intégration continue avec Visual Studio Online
-Pour savoir comment configurer un processus d'intégration continue pour votre application Service Fabric, voir [Configuration de l'intégration continue avec Visual Studio Online][ci-with-vso].
+Pour savoir comment configurer un processus d’intégration continue pour votre application Service Fabric, consultez [Configurer l’intégration continue avec Visual Studio Online][ci-with-vso].
 
 
 <!-- Links -->
@@ -81,4 +85,4 @@ Pour savoir comment configurer un processus d'intégration continue pour votre a
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

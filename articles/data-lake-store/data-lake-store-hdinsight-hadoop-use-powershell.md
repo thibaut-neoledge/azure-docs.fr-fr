@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Approvisionner un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -46,7 +46,38 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
-- **Azure PowerShell 1.0 ou version ultérieure**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
+
+
+##Installer Azure PowerShell 1.0 et versions ultérieures
+
+Pour commencer, vous devez désinstaller les versions 0.9x d’Azure PowerShell. Pour vérifier la version PowerShell installée, exécutez la commande suivante dans une fenêtre PowerShell :
+
+	Get-Module *azure*
+	
+Pour désinstaller l’ancienne version, exécutez **Programmes et fonctionnalités** dans le Panneau de configuration et supprimez la version installée si elle est antérieure à PowerShell 1.0.
+
+Il existe deux options principales pour l’installation d’Azure PowerShell.
+
+- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Pour plus d’informations, consultez [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez [Installer Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Si vous êtes familiarisé avec l’installation à partir de PowerShell Gallery, il s’agit du premier canal pour bénéficier des dernières nouveautés d’Azure PowerShell.
  
 
 ## Créer un Azure Data Lake Store
@@ -105,9 +136,9 @@ Pour configurer l'authentification Active Directory pour Azure Data Lake, vous d
 
 ### Créer un certificat auto-signé
 
-Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.windows.com/fr-FR/downloads) soit installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme **C:\\mycertdir**, où sera créé le certificat.
+Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.windows.com/fr-FR/downloads) est installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme **C:\\mycertdir**, où sera créé le certificat.
 
-1. Dans la fenêtre PowerShell, cherchez l'emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, `C:\Program Files (x86)\Windows Kits\10\bin\x86`) et utilisez l'utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes.
+1. Dans la fenêtre PowerShell, accédez à l’emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, `C:\Program Files (x86)\Windows Kits\10\bin\x86`) et utilisez l’utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes.
 
 		$certificateFileDir = "<my certificate directory>"
 		cd $certificateFileDir
@@ -118,7 +149,7 @@ Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.w
 
 	Vous devrez entrer le mot de passe de la clé privée. Une fois la commande exécutée avec succès, **CertFile.cer** et **mykey.pvk** seront visibles dans le répertoire du certificat que vous avez spécifié.
 
-4. Utilisez l'utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande ci-dessous.
+4. Utilisez l’utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande ci-dessous.
 
 		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
@@ -128,7 +159,7 @@ Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.w
 
 Cette section décrit les étapes pour créer un principal du service pour une application Azure Active Directory, attribuer un rôle au principal du service et vous authentifier en tant que principal du service en fournissant un certificat. Exécutez les commandes suivantes pour créer une application dans Azure Active Directory.
 
-1. Collez les applets de commande suivantes dans la fenêtre de la console PowerShell. Assurez-vous que la valeur que vous donnez à la propriété **-DisplayName** soit unique. En outre, les valeurs de **-HomePage** et **-IdentiferUris** sont des valeurs d'espace réservé et ne sont pas vérifiées. 
+1. Collez les applets de commande suivantes dans la fenêtre de la console PowerShell. Vérifiez que la valeur que vous donnez à la propriété **-DisplayName** est unique. En outre, les valeurs pour **-HomePage** et **-IdentiferUris** sont des valeurs d’espace réservé et ne sont pas vérifiées. 
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
@@ -162,7 +193,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
 		
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
-	À l'invite, entrez **Y** pour confirmer.
+	À l’invite, entrez **Y** pour confirmer.
 
 ## Créer un cluster HDInsight avec authentification à Data Lake Store
 
@@ -228,7 +259,7 @@ Utilisez les applets de commande suivantes pour exécuter la requête Hive. Dans
 
 	Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
 
-Cela aura le résultat suivant. La valeur 0 de **ExitValue** dans le résultat suggère que la tâche a réussi.
+Cela aura le résultat suivant. La valeur 0 pour **ExitValue** dans le résultat suggère que la tâche a réussi.
 
 	Cluster         : hdiadlcluster.
 	HttpEndpoint    : hdiadlcluster.azurehdinsight.net
@@ -265,9 +296,9 @@ Le résultat de la tâche se présente ainsi :
 
 Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data Lake Store, vous pouvez utiliser les commandes de l'interpréteur de commandes HDFS pour accéder au magasin.
 
-1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
+1. Connectez-vous au nouveau [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **Parcourir**, puis sur **Clusters HDInsight** et enfin sur le cluster HDInsight que vous avez créé.
+2. Cliquez sur **Parcourir**, sur **Clusters HDInsight**, puis sur le cluster HDInsight que vous avez créé.
 
 3. Dans le panneau du cluster, cliquez sur **Bureau à distance** puis, dans le panneau **Bureau à distance**, cliquez sur **Connexion**.
 
@@ -285,13 +316,13 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	Vous pouvez également utiliser la commande `hdfs dfs -put` pour télécharger des fichiers dans Azure Data Lake, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été téléchargés avec succès.
+	Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers sur Azure Data Lake, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
 
 ## Voir aussi
 
 * [Portail : Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

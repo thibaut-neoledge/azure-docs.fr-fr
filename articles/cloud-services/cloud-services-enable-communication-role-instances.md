@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/18/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Activer la communication pour les instances de rôle dans Azure
@@ -359,4 +359,4 @@ Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici
 ## Étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md) de service cloud.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="12/03/2015"
 	ms.author="larryfr"/>
 
 # Utilisation de Hive et HiveQL avec Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j
@@ -51,7 +51,7 @@ Voici quelques éléments à connaître sur les tables interne et externe Hive 
 - La commande **CREATE EXTERNAL TABLE** ne déplace pas le fichier de données.
 - La commande **CREATE EXTERNAL TABLE** n’autorise aucun dossier à l’EMPLACEMENT. C'est la raison pour laquelle le didacticiel réalise une copie du fichier sample.log.
 
-Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux tables interne et externe Hive][cindygross-hive-tables].
+Pour plus d’informations, consultez la rubrique [HDInsight : introduction aux tables interne et externe Hive][cindygross-hive-tables].
 
 
 ##<a id="data"></a>Sur les exemples de données, un fichier Apache log4j
@@ -129,10 +129,11 @@ HDInsight peut exécuter des tâches HiveQL à l’aide de différentes méthode
 
 | **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ... avec ce **système d'exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [Affichage Hive](hdinsight-hadoop-use-hive-ambari-view.md) | ✔ | ✔ | Linux | N’importe lequel (basé sur le navigateur) |
 | [Commande Beeline (à partir d’une session SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Commande Hive (à partir d’une session SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
-| [Console de requête](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Basé sur le navigateur |
+| [Console de requête](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | N’importe lequel (basé sur le navigateur) |
 | [Outils HDInsight pour Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Bureau à distance](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
@@ -173,9 +174,9 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/fr-FR/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/fr-FR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/fr-FR/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -200,4 +201,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

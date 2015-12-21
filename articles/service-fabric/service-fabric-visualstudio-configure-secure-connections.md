@@ -46,9 +46,9 @@ La boîte de dialogue **Sélectionner un cluster Service Fabric** valide automa
 
 4.	[Facultatif] : vous pouvez modifier le profil de publication pour spécifier une connexion sécurisée au cluster.
 
-    Puisque vous modifiez manuellement le fichier XML du profil de publication pour spécifier les informations de certificat, prenez soin de noter le nom du magasin de certificats, l'emplacement du magasin et l’empreinte numérique du certificat. Vous devrez fournir ces valeurs pour le nom du magasin de certificats et l’emplacement du magasin. Pour en savoir plus, consultez la rubrique [Récupération de l'empreinte numérique d'un certificat](https://msdn.microsoft.com/fr-FR/library/ms734695(v=vs.110).aspx).
+    Puisque vous modifiez manuellement le fichier XML du profil de publication pour spécifier les informations de certificat, prenez soin de noter le nom du magasin de certificats, l'emplacement du magasin et l’empreinte numérique du certificat. Vous devrez fournir ces valeurs pour le nom du magasin de certificats et l’emplacement du magasin. Pour en savoir plus, consultez la rubrique [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
 
-    Les paramètres *ClusterConnectionParameters* permettent de spécifier les paramètres PowerShell à utiliser lors de la connexion au cluster Service Fabric. Les paramètres valides sont ceux qui sont acceptés par l'applet de commande Connect-ServiceFabricCluster. Consultez la rubrique [Connect-ServiceFabricCluster](https://msdn.microsoft.com/fr-FR/library/mt125938.aspx) pour obtenir la liste des paramètres disponibles.
+    Les paramètres *ClusterConnectionParameters* permettent de spécifier les paramètres PowerShell à utiliser lors de la connexion au cluster Service Fabric. Les paramètres valides sont ceux qui sont acceptés par l'applet de commande Connect-ServiceFabricCluster. Consultez la rubrique [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) pour obtenir la liste des paramètres disponibles.
 
     Si vous publiez sur un cluster à distance, vous devez spécifier les paramètres appropriés pour ce cluster spécifique. Voici un exemple de connexion à un cluster non sécurisé :
 
@@ -76,4 +76,4 @@ Pour plus d'informations sur l'accès aux clusters Service Fabric, consultez la
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

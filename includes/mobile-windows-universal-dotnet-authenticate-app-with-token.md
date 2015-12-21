@@ -42,6 +42,7 @@
                 // expired, as shown in this post: http://aka.ms/jww5vp.
 
                 success = true;
+			    message = string.Format("Cached credentials for user - {0}", user.UserId);
             }
             else
             {
@@ -73,10 +74,10 @@
 
 	Dans cette version de **AuthenticateAsync**, l'application essaye d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
 
-	>[AZURE.NOTE]Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](http://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
+	>[AZURE.NOTE]Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](http://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 
 3. Redémarrez l'application deux fois.
 
 	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # Récupération de votre service mobile en cas d’incident
@@ -28,7 +28,7 @@ Lorsque vous déployez une application à l’aide d’Azure Mobile Services, vo
 
 Pour faciliter une récupération en cas de problème de disponibilité, vous pouvez vous y préparer à l’avance :
 
-+ **Sauvegardez vos données dans la base de données SQL Azure Mobile Services** Les données de votre application de service mobile sont stockées dans une base de données SQL Azure. Nous vous recommandons de les sauvegarder en suivant les prescriptions fournies par la page [Continuité des activités de l’entreprise dans la base de données SQL].
++ **Sauvegardez vos données dans la base de données SQL Azure Mobile Services** Les données de votre application de service mobile sont stockées dans une base de données SQL Azure. Nous vous recommandons de les sauvegarder en suivant les prescriptions fournies par la page [Continuité des activités de l'entreprise dans la base de données SQL].
 + **Sauvegardez les scripts de votre service mobile** Nous vous recommandons de stocker les scripts de votre service mobile dans un système de contrôle de code source, tel que [Team Foundation Service] ou [GitHub], et de ne pas compter uniquement sur les copies contenues dans le service mobile lui-même. Vous pouvez télécharger les scripts via le portail Azure Classic à l’aide de la [fonctionnalité de contrôle de code source] de Mobile Services ou de l’[interface de ligne de commande Azure]. Portez une attention particulière aux fonctionnalités dites « en version préliminaire » dans le portail Azure Classic, car il n’est pas garanti que ces scripts puissent être récupérés et vous serez peut-être amené à les récupérer à partir de l’original de votre propre contrôle de code source.
 + **Réservez un service mobile secondaire** En cas de problème de disponibilité de votre service mobile, vous risquez de devoir le redéployer dans une autre région Azure. Pour assurer la disponibilité de la capacité (par exemple, dans des cas exceptionnels comme la perte d’une région entière), nous vous recommandons de créer un service mobile secondaire dans votre autre région et de lui attribuer un mode équivalent ou supérieur à celui de votre service principal (si votre service principal est en mode de base, vous pouvez attribuer au service secondaire le mode de base ou standard. Toutefois, si le service principal est en mode standard, le service secondaire doit l’être également).
 
@@ -83,12 +83,19 @@ Pour récupérer votre service mobile après une panne :
 	+ Dans le portail Azure Classic, sous l’onglet **Configurer** de votre service mobile, choisissez « Changer la base de données », puis sélectionnez la base de données nouvellement récupérée.
 
 7. Votre service mobile est actuellement hébergé à un emplacement physique différent. Vous devez mettre à jour vos informations d’identification de publication et/ou git pour permettre la mise à jour de votre site en cours d’exécution.
-	+ Si vous utilisez un **serveur principal .NET**, configurez de nouveau votre profil de publication, comme décrit dans [Publier votre service mobile](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service). Cette opération met à jour vos informations de publication pour qu’elles pointent vers l’emplacement du nouveau service.
-	+ Si vous utilisez un **serveur principal Javascript** et gérez votre service avec le portail Azure Classic, vous ne devez effectuer aucune action supplémentaire.
-	+ Si vous utilisez un **serveur principal Javascript** et que vous gérez votre service avec un nœud, mettez à jour la commande git remote pour qu’elle pointe vers le nouveau référentiel. Pour ce faire, supprimez le chemin d’accès du fichier .git de la commande git remote :
 
-		1. Recherchez votre commande origin remote actuelle : git remote -v origin https://myservice.scm.azure-mobile.net/myservice.git (fetch) origin https://myservice.scm.azure-mobile.net/myservice.git (push)
-		3. Mettez à jour la commande remote en utilisant la même URL, mais sans le chemin d’accès de fichier .git final : git remote set-url origin https://myservice.scm.azure-mobile.net
+	+ Si vous utilisez un **serveur principal .NET**, configurez de nouveau votre profil de publication, comme décrit dans [Publier votre service mobile](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service). Cette opération met à jour vos informations de publication pour qu'elles pointent vers l'emplacement du nouveau service.
+	+ Si vous utilisez un **serveur principal Javascript** et que vous gérez votre service avec le portail, vous ne devez effectuer aucune action supplémentaire.
+
+	+ Si vous utilisez un **serveur principal Javascript** et que vous gérez votre service avec un nœud, mettez à jour la commande git remote pour qu'elle pointe vers le nouveau référentiel. Pour ce faire, supprimez le chemin d’accès du fichier .git de la commande git remote :
+
+		1. Recherchez votre origine actuelle à distance :
+
+				git remote -v
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
+
+		3. Mettez à jour la commande remote en utilisant la même URL, mais sans le chemin de fichier .git final : git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. Effectuez une extraction à partir de la commande origin pour vérifier son bon fonctionnement.
 
 Votre service mobile a maintenant été récupéré pour une nouvelle région Azure et il accepte désormais le trafic en provenance de vos applications Windows Store en utilisant son URL d’origine.
@@ -98,13 +105,14 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 <!-- Images. -->
 
 <!-- URLs. -->
+[Continuité des activités de l'entreprise dans la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Continuité des activités de l’entreprise dans la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [fonctionnalité de contrôle de code source]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [interface de ligne de commande Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [portail Azure Classic]: http://manage.windowsazure.com/
 [tableau de bord du service Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatisation des services mobiles avec l’interface CLI Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

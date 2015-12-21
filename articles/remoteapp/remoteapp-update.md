@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="09/03/2015"
+   ms.date="12/05/2015"
    ms.author="elizapo"/>
 
 # Mise à jour d’une collection dans Azure RemoteApp
@@ -29,11 +29,9 @@ Comment mettre à jour votre collection ? C’est simple :
 3. Sur la page de la collection, cliquez sur **Mettre à jour**.
 4. Sélectionnez la nouvelle image à partir de la liste d’**Images de modèle**.
 4. Voici la partie la plus difficile : vous devez décider comment traiter les utilisateurs qui utilisent actuellement une application dans la collection. Vous pouvez choisir parmi les options suivantes :
-	- **Donner 60 minutes aux utilisateurs après la mise à jour**. Dès que la mise à jour est terminée, Azure RemoteApp affiche un message à tous les utilisateurs actifs, les invitant à enregistrer leur travail, à se déconnecter et à se reconnecter. Une fois les 60 minutes écoulées, tous les utilisateurs actifs qui ne se sont pas déconnectés seront automatiquement déconnectés. Les utilisateurs peuvent se reconnecter immédiatement. 
+	- **Donner 60 minutes aux utilisateurs après la mise à jour**. Dès que la mise à jour est terminée, Azure RemoteApp affiche un message à tous les utilisateurs actifs, les invitant à enregistrer leur travail, à se déconnecter et à se reconnecter. Une fois les 60 minutes écoulées, tous les utilisateurs actifs qui ne se sont pas déconnectés seront automatiquement déconnectés. Les utilisateurs peuvent se reconnecter immédiatement.
 	- **Déconnecter immédiatement les utilisateurs**. Dès que la mise à jour est terminée, déconnectez automatiquement tous les utilisateurs, sans avertissement. Si vous choisissez cette option, les utilisateurs risquent de perdre des données. Cependant, ils peuvent se reconnecter immédiatement à l'application.
 
 1. Cochez la case pour lancer la mise à jour.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

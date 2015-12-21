@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory - déterminer les exigences en matière d'authentification multifacteur"
+	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière d’authentification multifacteur"
 	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Déterminer les besoins d'authentification multifacteur (Multi-Factor Authentication) pour votre solution d'identités hybrides
@@ -57,4 +57,4 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

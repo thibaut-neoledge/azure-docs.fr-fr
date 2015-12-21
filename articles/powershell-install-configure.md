@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # Installation et configuration d’Azure PowerShell#
@@ -21,7 +21,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
 
 ##Qu’est-ce qu’Azure PowerShell ?#
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure avec Windows PowerShell. Ces cmdlets permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure. Dans la plupart des cas, les applets de commande peuvent être utilisées pour les mêmes tâches que le portail de gestion Azure, telles que la création et la configuration de services cloud, de machines virtuelles, de réseaux virtuels et d’applications web.
+Azure PowerShell est un module fournissant des applets de commande pour gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure. Dans la plupart des cas, les applets de commande peuvent être utilisées pour les mêmes tâches que le portail de gestion Azure, telles que la création et la configuration de services cloud, de machines virtuelles, de réseaux virtuels et d’applications web.
 
 Le module et le code source sont disponibles au téléchargement sur un référentiel public :
 
@@ -36,9 +36,9 @@ Téléchargez et installez [PowerShell 1.0.1](https://github.com/Azure/azure-po
 Le module installe une console personnalisée pour Azure PowerShell. Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell standard ou depuis la console Azure PowerShell.
 
 ## Étape 3 : Connecter
-Les cmdlets requièrent vos informations d’abonnement pour pouvoir gérer vos services. Vous pouvez acheter un abonnement Azure si vous n’en avez pas encore. Pour obtenir des instructions, consultez la page [Prise en main d’Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
+Les applets de commande nécessitent vos informations d’abonnement pour pouvoir gérer vos services. Vous pouvez acheter un abonnement Azure si vous n’en avez pas encore. Pour obtenir des instructions, consultez [Comment acheter Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-1. Tapez Add-AzureAccount
+1. Tapez **Add-AzureAccount**.
 
 2. Entrez l’adresse de messagerie et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
 
@@ -49,44 +49,29 @@ Connectez-vous à votre compte professionnel ou scolaire :
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-	>
-	> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-	>
-	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-	>
-	> 2. If no directory exists, select **Create your directory** and provide the requested information.
-	>
-	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-	>
-	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-	>
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-	>
-	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> [AZURE.NOTE]Cette méthode de connexion non interactive fonctionne uniquement avec un compte professionnel ou scolaire. Un compte professionnel ou scolaire représente un utilisateur géré par son travail ou son école et défini dans l’instance d’Azure Active Directory pour son travail ou son école. Si vous ne possédez pas de compte professionnel ou scolaire et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
 
+> 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com) et cliquez sur **Active Directory**.
+
+> 2. S'il n'existe aucun annuaire, sélectionnez **Create your directory** et fournissez les informations demandées.
+
+> 3. Sélectionnez votre annuaire et ajoutez un nouvel utilisateur. Ce nouvel utilisateur peut se connecter à l’aide d’un compte professionnel ou scolaire. Pendant la création de l'utilisateur, une adresse de messagerie est fournie pour l'utilisateur, ainsi qu'un mot de passe temporaire. Conservez ces informations, car vous en aurez besoin lors de l’étape 5.
+
+> 4. Dans le portail de gestion, sélectionnez **Paramètres**, puis **Administrateurs**. Sélectionnez **Ajouter** et ajoutez le nouvel utilisateur en tant que co-administrateur. Cela permet au compte professionnel ou scolaire de gérer votre abonnement Azure.
+
+> 5. Pour finir, déconnectez-vous du portail Azure et reconnectez-vous en utilisant le compte professionnel ou scolaire. Si vous vous connectez pour la première fois avec ce compte, vous êtes invité à changer le mot de passe.
+
+> Pour plus d’informations sur l’inscription à Microsoft Azure avec un compte professionnel ou scolaire, voir [Inscription à Azure en tant qu’organisation](sign-up-organization.md).
 
 ### Afficher les informations détaillées du compte et de l’abonnement
 
 Vous pouvez utiliser plusieurs comptes et abonnements avec Azure PowerShell. Vous pouvez ajouter plusieurs comptes en exécutant **Add-AzureAccount** à plusieurs reprises.
 
-Pour afficher les comptes Azure disponibles, tapez :
+Pour afficher les comptes Azure disponibles, tapez **Get-AzureAccount**.
 
-	Get-AzureAccount
+Pour afficher vos abonnements Azure, tapez **Get-AzureSubscription**.
 
-Pour afficher vos abonnements Azure, tapez :
-
-	Get-AzureSubscription
-
-
-
-
-
-
-
-
-## Étape 4 : Tester<a id="Ex"></a>
+## Étape 4 : tester <a id="Ex"></a>
 
 
 Après l’installation du module et la configuration de votre ordinateur pour vous connecter à votre abonnement, vous pouvez créer une application web Azure pour vérifier que tout fonctionne correctement.
@@ -101,7 +86,7 @@ Après l’installation du module et la configuration de votre ordinateur pour v
 
 		New-AzureWebsite mySite
 
-	La cmdlet crée l’application web et renvoie un objet qui représente la nouvelle application web. Les propriétés de l’objet comprennent des informations utiles concernant l’application web.
+	L’applet de commande crée l’application web et renvoie un objet qui représente la nouvelle application web. Les propriétés de l’objet comprennent des informations utiles concernant l’application web.
 
 3. Pour obtenir des informations sur l’application web, tapez cette commande. Vous obtiendrez alors des informations sur toutes les applications web de votre abonnement, y compris sur celle que vous venez de créer.
 
@@ -129,18 +114,18 @@ Après l’installation du module et la configuration de votre ordinateur pour v
 
 ##<a id="Help"></a>Accès à l’aide##
 
-Consultez les ressources suivantes pour obtenir de l’aide sur des cmdlets spécifiques :
+Consultez les ressources suivantes pour obtenir de l’aide sur des applets de commande spécifiques :
 
 
 -   Dans la console, vous pouvez utiliser le système d’aide intégré, accessible par la commande **Get-Help**. 
 
 
 
-- Vous pouvez également obtenir des informations de référence sur les cmdlets des modules Azure PowerShell dans la bibliothèque Azure. Pour plus d’informations, consultez la page [Référence des cmdlets Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Vous pouvez également obtenir des informations de référence sur les applets de commande des modules Azure PowerShell dans la bibliothèque Azure. Pour plus d’informations, consultez la page [Référence des applets de commande Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
 
 Pour obtenir de l’aide de la communauté, essayez ces forums populaires :
 
 - [Forum Azure sur MSDN (en anglais)](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

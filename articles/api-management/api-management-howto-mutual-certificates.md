@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
@@ -28,7 +28,7 @@ Ce guide explique comment configurer votre instance de service de gestion des AP
 
 ## <a name="step1"> </a>Chargement d’un certificat client
 
-Pour commencer, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs d’API][api-management-management-console]
 
@@ -141,4 +141,4 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

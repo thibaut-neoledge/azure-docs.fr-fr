@@ -24,17 +24,17 @@ Une des questions les plus courantes de nos clients Azure Notification Hubs est 
 
 Tout d’abord, il est essentiel de comprendre comment Azure Notification Hubs envoie des notifications aux appareils.![][0]
 
-Dans un flux de notification d’envoi par défaut, le message est envoyé à partir du **serveur principal d’application** à **Azure Notification Hub (NH)**, qui à son tour effectue un traitement sur toutes les inscriptions en prenant en compte les balises et les expressions de balises configurées pour déterminer les « cibles » : par exemple, tous les enregistrements qui ont besoin de recevoir les notifications Push. Ces inscriptions peuvent s’étendre sur tout ou partie de nos plateformes prises en charge : iOS, Google, Windows, Windows Phone, Kindle et Baidu pour Android en Chine. Une fois les cibles établies, NH transmet les notifications, réparties sur plusieurs lots d’inscriptions, au **service de notifications Push (PNS)** propre à la plateforme de l’appareil : par exemple, APNs pour Apple, GCM pour Google, etc. NH s’authentifie avec le PNS respectif, conformément aux informations d’identification que vous définissez dans le portail Azure sur la page Configuration de Notification Hub. Le PNS transmet alors les notifications aux **périphériques clients** respectifs. Il s’agit de la méthode recommandée pour la plateforme pour fournir des notifications Push. Notez que le dernier tronçon de remise des notifications s’effectue entre le PNS de la plateforme et le périphérique. Il y a donc quatre composants principaux (*client*, *serveur principal d’application*, *Azure Notification Hubs (NH)* et les *services de notifications Push [PNS]*), chacun d’eux pouvant être à l’origine de la perte de notifications. Plus de détails sur cette architecture sont disponibles sur la page [Vue d’ensemble de Notification Hubs].
+Dans un flux de notification d’envoi par défaut, le message est envoyé à partir du **serveur principal d’application** à **Azure Notification Hub (NH)**, qui à son tour effectue un traitement sur toutes les inscriptions en prenant en compte les balises et les expressions de balises configurées pour déterminer les « cibles » : par exemple, tous les enregistrements qui ont besoin de recevoir les notifications Push. Ces inscriptions peuvent s’étendre sur tout ou partie de nos plateformes prises en charge : iOS, Google, Windows, Windows Phone, Kindle et Baidu pour Android en Chine. Une fois les cibles établies, NH transmet les notifications, réparties sur plusieurs lots d’inscriptions, au **service de notifications Push (PNS)** propre à la plateforme de l’appareil : par exemple, APNs pour Apple, GCM pour Google, etc. NH s’authentifie avec le PNS respectif, conformément aux informations d’identification que vous définissez dans le portail Azure Classic dans la page Configuration de Notification Hubs. Le PNS transmet alors les notifications aux **périphériques clients** respectifs. Il s’agit de la méthode recommandée pour la plateforme pour fournir des notifications Push. Notez que le dernier tronçon de remise des notifications s’effectue entre le PNS de la plateforme et le périphérique. Il y a donc quatre composants principaux (*client*, *serveur principal d’application*, *Azure Notification Hubs (NH)* et les *services de notifications Push [PNS]*), chacun d’eux pouvant être à l’origine de la perte de notifications. Plus de détails sur cette architecture sont disponibles sur la page [Vue d’ensemble de Notification Hubs].
 
 L’échec de la remise de notifications peut se produire pendant la phase initiale de test/de mise en lots. Cela peut indiquer un problème de configuration. Il peut également se produire lors de la production, où l’ensemble ou une partie des notifications peut être égarée, ce qui indique un problème de modèle d’application ou de messagerie plus sérieux. Dans la section ci-dessous, nous allons examiner différents scénarios de notifications supprimées allant des plus courants aux plus rares : certains vous sembleront peut-être évidents mais d’autres moins.
 
 ##Mauvaise configuration d’Azure Notification Hubs 
 
-Azure Notification Hubs a besoin de s’authentifier dans le contexte de l’application du développeur pour pouvoir envoyer avec succès des notifications aux PNS respectifs. Pour cela, le développeur doit créer un compte de développeur avec la plate-forme correspondante (Google, Apple, Windows, etc.) et inscrire son application où il obtient des informations d’identification à configurer dans le portail Azure sous la section de configuration de Notification Hubs. Si vous n’obtenez aucune notification, la première étape consiste à s’assurer que les informations d’identification adéquates sont configurées dans Notification Hub, en les faisant correspondre à l’application créée dans votre compte de développeur spécifique à la plate-forme. Nos [Didacticiels de prise en main] sont utiles pour traiter ce processus étape par étape. Voici certaines configurations erronées communes :
+Azure Notification Hubs a besoin de s’authentifier dans le contexte de l’application du développeur pour pouvoir envoyer avec succès des notifications aux PNS respectifs. Pour cela, le développeur doit créer un compte de développeur avec la plateforme correspondante (Google, Apple, Windows, etc.) et inscrire son application où il obtient des informations d’identification à configurer dans le portail sous la section de configuration de Notification Hubs. Si vous n’obtenez aucune notification, la première étape consiste à s’assurer que les informations d’identification adéquates sont configurées dans Notification Hub, en les faisant correspondre à l’application créée dans votre compte de développeur spécifique à la plate-forme. Nos [Didacticiels de prise en main] sont utiles pour traiter ce processus étape par étape. Voici certaines configurations erronées communes :
 
 1. **Généralités**
  
-	a) Assurez-vous que le nom de votre concentrateur de notification (sans fautes de frappe) est le même :
+	a) Assurez-vous que le nom de votre hub de notification (sans fautes de frappe) est le même :
 
 	- à l’endroit où vous vous inscrivez sur le client 
 	- à l’endroit où vous envoyez des notifications depuis le serveur principal  
@@ -45,7 +45,7 @@ Azure Notification Hubs a besoin de s’authentifier dans le contexte de l’app
 
 2. **Configuration d’Apple Push Notification Service (APNS)**
  
-	Vous devez disposer de deux concentrateurs différents : un pour la production et un autre pour vos essais. Il convient donc de télécharger le certificat que vous utiliserez dans un environnement de bac à sable (sandbox) sur un concentrateur et le certificat que vous utiliserez en production sur un concentrateur distinct. N’essayez pas de télécharger différents types de certificats sur le même concentrateur car cela pourrait provoquer des défaillances de notification plus tard. Si vous avez téléchargé par inadvertance différents types de certificat sur le même concentrateur, il est recommandé de supprimer le concentrateur et de recommencer. Si vous ne pouvez pas supprimer le concentrateur pour une raison quelconque, vous devez au moins supprimer tous les enregistrements existants du concentrateur.
+	Vous devez disposer de deux hubs différents : un pour la production et un autre pour vos essais. Il convient donc de télécharger le certificat que vous utiliserez dans un environnement de bac à sable (sandbox) sur un hub et le certificat que vous utiliserez en production sur un hub distinct. N’essayez pas de télécharger différents types de certificats sur le même hub, car cela pourrait provoquer des défaillances de notification plus tard. Si vous avez téléchargé par inadvertance différents types de certificat sur le même hub, il est recommandé de supprimer le hub et de recommencer. Si vous ne pouvez pas supprimer le hub pour une raison quelconque, vous devez au moins supprimer tous les enregistrements existants du hub.
 
 3. **Configuration de Google Cloud Messaging (GCM)**
 
@@ -73,7 +73,7 @@ Si vous utilisez des modèles, assurez-vous que vous suivez les instructions dé
 
 3) **Inscriptions non valides**
 
-En supposant que le concentrateur de notification est correctement configuré et que les balises/expressions de balises ont été utilisées correctement afin de trouver des cibles valides auxquelles envoyer les notifications, NH déclenche plusieurs lots de traitement en parallèle, chaque lot envoyant des messages à un ensemble d’inscriptions.
+En supposant que le hub de notification est correctement configuré et que les balises/expressions de balises ont été utilisées correctement afin de trouver des cibles valides auxquelles envoyer les notifications, NH déclenche plusieurs lots de traitement en parallèle, chaque lot envoyant des messages à un ensemble d’inscriptions.
 
 > [AZURE.NOTE]Étant donné que le traitement est effectué en parallèle, l’ordre dans lequel les notifications sont remises n’est pas garanti.
 
@@ -97,7 +97,7 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 	Vérifiez-les dans le portail des développeurs PNS respectif (APNS, GCM, WNS, etc.) à l’aide de nos [Didacticiels de prise en main].
 
-2. **Portail de gestion Azure**
+2. **Portail Azure Classic**
 
 	Accédez à l’onglet Configurer pour examiner et faire correspondre les informations d’identification avec celles obtenues sur le portail des développeurs PNS.
 
@@ -111,7 +111,7 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 	![][9]
 
-	Vous pouvez afficher et gérer toutes les inscriptions dans votre concentrateur, où elles sont classées par plate-forme, inscription native ou par modèle, balise, identificateur PNS, ID d’enregistrement et date d’expiration. Vous pouvez également modifier un enregistrement à la volée, ce qui s’avère utile si vous souhaitez modifier toutes les balises par exemple.
+	Vous pouvez afficher et gérer toutes les inscriptions dans votre hub, où elles sont classées par plate-forme, inscription native ou par modèle, balise, identificateur PNS, ID d’enregistrement et date d’expiration. Vous pouvez également modifier un enregistrement à la volée, ce qui s’avère utile si vous souhaitez modifier toutes les balises par exemple.
 
 	![][8]
  
@@ -119,11 +119,11 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 2. **Explorateur Service Bus**
 
-	De nombreux clients utilisent l’explorateur ServiceBus, décrit ici : [Explorateur ServiceBus], pour afficher et gérer leur concentrateur de notification. C’est un projet open source disponible sur code.microsoft.com : [Code de l’explorateur ServiceBus]
+	De nombreux clients utilisent l’explorateur ServiceBus, décrit ici : [Explorateur ServiceBus], pour afficher et gérer leur hub de notification. C’est un projet open source disponible sur code.microsoft.com : [Code de l’explorateur ServiceBus]
 
 ###Vérification des notifications de messages
 
-1. **Portail Azure**
+1. **Portail Azure Classic**
 
 	Vous pouvez accéder à l’onglet « Debug » pour envoyer des notifications de test à vos clients sans avoir besoin d’un serveur principal de service en cours d’exécution.
 
@@ -177,15 +177,15 @@ Supposons que vous utilisiez le Kit de développement logiciel (SDK) .NET pour e
     7619785862101227384-7840974832647865618-3
     The Token obtained from the Token Provider is wrong
  
-Ce message indique que des informations d’identification non valides sont configurées dans le concentrateur de notification ou qu’il existe un problème avec les inscriptions sur le concentrateur. La marche à suivre recommandée consiste à supprimer cet enregistrement afin de permettre au client de le recréer avant d’envoyer le message.
+Ce message indique que des informations d’identification non valides sont configurées dans le hub de notification ou qu’il existe un problème avec les inscriptions sur le hub. La marche à suivre recommandée consiste à supprimer cet enregistrement afin de permettre au client de le recréer avant d’envoyer le message.
  
 > [AZURE.NOTE]Notez que l’utilisation de cette propriété est très limitée et par conséquent, vous devez uniquement l’utiliser dans un environnement de développement et de test avec un ensemble limité d’enregistrements. Nous envoyons uniquement des notifications de débogage à 10 périphériques. Nous avons également une limite de traitement des envois de débogage de 10 par minute.
 
 ###Révision de la télémétrie 
 
-1. **Utilisez le portail Azure**
+1. **Utiliser le portail Azure Classic**
 
-	Le portail Azure vous permet d’obtenir un aperçu rapide de toutes les activités sur votre Notification Hub.
+	Le portail vous permet d’obtenir un aperçu rapide de toutes les activités sur votre hub de notification.
 	
 	a) Sous l’onglet « tableau de bord », vous pouvez afficher une vue agrégée des enregistrements, des notifications et des erreurs par plateforme.
 	
@@ -197,7 +197,7 @@ Ce message indique que des informations d’identification non valides sont conf
 	
 	c) Vous devez commencer par examiner les **messages entrants**, les **opérations d’enregistrement** et les **notifications réussies**, puis accéder à l’onglet par plate-forme pour examiner les erreurs spécifiques au PNS.
 	
-	Si vous avez mal configuré les paramètres d’authentification du concentrateur de notification, vous verrez une erreur d’authentification PNS. Il s’agit d’une bonne indication vous poussant à vérifier les informations d’identification PNS.
+	Si vous avez mal configuré les paramètres d’authentification du hub de notification, vous verrez une erreur d’authentification PNS. Il s’agit d’une bonne indication vous poussant à vérifier les informations d’identification PNS.
 
 2) **Accès par programme**
 
@@ -206,7 +206,7 @@ Plus de détails ici :
 - [Accès par programme à la télémétrie]
 - [Exemple d’accès à la télémétrie via les API] 
 
-> [AZURE.NOTE]Plusieurs fonctionnalités liées à la télémétrie, comme l’**Exportation/importation des enregistrements**, l’**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d’utiliser ces fonctionnalités et que vous disposez d’un niveau Libre ou De base, vous obtenez un message d’exception lors de l’utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n’êtes pas passé au niveau Standard via le portail de gestion Azure.
+> [AZURE.NOTE]Plusieurs fonctionnalités liées à la télémétrie, comme l’**Exportation/importation des enregistrements**, l’**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d’utiliser ces fonctionnalités et que vous disposez d’un niveau Libre ou De base, vous obtenez un message d’exception lors de l’utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n’êtes pas passé au niveau Standard par le biais du portail Azure Classic.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -239,4 +239,4 @@ Plus de détails ici :
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

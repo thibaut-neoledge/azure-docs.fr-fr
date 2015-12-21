@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@ Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouve
 
 	À l’heure actuelle, il est prévu que la version d’Azure Storage du 18-08-2011 soit supprimée le 1er août 2016. Les migrations de In-Role Cache à partir de la version 2.5 ou une version antérieure du SDK Azure vers la version 2.6 devront avoir été effectuées à cette date. Pour plus d'informations sur le retrait de la version du 18-08-2011 d’Azure Storage, consultez [Mise à jour de Suppression de la version du service Microsoft Azure Storage : extension jusqu’en 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
+>[AZURE.IMPORTANT]Nous annonçons la mise hors service au 30 novembre 2016 du service de cache géré Azure et d’Azure In-Role Cache. Nous vous recommandons de migrer vers le cache Redis Azure en vue de cette mise hors service. Pour plus d’informations sur les dates et obtenir des conseils de migration, consultez [Quelle offre de cache Azure me convient ?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+
 ##Outils Azure App Service
 
 Les éléments suivants ont été mis à jour avec la version 2.6 du Kit de développement logiciel (SDK) Azure.
@@ -106,4 +108,4 @@ Le compte de stockage Diagnostics peut désormais être spécifié dans le fichi
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

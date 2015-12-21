@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/29/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -36,6 +36,5 @@ Pour plus d'informations sur le flux de travail de bout en bout des collections 
 - [Comment planifier votre réseau virtuel pour Azure RemoteApp](remoteapp-planvpn.md)
 - [Création d'une collection hybride](remoteapp-create-hybrid-deployment.md)
 - [Déployer une collection Azure RemoteApp sur votre Azure Virtual Network (avec prise en charge d’ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Se connecter à une base de données SQL à l’aide de Ruby avec TinyTDS sur Windows" 
+<properties
+	pageTitle="Se connecter à une base de données SQL à l’aide de Ruby avec TinyTDS sur Windows"
 	description="Donnez un exemple de code Ruby que vous pouvez exécuter sur Windows pour vous connecter à la base de données SQL Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="mebha"/>
 
 
@@ -24,21 +24,23 @@
 
 Cette rubrique présente un exemple de code Ruby qui s’exécute sur un ordinateur Windows exécutant Windows 8.1, pour la connexion à une base de données SQL Azure.
 
-## Installer les modules requis
+## Composants requis
+
+###Installer les modules requis
 
 Ouvrez votre terminal et procédez aux installations suivantes :
 
-**1) Ruby :** si votre ordinateur ne dispose pas de Ruby, veuillez l'installer. Si vous utilisez Ruby pour la première fois, nous vous recommandons d’exécuter les programmes d’installation Ruby 2.1.X. Ceux-ci fournissent un langage stable et une liste complète des packages (maillons) compatibles et mis à jour. [Accédez à la page de téléchargement de Ruby](http://rubyinstaller.org/downloads/) et téléchargez le programme d'installation 2.1.x approprié. Si vous utilisez un ordinateur 64 bits, téléchargez le programme d’installation **Ruby 2.1.6 (x 64)**. <br/><br/>Une fois le programme d'installation téléchargé, procédez comme suit :
+**1) Ruby :** si votre ordinateur ne dispose pas de Ruby, veuillez l’installer. Si vous utilisez Ruby pour la première fois, nous vous recommandons d’exécuter les programmes d’installation Ruby 2.1.X. Ceux-ci fournissent un langage stable et une liste complète des packages (maillons) compatibles et mis à jour. [Accédez à la page de téléchargement de Ruby](http://rubyinstaller.org/downloads/) et téléchargez le programme d’installation 2.1.x approprié. Si vous utilisez un ordinateur 64 bits, téléchargez le programme d’installation **Ruby 2.1.6 (x64)**. <br/><br/>Une fois le programme d’installation téléchargé, procédez comme suit :
 
 
 - Double-cliquez sur le fichier pour démarrer le programme d'installation.
 
 - Sélectionnez votre langue et acceptez les termes du contrat.
 
-- Sur l'écran des paramètres d'installation, activez les cases à cocher en regard d’*Ajouter des exécutables Ruby à votre CHEMIN D’ACCÈS*et d’*Associer les fichiers .rb et .rbw à cette installation Ruby*.
+- Sur l’écran des paramètres d’installation, activez les cases à cocher en regard d’*Ajouter des exécutables Ruby à votre CHEMIN*et d’*Associer les fichiers .rb et .rbw à cette installation Ruby*.
 
 
-**2) DevKit :** téléchargez le DevKit de la [page RubyInstaller](http://rubyinstaller.org/downloads/)
+**2) DevKit :** téléchargez le DevKit à partir de la [page RubyInstaller](http://rubyinstaller.org/downloads/).
 
 Une fois le téléchargement terminé, procédez comme suit :
 
@@ -63,22 +65,25 @@ Vous disposez dès à présent d’un Ruby entièrement fonctionnel et de RubyGe
 
 	gem inst tiny_tds --pre
 
-## Créer une base de données, récupérer la chaîne de connexion
+### Base de données SQL
 
-L’échantillon Ruby utilise l’exemple de la base de données `AdventureWorks`. Si vous ne possédez pas déjà `AdventureWorks`, vous pouvez découvrir comment le créer en consultant la rubrique [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-Cette rubrique explique également comment récupérer la chaîne de connexion de la base de données.
 
-## Se connecter à la base de données SQL
+## Étape 1 : obtenir les informations de connexion
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## Étape 2 : se connecter
 
 La fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) permet de se connecter à la base de données SQL.
 
-    require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
+    require 'tiny_tds'
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
 
-## Exécuter une instruction SELECT et récupérer le jeu de résultats
+## Étape 3 : exécuter une requête
 
 Copiez et collez le code suivant dans le fichier : Appelez-le test.rb. Puis, exécutez-le en entrant la commande suivante à partir de l'invite de commandes :
 
@@ -88,32 +93,26 @@ Dans l’exemple de code, la fonction [TinyTds::Result](https://github.com/rails
 
     require 'tiny_tds'  
     print 'test'     
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
-    results = client.execute("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC") 
-    results.each do |row| 
-    puts row 
-    end 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
+    results = client.execute("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC")
+    results.each do |row|
+    puts row
+    end
 
-## Insertion d'une ligne, transmission de paramètres et récupération de la valeur de la clé primaire générée
+## Étape 4 : insérer une ligne
 
-L’exemple de code :
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de l’injection de code SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
-- Transmet les paramètres correspondant aux valeurs à insérer dans une ligne.
-- Insère la ligne.
-- Récupère la valeur qui a été générée pour la clé primaire.
+Pour utiliser TinyTDS avec Azure, il est recommandé d’exécuter plusieurs instructions `SET` pour modifier la façon dont la session en cours gère des informations spécifiques. Les instructions `SET` recommandées sont fournies dans l’exemple de code. Par exemple, `SET ANSI_NULL_DFLT_ON` permet aux nouvelles colonnes créées d’autoriser les valeurs Null même si la possibilité d’utiliser ces valeurs dans ces colonnes n’est pas explicitement définie.
 
-Dans la base de données SQL, la propriété [IDENTITY](http://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](http://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des [valeurs de clé primaire](http://msdn.microsoft.com/library/ms179610.aspx).
+Pour vous accorder avec le format [datetime](http://msdn.microsoft.com/library/ms187819.aspx) de Microsoft SQL Server, utilisez la fonction [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) pour effectuer une conversion au format datetime correspondant.
 
-Pour utiliser TinyTDS avec Azure, il est recommandé d’exécuter plusieurs instructions `SET` pour modifier la façon dont la session en cours gère des informations spécifiques. Les instructions `SET` recommandées sont fournies dans l’exemple de code. Par exemple, `SET ANSI_NULL_DFLT_ON` permet aux nouvelles colonnes créées d’autoriser les valeurs Null, même si la possibilité d’utiliser ces valeurs dans ces colonnes n’est pas explicitement définie.
-
-Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/library/ms187819.aspx) (date et heure) de Microsoft SQL Server, utilisez la fonction [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) pour effectuer une conversion au format datetime correspondant.
-
-    require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
+    require 'tiny_tds'
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
     results = client.execute("SET ANSI_NULLS ON")
     results = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
     results = client.execute("SET ANSI_NULL_DFLT_ON ON")
@@ -124,11 +123,11 @@ Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/libra
     results = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
     require 'date'
     t = Time.now
-    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
-    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L")
+    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
     OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
-    results.each do |row| 
+    results.each do |row|
     puts row
     end
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

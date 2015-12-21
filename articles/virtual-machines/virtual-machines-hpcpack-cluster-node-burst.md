@@ -27,7 +27,7 @@ Il vous montre comment ajouter des nœuds « d’extension » Azure (instances
 
 >[AZURE.TIP]Si vous utilisez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster dans Azure, vous pouvez inclure des nœuds d’extension Azure dans votre déploiement automatisé.
 
-Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure est essentiellement la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions et considérations détaillées sur les déploiements de production, consultez [Extension à Azure avec Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure est essentiellement la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions et considérations détaillées sur les déploiements de production, consultez [Intégration à Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 Si vous souhaitez utiliser la taille d’instance de calcul intensif A8 ou A9, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -69,7 +69,7 @@ Pour obtenir des options supplémentaires pour configurer le certificat de gesti
 
 
 
-Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont généralement les mêmes que celles utilisées avec un nœud principal local. Pour plus d’informations, consultez les sections suivantes dans [Étapes à suivre pour déployer des nœuds Azure avec Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx) :
+Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont généralement les mêmes que celles utilisées avec un nœud principal local. Pour plus d’informations, consultez les sections suivantes dans [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx) :
 
 * Créer un modèle de nœud Azure
 
@@ -79,13 +79,13 @@ Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont g�
 
 Après avoir ajouté et démarré les nœuds, vous pouvez les utiliser pour exécuter des tâches de cluster.
 
-Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Dépannage de problèmes liés aux déploiements de nœuds Azure avec Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Troubleshoot Deployments of Azure Nodes with Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Étapes suivantes
 
-* Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Augmentation ou réduction des ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Agrandir et réduire les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/30/2015"
+	ms.date="12/04/2015"
 	ms.author="jroth" />
 
 # Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)
@@ -548,4 +548,4 @@ Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

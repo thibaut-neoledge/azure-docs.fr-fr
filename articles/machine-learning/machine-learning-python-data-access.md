@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/04/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -82,7 +82,7 @@ Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opération
 
 1. Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D'AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
 
-    ![](http://i.imgur.com/h33GoZX.jpg)
+![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 2. Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
@@ -367,4 +367,4 @@ Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au l
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

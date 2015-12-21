@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main d’Azure RemoteApp avec Powershell"
+   pageTitle="Prise en main d’Azure RemoteApp avec Powershell | Microsoft Azure"
    description="Apprenez à prendre en main Azure RemoteApp avec Powershell"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,7 +22,7 @@
 =====================================
 
 
-## Récupération des applets de commande 
+## Récupération des applets de commande
 -------------
 Pour commencer, téléchargez les applets de commande Azure Powershell [ici](http://go.microsoft.com/?linkid=9811175), qui incluent des applets de commande RemoteApp.
 
@@ -99,6 +99,5 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

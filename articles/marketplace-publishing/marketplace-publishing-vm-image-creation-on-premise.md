@@ -67,7 +67,7 @@ Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger l
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Télécharger un disque dur virtuel à l’aide de PowerShell
-Outre le portail Azure, vous pouvez utiliser l’applet de commande [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) pour télécharger le disque dur virtuel de système d’exploitation :
+Outre le portail Azure, vous pouvez utiliser l’applet de commande [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) pour télécharger le disque dur virtuel de système d’exploitation.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -105,11 +105,11 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Créer un compte de stockage à l’aide de PowerShell
-À l’aide de PowerShell, créez un compte de stockage au moyen de l’applet de commande [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) :
+À l’aide de PowerShell, créez un compte de stockage au moyen de l’applet de commande [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx).
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Ensuite, vous pouvez créer un conteneur dans ce compte de stockage au moyen de l’applet de commande [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) :
+Ensuite, vous pouvez créer un conteneur dans ce compte de stockage au moyen de l’applet de commande [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx).
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
@@ -127,7 +127,7 @@ Créez un conteneur comme suit :
 Une fois le compte de stockage et le conteneur créés, vous pouvez télécharger vos disques durs virtuels préparés. Vous pouvez utiliser PowerShell, l’outil en ligne de commande Linux ou d’autres outils de gestion Azure Storage.
 
 ### Télécharger un disque dur virtuel à l’aide de PowerShell
-Utilisez l’applet de commande [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) :
+Utilisez l’applet de commande [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
@@ -138,4 +138,4 @@ Avec l’[outil en ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

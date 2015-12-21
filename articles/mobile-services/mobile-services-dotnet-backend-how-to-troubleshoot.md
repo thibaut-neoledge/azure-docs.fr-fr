@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Résolution des problèmes du backend .NET Mobile Services
@@ -68,12 +68,12 @@ Vous êtes maintenant prêt à explorer les différentes API HTTP exposées par 
 
 L'une des caractéristiques essentielles du backend .NET est la possibilité de déboguer le code du service localement, mais également de déboguer le code qui s'exécute en ligne dans l'environnement cloud. Procédez comme suit :
 
-1. Ouvrez le projet de service mobile que vous souhaitez déboguer dans **Visual Studio 2013 Update 2** ou une version ultérieure.
+1. Ouvrez le projet de service mobile que vous souhaitez déboguer dans **Visual Studio 2013 Update 2** ou version ultérieure.
 2. Configurez le chargement des symboles. Accédez au menu **Déboguer** et sélectionnez **Options et paramètres**. Assurez-vous que l'option **Activer Uniquement mon code** est désactivée et l'option **Activer le support du serveur source** activée.
 
     ![Configure symbol loading][SymbolLoading]
 
-3. Sélectionnez le nœud **Symboles** sur la gauche et ajoutez une référence au serveur (SymbolSource)[http://symbolsource.org] avec l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Les symboles pour le service principal .NET de Mobile Services sont disponibles à cet emplacement avec chaque nouvelle version.
+3. Sélectionnez le nœud **Symboles** sur la gauche et ajoutez une référence au serveur [SymbolSource] avec l’URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Les symboles pour le service principal .NET de Mobile Services sont disponibles à cet emplacement avec chaque nouvelle version.
 
     ![Configure symbol server][SymbolServer]
 
@@ -121,7 +121,7 @@ Ces mêmes journaux sont également disponibles dans le portail Azure Classic so
 
 Lorsque vous publiez votre service mobile dans Azure, il est chargé par l'environnement d'hébergement de Mobile Services, qui garantit des mises à niveau et des correctifs transparents pour le pipeline HTTP qui héberge le code de votre contrôleur. Cela inclut tous les assemblys référencés par les [packages NuGet du backend .NET](http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22) : l'équipe met continuellement à jour le service pour utiliser les dernières versions de ces assemblys.
 
-Il est parfois possible d'introduire des conflits de versions en référençant *différentes versions principales* des assemblys requis (différentes versions *mineures* sont autorisées). Le problème se produit souvent lorsque NuGet vous invite à effectuer une mise à niveau vers la dernière version de l'un des packages utilisés par le backend .NET Mobile Services.
+Il est parfois possible d'introduire des conflits de versions en référençant *différentes versions principales* des assemblys requis (différentes versions *mineures* sont autorisées). Le problème se produit souvent quand NuGet vous invite à effectuer une mise à niveau vers la dernière version de l’un des packages utilisés par le backend .NET Mobile Services.
 
 >[AZURE.NOTE]Mobile Services est compatible uniquement avec ASP.NET 5.1 ; ASP.NET 5.2 n'est pas pris en charge actuellement. La mise à niveau de vos packages NuGet ASP.NET vers 5.2.* peut provoquer une erreur après le déploiement.
 
@@ -159,4 +159,8 @@ Les migrations peuvent être complexes et nécessitent que l'état de la base de
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

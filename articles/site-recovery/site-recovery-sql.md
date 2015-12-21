@@ -126,14 +126,14 @@ Voici la procédure permettant d’intégrer SQL AlwaysOn à ASR.
 - Groupe de disponibilité SQL configuré entre le serveur SQL Server local et celui exécuté dans Azure
 - La communication à distance PowerShell doit être activée sur le serveur SQL Server local. Le serveur VMM doit pouvoir effectuer des appels PowerShell vers le serveur SQL Server.
 - Sur le serveur SQL Server local, un compte d’utilisateur doit être ajouté dans les groupes d’utilisateurs SQL avec au minimum les autorisations suivantes.
-	- MODIFIER LE GROUPE DE DISPONIBILITÉ - [référence 1](https://msdn.microsoft.com/fr-FR/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/fr-FR/library/ff878601.aspx#Anchor_3)
-	- MODIFIER LA BASE DE DONNÉES - [référence 1](https://msdn.microsoft.com/fr-FR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [référence 1](https://msdn.microsoft.com/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [référence 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - Un compte d’identification doit être créé sur le serveur VMM du compte à l’étape précédente.
 - Le module SQL PS doit être installé sur les serveurs SQL Server exécutés en local et sur des machines virtuelles Azure.
 - L’agent de machine virtuelle doit être installé sur les machines virtuelles exécutées dans Azure.
 - NTAUTHORITY\\System doit comporter les autorisations suivantes sur le serveur SQL Server exécuté sur les machines virtuelles dans Azure.
-	- MODIFIER LE GROUPE DE DISPONIBILITÉ - [référence 1](https://msdn.microsoft.com/fr-FR/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/fr-FR/library/ff878601.aspx#Anchor_3)
-	- MODIFIER LA BASE DE DONNÉES - [référence 1](https://msdn.microsoft.com/fr-FR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [référence 1](https://msdn.microsoft.com/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [référence 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. Ajout d’un serveur SQL Server
 
@@ -374,4 +374,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

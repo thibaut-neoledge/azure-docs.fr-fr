@@ -4,7 +4,7 @@
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="telmosampaio" 
-	manager="carolz" 
+	manager="carmonm" 
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="08/10/2015"
+	ms.date="12/07/2015"
 	ms.author="telmos"/>
 
 # Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau
@@ -48,4 +48,4 @@ Lorsque effectuez une exportation, tous les paramètres des réseaux virtuels de
 3. Dans la page **Importer le fichier de configuration de réseau**, accédez à votre fichier de configuration réseau, puis cliquez sur la flèche **Suivant**.
 4. Dans la page **Création de votre réseau**, vous verrez des informations à l’écran présentant les sections de votre configuration réseau qui vont être créées ou modifiées. Si les modifications vous paraissent correctes, cliquez sur la coche pour passer à la mise à jour ou à la création de votre réseau virtuel. 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Microsoft Azure Site Recovery : Forum Aux Questions" 
+	pageTitle="Site Recovery : Forum Aux Questions | Microsoft Azure" 
 	description="Cet article traite des questions fréquemment posées sur Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ Cela dépend du scénario de déploiement.
 
 Vérifiez la configuration requise du serveur hôte Hyper-V dans les pages suivantes :
 
-- [Réplication de machines virtuelles Hyper-V (sans VMM) sur Azure](site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [Réplication de machines virtuelles Hyper-V (avec VMM) sur Azure](site-recovery-vmm-to-azure/#before-you-start)
-- [Réplication de machines virtuelles Hyper-V sur un centre de données secondaire](site-recovery-vmm-to-vmm/#before-you-start)
+- [Réplication de machines virtuelles Hyper-V (sans VMM) sur Azure](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [Réplication de machines virtuelles Hyper-V (avec VMM) sur Azure](site-recovery-vmm-to-azure.md/#before-you-start)
+- [Réplication de machines virtuelles Hyper-V sur un centre de données secondaire](site-recovery-vmm-to-vmm.md/#before-you-start)
 
 En ce qui concerne les systèmes d’exploitation invités :
 
@@ -74,17 +74,17 @@ Oui. Vous pouvez répliquer des machines virtuelles Hyper-V dans le cloud sur le
 
 ### Quels serveurs physiques puis-je protéger ?
 
-Vous pouvez protéger des serveurs physiques exécutant Windows et Linux, sur Azure ou sur un site secondaire. Pour connaître la configuration requise du système d’exploitation, consultez la page [De quoi ai-je besoin ?](site-recovery-vmware-to-azure/#what-do-i-need). Que vous répliquiez des serveurs physiques sur Azure ou sur un site secondaire, les mêmes restrictions s’appliquent.
+Vous pouvez protéger des serveurs physiques exécutant Windows et Linux, sur Azure ou sur un site secondaire. Pour connaître la configuration requise du système d’exploitation, consultez la page [De quoi ai-je besoin ?](site-recovery-vmware-to-azure.md/#what-do-i-need). Que vous répliquiez des serveurs physiques sur Azure ou sur un site secondaire, les mêmes restrictions s’appliquent.
 
 Notez que les serveurs physiques seront exécutés en tant que machines virtuelles dans Azure si votre serveur local tombe en panne. La restauration automatique sur un serveur physique local n’est actuellement pas prise en charge, mais vous pouvez l’effectuer sur une machine virtuelle s’exécutant sur Hyper-V ou VMware.
 
 ### Quelles machines virtuelles VMware puis-je protéger ?
 
-Pour ce scénario, vous avez besoin d’un serveur VMware vCenter, d’un hyperviseur vSphere et de machines virtuelles exécutant les outils VMware. Pour connaître la configuration requise exacte, consultez la page [De quoi ai-je besoin ?](site-recovery-vmware-to-azure/#what-do-i-need). Que vous répliquiez des serveurs physiques sur Azure ou sur un site secondaire, les mêmes restrictions s’appliquent.
+Pour ce scénario, vous avez besoin d’un serveur VMware vCenter, d’un hyperviseur vSphere et de machines virtuelles exécutant les outils VMware. Pour connaître la configuration requise exacte, consultez la page [De quoi ai-je besoin ?](site-recovery-vmware-to-azure.md/#what-do-i-need). Que vous répliquiez des serveurs physiques sur Azure ou sur un site secondaire, les mêmes restrictions s’appliquent.
 
 ### Existe-t-il des conditions requises pour la réplication des machines virtuelles vers Azure ?
 
-Les machines virtuelles que vous souhaitez répliquer vers Azure doivent se conformer aux [exigences d’Azure](site-recovery-best-practices/#virtual-machines).
+Les machines virtuelles que vous souhaitez répliquer vers Azure doivent se conformer aux [exigences d’Azure](site-recovery-best-practices.md/#virtual-machines).
 
 ### Puis-je répliquer des machines virtuelles de génération 2 Hyper-V vers Azure ?
 
@@ -127,7 +127,7 @@ Lors de la réplication de machines virtuelles et de serveurs physiques entre de
 
 ### Si je réplique vers Azure, de quel type de compte de stockage ai-je besoin ?
 
-Vous avez besoin d’un compte de stockage avec [stockage géo-redondant standard](../storage/storage-redundancy/#geo-redundant-storage). Un [compte de stockage premium](../storage/storage-premium-storage-preview-portal/) est pris en charge uniquement si vous répliquez des machines virtuelles VMware, ou des serveurs physiques Windows/Linux sur Azure.
+Vous avez besoin d’un compte de stockage avec [stockage géo-redondant standard](../storage/storage-redundancy.md/#geo-redundant-storage). Un [compte de stockage premium](../storage/storage-premium-storage-preview-portal/) est pris en charge uniquement si vous répliquez des machines virtuelles VMware, ou des serveurs physiques Windows/Linux sur Azure.
 
 La prise en charge du stockage localement redondant standard est en souffrance. Envoyez des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
 
@@ -154,7 +154,7 @@ Les disques dynamiques sont pris en charge lors de la réplication de machines v
 
 ### Si j’effectue le basculement vers Azure, comment accéder aux machines virtuelles Azure après le basculement ? 
 
-Vous pouvez accéder aux machines virtuelles Azure via une connexion Internet sécurisée ou via un VPN de site à site (ou Azure ExpressRoute) si vous en possédez un. Les communications via une connexion VPN s’effectuent vers des ports internes sur le réseau Azure sur lequel se trouve la machine virtuelle. Les communications via Internet sont mappées aux points de terminaison publics sur le service cloud Azure pour les machines virtuelles. [En savoir plus](site-recovery-network-design/#connectivity-after-failover)
+Vous pouvez accéder aux machines virtuelles Azure via une connexion Internet sécurisée ou via un VPN de site à site (ou Azure ExpressRoute) si vous en possédez un. Les communications via une connexion VPN s’effectuent vers des ports internes sur le réseau Azure sur lequel se trouve la machine virtuelle. Les communications via Internet sont mappées aux points de terminaison publics sur le service cloud Azure pour les machines virtuelles. [En savoir plus](site-recovery-network-design.md/#connectivity-after-failover)
 
 ### Si j’effectue le basculement vers Azure, comment Azure s’assure-t-il de la résilience de mes données ?
 
@@ -223,4 +223,4 @@ Oui, vous pouvez répliquer les machines virtuelles Hyper-V et Azure, ou entre d
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight
@@ -54,4 +54,4 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

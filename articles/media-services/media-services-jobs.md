@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Utilisation des travaux Azure Media Services
@@ -55,6 +55,18 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail Azure
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
+##Énumération 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##Suppression de tâches
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
+
 ##Liens connexes
 
 [Quotas et limitations](media-services-quotas-and-limitations.md) : décrit les quotas utilisés et les limitations de l’Encodeur de Media Services
@@ -68,4 +80,4 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail Azure
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

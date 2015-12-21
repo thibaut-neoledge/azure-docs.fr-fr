@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Développer des topologies Storm Apache à l’aide de Python sur HDInsight
@@ -345,4 +345,4 @@ Dans ce document, vous avez appris à utiliser les composants de Python à parti
 * [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md)
 * [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

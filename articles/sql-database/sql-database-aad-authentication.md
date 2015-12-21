@@ -153,55 +153,54 @@ Pour supprimer un administrateur, en haut du panneau **Administrateur Active Dir
 
 ### Configurez un administrateur Azure AD pour le serveur SQL Azure à l’aide de PowerShell 
 
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d'Azure PowerShell 1.0, l'applet de commande Switch-AzureMode n'est plus requis, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d'affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 Pour configurer un administrateur Azure AD, vous devez exécuter les commandes Azure PowerShell suivantes :
 
-- Add-AzureAccount
-- Select-AzureSubscription
+- Add-AzureRmAccount
+- Select-AzureRmSubscription
 
 
 Applets de commande utilisées pour configurer et gérer Azure AD admin :
 
 | Nom de l’applet de commande | Description |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Approvisionne un administrateur d’Azure Active Directory pour Azure SQL Server (À partir de l’abonnement actuel) |
-| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Retire un administrateur Azure Active Directory pour le serveur SQL Azure |
-| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Renvoie les informations sur un administrateur Azure Active Directory actuellement configuré pour Azure SQL Server. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Approvisionne un administrateur d’Azure Active Directory pour Azure SQL Server (À partir de l’abonnement actuel) |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Retire un administrateur Azure Active Directory pour le serveur SQL Azure |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Renvoie les informations sur un administrateur Azure Active Directory actuellement configuré pour Azure SQL Server. |
 
-Utilisez la commande PowerShell get-help pour obtenir plus de détails sur chacune de ces commandes, par exemple ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``.
+Utilisez la commande PowerShell get-help pour obtenir plus de détails sur chacune de ces commandes, par exemple ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
-Le script suivant configure un groupe d'administrateurs Azure AD nommé **DBA\_Group** (id d'objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d'un groupe de ressources nommé **groupe-23** :
+Le script suivant configure un groupe d’administrateurs Azure AD nommé **DBA\_Group** (id d’objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d’un groupe de ressources nommé **groupe-23** :
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Le paramètre d'entrée **DisplayName** accepte le nom d'affichage Azure AD ou le nom principal de l'utilisateur. Par exemple, ``DisplayName="John Smith"`` et ``DisplayName="johns@contoso.com"``. Pour les groupes Azure AD, seul le nom d’affichage est pris en charge.
+Le paramètre d’entrée **DisplayName** accepte le nom d’affichage Azure AD ou le nom principal de l’utilisateur. Par exemple, ``DisplayName="John Smith"`` et ``DisplayName="johns@contoso.com"``. Pour les groupes Azure AD, seul le nom d’affichage est pris en charge.
 
-> [AZURE.NOTE]La commande Azure PowerShell ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` ne vous empêchera pas d'approvisionner les administrateurs admin Azure AD pour les utilisateurs non pris en charge. Un utilisateur non pris en charge peut être configuré, mais il ne sera pas en mesure de se connecter à une base de données. (Voir la liste des administrateurs pris en charge dans **Fonctionnalités et limitations Azure AD** ci-dessus.)
+> [AZURE.NOTE]La commande Azure PowerShell ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` ne vous empêchera pas d’approvisionner les administrateurs admin Azure AD pour les utilisateurs non pris en charge. Un utilisateur non pris en charge peut être configuré, mais il ne sera pas en mesure de se connecter à une base de données. (Voir la liste des administrateurs pris en charge dans **Fonctionnalités et limitations Azure AD** ci-dessus.)
 
-L'exemple suivant utilise l'**ObjectID** facultatif en option :
+L’exemple suivant utilise l’**ObjectID** facultatif en option :
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]L'**ObjectID** Azure AD est requis lorsque le **DisplayName** n'est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName**, utilisez la section Active Directory du portail Azure Classic et affichez les propriétés d’un utilisateur ou d’un groupe.
+> [AZURE.NOTE]L’**ObjectID** Azure AD est requis lorsque le **DisplayName** n’est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName**, utilisez la section Active Directory du portail Azure Classic et affichez les propriétés d’un utilisateur ou d’un groupe.
 
 L’exemple suivant renvoie des informations sur l’administrateur Azure AD admin pour le serveur SQL Azure :
 
 ```
-Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L'exemple suivant supprime un administrateur Azure AD : ```
-Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+L’exemple suivant supprime un administrateur Azure AD : ```
+Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\. Configurer vos ordinateurs clients
@@ -209,26 +208,26 @@ Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Sur toutes les machines clientes à partir desquelles vos applications ou les utilisateurs se connectent à la base de données SQL Azure avec des identités Azure AD, vous devez installer les logiciels suivants :
 
 - .NET Framework version 4.6 ou ultérieure de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- La bibliothèque d'authentification Azure Active Directory pour SQL Server (**ADALSQL. DLL**) est disponible en plusieurs langues (x86 et amd64) à partir du centre de téléchargement de la [Bibliothèque d'authentification Microsoft Active Directory pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- La bibliothèque d’authentification Azure Active Directory pour SQL Server (**ADALSQL. DLL**) est disponible en plusieurs langues (x86 et amd64) à partir du centre de téléchargement de la [Bibliothèque d’authentification Microsoft Active Directory pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Outils
 
-- L'installation de [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou de [SQL Server Data Tools pour Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) est conforme à la configuration requise de .NET Framework 4.6. 
+- L’installation de [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou de [SQL Server Data Tools pour Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) est conforme à la configuration requise de .NET Framework 4.6. 
 - SSMS installe la version x86 de **ADALSQL. DLL**. (À ce stade, SSMS ne parvient pas à demander le redémarrage requis après l'installation. Ce problème devrait être résolu dans une prochaine version CTP.)
 - SSDT installe la version amd64 de **ADALSQL. DLL**. L’authentification Azure AD n’est prise en charge que partiellement par SSDT.
-- La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n'installe pas la version requise amd64 de **ADALSQL.DLL**.
+- La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n’installe pas la version requise amd64 de **ADALSQL.DLL**.
 
 ## 6\. Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD 
 
 ### À propos des utilisateurs de base de données à relation contenant-contenu
 
-L’authentification Azure Active Directory nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données à relation contenant-contenu. Un utilisateur de base de données à relation contenant-contenu sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données master, et qui est mappé sur une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d'informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l'aide du portail, et les rôles RBAC ne sont pas propagés à SQL Server.
+L’authentification Azure Active Directory nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données à relation contenant-contenu. Un utilisateur de base de données à relation contenant-contenu sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données master, et qui est mappé sur une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l'aide du portail, et les rôles RBAC ne sont pas propagés à SQL Server.
 
 ### Se connecter à la base de données utilisateur à l’aide de SQL Server Management Studio
  
-Pour vérifier que l'administrateur Azure AD est correctement configuré, connectez-vous à la base de données **master** en utilisant un compte d'administrateur Azure AD. Pour configurer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l’administrateur de serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD ayant accès à la base de données.
+Pour vérifier que l’administrateur Azure AD est correctement configuré, connectez-vous à la base de données **master** en utilisant un compte d’administrateur Azure AD. Pour configurer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l’administrateur de serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD ayant accès à la base de données.
 
-> [AZURE.IMPORTANT]La prise en charge de l'authentification Azure Active Directory est disponible avec [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT]La prise en charge de l’authentification Azure Active Directory est disponible avec [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 #### Connectez-vous à l’aide de l’authentification intégrée à Active Directory 
 
@@ -244,20 +243,20 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 Utilisez cette méthode si vous êtes connecté à Windows à l’aide des informations d’identification d’un domaine qui n’est pas fédéré avec Azure, ou lorsque vous utilisez l’authentification Azure AD à l’aide d’Azure AD sur le domaine initial ou le domaine client.
 
 1. Démarrez Management Studio et dans la boîte de dialogue **Se connecter au moteur de base de données** (ou **Se connecter à la base de données**), dans la zone **Authentification**, sélectionnez **Authentification par mot de passe Active Directory**.
-2. Dans la zone **Nom d'utilisateur** saisissez votre nom d'utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
 3. Dans la zone **Mot de passe**, saisissez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
 4. Cliquez sur le bouton **Options** puis, sur la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, saisissez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter.
 
 
 ### Créer un utilisateur de base de données à relation contenant-contenu Azure AD dans une base de données utilisateur
 
-Pour créer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l'administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD (comme indiqué dans la procédure précédente) en tant qu'utilisateur avec au moins l'autorisation **MODIFIER UN UTILISATEUR**. Utilisez ensuite la syntaxe Transact-SQL suivante :
+Pour créer un utilisateur de base de données à relation contenant-contenu Azure AD (autre que l’administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD (comme indiqué dans la procédure précédente) en tant qu’utilisateur avec au moins l’autorisation **MODIFIER UN UTILISATEUR**. Utilisez ensuite la syntaxe Transact-SQL suivante :
 
 	CREATE USER Azure_AD_principal_name 
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* peut être le nom d'utilisateur principal d'un utilisateur Azure AD ou le nom d'affichage d'un groupe Azure AD.
+*Azure\_AD\_principal\_name* peut être le nom d’utilisateur principal d’un utilisateur Azure AD ou le nom d’affichage d’un groupe Azure AD.
 
 **Exemples :** pour créer une base de données à relation contenant-contenu représentant un utilisateur de domaine fédéré ou géré Azure AD :
 
@@ -269,11 +268,11 @@ Pour créer un utilisateur de base de données à relation contenant-contenu rep
 	CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
 
 
-Pour plus d'informations sur la création d'utilisateurs de base de données à relation contenant-contenu basés sur des identités Azure Active Directory, voir [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Pour plus d’informations sur la création d’utilisateurs de base de données à relation contenant-contenu basés sur des identités Azure Active Directory, voir [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
-Lorsque vous créez un utilisateur de base de données, il reçoit l'autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l'origine, les seules autorisations disponibles pour l'utilisateur sont celles qui sont octroyées au rôle **PUBLIC**, ou les autorisations accordées aux groupes Windows dont ils sont membres. Une fois que vous avez configuré un utilisateur de base de données Azure à relation contenant-contenu, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d'informations, consultez [Notions de base sur les autorisations de moteur de base de données](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d'informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md). Un utilisateur de domaine fédéré importé dans un domaine de gestion, doit utiliser l’identité de domaine géré.
+Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l’origine, les seules autorisations disponibles pour l’utilisateur sont celles qui sont octroyées au rôle **PUBLIC**, ou les autorisations accordées aux groupes Windows dont ils sont membres. Une fois que vous avez configuré un utilisateur de base de données Azure à relation contenant-contenu, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d’informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md). Un utilisateur de domaine fédéré importé dans un domaine de gestion, doit utiliser l’identité de domaine géré.
 
-> [AZURE.NOTE]Les utilisateurs AD Azure sont marqués dans les métadonnées de la base de données avec le type E (EXTERNAL\_USER) et pour les groupes avec le type X (EXTERNAL\_GROUPS). Pour plus d'informations, consultez [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Les utilisateurs AD Azure sont marqués dans les métadonnées de la base de données avec le type E (EXTERNAL\_USER) et pour les groupes avec le type X (EXTERNAL\_GROUPS). Pour plus d’informations, consultez [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Connectez-vous à votre base de données à l’aide d’identités Azure Active Directory
@@ -294,7 +293,7 @@ Pour vous connecter à une base de données à l’aide de l’authentification 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n'est pas pris en charge pour la connexion à la base de données SQL Azure.
+Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n’est pas pris en charge pour la connexion à la base de données SQL Azure.
 
 ### 7\.2. La connexion avec un nom principal et un mot de passe Azure AD 
 Pour vous connecter à une base de données à l’aide de l’authentification intégrée et une identité Azure AD, le mot clé d’authentification doit être défini sur mot de passe Active Directory et la chaîne de connexion doit contenir les mots clés et les valeurs ID/UID et les mots clés de mot de passe/PWD de l’utilisateur. L’exemple de code C# suivant utilise ADO .NET.
@@ -304,7 +303,7 @@ Pour vous connecter à une base de données à l’aide de l’authentification 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Pour obtenir des exemples de code spécifiques associés à l'authentification Azure AD, consultez la section [Blog de sécurité de SQL Server](http://blogs.msdn.com/b/sqlsecurity/) sur MSDN.
+Pour obtenir des exemples de code spécifiques associés à l’authentification Azure AD, consultez la section [Blog de sécurité de SQL Server](http://blogs.msdn.com/b/sqlsecurity/) sur MSDN.
 
 ## Voir aussi
 
@@ -327,4 +326,4 @@ Pour obtenir des exemples de code spécifiques associés à l'authentification A
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

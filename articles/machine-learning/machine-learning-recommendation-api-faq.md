@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 #Forum aux questions relatif à la configuration et à l’utilisation de l’API de Machine Learning Recommendations
@@ -130,4 +130,4 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

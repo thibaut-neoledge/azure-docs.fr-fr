@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="12/07/2015"
    ms.author="ryanwi"/>
 
 # Échantillon de cycle de vie des applications basé sur REST
@@ -22,54 +22,54 @@ Cet échantillon détaille le cycle de vie des applications de la structure du s
 
 Cet exemple effectue les opérations suivantes :
 
-* configure l’échantillon « WordCount 1.0.0.0 » à partir du package de l’application WordCount dans le magasin d’images ;
-* affiche la liste des types d’applications, qui inclut « WordCount 1.0.0.0 » ;
-* Crée l’application WordCount sous la forme : fabric:/WordCount ;
-* affiche la liste des applications, qui inclut : fabric:/WordCount version 1.0.0.0 ;
-* configure la version 1.1.0.0 de l’échantillon WordCount à partir du package de l’application WordCountUpgrade dans le magasin d’images ;
-* affiche la liste des types d’applications, qui inclut « WordCount 1.0.0.0 » et « WordCount 1.1.0.0 » ;
-* met à niveau l’application WordCount vers la version 1.1.0.0 ;
-* affiche la liste des applications, qui inclut WordCount version 1.1.0.0, mais non WordCount version 1.0.0.0 ;
+* approvisionne l’exemple WordCount 1.0.0 à partir du package d’application WordCount dans ImageStore ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 ;
+* crée l’application WordCount sous la forme : fabric:/WordCount ;
+* affiche la liste des applications, dont fabric:/WordCount version 1.0.0 ;
+* approvisionne la version 1.1.0 de l’échantillon WordCount à partir du package d’application WordCountUpgrade dans ImageStore ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 et WordCount 1.1.0 ;
+* met à niveau l’application WordCount vers la version 1.1.0 ;
+* affiche la liste des applications, dont WordCount version 1.1.0, mais dans laquelle ne figure plus WordCount version 1.0.0 ;
 * supprime l’application WordCount ;
 * affiche la liste des applications, qui n’inclut plus l’élément fabric:/WordCount ;
-* annule la mise en service de la version 1.1.0.0 de l’échantillon WordCount ;
-* affiche la liste des types d’application, qui inclut WordCount version 1.0.0.0, mais non WordCount version 1.1.0.0 ;
-* annule la mise en service de la version 1.0.0.0 de l’échantillon WordCount ;
+* annule l’approvisionnement de la version 1.1.0 de l’exemple WordCount ;
+* affiche la liste des types d’application, dont WordCount version 1.0.0, mais dans laquelle ne figure plus WordCount version 1.1.0 ;
+* annule l’approvisionnement de la version 1.0.0 de l’exemple WordCount ;
 * affiche la liste des types d’applications, qui n’inclut plus WordCount.
 
 
 ## Composants requis
 
-Cet exemple utilise l’[échantillon WordCount](https://github.com/azure/servicefabric-samples). L’échantillon WordCount doit d’abord être généré, puis deux packages d’application doivent être copiés vers le magasin d’images.
+Cet exemple utilise l’[exemple WordCount](http://aka.ms/servicefabricsamples) (disponible dans les exemples de prise en main). L’échantillon WordCount doit d’abord être généré, puis deux packages d’application doivent être copiés vers le magasin d’images.
 
 |Dossier|Description|
 |------|-----------|
-|WordCount|Échantillon d’application WordCount. Le fichier ApplicationManifest.xml contient la chaîne ApplicationTypeVersion="1.0.0.0".|
-|WordCountUpgrade|Échantillon d’application WordCount. Le fichier ApplicationManifest.xml doit être modifié, de façon à inclure la chaîne ApplicationTypeVersion="1.1.0.0" pour permettre l’exécution de la mise à niveau de l’application.|
+|WordCount|Échantillon d’application WordCount. Le fichier ApplicationManifest.xml contient la chaîne ApplicationTypeVersion="1.0.0".|
+|WordCountUpgrade|Échantillon d’application WordCount. Le fichier ApplicationManifest.xml doit être modifié, de façon à inclure la chaîne ApplicationTypeVersion="1.1.0" pour permettre l’exécution de la mise à niveau de l’application.|
 
 Pour créer les packages d’application et les copier dans le magasin d’images, procédez comme suit :
 
-1. Copiez l’élément C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug vers C:\\Temp\\WordCount. Cette opération permet de créer le package de l’application WordCount.
+1. Copiez C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug dans C:\\Temp\\WordCount. Cette opération permet de créer le package de l’application WordCount.
 2. Copiez l’élément C:\\Temp\\WordCount vers C:\\Temp\\WordCountUpgrade. Cette opération permet de créer le package de l’application WordCountUpgrade.
 3. Ouvrez le fichier C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml dans un éditeur de texte.
-4. Dans l’élément ApplicationManifest, modifiez l’attribut ApplicationTypeVersion et affectez-lui la valeur « 1.1.0.0 ». Cette opération permet de mettre à jour le numéro de version de l’application.
+4. Dans l’élément ApplicationManifest, modifiez l’attribut ApplicationTypeVersion et affectez-lui la valeur « 1.1.0 ». Cette opération permet de mettre à jour le numéro de version de l’application.
 5. Enregistrez le fichier ApplicationManifest.xml modifié.
 6. Exécutez le script PowerShell suivant en tant qu’administrateur afin de copier les applications dans le magasin d’images :
 
+```powershell
+# Deploy the WordCount and upgrade applications
+$applicationPathWordCount = "C:\Temp\WordCount"
+$applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
 
-		# Deploy the WordCount and upgrade applications
-		$applicationPathWordCount = "C:\Temp\WordCount"
-		$applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
+# LOCAL:
+$imageStoreConnection = "file:C:\SfDevCluster\Data\ImageStoreShare"
+$cluster = 'localhost:19000'
 
-		# LOCAL:
-		$imageStoreConnection = "fabric:ImageStore"
-		$cluster = 'localhost:19000'
+Connect-ServiceFabricCluster $cluster
 
-		Connect-ServiceFabricCluster $cluster
-
-		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
-		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
-
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
+```
 
 Une fois le script PowerShell exécuté, cette application est prête à se lancer.
 
@@ -95,14 +95,13 @@ namespace ServiceFabricRestCaller
     {
         static void Main(string[] args)
         {
-            Uri clusterUri = new Uri("http://localhost:19007");
+            Uri clusterUri = new Uri("http://localhost:19080");
             string buildPathApplication = "WordCount";
-            string applicationVersionNumber = "1.0.0.0";
+            string applicationVersionNumber = "1.0.0";
             string buildPathUpgrade = "WordCountUpgrade";
-            string updateVersionNumber = "1.1.0.0";
+            string updateVersionNumber = "1.1.0";
 
-
-            Console.WriteLine("\nProvision the 1.0.0.0 WordCount application for the first time.");
+            Console.WriteLine("\nProvision the 1.0.0 WordCount application for the first time.");
             ProvisionAnApplication(clusterUri, buildPathApplication);
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
@@ -122,11 +121,11 @@ namespace ServiceFabricRestCaller
 
             Console.WriteLine("\nGet the list of applications.");
             GetApplicationList(clusterUri);
-            Console.WriteLine("\nPress Enter to provision the 1.1.0.0 upgrade to the WordCount application: ");
+            Console.WriteLine("\nPress Enter to provision the 1.1.0 upgrade to the WordCount application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nProvision the 1.1.0.0 upgrade to the WordCount application.");
+            Console.WriteLine("\nProvision the 1.1.0 upgrade to the WordCount application.");
             ProvisionAnApplication(clusterUri, buildPathUpgrade);
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
@@ -158,11 +157,11 @@ namespace ServiceFabricRestCaller
 
             Console.WriteLine("\nGet the list of applications.");
             GetApplicationList(clusterUri);
-            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.1.0.0 application: ");
+            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.1.0 application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nUnprovision the WordCount 1.1.0.0 application.");
+            Console.WriteLine("\nUnprovision the WordCount 1.1.0 application.");
             UnprovisionAnApplication(clusterUri, updateVersionNumber);
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
@@ -170,11 +169,11 @@ namespace ServiceFabricRestCaller
 
             Console.WriteLine("\nGet the list of application types.");
             GetListOfApplicationTypes(clusterUri);
-            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.0.0.0 application: ");
+            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.0.0 application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nUnprovision the WordCount 1.0.0.0 application.");
+            Console.WriteLine("\nUnprovision the WordCount 1.0.0 application.");
             UnprovisionAnApplication(clusterUri, applicationVersionNumber);
             Console.WriteLine("\nPress Enter to get the final list of application types: ");
             Console.ReadLine();
@@ -191,11 +190,11 @@ namespace ServiceFabricRestCaller
         /// <summary>
         /// Class similar to ApplicationType. Designed for use with JavaScriptSerializer.
         /// </summary>
-        public class ApplicationType2
+        public class AppType
         {
             public string Name { get; set; }
             public string Version { get; set; }
-            public ApplicationParameterList DefaultParameterList { get; set; }
+            public List<ApplicationParameter> DefaultParameterList { get; set; }
         }
 
         /// <summary>
@@ -272,18 +271,18 @@ namespace ServiceFabricRestCaller
 
             // Deserialize the response string.
             JavaScriptSerializer jss = new JavaScriptSerializer();
-            List<ApplicationType2> applicationTypes = jss.Deserialize<List<ApplicationType2>>(responseString);
+            List<AppType> applicationTypes = jss.Deserialize<List<AppType>>(responseString);
 
             // Display application type information for each application type.
             Console.WriteLine("Application types:");
-            foreach (ApplicationType2 applicationType in applicationTypes)
+            foreach (AppType applicationType in applicationTypes)
             {
                 Console.WriteLine("  Application Type:");
                 Console.WriteLine("    Name: " + applicationType.Name);
                 Console.WriteLine("    Version: " + applicationType.Version);
                 Console.WriteLine("    Default Parameter List:");
 
-                foreach (ApplicationParameter parameter in applicationType.DefaultParameterList)
+                foreach (var parameter in applicationType.DefaultParameterList)
                 {
                     Console.WriteLine("      Name: " + parameter.Name);
                     Console.WriteLine("      Value: " + parameter.Value);
@@ -524,7 +523,7 @@ namespace ServiceFabricRestCaller
             // Create the byte array that will become the request body.
             string requestBody = "{"Name":"fabric:/WordCount"," +
                                     ""TypeName":"WordCount"," +
-                                    ""TypeVersion":"1.0.0.0"," +
+                                    ""TypeVersion":"1.0.0"," +
                                     ""ParameterList":[]}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
@@ -646,7 +645,7 @@ namespace ServiceFabricRestCaller
 
             // Create the Health Policy.
             string requestBody = "{"Name":"fabric:/WordCount"," +
-                                    ""TargetApplicationTypeVersion":"1.1.0.0"," +
+                                    ""TargetApplicationTypeVersion":"1.1.0"," +
                                     ""Parameters":[]," +
                                     ""UpgradeKind":1," +
                                     ""RollingUpgradeMode":1," +
@@ -710,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Cycle de vie des applications de la structure du service](service-fabric-application-lifecycle.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

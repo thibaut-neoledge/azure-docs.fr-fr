@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -47,9 +47,9 @@ Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une v
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. Dans Eclipse, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
+3. Dans Xamarin Studio, ouvrez le projet que vous avez créé quand vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
-4. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+4. Dans le menu **Exécuter**, cliquez sur **Démarrer le débogage** pour démarrer l’application ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -94,7 +94,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+            toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
@@ -112,7 +112,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 		await CreateTable();
 
 
-6. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi.
+6. À partir du menu **Exécuter**, cliquez sur **Démarrer le débogage** pour démarrer l’application et vous connecter avec le fournisseur d’identité choisi.
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
@@ -138,7 +138,8 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
+[Prise en main de Mobile Services]: partner-xamarin-mobile-services-android-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

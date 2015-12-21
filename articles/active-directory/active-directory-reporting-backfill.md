@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
-# Stratégies de rétention des rapports Azure Active Directory
+# Heures de renvoi des rapports Azure Active Directory
 
-## Articles de la documentation sur la création de rapports
-
- - [API de création de rapports](active-directory-reporting-api-getting-started.md)
- - [Événements d'audit](active-directory-reporting-audit-events.md)
- - [Rétention](active-directory-reporting-retention.md)
- - [Versions préliminaires](active-directory-reporting-previews.md)
- - [action](active-directory-reporting-search.md)
- - [Renvoi](active-directory-reporting-backfill.md)
- - [Latences](active-directory-reporting-latencies.md)
- - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
+*Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Une fois qu’un répertoire est choisi pour les rapports, les rapports conservent les données pendant un certain nombre de jours indiqué ici.
 
@@ -57,4 +48,4 @@ Utilisateurs RMS les plus actifs | 0 jour
 Utilisation d’un appareil RMS | 0 jour
 Utilisation d’applications fonctionnant avec RMS | 0 jour
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

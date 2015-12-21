@@ -32,37 +32,28 @@ Azure DNS utilise Azure Resource Manager (ARM). Suivez ces instructions pour Azu
 
 
 ### Étape 1 :
+Connectez-vous à votre compte Azure (vous devrez indiquer vos informations d’identification)
 
-		PS C:\> Login-AzureRmAccount
+	PS C:\> Login-AzureRmAccount
 
+### Étape 2
+Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
+	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-### Étape 2 :
+Vous pouvez répertorier les abonnements disponibles à l’aide de « Get-AzureRmSubscription ».
 
-Vérifiez les abonnements associés au compte
+### Étape 3
+Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
-		PS C:\> get-AzureRmSubscription 
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
-Vous devez indiquer vos informations d’identification.<BR>
-
-### Étape 3 : Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser. <BR>
-
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que toutes les ressources DNS sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure DNS.
 
 ### Étape 4
-Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)<BR>
-
-		PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-
-Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que toutes les ressources DNS sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure DNS.<BR>
-
-### Étape 5
-
 Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être inscrit auprès de ce fournisseur de ressources pour pouvoir utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
 
-	PS c:> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -90,7 +81,7 @@ Les balises sont différentes des Etags. Les balises sont une liste de paires no
 
 Une zone DNS est créée à l'aide de l'applet de commande New-AzureRmDnsZone. Dans l’exemple ci-dessous, nous allons créer une zone DNS appelée « contoso.com » dans le groupe de ressources « MyResourceGroup » :<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE]Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin. Par exemple, spécifiez « contoso.com » plutôt que « contoso.com. ».<BR>
 
@@ -104,7 +95,7 @@ Votre zone DNS vient d’être créée dans Azure DNS. La création d’une zone
 
 Pour afficher ces enregistrements, utilisez Get-AzureRmDnsRecordSet :
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -149,11 +140,9 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
         		expire  = 604800 (7 days)
         		default TTL = 300 (5 mins)
 
-
 ## Étapes suivantes
-
 
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

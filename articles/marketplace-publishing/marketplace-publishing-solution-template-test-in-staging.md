@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
 # Test de votre offre de modèle de solution en mode intermédiaire
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre offre dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant le lancement de sa production. L'offre apparaît avec le statut Intermédiaire, comme pour un client l'ayant déployée. Votre offre doit être certifiée pour passer en mode intermédiaire.
 
-Une fois que votre offre a le statut Intermédiaire, vous pouvez l'afficher et la tester dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/).
+Une fois que votre offre a le statut Intermédiaire, vous pouvez l’afficher et la tester dans le [portail Azure](https://portal.azure.com/).
 
-Suivez les étapes ci-dessous pour faire passer votre offre en mode Intermédiaire et la tester dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/) :
+Suivez les étapes ci-dessous pour faire passer votre offre en mode Intermédiaire et la tester dans le [portail Azure](https://portal.azure.com/) :
 
 1.	Accédez au [portail de publication](https://publish.windowsazure.com) > onglet **Solution Templates (Modèles de solution)** > votre offre > **Publish (Publier)** > **Push to Staging (Déployer dans un environnement intermédiaire)**.
 2.	Fournissez la liste des abonnements Azure que vous utiliserez pour l'aperçu et le test de votre offre.
@@ -39,4 +39,4 @@ Si vous êtes satisfait des résultats, vous pouvez passer à la phase finale de
 
 Consultez [Prise en main : Publier une offre dans Azure Marketplace](marketplace-publishing-getting-started.md) pour obtenir un guide sur toutes les tâches du serveur de publication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

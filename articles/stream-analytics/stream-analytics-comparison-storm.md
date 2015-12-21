@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Comparaison : Apache Storm et Azure Stream Analytics | Microsoft Azure"
-	description="Découvrez comment utiliser Stream Analytics pour l’analyse de sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
-	keywords="twitter en temps réel,analyse de sentiments,analyse des médias sociaux,outils d’analyse de médias sociaux"
+	pageTitle="Plateformes d’analyse : comparaison d’Apache Storm et de Stream Analytics | Microsoft Azure"
+	description="Comparez Apache Storm et Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Découvrez les fonctionnalités et les différences."
+	keywords="plateforme d’analyse, plateformes d’analyse, plateforme d’analyse cloud, comparaison avec storm"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Comparaison d’Apache Storm et d’Azure Stream Analytics #
+# Conseils pour choisir une plateforme d’analyse de diffusion en continu : comparaison d’Apache Storm et d’Azure Stream Analytics
 
-## Introduction ##
+Comparez Apache Storm et Azure Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Identifiez les propositions de valeur de Stream Analytics et d’Apache Storm en tant que service géré sur Azure HDInsight, et choisissez la solution qui convient aux cas d’utilisation de votre entreprise.
 
-Ce document illustre le positionnement d’Azure Stream Analytics et d’Apache Storm en tant que service géré sur HDInsight. L’objectif consiste à aider les clients à comprendre la proposition de valeur des deux services et à prendre une décision sur le service le mieux approprié pour leur cas d’utilisation.
+Si ces deux plateformes d’analyse fournissent les avantages d’une solution PaaS, il existe quelques fonctionnalités principales qui les différencient. Ces fonctionnalités et les limitations des services sont répertoriées ci-dessous pour vous aider à identifier la solution qui vous permettra d’atteindre vos objectifs.
 
-Si ces deux services fournissent les avantages d’une solution PaaS, il existe quelques fonctionnalités principales qui les différencient. Nous pensons que dresser la liste des fonctionnalités et des limitations de ces services aidera les clients à choisir la solution dont ils ont besoin pour atteindre leurs objectifs.
-
-## Généralités ##
+## Comparaison de Storm et de Stream Analytics : fonctionnalités générales ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +136,7 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
         </tr>
     </tbody>
 </table>
-## Création ##
+## Création sur chaque plateforme d’analyse ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
         </tr>
     </tbody>
 </table>
-## Entrée et sortie ##
+## Sources de données et sorties ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +561,7 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
             </td>
             <td width="246" valign="top">
                 <p>
-                    Aucune limitation de la taille des données. Connecteurs disponibles pour HBase, DocumentDB, SQL Server et Azure. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé. 
+                    Aucune limitation de la taille des données. Connecteurs disponibles pour HBase, DocumentDB, SQL Server et Azure. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
                 <p>
                     L’actualisation des données de référence doit être gérée par du code personnalisé.
@@ -590,4 +588,4 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

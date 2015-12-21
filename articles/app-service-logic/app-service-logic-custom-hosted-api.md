@@ -7,11 +7,7 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
+<tags ms.service="app-service-logic" ms.workload="intégration" ms.tgt_pltfrm="na" ms.devlang="na"
 	
 	ms.topic="article"
 	ms.date="10/07/2015"
@@ -54,9 +50,9 @@ Dans cette section, vous allez créer deux applications Azure Active Directory 
 
 C’est ce que l’application logique utilisera pour s’authentifier sur Active Directory. Vous ne *devez* exécuter cette opération qu’une fois pour votre répertoire. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez également en créer des uniques si vous le souhaitez. Vous pouvez effectuer cette opération dans l’interface utilisateur ou utiliser PowerShell.
 
-#### Créez l’identité de l’application en utilisant le portail Azure
+#### Créez l’identité de l’application en utilisant le portail Azure Classic
 
-1. Accédez à [Active directory dans le portail Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez le répertoire que vous utilisez pour votre application web
+1. Accédez à [Active Directory dans le portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez l’annuaire que vous utilisez pour votre application web
 2. Cliquez sur l’onglet **Applications**
 3. Sur la barre de commandes en bas de la page, cliquez sur **Ajouter**.
 4. Fournissez à votre identité un nom à utiliser, puis cliquez sur la flèche suivante.
@@ -85,7 +81,7 @@ Si votre application web est déjà déployée, vous pouvez simplement l’activ
 
 À ce stade, une application est automatiquement créée pour vous. Vous aurez besoin de l’ID client de cette Application pour la partie 3, et vous devez donc :
 
-1. Vous connecter au [Portail Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), puis sélectionner votre répertoire. 
+1. Accédez à [Active Directory dans le portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez votre annuaire. 
 2. Rechercher l’application dans la zone de recherche
 3. Cliquez sur cette dernière dans la liste
 4. Cliquez sur l’onglet **Configurer**
@@ -95,7 +91,7 @@ Si votre application web est déjà déployée, vous pouvez simplement l’activ
 
 Tout d’abord, vous devez créer une application pour votre application web. Elle doit être différente de l’application utilisée pour votre application logique. Commencez en exécutant les étapes figurant dans la partie 1, mais désormais, pour la **page d’accueil** et **IdentifierUris**, utilisez la https://**URL** réelle de votre application web.
 
->[AZURE.NOTE]Lorsque vous créez l’application pour votre application web, vous devez utiliser l’[approche du Portail Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), car l’applet de commande PowerShell ne configure pas les autorisations requises pour connecter les utilisateurs à un site web.
+>[AZURE.NOTE]Quand vous créez l’application pour votre application web, vous devez utiliser l’[approche du portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), car l’applet de commande PowerShell ne configure pas les autorisations requises pour connecter les utilisateurs à un site web.
 
 Une fois que vous avez l’ID client et l’ID de locataire, définissez ce qui suit en tant que sous-ressource de l’application web dans votre modèle de déploiement :
 
@@ -126,8 +122,7 @@ Pour voir le modèle terminé, consultez [Appels de Logic App dans une API perso
 
 ### Partie 3 : Remplir la section Autorisation dans l’application logique
 
-Dans la section **Autorisation** de l’opération **HTTP** :
-`{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
+Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
 
 | Élément | Description |
 |---------|-------------|
@@ -175,4 +170,4 @@ Pour aller plus loin, si vous souhaitez le mettre en œuvre au sein de votre cod
 
 Vous devez toujours exécuter les opérations ci-dessus pour créer une identité d’application pour votre application logique, puis l’utiliser pour l’API.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -40,7 +40,7 @@ Parmi nos clients actuels de Notification Hubs, citons en particulier les suivan
 * Applications Bing : des dizaines de millions d'appareils, trois millions de notifications envoyées par jour
 
 ###4\. Comment mettre à niveau ou passer à une version antérieure de mes Notification Hubs pour modifier la couche de service ?
-Accédez à la [Azure Portal], cliquez sur Service Bus, puis cliquez sur votre espace de noms et sur vitre votre concentrateur de notification. Dans l'onglet mise à l'échelle, vous ne pourrez pas modifier votre niveau de service de Notification Hubs.
+Accédez au [portail Azure Classic], cliquez sur Service Bus, puis cliquez sur votre espace de noms et sur votre hub de notification. Dans l'onglet mise à l'échelle, vous ne pourrez pas modifier votre niveau de service de Notification Hubs.
 
 ##Conception et développement
 ###1\. Quelles plateformes côté service prenez-vous en charge ?
@@ -68,7 +68,7 @@ Azure Notification Hubs est en mesure de traiter au moins un million d'envois p
 En raison de la nature même des notifications Push, qui sont remises par un service de notifications Push spécifique à une plateforme externe, nous n'apportons aucune garantie de latence. En règle générale, la majorité des notifications sont remises dans un délai de quelques minutes.
 
 ###9\. Quels sont les points à prendre en compte lors de la conception d'une solution avec des espaces de noms et des hubs de notification ?
-*Application mobile/Environnement :*vous devez prévoir un concentrateur de notification par application mobile et par environnement. Dans un scénario d'architecture mutualisée, chaque locataire doit disposer d'un hub distinct. Vous ne devez jamais utiliser le même hub de notification pour les environnements de test et de production, au risque de rencontrer plus tard des problèmes lors de l'envoi des notifications. Par exemple, Apple fournit des points de terminaison Push pour les environnements de bac à sable (sandbox) et de production, chaque environnement étant défini avec des informations d'identification distinctes. Si un hub initialement configuré avec le certificat de bac à sable (sandbox) d'Apple était ensuite reconfiguré pour utiliser le certificat de production d'Apple, les anciens jetons de l'appareil ne seraient plus valides avec le nouveau certificat et provoqueraient l'échec des notifications Push. C'est pour cela qu'il est préférable de séparer vos environnements de test et de production, et d'utiliser des hubs différents pour chaque environnement.
+*Application mobile/Environnement :*vous devez prévoir un hub de notification par application mobile et par environnement. Dans un scénario d'architecture mutualisée, chaque locataire doit disposer d'un hub distinct. Vous ne devez jamais utiliser le même hub de notification pour les environnements de test et de production, au risque de rencontrer plus tard des problèmes lors de l'envoi des notifications. Par exemple, Apple fournit des points de terminaison Push pour les environnements de bac à sable (sandbox) et de production, chaque environnement étant défini avec des informations d'identification distinctes. Si un hub initialement configuré avec le certificat de bac à sable (sandbox) d'Apple était ensuite reconfiguré pour utiliser le certificat de production d'Apple, les anciens jetons de l'appareil ne seraient plus valides avec le nouveau certificat et provoqueraient l'échec des notifications Push. C'est pour cela qu'il est préférable de séparer vos environnements de test et de production, et d'utiliser des hubs différents pour chaque environnement.
 
 *Identifiants PNS :* quand une application mobile est inscrite sur le portail des développeurs d'une plateforme (par exemple, Apple ou Google), vous obtenez un identifiant et des jetons de sécurité pour cette application. Le serveur principal de l'application doit fournir ces informations aux services de notifications Push de la plateforme en question pour pouvoir envoyer des notifications Push aux appareils. Ces jetons de sécurité peuvent être fournis sous la forme de certificats (par exemple, pour Apple iOS ou Windows Phone) ou de clés de sécurité (pour Google Android ou Windows, notamment). Ils doivent être configurés dans Notification Hubs. Leur configuration s'effectue généralement au niveau du hub de notification, mais peut aussi être réalisée au niveau de l'espace de noms dans un scénario d'architecture mutualisée.
 
@@ -89,9 +89,9 @@ Toutes les notifications sont remises aux appareils par les services de notifica
 ###1\. En quoi consiste la récupération d'urgence ?
 Nous fournissons une protection de récupération d'urgence de certaines métadonnées (nom du hub de notification, chaîne de connexion, etc.). Dans le cas d'une récupération d'urgence, les données des inscriptions sont perdues. Vous devez donc prévoir une solution pour réintégrer ces données dans votre nouveau hub.
 
-- *Étape 1* - Créez un concentrateur de notification secondaire dans un autre contrôleur de domaine. Vous pouvez le créer juste au moment de l'événement de récupération d'urgence ou en créer un dès le départ. Cela a peu d'importance, car l'approvisionnement dans Notification Hubs est un processus rapide de l'ordre de quelques secondes. Il est toutefois recommandé d'en créer un dès le début pour limiter l'impact de l'événement de récupération d'urgence sur nos capacités de gestion.
+- *Étape 1* - Créez un hub de notification secondaire dans un autre contrôleur de domaine. Vous pouvez le créer juste au moment de l'événement de récupération d'urgence ou en créer un dès le départ. Cela a peu d'importance, car l'approvisionnement dans Notification Hubs est un processus rapide de l'ordre de quelques secondes. Il est toutefois recommandé d'en créer un dès le début pour limiter l'impact de l'événement de récupération d'urgence sur nos capacités de gestion.
 
-- *Étape 2* - Alimentez le concentrateur de notification secondaire avec les inscriptions du concentrateur de notification principal. N'essayez pas de conserver les inscriptions sur les deux hubs et de les maintenir synchronisées au fur et à mesure de l'ajout de nouvelles inscriptions. En effet, cela est difficile à effectuer en raison de la nature même des inscriptions qui sont destinées à expirer sur le PNS. Les inscriptions sont supprimées de Notification Hubs lorsque le PNS nous signale qu'elles ont expiré ou qu'elles ne sont plus valides.
+- *Étape 2* - Alimentez le hub de notification secondaire avec les inscriptions du hub de notification principal. N'essayez pas de conserver les inscriptions sur les deux hubs et de les maintenir synchronisées au fur et à mesure de l'ajout de nouvelles inscriptions. En effet, cela est difficile à effectuer en raison de la nature même des inscriptions qui sont destinées à expirer sur le PNS. Les inscriptions sont supprimées de Notification Hubs lorsque le PNS nous signale qu'elles ont expiré ou qu'elles ne sont plus valides.
 
 Nous recommandons d'utiliser un serveur principal d'applications qui :
 
@@ -104,16 +104,16 @@ Nous recommandons d'utiliser un serveur principal d'applications qui :
 Si vous n'avez pas de serveur principal, lorsque l'application démarre sur les appareils, une nouvelle inscription est créée dans le hub de notification secondaire, où seront donc inscrits tous les appareils actifs. Il y a un inconvénient à cela : pendant un laps de temps, les appareils sur lesquels les applications n'ont pas été ouvertes ne recevront pas de notifications.
 
 ###2\. Existe-t-il une fonctionnalité de journal d'audit ?
-Toutes les opérations de gestion concernant Notification Hubs sont enregistrées dans les journaux des opérations qui sont exposés dans le portail de gestion Azure.
+Toutes les opérations de gestion concernant Notification Hubs sont enregistrées dans les journaux des opérations qui sont exposés dans le [portail Azure Classic].
 
 ##Surveillance et dépannage
 ###1\. Quelles sont les fonctionnalités proposées pour faciliter la résolution des problèmes ?
-Azure Notification Hubs fournit plusieurs fonctionnalités vous permettant de résoudre des problèmes courants, en particulier les problèmes de suppression de notifications, qui sont les plus fréquents. Pour plus d'informations, consultez le [Guide de dépannage de Notification Hubs].
+Azure Notification Hubs fournit plusieurs fonctionnalités vous permettant de résoudre des problèmes courants, en particulier les problèmes de suppression de notifications, qui sont les plus fréquents. Pour plus d’informations, consultez le [Guide de dépannage de Notification Hubs].
 
 ###2\. Quelles sont les fonctionnalités de télémétrie proposées ?
-Azure Notification Hubs permet d'afficher des données de télémétrie dans le portail de gestion Azure. Pour plus d'informations sur les mesures disponibles, consultez l'article [Mesures de Notification Hubs]. Notez que la mesure « Notifications réussies » indique seulement que les notifications ont bien été remises au service de notifications Push externe (par exemple, APNS pour Apple, GCM pour Google, etc.). Nous ne disposons pas de mesures relatives à la remise finale des notifications aux appareils par le PNS. Azure Notification Hubs offre également la possibilité d'exporter les données de télémétrie par programme (pour le niveau de service Standard). Pour plus d'informations, consultez l'[exemple de mesures de Notification Hubs].
+Azure Notification Hubs permet d’afficher des données de télémétrie dans le [portail Azure Classic]. Pour plus d’informations sur les mesures disponibles, consultez [Mesures de Notification Hubs]. Notez que la mesure « Notifications réussies » indique seulement que les notifications ont bien été remises au service de notifications Push externe (par exemple, APNS pour Apple, GCM pour Google, etc.). Nous ne disposons pas de mesures relatives à la remise finale des notifications aux appareils par le PNS. Azure Notification Hubs offre également la possibilité d'exporter les données de télémétrie par programme (pour le niveau de service Standard). Pour plus d’informations, consultez [Exemple de mesures de Notification Hubs].
 
-[Azure Portal]: https://manage.windowsazure.com
+[portail Azure Classic]: https://manage.windowsazure.com
 [Tarification de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Contrat SLA pour Notification Hubs]: http://azure.microsoft.com/support/legal/sla/
 [Étude de cas Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -131,7 +131,7 @@ Azure Notification Hubs permet d'afficher des données de télémétrie dans le 
 [Didacticiel sur les notifications Push sécurisées avec Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Guide de dépannage de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Mesures de Notification Hubs]: https://msdn.microsoft.com/library/dn458822.aspx
-[exemple de mesures de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Exemple de mesures de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exporter/importer des inscriptions]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

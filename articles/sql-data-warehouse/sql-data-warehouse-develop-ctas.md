@@ -425,8 +425,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [Statistiques]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/fr-FR/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

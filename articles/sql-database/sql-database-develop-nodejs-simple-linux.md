@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Connexion à SQL Database à l'aide de Node.js avec Tedious sous Ubuntu Linux" 
+<properties
+	pageTitle="Connexion à une base de données SQL à l'aide de Node.js avec Tedious sous Ubuntu Linux"
 	description="Cette rubrique présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à Azure SQL Database. L'exemple utilise le pilote Tedious pour se connecter."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -27,7 +27,7 @@
 Cette rubrique présente un exemple de code Node.js qui s'exécute sous Ubuntu Linux. L'exemple se connecte à Azure SQL Database à l'aide du pilote Tedious.
 
 
-## Éléments logiciels requis
+## Composants requis
 
 
 Ouvrez votre terminal et installez **node** et **npm**, si ce n'est pas déjà fait.
@@ -47,13 +47,15 @@ Une fois votre ordinateur configuré avec **node** et **npm**, accédez au répe
 **npm init** crée un projet de nœud. Pour conserver les valeurs par défaut lors de la création de votre projet, appuyez sur Entrée jusqu'à ce que le projet soit créé. Le fichier **package.json** s'affiche dans le répertoire du projet.
 
 
-### Créer une base de données AdventureWorks
+### Base de données SQL
 
+Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-L'exemple de code dans cette rubrique attend une base de données de test **AdventureWorks**. Si vous n'en avez pas déjà une, consultez [Prise en main d'une base de données SQL](sql-database-get-started.md). Il est important que vous suivez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
+## Étape 1 : obtenir les informations de connexion
 
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Se connecter à la base de données SQL
+## Étape 2 : se connecter
 
 La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connection.html) est utilisée pour la connexion à la base de données SQL.
 
@@ -72,7 +74,7 @@ La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connectio
 	});
 
 
-## Exécuter une instruction SQL SELECT
+## Étape 3 : exécuter une requête
 
 
 Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Request()](http://pekim.github.io/tedious/api-request.html). Si l'instruction renvoie des lignes, par exemple une instruction select, vous pouvez les récupérer à l'aide de la fonction [request.on()](http://pekim.github.io/tedious/api-request.html). S'il n'y a aucune ligne, la fonction [request.on()](http://pekim.github.io/tedious/api-request.html) renvoie des listes vides.
@@ -92,14 +94,14 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 		console.log("Connected");
 		executeStatement();
 	});
-	
+
 	var Request = require('tedious').Request;
 	var TYPES = require('tedious').TYPES;
-	
+
 	function executeStatement() {
 		request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
 	  	if (err) {
-	   		console.log(err);} 
+	   		console.log(err);}
 		});
 		var result = "";
 		request.on('row', function(columns) {
@@ -113,7 +115,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 		    console.log(result);
 		    result ="";
 		});
-	
+
 		request.on('done', function(rowCount, more) {
 		console.log(rowCount + ' rows returned');
 		});
@@ -121,13 +123,9 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 	}
 
 
-## Insérer une ligne, appliquer les paramètres et récupérer la clé primaire générée
+## Étape 4 : insérer une ligne
 
-
-Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx). Dans cet exemple, vous verrez comment procéder pour exécuter une instruction insert, transmettre des paramètres en toute sécurité pour une protection contre une injection SQL et récupérer la valeur de la clé primaire générée automatiquement.
-
-
-L'exemple de code dans cette section applique des paramètres à une instruction SQL INSERT. La valeur de clé primaire qui est générée est récupérée par le programme.
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de l’injection de code SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
 
 	var Connection = require('tedious').Connection;
@@ -144,14 +142,14 @@ L'exemple de code dans cette section applique des paramètres à une instruction
 		console.log("Connected");
 		executeStatement1();
 	});
-	
+
 	var Request = require('tedious').Request
 	var TYPES = require('tedious').TYPES;
-	
+
 	function executeStatement1() {
 		request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
 		 if (err) {
-		 	console.log(err);} 
+		 	console.log(err);}
 		});
 		request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
 		request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
@@ -169,6 +167,9 @@ L'exemple de code dans cette section applique des paramètres à une instruction
 		connection.execSql(request);
 	}
 
- 
 
-<!---HONumber=Oct15_HO4-->
+## Étapes suivantes
+
+Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+
+<!---HONumber=AcomDC_1210_2015-->

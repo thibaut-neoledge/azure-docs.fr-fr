@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/hh694271.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Kit de ressources Azure pour Eclipse #
 
@@ -93,4 +93,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Nouveautés du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

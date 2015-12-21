@@ -3,8 +3,8 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et 23 Video."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="markusvi"/>
+	ms.date="12/04/2015"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à 23 Video
@@ -44,7 +44,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
  
 ## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des trois sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de 23 Video à partir de la galerie 
 2. Configuration et test de l’authentification unique Azure AD
@@ -55,7 +55,7 @@ Pour configurer l’intégration de 23 Video avec Azure AD, vous devez ajouter
 
 **Pour ajouter 23 Video à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -80,11 +80,11 @@ Pour configurer et tester l’authentification unique Azure AD avec 23 Video, 
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application 23 Video.<br>
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application 23 Video.<br>
 
 **Pour configurer l’authentification unique Azure AD avec 23 Video, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis dans la page d’intégration d’applications **23 Video**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **23 Video**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à 23 Video**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Authentification unique Azure AD][7] <br>
 
@@ -105,7 +105,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     c. Cliquez sur **Next**.
 
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
 7. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
@@ -113,11 +113,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **Portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -181,7 +181,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à 23 Video, procédez comme suit :**
 
-1. Dans la vue répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Dans l’affichage des annuaires du portail Azure Classic, pour ouvrir l’affichage des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 2. Dans la liste des applications, sélectionnez **23 Video**. <br><br>![Affecter des utilisateurs][202] <br>
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.<br> <br>![Affecter des utilisateurs][203]<br>
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
@@ -228,4 +228,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

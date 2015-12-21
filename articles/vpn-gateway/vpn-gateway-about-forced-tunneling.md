@@ -10,7 +10,11 @@
 
 # Configurer un tunneling forcé ?
 
-Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique. Si vous souhaitez configurer le tunneling forcé pour les réseaux virtuels et les passerelles VPN créés à l'aide du modèle de déploiement Resource Manager, consultez [Configurer le tunneling forcé à l'aide de PowerShell et d'Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique (connu également comme Gestion des services). Si vous souhaitez configurer le tunneling forcé pour les réseaux virtuels et les passerelles VPN créés à l’aide du modèle de déploiement Resource Manager, consultez [Configurer le tunneling forcé à l’aide de PowerShell et d’Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -44,13 +48,13 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 - Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique). Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
 
-- Le tunneling forcé ExpressRoute n'est pas configuré via ce mécanisme, mais il est activé en publiant un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d'informations, consultez [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+- Le tunneling forcé ExpressRoute n'est pas configuré via ce mécanisme, mais il est activé en publiant un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, consultez [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## Présentation de la configuration
 
 La procédure ci-dessous vous permettra de spécifier le tunneling forcé dans un réseau virtuel. Les étapes de configuration correspondent à l'exemple de fichier netcfg de réseau virtuel ci-dessous.
 
-Dans l'exemple, le réseau virtuel multiniveau comporte 3 sous-réseaux : *frontal*, *intermédiaire* et *principal*, et 4 connexions entre sites : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *intermédiaire* et *principal* de manière à utiliser le tunneling forcé.
+Dans l’exemple, le réseau virtuel « MultiTier-VNet » comporte 3 sous-réseaux : *Frontend*, *Midtier* et *Backend*, et 4 connexions entre locaux : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *Midtier* et *Backend* de manière à utiliser le tunneling forcé.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -153,4 +157,4 @@ Voici d'autres applets de commande PowerShell pouvant se révéler utiles lors d
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

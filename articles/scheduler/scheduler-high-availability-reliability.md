@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
  
@@ -61,24 +61,25 @@ Notez que la même stratégie de nouvelle tentative s'applique à l'action d'ori
 Pour savoir comment configurer un point de terminaison alternatif, consultez [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
 ## Voir aussi
- 
+
  [Présentation d'Azure Scheduler](scheduler-intro.md)
  
- [Concepts, terminologie et hiérarchie d'entités de Scheduler](scheduler-concepts-terms.md)
- 
- [Prise en main de Scheduler dans le portail de gestion](scheduler-get-started-portal.md)
- 
+ [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+
+ [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
+
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
- 
- [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler](scheduler-advanced-complexity.md)
- 
- [Informations de référence sur l'API REST de Scheduler](https://msdn.microsoft.com/library/dn528946)
- 
- [Informations de référence sur les applets de commande PowerShell de Scheduler](scheduler-powershell-reference.md)
- 
- [Limites, valeurs par défaut et codes d'erreur de Scheduler](scheduler-limits-defaults-errors.md)
- 
- [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
+
+ [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
+
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+
+ [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
+
+
+ [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
+
+ [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
  
  
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
@@ -87,4 +88,4 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

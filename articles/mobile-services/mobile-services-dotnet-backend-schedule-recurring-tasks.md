@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services
@@ -27,10 +27,10 @@
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail Azure Classic pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d’un service distant, Twitter en l’occurrence, et stocke les résultats dans une nouvelle table. D’autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
+Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail Azure Classic pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
 + Archivage des enregistrements de données anciens ou en double.
-+ Demande et stockage de données externes, par exemple, des tweets, des entrées RSS et des informations d’emplacement.
++ Demande et stockage de données externes, par exemple, des tweets, des entrées RSS et des informations d'emplacement.
 + Traitement ou redimensionnement des images stockées.
 
 Ce didacticiel explique comment utiliser la planification des travaux pour créer un travail planifié qui demande des données de tweets à Twitter et stocke les tweets dans une nouvelle table Updates.
@@ -97,7 +97,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 	La table Updates, qui est créée dans la base de données lors du premier accès à DbSet, est utilisée par le service pour stocker les données des tweets.
 
-	>[AZURE.NOTE]Lors de l’utilisation de l’initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu’il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L’initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d’informations, voir l’article [Utilisation des migrations Code First pour mettre à jour le modèle de données](mobile-services-dotnet-backend-use-code-first-migrations.md).
+	>[AZURE.NOTE]Lors de l’utilisation de l’initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu’il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d’informations, voir l’article [Utilisation des migrations Code First pour mettre à jour le modèle de données](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
@@ -306,4 +306,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

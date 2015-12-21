@@ -48,7 +48,7 @@ Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes po
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Prenez note de l’identificateur d’application fourni une fois l’application créée. Vous en aurez besoin pour l’étape suivante. Vous trouverez également l’identificateur d’application dans le champ d’ID client de la section Active Directory du portail.
+	>[AZURE.NOTE]Prenez note de l’identificateur d’application fourni une fois l’application créée. Vous en aurez besoin pour l’étape suivante. Vous trouverez également l’identificateur d’application dans le champ d’ID client de la section Active Directory du portail Azure.
 
 3. Remplacez {application-id} par l’identificateur que vous venez d’enregistrer, puis créez le principal du service pour l’application :
 
@@ -378,10 +378,10 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 2.	Pour créer chaque ressource, appuyez sur **Entrée** après le renvoi de chaque code d’état. Une fois la machine virtuelle créée, effectuez l’étape suivante, puis appuyez sur Entrée pour supprimer toutes les ressources.
 
-	L’exécution complète de cette application console devrait durer 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression de ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Azure ont bien été créées avant de les supprimer.
+	L’exécution complète de cette application console devrait durer 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Azure ont bien été créées avant de les supprimer.
 
 3. Parcourez les journaux d’audit dans le portail Azure pour connaître l’état des ressources :
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

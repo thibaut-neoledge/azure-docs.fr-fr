@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : Déterminer les exigences en matière d’identité | Microsoft Azure"
+	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière d’identité | Microsoft Azure"
 	description="Identifier les besoins métier de l’entreprise vous conduira à définir les exigences pour la conception d’identités hybrides."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Déterminer les besoins d’identité pour votre solution d’identités hybrides
@@ -96,4 +96,4 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 ## Voir aussi
 [Présentation des considérations relatives à la conception]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

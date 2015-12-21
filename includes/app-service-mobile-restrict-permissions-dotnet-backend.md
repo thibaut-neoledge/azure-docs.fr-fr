@@ -3,7 +3,7 @@ Par défaut, les API d’un backend d’application mobile peuvent être appelé
 
 + **Serveur principal Node.js (via le portail)** :  
 	
-	Dans les **Paramètres** de votre application mobile, cliquez sur **Easy Tables**, puis sélectionnez votre table. Cliquez sur **Modifier les autorisations**, sélectionnez **Accès authentifié uniquement** pour toutes les autorisations, puis **Enregistrer**.
+	Dans les **Paramètres** de votre application mobile, cliquez sur **Easy Tables**, puis sélectionnez votre table. Cliquez sur **Modifier les autorisations**, sélectionnez **Accès authentifié uniquement** pour toutes les autorisations, puis cliquez sur **Enregistrer**.
 
 + **Serveur principal .NET (C#)** :
 
@@ -20,6 +20,6 @@ Par défaut, les API d’un backend d’application mobile peuvent être appelé
 
         table.access = 'authenticated';
 
-	Pour plus d’informations, reportez-vous à la rubrique concernant l’[exigence d’une authentification pour l’accès aux tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) dans [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
+	Pour plus d’informations, reportez-vous à [Procédure : demander une authentification pour accéder aux tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Pour savoir comment télécharger le projet de code de démarrage rapide de votre site, consultez [Procédure : télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Utilisation du service Import/Export pour transférer des données vers le stockage d’objets blob | Microsoft Azure" 
 	description="Découvrez comment créer des tâches d’importation et d’exportation dans le portail de gestion Azure pour transférer des données vers le stockage d’objets blob." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
@@ -275,4 +275,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -155,13 +155,13 @@ Nom de l'instance TPM | Entrez le nom de l’application API **Gestion des parte
 
 
 ## Ajouter vos partenaires, accords, certificats et schémas 
-Dans le portail de gestion Azure, ouvrez votre application API TPM. Dans la section **Composants**, ajoutez vos partenaires, accords, certificats et schémas.
+Dans le portail Azure, ouvrez votre application API TPM. Dans la section **Composants**, ajoutez vos partenaires, accords, certificats et schémas.
 
 Vous pouvez également ajouter des accords à vos connecteurs AS2, applications API X12 et applications API EDIFACT.
 
 
 ## Surveiller vos applications API
-Dans le portail de gestion Azure, ouvrez votre application API TPM. Dans la section **Opérations** sont affichées différentes opérations de gestion. Vous pouvez par exemple afficher :
+Dans le portail Azure, ouvrez votre application API TPM. Dans la section **Opérations** sont affichées différentes opérations de gestion. Vous pouvez par exemple afficher :
 
 - Les événements d'information et d'erreur
 - Le nombre de threads et l'utilisation de la mémoire du processus de travail (w3wp)
@@ -206,4 +206,4 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 [Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 # Applications d’apprentissage automatique dans Azure Marketplace
@@ -33,12 +33,6 @@ Ces applications comprennent notamment :
 
 [Guide de démarrage rapide](machine-learning-recommendation-api-quick-start-guide.md)
   
-##Fréquemment achetés ensemble##
-API aidant vos clients à identifier les articles de votre catalogue qui sont fréquemment achetés ensemble. Utilisez votre historique des achats client pour ajouter des recommandations « Fréquemment achetés ensemble » à votre site web et pour améliorer les conversions dans votre magasin numérique.
-
-[Lien vers DataMarket](https://datamarket.azure.com/dataset/amla/mba)
-
-[Documentation](machine-learning-apps-frequently-bought-together-api.md)
 
 ##Détection des anomalies##
 API détectant les événements anormaux dans les données de série chronologique (telles que les données de télémétrie de serveur ou les données transmises par des capteurs).
@@ -63,4 +57,4 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
 
 [Documentation](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

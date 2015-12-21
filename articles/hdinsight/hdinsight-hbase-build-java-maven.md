@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)
@@ -619,4 +619,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

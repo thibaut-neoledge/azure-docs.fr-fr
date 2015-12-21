@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # Comment configurer des connexions VPN dans Gestion des API Azure
@@ -22,9 +22,9 @@ La prise en charge du VPN par Gestion des API vous permet de connecter votre pas
 
 ## <a name="enable-vpn"> </a>Activer les connexions VPN
 
->La connexion VPN est disponible uniquement dans le niveau **Premium**. Pour passer sur cette connexion, ouvrez votre service Gestion des API dans le [portail de gestion][], puis ouvrez l’onglet **Mettre à l’échelle**. Dans la section **Général**, sélectionnez le niveau Premium et cliquez sur Enregistrer.
+>La connexion VPN est disponible uniquement dans le niveau **Premium**. Pour passer à cette connexion, ouvrez votre service Gestion des API dans le [portail Azure Classic][], puis ouvrez l’onglet **Mettre à l’échelle**. Dans la section **Général**, sélectionnez le niveau Premium et cliquez sur Enregistrer.
 
-Pour activer la connectivité VPN, ouvrez votre service Gestion des API dans le [portail de gestion][] et passez à l’onglet **Configurer**.
+Pour activer la connectivité VPN, ouvrez votre service Gestion des API dans le [portail Azure Classic][] et passez à l’onglet **Configurer**.
 
 Dans la section VPN, définissez la valeur de **Connexion VPN** sur **Activée**.
 
@@ -36,7 +36,7 @@ Sélectionnez un VPN et un sous-réseau pour chaque région. La liste des VPN co
 
 ![Sélectionner le VPN][api-management-setup-vpn-select]
 
-Cliquez sur **Enregistrer** au bas de la page. Vous ne pouvez pas effectuer d’autres opérations sur le service Gestion des API à partir du portail de gestion Azure pendant la mise à jour. La passerelle de service reste disponible et les appels d’exécution ne sont pas affectés.
+Cliquez sur **Enregistrer** au bas de la page. Vous ne pouvez pas effectuer d’autres opérations sur le service Gestion des API à partir du portail Azure Classic pendant la mise à jour. La passerelle de service reste disponible et les appels d’exécution ne sont pas affectés.
 
 Notez que l’adresse IP virtuelle de passerelle change chaque fois que le VPN est activé ou désactivé.
 
@@ -50,8 +50,8 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 ## <a name="related-content"> </a>Contenu connexe
 
 
- * [Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site][]
- * [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure][]
+* [Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site][]
+* [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,10 +61,9 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[portail de gestion]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 
 [Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

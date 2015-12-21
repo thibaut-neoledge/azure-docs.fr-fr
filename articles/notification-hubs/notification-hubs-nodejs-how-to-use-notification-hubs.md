@@ -67,9 +67,9 @@ L'objet **NotificationHubService** vous permet d'utiliser les hubs de notificati
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Pour obtenir la valeur de connexion **connectionstring** à partir du portail de gestion Azure, suivez les étapes ci-dessous :
+Pour obtenir la valeur de connexion **connectionstring** à partir du [portail Azure Classic], procédez comme suit :
 
-1. Sur le portail de gestion Azure, sélectionnez **Service Bus**, puis l'espace de noms qui contient le hub de notification.
+1. Dans le [portail Azure Classic], sélectionnez **Service Bus**, puis l’espace de noms qui contient le hub de notification.
 
 2. Sélectionnez **NOTIFICATION HUBS**, puis le hub à utiliser.
 
@@ -197,7 +197,7 @@ Maintenant que vous avez appris les principes de base de l’utilisation de Noti
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [portail Azure Classic]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -213,4 +213,4 @@ Maintenant que vous avez appris les principes de base de l’utilisation de Noti
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

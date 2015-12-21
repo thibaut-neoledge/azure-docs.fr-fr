@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="12/04/2015"
 	ms.author="selcint" />
 
 # Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
@@ -327,4 +327,4 @@ Pour plus d’informations sur le choix entre ces méthodes, consultez la page [
 
 Pour plus d’informations sur l’exécution de SQL Server dans les machines virtuelles Azure, consultez la page [SQL Server sur Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

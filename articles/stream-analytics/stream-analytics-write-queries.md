@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Écriture de requêtes | Microsoft Azure" 
-	description="Écriture de requêtes dans Stream Analytics | segment du parcours d'apprentissage."
+	pageTitle="Comment écrire des requêtes dans Stream Analytics | Microsoft Azure" 
+	description="Écrire des requêtes dans Stream Analytics et interroger des données | segment du parcours d’apprentissage."
+	keywords="comment écrire des requêtes, données de requête, écrire une requête, écriture de requêtes"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,45 +14,45 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 # Écriture de requêtes dans Stream Analytics
 
-La logique de traitement de flux dans Azure Stream Analytics est implémentée en tant que « requête permanente » qui est définie avant que la tâche ne démarre et exécutée sur les données qui atteignent la tâche. La transformation des données est exprimée dans un langage de requête semblable à SQL, qui est principalement un sous-ensemble de T-SQL avec certaines extensions de langage ajoutées, comme [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) qui est utilisé pour exprimer la sémantique temporelle.
+Une requête de logique de traitement de flux écrite dans Azure Stream Analytics est implémentée en tant que « requête active ». Celle-ci est définie avant que la tâche ne démarre et exécutée sur les données au moment où celles-ci atteignent la tâche. La transformation des données est exprimée dans un langage de requête semblable à SQL, qui est principalement un sous-ensemble de T-SQL avec certaines extensions de langage ajoutées, comme [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) qui est utilisé pour exprimer la sémantique temporelle.
 
-## Pour créer une requête Stream Analytics : ##
+## Écriture de requêtes : ##
 
-1. Dans votre tâche Stream Analytics sur le portail Azure Classic, cliquez sur **Requête**.
+1. Dans votre tâche Stream Analytics dans le portail de gestion Azure, cliquez sur **Requête**.
 
     ![Sélection d'une requête](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    Dans le portail Azure, cliquez sur **Requête**.
+    Dans le portail Azure en version préliminaire, cliquez sur **Requête**.
 
     ![Sélection d’un aperçu de requête](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Les nouvelles tâches disposent d'un modèle de requête pour vous aider à commencer. Le modèle de requête effectue une requête « pass-through » qui transfère tous les champs provenant d'événements d'entrée vers la sortie.
 
-    - Si vous avez défini au moins une entrée et une sortie pour votre tâche, vous pouvez remplacer les champs « [YourOutputAlias] » et « [YourInputAlias] » d'espace réservé par les alias de l'entrée et de la sortie que vous souhaitez utiliser en premier. En outre, vous pouvez toujours créer et tester votre requête dans le portail Azure Classic sans définir d'entrées et de sorties pour la tâche.
-    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requête, examinez les modèles de requête commune illustrés [ici](stream-analytics-query-patterns).  
+    - Si vous avez défini au moins une entrée et une sortie pour votre tâche, vous pouvez remplacer les champs « [YourOutputAlias] » et « [YourInputAlias] » d'espace réservé par les alias de l'entrée et de la sortie que vous souhaitez utiliser en premier. En outre, vous pouvez toujours créer et tester votre requête dans le portail Azure sans définir d'entrées et de sorties pour la tâche.
+    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requêtes, examinez les modèles de requête courants illustrés [ici](stream-analytics-query-patterns).  
   
-    ![Fenêtre de requête](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
+    ![Fenêtre Données de requête](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
-## Pour tester une requête : ##
+## Pour vérifier le bon fonctionnement des données de requête : ##
 
 Vous pouvez vérifier que votre requête se comporte comme prévu en l'exécutant dans le navigateur sur un ou plusieurs fichiers JSON locaux contenant des données de test. Ceci ne démarre pas la tâche et n'a aucune incidence sur la facturation.
 
-> [AZURE.NOTE]Actuellement, le portail Azure ne prend pas en charge le test d’une requête dans le navigateur.
+> [AZURE.NOTE]Actuellement, le portail Azure en version préliminaire ne prend pas en charge le test d’une requête dans le navigateur.
 
 1.	Assurez-vous que la requête ne contient pas d'erreur (sinon, le bouton Test sera désactivé), puis cliquez sur le bouton Test.  
 
-    ![Test de la requête](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
+    ![Test des données de requête](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
 
 2.	Vous devrez spécifier des fichiers pour chacune des entrées référencées dans la requête. Dans cet exemple, le modèle de requête est laissé tel quel, donc la boîte de dialogue demande une entrée nommée « yourinputalias ».
 
-    ![Données de test](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
+    ![Tester les données de requête](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Accédez à un fichier de test. Plusieurs exemples de fichiers sont disponibles sur [github] (données https://github.com/Azure/azure-stream-analytics/tree/master/Sample) et vous pouvez également récupérer des données d'exemple à partir de vos propres entrées de flux de données avec la fonction Exemples de données de l'onglet des entrées.
+3.	Accédez à un fichier de test. Plusieurs exemples de fichiers sont disponibles sur [github] (données https://github.com/Azure/azure-stream-analytics/tree/master/Sample) et vous pouvez également récupérer des données d’exemple à partir de vos propres entrées de flux de données avec la fonction Exemples de données de l’onglet des entrées.
 
     ![Entrée de requête](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -68,6 +69,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

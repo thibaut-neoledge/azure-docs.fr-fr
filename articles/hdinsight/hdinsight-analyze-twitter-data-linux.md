@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Analyse des données Twitter avec Hive dans HDInsight
@@ -33,7 +33,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ et [pip](https://pypi.python.org/pypi/pip)
 
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

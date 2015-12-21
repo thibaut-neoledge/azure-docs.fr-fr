@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Désactiver ou activer un point de terminaison Traffic Manager
@@ -23,7 +23,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## Pour désactiver un point de terminaison
 
-1. Dans le volet Traffic Manager du portail Azure, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
+1. Dans le volet Traffic Manager du portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
 1. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui sont inclus dans votre configuration. 
 1. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis sur **Désactiver** au bas de la page.
 1. Le trafic cesse de circuler vers le point de terminaison en fonction de la durée de vie DNS (TTL) configurée pour le nom de domaine Traffic Manager. Vous pouvez modifier la durée de vie dans la page Configuration du profil Traffic Manager.
@@ -31,7 +31,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 ## Pour activer un point de terminaison
 
 
-1. Dans le volet Traffic Manager du portail Azure, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
+1. Dans le volet Traffic Manager du portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres de point de terminaison que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
 1. En haut de la page, cliquez sur **Points de terminaison** pour afficher les points de terminaison qui sont inclus dans votre configuration.
 1. Cliquez sur le point de terminaison que vous souhaitez activer, puis sur **Activer** au bas de la page.
 1. Le trafic vers le service reprend alors, comme défini par le profil.
@@ -44,4 +44,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

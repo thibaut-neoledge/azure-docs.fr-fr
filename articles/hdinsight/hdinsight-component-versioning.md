@@ -14,31 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/03/2015"
 	ms.author="jgao"/>
 
 
 #Nouveautés des versions de cluster Hadoop fournies par HDInsight
 
 ##Versions de HDInsight et composants de Hadoop
-Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. Les versions des composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par Azure HDInsight est la version 3.2, et, à la date du 19/11/2015, elle est basée sur HDP 2.2.
+Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. Les versions des composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par Azure HDInsight est la version 3.2, et, à la date du 03/12/2015, elle est basée sur HDP 2.2.
 
 
-Composant|HDInsight Version 3.2|HDInsight Version 3.1 (par défaut)|HDInsight Version 3,0|HDInsight Version 2.1
+Composant|HDInsight version 3.3 | HDInsight version 3.2 (par défaut)|HDInsight version 3.1 |HDInsight Version 3,0|
 ---|---|---|---|---
-Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
-Apache Hadoop et YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Apache Tez|0\.5.2|0\.4.0||
-Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
-Apache Hive et HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-Apache HBase |0\.98.4|0\.98.0||
-Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
-Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Apache Storm|0\.9.3|0\.9.1||
-Apache Mahout|0\.9.0|0\.9.0||
-Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|||
+Hortonworks Data Platform|2\.3|2\.2|2\.1.7|2\.0|
+Apache Hadoop et YARN|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
+Apache Tez|0\.7.0 | 0\.5.2|0\.4.0||
+Apache Pig|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
+Apache Hive et HCatalog|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
+Apache HBase |1\.1.1|0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
+Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.10.0|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
+Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|1\.3.1|||
 
 
 **Obtention d’informations sur les versions actuelles des composants**
@@ -52,21 +52,21 @@ Pour d’autres notes de publication sur les dernières versions de HDInsight, c
 
 ### Sélection d'une version lors de la création d'un cluster HDInsight
 
-Lorsque vous créez un cluster par l'intermédiaire des applets de commande Windows PowerShell HDInsight ou du Kit de développement logiciel (SDK) .NET HDInsight, vous pouvez choisir la version du cluster Hadoop HDInsight avec le menu déroulant de la **version HDInsight** sur le panneau **Configuration facultative** du portail Azure.
+Quand vous créez un cluster par l’intermédiaire des applets de commande Windows PowerShell HDInsight ou du Kit de développement logiciel (SDK) .NET HDInsight, vous pouvez choisir la version du cluster HDInsight Hadoop avec le menu déroulant de la **version HDInsight** dans le panneau **Configuration facultative** du portail Azure.
 
 ##Présentation des fonctionnalités
 Les caractéristiques principales de la plateforme HDInsight sont notamment les suivantes :
 
-- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
+- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
 
 	Spark permet également d'effectuer des opérations standard de traitement des données sur disque. En évitant les écritures sur disque lors des étapes intermédiaires, Spark améliore l’infrastructure MapReduce traditionnelle. En outre, Spark est compatible avec le système HDFS (Hadoop Distributed File System) et le stockage d’objets blob Azure ; les données existantes peuvent dont être traitées facilement via Spark.
 
-	Spark peut également être ajouté à l’aide d’une action de script. Une action de script ajoute Spark 1.2.0 au cluster HDInsight 3.2 ou Spark 1.0.2 au cluster HDInsight 3.1. Pour plus d'informations, consultez [Installer et utiliser Spark sur des clusters HDInsight Hadoop](hdinsight-hadoop-spark-install.md).
+	Spark peut également être ajouté à l’aide d’une action de script. Une action de script ajoute Spark 1.2.0 au cluster HDInsight 3.2 ou Spark 1.0.2 au cluster HDInsight 3.1. Pour plus d’informations, consultez [Installer et utiliser Spark sur des clusters HDInsight Hadoop](hdinsight-hadoop-spark-install.md).
 
 
 - **Storm** - Storm sur Azure HDInsight est désormais disponible. Cette fonction permet de déployer rapidement et simplement des analyses en temps réel en quelques clics et en quelques minutes. Apache Storm sur Azure HDInsight est un projet open source dans l’écosystème Apache Hadoop qui permet d’accéder à une plateforme d’analyse capable de traiter de manière fiable des millions d’événements. Dorénavant, les utilisateurs de Hadoop peuvent interpréter les données en temps réel, tout en disposant des analyses d’événements passés. Microsoft a également ajouté une intégration avec Visual Studio, facilitant ainsi l’interaction des développeurs avec Storm. Vous pouvez maintenant développer, déployer et déboguer les topologies Storm à partir de Visual Studio.
 
-- **HDInsight sur Linux** : Azure HDInsight fournit l'option de création des clusters Hadoop qui s'exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez créer un cluster HDInsight sur Linux à partir d'un ordinateur client fonctionnant sous Windows ou Linux à l'aide du portail Azure, de l'interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
+- **HDInsight sur Linux** : Azure HDInsight fournit l’option de création des clusters Hadoop qui s’exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez créer un cluster HDInsight sur Linux à partir d'un ordinateur client fonctionnant sous Windows ou Linux à l'aide du portail Azure, de l'interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
 
 - **Tailles des machines virtuelles supplémentaires** - Les clusters HDInsight sont désormais disponibles sur plusieurs tailles et types de machines virtuelles. Les clusters HDInsight peuvent à présent utiliser des tailles A2 à A7 conçues pour un usage général ; des nœuds de série D possédant des disques SSD et des processeurs 60 % plus rapides ; et des tailles A8 et A9 prenant en charge InfiniBand pour une mise en réseau rapide. Les clients Apache HBase sur Azure HDInsight peuvent tirer parti de configurations supérieures au niveau de la mémoire de série D pour augmenter les performances. Les clients Apache Storm sur Azure HDInsight peuvent également bénéficier d’une mémoire supplémentaire pour le chargement des jeux de données de référence plus volumineux, ainsi que de processeurs plus rapides pour augmenter le débit.
 
@@ -101,15 +101,16 @@ Les caractéristiques principales de la plateforme HDInsight sont notamment les 
 Le tableau suivant répertorie les versions de HDInsight actuellement disponibles, les versions correspondantes de la plateforme de données Hortonworks utilisées par ces dernières, ainsi que leurs dates de lancement. La date d’expiration de la prise en charge et la date d’obsolescence sont également indiquées. Notez les points suivants :
 
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
-* Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu'à leur date d'obsolescence.
+* Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
-Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure Classic|Date d'expiration du support|Date d'obsolescence
+Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
 ---|---|---|---|---|---|---
+HDI 3.3|HDP 2.3|Oui|02/12/2015|Oui||
 HDI 3.2|HDP 2.2|Oui|2/18/2015|Oui||
 HDI 3,1|HDP 2,1|Oui|6/24/2014|Oui||
 HDI 3,0|HDP 2,0|Oui|02/11/2014|Oui|09/17/2014|06/30/2015
-HDI 2,1|HDP 1,3|Oui|10/28/2013|Non|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1|Non|10/28/2013|Non|04/26/2014|05/31/2015
+HDI 2,1|HDP 1,3|Oui|10/28/2013|Oui|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1|Non|10/28/2013|Oui|04/26/2014|05/31/2015
 
 **Déploiement des clusters autres que les clusters par défaut**
 
@@ -126,12 +127,16 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
-* Le cluster HDInsight version 3.2 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.2][hdp-2-2].
+* Le cluster HDInsight version 3.3 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
+	* Les notes de publication d’Apache Storm sont disponibles [ici](https://storm.apache.org/2015/11/05/storm0100-released.html).
+	* Les notes de publication d’Apache Hive sont disponibles [ici](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
+
+* Le cluster HDInsight version 3.2 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.2][hdp-2-2]. Il s’agit du cluster Hadoop **par défaut** créé lors de l’utilisation du portail.
 
 	* Notes de publication pour les composants spécifiques d’Apache - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
 
-* Le cluster HDInsight version 3.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Il s'agit du cluster Hadoop **par défaut** créé lors de l'utilisation du portail après le 1172014. Les clusters HDInsight 3.1 créés avant le 7/11/2014 étaient basés sur [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* Le cluster HDInsight version 3.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Les clusters HDInsight 3.1 créés avant le 07/11/2014 étaient basés sur [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 
 * Le cluster HDInsight version 3.0 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -162,4 +167,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

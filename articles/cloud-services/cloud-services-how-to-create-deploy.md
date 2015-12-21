@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -47,28 +47,28 @@ Avant de déployer un service cloud, vous devez créer le package de service clo
 
 Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
 
-- Si vous souhaitez déployer un service cloud qui utilise le chiffrement de données SSL (Secure Sockets Layer), configurez votre application pour SSL. Pour plus d'informations, consultez la page [Configuration d'un certificat SSL sur un point de terminaison HTTPS](http://msdn.microsoft.com/library/azure/ff795779.aspx).
+- Si vous souhaitez déployer un service cloud qui utilise le chiffrement de données SSL (Secure Sockets Layer), [configurez votre application](cloud-services-configure-ssl-certificate.md#step-2-modify-the-service-definition-and-configuration-files) pour SSL.
 
-- Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, configurez les rôles pour le Bureau à distance. Pour plus d'informations sur la préparation du fichier de définition du service pour l'accès à distance, consultez la page [Configuration d'une connexion Bureau à distance pour un rôle dans Azure](http://msdn.microsoft.com/library/hh124107.aspx).
+- Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, [configurez les rôles](cloud-services-role-enable-remote-desktop.md) pour le Bureau à distance.
 
 - Si vous voulez configurer la surveillance détaillée pour votre service cloud, activez Azure Diagnostics pour le service cloud. *Surveillance minimale* (niveau de surveillance par défaut) utilise des compteurs de performances récupérés sur le système d'exploitation hôte des instances de rôle (machine virtuelle). La surveillance détaillée recueille des mesures supplémentaires sur les données de performances dans les instances de rôle, afin de permettre une analyse plus fine des problèmes qui surviennent au cours du traitement de l'application. Pour savoir comment activer Azure Diagnostics, consultez la page [Activation des diagnostics dans Azure](cloud-services-dotnet-diagnostics.md).
 
-- Pour créer un service cloud avec des déploiements de rôles web ou de rôles de travail, vous devez créer le package de service. Plus d'informations sur les fichiers du package, consultez la page [Configurer un service cloud pour Azure](http://msdn.microsoft.com/library/hh124108.aspx). Pour créer le fichier de package, consultez la page [Création d’un package d’application Azure](http://msdn.microsoft.com/library/hh403979.aspx). Si vous utilisez Visual Studio pour développer votre application, consultez la page [Publication d'un service cloud en utilisant les outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+Pour créer un service cloud avec des déploiements de rôles web ou de rôles de travail, vous devez [créer le package de service](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Avant de commencer
 
 - Si vous n'avez pas installé le Kit de développement logiciel (SDK), cliquez sur **Install Azure SDK** pour ouvrir la page des [téléchargements Azure](http://azure.microsoft.com/downloads/), puis téléchargez le Kit de développement logiciel dans le langage souhaité pour le développement de votre code. (Vous pourrez le faire ultérieurement.)
 
-- Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. Vous pouvez télécharger les certificats sur Azure lorsque vous créez et déployez le service cloud. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats](http://msdn.microsoft.com/library/gg981929.aspx).
+- Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. Vous pouvez [charger les certificats sur Azure](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) quand vous créez et déployez le service cloud.
 
-- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Réseaux** du portail Azure Classic, sur la page **Groupes d’affinités**. Pour plus d’informations, consultez [Créer un groupe d’affinités dans le portail Azure Classic](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Réseaux** du portail Azure Classic, dans la page **Groupes d’affinités**.
 
 
 ## Création d’un service cloud avec Création rapide
 
 1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Nouveau**>**Calculer**>**Service cloud**>**Création rapide**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. Dans **URL**, entrez un nom de sous-domaine à utiliser dans l'URL publique pour accéder au service cloud dans les déploiements de production. Le format de l’URL des déploiements de production est le suivant : http://*myURL*.cloudapp.net.
 
@@ -76,20 +76,20 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 4. Cliquez sur **Create Cloud Service**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	Vous pouvez surveiller l'état du processus dans la zone de message en bas de la fenêtre.
 
 	La zone **Cloud Services** s'affiche, avec le nouveau service cloud. Lorsque l'état passe à Created, la création du service cloud s'est effectuée correctement.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Téléchargement d’un certificat pour un service cloud
 
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Cloud Services**, cliquez sur le nom du service cloud, puis sur **Certificats**.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**, sur le nom du service cloud, puis sur **Certificats**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Cliquez sur **Télécharger un certificat** ou sur **Télécharger**.
@@ -100,18 +100,15 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 5. Cliquez sur **OK** (coche).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	Vous pouvez consulter l'état du téléchargement dans la zone de message, comme illustré ci-dessous. Une fois le téléchargement terminé, le certificat est ajouté à la table. Dans la zone de message, cliquez sur OK pour fermer le message.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## Déploiement d’un service cloud
 
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Cloud Services**, cliquez sur le nom du service cloud, puis sur **Tableau de bord**.
-
-	Le tableau de bord s'ouvre dans l'environnement de production. Vous pouvez alors sélectionner Intermédiaire pour déployer votre application dans l'environnement intermédiaire. Pour plus d'informations, consultez la page [Gestion des déploiements dans Azure](http://msdn.microsoft.com/library/gg433027.aspx).
-
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**, sur le nom du service cloud, puis sur **Tableau de bord**.
 
 2. Cliquez sur **Télécharger un nouveau déploiement de production** ou sur **Télécharger**.
 
@@ -127,11 +124,11 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 6. Cliquez sur **OK** (coche) pour lancer le déploiement du service cloud.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	Vous pouvez surveiller l'état du déploiement dans la zone de message. Cliquez sur OK pour masquer le message.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Vérifier la réussite du déploiement
 
@@ -141,10 +138,10 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 2. Sous **quick glance**, cliquez sur l'URL du site pour ouvrir le service cloud dans un navigateur Web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
  
 ## Étapes suivantes
 
@@ -153,4 +150,4 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

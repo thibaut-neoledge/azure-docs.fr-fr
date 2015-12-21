@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Ajout de ressources à un groupe de ressources Azure"
-   description="Apprenez à ajouter des ressources à un groupe de ressources Azure à l'aide de Visual Studio."
+   pageTitle="Modification d’un modèle Resource Manager avec Visual Studio | Microsoft Azure"
+   description="Apprenez à ajouter des ressources à un modèle Azure Resource Manager à l’aide de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Ajout de ressources à un groupe de ressources Azure
+# Modification des modèles Resource Manager avec Visual Studio
 
-Si vous avez besoin d'ajouter des ressources à un groupe de ressources, vous pouvez le faire dans la fenêtre Structure JSON de Visual Studio.
+Visual Studio vous permet de modifier le modèle Resource Manager de votre groupe de ressources. Pour modifier le modèle, vous pouvez soit utiliser la fenêtre Structure JSON dans Visual Studio, soit modifier directement la syntaxe du modèle.
 
-## Ajout de ressources à un groupe de ressources
+## Ajout de ressources à un groupe de ressources par le biais de la fenêtre Structure JSON
 
 ### Pour ajouter des ressources à un groupe de ressources
 
@@ -51,14 +51,22 @@ Si vous avez besoin d'ajouter des ressources à un groupe de ressources, vous po
 
 1. Si vous devez spécifier des paramètres, la boîte de dialogue **Modifier les paramètres** s'affiche. Entrez les valeurs requises, puis cliquez sur le bouton **Enregistrer**. La nouvelle ressource est déployée dans votre groupe de ressources Azure.
 
+## Modification de la syntaxe du modèle
+
+Visual Studio vous permet aussi de modifier directement le modèle. Quand vous commencez à modifier des valeurs dans le modèle, l’éditeur indique les valeurs que vous pouvez fournir.
+
+![Modifier un modèle](./media/vs-azure-tools-resource-group-adding-resources/arm-edit-template.png)
+
+Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+
 ## Voir aussi
 
-[Création et déploiement de projets de déploiement de groupe de ressources Azure](http://go.microsoft.com/fwlink/p/?LinkID=623073)
+[Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
 
-[Cmdlets du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/dn654592.aspx)
+[Applets de commande du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
 [Utilisation de Windows PowerShell avec le gestionnaire de ressources Azure](../powershell-azure-resource-manager/)
 
 [Vidéo Channel 9 : gestionnaire de ressources Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

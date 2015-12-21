@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/jj835232.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
 # Propriétés du projet Azure #
 
@@ -61,4 +61,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

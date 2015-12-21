@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Gestion du Contrôle d'accès en fonction du rôle avec l'interface de ligne de commande Azure
@@ -107,7 +107,50 @@ L'exemple suivant supprime l'affectation du rôle *Collaborateur de machine virt
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## Créer un rôle personnalisé
+Pour créer un rôle personnalisé, utilisez la commande `azure role create`.
+
+L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle* qui accorde l’accès à toutes les opérations de lecture des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network*, ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Modifier un rôle personnalisé
+
+Pour modifier un rôle personnalisé, utilisez tout d’abord la commande azure role show pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez la commande azure role set pour enregistrer la définition de rôle modifiée.
+
+L’exemple suivant ajoute l’opération Microsoft.Insights/diagnosticSettings/* à la propriété Actions et un abonnement Azure à la propriété AssignableScopes du rôle personnalisé Opérateur de machine virtuelle.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Supprimer un rôle personnalisé
+
+Pour supprimer un rôle personnalisé, utilisez tout d’abord la commande `azure role show` afin de déterminer la propriété **Id** du rôle. Ensuite, utilisez la commande `azure role delete` pour supprimer le rôle en spécifiant la propriété **Id**.
+
+L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtuelle*.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## Répertorier les rôles personnalisés
+
+Pour répertorier les rôles pouvant être affectés dans une étendue, utilisez la commande `azure role list`.
+
+L’exemple suivant répertorie tous les rôles pouvant être affectés dans l’abonnement sélectionné.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuelle* n’est pas disponible dans l’abonnement *Production4*, car cet abonnement ne figure pas dans la propriété **AssignableScopes** du rôle.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -35,9 +35,9 @@ Les transactions de base de données élastiques pour la base de données SQL pe
 
 ## Installation et migration
 
-Les fonctionnalités des transactions de bases de données élastiques dans SQL DB sont fournies par le biais des mises à jour des bibliothèques .NET System.Data.dll et System.Transactions.dll. Les DLL garantissent que la validation en deux phases sera utilisée lorsque cela est nécessaire pour garantir l’atomicité. Pour commencer à développer des applications à l’aide de transactions de bases de données élastiques, installez la [version finale de .NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) ou une version ultérieure du framework .NET. Lorsque vous exécutez une version antérieure du framework .NET, les transactions ne peuvent pas être promues vers une transaction distribuée, ce qui génère une exception.
+Les fonctionnalités des transactions de bases de données élastiques dans SQL DB sont fournies par le biais des mises à jour des bibliothèques .NET System.Data.dll et System.Transactions.dll. Les DLL garantissent que la validation en deux phases sera utilisée lorsque cela est nécessaire pour garantir l’atomicité. Pour commencer à développer des applications à l’aide de transactions de bases de données élastiques, installez le [.NET Framework 4.6.1](https://www.microsoft.com/fr-FR/download/details.aspx?id=49981) ou une version ultérieure. Lorsque vous exécutez une version antérieure du .NET Framework, les transactions ne peuvent pas être promues vers une transaction distribuée, ce qui génère une exception.
 
-Après l’installation, vous pouvez utiliser les API de transaction distribuée dans System.Transactions avec des connexions à la base de données SQL. Si vous avez déjà des applications MSDTC qui utilisent ces API, reconstruisez simplement vos applications existantes pour .NET 4.6 après l’installation de la version finale (Release Candidate). Si vos projets ciblent .NET 4.6, ils utiliseront automatiquement les DLL mis à jour à partir de la version finale ; dès lors, les appels d’API de transaction distribuée exécutés parallèlement aux connexions à la base de données SQL aboutiront.
+Après l’installation, vous pouvez utiliser les API de transaction distribuée dans System.Transactions avec des connexions à la base de données SQL. Si vous avez déjà des applications MSDTC qui utilisent ces API, reconstruisez simplement vos applications existantes pour .NET 4.6 après l’installation du .NET Framework 4.6.1. Si vos projets ciblent .NET 4.6, ils utiliseront automatiquement les DLL mises à jour à partir de la nouvelle version du .NET Framework ; dès lors, les appels d’API de transaction distribuée exécutés parallèlement aux connexions à la base de données SQL aboutiront.
 
 N’oubliez pas que les transactions de bases de données élastiques ne nécessitent pas d’installer MSDTC. Elles sont en fait gérées directement par et depuis la base de données SQL. Cela simplifie grandement les scénarios de cloud dans la mesure où il n’est pas nécessaire de déployer MSDTC pour utiliser des transactions distribuées avec la base de données SQL. La section 4 explique en détail comment déployer des transactions de bases de données élastiques et le framework .NET requis avec vos applications cloud dans Azure.
 
@@ -96,7 +96,7 @@ Les transactions de bases de données élastiques pour la base de données SQL p
 
 ## Configuration des rôles de travail Azure
 
-Vous pouvez automatiser l’installation et le déploiement de la version de .NET et des bibliothèques nécessaires pour les transactions de bases de données élastiques vers Azure (dans le système d’exploitation invité de votre service cloud). Pour les rôles de travail Azure, utilisez les tâches de démarrage. Les concepts et les étapes sont documentées dans [Installer .NET sur un rôle de service cloud](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
+Vous pouvez automatiser l’installation et le déploiement de la version de .NET et des bibliothèques nécessaires pour les transactions de bases de données élastiques vers Azure (dans le système d’exploitation invité de votre service cloud). Pour les rôles de travail Azure, utilisez les tâches de démarrage. Les concepts et les étapes sont documentés dans [Installer .NET sur un rôle de service cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 Notez que le programme d'installation pour .NET 4.6.1 nécessite plus de stockage temporaire pendant le processus de démarrage des services cloud Azure que la version .NET 4.6. Pour garantir la réussite de l’installation, vous devez augmenter le stockage temporaire de votre service cloud Azure dans votre fichier ServiceDefinition.csdef dans la section LocalResources et les paramètres d'environnement de votre tâche de démarrage, comme illustré dans l'exemple suivant :
 
@@ -140,9 +140,9 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 
 ## En savoir plus
 
-Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Windows Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
+Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Windows Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

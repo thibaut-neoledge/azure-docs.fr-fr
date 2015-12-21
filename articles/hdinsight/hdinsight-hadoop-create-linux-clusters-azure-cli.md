@@ -35,11 +35,11 @@ Les étapes de ce document décrivent le processus de création d’un cluster H
 
 - **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Interface de ligne de commande Azure__. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
+- __Interface de ligne de commande Azure__. Pour plus d’informations sur l’installation de la CLI, consultez [Installer la CLI Azure](../xplat-cli-install.md).
 
 ##Vous connecter à votre abonnement Azure
 
-Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
+Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
 
 ##Créer un cluster
 
@@ -112,13 +112,13 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 
 ###Clusters HBase
 
-* [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
 * [Développement de topologies Java pour Storm sur HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python.md)
+* [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

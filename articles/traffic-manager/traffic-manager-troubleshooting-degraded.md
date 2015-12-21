@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
@@ -80,4 +80,4 @@ Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/02/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
@@ -43,7 +43,7 @@ Pour authentifier l’application sur Azure HDInsight, vous devez créer un cert
 
 Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]Lors de la création du certificat, veillez à noter le nom convivial que vous utilisez, car il vous sera utile ultérieurement.
+> [AZURE.NOTE] Lors de la création du certificat, veillez à noter le nom convivial que vous utilisez, car il vous sera utile ultérieurement.
 
 ##<a id="subscriptionid"></a>Recherche de votre ID d'abonnement
 
@@ -60,7 +60,9 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 ##<a id="create"></a>Création de l'application
 
 1. Ouvrez Visual Studio 2012 ou 2013
+
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
+
 3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
 	<table>
@@ -81,8 +83,11 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 <th>SubmitPigJob</th>
 </tr>
 </table>
+
 4. Cliquez sur **OK** pour créer le projet.
+
 5. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package Nuget**, puis sélectionnez **Console du gestionnaire de package**.
+
 6. Exécutez la commande suivante dans la console pour installer les packages du Kit de développement logiciel (SDK) .NET.
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
@@ -155,7 +160,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-[version préliminaire du portail]: https://portal.azure.com/
+* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md) [version préliminaire du portail] : https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

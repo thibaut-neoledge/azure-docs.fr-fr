@@ -37,6 +37,7 @@ Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l
 * Tables tabulaires SQL Server Analysis Services
 * Rapports SQL Server Reporting Services
 * Objets blob et répertoires d’Azure Storage
+* Azure Data Lake Store
 * Fichiers et répertoires HDFS
 * Tables Apache Hive
 * Vues et tables Teradata
@@ -64,7 +65,7 @@ En plus des métadonnées descriptives extraites de la source de données, les u
 
 Par défaut, seules les métadonnées sont extraites des sources de données et copiées dans le service **Azure Data Catalog**. Toutefois, pour comprendre plus facilement une source de données, il suffit généralement de voir un exemple des données qu’elle contient.
 
-L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données de chacune des tables et vues inscrites. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
+L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données dans l’ensemble des tables et affichages inscrits. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
 
 
 > [AZURE.NOTE]Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
@@ -74,7 +75,7 @@ L’outil d’inscription des sources de données d’**Azure Data Catalog** per
 
 Tout comme l’inclusion d’aperçus peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut faciliter la compréhension des sources de données détectées.
 
-L’outil d’inscription de source de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un profil de données pour chacune des tables et vues inscrites. Si l’utilisateur choisit d’inclure un profil de données pendant l’inscription, l’outil d’inscription inclut des statistiques agrégées sur les données de chaque table et vue, à savoir :
+L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un profil de données pour l’ensemble des tables et affichages inscrits. Si l’utilisateur choisit d’inclure un profil de données pendant l’inscription, l’outil d’inscription inclut des statistiques agrégées sur les données de chaque table et vue, à savoir :
 
 * le nombre de lignes et la taille des données dans l’objet ;
 * la date de la dernière mise à jour des données et le schéma de l’objet ;
@@ -93,6 +94,6 @@ L’inscription d’une source de données rend celle-ci détectable dans **Azur
 La réinscription d’une source de données déjà inscrite aboutit à une opération de fusion de type « upsert » : les objets existants sont actualisés, tandis que les nouveaux objets sont créés de toute pièce. Toutes les métadonnées fournies par les utilisateurs via le portail **Azure Data Catalog** sont conservées.
 
 ## Résumé
-L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
+L’inscription d’une source de données auprès d’**Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Modèles de requêtes Azure Stream Analytics | Microsoft Azure"
+	pageTitle="Exemples de requête pour les modes d’utilisation courants dans Stream Analytics | Microsoft Azure"
 	description="Modèles courants de requêtes Azure Stream Analytics"
-	keywords="stream analytics, échantillon, requête, langage, guide, motif"
+	keywords="exemples de requête"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,19 +14,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
-# Modèles courants de requêtes Azure Stream Analytics  #
+# Exemples de requête pour les modes d’utilisation courants dans Stream Analytics #
 
 ## Introduction ##
+
 Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté [ici](https://msdn.microsoft.com/library/azure/dn834998.aspx). Ce document décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
 
-## Concepts de base ##
-
-## Conversions de types de données ##
-**Description** : définir le type des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
+## Exemple de requête : conversions de types de données ##
+**Description** : définir les types des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
 
 **Entrée** :
 
@@ -52,10 +51,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		Make,
     	TumblingWindow(second, 10)
 
-**Explication** : utilisez une instruction CAST sur le champ Poids pour spécifier son type (voir la liste des types de données pris en charge [ici](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
+**Explication** : utilisation d’une instruction CAST sur le champ Weight pour spécifier son type (voir la liste des types de données pris en charge [ici](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Utilisation de Like/Not like pour la correspondance de modèle ##
-**Description** : vérifier qu'une valeur de champ sur l'événement correspond à un certain modèle. Par exemple, renvoyer les immatriculations commençant par A et se terminant par 9
+## Exemple de requête : utilisation de Like/Not like pour déterminer la correspondance de modèle ##
+**Description** : vérification qu'une valeur de champ sur l'événement correspond à un certain modèle, par exemple renvoyer les immatriculations commençant par A et se terminant par 9
 
 **Entrée** :
 
@@ -81,10 +80,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE
     	LicensePlate LIKE 'A%9'
 
-**Explication** : utilisez l'instruction LIKE pour vérifier que la valeur du champ LicensePlate commence par A, suivi d’une chaîne de zéro caractère ou plus, et se termine par 9.
+**Explication** : utilisation de l'instruction LIKE pour vérifier que la valeur du champ LicensePlate commence par A, suivi d’une chaîne de zéro caractère ou plus et se termine par 9.
 
-## Spécification de la logique pour différentes casses/valeurs (instructions CASE) ##
-**Description** : associer des traitements différents à un champ en fonction de certains critères. Par exemple, associer une description de chaîne au nombre de voitures de la même marque, avec un cas spécial pour 1.
+## Exemple de requête : spécification de la logique pour différentes casses/valeurs (instructions CASE) ##
+**Description** : fourniture de calculs différents pour un champ en fonction de certains critères. Par exemple, fourniture d’une description de chaîne pour le nombre de voitures de la même marque, avec une casse spéciale pour 1.
 
 **Entrée** :
 
@@ -115,10 +114,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		Make,
 		TumblingWindow(second, 10)
 
-**Explication** : la clause CASE permet de fournir un traitement différent en fonction de certains critères (dans ce cas, le nombre de voitures dans la fenêtre d'agrégation).
+**Explication** : la clause CASE permet de fournir un calcul différent en fonction de certains critères (dans ce cas, le nombre de voitures dans la fenêtre d'agrégation).
 
-## Envoi de données vers plusieurs sorties ##
-**Description** : envoyer des données vers plusieurs cibles de sortie à partir d’une tâche unique. Par exemple, analyser des données pour une alerte de seuil et archiver tous les événements vers le stockage d'objets blob
+## Exemple de requête : envoi de données vers plusieurs sorties ##
+**Description** : envoi de données vers plusieurs cibles de sortie depuis un projet unique. Par exemple, une analyse des données pour une alerte de seuil et l’archivage de tous les événements pour le stockage d'objets blob
 
 **Entrée** :
 
@@ -130,7 +129,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
-**Entrée1** :
+**Output1** :
 
 | Assurez-vous | Time |
 | --- | --- |
@@ -140,7 +139,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
-**Entrée2** :
+**Output2** :
 
 | Assurez-vous | Time | Nombre |
 | --- | --- | --- |
@@ -169,7 +168,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée, par exemple :
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -182,9 +181,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## Modèles ##
-
-## Comptage des valeurs uniques
+## Exemple de requête : comptage des valeurs uniques
 **Description** : compter les valeurs de champ uniques qui apparaissent dans le flux de données dans une fenêtre de temps. Par exemple, combien de voitures de marques différentes sont passées au péage pendant une fenêtre de 2 secondes ?
 
 **Entrée** :
@@ -227,7 +224,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Explication :** une agrégation initiale est effectuée pour obtenir les marques uniques avec leur nombre dans la fenêtre. Ensuite, nous effectuons une agrégation du nombre de marques obtenues. Étant donné que toutes les valeurs uniques dans une fenêtre obtiennent le même horodatage, la deuxième fenêtre d'agrégation doit être minime afin de ne pas agréger 2 fenêtres de la première étape.
 
-## Déterminer si une valeur a changé ##
+## Exemple de requête : déterminer si une valeur a changé ##
 **Description** : examiner une valeur précédente pour déterminer si elle est différente de la valeur actuelle. Par exemple, la voiture actuellement sur la voie de péage est-elle de la même marque que la voiture précédente ?
 
 **Entrée** :
@@ -255,7 +252,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Elle est ensuite comparée à la marque de l’événement en cours, puis l'événement émet une sortie si elles sont différentes.
 
-## Recherche du premier événement dans une fenêtre ##
+## Exemple de requête : recherche du premier événement dans une fenêtre ##
 **Description** : trouver la première voiture de chaque intervalle de 10 minutes.
 
 **Entrée** :
@@ -309,7 +306,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Recherche du dernier événement dans une fenêtre ##
+## Exemple de requête : recherche du dernier événement dans une fenêtre ##
 **Description** : trouver la dernière voiture de chaque intervalle de 10 minutes.
 
 **Entrée** :
@@ -352,10 +349,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**Explication** : la requête comprend deux étapes, la première servant à rechercher l'horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
+**Explication** : la requête comprend deux étapes, la première servant à rechercher l’horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
 
-## Détection de l'absence d'événements ##
-**Description** : vérifier qu'un flux de données n'a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
+## Exemple de requête : détection de l’absence d’événements ##
+**Description** : vérifier qu’un flux de données n’a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
 
 **Entrée** :
 
@@ -387,8 +384,8 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Comparez-la ensuite à la valeur de Make de l’événement actuel, créez une sortie si elles sont identiques, et utilisez LAG pour obtenir des données sur la voiture précédente.
 
-## Détection de la durée d'une condition ##
-**Description** : déterminer pendant combien de temps un problème s'est produit. Par exemple, supposons qu'un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
+## Exemple de requête : détection de la durée d’une condition ##
+**Description** : déterminer sur quelle période un problème s’est produit. Par exemple, supposons qu’un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
 
 **Entrée** :
 
@@ -455,4 +452,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

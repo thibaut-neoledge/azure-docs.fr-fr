@@ -3,7 +3,7 @@
  description="Découvrez comment utiliser le service Azure Automation pour gérer Azure Traffic Manager." 
  services="traffic-manager, automation" 
  documentationCenter="" 
- authors="eamonoreilly" 
+ authors="joaoma" 
  manager="carmonm" 
  editor=""/>
 
@@ -42,4 +42,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 * Consultez le [Guide de prise en main](http://go.microsoft.com/fwlink/?LinkId=390560) d'Azure Automation.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->
