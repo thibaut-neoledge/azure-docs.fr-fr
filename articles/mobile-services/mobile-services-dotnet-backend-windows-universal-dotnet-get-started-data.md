@@ -98,11 +98,14 @@ Cela conclut le didacticiel.
 
 Ce didacticiel a présenté les bases de l'activation d'un projet d'application Windows universelle pour utiliser les données dans Mobile Services. Vous pouvez ensuite consulter une de ces autres rubriques :
 
-* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+* [Prise en main de l'authentification]
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Prise en main des notifications Push]
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
+* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 
 <!-- Images. -->
@@ -116,11 +119,13 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [Prise en main de l'authentification]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Prise en main des notifications Push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Prise en main de la synchronisation des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!---HONumber=AcomDC_1203_2015-->
+
+
