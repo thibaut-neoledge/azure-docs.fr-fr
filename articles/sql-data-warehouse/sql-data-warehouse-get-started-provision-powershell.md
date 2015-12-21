@@ -18,7 +18,12 @@
 
 # Création de SQL Data Warehouse à l'aide de Powershell
 
->Pour utiliser Microsoft Azure Powershell avec SQL Data Warehouse, vous devez disposer de la version 0.9.4 ou supérieure. Vous pouvez vérifier la version en exécutant (Get-Module Azure).Version dans Powershell.
+> [AZURE.SELECTOR]
+- [Portail Azure](sql-data-warehouse-get-started-provision.md)
+- [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+- [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+
+> [AZURE.NOTE]  Pour utiliser Microsoft Azure Powershell avec SQL Data Warehouse, vous devez disposer de la version 0.9.4 ou supérieure. Vous pouvez vérifier la version en exécutant (Get-Module Azure).Version dans Powershell.
 
 ## Acquérir et exécuter les applets de commande Azure PowerShell
 Si Powershell n'est pas encore configuré, vous pouvez :
