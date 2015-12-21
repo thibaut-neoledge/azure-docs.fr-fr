@@ -3,8 +3,8 @@
    description="Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Storage, y compris la capacité, le taux de demande et la bande passante entrante et sortante pour les comptes de stockage standard et premium. Découvrez les objectifs de performances des partitions dans chacun des services Azure Storage."
    services="storage"
    documentationCenter="na"
-   authors="tamram"
-   manager="na"
+   authors="robinsh"
+   manager="carmonm"
    editor="na" />
 <tags 
    ms.service="storage"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="11/17/2015"
-   ms.author="tamram" />
+   ms.date="12/04/2015"
+   ms.author="robinsh" />
 
 # Objectifs de performance et évolutivité d'Azure Storage
 
@@ -85,4 +85,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

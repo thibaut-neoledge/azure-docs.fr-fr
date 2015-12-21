@@ -22,13 +22,7 @@ Dans cette procédure pas à pas, vous allez apprendre à configurer l’environ
  
 Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -> Enrichir -> Analyser le flux de travail, la sortie de l’efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l’analyser au sein de votre organisation.
  
-Pour copier les données d’efficacité de la campagne marketing depuis un objet blob Azure vers une base de données SQL Server locale, vous devez créer en supplément un service lié local, une table et un pipeline utilisant le même jeu de cmdlets présenté dans la première procédure pas à pas.
-
-> [AZURE.IMPORTANT]cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
->    
-> Si vous utilisez Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
-
-## Configuration requise
+Pour copier les données d’efficacité de la campagne marketing depuis un objet blob Azure vers une base de données SQL Server locale, vous devez créer en supplément un service lié local, une table et un pipeline utilisant le même jeu d’applets de commande présenté dans la première procédure pas à pas.
 
 Vous **devez** suivre la procédure pas à pas du didacticiel : [Déplacement et traitement des fichiers journaux à l’aide du service Azure Data Factory][datafactorytutorial] avant de suivre la procédure pas à pas de cet article.
 
@@ -120,22 +114,22 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 ### Création de la table logique locale
 
 1.	Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Utilisez l'applet de commande **New-AzureDataFactoryDataset** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
+2.	Utilisez l’applet de commande **New-AzureRmDataFactoryDataset** pour créer les tables comme suit pour **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Créer le pipeline pour copier les données d'un objet blob Azure dans SQL Server
 
-1.	Utilisez l’applet de commande **New-AzureDataFactoryPipeline** pour créer le pipeline comme suit pour **EgressDataToOnPremPipeline.json**.
+1.	Utilisez l’applet de commande **New-AzureRmDataFactoryPipeline** pour créer le pipeline comme suit pour **EgressDataToOnPremPipeline.json**.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Utilisez l’applet de commande **Set-AzureDataFactoryPipelineActivePeriod** pour spécifier la période active pour **EgressDataToOnPremPipeline**.
+2. Utilisez l’applet de commande **Set-AzureRmDataFactoryPipelineActivePeriod** pour spécifier la période active pour **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Appuyez sur **O** pour continuer.
 	
@@ -169,9 +163,11 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

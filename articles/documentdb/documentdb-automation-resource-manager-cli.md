@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
-# Automatiser la création du compte de base de données DocumentDB à l’aide de modèles Azure Resource Manager et de l’interface de ligne de commande Azure
+# Automatiser la création du compte DocumentDB à l’aide de modèles Azure Resource Manager et de l’interface de ligne de commande Azure
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
 - [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
-Cet article vous montre comment créer un compte DocumentDB à l’aide de modèles Azure Resource Manager ou de l’interface de ligne de commande Azure (CLI).
+Cet article vous montre comment créer un compte DocumentDB à l’aide de modèles Azure Resource Manager ou de l’interface de ligne de commande Azure (CLI). Pour créer un compte DocumentDB à l’aide du portail Azure, consultez l’article [Création d’un compte de base de données DocumentDB avec le portail Azure](documentdb-create-account.md).
 
 - [Créer un compte DocumentDB à l’aide de l’interface de ligne de commande (CLI)](#quick-create-documentdb-account)
 - [Créer un compte DocumentDB à l’aide d’un modèle ARM](#deploy-documentdb-from-a-template)
@@ -37,16 +37,16 @@ Avant de pouvoir utiliser l'interface de ligne de commande Azure avec des groupe
 
 ### Mettre à jour votre version de l’interface de ligne de commande Azure
 
-À l’invite de commandes, tapez `azure --version` pour savoir si vous avez déjà installé la version 0.9.11 ou une version ultérieure.
+À l’invite de commandes, entrez `azure --version` pour savoir si vous avez déjà installé la version 0.9.11 ou une version ultérieure.
 
 	azure --version
     0.9.11 (node: 0.12.7)
 
-Si vous disposez d’une version antérieure à la version 0.9.11, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs. Vous pouvez également utiliser **npm** en tapant `npm update -g azure-cli` pour la mettre à jour ou `npm install -g azure-cli` pour l’installer.
+Si vous disposez d’une version antérieure à la version 0.9.11, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs. Vous pouvez également utiliser **npm** en saisissant `npm update -g azure-cli` pour la mettre à jour ou `npm install -g azure-cli` pour l’installer.
 
 ### Configurer votre compte et votre abonnement Microsoft Azure
 
-Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement Visual Studio, vous pouvez activer vos [avantages abonnés Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas encore d’abonnement Azure, mais que vous avez un abonnement Visual Studio, vous pouvez activer vos [avantages abonnés Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez disposer d’un compte professionnel ou scolaire, ou bien d’une identité du compte Microsoft, pour utiliser des modèles de gestion des ressources Azure. Si vous avez l’un de ces comptes, tapez la commande suivante.
 
@@ -79,11 +79,11 @@ L’interface de commande fournit également la sortie suivante.
 	+
 	info:    login command OK
 
-Outre la méthode de connexion interactive décrite ici, d’autres méthodes de connexion à l’interface de ligne de commande Azure (Azure CLI) sont disponibles. Pour plus d’informations sur les autres méthodes et obtenir des informations sur la gestion de plusieurs inscriptions, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
+Outre la méthode de connexion interactive décrite ici, d’autres méthodes de connexion à l’interface de ligne de commande Azure (Azure CLI) sont disponibles. Pour plus d’informations sur les autres méthodes et sur la gestion de plusieurs inscriptions, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
 ### Passer en mode de groupe de ressources d’interface de ligne de commande Microsoft Azure
 
-Par défaut, l’interface de ligne de commande Azure démarre en mode Gestion des services (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
+Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
 
 	azure config mode arm
 
@@ -93,7 +93,7 @@ Ce qui fournit la sortie suivante :
 
 Vous pouvez revenir à la configuration des commandes par défaut en tapant `azure config mode asm`.
 
-## <a id="quick-create-documentdb-account"></a>Tâche : Créer un compte DocumentDB à l’aide de l’interface de ligne de commande (CLI)
+## <a id="quick-create-documentdb-account"></a>Tâche : créer un compte DocumentDB à l’aide de l’interface de ligne de commande Azure
 
 Utilisez les instructions de cette section pour créer un compte DocumentDB avec l’interface de ligne de commande Azure.
 
@@ -107,9 +107,12 @@ Pour passer en revue la liste de tous vos groupes de ressources actuels, exécut
 
 Pour créer un groupe de ressources, exécutez la commande suivante, et spécifiez le nom du nouveau groupe de ressources à créer, ainsi que la région dans laquelle créer le groupe de ressources :
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <resourcegrouplocation>
 
-Par exemple :
+ - `<resourcegroupname>` accepte uniquement les caractères alphanumériques, les points, les traits de soulignement, le caractère « - » et les parenthèses, et ne peut pas se terminer par un point. 
+ - `<resourcegrouplocation>` doit être l’une des régions dans lesquelles DocumentDB est disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
+
+Exemple d’entrée :
 
 	azure group create new_res_group westus
 
@@ -135,9 +138,13 @@ Créez un compte DocumentDB dans le groupe de ressources nouveau ou existant en 
 
 > [AZURE.TIP]Si vous exécutez cette commande dans Azure PowerShell ou Windows PowerShell, une erreur relative à un jeton inattendu s’affiche. Exécutez plutôt cette commande à l’invite de commandes Windows.
 
-    azure resource create -g <resourceGroupName> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
-Par exemple :
+ - `<resourcegroupname>` accepte uniquement les caractères alphanumériques, les points, les traits de soulignement, le caractère « - » et les parenthèses, et ne peut pas se terminer par un point. 
+ - `<databaseaccountname>` accepte uniquement les minuscules, les chiffres et le caractère « - », et doit comporter entre 3 et 50 caractères.
+ - `<databaseaccountlocation>` doit être l’une des régions dans lesquelles DocumentDB est disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
+
+Exemple d’entrée :
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{"databaseAccountOfferType":"Standard"}"
 
@@ -159,7 +166,7 @@ Ce qui génère la sortie suivante car votre nouveau compte est configuré :
 
 Si vous rencontrez des erreurs, consultez la section [Dépannage](#troubleshooting).
 
-Une fois que la commande a renvoyé un résultat, le compte est dans l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** dans lequel il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
+Une fois que la commande a renvoyé un résultat, le compte est à l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** indiquant qu’il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
 
 ## <a id="deploy-documentdb-from-a-template"></a>Tâche : créer un compte DocumentDB à l’aide d’un modèle ARM
 
@@ -216,13 +223,11 @@ Pour créer un fichier de paramètres, copiez le contenu suivant dans un nouveau
         }
     }
 
-Dans le fichier azuredeploy.parameters.json, mettez à jour la valeur « samplearmacct » en la remplaçant par le nom de base de données à utiliser, puis enregistrez le fichier.
-
-> [AZURE.TIP]Les noms de comptes de base de données ne peuvent contenir que des minuscules, des chiffres et le caractère « - », et doivent comporter entre 3 et 50 caractères.
+Dans le fichier azuredeploy.parameters.json, vous devez mettre à jour la valeur « samplearmacct » avec le nom de la base de données que vous souhaitez utiliser, puis enregistrer le fichier. `<databaseAccountName>` accepte uniquement les lettres minuscules, les chiffres et le caractère « - », et doit contenir entre 3 et 50 caractères.
 
 ### Étape 2 : créer ou récupérer votre groupe de ressources
 
-Pour créer un compte DocumentDB, vous avez tout d’abord besoin d’un groupe de ressources. Si vous connaissez déjà le nom du groupe de ressources que vous voulez utiliser, passez à l’[étape 3](#create-account-from-template).
+Pour créer un compte DocumentDB, vous avez tout d’abord besoin d’un groupe de ressources. Si vous connaissez déjà le nom du groupe de ressources que vous souhaitez utiliser, assurez-vous que l’emplacement correspond à une [région dans laquelle DocumentDB est disponible](https://azure.microsoft.com/regions/#services), puis passez à l’[étape 3](#create-account-from-template). Dans le modèle, l’emplacement du compte est créé dans la même région que celle du groupe de ressources ; ainsi, si vous tentez de créer un compte dans une région où DocumentDB n’est pas disponible, le processus de déploiement rencontrera une erreur.
 
 Pour passer en revue la liste de tous vos groupes de ressources actuels, exécutez la commande suivante et notez le nom du groupe de ressources que vous voulez utiliser :
 
@@ -230,9 +235,12 @@ Pour passer en revue la liste de tous vos groupes de ressources actuels, exécut
 
 Pour créer un groupe de ressources, exécutez la commande suivante, et spécifiez le nom du nouveau groupe de ressources à créer, ainsi que la région dans laquelle créer le groupe de ressources :
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <databaseaccountlocation>
 
-Par exemple :
+ - `<resourcegroupname>` accepte uniquement les caractères alphanumériques, les points, les traits de soulignement, le caractère « - » et les parenthèses, et ne peut pas se terminer par un point. 
+ - `<databaseaccountlocation>` doit être l’une des régions dans lesquelles DocumentDB est disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
+
+Exemple d’entrée :
 
 	azure group create new_res_group westus
 
@@ -260,7 +268,12 @@ Pour utiliser un fichier de paramètres :
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
-Par exemple :
+ - `<PathToTemplate>` est le chemin d’accès au fichier azuredeploy.json créé à l’étape 1.
+ - `<PathToParameterFile>` est le chemin d’accès au fichier azuredeploy.parameters.json créé à l’étape 1.
+ - `<resourcegroupname>` est le nom du groupe de ressources existant auquel vous souhaitez ajouter un compte de base de données DocumentDB. 
+ - `<deploymentname>` est le nom facultatif du déploiement.
+
+Exemple d’entrée :
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
@@ -268,12 +281,12 @@ OU, pour spécifier le paramètre de nom de compte de base de données sans un f
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Voici un exemple (qui affiche l’invite et une entrée pour un compte de base de données nommé new\_db\_acct) :
+Exemple d’entrée qui affiche l’invite et une entrée pour un compte de base de données nommé new\_db\_acct :
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    databaseAccountName: newarmacct
+    databaseAccountName: samplearmacct
 
 Comme le compte est configuré, vous recevez les informations suivantes :
 
@@ -289,31 +302,35 @@ Comme le compte est configuré, vous recevez les informations suivantes :
     data:    Mode               : Incremental
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
-    data:    databaseAccountName  String  newarmacct
+    data:    databaseAccountName  String  samplearmacct
     data:    location             String  West US
     info:    group deployment create command OK
 
 Si vous rencontrez des erreurs, consultez la section [Dépannage](#troubleshooting).
 
-Une fois que la commande a renvoyé un résultat, le compte est dans l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** dans lequel il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
+Une fois que la commande a renvoyé un résultat, le compte est à l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** indiquant qu’il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
 
 ## Résolution de problèmes
 
-Si vous recevez des erreurs telles que `Deployment provisioning state was not successful` lors de la création de votre groupe de ressources ou de votre compte de base de données, utilisez la commande suivante pour afficher le journal du groupe de ressources.
+Si vous rencontrez des erreurs semblables à `Deployment provisioning state was not successful` lors de la création de votre compte de base de données ou du groupe de ressources, vous pouvez résoudre le problème de plusieurs manières.
 
-    azure group log show <resourcegroupname> --last-deployment
+> [AZURE.NOTE]La saisie de caractères non valides dans le nom du compte de base de données ou la spécification d’un emplacement dans lequel DocumentDB n’est pas disponible générera des erreurs de déploiement. Les noms de comptes de base de données ne peuvent contenir que des minuscules, des chiffres et le caractère « - », et doivent comporter entre 3 et 50 caractères. Tous les emplacements de compte de base de données valides sont répertoriés sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
 
-Par exemple :
+- Si votre sortie contient le message suivant : `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, passez en revue les informations relatives à l’erreur dans le fichier azure.err.
 
-    azure group log show new_res_group --last-deployment
+- Vous pouvez trouver des informations utiles dans le fichier journal du groupe de ressources. Pour afficher le fichier journal, exécutez la commande suivante :
 
-Pour plus d’informations, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-group-deploy-debug.md).
+    	azure group log show <resourcegroupname> --last-deployment
 
-N’oubliez pas que les noms de comptes de base de données ne peuvent contenir que des minuscules, des chiffres et le caractère « - », et doivent comporter entre 3 et 50 caractères.
+    Exemple d’entrée :
 
-Les informations relatives aux erreurs sont également disponibles dans le portail Azure, comme illustré dans la capture d’écran suivante. Pour accéder aux informations relatives aux erreurs : cliquez sur Groupes de ressources dans la barre de lancement, sélectionnez le groupe de ressources concerné par l’erreur, puis, dans la zone Éléments principaux du panneau Groupe de ressources, cliquez sur la date du dernier déploiement. Ensuite, dans le panneau Historique du déploiement, sélectionnez le déploiement ayant échoué, puis, dans le panneau Déploiement, cliquez sur le détail de l’opération marqué d’un point d’exclamation rouge. Le message d’état correspondant au déploiement ayant échoué s’affiche dans le panneau Détails de l’opération.
+    	azure group log show new_res_group --last-deployment
 
-![Capture d’écran du portail Azure montrant comment accéder au message d’erreur de déploiement](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+    Pour plus d’informations, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-group-deploy-debug.md).
+
+- Les informations relatives aux erreurs sont également disponibles dans le portail Azure, comme illustré dans la capture d’écran suivante. Pour accéder aux informations relatives aux erreurs : cliquez sur Groupes de ressources dans la barre de lancement, sélectionnez le groupe de ressources concerné par l’erreur, puis, dans la zone Éléments principaux du panneau Groupe de ressources, cliquez sur la date du dernier déploiement. Ensuite, dans le panneau Historique du déploiement, sélectionnez le déploiement ayant échoué, puis, dans le panneau Déploiement, cliquez sur le détail de l’opération marqué d’un point d’exclamation rouge. Le message d’état correspondant au déploiement ayant échoué s’affiche dans le panneau Détails de l’opération.
+
+    ![Capture d’écran du portail Azure montrant comment accéder au message d’erreur de déploiement](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
 
 ## Étapes suivantes
 
@@ -334,4 +351,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/16/2015"
+  ms.date="12/08/2015"
   ms.author="stevenpo"/>
 
 
@@ -25,13 +25,13 @@ La gestion de l’accès, l’évaluation de l’utilisation et la création de 
 
  Azure AD prend en charge une gestion complète de l’accès pour les applications configurées, permettant aux organisations d’accomplir facilement les stratégies d’accès appropriées, allant de l’affectation automatique basée sur l’attribut (scénarios ABAC ou RBAC) à la gestion des administrateurs en passant par la délégation. Grâce à Azure AD, vous pouvez facilement accomplir des stratégies complexes, en combinant plusieurs modèles de gestion pour une application unique, et pouvez même réutiliser les règles de gestion entre les applications avec le même public.
 
- - [Ajout de nouvelles applications](active-directory-sso-newly-acquired-saas-apps.md)
- - [Ajout d’applications existantes](active-directory-sso-integrate-existing-apps)
+ - [Ajout d’applications nouvelles ou existantes](active-directory-sso-integrate-saas-apps.md)
+
 
  L’affectation d’applications Azure AD se concentre sur deux modes d’affectation principaux :
 
-- **Affectation individuelle** : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut sélectionner différents comptes d’utilisateurs et leur octroyer un accès à l’application.
-- **Affectation basée sur le groupe (version payante d’Azure AD uniquement)** : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut affecter un groupe à l’application. L’accès dont bénéficie un utilisateur dépend de son appartenance éventuelle au groupe au moment où il tente d’accéder à l’application. Dans ce mode, un administrateur peut créer efficacement une règle d’affectation indiquant « tout membre actuel du groupe affecté a accès à l’application ». Avec cette option d’affectation, les administrateurs peuvent tirer parti des options de gestion de groupe Azure AD, notamment des groupes dynamiques basés sur l’attribut, des groupes de systèmes externes (par exemple, AD local ou jour ouvré) ou des groupes gérés par un administrateur ou en libre-service. Un même groupe peut être facilement affecté à plusieurs applications ; de la sorte, celles qui présentent une affinité d’affectation peuvent partager des règles d’affectation, réduisant ainsi la complexité globale de la gestion. Veuillez noter que des appartenances à des groupes imbriquées ne sont pas prises en charge pour l'affectation basée sur des groupes à des applications à ce stade.
+- **Affectation individuelle** : un administrateur informatique détenant des autorisations d’administrateur général de l’annuaire peut sélectionner différents comptes d’utilisateurs et leur octroyer un accès à l’application.
+- **Affectation basée sur le groupe (version payante d’Azure AD uniquement)** : un administrateur informatique détenant des autorisations d’administrateur général de l’annuaire peut affecter un groupe à l’application. L’accès dont bénéficie un utilisateur dépend de son appartenance éventuelle au groupe au moment où il tente d’accéder à l’application. Dans ce mode, un administrateur peut créer efficacement une règle d’affectation indiquant « tout membre actuel du groupe affecté a accès à l’application ». Avec cette option d’affectation, les administrateurs peuvent tirer parti des options de gestion de groupe Azure AD, notamment des groupes dynamiques basés sur l’attribut, des groupes de systèmes externes (par exemple, AD local ou jour ouvré) ou des groupes gérés par un administrateur ou en libre-service. Un même groupe peut être facilement affecté à plusieurs applications ; de la sorte, celles qui présentent une affinité d’affectation peuvent partager des règles d’affectation, réduisant ainsi la complexité globale de la gestion. Veuillez noter que des appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications à ce stade.
 
 Grâce à ces deux modes d’affectation, les administrateurs peuvent mettre en œuvre toute approche de gestion d’affectation souhaitable.
 
@@ -71,4 +71,4 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

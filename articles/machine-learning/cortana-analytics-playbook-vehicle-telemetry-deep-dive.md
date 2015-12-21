@@ -40,26 +40,26 @@ Un simulateur de télématique des véhicules est intégré à cette solution. C
 
 Il s’agit d’un jeu de données au format JSON qui contient le schéma ci-dessous.
 
-des colonnes | Description | Valeurs |  
-------- | ----------- | --------- | 
-VIN | Numéro d’identification du véhicule généré de manière aléatoire | Ce numéro est obtenu à partir d’une liste de référence contenant 10 000 numéros d’identification de véhicule générés de manière aléatoire | 
-Outside temperature | Température extérieure mesurée dans la zone de conduite du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 | 
-Engine temperature | Température moteur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 500 | 
-Vitesse | Régime de conduite du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 | 
-Fuel | Niveau de carburant du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau de carburant en pourcentage) | 
-EngineOil | Niveau d’huile moteur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’huile moteur en pourcentage) | 
-Tirepressure | Pression des pneus du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 50 (indique le niveau de pression des pneus en pourcentage) | 
-Odometer | Valeur lue sur le compteur kilométrique du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 200 000 | 
-Accelerator\_pedal\_position | Position de la pédale d’accélérateur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’accélération en pourcentage) | 
-Parking\_brake\_status | Indique si le véhicule est stationné ou non | True ou False | 
-Headlamp\_status | Indique si les phares sont allumés ou non | True ou False | 
-Brake\_pedal\_status | Indique si la pédale de frein est enfoncée ou non | True ou False | 
-Transmission\_gear\_position | Position de la boîte de vitesses du véhicule | États : première, deuxième, troisième, quatrième, cinquième, sixième, septième, huitième | 
-Ignition\_status | Indique si le véhicule roule ou s’il est arrêté | True ou False | 
-Windshield\_wiper\_status | Indique si les essuie-glaces sont activés ou non | True ou False | 
-ABS | Indique si l’ABS est activé ou non | True ou False | 
-Timestamp | Date et heure de création du point de données | Date | 
-City | Emplacement du véhicule | 4 villes dans cette solution : Bellevue, Redmond, Sammamish, Seattle | 
+des colonnes | Description | Valeurs   
+ ------- | ----------- | ---------  
+VIN | Numéro d’identification du véhicule généré de manière aléatoire | Ce numéro est obtenu à partir d’une liste de référence contenant 10 000 numéros d’identification de véhicule générés de manière aléatoire
+Outside temperature | Température extérieure mesurée dans la zone de conduite du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100
+Engine temperature | Température moteur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 500
+Vitesse | Régime de conduite du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100
+Fuel | Niveau de carburant du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau de carburant en pourcentage)
+EngineOil | Niveau d’huile moteur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’huile moteur en pourcentage)
+Tirepressure | Pression des pneus du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 50 (indique le niveau de pression des pneus en pourcentage)
+Odometer | Valeur lue sur le compteur kilométrique du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 200 000
+Accelerator\_pedal\_position | Position de la pédale d’accélérateur du véhicule | Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’accélération en pourcentage)
+Parking\_brake\_status | Indique si le véhicule est stationné ou non | True ou False
+Headlamp\_status | Indique si les phares sont allumés ou non | True ou False
+Brake\_pedal\_status | Indique si la pédale de frein est enfoncée ou non | True ou False
+Transmission\_gear\_position | Position de la boîte de vitesses du véhicule | États : première, deuxième, troisième, quatrième, cinquième, sixième, septième, huitième
+Ignition\_status | Indique si le véhicule roule ou s’il est arrêté | True ou False
+Windshield\_wiper\_status | Indique si les essuie-glaces sont activés ou non | True ou False
+ABS | Indique si l’ABS est activé ou non | True ou False
+Timestamp | Date et heure de création du point de données | Date
+City | Emplacement du véhicule | 4 villes dans cette solution : Bellevue, Redmond, Sammamish, Seattle
 
 
 Le jeu de données de référence du modèle de véhicule contient un mappage entre le numéro d’identification du véhicule (VIN) et le modèle.
@@ -696,4 +696,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

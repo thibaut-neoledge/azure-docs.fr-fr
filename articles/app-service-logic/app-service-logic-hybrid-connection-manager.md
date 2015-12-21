@@ -33,7 +33,7 @@ Pour commencer, vous avez besoin des éléments suivants :
 
 Dans le portail Azure, copiez la chaîne de connexion SAS racine de Service Bus. Cette chaîne de connexion connecte votre connecteur Azure à votre système local.
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885), sélectionnez l'espace de noms Service Bus et sélectionnez les **informations de connexion** :
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885), sélectionnez l’espace de noms Service Bus et les **informations de connexion** :
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ Dans le portail Azure, copiez la chaîne de connexion SAS racine de Service Bus.
 
 ## Installer le Gestionnaire de connexion hybride
 
-1. Dans la version préliminaire du [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2] 
+1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez le connecteur que vous avez créé. Pour l'ouvrir, vous pouvez sélectionner **Parcourir**, **API Apps**, puis sélectionnez le connecteur ou une application API. <br/><br/> Sous **Connexion hybride**, l'installation est **incomplète** : <br/> ![][2] 
 
 2. Sélectionnez **Connexion hybride**. La chaîne de connexion Service Bus entrée précédemment est répertoriée.
 3. Copiez la **chaîne de configuration principale** : <br/> ![][PrimaryConfigString]
@@ -98,7 +98,7 @@ Port du système local | Sur le système local, ouvrez le port utilisé par le s
 
 
 
-### Dans le portail Azure
+### Dans le portail Azure Classic
 
 1. Vérifiez que l'espace de noms Service Bus a un état **Actif**.
 2. Lorsque vous créez le connecteur, entrez la chaîne de connexion SAS Service Bus. N'entrez pas la chaîne de connexion ACS.
@@ -133,4 +133,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

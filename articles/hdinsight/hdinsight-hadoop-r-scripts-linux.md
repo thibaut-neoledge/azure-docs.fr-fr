@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -48,7 +48,7 @@ Les packages R suivants sont également installés :
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | Intégration de R et de C++. |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | Sérialiser/désérialiser des objets R au format JSON. |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | Fonctions pour les opérations au niveau du bit sur les vecteurs d’entier. |
-| [digest](Créer des résumés de hachage de chiffrement d’objets R) | Créer des résumés de hachage de chiffrement d’objets R |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | Créer des résumés de hachage de chiffrement d’objets R |
 | [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose et autres fonctions d’ordre supérieur |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | Restructurez et agrégez des données de manière flexible. |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | Wrappers simples et cohérents pour les opérations de chaînes courantes. |
@@ -137,15 +137,13 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 
 - [Installation et utilisation de Spark sur des clusters HDInsight][hdinsight-install-spark] pour obtenir des instructions sur la personnalisation de clusters pour installer et utiliser Spark sur des clusters Hadoop HDInsight. Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de « big data ».
 
-- [Installation de Giraph sur des clusters HDInsight](../hdinsight-hadoop-giraph-install). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
+- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
 
-- [Installation de Solr sur des clusters HDInsight](../hdinsight-hadoop-solr-install). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d’effectuer de puissantes opérations de recherche sur des données stockées.
+- [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d’effectuer de puissantes opérations de recherche sur des données stockées.
 
 - [Installer Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Utilisez la personnalisation de clusters pour installer Hue sur des clusters HDInsight Hadoop. Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop.
 
-[powershell-install-configure]: install-configure-powershell-linux.md
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

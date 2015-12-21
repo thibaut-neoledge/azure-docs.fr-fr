@@ -26,7 +26,7 @@ La passerelle de protocole Azure IoT est une infrastructure pour l’adaptation 
 
 La passerelle de protocole peut être déployée dans Azure de manière hautement évolutive à l’aide des rôles de travail de Cloud Services. En outre, la passerelle de protocole peut être déployée dans les environnements locaux comme des passerelles de champ.
 
-La passerelle de protocole Azure IoT inclut un adaptateur MQTT pour faciliter la communication avec des appareils via le protocole MQTT v3.1.1. La passerelle de protocole et l’implémentation MQTT sont fournis en tant que projet OSS pour la flexibilité permettant de personnaliser l’implémentation en fonction des besoins.
+La passerelle de protocole Azure IoT inclut un adaptateur MQTT pour faciliter la communication avec des appareils via le protocole MQTT v3.1.1. La passerelle de protocole et l’implémentation MQTT sont fournies en tant que projet OSS pour la flexibilité permettant de personnaliser l’implémentation en fonction des besoins.
 
 L’adaptateur MQTT illustre également le modèle de programmation pour la création d’adaptateurs de protocole pour d’autres protocoles. En outre, le modèle de programmation de passerelle de protocole IoT permet de connecter des composants personnalisés pour traiter l’authentification personnalisée, les transformations de messages, la compression/décompression ou le chiffrement/déchiffrement du trafic entre les appareils et IoT Hub.
 
@@ -37,4 +37,4 @@ Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et
 * [Référentiel sur la passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guide du développeur de passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

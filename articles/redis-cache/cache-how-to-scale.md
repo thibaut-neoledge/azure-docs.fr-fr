@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
 
->[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire. Pendant la période d'évaluation, vous ne pouvez pas mettre à l'échelle vers, depuis, ni au sein d'un cache de niveau premium.
+>[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire. Au cours de la période préliminaire, vous ne pouvez pas mettre à l’échelle vers ou depuis un cache de niveau Premium, mais vous pouvez modifier le niveau tarifaire au sein d’un cache Premium.
 
-Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans la [version préliminaire du portail Azure](https://portal.azure.com).
+Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les conditions requises de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau tarifaire** dans le [portail Azure](https://portal.azure.com).
 
 ## Quand mettre à l’échelle ?
 
@@ -36,7 +36,7 @@ Vous pouvez surveiller les mesures suivantes pour déterminer si vous avez besoi
 Si vous déterminez que votre cache ne répond plus aux besoins de votre application, vous pouvez passer à un niveau de tarification de cache plus important ou plus réduit, adapté à votre application. Pour plus d’informations sur la détermination des niveaux de tarification de cache à utiliser, consultez la section [Quelle offre et quelle taille de cache Redis utiliser ?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Mise à l’échelle d’un cache
-Pour mettre votre cache à l'échelle, [accédez au cache](cache-configure.md#configure-redis-cache-settings) dans le [portail en version préliminaire](https://portal.azure.com), puis cliquez sur **Paramètres**, **Niveau de tarification**.
+Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#configure-redis-cache-settings) dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Paramètres**, **Niveau tarifaire**.
 
 Vous pouvez également cliquer sur le **Niveau Standard** ou le **Niveau de base** dans le panneau **Cache Redis**.
 
@@ -61,7 +61,7 @@ Une fois la mise à l’échelle terminée, le statut passe de **Mise à l’éc
 
 ## Automatisation d’une opération de mise à l’échelle
 
-En plus de la mise à l'échelle de votre instance de cache Redis Azure dans le portail en version préliminaire, vous pouvez effectuer une mise à l'échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
+En plus de la mise à l’échelle de votre instance de cache Redis Azure dans le portail Azure, vous pouvez effectuer une mise à l’échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 
 ## Puis-je mettre à l'échelle vers, depuis ou au sein d'un cache Premium ?
 
-Pendant la période d'évaluation, la mise à l'échelle n'est pas disponible pour les caches **Premium**.
+Au cours de la période préliminaire, il n’est pas possible de mettre à l’échelle les caches **Premium**, mais vous pouvez modifier le niveau tarifaire au sein d’un cache Premium.
 
 ## Après la mise à l’échelle, dois-je modifier le nom ou les clés d’accès de mon cache ?
 
@@ -121,7 +121,7 @@ Les caches **De base** sont hors ligne pendant les opérations de mise à l'éch
 
 ## Quelles sont les opérations qui ne sont pas prises en charge ?
 
-Vous ne pouvez pas mettre à l'échelle vers, depuis ou au sein d'un cache **Premium**.
+Vous ne pouvez pas mettre à l’échelle vers ou depuis un cache **Premium**.
 
 Vous ne pouvez pas modifier un cache **Standard** en un cache **De base**.
 
@@ -137,7 +137,7 @@ Une mise à l’échelle prend environ 20 minutes, selon la quantité de donné
 
 ## Comment savoir quand la mise à l’échelle est terminée ?
 
-Le déroulement de l’opération de mise à l’échelle est affiché dans la version préliminaire du portail. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
+Le déroulement de l’opération de mise à l’échelle est affiché dans le portail Azure. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
 
 ## Pourquoi cette fonctionnalité est-elle en version préliminaire ?
 
@@ -155,4 +155,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

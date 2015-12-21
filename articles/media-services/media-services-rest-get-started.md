@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Prendre en main la diffusion de contenus à la demande à l’aide de l’API REST
@@ -1208,6 +1208,6 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 
 <!-- URLs. -->
-  [portail de gestion]: http://manage.windowsazure.com/
+  [portail Azure Classic]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

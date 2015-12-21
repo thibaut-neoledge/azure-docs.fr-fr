@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -41,7 +41,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 2. Dans Visual Studio, développez le dossier Contrôleurs, ouvrez **TodoItemController.cs** et ajoutez l’instruction Using suivante :
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Recherchez la méthode **PostTodoItem** et ajoutez le code suivant au début de celle-ci.
 
@@ -84,4 +84,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 <!-- URLs. -->
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

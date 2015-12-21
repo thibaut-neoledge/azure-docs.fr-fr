@@ -178,9 +178,9 @@ Par exemple, l’utilisateur d’une application sportive peut recevoir le type 
 *« Pour tenter de remporter 200 points, dites-nous si vous pensez que les New York Yankees gagneront leur match contre les Toronto Blue Jays cette semaine ! »*
 
 
-#### L’approche des 3 W
+#### L’approche des 3 Q
 
-La maîtrise des différentes séquences de transmission Push vous aide à communiquer avec les utilisateurs finaux. Cependant, il vous faut utiliser l’approche des 3 W pour personnaliser vos notifications. L’approche des 3 W consiste à répondre aux questions Qui, Quoi et Quand pour chaque notification. Si vous répondez clairement à ces trois questions, vos notifications devraient être correctement ciblées pour l’engagement.
+La maîtrise des différentes séquences de transmission Push vous aide à communiquer avec les utilisateurs finaux. Cependant, il vous faut utiliser l’approche des 3 Q pour personnaliser vos notifications. L’approche des 3 Q consiste à répondre aux questions Qui, Quoi et Quand pour chaque notification. Si vous répondez clairement à ces trois questions, vos notifications devraient être correctement ciblées pour l’engagement.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
@@ -249,7 +249,7 @@ Azure Engagement Mobile offre deux moyens d’éviter que vos communications soi
 
 #### Exercice pratique nº 2 : créer votre programme d’engagement
 
-Prenez le temps de résumer vos objectifs et de définir les campagnes que vous prévoyez de diffuser à l’aide de séquences spécifiques. Veillez à appliquer l’approche des 3 W aux notifications de vos campagnes.
+Prenez le temps de résumer vos objectifs et de définir les campagnes que vous prévoyez de diffuser à l’aide de séquences spécifiques. Veillez à appliquer l’approche des 3 Q aux notifications de vos campagnes.
 
 Pour obtenir des exemples et des conseils, utilisez la feuille de calcul **Engagement Program** de notre modèle [Media Playbook Template][Media Playbook link].
 
@@ -391,6 +391,7 @@ Après avoir acquis un peu d’expérience, vous pouvez envisager d’ajouter le
 
 ## Étapes suivantes
 
+- [Créer un compte Azure Mobile Engagement](mobile-engagement-create-account.md).
 - Pour plus d’informations sur l’élaboration de votre stratégie Mobile Engagement, consultez la page [Définir votre stratégie Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md).
 
 
@@ -403,4 +404,4 @@ Après avoir acquis un peu d’expérience, vous pouvez envisager d’ajouter le
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

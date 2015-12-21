@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/06/2015"
 	ms.author="ricksal"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -117,4 +117,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications diffusées aux abonnés]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envoi de notifications basées sur un modèle aux abonnés]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

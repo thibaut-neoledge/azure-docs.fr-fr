@@ -104,11 +104,10 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
-[Management Portal]: https://manage.windowsazure.com/
 [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procédures Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

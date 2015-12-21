@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Inscrire une API gérée par Microsoft ou gérée par le service informatique
@@ -24,11 +24,11 @@ Grâce aux API gérées par le service informatique, vous pouvez contrôler et s
 
 Pour utiliser les API **gérées par Microsoft** ou **gérées par le service informatique**, vous devez les inscrire dans le portail Azure. Une fois inscrites, vous pourrez les utiliser dans vos applications. Les options suivantes sont disponibles :
 
-- Inscrire une API gérée par Microsoft ou gérée par le service informatique
-- Inscrire une API hébergée dans votre [environnement App Service](powerapps-register-api-hosted-in-app-service.md)
-- Inscrire des applications à l’aide d’une [définition d’API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
+- Inscrire une API gérée par Microsoft préconstruite ou une API gérée par le service informatique (dans cette rubrique)
+- Inscrire une application web, une application API et une application mobile hébergées dans [votre environnement App Service Environment](powerapps-register-api-hosted-in-app-service.md)
+- Inscrire l’une de vos propres API Swagger à l’aide d’une [définition d’API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
 
-Cet article concerne l’**inscription des API gérées par Microsoft et gérées par le service informatique**.
+Cet article concerne l’**inscription des API gérées par Microsoft préconstruites et des API gérées par le service informatique**.
 
 #### Conditions préalables
 
@@ -111,21 +111,24 @@ Le tableau suivant compare les fonctionnalités des API gérées par Microsoft e
 2. Dans Gérer les API, sélectionnez **Ajouter** : ![][18]  
 3. Dans **Ajouter une API**, entrez les propriétés de l’API :  
 
-	- Dans **Nom**, entrez un nom pour votre API. Notez que le nom que vous entrez est inclus dans l’URL de runtime de l’API. Utilisez un nom descriptif qui soit unique au sein de votre organisation.
+	- Dans **Nom**, entrez un nom pour votre API. Notez que le nom que vous entrez est inclus dans l’URL d’exécution de l’API. Utilisez un nom descriptif qui soit unique au sein de votre organisation.
 	- Dans **Source**, sélectionnez **À partir des API disponibles** : ![][19]
 4. Sélectionnez **API**, puis choisissez l’API que vous voulez inscrire : ![][20]
 5. Sélectionnez une API, puis ajoutez des propriétés configurables.
 6. Sélectionnez **Ajouter** pour terminer ces étapes.
 
-> [AZURE.TIP]Quand vous inscrivez une API, vous l’inscrivez dans votre environnement App Service. Une fois dans l’environnement App Service, elle peut être utilisée par les autres applications de l’environnement.
+> [AZURE.TIP]Quand vous inscrivez une API, vous l’inscrivez dans votre environnement App Service. Une fois dans l’environnement App Service, elle peut être utilisée par d’autres applications de l’environnement.
 
 
 ## Résumé et étapes suivantes
 
-Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API out-of-box fournies avec PowerApps. Pour plus d’informations sur PowerApps, consultez les rubriques et ressources suivantes :
+Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API out-of-box fournies avec PowerApps. Pour plus d’informations sur PowerApps, consultez les rubriques et ressources connexes suivantes :
 
-- [Configurer des API](powerapps-configure-apis.md)
-- [Ajouter une API](powerapps-register-from-available-apis.md)
+
+- [Configurer les propriétés de l’API](powerapps-configure-apis.md)
+- [Octroyer aux utilisateurs l’accès aux API](powerapps-manage-api-connection-user-access.md)
+- [Créer des applications dans PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

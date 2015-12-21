@@ -76,7 +76,7 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 - IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>. 
 - Une distribution d'un serveur web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
 - Un abonnement à Azure, pouvant être souscrit à l'adresse <http://www.microsoft.com/windowsazure/offers/>.
-- Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du Kit de ressources Azure pour Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+- Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
 - Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
@@ -309,4 +309,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

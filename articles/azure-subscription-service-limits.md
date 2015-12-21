@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -56,7 +56,7 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Mobile Services](#mobile-services-limits)
 - [Azure Multi-Factor Authentication](#multi-factor-authentication)
 - [Mise en réseau](#networking-limits)
-- [Service de concentrateur de notification](#notification-hub-service-limits)
+- [Service de hub de notification](#notification-hub-service-limits)
 - [Operational Insights](#operational-insights-limits)
 - [Groupe de ressources](#resource-group-limits)
 - [Scheduler](#scheduler-limits)
@@ -178,9 +178,17 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 ### Limites Azure Search
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+Le niveau tarifaire détermine la capacité et les limites de votre service de recherche.
 
-Pour plus d’informations sur les limites maximales pour le service partagé, ou une répartition des limites sur les clés, les demandes et les réponses, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
+####Niveau standard
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Niveau Partagé (ce niveau, qui fait partie d’un service mutualisé, est gratuit pour les abonnés Azure)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+Pour en savoir plus sur les limites en place sur les clés, combinaisons réplica-partition, requêtes, réponses et la façon d’obtenir un haut niveau de disponibilité pour différentes charges de travail, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Limites de Media Services
 
@@ -203,7 +211,7 @@ Pour plus d’informations sur les limites maximales pour le service partagé, o
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-### Limites de concentrateur IoT (IoT Hub)
+### Limites de hub IoT (IoT Hub)
 
 [AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
@@ -269,6 +277,6 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Présentation des limites et des augmentations Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

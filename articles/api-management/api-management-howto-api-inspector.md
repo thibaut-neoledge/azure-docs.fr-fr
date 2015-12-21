@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
@@ -34,7 +34,7 @@ Ce didacticiel montre comment utiliser l'inspecteur d'API pour suivre les opéra
 
 
 
-Pour commencer, cliquez sur **Portail des développeurs** dans le portail Azure de votre service Gestion des API. Les opérations peuvent être appelées directement depuis le portail des développeurs, ce qui permet d'afficher et de tester les opérations d'une API.
+Pour commencer, cliquez sur **Portail des développeurs** dans le portail Azure Classic de votre service Gestion des API. Les opérations peuvent être appelées directement depuis le portail des développeurs, ce qui permet d'afficher et de tester les opérations d'une API.
 
 >Si vous n'avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
 
@@ -245,7 +245,7 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

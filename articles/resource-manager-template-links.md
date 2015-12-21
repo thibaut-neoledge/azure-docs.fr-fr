@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/09/2015"
    ms.author="tomfitz"/>
 
 # Liens vers les ressources - schéma de modèle
@@ -75,18 +75,18 @@ Utilisez la commande Azure PowerShell suivante pour voir tous les liens dans vot
 L'exemple suivant applique un verrou ReadOnly à une application web.
 
     {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"hostingPlanName": {
-      			"type": "string"
-   		}
-	},
-	"variables": {
-		"siteName": "[concat('site',uniqueString(resourceGroup().id))]"
-	},
-	"resources": [
-	    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
+        },
+        "resources": [
+            {
                 "apiVersion": "2015-08-01",
                 "type": "Microsoft.Web/serverfarms",
                 "name": "[parameters('hostingPlanName')]",
@@ -100,17 +100,17 @@ L'exemple suivant applique un verrou ReadOnly à une application web.
                     "numberOfWorkers": 1
                 }
             },
-	    {
+            {
                 "apiVersion": "2015-08-01",
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
-	        "dependsOn": [ "[parameters('hostingPlanName')]" ],
+                "dependsOn": [ "[parameters('hostingPlanName')]" ],
                 "properties": {
                     "serverFarmId": "[parameters('hostingPlanName')]"
                 }
-	    },
-	    {
+            },
+            {
                 "type": "Microsoft.Web/sites/providers/links",
                 "apiVersion": "2015-01-01",
                 "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
@@ -120,8 +120,8 @@ L'exemple suivant applique un verrou ReadOnly à une application web.
                     "notes": "This web site uses the storage account to store user information."
                 }
     	    }
-	],
-	"outputs": {}
+        ],
+        "outputs": {}
     }
 
 
@@ -129,4 +129,4 @@ L'exemple suivant applique un verrou ReadOnly à une application web.
 
 - Pour plus d'informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/07/2015" 
 	ms.author="glenga"/>
 
 
@@ -62,23 +62,23 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
                 });
         }
 
-    Ce code récupère l'URI de canal ChannelURI pour l'application auprès du Service de notifications Push Microsoft (MPNS) utilisés par « Silverlight » Windows Phone 8.x, puis il inscrit ce ChannelURI aux notifications Push.
+    Ce code récupère l’URI de canal ChannelURI pour l’application auprès du Service de notifications Push Microsoft (MPNS) utilisés par « Silverlight » Windows Phone 8.x, puis il inscrit ce ChannelURI aux notifications Push.
 
-	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
+	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l’appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
 4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
-	Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
+	Cela permet de s’assurer que l’inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
 
-5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s'affiche avec la clé d'inscription.
+5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s’affiche avec la clé d’inscription.
   
 6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** soit activée.
 
    	![Activer les notifications dans VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
-   	Cela permet de s'assurer que votre application peut déclencher des notifications toast.
+   	Cela permet de s’assurer que votre application peut déclencher des notifications toast.
 
 ##<a id="update-scripts"></a> Mise à jour des scripts serveur pour l'envoi de notifications Push
 
@@ -118,13 +118,13 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour envoyer les notifications Push.
 
-	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d'appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur **Télécharger** et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone].
+	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d’appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur **Télécharger** et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone].
 
 ##<a id="test"></a> Test des notifications Push dans votre application
 
-1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
+1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l’application.
 
-    >[AZURE.NOTE]Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l'émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l'horloge dans l'émulateur avant les tests.
+    >[AZURE.NOTE]Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l’émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l'horloge dans l'émulateur avant les tests.
 
 5. Dans l'application, entrez le texte « hello push » dans la zone de texte, cliquez sur **Enregistrer**, puis cliquez immédiatement sur le bouton Démarrer ou sur le bouton Précédent pour quitter l'application.
 
@@ -178,4 +178,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Ajout d'opérations à une API dans Gestion des API Azure
@@ -22,13 +22,13 @@ Pour qu'une API puisse être utilisée dans Gestion des API, vous devez ajouter 
 
 ## <a name="add-operation"> </a>Ajout d’une opération
 
-Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API.
+Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
 >Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
 
-Sélectionnez l'API souhaitée dans le portail Gestion des API, puis sélectionnez l'onglet **Opérations**.
+Sélectionnez l’API souhaitée dans le portail de publication, puis l’onglet **Opérations**.
 
 ![Opérations][api-management-operations]
 
@@ -164,4 +164,4 @@ Une fois les opérations ajoutées à une API, l'étape suivante est l'associati
 [Création et publication d’un produit]: api-management-howto-add-products.md
 [Mise en cache des résultats d'opérations dans Gestion des API Azure]: api-management-howto-cache.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

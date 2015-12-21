@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec Azure PowerShell
@@ -32,7 +32,38 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 ou version ultérieure**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md).
+
+
+##Installer Azure PowerShell 1.0 et versions ultérieures
+
+Pour commencer, vous devez désinstaller les versions 0.9x d’Azure PowerShell. Pour vérifier la version PowerShell installée, exécutez la commande suivante dans une fenêtre PowerShell :
+
+	Get-Module *azure*
+	
+Pour désinstaller l’ancienne version, exécutez **Programmes et fonctionnalités** dans le Panneau de configuration et supprimez la version installée si elle est antérieure à PowerShell 1.0.
+
+Il existe deux options principales pour l’installation d’Azure PowerShell.
+
+- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Pour plus d’informations, consultez [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez [Installer Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Si vous êtes familiarisé avec l’installation à partir de PowerShell Gallery, il s’agit du premier canal pour bénéficier des dernières nouveautés d’Azure PowerShell.
 
 ## Créer un compte Azure Data Lake Store
 
@@ -94,7 +125,7 @@ Vous pouvez créer des répertoires sous votre compte Azure Data Lake Store pour
 
 ## Télécharger des données sur votre Azure Data Lake Store
 
-Vous pouvez télécharger vos données sur Data Lake Store directement à la racine ou dans un répertoire que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment télécharger des exemples de données dans le répertoire (**mynewdirectory**) que vous avez créé dans la section précédente.
+Vous pouvez télécharger vos données sur Data Lake Store directement à la racine ou dans un répertoire que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment charger des exemples de données sur le répertoire (**mynewdirectory**) que vous avez créé dans la section précédente.
 
 Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
 
@@ -115,7 +146,7 @@ Utilisez la commande suivante pour supprimer un fichier :
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
 	
-Lorsque vous y êtes invité, entrez **Y** pour supprimer l'élément. Si vous avez plusieurs fichiers à supprimer, vous pouvez fournir tous les chemins d'accès séparés par des virgules.
+Quand vous y êtes invité, entrez **Y** pour supprimer l’élément. Si vous avez plusieurs fichiers à supprimer, vous pouvez fournir tous les chemins d'accès séparés par des virgules.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
@@ -125,14 +156,14 @@ Utilisez la commande suivante pour supprimer votre compte Data Lake Store.
 
 	Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
+Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 
 ## Autres méthodes de création d'un compte Data Lake Store
 
 - [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-- [Prise en main de Data Lake Store avec l’interface de ligne de commande CLI Azure](data-lake-store-get-started-cli.md)
+- [Prise en main de Data Lake Store avec l’interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 
 
 ## Étapes suivantes
@@ -141,4 +172,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

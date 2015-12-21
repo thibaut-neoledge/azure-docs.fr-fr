@@ -265,7 +265,7 @@ Les activités HDInsight (Hive, Pig, MapReduce, Hadoop Streaming) prennent en ch
 ## Notes pour la version du 10/04/2015 de Data Factory
 Vous voyez maintenant les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** dans le panneau **TABLE**. Ces listes sont triées selon l’heure de mise à jour de la tranche. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
 
--  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+-  Vous mettez à jour l’état de la tranche manuellement, par exemple à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
 -  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
 
 Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur **Filtre** dans la barre d’outils pour filtrer les tranches.
@@ -304,7 +304,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 - **SqlSink** prend en charge une nouvelle propriété : **WriteBatchTimeout**. Cette propriété vous permet de configurer la durée d’attente de l’opération d’insertion par lots avant l’arrivée à expiration de l’opération. Pour une copie hybride (opération de copie qui implique une source de données locale et une source de données du cloud), vous devez disposer de la passerelle version 1.4 ou ultérieure pour pouvoir utiliser cette propriété. 
 - Le **service lié SQL Server** prend désormais en charge **l’authentification Windows**. 
 	- Lors de la création d’un service lié SQL Server à l’aide du portail, vous pouvez maintenant choisir d’utiliser l’authentification Windows et définir les informations d’identification appropriées. Pour cela, vous avez besoin de la passerelle version 1.4 ou ultérieure. 
-	- Lors de la création d’un service lié SQL Server à l’aide d’Azure PowerShell, vous pouvez spécifier les informations de connexion en texte brut ou les chiffrer en utilisant l’[applet de commande New-AzureDataFactoryEncryptValue][adf-encrypt-value-cmdlet] mise à jour, puis utiliser la chaîne chiffrée pour la propriété de chaîne de connexion dans la charge utile JSON du service lié. Consultez [Services liés][adf-msdn-linked-services] pour plus d’informations sur la définition d’un service lié au format JSON. La fonctionnalité de chiffrement n’est pas encore prise en charge par l’applet de commande New-AzureDataFactoryEncryptValue. 
+	- Lors de la création d’un service lié SQL Server à l’aide d’Azure PowerShell, vous pouvez spécifier les informations de connexion en texte brut ou les chiffrer en utilisant l’applet de commande [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) mise à jour, puis utiliser la chaîne chiffrée pour la propriété de chaîne de connexion dans la charge utile JSON du service lié. La fonctionnalité de chiffrement n’est pas encore prise en charge par l’applet de commande New-AzureRmDataFactoryEncryptValue. 
 
 ## Notes pour la version du 11/12/2014 de Data Factory ##
 
@@ -313,16 +313,16 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 - Intégration d'Azure Machine Learning
 	- Cette version du service Azure Data Factory vous permet d’intégrer Azure Data Factory à Azure Machine Learning (ML) via **AzureMLLinkedService** et **AzureMLBatchScoringActivity**. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning][adf-azure-ml]. 
 - Indication de l'état de la version de la passerelle
-	- L'état « NewVersionAvailable » est affiché dans le portail Azure et dans la sortie de l'applet de commande Get-AzureDataFactoryGateway, s'il existe une version de la passerelle plus récente que celle qui est actuellement installée. Vous pouvez ensuite suivre les indications du portail pour télécharger le nouveau fichier d'installation (.msi), et l'exécuter pour installer la passerelle la plus récente. Aucune configuration supplémentaire n'est nécessaire.
+	- L’état « NewVersionAvailable » est affiché dans le portail Azure et dans la sortie de l’applet de commande Get-AzureRmDataFactoryGateway s’il existe une version de la passerelle plus récente que celle qui est actuellement installée. Vous pouvez ensuite suivre les indications du portail pour télécharger le nouveau fichier d'installation (.msi), et l'exécuter pour installer la passerelle la plus récente. Aucune configuration supplémentaire n'est nécessaire.
 
 ### Changements
 
 - Suppression de JobsContainer dans HdInsightOnDemandLinkedService.
-	- Dans la définition JSON de HDInsightOnDemandLinkedService, vous n’avez plus besoin de spécifier la propriété **jobsContainer**. Si la propriété est spécifiée pour un service lié à la demande, elle est ignorée. Vous pouvez supprimer la propriété de la définition JSON du service lié, et mettre à jour la définition du service lié à l'aide de l'applet de commande New-AzureDataFactoryLinkedService.
+	- Dans la définition JSON de HDInsightOnDemandLinkedService, vous n’avez plus besoin de spécifier la propriété **jobsContainer**. Si la propriété est spécifiée pour un service lié à la demande, elle est ignorée. Vous pouvez supprimer la propriété de la définition JSON du service lié, et mettre à jour la définition du service lié à l’aide de l’applet de commande New-AzureRmDataFactoryLinkedService.
 - Paramètres de configuration facultatifs pour HDInsightOnDemandLinkedService
 	- Cette version introduit la prise en charge de quelques paramètres de configuration facultatifs pour HDInsightOnDemandLinked (cluster HDInsight à la demande). Pour plus d’informations, consultez les [propriétés de ClusterCreateParameters][on-demand-hdi-parameters].
 - Suppression de l'emplacement de la passerelle
-	- Durant la création d'une passerelle Azure Data Factory via le portail ou PowerShell (New-AzureDataFactoryGateway), vous n'avez plus besoin de spécifier l'emplacement de la passerelle. La région de la fabrique de données est héritée. De même, pour configurer un service SQL Server lié à l'aide de JSON, la propriété « gatewayLocation » n'est plus nécessaire. Le Kit de développement logiciel (SDK) Data Factory .NET est également mis à jour pour refléter ces changements.
+	- Durant la création d’une passerelle Azure Data Factory via le portail ou PowerShell (New-AzureRmDataFactoryGateway), vous n’avez plus besoin de spécifier l’emplacement de la passerelle. La région de la fabrique de données est héritée. De même, pour configurer un service SQL Server lié à l'aide de JSON, la propriété « gatewayLocation » n'est plus nécessaire. Le Kit de développement logiciel (SDK) Data Factory .NET est également mis à jour pour refléter ces changements.
 	- Si vous utilisez une ancienne version du Kit de développement logiciel (SDK) et d'Azure PowerShell, vous devez toujours fournir le paramètre d'emplacement.
  
      
@@ -354,4 +354,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

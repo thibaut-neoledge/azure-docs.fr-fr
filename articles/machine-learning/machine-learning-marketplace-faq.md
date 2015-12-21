@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 #Publication et utilisation d’applications Machine Learning sur Azure Marketplace : forum aux questions
@@ -77,4 +77,4 @@ Veuillez contacter l’équipe Azure Marketplace à l’adresse <datamarketbd@mi
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

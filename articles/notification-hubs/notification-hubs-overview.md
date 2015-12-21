@@ -80,7 +80,7 @@ Les notifications Push sont l'une des fonctionnalités les plus demandées dans 
 
 ##Pourquoi utiliser Notification Hubs ?
 
-Notification Hubs simplifie votre travail : vous n’avez plus besoin de gérer les problèmes relatifs aux notifications Push. Au lieu de cela, il vous suffit d’utiliser un concentrateur de notification. Notification Hubs utilise une infrastructure de notifications Push complète, multi-plateforme, avec montée en charge et réduit considérablement le code Push qui s’exécute dans le serveur principal de l’application. Notification Hubs implémente toutes les fonctionnalités d’une infrastructure Push. La seule responsabilité des appareils est d’enregistrer le handle PNS et le serveur principal est responsable de l’envoi des messages indépendants d’une plateforme aux utilisateurs et groupes d’intérêt.
+Notification Hubs simplifie votre travail : vous n’avez plus besoin de gérer les problèmes relatifs aux notifications Push. Au lieu de cela, il vous suffit d’utiliser un hub de notification. Notification Hubs utilise une infrastructure de notifications Push complète, multi-plateforme, avec montée en charge et réduit considérablement le code Push qui s’exécute dans le serveur principal de l’application. Notification Hubs implémente toutes les fonctionnalités d’une infrastructure Push. La seule responsabilité des appareils est d’enregistrer le handle PNS et le serveur principal est responsable de l’envoi des messages indépendants d’une plateforme aux utilisateurs et groupes d’intérêt.
 
 ![][1]
 
@@ -107,7 +107,7 @@ Notification Hubs offre une infrastructure de notification Push prête à l’em
 
 	- *Segmentation* : transmission de notifications Push vers un segment complexe défini par des expressions de balise (par exemple, des appareils situés à New York suivant les match des Yankees).
 
-	Chaque appareil, lors de l’envoi de son handle à un concentrateur de notification, peut indiquer une ou plusieurs _balises_. Pour plus d’informations sur les balises, consultez [cette page]. Il n'est pas nécessaire que les balises soient préapprovisionnées ou éliminées. Les balises fournissent un moyen simple d'envoyer des notifications à des utilisateurs ou des groupes d'intérêt. Les balises pouvant contenir n'importe quel identificateur propre à une application (par exemple des ID d'utilisateur ou de groupe), leur utilisation libère le serveur principal de l'application de la charge de stockage et de gestion des handle des appareils.
+	Chaque appareil, lors de l’envoi de son handle à un hub de notification, peut indiquer une ou plusieurs _balises_. Pour plus d’informations sur les balises, consultez [cette page]. Il n'est pas nécessaire que les balises soient préapprovisionnées ou éliminées. Les balises fournissent un moyen simple d'envoyer des notifications à des utilisateurs ou des groupes d'intérêt. Les balises pouvant contenir n'importe quel identificateur propre à une application (par exemple des ID d'utilisateur ou de groupe), leur utilisation libère le serveur principal de l'application de la charge de stockage et de gestion des handle des appareils.
 
 - **Personnalisation** : chaque appareil peut avoir un ou plusieurs modèles pour effectuer une localisation et une personnalisation en fonction des appareils sans affecter le code principal.
 
@@ -123,7 +123,7 @@ En vue de permettre une expérience transparente et unifiée dans l’ensemble d
 Les développeurs Mobile Apps peuvent utiliser Notification Hubs avec le flux de travail suivant :
 
 1. Récupération du handle PNS de l’appareil
-2. Inscription de l'appareil et des [modèles] auprès de Notification Hubs via l'API d'inscription du Kit de développement logiciel (SDK) client Mobile Apps
+2. Inscrire l’appareil et des [modèles] auprès de Notification Hubs par le biais de l’API d’inscription du Kit de développement logiciel (SDK) client Mobile Apps
     + Notez que Mobile Apps supprime tous les mots clés des inscriptions pour des raisons de sécurité. Utilisez Notification Hubs directement depuis votre serveur principal pour associer des mots clés aux appareils.
 3. Envoyez des notifications de votre serveur principal d’application avec Notification Hubs
 
@@ -161,8 +161,8 @@ Les références d’API managées .NET pertinentes pour les notifications Push 
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-mobile-value-prop/
-  [modèles]: https://msdn.microsoft.com/fr-FR/library/azure/dn530748.aspx
+  [modèles]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

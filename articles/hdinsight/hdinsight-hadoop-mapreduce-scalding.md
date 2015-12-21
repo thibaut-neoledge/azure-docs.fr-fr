@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/15/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Développer des tâches MapReduce Scalding avec Apache Hadoop dans HDInsight
@@ -231,7 +231,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 > [AZURE.NOTE]Les étapes suivantes utilisent Windows PowerShell. Pour d'autres méthodes d'exécution des tâches MapReduce, consultez [Utilisation de MapReduce dans Hadoop sous HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Installez et configurez Azure PowerShell](../install-configure-powershell.md).
+1. [Installez et configurez Azure PowerShell](../powershell-install-configure.md).
 
 2. Démarrer Azure PowerShell et se connecter à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
@@ -298,7 +298,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
             -HttpCredential $creds
         #Download the output of the job
         Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-r-00000 `
+            -Blob example/wordcountout/part-00000 `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -344,4 +344,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

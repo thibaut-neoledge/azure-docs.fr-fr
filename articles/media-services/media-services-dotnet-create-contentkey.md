@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -37,9 +37,6 @@ Les ressources chiffrées doivent être associées à des **ContentKey**. Cet ar
 
 Une des valeurs que vous devez définir lors de la création d’une clé de contenu est le type de clé de contenu. Choisissez une des valeurs suivantes.
 
-    /// <summary>
-    /// Specifies the type of a content key.
-    /// </summary>
     public enum ContentKeyType
     {
         /// <summary>
@@ -54,9 +51,14 @@ Une des valeurs que vous devez définir lors de la création d’une clé de con
         StorageEncryption = 1,
 
         /// <summary>
-        /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
+        /// Specifies a content key for configuration encryption.
         /// </summary>
         ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
     }
 
 ##<a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
@@ -144,4 +146,4 @@ appel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

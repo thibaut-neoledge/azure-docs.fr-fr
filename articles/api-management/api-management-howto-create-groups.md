@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
@@ -34,7 +34,7 @@ Ce guide explique comment les administrateurs de l'instance Gestion des API peuv
 
 ## <a name="create-group"> </a>Création d’un groupe
 
-Pour créer un nouveau groupe, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour créer un groupe, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -111,4 +111,4 @@ Une fois l’association entre le développeur et le groupe ajoutée, vous pouve
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

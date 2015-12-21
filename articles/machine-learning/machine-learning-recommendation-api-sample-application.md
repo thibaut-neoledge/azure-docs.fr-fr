@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/>
 
 
@@ -58,6 +58,7 @@ En général, l'appel de la fonction Obtenez une recommandation dure un certain 
 
 * Visual Studio 2013
 * Accès à Internet 
+* Abonnement aux API Recommendations (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Solution de la version d’évaluation de l’application Azure Machine Learning
 
@@ -89,4 +90,4 @@ Pour une description complète de l’API, consultez la documentation de Microso
 La version d’évaluation n’est pas conçue pour être exécutée dans un environnement de production. Les données fournies dans le catalogue ne sont pas nombreuses et ne fournissent pas un modèle de recommandation éloquent. Elles sont seulement fournies à titre de démonstration.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

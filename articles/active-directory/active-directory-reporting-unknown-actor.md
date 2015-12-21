@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Événement « Acteur inconnu » lors de la création de rapports Azure Active Directory
 
-## Articles de la documentation sur la création de rapports
-
- - [API de création de rapports](active-directory-reporting-api-getting-started.md)
- - [Événements d'audit](active-directory-reporting-audit-events.md)
- - [Rétention](active-directory-reporting-retention.md)
- - [Versions préliminaires](active-directory-reporting-previews.md)
- - [action](active-directory-reporting-search.md)
- - [Renvoi](active-directory-reporting-backfill.md)
- - [Latences](active-directory-reporting-latencies.md)
- - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
+*Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Dans de rares occasions, les champs « Acteur » ou « Utilisateur » des rapports Azure AD peuvent contenir des valeurs inhabituelles. Ce comportement est normal. Il est dû à l’un des deux événements suivants :
 
@@ -49,4 +40,4 @@ Il s'agit d'un bogue connu et nous travaillons assidûment pour le résoudre.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

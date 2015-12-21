@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 #Présentation de Gestion des API
@@ -88,7 +88,7 @@ Pour obtenir la liste complète des stratégies Gestion des API, consultez la pa
 
 ## <a name="developer-portal"> </a> Portail des développeurs
 
-Le portail des développeurs est l'endroit où les développeurs peuvent en savoir plus sur votre API, afficher et appeler des opérations et s'abonner à des produits. Les prospects peuvent consulter le portail des développeurs, afficher les API et opérations et se connecter. L'URL de votre portail des développeurs se trouve sur le tableau de bord du portail Azure pour votre instance du service Gestion des API.
+Le portail des développeurs est l'endroit où les développeurs peuvent en savoir plus sur votre API, afficher et appeler des opérations et s'abonner à des produits. Les prospects peuvent consulter le portail des développeurs, afficher les API et opérations et se connecter. L’URL du portail des développeurs se trouve sur le tableau de bord du portail Azure Classic pour votre instance de service Gestion des API.
 
 Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutant du contenu personnalisé, en personnalisant des styles et en ajoutant votre marque.
 
@@ -114,4 +114,4 @@ Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutan
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

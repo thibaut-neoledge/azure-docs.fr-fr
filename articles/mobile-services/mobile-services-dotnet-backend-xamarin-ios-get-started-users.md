@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -55,7 +55,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Lorsque l'application démarre, elle ne se connecte alors pas à votre service mobile et n'affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
+Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Quand l’application démarre, elle ne se connecte pas à votre service mobile et n’affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
 
 1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez les déclarations suivantes à QSTodoService :
 
@@ -139,4 +139,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

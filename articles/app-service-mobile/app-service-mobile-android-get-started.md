@@ -32,13 +32,10 @@ Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels A
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un [compte Azure actif](http://azure.microsoft.com/pricing/free-trial/).
-
-* Un PC avec [Visual Studio Community 2013] ou version ultérieure.
-
 * [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android.
-
 * Kit de développement logiciel (SDK) Azure Mobile Android, qui est automatiquement inclus dans le projet de démarrage rapide que vous téléchargez.
+* Un PC avec [Visual Studio Community 2013] ou version ultérieure : inutile pour un serveur principal Node.js.
+* Un [compte Azure actif](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Créer un serveur principal d'applications mobiles Azure
 
@@ -59,4 +56,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

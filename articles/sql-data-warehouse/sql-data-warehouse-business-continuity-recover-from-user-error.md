@@ -132,8 +132,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Statut d’opération de base de données]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtention de base de données supprimée pouvant être restaurée]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Liste des bases de données supprimées pouvant être restaurées]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/fr-FR/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

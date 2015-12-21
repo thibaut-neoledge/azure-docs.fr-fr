@@ -121,4 +121,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

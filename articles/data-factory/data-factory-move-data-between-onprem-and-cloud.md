@@ -85,7 +85,7 @@ Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure
 Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
 
 ### Étape 1 : Création d’une fabrique de données Microsoft Azure
-Dans cette étape, utilisez le portail Azure Classic pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l’aide des cmdlets Azure Data Factory.
+Dans cette étape, utilisez le portail Azure Classic pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l’aide des applets de commande Azure Data Factory.
 
 1.	Une fois que vous êtes connecté au [portail Azure](https://portal.azure.com), cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**.
 
@@ -385,7 +385,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités sont de **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -431,7 +431,7 @@ Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller 
 	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l’**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
     
 
-	-  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+	-  Vous mettez à jour l’état de la tranche manuellement, par exemple à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
 	-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
  
 	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
@@ -526,9 +526,9 @@ Vous pouvez également créer un service lié SQL Server à l’aide du panneau 
 
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
-Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
+Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure Classic pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
 
-Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Les informations d’identification chiffrées retournées par cette applet de commande peuvent être ajoutées à l’élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou dans l’extrait de code JSON dans Data Factory Editor sur le portail.
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez alors chiffrer les informations d’identification retournées par cette applet de commande et les ajouter à l’élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor dans le portail.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -538,7 +538,7 @@ Il existe une autre approche pour définir les informations d’identification �
 
 
 ## Création et enregistrement d’une passerelle à l’aide d’Azure PowerShell 
-Cette section décrit comment créer et enregistrer une passerelle à l’aide des cmdlets Azure PowerShell.
+Cette section décrit comment créer et enregistrer une passerelle à l’aide des applets de commande Azure PowerShell.
 
 1. Lancez **Azure PowerShell** en mode administrateur. 
 2. Les applets de commande Azure Data Factory sont disponibles en mode **AzureResourceManager**. Exécutez la commande suivante pour basculer vers le mode **AzureResourceManager**.     
@@ -546,14 +546,14 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
         switch-azuremode AzureResourceManager
 
 
-2. Utilisez l’applet de commande **New-AzureDataFactoryGateway** pour créer une passerelle logique, comme suit :
+2. Utilisez l’applet de commande **New-AzureRmDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Exemple de commande et de sortie** :
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -567,15 +567,15 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		ProvisioningState : Succeeded
 
 
-3. Utilisez l’applet de commande **New-AzureDataFactoryGatewayKey** pour générer une clé d’inscription pour la nouvelle passerelle et stockez la clé dans une variable locale **$Key** :
+3. Utilisez l’applet de commande **New-AzureRmDataFactoryGatewayKey** pour générer une clé d’inscription pour la nouvelle passerelle et stockez la clé dans une variable locale **$Key** :
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
+		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Exemple de sortie de commande** :
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. Dans Azure PowerShell, accédez au dossier **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
@@ -584,11 +584,11 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		
 		Agent registration is successful!
 
-5. Vous pouvez utiliser l’applet de commande **Get-AzureDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque l’**état** est **online**, cela signifie que votre passerelle est prête.
+5. Vous pouvez utiliser l’applet de commande **Get-AzureRmDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque l’**état** est **online**, cela signifie que votre passerelle est prête.
 
-		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces cmdlets, consultez la rubrique Référence des cmdlets Azure Data Factory.
+Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureRmDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureRmDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.
 
 
 ## Flux de données pour la copie à l’aide de la passerelle de gestion des données
@@ -609,7 +609,7 @@ Voici un flux de données global et un résumé des opérations servant à la co
 1. Comme mentionné ci-dessus dans la procédure étape par étape, il existe plusieurs façons de configurer les informations d’identification de magasins de données locaux à l’aide de Data Factory. Les considérations liées aux ports varient selon ces options.	
 
 	- Utilisation de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows local de la machine contenant la passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
-	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : a. si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
+	2.	Utilisation de l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) : a. si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Si vous utilisez l’application **Configuration des informations d’identification**, vous devez la lancer sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
@@ -618,4 +618,4 @@ Voici un flux de données global et un résumé des opérations servant à la co
 	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

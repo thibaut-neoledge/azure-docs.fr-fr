@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,7 +39,7 @@ Vous allez déployer une application web sur Azure App Service en utilisant le m
 Ce didacticiel nécessite les éléments suivants :
 
 -	Un [compte Microsoft Azure](/account/) actif.
--	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409). Si vous utilisez Visual Studio, les étapes peuvent varier.
 
 > [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : 
 > + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. 
@@ -51,31 +51,28 @@ Ce didacticiel nécessite les éléments suivants :
 
 Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC par défaut dans Visual Studio 2013 sur App Service, puis l'intégrer à un nouveau point de terminaison CDN. Procédez comme suit :
 
-1. Dans Visual Studio 2013, créez une application web ASP.NET à partir de la barre de menu en accédant à **Fichier > Nouveau > Projet > Web > Application web ASP.NET**. Attribuez-lui un nom et cliquez sur **OK**.
+1. Dans Visual Studio 2015, créez une application web ASP.NET à partir de la barre de menus en accédant à **Fichier > Nouveau > Projet > Web > Application web ASP.NET**. Attribuez-lui un nom et cliquez sur **OK**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Sélectionnez **MVC**, puis cliquez sur **Gérer les abonnements**.
+3. Sélectionnez **MVC** et cliquez sur **OK**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Cliquez sur **Se connecter**.
+4. Si vous ne vous êtes pas encore connecté à votre compte Azure, cliquez sur l’icône du compte dans l’angle supérieur droit et suivez la boîte de dialogue pour vous y connecter. Une fois que vous avez terminé, configurez votre application comme indiqué ci-dessous, puis cliquez sur **Nouveau** pour créer un plan de service d’application pour votre application.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. Dans la page de connexion, connectez-vous au compte Microsoft que vous avez utilisé pour activer votre compte Azure.
-7. Une fois connecté, cliquez sur **Fermer**. Cliquez ensuite sur **OK** pour continuer.
+5. Configurez un nouveau plan de service d’application dans la boîte de dialogue comme indiqué ci-dessous et cliquez sur **OK**.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Si vous n'avez pas déjà créé d'application web dans Azure, Visual Studio peut vous aider à le faire. Dans la boîte de dialogue **Configurer le site web Microsoft Azure**, vérifiez que le nom de votre site est unique. Cliquez ensuite sur **OK**.
+8. Cliquez sur **Créer** pour créer l’application web.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Une fois votre application ASP.NET créée, publiez-la sur Azure dans le volet Activité de publication sur le web en cliquant sur **Publier `<app name>` sur ce site dès maintenant**. Cliquez sur **Publier** pour terminer le processus.
+9. Une fois votre application ASP.NET créée, publiez-la sur Azure dans le volet Activité d’Azure App Service en cliquant sur **Publier `<app name>` dans cette application web**. Cliquez sur **Publier** pour terminer le processus.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Une fois publiée, votre application web s'affiche dans le navigateur.
@@ -87,7 +84,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	> [AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure Classic affiche son URL et le domaine d’origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
 
-3. De retour dans le portail Azure Classic, dans l’onglet **CDN**, cliquez sur le nom du point de terminaison CDN que vous venez de créer.
+3. De retour dans le portail Azure Classic, sous l’onglet **CDN**, cliquez sur le nom du point de terminaison CDN que vous venez de créer.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -169,7 +166,7 @@ Une simple action `Index` permet aux clients de spécifier les superlatifs dans 
 
 Procédez comme ci-dessus pour configurer cette action de contrôleur :
 
-1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. Remplacez votre chemin d’accès au fichier par `~/Content/chuck.bmp` et votre nom de CDN par `yourCDNName`.
+1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. Remplacez `~/Content/chuck.bmp` par le chemin d’accès à votre fichier et `yourCDNName` par le nom de votre CDN.
 
 
         using System;
@@ -382,7 +379,7 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -566,4 +563,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

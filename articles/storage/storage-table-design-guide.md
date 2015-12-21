@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/03/2015"
+   ms.date="12/03/2015"
    ms.author="jahogg"/>
 
 # Guide de conception de table Azure Storage : conception de tables évolutives et performantes
@@ -157,7 +157,7 @@ Pour plus d’informations, consultez la page [Présentation du modèle de donn�
 Le stockage de table est relativement peu coûteux, mais vous devez y inclure les estimations de coût pour l'utilisation des capacités et la quantité de transactions dans le cadre de l'évaluation d'une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées afin d'améliorer les performances ou l'extensibilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
 ### Comparaison des tables Azure et SQL Azure  
-Pour consulter une comparaison entre Base de données SQL Azure (service de base de données relationnelle) et le service de Table, accédez à la page [Stockage de tables Azure et base de données SQL Windows Azure - comparaison et différences](http://msdn.microsoft.com/library/azure/jj553018.aspx) sur MSDN.
+Pour consulter une comparaison entre Base de données SQL Azure (service de base de données relationnelle) et le service de Table, accédez à la page [Stockage de tables Azure et base de données SQL Microsoft Azure - comparaison et différences](http://msdn.microsoft.com/library/azure/jj553018.aspx) sur MSDN.
 
 ## Conseils pour la conception de table  
 Ces listes résument certains des principaux conseils que vous devez garder à l’esprit lorsque vous concevez vos tables. Ces conseils seront détaillés ultérieurement dans ce guide. Ils sont très différents de ceux généralement prodigués pour la conception d’une base de données relationnelle.
@@ -202,7 +202,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 |--------------|-----------|
 |**PartitionKey** (nom du service)|Chaîne|
 |**RowKey** (ID d’employé)|Chaîne|
-|**FirstName**|Chaîne|
+|**FirstName**|String|
 |**LastName**|Chaîne|
 |**Age**|Integer|
 |**EmailAddress**|Chaîne|
@@ -302,6 +302,16 @@ Les modèles suivants de la section [Modèles de conception de table](#table-des
 -	[Modèle de clé composée](#compound-key-pattern) : utilisez les valeurs de **RowKey** composée pour permettre à un client de rechercher des données associées en utilisant une seule requête de pointage.  
 -	[Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
+## Chiffrement de données de table    
+     
+La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
+
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+
+Notez que la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.
+
+Pour plus d’informations sur le chiffrement des données de table, consultez [Chiffrement côté client et coffre de clés Azure pour Microsoft Azure Storage](storage-client-side-encryption.md).
+
 ## Modélisation des relations  
 
 La création de modèles de domaine est une étape importante pour concevoir des systèmes complexes. En règle générale, le processus de modélisation permet d'identifier les entités et les relations entre eux, pour mieux comprendre le domaine de l'entreprise et concevoir votre système. Cette section se concentre sur la manière dont vous pouvez traduire certains des types de relations courantes découverts dans les modèles du domaine pour les conceptions du service de Table. Le processus de mappage à partir d'un modèle de données logique vers un modèle de données NoSQL physique est très différent de celui utilisé lors de la conception d'une base de données relationnelle. La conception de bases de données relationnelles suppose généralement un processus de normalisation des données optimisé pour réduire la redondance, ainsi qu'une fonctionnalité de requête déclarative qui résume la façon dont fonctionne l'implémentation de la base de données.
@@ -383,7 +393,7 @@ Votre choix entre ces options, ainsi que la détermination des avantages et des 
 
 ### Relations un à un  
 
-Les modèles de domaines peuvent inclure des relations un à un entre les entités. Si vous devez implémenter une relation un à un dans le service de Table, vous devez également choisir comment lier les deux entités associées lorsque vous avez besoin de récupérer les deux. Ce lien peut être implicite en étant basé sur une convention dans les valeurs de clé, ou explicite en stockant un lien sous la forme de valeurs de **PartitionKey** et de **RowKey** dans chaque entité et son entité associée. Pour savoir quand vous devez stocker les entités associées dans la même partition, consultez la section [Relations un à plusieurs](#one-to-many-relationships).
+Les modèles de domaines peuvent inclure des relations un à un entre les entités. Si vous devez implémenter une relation un à un dans le service de Table, vous devez également choisir comment lier les deux entités associées lorsque vous avez besoin de récupérer les deux. Ce lien peut être implicite s’il est basé sur une convention dans les valeurs de clé, ou explicite si l’on stocke un lien sous forme de valeurs de **PartitionKey** et de **RowKey** dans chaque entité et son entité associée. Pour savoir quand stocker les entités associées dans la même partition, consultez la section [Relations un à plusieurs](#one-to-many-relationships).
 
 Notez que certaines considérations sur l'implémentation peuvent vous conduire à implémenter des relations un à un dans le service de Table :
 
@@ -398,7 +408,7 @@ Par exemple, si vous avez des petites tables qui contiennent des données qui ne
 
 ### Relations d'héritage  
 
-Si votre application cliente utilise un ensemble de classes qui font partie d'une relation d'héritage pour représenter des entités métier, vous pouvez facilement conserver ces entités dans le service de Table. Par exemple, l’ensemble de classes suivant peut être défini dans votre application cliente où **Person** (une personne) est une classe abstraite.
+Si votre application cliente utilise un ensemble de classes qui font partie d'une relation d'héritage pour représenter des entités métier, vous pouvez facilement conserver ces entités dans le service de Table. Par exemple, l’ensemble de classes suivant peut être défini dans votre application cliente, **Person** étant une classe abstraite.
 
 ![][3]
 
@@ -413,7 +423,7 @@ Dans les sections précédentes, vous avez consulté des explications détaillé
 
 ![][5]
 
-Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien sûr bien d'autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios pour un service de Table consiste à stocker des [affichages matérialisés](https://msdn.microsoft.com/library/azure/dn589782.aspx) à partir du modèle [Répartition de la responsabilité de requête de commande](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
+Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien sûr bien d'autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios de service de Table consiste à stocker des [affichages matérialisés](https://msdn.microsoft.com/library/azure/dn589782.aspx) à partir du modèle [Répartition de la responsabilité de requête de commande](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
 
 ### Modèle d'index secondaire intra-partition :
 Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l'aide d'une EGT.
@@ -423,7 +433,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 
 ![][6]
 
-Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de la **RowKey**.
+Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey**.
 
 #### Solution
 Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie en utilisant une autre valeur de **RowKey**. Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employés selon leur adresse de messagerie ou leur ID d’employé. Les valeurs de préfixe pour **RowKey**, « empid\_ » et « email\_ » permettent d’interroger un seul employé ou une plage d’employés à l’aide d’une plage d’adresses de messagerie ou d’ID d’employé.
@@ -433,7 +443,7 @@ Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs
 Les deux critères de filtre suivants (l'un recherchant selon l'ID d'employé et l'autre selon l'adresse de messagerie) spécifient tous deux des requêtes de pointage :
 
 -	$filter=(PartitionKey eq ’Sales’) and (RowKey eq ’empid\_000223’)  
--	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
+-	$filter=(PartitionKey eq ’Sales’) and (RowKey eq ’email_jonesj@contoso.com')  
 
 Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifier une plage triée dans l’ordre des ID d’employé, ou une plage triée dans l’ordre des adresses de messagerie en interrogeant des entités avec le préfixe approprié ajouté à la **RowKey**.
 
@@ -451,7 +461,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 -	Vous pouvez maintenir la cohérence de vos entités en double en utilisant des EGT pour mettre à jour de façon atomique les deux copies d'une même entité. Cela implique un stockage de toutes les copies d'une entité dans la même partition. Pour en savoir plus, consultez la section [Utilisation des transactions de groupe d’entités](#entity-group-transactions).  
 -	La valeur de la **RowKey** doit être unique pour chaque entité. Nous vous conseillons d'utiliser des valeurs de clé composée.  
 -	Le remplissage des valeurs numériques dans les **RowKey** (par exemple, l’ID d’employé 000223) permet de corriger le tri et le filtrage en fonction des limites inférieure et supérieure.  
--	Vous n'avez pas toujours besoin de dupliquer toutes les propriétés de votre entité. Par exemple, si les requêtes de recherche des entités à l’aide de l’adresse de messagerie dans la **RowKey** ne nécessitent jamais l’âge de l’employé, ces entités peuvent avoir la structure suivante :
+-	Vous n'avez pas toujours besoin de dupliquer toutes les propriétés de votre entité. Par exemple, si les requêtes de recherche des entités à l’aide de l’adresse de messagerie dans la **RowKey** n’ont jamais besoin de l’âge de l’employé, ces entités peuvent présenter la structure suivante :
 
 ![][8]
 
@@ -478,7 +488,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 
 ![][9]
 
-Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de la **RowKey**.
+Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey**.
 
 Vous prévoyez un volume très élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation de votre client par le service de Table.
 
@@ -494,7 +504,7 @@ Les deux critères de filtre suivants (l'un recherchant selon l'ID d'employé et
 
 Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifier une plage triée dans l’ordre des ID d’employé, ou une plage triée dans l’ordre des adresses de messagerie en interrogeant des entités avec le préfixe approprié ajouté à la **RowKey**.
 
--	Pour rechercher tous les employés du service des ventes ayant un ID d’employé situé dans la plage de **000100** à **000199**, utilisez : $filter=(PartitionKey eq 'empid\_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
+-	Pour rechercher tous les employés du service des ventes ayant un ID d’employé situé dans la plage de **000100** à **000199**, utilisez : $filter=(PartitionKey eq ’empid\_Sales’) et (RowKey ge ’000100’) et (RowKey le ’000199’)  
 -	Pour rechercher tous les employés du service des ventes ayant une adresse de messagerie qui commence par « a » triés dans l’ordre des adresses de messagerie, utilisez : $filter=(PartitionKey eq ’email\_Sales’) and (RowKey ge ’a’) and (RowKey lt ’b’)  
 
 Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST du service de Table. Pour en savoir plus, consultez la page [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx) sur MSDN.
@@ -506,7 +516,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 -	L'utilisation du stockage de tables est relativement bon marché. Le coût réel du stockage des données en double ne doit donc pas être une préoccupation majeure. Toutefois, vous devez toujours évaluer le coût de la conception en fonction de vos besoins en stockage anticipés et ajouter uniquement des entités en double pour prendre en charge les requêtes que votre application cliente exécutera.  
 -	La valeur de la **RowKey** doit être unique pour chaque entité. Nous vous conseillons d'utiliser des valeurs de clé composée.  
 -	Le remplissage des valeurs numériques dans les **RowKey** (par exemple, l’ID d’employé 000223) permet de corriger le tri et le filtrage en fonction des limites inférieure et supérieure.  
--	Vous n'avez pas toujours besoin de dupliquer toutes les propriétés de votre entité. Par exemple, si les requêtes de recherche des entités à l’aide de l’adresse de messagerie dans la **RowKey** ne nécessitent jamais l’âge de l’employé, ces entités peuvent avoir la structure suivante :
+-	Vous n'avez pas toujours besoin de dupliquer toutes les propriétés de votre entité. Par exemple, si les requêtes de recherche des entités à l’aide de l’adresse de messagerie dans la **RowKey** n’ont jamais besoin de l’âge de l’employé, ces entités peuvent présenter la structure suivante :
 
 	![][11]
 
@@ -549,7 +559,7 @@ Dans cet exemple, l’étape 4 permet d’insérer l’employé dans la table *
 
 #### Récupération après échec  
 
-Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
+Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « delete if exists » dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
 
 Si le rôle de travail ne termine jamais l’étape **6**, après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).
 
@@ -1575,4 +1585,4 @@ Nous aimerions également remercier les MVP Microsoft suivants pour leurs préci
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

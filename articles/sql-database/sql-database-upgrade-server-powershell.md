@@ -55,9 +55,7 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 Pour mettre à niveau un serveur à la version V12 avec PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Selon la version, vous devrez peut-être passer en mode gestionnaire de ressources pour accéder aux applets de commande PowerShell Azure Resource Manager.
 
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus de détails, consultez la rubrique [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
-Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
@@ -68,7 +66,7 @@ Pour exécuter les applets de commande PowerShell sur votre abonnement Azure, vo
 
 Après vous être connecté, des informations s'affichent sur l'écran, notamment l'ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
 
-Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre identifiant (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l’étape précédente ou, si vous avez plusieurs abonnements, vous pouvez exécuter l’applet de commande **Get-AzureRMSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats.
+Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l’étape précédente ou, si vous avez plusieurs abonnements, exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées à partir du jeu de résultats.
 
 Exécuter l’applet de commande suivant avec vos informations d’abonnement pour définir votre abonnement actuel :
 
@@ -82,7 +80,7 @@ Pour obtenir la recommandation relative à la mise à niveau du serveur, exécut
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-Pour plus d’informations, consultez les [Recommandations relatives au pool de base de données élastique Azure SQL Database](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) et les [Recommandations relatives au niveau de la tarification de Azure SQL Database](sql-database-service-tier-advisor.md).
+Pour plus d’informations, consultez [Recommandations relatives au pool de base de données élastique Azure SQL Database](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) et [Recommandations relatives au niveau tarifaire dans Azure SQL Database](sql-database-service-tier-advisor.md).
 
 
 
@@ -162,10 +160,10 @@ Les paramètres ElasticPoolCollection et DatabaseCollection sont facultatifs :
 
 Après la mise à niveau, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et pour optimiser l’utilisation en fonction des besoins.
 
-Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [à l'aide du portail](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou de [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [à l’aide du portail](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou de [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Données sur la consommation de ressources :** pour les bases de données De base, Standard et Premium, des données sur la consommation des ressources sont disponibles via la vue de gestion dynamique (DMV) [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
+**Données sur la consommation de ressources :** pour les bases de données De base, Standard et Premium, des données sur la consommation des ressources sont disponibles par le biais de la vue de gestion dynamique (DMV) [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -184,9 +182,9 @@ Informations de surveillance supplémentaires :
 
 
 
-**Alertes :** configurez les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
+**Alertes :** configurez les « alertes » dans le portail Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail Azure pour diverses mesures de performances comme DTU, UC, E/S et journal. Accédez à votre base de données et sélectionnez **Règles d’alerte** dans le panneau **Paramètres**.
 
-Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à la rubrique [Réception de notifications d'alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d'alerte.
+Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Pour en savoir plus sur la configuration des notifications d’alerte, consultez [Recevoir des notifications d’alerte](insights-receive-alert-notifications.md).
 
 
 
@@ -203,4 +201,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

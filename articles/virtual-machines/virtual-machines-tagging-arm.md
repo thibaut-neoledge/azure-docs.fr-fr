@@ -132,7 +132,7 @@ La cinquième commande affiche toutes les balises sur la ressource. Comme vous p
         Value		MyLocation
         Name		Location
 
-Pour en savoir plus sur le balisage via PowerShell, voir les [applets de commande des ressources Azure][].
+Pour en savoir plus sur le balisage dans PowerShell, consultez les [applets de commande des ressources Azure][].
 
 
 ## Balisage avec l’interface de ligne de commande Azure
@@ -183,11 +183,11 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 
 
 [environnement PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[applets de commande des ressources Azure]: https://msdn.microsoft.com/fr-FR/library/azure/dn757692.aspx
+[applets de commande des ressources Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [environnement CLI Azure]: ./xplat-cli-azure-resource-manager.md
 [Présentation d’Azure Resource Manager]: ../resource-group-overview.md
 [Utilisation de balises pour organiser vos ressources Azure]: ../resource-group-using-tags.md
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

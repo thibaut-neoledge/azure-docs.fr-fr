@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Utiliser les données de référence | Microsoft Azure" 
-	description="Utiliser des données de référence dans un flux d'entrée Stream Analytics" 
-	keywords="analyse de données volumineuses,service cloud,internet des objets,service administré, traitement de flux,streaming analytics,données de diffusion"
+	pageTitle="Utiliser des données de référence et des tables de choix dans Stream Analytics | Microsoft Azure" 
+	description="Utiliser des données de référence dans une requête Stream Analytics" 
+	keywords="table de choix, données de référence"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Utilisation des données de référence dans un flux d'entrée Stream Analytics
+# Utilisation de données de référence ou de tables de choix dans un flux d’entrée Stream Analytics
 
-Les données de référence sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](./articles/data-factory-data-movement-activities.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l'ajout à la fin de la séquence à l'aide d'une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](./articles/data-factory-data-movement-activities.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l'ajout à la fin de la séquence à l'aide d'une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
 
 ## Configuration des données de référence
 
@@ -103,4 +103,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

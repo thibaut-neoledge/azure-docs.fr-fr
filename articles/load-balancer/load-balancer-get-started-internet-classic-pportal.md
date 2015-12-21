@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Création d'un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide du portail en version préliminaire | Microsoft Azure"
-   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail en version préliminaire"
+   pageTitle="Création d'un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide du portail Azure | Microsoft Azure"
+   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail en version préliminaire
+# Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,9 +30,9 @@
 
 
 
-## Créer un point de terminaison d’équilibreur de charge à l’aide du portail en version préliminaire	
+## Créer un point de terminaison d’équilibreur de charge à l’aide du portail Azure	
 
-Pour créer un modèle de déploiement (classique) d'équilibrage de charge accessible sur Internet à partir du portail en version préliminaire, suivez les étapes ci-dessous.
+Pour créer un modèle de déploiement (classique) d’équilibreur de charge accessible sur Internet à partir du portail Azure, suivez les étapes ci-dessous.
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
 
@@ -66,4 +66,4 @@ Pour créer un modèle de déploiement (classique) d'équilibrage de charge acce
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

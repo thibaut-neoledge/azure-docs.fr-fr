@@ -28,7 +28,7 @@ Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Il est recommandé d’[effectuer une migration](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md) avant une mise à niveau. Ainsi, vous pouvez placer les deux versions de votre application sur le même plan App Service sans générer de frais supplémentaires.
+>[AZURE.TIP]Il est recommandé d’[effectuer une migration](app-service-mobile-migrating-from-mobile-services.md) avant une mise à niveau. Ainsi, vous pouvez placer les deux versions de votre application sur le même plan App Service sans générer de frais supplémentaires.
 
 ###Améliorations du Kit de développement logiciel (SDK) serveur .NET Mobile Apps
 
@@ -54,8 +54,8 @@ Vous avez alors deux versions de l’application : l’une qui reste la même e
 
 Le processus de mise à niveau est le suivant :
 
-1. Créer une application mobile
-2. Mettre à jour le projet pour utiliser les nouveaux SDK serveur
+1. Créer une application Mobile App
+2. Mettre à jour le projet pour utiliser les nouveaux Kits de développement logiciel (SDK) serveur
 3. Publier une nouvelle version de votre application cliente
 4. (Facultatif) Supprimer l’instance originale qui a migré
 
@@ -242,7 +242,7 @@ si votre application accepte les dépendances vis-à-vis des ID utilisateur, il 
 Si votre application utilise une solution d’authentification personnalisée, assurez-vous que le site mis à niveau a accès au système. Suivez les nouvelles instructions liées à l’authentification personnalisée indiquées dans [Présentation du Kit de développement logiciel (SDK) serveur .NET] pour intégrer votre solution. Notez que les composants d’authentification personnalisée sont encore en version préliminaire.
 
 ##<a name="updating-clients"></a>Mise à jour des clients
-Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des SDK clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux SDK Mobile Services avant d’installer les versions Mobile Apps.
+Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des Kits de développement logiciel (SDK) clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux Kits de développement logiciel (SDK) Mobile Services avant d’installer les versions Mobile Apps.
 
 L’une des principales modifications entre les versions a trait aux constructeurs qui n’exigent plus de clé d’application. Désormais, vous passez simplement l’URL de votre application mobile. Par exemple, sur les clients .NET, le constructeur `MobileServiceClient` est désormais :
 
@@ -250,7 +250,7 @@ L’une des principales modifications entre les versions a trait aux constructeu
             "https://contoso.azurewebsites.net", // URL of the Mobile App
         );
 
-Pour en savoir plus sur l’installation des nouveaux SDK et l’utilisation de la nouvelle structure, cliquez sur les liens ci-dessous :
+Pour en savoir plus sur l’installation des nouveaux Kits de développement logiciel (SDK) et l’utilisation de la nouvelle structure, cliquez sur les liens ci-dessous :
 
 - [iOS version 3.0.0 ou ultérieure](app-service-mobile-ios-how-to-use-client-library.md)
 - [.NET (Windows/Xamarin) version 2.0.0 ou ultérieure](app-service-mobile-dotnet-how-to-use-client-library.md) 
@@ -271,11 +271,10 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /fr-FR/documentation/services/scheduler/
 [tâche web]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [Utilisation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

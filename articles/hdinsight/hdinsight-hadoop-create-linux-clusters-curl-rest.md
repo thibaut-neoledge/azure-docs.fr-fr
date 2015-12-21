@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/04/2015"
    	ms.author="larryfr"/>
 
 #Créer des clusters Linux dans HDInsight à l’aide de cURL et de l’API REST Azure
@@ -33,7 +33,7 @@ L’API REST Azure vous permet d’effectuer des opérations de gestion sur les 
 
 - __Interface de ligne de commande Azure__. Cette interface est utilisée pour créer un principal du service, qui sert ensuite à générer des jetons d’authentification pour les demandes envoyées à l’API REST Azure.
 
-    Pour plus d’informations sur l’installation de la CLI, consultez [Installer la CLI Azure](xplat-cli-install.md).
+    Pour plus d’informations sur l’installation de la CLI, consultez [Installer la CLI Azure](../xplat-cli-install.md).
 
 - __cURL__. Cet utilitaire est disponible via votre système de gestion des packages, ou il peut être téléchargé à partir de [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -259,7 +259,7 @@ Cet exemple est utilisé dans les étapes de ce document. Vous devez remplacer l
 
 ##Vous connecter à votre abonnement Azure
 
-Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
+Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
 
 ##Créer un principal du service
 
@@ -346,13 +346,13 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 
 ###Clusters HBase
 
-* [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
 * [Développement de topologies Java pour Storm sur HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python.md)
+* [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

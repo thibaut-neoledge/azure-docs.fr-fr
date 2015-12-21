@@ -3,8 +3,8 @@
 	description="Découvrez comment utiliser les applets de commande Azure PowerShell pour Azure Storage afin de créer et gérer des comptes de stockage, d’utiliser des objets blob, des tables, des files d’attente et des fichiers ; de configurer et d’interroger Storage Analytics et de créer des signatures d’accès partagé."
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/07/2015"
+	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -730,4 +730,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,14 +1,16 @@
+Utilisez la procédure correspondant à votre type de projet de serveur principal : [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et enfin sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
+### <a name="dotnet"></a>Projet de serveur principal .NET
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
 
-3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions Using suivantes :
+3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l'appel d'**InsertAsync** :
+2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -46,6 +48,53 @@
 
     Ce code indique au hub de notification d'envoyer une notification modèle à toutes les inscriptions de modèle qui contiennent « messageParam ». La chaîne est insérée à la place de messageParam dans chaque PNS qui comporte une inscription à l'aide de « messageParam ». Cela vous permet d'envoyer la notification à APNS, GCM, WNS ou tout autre PNS.
 
-	Pour plus d’informations sur l’utilisation des modèles avec Notification Hubs, consultez [Modèles](notification-hubs-templates.md).
+	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](notification-hubs-templates.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+### <a name="nodejs"></a>Projet de serveur principal Node.js
+
+1. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
+
+		var azureMobileApps = require('azure-mobile-apps'),
+	    promises = require('azure-mobile-apps/src/utilities/promises'),
+	    logger = require('azure-mobile-apps/src/logger');
+	
+		var table = azureMobileApps.table();
+		
+		table.insert(function (context) {
+	    // For more information about the Notification Hubs JavaScript SDK, 
+	    // see http://aka.ms/nodejshubs
+	    logger.info('Running TodoItem.insert');
+	    
+	    // Define the template payload.
+	    var payload = '{"messageParam": context.item.text}'; 
+	    
+	    // Execute the insert.  The insert returns the results as a Promise,
+	    // Do the push as a post-execute action within the promise flow.
+	    return context.execute()
+	        .then(function (results) {
+	            // Only do the push if configured
+	            if (context.push) {
+					// Send a template notification.
+	                context.push.send(null, payload, function (error) {
+	                    if (error) {
+	                        logger.error('Error while sending push notification: ', error);
+	                    } else {
+	                        logger.info('Push notification sent successfully!');
+	                    }
+	                });
+	            }
+	            // Don't forget to return the results from the context.execute()
+	            return results;
+	        })
+	        .catch(function (error) {
+	            logger.error('Error while running context.execute: ', error);
+	        });
+		});
+
+		module.exports = table;  
+
+	Ce code envoie une notification de modèle contenant item.text quand un nouvel élément todo est inséré.
+
+2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
+
+<!---HONumber=AcomDC_1210_2015-->

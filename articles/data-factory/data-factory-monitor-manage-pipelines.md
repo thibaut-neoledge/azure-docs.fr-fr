@@ -150,14 +150,14 @@ Le flux de transition d'états des jeux de données de la fabrique de données i
 
 Les tranches commencent par l’état **Waiting**. Elles attendent alors que les conditions préalables soient respectées avant l’exécution. Ensuite, l’activité est exécutée et la tranche passe à l’état **In-Progress**. L'exécution de l'activité peut alors réussir ou échouer. En fonction du résultat, la tranche passe à l’état **Ready** ou **Failed**.
 
-L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **SKIP** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
+L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **Skip** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
 
 
 ## Gestion des pipelines
-Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les cmdlets Azure PowerShell.
+Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell.
 
 ### Suspension et reprise des pipelines
-Vous pouvez suspendre des pipelines à l'aide du cmdlet **Suspend-AzureDataFactoryPipeline** de PowerShell. Utile quand vous avez trouvé un problème de données et que vous ne voulez plus exécuter vos pipelines pour traiter les données tant que ce problème n’est pas résolu.
+Vous pouvez suspendre des pipelines à l’aide de l’applet de commande PowerShell **Suspend-AzureRmDataFactoryPipeline**. Utile quand vous avez trouvé un problème de données et que vous ne voulez plus exécuter vos pipelines pour traiter les données tant que ce problème n’est pas résolu.
 
 Par exemple : dans la capture d’écran ci-dessous, un problème a été identifié au niveau du **PartitionProductsUsagePipeline** dans la fabrique de données **productrecgamalbox1dev**. Nous souhaitons donc interrompre ce pipeline.
 
@@ -165,19 +165,19 @@ Par exemple : dans la capture d’écran ci-dessous, un problème a été ident
 
 Exécutez la commande PowerShell suivante pour suspendre **PartitionProductsUsagePipeline**.
 
-	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Par exemple :
 
-	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 Une fois que le problème a été résolu au niveau du **PartitionProductsUsagePipeline**, vous pouvez relancer le pipeline suspendu. Il suffit d’exécuter la commande PowerShell suivante.
 
-	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Par exemple :
 
-	Resume-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Débogage de pipelines
@@ -191,10 +191,10 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 1.	Cliquez sur **AVEC DES ERREURS** sur la mosaïque **JEUX DE DONNÉES** sur la page d’accueil de la fabrique de données.
 	
 	![Vignette de jeux de données avec erreur](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	Dans le panneau **JEUX DE DONNÉES AVEC ERREURS**, cliquez sur la table qui vous intéresse.
+2.	Dans le panneau **Jeux de données avec erreurs**, cliquez sur la table qui vous intéresse.
 
 	![Panneau Jeux de données avec erreurs](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **FAILED**.
+3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **Failed**.
 
 	![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’exécution d’activité qui a échoué.
@@ -209,26 +209,26 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 2.	Passez en mode **AzureResourceManager**, car les applets de commande Data Factory sont disponibles uniquement dans ce mode.
 
 		switch-azuremode AzureResourceManager
-3.	Exécutez la commande **Get-AzureDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **FAILED** devrait apparaître.
+3.	Exécutez la commande **Get-AzureRmDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **FAILED** devrait apparaître.
 
-		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Par exemple :
 
 
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour Set-AzureDataFactoryPipelineActivePeriod.
-4. Exécutez maintenant l'applet de commande **Get-AzureDataFactoryRun** pour obtenir des détails sur l'exécution d'activité de la tranche.
+	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour Set-AzureRmDataFactoryPipelineActivePeriod.
+4. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
 
-		Get-AzureDataFactoryRun [-ResourceGroupName] <String> [-
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Par exemple :
 
 
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	La valeur de StartDateTime est l’heure de début de la tranche qui pose problème/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
 5. 	Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
@@ -255,9 +255,9 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 		Type                	:
 	
 	
-6. 	Vous pouvez exécuter le cmdlet **Save-AzureDataFactoryLog** avec la valeur d’ID indiquée dans la sortie ci-dessus et télécharger les fichiers journaux à l’aide de l’option **-DownloadLogsoption** pour le cmdlet.
+6. 	Vous pouvez exécuter l’applet de commande **Save-AzureRmDataFactoryLog** avec la valeur d’ID indiquée dans la sortie ci-dessus et télécharger les fichiers journaux à l’aide de l’option **-DownloadLogs** pour l’applet de commande.
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
+	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 
 ## Réexécutez des échecs dans un pipeline
@@ -272,15 +272,15 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 
 ### Utilisation de Microsoft Azure PowerShell
 
-Vous pouvez réexécuter des échecs à l'aide du cmdlet Set-AzureDataFactorySliceStatus.
+Vous pouvez réexécuter des échecs à l’aide de l’applet de commande Set-AzureRmDataFactorySliceStatus.
 
-	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
 **Exemple :** l'exemple suivant définit l'état de toutes les tranches de la table 'DAWikiAggregatedData' sur 'PendingExecution' dans la fabrique de données Azure 'WikiADF'.
 
 **Remarque :** UpdateType est défini sur UpstreamInPipeline. Concrètement, l'état « PendingExecution » est défini pour chaque tranche de la table et toutes les tables (en amont) dépendantes qui sont utilisées en tant que tables d'entrée pour les activités du pipeline. Sinon, la valeur « Individual » pour ce paramètre est également possible.
 
-	Set-AzureDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Créez des alertes
@@ -353,6 +353,8 @@ OnDemandClusterCreateStarted | Démarré
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
+Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour plus d’informations sur les éléments JSON utilisés dans l’exemple ci-dessus.
+
 #### Déploiement de l’alerte 
 Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
@@ -393,13 +395,40 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 #### Résolution des problèmes des événements utilisateur
 
 
-- Vous pouvez voir tous les événements générés après avoir cliqué sur la mosaïque **Opérations**. En outre, vous pouvez configurer des alertes relatives à n'importe quelle opération visible sur le panneau **Événements** :
+- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
 
-	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d'utilisation de l’applet de commande **Get-AlertRule** :
+- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
 
+
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
 		PS C:\> Get-AlertRule -res $resourceGroup
 	
 				Properties : Microsoft.Azure.Management.Insights.Models.Rule
@@ -443,7 +472,7 @@ Pour activer les mesures, suivez le chemin suivant à partir du panneau Data Fa
 
 **Analyse** -> **Mesure** -> **Paramètres de diagnostic** -> **Diagnostic**
 
-Sur le panneau **Diagnostic**, cliquez sur **Activé** et sélectionnez votre compte de stockage. Enregistrez.
+Dans le panneau **Diagnostic**, cliquez sur **Activé** et sélectionnez le compte de stockage. Enregistrez.
 
 ![Activer les mesures](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -452,9 +481,9 @@ Par la suite, vous devrez peut-être attendre une heure maximum avant que les me
 
 ### Configuration d'une alerte relative à des mesures :
 
-Pour configurer des alertes relatives à des mesures, suivez le chemin suivant à partir du panneau de la fabrique de données : **Analyse** -> **Mesure** -> **Ajouter une alerte** -> **Ajouter une règle d’alerte**.
+Pour configurer des alertes relatives à des mesures, cliquez sur les éléments suivants à partir du panneau de la fabrique de données : **Analyse** -> **Mesure** -> **Ajouter une alerte** -> **Ajouter une règle d’alerte**.
 
-Indiquez les détails de la règle d'alerte, précisez les adresses e-mail et cliquez sur **OK**.
+Indiquez les détails de la règle d’alerte, précisez les adresses de messagerie et cliquez sur **OK**.
 
 
 ![Configurer des alertes relatives à des mesures](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -541,4 +570,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

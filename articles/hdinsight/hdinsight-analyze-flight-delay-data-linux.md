@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -31,7 +31,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - __Un cluster HDInsight__. Consultez la rubrique [Prise en main de Hadoop avec Hive dans HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md) pour connaître les étapes de création d’un cluster HDInsight Linux.
 
-- __Base de données SQL Azure__. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous ne disposez pas d’une base de données SQL, consultez la rubrique [Comment créer et configurer une base de données SQL Azure](../sql-database/sql-database-create-configure.md) pour en créer une.
+- __Base de données SQL Azure__. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous ne disposez pas déjà d’une base de données SQL, consultez la rubrique [Comment créer une base de données SQL Azure](../sql-database/sql-database-create.md).
 
 - __Interface de ligne de commande Azure__. Si vous n'avez pas installé l'interface de ligne de commande Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md) pour connaître la procédure.
 
@@ -63,7 +63,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. Une fois connecté, procédez comme suit pour décompresser le fichier .zip :
 
@@ -285,7 +285,6 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

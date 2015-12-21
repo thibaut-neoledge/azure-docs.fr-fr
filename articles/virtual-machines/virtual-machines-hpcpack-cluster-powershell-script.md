@@ -75,13 +75,15 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### Exemple
 
-L’exemple suivant crée un nouveau cluster HPC Pack à l’aide du fichier de configuration MyConfigFile.xml et spécifie les informations d’identification d’administration pour l’installation du cluster. ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+L’exemple suivant crée un nouveau cluster HPC Pack à l’aide du fichier de configuration MyConfigFile.xml et spécifie les informations d’identification d’administration pour l’installation du cluster.
+
 ```
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+```
+
 ### Considérations supplémentaires
 
-* Le script utilise l’image de machine virtuelle HPC Pack dans Azure Marketplace pour créer le nœud principal du cluster. L’image actuelle est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 2.
+* Le script utilise l’image de machine virtuelle HPC Pack dans Azure Marketplace pour créer le nœud principal du cluster. L’image actuelle est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
 
 * Le script peut éventuellement activer la soumission de travaux via le portail web HPC Pack ou l’API REST du HPC Pack.
 
@@ -386,8 +388,8 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 * Essayez d’exécuter une charge de travail test sur le cluster. Pour obtenir un exemple, consultez le [guide de mise en route](https://technet.microsoft.com/library/jj884144) du HPC Pack.
 
-* Pour obtenir un didacticiel qui utilise le script pour créer un cluster et exécuter une charge de travail HPC, consultez [Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-excel-cluster-hpcpac) ou [Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Pour obtenir un didacticiel qui utilise le script pour créer un cluster et exécuter une charge de travail HPC, consultez [Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-excel-cluster-hpcpac), [Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md) ou [Exécution d’OpenFOAM avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Essayez les outils de HPC Pack pour démarrer, arrêter, ajouter et supprimer des nœuds de calcul à partir d’un cluster que vous créez. Consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-node-manage.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -114,7 +114,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 |[Machine à vecteurs de support localement profonde](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Idéal pour les ensembles de fonctionnalités de grande taille|
 |[Machine de point de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Classification multiclasse.**| | | | | |
-|[régression logique](https://msdn.microsoft.com/fr-FR/library/azure/dn905853.aspx)| |●|●|5| |
+|[régression logique](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[jungle de décision](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Faible encombrement de mémoire|
 |[réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -237,4 +237,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

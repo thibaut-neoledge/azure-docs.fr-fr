@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Mobile Services 
@@ -35,7 +35,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 3. Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
-	+ **.\\start-iisexpress.ps1** (pour les ordinateurs Windows) 
+	+ **launch-windows** (pour les ordinateurs Windows) 
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
@@ -135,4 +135,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

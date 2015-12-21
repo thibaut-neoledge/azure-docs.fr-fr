@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/dn268600.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
 
 # Points de terminaison de service Azure #
 
@@ -62,4 +62,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -52,13 +52,15 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+Pour l’hôte, vous pouvez spécifier **Local** ou **localhost** si le partage de fichiers s’exécute sur la passerelle elle-même. Nous vous recommandons d’utiliser la propriété **encryptedCredential** plutôt que les propriétés **userid** et **password**. Consultez la page [Service lié de système de fichiers](#onpremisesfileserver-linked-service-properties) pour plus d’informations sur ce service lié.
 
 **Service lié Azure Blob Storage :**
 
@@ -84,7 +86,7 @@ La définition de « external » : « true » et la spécification de la st
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -146,7 +148,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -196,7 +198,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 **Activité de copie :**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **FileSystemSource** et le type **sink** est défini sur **BlobSink**.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition JSON du pipeline, le type **source** est défini sur **FileSystemSource** et le type **sink** est défini sur **BlobSink**.
 	
 	{  
 	    "name":"SamplePipeline",
@@ -273,7 +275,7 @@ L'exemple copie toutes les heures des données appartenant à une série horaire
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -281,7 +283,9 @@ L'exemple copie toutes les heures des données appartenant à une série horaire
 	  }
 	}
 
-**Jeu de données d'entrée Azure SQL :**
+Pour l’hôte, vous pouvez spécifier **Local** ou **localhost** si le partage de fichiers s’exécute sur la passerelle elle-même. Nous vous recommandons d’utiliser la propriété **encryptedCredential** plutôt que les propriétés **userid** et **password**. Consultez la page [Service lié de système de fichiers](#onpremisesfileserver-linked-service-properties) pour plus d’informations sur ce service lié.
+
+**Jeu de données d'entrée SQL Azure :**
 
 L'exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
 
@@ -320,7 +324,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -372,7 +376,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	  }
 	}
 
-**Pipeline avec une activité de copie :** le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie ci-dessus, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **FileSystemSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
+**Pipeline avec une activité de copie :** le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie ci-dessus, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition JSON du pipeline, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **FileSystemSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
 
 	
 	{  
@@ -427,10 +431,10 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 Propriété | Description | Requis
 -------- | ----------- | --------
 type | La propriété Type doit être définie sur **OnPremisesFileServer**. | Oui 
-host | Nom d'hôte du serveur. Utilisez ’\\’ comme caractère d’échappement dans l’exemple suivant : si le partage est \\servername, spécifiez \\servername.<p>Si le système de fichiers est local sur l’ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l’ordinateur de passerelle, utilisez \\servername.</p> | Oui
+host | Nom d'hôte du serveur. Utilisez « \\ » comme caractère d’échappement dans l’exemple suivant : si le partage est \\servername, spécifiez \\\servername.<p>Si le système de fichiers est local sur l’ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l’ordinateur de passerelle, utilisez \\\servername.</p> | Oui
 userid | Spécifiez l'ID de l'utilisateur qui a accès au serveur | Non (si vous choisissez encryptedcredential)
 password | Spécifiez le mot de passe de l’utilisateur (userid). | Non (si vous choisissez encryptedcredential) 
-Encryptedcredential | Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureDataFactoryEncryptValue<p>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService</p> | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
+Encryptedcredential | Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureRmDataFactoryEncryptValue<p>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureRmDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService</p> | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au serveur de fichiers local. | Oui
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données d’un système de fichiers local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
@@ -442,7 +446,7 @@ Pour plus d’informations sur la définition des informations d’identificatio
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -472,10 +476,10 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-folderPath | Chemin d'accès au dossier. Exemple : myfolder<p>Utilisez le caractère d’échappement ’\\’ pour les caractères spéciaux dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\subfolder et pour d:\\samplefolder, spécifiez d:\\samplefolder.</p><p>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin.</p> | Oui
+folderPath | Chemin d'accès au dossier. Exemple : myfolder<p>Utilisez le caractère d’échappement « \\ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\\subfolder et pour d:\\samplefolder, spécifiez d:\\\samplefolder.</p><p>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin.</p> | Oui
 fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<p>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : </p><p>Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Non
 partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non
-Format | Deux types de formats sont pris en charge : **FormatTexte**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de cette valeur. Lorsque le format AvroFormat est le format du texte, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section format ci-dessous pour plus de détails. | Non
+Format | Deux types de formats sont pris en charge : **TextFormat** et **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de cette valeur. Lorsque le format AvroFormat est le format du texte, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section format ci-dessous pour plus de détails. | Non
 fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <p>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (caractère unique).</p><p>Exemples 1 : "fileFilter": "*.log"</p>Exemple 2 : "fileFilter": 2014-1-?.txt"</p><p>**Remarque** : fileFilter s’applique à un jeu de données d’entrée FileShare</p> | Non
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : GZip, Deflate et BZip2 ; niveaux pris en charge : Optimal et Fastest (le plus rapide). Pour plus de détails, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
@@ -526,7 +530,7 @@ encodingName | Spécifiez le nom du codage. Pour obtenir une liste des noms de d
 
 #### Exemples :
 
-L'exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
+L’exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
 
 	"typeProperties":
 	{
@@ -571,7 +575,7 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li> **PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>**MergeFiles :** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>**PreserveHierarchy:** conserve la hiérarchie des fichiers dans le dossier cible, c’est-à-dire que le chemin d’accès relatif du fichier source dans le dossier source est identique au chemin d’accès relatif du fichier cible dans le dossier cible.</li><li>**FlattenHierarchy:** tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.</li><li>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
 
 ### exemples de valeurs recursive et copyBehavior
 Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
@@ -581,9 +585,9 @@ recursive | copyBehavior | Comportement résultant
 true | preserveHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme le dossier source <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>.  
 true | flattenHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier5</p>
 true | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Les contenus Fichier1 + Fichier2 + Fichier3 + Fichier4 + Fichier5 seront fusionnés en un seul fichier doté d’un nom généré automatiquement</p>
-false | preserveHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>.
-false | flattenHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>.
-false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Les contenus Fichier1 + Fichier2 seront fusionnés en un seul fichier doté d’un nom généré automatiquement pour Fichier1</p><p>Sous-dossier1 où Fichier3, Fichier4 et Fichier5 ne sont pas récupérés.</p>.
+false | preserveHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>
+false | flattenHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>
+false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Les contenus Fichier1 + Fichier2 seront fusionnés en un seul fichier doté d’un nom généré automatiquement pour Fichier1</p><p>Sous-dossier1 où Fichier3, Fichier4 et Fichier5 ne sont pas récupérés.</p>
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -599,4 +603,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré com
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

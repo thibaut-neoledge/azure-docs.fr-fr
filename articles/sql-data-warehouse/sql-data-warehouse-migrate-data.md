@@ -37,7 +37,7 @@ Integration Services (SSIS) est un outil puissant et flexible d’extraction, de
 
 > [AZURE.NOTE]SSIS peut exporter des données vers le format UTF-8 sans laisser de marque d’ordre d’octet dans le fichier. Pour procéder à la configuration adéquate, vous devez tout d’abord utiliser le composant de colonne dérivée afin de convertir les données caractères dans le flux de données pour utiliser la page de code UTF-8 65001. Une fois que les colonnes ont été converties, procédez à l’écriture des données sur l’adaptateur de destination du fichier plat en vérifiant que la page de code 65001 a été sélectionnée pour le fichier.
 
-La solution SSIS se connecte à SQL Data Warehouse de la manière dont elle se connecte à un déploiement SQL Server. Cependant, vos connexions doivent utiliser un gestionnaire de connexions ADO.NET. Vous devez également vous assurer de configurer le paramètre « Utiliser l’insertion de bloc lorsqu’elle est disponible » afin d’optimiser le débit. Reportez-vous à l’article [Adaptateur de destination ADO.NET][] pour en savoir plus sur cette propriété.
+La solution SSIS se connecte à SQL Data Warehouse de la manière dont elle se connecte à un déploiement SQL Server. Cependant, vos connexions doivent utiliser un gestionnaire de connexions ADO.NET. Vous devez également vous assurer de configurer le paramètre « Utiliser l’insertion de bloc lorsqu’elle est disponible » afin d’optimiser le débit. Pour en savoir plus sur cette propriété, consultez l’article [Adaptateur de destination ADO.NET][].
 
 > [AZURE.NOTE]La connexion à Microsoft Azure SQL Data Warehouse à l’aide d’OLEDB n’est pas prise en charge.
 
@@ -191,7 +191,7 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 
 [version de production]: http://aka.ms/downloadazcopy/
 [version préliminaire]: http://aka.ms/downloadazcopypr/
-[Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/fr-FR/library/bb934041.aspx
-[documentation relative à SSIS]: https://msdn.microsoft.com/fr-FR/library/ms141026.aspx
+[Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
+[documentation relative à SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

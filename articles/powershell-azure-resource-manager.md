@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
@@ -73,7 +73,7 @@ Le résultat ressemble à l’extrait qui suit :
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-Pour obtenir une aide complète sur une cmdlet, entrez une commande avec la syntaxe suivante :
+Pour obtenir une aide complète sur une applet de commande, entrez une commande avec la syntaxe suivante :
 
 	Get-Help <cmdlet-name> -Full
   
@@ -338,7 +338,7 @@ Vous pouvez copier le modèle et l’enregistrer en local en tant que fichier .j
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-Vous devez spécifier le groupe de ressources et l’emplacement du modèle. Si votre modèle n’est pas enregistré en local, vous pouvez utiliser le paramètre -TemplateUri et spécifier un URI pour le modèle.
+Vous devez spécifier le groupe de ressources et l’emplacement du modèle. Si votre modèle n’est pas local, vous pouvez utiliser le paramètre **-TemplateUri** et spécifier un URI pour le modèle. Vous pouvez affecter au paramètre **-Mode** la valeur **Incremental** ou **Complete**. Par défaut, Resource Manager effectue une mise à jour incrémentielle pendant le déploiement. Il n’est donc pas obligatoire de définir **-Mode** avec la valeur **Incremental** si vous souhaitez effectuer une mise à jour incrémentielle. Pour comprendre les différences entre ces modes de déploiement, consultez [Déployer une application avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
 ###Paramètres de modèle dynamiques
 
@@ -414,17 +414,17 @@ Pour ajouter une ressource au groupe de ressources, utilisez l’applet de comma
 
 ## Déplacer une ressource
 
-Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
+Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
 
 ## Supprimer un groupe de ressources
 
-- Pour supprimer une ressource du groupe de ressources, utilisez l’applet de commande **Remove-AzureRmResource**. Cette cmdlet supprime la ressource, mais pas le groupe de ressources.
+- Pour supprimer une ressource du groupe de ressources, utilisez l’applet de commande **Remove-AzureRmResource**. Cette applet de commande supprime la ressource, mais pas le groupe de ressources.
 
 	Cette commande supprime le site web TestSite du groupe de ressources TestRG.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
-- Pour supprimer un groupe de ressources, utilisez l’applet de commande **Remove-AzureRmResourceGroup**. Cette cmdlet supprime le groupe de ressources et ses ressources.
+- Pour supprimer un groupe de ressources, utilisez l’applet de commande **Remove-AzureRmResourceGroup**. Cette applet de commande supprime le groupe de ressources et ses ressources.
 
 		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
 		
@@ -437,8 +437,8 @@ Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressou
 ## Étapes suivantes
 
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
-- Pour savoir comment déployer des modèles, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md).
-- Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déploiement prévisible de microservices dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour savoir comment déployer des modèles, consultez [Déployer une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md).
+- Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

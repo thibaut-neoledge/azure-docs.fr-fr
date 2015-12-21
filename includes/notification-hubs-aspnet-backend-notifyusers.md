@@ -132,7 +132,7 @@ Dans cette section, nous allons ajouter un nouveau contrôleur au serveur princi
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
+6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre hub de notification et le nom du hub (disponible dans le [portail Azure Classic](http://manage.windowsazure.com)) :
 
 		public class Notifications
         {
@@ -285,7 +285,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 
 3. Ajoutez la méthode suivante à la classe **NotificationsController** :
 
-	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de hub de notification active. Le message de notification est extrait du corps de la demande POST et formaté pour le PNS cible.
+	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de hub de notification active. Le message de notification est extrait du corps de la demande POST et mis en forme pour le PNS cible.
 
 	Selon le service Platform Notification Service (PNS) que vos appareils pris en charge utilisent pour recevoir des notifications, différentes notifications sont prises en charge dans différents formats. Par exemple sur des appareils Windows, vous pouvez utiliser une [notification toast avec WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) qui n'est pas directement prise en charge par un autre service PNS. Par conséquent, votre serveur principal doit formater la notification dans un format pris en charge pour le service PNS des appareils que vous envisagez de prendre en charge. Utilisez ensuite l’API d'envoi appropriée sur la [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
 
@@ -364,4 +364,4 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Surveillance du cache Redis Azure
@@ -24,11 +24,11 @@ Lorsque les diagnostics du cache sont activés, les mesures des instances de cac
 
 Les mesures de cache sont collectées à l’aide de la commande Redis [INFO](http://redis.io/commands/info). Pour plus d’informations sur les différentes commandes INFO utilisées pour chaque mesure de cache, consultez la section [Mesures disponibles et intervalles de création des rapports](#available-metrics-and-reporting-intervals).
 
-Pour voir les mesures de cache, [accédez](cache-configure.md) à votre instance de cache dans le [portail Azure en version préliminaire](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Cache Redis**.
+Pour afficher les mesures de cache, [accédez](cache-configure.md) à votre instance de cache dans le [portail Azure](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Cache Redis**.
 
 ![Surveiller][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Si le message suivant s’affiche dans la version préliminaire du portail, suivez les étapes de la section [Activer les diagnostics du cache](#enable-cache-diagnostics) pour activer le diagnostic du cache.
+>[AZURE.IMPORTANT]Si le message suivant s’affiche dans le portail Azure, suivez les étapes de la section [Activer les diagnostics du cache](#enable-cache-diagnostics) pour activer les diagnostics du cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -36,7 +36,7 @@ Le panneau **Cache Redis** comporte des graphiques de **surveillance** et des gr
 
 ## Activer les diagnostics du cache
 
-Cache Redis Azure vous offre la possibilité de stocker les données de diagnostic dans un compte de stockage. Vous pouvez ainsi utiliser les outils que vous voulez pour accéder directement à ces données et les traiter. Pour que données du diagnostic de cache soient collectées, stockées et affichées dans le portail Azure en version préliminaire, un compte de stockage doit être configuré. Les caches de la même région et du même abonnement partagent le même compte de stockage de diagnostics, et lorsque la configuration est modifiée, elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
+Cache Redis Azure vous offre la possibilité de stocker les données de diagnostic dans un compte de stockage. Vous pouvez ainsi utiliser les outils que vous voulez pour accéder directement à ces données et les traiter. Pour que données du diagnostic de cache soient collectées, stockées et affichées dans le portail Azure, un compte de stockage doit être configuré. Les caches de la même région et du même abonnement partagent le même compte de stockage de diagnostics, et lorsque la configuration est modifiée, elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
 
 Pour activer et configurer les diagnostics du cache, accédez au panneau **Cache Redis** de votre instance de cache. Si le diagnostic n’est pas encore activé, un message s’affiche à la place du graphique de diagnostic.
 
@@ -56,9 +56,9 @@ Une fois les paramètres de diagnostic configurés, cliquez sur **Enregistrer** 
 
 >[AZURE.IMPORTANT]Les caches de la même région et du même abonnement partagent le même compte de stockage de diagnostics, et lorsque la configuration est modifiée, elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
 
-Pour voir les mesures stockées, examinez les tables de votre compte de stockage dont le nom commence par `WADMetrics`. Pour plus d’informations sur l’accès aux mesures stockées hors de la version préliminaire du portail, consultez l’exemple [Access Redis cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Pour voir les mesures stockées, examinez les tables de votre compte de stockage dont le nom commence par `WADMetrics`. Pour plus d’informations sur l’accès aux mesures stockées en dehors du portail Azure, consultez l’exemple [Access Redis cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Seules les mesures qui sont stockées dans la version préliminaire du portail sélectionné sont affichées dans le portail. Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans la version préliminaire du portail.
+>[AZURE.NOTE]Seules les mesures stockées dans le compte de stockage sélectionné sont affichées dans le portail Azure. Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans le portail Azure.
 
 ## Mesures disponibles et intervalles de création des rapports
 
@@ -259,4 +259,4 @@ Pour plus d’informations sur les alertes dans Azure, consultez la page [Récep
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

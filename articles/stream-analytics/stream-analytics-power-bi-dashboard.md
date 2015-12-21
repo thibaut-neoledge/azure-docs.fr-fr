@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
 	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
-	keywords="outils décisionnels,power bi,données de diffusion,tableau de bord power bi"	
+	keywords="tableau de bord d’analyse, tableau de bord en temps réel"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,18 +14,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
+# Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de diffusion en continu.
 
-Azure Stream Analytics vous permet de tirer parti de Microsoft Power BI, l’un des principaux outils d’analyse décisionnelle. Découvrez comment utiliser Azure Stream Analytics pour analyser les flux de données volumineux et obtenir les résultats dans un tableau de bord Power BI en temps réel.
+Azure Stream Analytics vous permet de tirer parti de Microsoft Power BI, l’un des principaux outils d’analyse décisionnelle. Découvrez comment utiliser Azure Stream Analytics pour analyser les volumes élevés de données de diffusion en continu et obtenir les résultats dans un tableau de bord d’analyse Power BI en temps réel.
 
 Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un tableau de bord dynamique. [Visionnez une vidéo illustrant le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
-Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics.
+Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos tâches Azure Stream Analytics comment utiliser un tableau de bord en temps réel.
 
-> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure.
+> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
 
 ## Composants requis ##
 
@@ -35,7 +35,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 ## Création d’un travail Azure Stream Analytics ##
 
-Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
+Dans le [portail Azure](https://manage.windowsazure.com), cliquez sur **Nouveau, Services de données, Stream Analytics, Création rapide**.
 
 Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
@@ -166,7 +166,7 @@ Pour plus d'informations sur la configuration d'une sortie Power BI et pour util
 ## Limites et meilleures pratiques ##
 Power BI utilise des contraintes d'accès concurrentiel et de débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
 
-C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l'utilisation de TumblingWindow ou HoppingWindow pour garantir que le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l'équation suivante pour calculer la valeur à donner à votre fenêtre en secondes : ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Microsoft Azure débouche sur une réduction significative de la charge des données. Nous recommandons l'utilisation de TumblingWindow ou HoppingWindow pour garantir que le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l'équation suivante pour calculer la valeur à donner à votre fenêtre en secondes : ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
 Par exemple, si 1 000 appareils envoient des données chaque seconde, il s'agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) : ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
@@ -221,4 +221,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -27,7 +27,7 @@ La classe RecoveryManager fait partie de la [Bibliothèque de client de base de 
 ![Mappage de partition][1]
 
 
-Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md). Pour comprendre comment **ShardMapManager** est utilisé pour gérer les données dans une solution partitionnée, voir [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
+Vous trouverez les définitions des termes évoqués ici dans la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md). Pour comprendre comment **ShardMapManager** est utilisé pour gérer les données dans une solution partitionnée, voir [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
 
 
 ## Pourquoi utiliser le gestionnaire de récupération ?
@@ -59,7 +59,7 @@ Cette première sert à créer une instance de RecoveryManager. La [méthode Get
 
 Dans cet exemple, RecoveryManager est initialisé à partir de ShardMapManager. Le ShardMapManager contenant un ShardMap également déjà initialisé.
 
-Comme ce code d’application manipule la correspondance de mappage de partitionnement, les informations d’identification utilisées dans la méthode de fabrique (dans l’exemple ci-dessus smmConnectionString) doivent être des informations d’identification disposant des autorisations en lecture/écriture dans la base de données GSM référencée par la chaîne de connexion. Ces informations d’identification sont généralement différentes des informations d’identification utilisées pour ouvrir des connexions pour l’acheminement dépendant des données. Pour plus d’informations, voir [Utilisation des informations d’identification dans le client de base de données élastique](sql-database-elastic-scale-manage-credentials.md).
+Comme ce code d’application manipule la correspondance de mappage de partitionnement, les informations d’identification utilisées dans la méthode de fabrique (dans l’exemple ci-dessus, smmConnectionString) doivent être des informations d’identification disposant des autorisations en lecture/écriture dans la base de données GSM référencée par la chaîne de connexion. Ces informations d’identification sont généralement différentes des informations d’identification utilisées pour ouvrir des connexions pour l’acheminement dépendant des données. Pour plus d’informations, consultez [Utilisation des informations d’identification dans le client de base de données élastique](sql-database-elastic-scale-manage-credentials.md).
 
 ## Suppression d’une partition du ShardMap après la suppression d’une partition
 
@@ -80,12 +80,12 @@ La [méthode DetectMappingDifferences](https://msdn.microsoft.com/library/azure/
 
 	rm.DetectMappingDifferences(location, shardMapName);
 
-* Le paramètre d’*emplacement* est l’emplacement de partition, en particulier le nom du serveur et le nom de la base de données de la partition qui est détachée. 
+* Le paramètre *location* est l’emplacement de partition, en particulier le nom du serveur et le nom de la base de données de la partition qui est détachée. 
 * Le paramètre *shardMapName* correspond au nom de mappage de partition. Il est requis uniquement si plusieurs mappages de partition sont gérés par le même gestionnaire de mappage de partition. facultatif. 
 
-## Pour solutionner les différences de mappage
+## Pour résoudre les différences de mappage
 
-La [méthode ResolveMappingDifferences](https://msdn.microsoft.com/fr-FR/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) sélectionne l’un des mappages de partition (local ou global) en tant que source de vérité et rapproche les mappages sur les deux cartes de partitionnement (GSM et LSM).
+La [méthode ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) sélectionne l’un des mappages de partition (local ou global) en tant que source de vérité et rapproche les mappages sur les deux cartes de partitionnement (GSM et LSM).
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -99,7 +99,7 @@ La [méthode AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azu
 
 	rm.AttachShard(location, shardMapName) 
 
-* Le paramètre d’*emplacement* est le nom du serveur et le nom de la base de données de la partition qui est attachée. 
+* Le paramètre*location* est le nom du serveur et le nom de la base de données de la partition qui est attachée. 
 
 * Le paramètre *shardMapName* correspond au nom de mappage de partition. Il est requis uniquement lorsque plusieurs mappages de partition sont gérés par le même gestionnaire de mappage de partition. facultatif.
 
@@ -157,4 +157,4 @@ Cet exemple effectue les étapes suivantes : 1 Supprimer les partitions du mapp
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/06/2015"
    ms.author="hascipio"/>
 
 # Création d'un compte de vendeur Microsoft
 Cet article décrit la procédure de création de compte et d'enregistrement que vous devez suivre pour devenir vendeur Microsoft agréé sur Azure Marketplace.
 
 ## 1\. Création d'un compte Microsoft
-> [AZURE.WARNING]Pour finaliser le processus de publication, vous devez créer un compte Microsoft. Celui-ci vous permettra de vous enregistrer et de vous connecter au Portail de publication et au Tableau de bord du vendeur. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres spécifiques.
+> [AZURE.WARNING]Pour démarrer le processus de publication, vous devez créer un compte Microsoft. Celui-ci vous permettra de vous enregistrer et de vous connecter au **Centre de développement Microsoft** et au **portail de publication Azure**. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres spécifiques.
 
-L'adresse correspondant au nom d'utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@example.com)). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
+L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@example.com)). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
 
   >[AZURE.WARNING]Les termes tels qu'« Azure » et « Microsoft » ne sont pas pris en charge pour l'enregistrement d'un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
+
+### Instructions
 
 1. Créez une liste de distribution (DL) ou un groupe de sécurité (SG) dans le domaine de votre société.
   - Ajoutez votre équipe d'intégration à la liste de distribution.
@@ -36,20 +38,14 @@ L'adresse correspondant au nom d'utilisateur doit figurer dans votre domaine et 
  - Vous pouvez vous inscrire pour obtenir un compte Microsoft sur la page [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
  - Utilisez marketplace@example.com comme adresse de messagerie.
  - Votre ID de compte Microsoft est désormais marketplace@example.com.
-
-    <!--[drawing][img-msalive]-->
-
 4. Veillez à utiliser un numéro de téléphone valide lors de l’inscription. Le système vous enverra un code de vérification par SMS ou appel automatique s'il est nécessaire de vérifier votre identité.
 5. Vérifiez l'adresse de messagerie envoyée à la liste de distribution.
+6. Vous êtes maintenant prêt à utiliser votre nouveau compte Microsoft dans le Centre de développement Microsoft.
 
-    <!--[drawing][img-email]-->
+> [AZURE.TIP]L'utilisation de la liste de distribution permet à plusieurs personnes de recevoir des notifications par courrier électronique qui sont importantes pour la communication des informations de paiement. Cela garantit également que la possession du compte Microsoft peut être transférée et n'est pas liée à un seul individu.
 
-6. Vous êtes maintenant prêt à utiliser votre nouveau compte Microsoft dans le Tableau de bord du vendeur.
-
-> [AZURE.IMPORTANT]L'utilisation de la liste de distribution permet à plusieurs personnes de recevoir des notifications par courrier électronique qui sont importantes pour la communication des informations de paiement. Cela garantit également que la possession du compte Microsoft peut être transférée et n'est pas liée à un seul individu.
-
-## 2\. Créer votre compte Tableau de bord du vendeur
-Le Tableau de bord du vendeur Microsoft est utilisé pour enregistrer les informations de la société en une seule opération. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’entreprise ; vous aurez à fournir des informations personnelles afin de valider votre identité. Vous devrez également utiliser un compte Microsoft partagé pour l'ensemble de l'entreprise et utiliser le même compte dans le Portail de publication Azure. Vérifiez que votre entreprise ne possède pas déjà de compte Tableau de bord du vendeur avant d'essayer d'en créer un. Dans le cadre de ce processus, nous recueillons vos informations bancaires et fiscales, ainsi que l’adresse de votre entreprise. Vous pouvez généralement obtenir ces informations auprès du service financier ou commercial.
+## 2\. Création de votre compte Centre de développement Microsoft
+Le Centre de développement Microsoft est utilisé pour enregistrer les informations de la société en une seule opération. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’entreprise ; vous aurez à fournir des informations personnelles afin de valider votre identité. Vous devrez également utiliser un compte Microsoft partagé pour l’ensemble de l’entreprise et utiliser **le même compte dans le portail de publication Azure**. Vérifiez que votre entreprise ne possède pas déjà de compte Centre de développement Microsoft avant d’essayer d’en créer un. Dans le cadre de ce processus, nous recueillons l’adresse de votre entreprise, ainsi que vos informations bancaires et fiscales. Vous pouvez généralement obtenir ces informations auprès du service financier ou commercial.
 
 > [AZURE.IMPORTANT]Vous devez renseigner les éléments de profil vendeur suivants afin de progresser dans les différentes phases de création et de déploiement d'offres.
 
@@ -61,109 +57,103 @@ Le Tableau de bord du vendeur Microsoft est utilisé pour enregistrer les inform
 |Compte bancaire | Facultatif | Facultatif | Facultatif | Obligatoire |
 
 
-> [AZURE.NOTE]Le concept BYOL (avec apport de sa propre licence) est pris en charge uniquement pour les machines virtuelles et est considéré comme une offre **gratuite**.
+> [AZURE.NOTE]Le concept BYOL (apportez votre propre licence) est pris en charge uniquement pour les machines virtuelles et est considéré comme une offre **gratuite**.
 
 
 ### Enregistrer votre compte de société
 1. Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte personnel.
 
-2. Rendez-vous sur [http://sellerdashboard.microsoft.com](http://sellerdashboard.microsoft.com).
+2. Accédez à [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
-    ![drawing][img-sd-url]
+3. Connectez-vous avec le compte Microsoft utilisé pour l’enregistrement de votre société (par exemple, marketplace@example.com)).
 
-3. Connectez-vous avec le compte Microsoft utilisé pour l'enregistrement de votre société (par exemple, marketplace@example.com)).
-
-    ![dessin][img-signin]
+    ![drawing][img-signin]
 
 4. Suivez les étapes de l’Assistant Aidez-nous à protéger votre compte. Celui-ci vérifie votre identité via un numéro de téléphone ou une adresse de messagerie.
 
     ![dessin][img-verify]
 
-5. Accédez à **Détails du compte**. Dans cet écran, entrez vos informations personnelles, qui seront utilisées uniquement pour vérifier votre identité. (nom, adresse de messagerie, adresse postale et numéro de téléphone personnel). Celles-ci permettent de vérifier votre identité. Elles ne sont pas communiquées à des personnes extérieures à Microsoft.
+5. Dans la section « Inscription - Informations sur le compte », sélectionnez l’option **Pays/région du compte** dans le menu déroulant.
 
-    ![dessin][img-sd-top]
+    > [AZURE.WARNING]**Pays à partir duquel vous vendez :** avant de pouvoir vendre vos services dans Azure Marketplace, l’entité inscrite doit résider dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour plus d’informations, consultez [Politiques concernant la participation à Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
-    <!--[drawing][img-sd-info]-->
+6. Sélectionnez votre « Type de compte » : **Individuel** ou **Entreprise**.
 
-6. Inscrivez-vous au nom de votre société en choisissant un type de compte **société**, et non pas un compte **individuel**. Cliquez sur **Next**.
+    <!-- Insert screenshot -->> [AZURE.IMPORTANT]Pour mieux comprendre les types de comptes et choisir celui qui vous convient le mieux, consultez la page [Types de compte, emplacements et frais](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
 
-    ![dessin][img-sd-type]
+7. Entrez le **Nom complet de l’éditeur**, en général le nom de votre société.
 
-7. Renseignez les informations relatives à l'entreprise. Toutes ces informations (siège social, référence) doivent être précises car elles seront vérifiées par une équipe de Microsoft.
+    > [AZURE.TIP]Actuellement, le portail de publication Azure n’utilise pas le nom complet de l’éditeur. Toutefois, ce champ doit être complété pour terminer le processus d’inscription.
 
-    ![dessin][img-sd-mktg1]
+8. Entrez les coordonnées pour le compte.
 
-8. Le nom de la société est utilisé par le portail de publication, il doit donc être correct.
+    > [AZURE.IMPORTANT]Vous devez fournir des coordonnées précises, car elles seront utilisées dans notre processus de vérification de votre société pour l’approbation dans le Centre de développement.
 
-    <!--[drawing][img-sd-mktg2]-->
+9. Pour un compte d’entreprise, vous devez également fournir les coordonnées de l’**Approbateur de l’entreprise**, la personne qui peut vérifier que vous êtes autorisé à créer le compte au nom de votre organisation. Lorsque vous avez terminé, cliquez sur **Suivant** pour passer à la **« section Paiement »**.
 
-9. Utilisez l'adresse du siège social de votre société.
+10. Entrez vos informations de paiement pour le paiement de votre compte. Si vous disposez d’un code promotionnel qui couvre le coût de l’inscription, vous pouvez le saisir ici. Sinon, fournissez vos informations de carte de crédit (PayPal est pris en charge pour certains marchés). Lorsque vous avez terminé, cliquez sur **Suivant** pour passer à la **« section Vérification »**.
 
-    ![dessin][img-sd-addr]
+11. Vérifiez vos informations de compte et confirmez que tout est correct. Ensuite, lisez et acceptez les conditions du **Contrat d’éditeur Microsoft Azure Marketplace**. Cochez la case pour indiquer vous avez lu et que vous acceptez ces conditions.
 
-10. Utilisez une référence qui sera accessible et assimilée à un représentant de la société.
+12. Cliquez sur **Terminer** pour confirmer votre inscription. Nous enverrons un message de confirmation à votre adresse de messagerie de développeur.
 
-    ![dessin][img-sd-legal]
+13. Si vous envisagez de publier uniquement des offres gratuites, cliquez sur **Accéder au portail de publication Azure Marketplace**, et passez à la section 3 de ce document, [Enregistrer votre compte dans le Portail de publication](#3-register-your-account-in-the-publishing-portal).
 
-11. Cliquez sur **Soumettre pour approbation**. Vous avez maintenant terminé.
-
-    ![dessin][img-sd-submit]
-
-
-Si vous prévoyez de publier uniquement des offres gratuites, vous pouvez passer à la section 3, « Enregistrer votre compte dans le Portail de publication ».
-
-Si vous envisagez de publier des offres commerciales, vous devez renseigner les informations fiscales et bancaires de votre compte du Tableau de bord vendeur.
+14. Si vous envisagez de publier des offres commerciales, cliquez sur **Mettre à jour vos informations de compte**. Vous devrez alors indiquer vos informations bancaires et fiscales dans votre compte Centre de développement.
 
 > [AZURE.IMPORTANT]Pour tester correctement vos offres en environnement intermédiaire et être en mesure de les mettre en production, vous devez impérativement renseigner les informations fiscales et bancaires.
 
-Si vous préférez mettre à jour les informations fiscales et bancaires ultérieurement, vous pouvez accéder à la section 3 « Enregistrer votre compte dans le Portail de publication », puis revenir ici ultérieurement en utilisant les liens dans le portail de publication.
+Si vous préférez mettre à jour les informations fiscales et bancaires ultérieurement, vous pouvez accéder à la section 3 [Enregistrer votre compte dans le Portail de publication](#3-register-your-account-in-the-publishing-portal), puis revenir ici ultérieurement en utilisant les liens dans le portail de publication Azure.
 
 ### Ajouter des informations fiscales et bancaires
- Si vous souhaitez mettre en vente des offres commerciales, vous devez également ajouter vos informations de paiement et vos données fiscales, puis les soumettre pour validation dans le Tableau de bord vendeur. Si vous souhaitez publier uniquement des offres gratuites (ou offres BYOL), vous n’aurez pas lieu d’ajouter ces informations. Vous pourrez les ajouter ultérieurement, mais sachez que la validation des informations fiscales peut prendre un certain temps. Si vous savez que vous allez proposer des offres commerciales à l’achat, nous vous recommandons d’ajouter ces informations dès que possible.
+ Si vous souhaitez mettre en vente des offres commerciales, vous devez également ajouter vos informations de paiement et vos données fiscales, puis les soumettre pour validation dans le Centre de développement. Si vous souhaitez publier uniquement des offres gratuites (ou offres BYOL), vous n’aurez pas lieu d’ajouter ces informations. Vous pourrez les ajouter ultérieurement, mais sachez que la validation des informations fiscales peut prendre un certain temps. Si vous savez que vous allez proposer des offres commerciales à l’achat, nous vous recommandons d’ajouter ces informations dès que possible.
 
-1. Connectez-vous au [Tableau de bord du vendeur](http://sellerdashboard.microsoft.com) avec votre compte Microsoft.
+**Informations bancaires**
 
-2. Cliquez sur l'onglet **COMPTE**, puis cliquez sur **Dividendes et taxes**.
+1. Connectez-vous au [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft.
 
-3. Cliquez sur **AJOUTER LES INFORMATIONS DE REVENUS ET DE TAXES**.
+2. Cliquez sur **Compte de paiement** dans le menu de gauche, puis sous **Choisir le moyen de paiement**, cliquez sur **Compte bancaire** ou sur **PayPal**.
 
-4. Sur la page **Choisir un moyen de paiement**, sous **Nouveau moyen de paiement**, cliquez sur **Compte bancaire** ou **PayPal**.
+    > [AZURE.IMPORTANT]Si des clients achètent vos offres commerciales sur le Marketplace, il s’agit du compte qui sera crédité du montant de ces achats.
 
-> [AZURE.IMPORTANT]Si des clients achètent vos offres commerciales sur le Marketplace, il s’agit du compte qui sera crédité du montant de ces achats.
+3. Entrez les informations de paiement, puis cliquez sur **Enregistrer** lorsque vous êtes satisfait.
 
-5. Entrez les coordonnées de votre compte bancaire ou de votre compte PayPal.
+    > [AZURE.IMPORTANT]Si vous devez mettre à jour ou modifier votre compte de paiement, suivez les mêmes étapes ci-dessus, en remplaçant les informations actuelles par les nouvelles informations. La modification de votre compte de paiement peut retarder vos paiements jusqu’à un cycle de paiement. Ce retard se produit parce que nous devons vérifier le changement de compte, comme nous l’avons fait lorsque vous avez configuré le compte de paiement pour la première fois. Vous serez payé pour le montant total une fois que votre compte aura été vérifié. Tout paiement dû dans le cycle de paiement actuel sera ajouté au cycle suivant
 
-6. Cliquez sur **SUIVANT**.
+4. Cliquez sur **Next**.
 
-7. Sur la page **Informations de taxes**, sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **SUIVANT**.
+**Informations fiscales**
 
-8. Saisissez vos informations fiscales, puis cliquez sur **SUIVANT**.
+1. Connectez-vous au [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft (si nécessaire).
 
-9. Cliquez sur **Envoyer**. Si vous n'êtes pas prêt à soumettre vos informations fiscales pour validation, vous pouvez cliquer sur **Enregistrer** ou **Enregistrer et quitter**. La validation des informations fiscales prend un certain temps, aussi nous vous recommandons de les soumettre pour validation dès que possible.
+2. Cliquez sur **Profil fiscal** dans le menu de gauche.
 
-> [AZURE.WARNING]Vous ne pourrez pas mettre en production vos offres commerciales si vous n’avez pas renseigné vos informations fiscales et bancaires dans votre compte du tableau de bord vendeur.
+3. Sur la page **Établir votre déclaration d’impôts**, sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **Next**.
+
+4. Saisissez vos informations fiscales, puis cliquez sur **Suivant**.
+
+> [AZURE.WARNING]Vous ne pourrez pas mettre en production vos offres commerciales si vous n’avez pas renseigné vos informations fiscales et bancaires dans votre compte Centre de développement Microsoft.
 
 ## 3\. Enregistrer votre compte dans le Portail de publication
 Le Portail de publication Azure permet de publier et gérer vos offres. Il contient des informations utiles qui vous guideront tout au long de la création de votre offre.
 
-> [AZURE.WARNING]Vous devez utiliser ici le même compte société Microsoft que celui qui a servi à vous enregistrer dans le Tableau de bord du vendeur. Il est possible d’ajouter des utilisateurs supplémentaires une fois que le compte de l’éditeur principal a été créé.
+> [AZURE.WARNING]Vous devez utiliser ici le même compte société Microsoft que celui qui a servi à vous enregistrer dans le Centre de développement Microsoft. Il est possible d’ajouter des utilisateurs supplémentaires une fois que le compte de l’éditeur principal a été créé.
 
 1.	Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte personnel.
+
 2.	Accédez à [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3.	 Connectez-vous avec votre compte Microsoft utilisé pour l'enregistrement de la société (c'est-à-dire marketplace@example.com)) et ajoutez des co-administrateurs si vous le souhaitez.
-4.	Lisez et acceptez les conditions du contrat de publication (lors de la première connexion au Portail de publication).
 
-  >[AZURE.TIP]Les politiques concernant la participation sont décrites sur le [site Web Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+3.	Connectez-vous avec votre compte Microsoft utilisé pour l’enregistrement de la société (c’est-à-dire marketplace@example.com)) et ajoutez des co-administrateurs si vous le souhaitez.
 
-  > Si vous rencontrez des problèmes pendant l’enregistrement du vendeur, ouvrez un ticket de support comme indiqué ci-dessous :
-  1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975)
-  2. Choisissez **Seller Dashboard registration and your account**
-  3. Choisissez **Registering for a developer account**
-  4. Choisissez une **méthode de contact**
+  >[AZURE.TIP]Les politiques concernant la participation sont décrites sur le [site web Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-### Pays à partir duquel vous vendez
+  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous :
+  1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286).
+  2. Choisissez **Centre de développement**.
+  3. Choisissez **Profil**.
+  4. Choisissez une méthode de contact.
 
-> [AZURE.WARNING]Avant de pouvoir vendre vos services dans Azure Marketplace, l'entité inscrite doit résider dans l'un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+
 
 
 
@@ -173,9 +163,9 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 
 || Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution |
 |----|-----|-----|-----|-----|
-|**Étape 2 : Créer votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)|
-|| [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | Conditions techniques requises pour les services de données | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guide de publication d’images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | Guide de publication de services de données | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
+|**Étape 2 : Création de votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)|
+|| [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | [Conditions techniques requises pour les services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guide de publication d’images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | [Guide de publication de services de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
 || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
 
 ## Voir aussi
@@ -195,7 +185,7 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 [img-sd-legal]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
 [img-sd-submit]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
-[link-msdndoc]: https://msdn.microsoft.com/fr-FR/library/jj552460.aspx
+[link-msdndoc]: https://msdn.microsoft.com/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
 [link-single-vm]: marketplace-publishing-vm-image-creation.md
@@ -208,4 +198,4 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -66,6 +66,8 @@ Vous pouvez facilement mettre à jour les certificats principaux ou secondaires 
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Remarque** Avant d’identifier les certificats à utiliser pour les ressources de cluster, vous devez effectuer les étapes suivantes ; sinon, le nouveau certificat ne sera pas utilisé. 1) Chargez le nouveau certificat dans le coffre de clés. Pour obtenir des instructions, consultez le document [Sécurité de Service Fabric](service-fabric-cluster-security.md) (commencez à l’étape 2). 2) Mettez à jour toutes les machines virtuelles qui composent le cluster pour déployer le certificat sur celles-ci. Pour la procédure à suivre, consultez [ce billet de blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+
 ### Ports d'application
 
 Vous pouvez procéder en modifiant les propriétés de ressource de l'équilibrage de charge associées au type de nœud. Vous pouvez utiliser le portail ou PowerShell ARM directement.
@@ -90,11 +92,11 @@ Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de n
 
   Pour chaque type de nœud, vous pouvez ajouter des propriétés de positionnement personnalisées que vous souhaitez utiliser dans vos applications. NodeType est une propriété par défaut que vous pouvez utiliser sans l'ajouter explicitement.
 
-  >[AZURE.NOTE]Pour plus d'informations sur l'utilisation de la propriété de positionnement, consultez la [documentation des contraintes de placement](service-fabric-placement-constraint.md).
+  >[AZURE.NOTE]Pour plus d’informations sur l’utilisation de la propriété de positionnement, consultez la [documentation des contraintes de placement](service-fabric-placement-constraint.md).
 
 ### Mesures de capacité
 
-Pour chaque type de nœud, vous pouvez ajouter des mesures de capacité personnalisées que vous souhaitez utiliser dans vos applications pour créer un rapport sur la charge. Pour plus d'informations sur l'utilisation de mesures de capacité pour créer un rapport sur la charge, consultez la [présentation de rapport de charge dynamique](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Pour chaque type de nœud, vous pouvez ajouter des mesures de capacité personnalisées que vous souhaitez utiliser dans vos applications pour créer un rapport sur la charge. Pour plus d’informations sur l’utilisation de mesures de capacité pour créer un rapport sur la charge, consultez la [présentation de rapport de charge dynamique](service-fabric-resource-balancer-dynamic-load-reporting.md).
 
 ### Application de correctifs du système d'exploitation pour les machines virtuelles qui composent le cluster
 Il s'agit d'une fonctionnalité bientôt disponible. Aujourd'hui, vous êtes responsable de la correction de vos machines virtuelles. Vous devez effectuer cette opération une machine virtuelle à la fois, afin de ne pas arrêter plus d'une machine virtuelle à la fois.
@@ -105,12 +107,12 @@ Si vous devez mettre à niveau l'image du système d'exploitation que vous utili
 
 ## Étapes suivantes
 
-- Découvrez comment [mettre votre cluster à l'échelle](service-fabric-cluster-scale-up-down.md)
-- Découvrez les [mises à niveau de l'application](service-fabric-application-upgrade.md)
+- Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-up-down.md).
+- Découvrez les [mises à niveau de l’application](service-fabric-application-upgrade.md).
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

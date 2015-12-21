@@ -78,7 +78,7 @@ Créez un nouvel ID d’application explicite pour votre application auprès d�
 
 10. Dans Trousseau d’accès, cliquez avec le bouton droit sur le certificat Push que vous venez de créer dans la catégorie **Certificats**. Cliquez sur **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Enregistrer**.
 
-	Notez le nom du fichier et l’emplacement du certificat .p12 exporté. Il servira à activer l’authentification avec APNS en le téléchargeant sur le portail Azure.
+	Notez le nom du fichier et l’emplacement du certificat .p12 exporté. Il sert à activer l’authentification avec APNS en le téléchargeant dans le portail Azure Classic.
 
 
 
@@ -110,4 +110,4 @@ Créez un nouvel ID d’application explicite pour votre application auprès d�
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

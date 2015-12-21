@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Limites, valeurs par défaut et codes d'erreur de Scheduler
@@ -59,18 +59,23 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
 ## Voir aussi
 
- [Concepts, terminologie et hiérarchie d'entités de Scheduler](scheduler-concepts-terms.md)
 
- [Prise en main de Scheduler dans le portail de gestion](scheduler-get-started-portal.md)
+ [Présentation d'Azure Scheduler](scheduler-intro.md)
+ 
+ [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+
+ [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler](scheduler-advanced-complexity.md)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
 
- [Informations de référence sur l'API REST de Scheduler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 
- [Haute disponibilité et fiabilité de Scheduler](scheduler-high-availability-reliability.md)
+ [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
 
- [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
+ [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
+ 
+  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

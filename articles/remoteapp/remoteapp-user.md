@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Ajout d'un utilisateur dans votre collection Azure RemoteApp" 
-    description="Découvrez comment ajouter des utilisateurs dans votre collection Azure RemoteApp" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Ajouter un utilisateur à votre collection Azure RemoteApp | Microsoft Azure"
+    description="Découvrez comment ajouter des utilisateurs dans votre collection Azure RemoteApp"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Procédure : ajout d'un utilisateur dans votre collection Azure RemoteApp
@@ -36,12 +36,12 @@ Vous pouvez utiliser ce tableau de référence pour déterminer rapidement quell
 |Comptes d'utilisateurs |Cloud |Hybride|
 |--------------|--------|------|
 |Compte Microsoft| 	Oui|	Non|
-|Azure Active Directory (Azure AD)| | |	
+|Azure Active Directory (Azure AD)| | |
 |Cloud Azure AD uniquement |Oui |Non |
 |ADsync avec synchronisation de mot de passe |Oui |Oui |
 |ADsync sans synchronisation de mot de passe|	Oui |Non |
 |ADsync avec AD FS |Oui |Oui |
-|Fournisseurs d'identités prises en charge Azure tiers (par exemple Ping) |Oui |Oui|	
+|Fournisseurs d'identités prises en charge Azure tiers (par exemple Ping) |Oui |Oui|
 |Authentification multifacteur |Oui |Oui |
 
 Consultez [plus d'informations](remoteapp-ad.md) sur la configuration d'Active Directory pour RemoteApp.
@@ -51,6 +51,5 @@ Consultez [plus d'informations](remoteapp-ad.md) sur la configuration d'Active D
 
 ## Informations de compte d'utilisateur Office 365 ProPlus
 Si vous utilisez l'image de modèle Office 365 ProPlus dans votre collection *ou* si vous avez créé une image personnalisée qui utilise Office 365, vous êtes uniquement autorisé à ajouter des utilisateurs Azure Active Directory disposant d'abonnements Office 365 pour le domaine par défaut de votre abonnement. Consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md) pour plus d'informations.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

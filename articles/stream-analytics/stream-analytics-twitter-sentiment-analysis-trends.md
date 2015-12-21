@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Analyse de sentiments Twitter en temps réel avec Stream Analytics | Microsoft Azure"
 	description="Découvrez comment utiliser Stream Analytics pour l’analyse de sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
-	keywords="twitter en temps réel,analyse de sentiments,analyse des médias sociaux,outils d’analyse de médias sociaux"
+	keywords="analyse de tendances twitter en temps réel, analyse de sentiments, analyse des réseaux sociaux, exemple d’analyse de tendances"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,19 +14,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
 # Analyse des médias sociaux : analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
-Dans ce didacticiel, vous allez apprendre à créer une solution d’analyse de sentiments. Pour cela, vous allez intégrer des événements Twitter en temps réel dans des hubs d'événements, écrire des requêtes Stream Analytics pour analyser les données, puis stocker les résultats ou utiliser un tableau de bord pour fournir des informations en temps réel.
+Apprenez à créer une solution d’analyse de sentiments pour l’analyse des réseaux sociaux en intégrant des événements Twitter dans Event Hubs. Vous allez écrire une requête Stream Analytics pour analyser les données. Ensuite, vous allez soit stocker les résultats en vue d’une consultation ultérieure, soit utiliser un tableau de bord pour fournir des informations en temps réel à l’aide de [Power BI](https://powerbi.com/).
 
-Les outils d’analyse de médias sociaux aident les organisations à comprendre les sujets populaires, les sujets significatifs et les attitudes apparaissant dans un nombre élevé de billets sur les médias sociaux. L’analyse de sentiments, aussi appelée « exploration d’opinions », utilise des outils d’analyse de médias sociaux pour déterminer les attitudes envers un produit, une idée, etc.
+Les outils d’analyse de médias sociaux aident les organisations à comprendre les sujets populaires, les sujets significatifs et les attitudes apparaissant dans un nombre élevé de billets sur les médias sociaux. L’analyse de sentiments, aussi appelée « exploration d’opinions », utilise des outils d’analyse de médias sociaux pour déterminer les attitudes envers un produit, une idée, etc. L’analyse de tendances Twitter en temps réel constitue un excellent exemple, car le modèle d’abonnement hashtag vous permet d’écouter des mots clés spécifiques et de développer l’analyse de sentiments sur le flux.
 
-## Scénario
+## Scénario : analyse de sentiments en temps réel
 
-Un site web de médias souhaite obtenir un avantage sur ses concurrents en présentant des contenus immédiatement pertinents pour ses lecteurs. Il utilise l’analyse des réseaux sociaux sur des sujets pertinents à ses lecteurs en effectuant une analyse de sentiments en temps réel sur les données de Twitter. Pour identifier les tendances en temps réel dans Twitter. il doit analyser en temps réel le volume et le sentiment des tweets relatifs aux principaux sujets.
+Un site web de médias souhaite obtenir un avantage sur ses concurrents en présentant des contenus immédiatement pertinents pour ses lecteurs. Il utilise l’analyse des réseaux sociaux sur des sujets pertinents à ses lecteurs en effectuant une analyse de sentiments en temps réel sur les données de Twitter. Pour identifier les tendances en temps réel dans Twitter, il doit analyser en temps réel le volume et le sentiment des tweets relatifs aux principaux sujets. Il a donc essentiellement besoin d’un moteur d’analyse de sentiments basé sur le flux de ce réseau social.
 
 ## Composants requis
 1.	Un compte Twitter est requis pour ce didacticiel.  
@@ -38,7 +38,7 @@ L’exemple d’application génère des événements et les transmet vers une i
 
 Procédez comme suit pour créer un hub d’événements.
 
-1.	Dans le portail Azure, cliquez sur **NOUVEAU** > **SERVICES D’APPLICATION** > **SERVICE BUS** > **EVENT HUB** > **CRÉATION RAPIDE**, puis saisissez un nom, une région et un espace de noms nouveau ou existant pour créer un hub d’événements.  
+1.	Dans le portail Azure, cliquez sur **NOUVEAU** > **APP SERVICES** > **SERVICE BUS** > **EVENT HUB** > **CRÉATION RAPIDE**, puis entrez un nom, une région et un espace de noms nouveau ou existant pour créer un hub d’événements.  
 2.	Nous vous recommandons de faire en sorte que chaque travail Stream Analytics lise les événements à partir d’un seul groupe de consommateurs de hubs d’événements. Nous verrons plus loin comment créer un groupe de consommateurs et vous pourrez alors en savoir plus sur ce point. Pour créer un groupe de consommateurs, accédez au hub d’événements nouvellement créé et cliquez sur l’onglet **GROUPES DE CONSOMMATEURS**, puis sur **CRÉER** en bas de la page, et entrez un nom pour votre groupe de consommateurs.
 3.	Pour accorder l’accès au hub d’événements, vous devez créer une stratégie d’accès partagé. Cliquez sur l’onglet **CONFIGURER** de votre hub d’événements.
 4.	Sous **STRATÉGIES D’ACCÈS PARTAGÉ**, créez une stratégie ayant les autorisations **GÉRER**.
@@ -51,7 +51,7 @@ Procédez comme suit pour créer un hub d’événements.
 
 ## Configurer et démarrer l’application client Twitter
 
-Nous vous proposons une application client capable d’exploiter les données de Twitter via les [API Streaming de Twitter](https://dev.twitter.com/streaming/overview) pour collecter les événements Tweet sur un ensemble de sujets paramétrable. L’outil open source tiers [Sentiment140](http://help.sentiment140.com/) est utilisé pour affecter une valeur de sentiment à chaque tweet (0 : négatif, 2 : neutre, 4 : positif), puis les événements Tweet sont envoyés vers un hub d’événements.
+Nous vous proposons une application client capable d’exploiter les données de Twitter par le biais des [API Streaming de Twitter](https://dev.twitter.com/streaming/overview) pour collecter les événements Tweet sur un ensemble de sujets paramétrable. L’outil open source tiers [Sentiment140](http://help.sentiment140.com/) est utilisé pour affecter une valeur de sentiment à chaque tweet (0 : négatif, 2 : neutre, 4 : positif), puis les événements Tweet sont envoyés vers un hub d’événements.
 
 Procédez comme suit pour configurer l’application :
 
@@ -74,7 +74,7 @@ Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel
 
 ### Configuration d’un travail Stream Analytics
 
-1.	Dans le [Portail Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **SERVICES DE DONNÉES** > **STREAM ANALYTICS** > **CRÉATION RAPIDE**.
+1.	Dans le [Portail Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **DATA SERVICES** > **STREAM ANALYTICS** > **CRÉATION RAPIDE**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
 
 	* **NOM DU TRAVAIL** : entrez un nom pour le travail.
@@ -236,4 +236,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

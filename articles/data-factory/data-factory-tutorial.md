@@ -243,17 +243,20 @@ Le service Azure Data Factory prend en charge la création d’un cluster à la 
 	5. Pour **linkedServiceName**, spécifiez le service lié **HDInsightStorageLinkedService** que vous avez créé dans le didacticiel de prise en main. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Notez que le **type** du service lié est défini sur **HDInsightOnDemandLinkedService**.
+		Notez que le **type** du service lié a la valeur **HDInsightOnDemand**.
 
 2. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
    
@@ -321,7 +324,8 @@ Dans cette étape, vous allez créer les pipelines suivants :
         "isPaused": false
 
 	Notez que les heures de début et de fin sont définies sur 05/01/2014 et 05/05/2014, car les données d’exemple de cette procédure pas à pas vont du 05/01/2014 au 05/05/2014.
- 
+ 	
+	Si vous utilisez le service lié HDInsight à la demande, affectez à la propriété **linkedServiceName** la valeur **HDInsightOnDemandLinkedService**.
 3. Cliquez sur **Déployer** sur la barre d’outils pour déployer le pipeline. Vérifiez que le message **PIPELINE CRÉÉ AVEC SUCCÈS** s’affiche sur la barre de titre de l’éditeur.
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. EnrichGameLogsPipeline.json
@@ -355,11 +359,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 		![Tableau d’accueil Surveillance][image-data-factory-monitoring-startboard]
 
-	2. Cliquez sur le concentrateur **PARCOURIR**, puis sur **Tout**.
-	 	
-		![Concentrateur Surveillance - Tout][image-data-factory-monitoring-hub-everything]
-
-		Dans le panneau **Parcourir**, sélectionnez **Fabriques de données**, puis **LogProcessingFactory** dans le panneau **Fabriques de données**.
+	2. Cliquez sur **PARCOURIR**. Dans le panneau **Parcourir**, sélectionnez **Fabriques de données**, puis **LogProcessingFactory** dans le panneau **Fabriques de données**.
 
 		![Surveillance - Parcourir les fabriques de données][image-data-factory-monitoring-browse-datafactories]
 2. Vous pouvez surveiller votre fabrique de données de plusieurs façons. Vous pouvez démarrer avec les pipelines ou les jeux de données. Commençons par les pipelines avant d’aller plus loin. 
@@ -375,7 +375,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l’**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
 
-	-  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+	-  Vous mettez à jour l’état de la tranche manuellement, par exemple à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
 	-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
  
 	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
@@ -524,4 +524,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

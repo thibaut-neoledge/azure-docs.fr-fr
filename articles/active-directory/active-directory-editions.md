@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/04/2015"
 	ms.author="markvi"/>
 
 # Éditions d’Azure Active Directory
@@ -47,48 +47,41 @@ Pour vous connecter et commencer à utiliser Active Directory Premium dès aujou
 
 <br>
 
-
-
-
-| Type de fonctionnalité| Caractéristiques| Édition gratuite| Édition de base| Édition Premium |
-| --- | --- | --- | --- | --- |
-| **Fonctionnalités communes**| Répertoire en tant que service| ![Vérification][12] Jusqu’à 500 000 utilisateurs [1]| ![Vérification][12] Aucune limite d’objets| ![Vérification][12] Aucune limite d’objets|
-| | [Gestion des utilisateurs et d’un groupe à l’aide des applets de commande Windows PowerShell ou de l’interface utilisateur](active-directory-administer.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | [Enregistrement de l’appareil](active-directory-conditional-access-device-registration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | [Portail du panneau d’accès pour l’accès utilisateur basé sur l’authentification unique pour les applications SaaS et personnalisées](active-directory-saas-access-panel-introduction.md)| ![Vérification][12] Jusqu’à 10 applications par utilisateur [2]| ![Vérification][12] Jusqu’à 1- applications par utilisateur [2]| ![Vérification][12] Aucune limite d’applications|
-| | [Gestion et configuration de l’accès aux applications en fonction de l’utilisateur](active-directory-saas-app-provisioning.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | Modification libre-service du mot de passe pour les utilisateurs du cloud| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | [Azure AD Connect : pour la synchronisation entre les répertoires locaux et Azure Active Directory.](active-directory-aadconnect.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | [Rapports de sécurité standard](active-directory-view-access-usage-reports.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| | [Collaboration B2B (collaboration inter-organisation) (version préliminaire)](active-directory-b2b-collaboration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
-| **Fonctionnalités Premium et de base**| [Personnalisation des pages de connexion et d’accès avec le logo et les couleurs de l’entreprise](active-directory-add-company-branding.md)| Incluse dans les abonnements Office 365 [4]| ![Vérification][12]| ![Vérification][12]|
-| | [Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud](active-directory-passwords.md)| Incluse dans les abonnements Office 365 [4]| ![Vérification][12]| ![Vérification][12]|
-| | [Proxy d’application : sécurisez l’accès à distance et l’authentification unique des applications web locales](active-directory-application-proxy-get-started.md)| | ![Vérification][12]| ![Vérification][12]|
-| | [Gestion et configuration de l’accès à une application en fonction d’un groupe](active-directory-accessmanagement-group-saasapps.md)| | ![Vérification][12]| ![Vérification][12]|
-| | [Temps d’activité du contrat SLA à haute disponibilité (99,9 %)](https://azure.microsoft.com/support/legal/sla/)| Contrat SLA Microsoft Online Services [5]| ![Vérification][12]| ![Vérification][12]|
-| **Fonctionnalités Premium uniquement**| [Rapport avancé sur l’utilisation des applications](active-directory-view-access-usage-reports.md)| | | ![Vérification][12]|
-| | [Gestion de groupes en libre-service pour les utilisateurs du cloud] (Gestion de groupes en libre-service pour les utilisateurs dans Azure AD)| | | ![Vérification][12]|
-| | [Réinitialisation libre-service du mot de passe en écriture différée locale](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Vérification][12]|
-| | [Licences utilisateur Microsoft Identity Manager (MIM) : pour la gestion locale des accès et des identités](http://www.microsoft.com/fr-FR/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Vérification][12] [3]|
-| | [Rapports de sécurité avancés concernant les anomalies (basés sur un apprentissage automatique)](active-directory-view-access-usage-reports.md)| | | ![Vérification][12]|
-| | [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md)| | | ![Vérification][12]|
-| | [Service Multi-Factor Authentication pour les utilisateurs du cloud](multi-factor-authentication.md)| Incluse dans les abonnements Office 365 [4]| | ![Vérification][12]|
-| | [Service Multi-Factor Authentication pour les utilisateurs locaux](multi-factor-authentication.md)| | | ![Vérification][12]|
-| | [Azure Active Directory Connect Health pour surveiller l’intégrité de l’infrastructure locale Active Directory et bénéficier d’une analyse de l’utilisation](active-directory-aadconnect-health.md)| | | ![Vérification][12]|
+| Type de fonctionnalité| Caractéristiques| Édition gratuite| Édition de base| Édition Premium| Applications Office 365 uniquement |
+| --- | --- | --- | --- | --- | --- |
+| **Fonctionnalités communes**| Objets d’annuaire [1]| Jusqu’à 500 000 objets| Aucune limite d’objets| Aucune limite d’objets| Aucune limite d’objets pour les comptes d’utilisateurs Office 365|
+| | [Gestion des groupes et des utilisateurs (ajout/mise à jour/suppression), approvisionnement utilisateur](active-directory-administer.md), [inscription d’appareil](active-directory-conditional-access-device-registration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Authentification unique auprès des applications SaaS, personnalisées et de proxy d’application](active-directory-enable-sso-scenario.md)| 10 applications par utilisateur [2]| 10 applications par utilisateur [2]| Aucune limite| 10 applications par utilisateur [2]|
+| | [Modification libre-service du mot de passe pour les utilisateurs du cloud](active-directory-passwords-update-your-own-password.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Connect : pour la synchronisation entre les annuaires locaux et Azure Active Directory](active-directory-aadconnect.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | **Version préliminaire** : [B2B Collaboration](active-directory-b2b-collaboration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Rapports de sécurité/d’utilisation](active-directory-view-access-usage-reports.md)| Rapports de base| Rapports de base| Rapports avancés| Rapports de base|
+| **Fonctionnalités Premium et de base**| [Gestion et configuration de l’accès à une application en fonction d’un groupe](active-directory-accessmanagement-group-saasapps.md)| | ![Vérification][12]| ![Vérification][12]| |
+| | [Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud](active-directory-passwords.md)| | ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Image de l’entreprise (personnalisation des pages de connexion et du volet d’accès)](active-directory-add-company-branding.md)| | ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Proxy d’application](active-directory-application-proxy-get-started.md)| | ![Vérification][12]| ![Vérification][12]| |
+| | [Temps d’activité du contrat SLA à haute disponibilité (99,9 %)](https://azure.microsoft.com/support/legal/sla/)| | ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| **Fonctionnalités Premium uniquement**| Gestion de groupes libre-service/ajout d’applications libre-service/appartenance au groupe dynamique| | | ![Vérification][12]| |
+| | [Réinitialisation, modification et déverrouillage de mot de passe libre-service avec écriture différée locale](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Vérification][12]| |
+| | [Multi-Factor Authentication (dans le cloud et localement)](multi-factor-authentication.md)| | | ![Vérification][12]| Limité au cloud uniquement pour les applications Office 365|
+| | [Licences utilisateur de Microsoft Identity Manager (MIM) et serveur MIM [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Vérification][12]| |
+| | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)| | | ![Vérification][12]| |
+| | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)| | | ![Vérification][12]| |
+| | Substitution automatique des mots de passe pour les comptes de groupe| | | ![Vérification][12]| |
+| | **Version préliminaire** : Accès conditionnel| | | ![Vérification][12]| |
+| | **Version préliminaire** : Privileged Identity Management| | | ![Vérification][12]| |
+| **Fonctionnalités Windows 10 et Azure AD Join associées**| Jonction d’un appareil Windows 10 à Azure AD, Desktop SSO, Microsoft Passport pour Azure AD, récupération Bitlocker de l’administrateur| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | Inscription automatique GPM, récupération Bitlocker libre-service, administrateurs locaux supplémentaires pour appareils Windows 10 par le biais d’Azure AD Join| | | ![Vérification][12]| |
 
 
 
 
-[1] Cette limite d’objet de 500 000 ne s’applique pas à Office 365, Microsoft Intune ou tout autre service en ligne Microsoft s’appuyant sur Azure Active Directory pour les services de répertoire.
 
-[2] Avec les éditions Azure Active Directory Gratuite et De base, les utilisateurs finaux disposant d’un accès à chaque application SaaS peuvent afficher jusqu’à 10 applications dans leur panneau d’accès et disposer d’un accès à authentification unique pour chacune (à condition qu’elles aient préalablement été configurées avec l’authentification unique par l’administrateur). Les administrateurs peuvent configurer l’authentification unique et affecter l’accès utilisateur à autant d’applications SaaS qu’ils le souhaitent avec l’édition Gratuite. Toutefois, les utilisateurs finaux voient seulement 10 applications à la fois dans leur panneau d’accès.
+[1] Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une entrée du service d’annuaire, représentée par son nom unique. Exemple d’objet : entrée utilisateur utilisée à des fins d’authentification. Si vous deviez dépasser ce quota par défaut, contactez le support. La limite de 500 000 objets ne s’applique pas à Office 365, Microsoft Intune ou tout autre service Microsoft en ligne payant s’appuyant sur Azure Active Directory pour les services d’annuaire.
 
-[3] Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Comme Microsoft Identity Manager s’exécute sur le système d’exploitation Windows Server, tant que le serveur exécute une copie sous licence valide de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
+[2] Avec les niveaux Gratuit et De base d’Azure AD, les utilisateurs finaux qui bénéficient d’un accès aux applications SaaS peuvent visualiser jusqu’à 10 applications dans leur volet d’accès et y accéder par le biais de l’authentification unique. Dans ces deux niveaux, les administrateurs peuvent configurer l’authentification unique et attribuer aux utilisateurs un accès à un nombre illimité d’applications SaaS. À noter toutefois que les utilisateurs ne pourront afficher que 10 applications à la fois dans leur volet d’accès.
 
-[4] Les fonctionnalités Azure AD payées incluses avec Office 365 nécessitent l’utilisation des applications Office 365.
-
-[5] Chacun des services Microsoft Online, Office 365, Microsoft Intune ou tout autre service en ligne Microsoft s'appuie sur Azure Active Directory pour les services d'annuaire, et possède son propre contrat SLA de service qui s'étend à l’utilisation d'Azure Active Directory. Pour en savoir plus, consultez [Contrat SLA des services en ligne Microsoft](https://gallery.technet.microsoft.com/online-SLA-ea09109e).
-
+[3] Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Étant donné que Microsoft Identity Manager s’exécute sur un système d’exploitation Windows Server, tant que le serveur exécute une copie valide et sous licence de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
 
 
 
@@ -102,4 +95,4 @@ Pour vous connecter et commencer à utiliser Active Directory Premium dès aujou
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

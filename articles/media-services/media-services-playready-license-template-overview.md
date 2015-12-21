@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 #Présentation du modèle de licence PlayReady de Media Services
@@ -76,7 +76,7 @@ Il s'agit de la classe « de niveau supérieur » dans la hiérarchie des mod�
 
 >[AZURE.IMPORTANT]Ces types de restrictions peuvent être très puissants mais ils peuvent également affecter l'expérience des utilisateurs. Si les protections de sortie sont configurées de manière trop restrictive, le contenu risque de ne pas pouvoir être lu sur certains clients. Pour plus d’informations, consultez le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
-Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, consultez : [Protections de sortie prises en charge par Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
+Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, consultez [Protections de sortie prises en charge par Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ##<a id="schema"></a>Schéma XML de modèle de licence PlayReady
 	
@@ -311,4 +311,4 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

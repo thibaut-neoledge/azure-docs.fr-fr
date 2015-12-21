@@ -27,21 +27,7 @@ La version standard s’applique sur des ordinateurs dédiés qui sont utilisés
 
 Les abonnés Azure peuvent utiliser le service de recherche partagé (mutualisé) pour le développement ou des applications de recherche très petites. Le service partagé est fourni avec votre abonnement Azure. C'est une option gratuite qui vous permet d’expérimenter le service avant de vous y abonner. Elle fournit :
 
-Object|Limite
-------|-----
-Nombre maximal d’index|3
-Nombre maximal de champs par index|1 000
-Nombre maximal de documents|10 000
-Taille de stockage maximale|50 Mo
-Partitions maximales|N/A
-Réplicas maximales|N/A
-Nombre maximal d’unités de recherche|N/A
-Nombre maximal d’indexeurs|3
-Nombre maximal de sources de données d’indexeur|3
-Nombre maximal de documents indexés par appel d'indexeur|10 000
-Durée d'exécution maximale de l'indexeur|3 minutes
-Nombre maximal de profils de score par index|16
-Nombre maximal de fonctions par profil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-free.md)]
 
 Vous constaterez qu’aucun quota ou limite maximale n’est associé aux requêtes. Les requêtes par seconde (QPS) varient en fonction de la bande passante disponible et des ressources système concurrentes. Les ressources de calcul et de stockage Azure, qui réalise une sauvegarde de votre service partagé, sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varie donc selon le nombre de charges de travail supplémentaires exécutées simultanément.
 
@@ -51,21 +37,7 @@ Sous le niveau de tarification standard, un service de recherche dédié ne stoc
 
 Le tableau suivant établit une liste des limites supérieures, mais le graphique sous forme de matrice vous permet de découvrir plus en détail les différentes capacités disponibles en termes de [combinaisons de partitions et de réplicas](#chart) autorisées.
 
-Object|Limite
-------|----
-Nombre maximal d’index|50 par service de recherche
-Nombre maximal de champs par index|1 000
-Nombre maximal de documents|15 millions par partition
-Taille de stockage maximale|25 Go par partition
-Partitions maximales|12 par service de recherche
-Réplicas maximales|12 par service de recherche
-Nombre maximal d’unités de recherche|36 par service de recherche
-Nombre maximal de services de recherche|12 par abonnement Azure
-Nombre maximal d’indexeurs|50 par service de recherche
-Nombre maximal de sources de données d’indexeur|50 par service de recherche
-Nombre maximal de documents indexés par appel d'indexeur|Illimité
-Nombre maximal de profils de score par index|16
-Nombre maximal de fonctions par profil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-standard.md)]
 
 La capacité d’Azure Search peut être achetée par incréments (appelés unités de recherche). Le niveau de tarification standard autorise jusqu’à 36 unités de recherche par service de recherche. Cette limite remplace les limites individuelles des réplicas et des partitions. Par exemple, vous ne pouvez pas mettre à l’échelle votre service jusqu'à 12 partitions et 6 réplicas, car il vous faudrait 72 unités de recherche (12 x 6), et cela dépasserait les 36 unités de recherche autorisées par service.
 
@@ -99,7 +71,7 @@ Le tableau suivant est un graphique qui répertorie les réplicas sur l'axe vert
 <tr><td>N/A</td><td><b>1&#160;partition</b></td><td><b>2&#160;partitions</b></td><td><b>3&#160;partitions</b></td><td><b>4&#160;partitions</b></td><td><b>6&#160;partitions</b></td><td><b>12&#160;partitions</b></td></tr>
 </table>
 
-Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d'informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
+Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d’informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
 
 > [AZURE.NOTE]Le nombre de réplicas et de partitions doit être partagé en 12, de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 
@@ -114,20 +86,20 @@ Recommandations générales pour la haute disponibilité :
 - 2 réplicas pour la haute disponibilité des charges de travail en lecture seule (requêtes)
 - 3 réplicas (ou plus) pour la haute disponibilité des charges de travail en lecture-écriture (requêtes et indexation)
 
-Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. Au lieu de cela, vous pouvez envisager d'ajouter de la redondance au niveau du service. Pour plus d'informations sur les solutions de contournement, consultez [ce billet de forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
+Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. Au lieu de cela, vous pouvez envisager d'ajouter de la redondance au niveau du service. Pour plus d’informations sur les solutions de contournement, consultez [ce billet de forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Consultez la rubrique [Création d'un service Azure Search dans le portail](search-create-portal.md) pour obtenir des instructions sur l'approvisionnement du service.
+> [AZURE.NOTE]Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Pour obtenir des instructions sur l’approvisionnement du service, consultez [Créer un service Azure Search dans le portail](search-create-service-portal.md).
 
 ## Limites de clé API
 
-Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d'informations sur la gestion des clés, consultez la rubrique [Gestion de votre service de recherche sur Microsoft Azure](search-manage.md).
+Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d’informations sur la gestion des clés, consultez [Gérer votre service de recherche sur Microsoft Azure](search-manage.md).
 
 - 2 clés administrateur maximum par service
 - 50 clés de requête maximum par service
 
 ## Limites de requête
 
-- 16 Mo maximum par requête
+- 16 Mo maximum par requête <sup>1</sup>
 - La longueur maximale d’une URL est de 8 Ko
 - 1 000 documents maximum par lot de charges, de fusions ou de suppressions d’index
 - 32 champs maximum dans la clause $orderby
@@ -138,4 +110,6 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=AcomDC_1125_2015-->
+<sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
+
+<!---HONumber=AcomDC_1210_2015-->

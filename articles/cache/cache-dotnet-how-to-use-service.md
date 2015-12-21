@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Utilisation de Service de cache géré Azure
 
 Ce guide décrit la prise en main du **Service de cache géré Azure**. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts incluent la **création et la configuration d'un cache**, **la configuration des clients du cache**, **l'ajout et la suppression d'objets dans le cache, le stockage de l'état de session ASP.NET dans le cache** et **l'activation de la mise en cache de sortie de pages ASP.NET avec le cache**. Pour plus d'informations sur l'utilisation d'Azure Cache, consultez la section [Étapes suivantes][].
 
->Pour obtenir des informations sur le choix de l'offre Azure Cache appropriée pour votre application, consultez [Choix de l'offre Azure Cache appropriée][].
+>[AZURE.IMPORTANT]Nous annonçons la mise hors service au 30 novembre 2016 du service de cache géré Azure et d’Azure In-Role Cache. Nous vous recommandons de migrer vers le cache Redis Azure en vue de cette mise hors service. Pour plus d’informations sur les dates et obtenir des conseils de migration, consultez [Quelle offre de cache Azure me convient ?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 <a name="what-is"></a>
 ## Qu'est-ce que le Service de cache géré Azure ?
@@ -57,9 +57,9 @@ La prise en main de Service de cache géré est aisée. Pour commencer, vous met
 <a name="create-cache"></a>
 ## Création d'un cache
 
-Les instances de cache dans Service de cache géré sont créées à l'aide de cmdlets PowerShell.
+Les instances de cache dans Service de cache géré sont créées à l'aide d’applets de commande PowerShell.
 
->Une fois qu'une instance du service de cache géré est créée à l'aide des applets de commande PowerShell, vous pouvez l'afficher et la configurer dans le [portail de gestion Azure][].
+>Une fois qu’une instance du service de cache géré est créée à l’aide des applets de commande PowerShell, vous pouvez l’afficher et la configurer dans le [portail Azure Classic][].
 
 Pour créer une instance du service de cache géré, ouvrez une fenêtre de commande Azure PowerShell.
 
@@ -91,7 +91,7 @@ Choisissez les valeurs de **Référence (SKU)** et de **Mémoire** qui réponden
 
 >Pour obtenir la liste complète des paramètres et des valeurs qui peuvent être utilisés durant la création d'un cache, consultez la documentation de l'applet de commande [New-AzureManagedCache][].
 
-Une fois l'applet de commande PowerShell appelée, la création du cache peut prendre plusieurs minutes. Après sa création, le cache a l'état `Running` et est prêt à fonctionner avec les paramètres par défaut. En outre, vous pouvez l'afficher et le configurer dans le [portail de gestion Azure][]. Pour personnaliser la configuration de votre cache, reportez-vous à la section [Configuration du cache][].
+Une fois l'applet de commande PowerShell appelée, la création du cache peut prendre plusieurs minutes. Après sa création, le cache a l’état `Running` et est prêt à fonctionner avec les paramètres par défaut. En outre, vous pouvez l’afficher et le configurer dans le [portail Azure Classic][]. Pour personnaliser la configuration de votre cache, reportez-vous à la section [Configuration du cache][].
 
 Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure PowerShell. Une fois que le cache est prêt à l'emploi, l'applet de commande [New-AzureManagedCache][] affiche les informations relatives à ce dernier, comme le montre l'exemple suivant.
 
@@ -124,7 +124,7 @@ Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure Power
 <a name="enable-caching"></a>
 ## Configuration du cache
 
-L'onglet **Configurer** de Cache dans le portail de gestion vous permet de configurer les options de votre cache. Chaque cache a un cache nommé **par défaut**, et les offres de cache Standard et Premium prennent en charge jusqu'à neuf caches nommés supplémentaires, pour un total de dix. Chaque cache nommé a son propre ensemble d'options, qui vous permettent de configurer votre cache avec une grande souplesse.
+L’onglet **Configurer** de Cache dans le portail Azure Classic vous permet de configurer les options de votre cache. Chaque cache a un cache nommé **par défaut**, et les offres de cache Standard et Premium prennent en charge jusqu'à neuf caches nommés supplémentaires, pour un total de dix. Chaque cache nommé a son propre ensemble d'options, qui vous permettent de configurer votre cache avec une grande souplesse.
 
 ![NamedCaches][NamedCaches]
 
@@ -222,11 +222,11 @@ Ces nouvelles sections incluent des références à un élément **dataCacheClie
 
 Après l'ajout de la configuration, remplacez les deux éléments suivants dans la configuration que vous venez d'ajouter.
 
-1. Remplacez **[Cache role name ou Service Endpoint]** par le point de terminaison, qui est affiché sur le tableau de bord du portail de gestion.
+1. Remplacez **[Cache role name or Service Endpoint]** par le point de terminaison qui est affiché sur le tableau de bord dans le portail Azure Classic.
 
 	![Point de terminaison][Endpoint]
 
-2. Supprimez les marques de commentaire de la section securityProperties et remplacez **[Authentication Key]** par la clé d'authentification, que vous pouvez trouver dans le portail de gestion en cliquant sur **Manage Keys** dans le tableau de bord du cache.
+2. Supprimez les marques de commentaire de la section securityProperties et remplacez **[Authentication Key]** par la clé d’authentification, que vous pouvez trouver dans le portail Azure Classic en cliquant sur **Gérer les clés** sur le tableau de bord du cache.
 
 	![AccessKeys][AccessKeys]
 
@@ -331,7 +331,7 @@ La méthode **Put** ajoute l'objet avec la clé spécifiée au cache s'il n'exis
 <a name="specify-expiration"></a>
 ## Spécification de l'expiration d'un objet dans le cache
 
-Par défaut, les éléments du cache expirent 10 minutes après qu'ils y ont été placés. Ce délai peut être configuré dans le paramètre **Durée (min)** sous l'onglet Configurer du portail de gestion.
+Par défaut, les éléments du cache expirent 10 minutes après qu'ils y ont été placés. Ce délai peut être configuré dans le paramètre **Durée (min)** sous l’onglet Configurer de Cache dans le portail Azure Classic.
 
 ![NamedCaches][NamedCaches]
 
@@ -450,7 +450,7 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
   
    
 <!-- LINKS -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Fournisseur d'état de session pour Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -469,7 +469,6 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Dépannage et diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
 [Installation du Gestionnaire de package NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Tarification - Cache]: http://www.windowsazure.com/pricing/details/cache/
-[Management Portal]: https://manage.windowsazure.com/
 [Offres de cache]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Expiration et éviction]: http://go.microsoft.com/fwlink/?LinkId=317278
@@ -483,7 +482,7 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Choix de l'offre Azure Cache appropriée]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

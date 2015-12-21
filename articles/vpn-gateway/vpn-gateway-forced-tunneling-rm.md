@@ -1,14 +1,14 @@
 <properties 
-   pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager" | Microsoft Azure"
-   description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources.
-   services="passerelle vpn"
+   pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager | Microsoft Azure"
+   description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources."
+   services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags 
-   ms.service="passerelle vpn"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -18,7 +18,11 @@
 
 # Configurer le tunneling forcé à l’aide de PowerShell et d’Azure Resource Manager
 
-Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement Azure Resource Manager. Si vous souhaitez configurer le tunneling forcé à l’aide du modèle de déploiement de gestion des services, consultez [Configurer le tunneling forcé](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement Azure Resource Manager. Si vous souhaitez configurer le tunneling forcé pour des réseaux virtuels créés à l’aide de la Gestion des services (connue également comme le modèle de déploiement classique), consultez [Configurer le tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -40,7 +44,7 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 	- **Itinéraire de réseau virtuel local :** directement vers les machines virtuelles de destination dans le même réseau virtuel
 	
-	- **Sur les itinéraires locaux :** vers la passerelle VPN Azure
+	- **Itinéraires locaux :** vers la passerelle VPN Azure
 	
 	- **Itinéraire par défaut :** directement vers Internet. Les paquets destinés à des adresses IP privées non couvertes par les deux itinéraires précédents seront supprimés.
 
@@ -50,13 +54,13 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 - Le tunneling forcé ExpressRoute n'est pas configuré via ce mécanisme, mais il est activé en publiant un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, consultez [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Configurer un tunneling forcé ?
+## Configurer un tunneling forcé
 
 ### Présentation de la configuration
 
 La procédure suivante vous aide à créer un groupe de ressources et un réseau virtuel. Vous créerez ensuite une passerelle VPN et configurerez le tunneling forcé.
 
-Dans l’exemple, le réseau virtuel multiniveau comporte 3 sous-réseaux : *frontal*, *intermédiaire* et *principal*, et 4 connexions entre locaux : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *intermédiaire* et *principal* de manière à utiliser le tunneling forcé.
+Dans l’exemple, le réseau virtuel « MultiTier-VNet » comporte 3 sous-réseaux : *Frontend*, *Midtier* et *Backend*, et 4 connexions entre locaux : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *Midtier* et *Backend* de manière à utiliser le tunneling forcé.
 
 	
 ### Avant tout chose
@@ -140,4 +144,4 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

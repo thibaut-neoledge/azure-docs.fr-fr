@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Téléchargement d'une image personnalisée pour Azure RemoteApp"
-    description="Découvrez comment télécharger une image personnalisée pour Azure RemoteApp." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Charger une image personnalisée pour Azure RemoteApp | Microsoft Azure"
+    description="Découvrez comment télécharger une image personnalisée pour Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="ericor" />
 
 
@@ -32,7 +32,7 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 
 1.      Ouvrez le portail de gestion Azure et accédez à la page RemoteApp.
 2.      Dans l’onglet **Images de modèle**, cliquez sur **Télécharger** en bas de la page.
-4.      Entrez un nom convivial pour votre image et spécifiez l’emplacement du compte de stockage. Vérifiez que l’emplacement est le même que votre collection RemoteApp ou est un emplacement où vous souhaitez en créer une. 
+4.      Entrez un nom convivial pour votre image et spécifiez l’emplacement du compte de stockage. Vérifiez que l’emplacement est le même que votre collection RemoteApp ou est un emplacement où vous souhaitez en créer une.
 5.      Lorsque vous y êtes invité, téléchargez le script sur votre ordinateur local.
 6.      Copiez les paramètres de commande de la zone de texte dans votre Presse-papiers.
 7.      Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges.
@@ -47,9 +47,8 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 
 ## Problèmes courants
 
-- Veillez à utiliser Windows PowerShell, et non Azure PowerShell. Vous devez installer le module Azure PowerShell, car certains modules sont nécessaires pour le processus de téléchargement. 
+- Veillez à utiliser Windows PowerShell, et non Azure PowerShell. Vous devez installer le module Azure PowerShell, car certains modules sont nécessaires pour le processus de téléchargement.
 - Ne modifiez jamais le script, les validations sont pensées pour vous faciliter la tâche.
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

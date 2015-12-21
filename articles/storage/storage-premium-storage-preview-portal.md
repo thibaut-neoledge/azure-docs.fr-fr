@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram;selcint"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh;selcint"/>
 
 
 # Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
@@ -329,10 +329,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
 - [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Tailles de machines virtuelles et services cloud pour Windows Azure](../virtual-machines/virtual-machines-size-specs.md)
+- [Tailles de machines virtuelles et services cloud pour Microsoft Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

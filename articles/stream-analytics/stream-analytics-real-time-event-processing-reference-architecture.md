@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Traitement d’événements en temps réel avec Stream Analytics | Microsoft Azure" 
 	description="Découvrez comment un ensemble de services Azure peut interagir pour l’analyse et le traitement des événements en temps réel." 
+    keywords="traitement en temps réel, traitement des événements, architecture de référence"
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 # Architecture de référence : Traitement d’événements en temps réel avec Microsoft Azure Stream Analytics
@@ -62,4 +63,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

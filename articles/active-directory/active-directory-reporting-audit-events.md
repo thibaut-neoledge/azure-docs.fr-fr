@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Événements de rapport d'audit d'Azure Active Directory
 
-## Articles de la documentation sur la création de rapports
-
- - [API de création de rapports](active-directory-reporting-api-getting-started.md)
- - [Événements d’audit](active-directory-reporting-audit-events.md)
- - [Rétention](active-directory-reporting-retention.md)
- - [Versions préliminaires](active-directory-reporting-previews.md)
- - [action](active-directory-reporting-search.md)
- - [Renvoi](active-directory-reporting-backfill.md)
- - [Latences](active-directory-reporting-latencies.md)
- - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
+*Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine). Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’acteur qui a effectué l’action, la ressource cible affectée par la modification, ainsi que la date et l’heure (UTC). Les clients sont en mesure de récupérer la liste des événements d'audit pour leur Azure Active Directory via le [Portail de gestion Azure](https://manage.windowsazure.com/), comme décrit dans [Afficher vos rapports d'accès et d’utilisation](active-directory-view-access-usage-reports.md).
 
@@ -57,9 +48,9 @@ Ajouter un principal du service | Ajout d'un principal du service dans le réper
 Supprimer le principal du service | Suppression d'un principal du service du répertoire
 Ajouter les informations d'identification du principal du service | Ajout des informations d'identification à un principal du service
 Supprimer les informations d'identification du principal du service | Suppression des informations d'identification d'un principal du service
-Ajouter l'entrée de délégation | Création d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans le répertoire.
-Définir l'entrée de délégation | Mise à jour d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans le répertoire.
-Supprimer l'entrée de délégation | Suppression d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) de le répertoire.
+Ajouter l'entrée de délégation | Création d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire.
+Définir l'entrée de délégation | Mise à jour d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire.
+Supprimer l'entrée de délégation | Suppression d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire.
 **Événements liés aux rôles** |
 Ajouter un membre au rôle | Ajout d'un utilisateur à un rôle de répertoire
 Supprimer un membre du rôle | Suppression d'un utilisateur d'un rôle de répertoire
@@ -131,4 +122,4 @@ TelephoneNumber | Numéro de téléphone de l'utilisateur
 
 Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Mise à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Azure"
 	description="Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
-	keywords="travaux d’analyse,flux de données,diffusion en continu de données"
+	keywords="diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,22 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
-# Mise à l’échelle des travaux Azure Stream Analytics pour augmenter le débit #
+# Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux #
 
-Découvrez comment calculer des *unités de diffusion en continu* pour des travaux Stream Analytics et comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en définissant les unités de diffusion en continu d’un travail.
+Découvrez comment régler les tâches d’analyse et calculer des *unités de diffusion en continu* pour Stream Analytics et comment mettre à l’échelle des tâches Stream Analytics en configurant des partitions d’entrée, en réglant la définition des requêtes d’analyse et en définissant les unités de diffusion en continu d’une tâche.
 
 ## Quelles sont les parties d’un travail Stream Analytics ? ##
-La définition d'un travail Stream Analytics se compose d'entrées, d'une requête et d'une sortie. Les entrées correspondent à l’emplacement à partir duquel le travail lit le flux de données, la requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
+La définition d’une tâche Stream Analytics se compose d’entrées, d’une requête et d’une sortie. Les entrées correspondent à l’emplacement à partir duquel le travail lit le flux de données, la requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
 
 Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d'entrée de flux de données peut être stockée sur un hub d'événements Service Bus Azure ou un objet blob de stockage Azure. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md), [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md) et [Guide de développement pour Azure Stream Analytics](../stream-analytics-developer-guide.md).
 
 ## Configuration des unités de diffusion en continu ##
 Les unités de diffusion en continu représentent les ressources et la puissance pour exécuter un travail Azure Stream Analytics. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s.
 
-Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour une tâche à l’aide du portail Azure Classic. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [support technique de Microsoft](http://support.microsoft.com).
+Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour un travail à l’aide du portail Azure. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [support technique de Microsoft](http://support.microsoft.com).
 
 Le nombre d'unités de diffusion en continu qu'un travail peut utiliser dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Notez également qu’une valeur valide pour les unités de diffusion en continu doit être utilisée. Les valeurs valides commencent à 1, 3, 6, puis vers le haut par incréments de 6, comme indiqué ci-dessous.
 
@@ -147,20 +147,20 @@ Cette requête peut être mise à l'échelle jusqu'à comporter 24 unités de d
 
 **Réglage de l'unité de diffusion en continu d'un travail**
 
-1. Connectez-vous au [Portail Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
 2. Cliquez sur **Stream Analytics** sur la gauche.
 3. Cliquez sur le travail Stream Analytics que vous souhaitez mettre à l'échelle.
 4. Cliquez sur **METTRE À L'ÉCHELLE** en haut de la page.
 
 ![Mise à l’échelle des unités de diffusion en continu Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
-Dans le portail Azure, les paramètres de mise à l'échelle sont accessibles sous Paramètres :
+Dans le portail Azure en version préliminaire, les paramètres de mise à l'échelle sont accessibles sous Paramètres :
 
-![Configuration d’une tâche Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
+![Configuration d’une tâche Stream Analytics sur le portail Azure en version préliminaire][img.stream.analytics.preview.portal.settings.scale]
 
 ## Surveillance des performances du travail ##
 
-À l'aide du portail Classic, vous pouvez suivre le débit d'une tâche dans Événements par seconde :
+À l'aide du portail de gestion, vous pouvez suivre le débit d'un travail dans Événements par seconde :
 
 ![Surveillance des travaux Azure Stream Analytics][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

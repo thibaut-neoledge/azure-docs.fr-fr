@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="12/06/2015"
    ms.author="hascipio" />
 
 
 # Portails dont vous aurez besoin
-Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un bref résumé des portails (tableau de bord, portail de publication et portail Azure en version préliminaire) avec lesquels vous pourrez interagir.
-## Tableau de bord du vendeur
-[https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com)
+Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un résumé des portails (Centre de développement, portail de publication Azure et portail Azure) avec lesquels vous pourrez interagir.
+## Centre de développement
+[http://dev.windows.com](http://dev.windows.com/registration?accountprogram=azure)
 ### Description
-La création de votre compte Tableau de bord du vendeur est une tâche ponctuelle. Assurez-vous que l'entreprise ne possède pas déjà de compte Tableau de bord du vendeur avant de tenter d'en créer un. Dans le cadre de ce processus, nous recueillons vos informations bancaires et fiscales, ainsi que l'adresse de votre entreprise.
+La création d’un compte auprès du Centre de développement Microsoft est une tâche ponctuelle. Assurez-vous que l’entreprise ne possède pas déjà de compte auprès du Centre de développement avant de tenter d’en créer un. Dans le cadre de ce processus, nous recueillons vos informations bancaires et fiscales, ainsi que l'adresse de votre entreprise.
 
 > [AZURE.NOTE]Si vous publiez des offres gratuites uniquement (ou offres BYOL (apportez votre propre licence)), nous n'avons pas besoin de vos informations bancaires et fiscales.
 
@@ -38,10 +38,10 @@ Dans l'idéal, une liste de distribution ou un groupe de sécurité (par exemple
 Ce portail vous permet de développer votre offre et de la publier (marketing, tarification, publication, certification, le cas échéant, etc.).
 
 ### Identité/compte utilisé
-Le groupe de sécurité ou la liste de distribution ci-dessus est nécessaire pour la première connexion au portail de publication. Par la suite, d’autres utilisateurs pourront être ajoutés en tant que co-administrateurs. Voici comment il est mappé sur les données d'inscription du Tableau de bord du vendeur.
+Le groupe de sécurité ou la liste de distribution ci-dessus est nécessaire pour la première connexion au portail de publication. Par la suite, d’autres utilisateurs pourront être ajoutés en tant que co-administrateurs. Voici comment il est mappé aux données d’inscription du Centre de développement.
 
-## Portail Azure en version préliminaire
-[https://ms.portal.azure.com](https://ms.portal.azure.com)
+## Portail Azure
+[https://portal.azure.com](https://portal.azure.com)
 ### Description
 Il s'agit du portail dans lequel vous pouvez afficher vos offres intermédiaires et publiées sur le Marketplace (applicable aux machines virtuelles, aux modèles de solution et aux services de développement basés sur ARM)
 ### Identité/compte utilisé
@@ -50,4 +50,4 @@ Un ID d'abonnement figurant dans la liste blanche est nécessaire lors de la cr�
 ## Voir aussi
 - [Mise en route : publication d'une offre pour Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

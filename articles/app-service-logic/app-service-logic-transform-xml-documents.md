@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Transformation BizTalk" 
-	description="Découvrez comment transformer des documents XML d'un schéma vers un autre." 
+	pageTitle="Utilisation de la transformation BizTalk dans des applications logiques dans Azure App Service| Microsoft Azure" 
+	description="Découvrez comment transformer des documents XML d’un schéma vers un autre" 
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformation BizTalk
+# Transformation BizTalk
 
 
 ## Vue d'ensemble
@@ -45,11 +45,11 @@ Vous pouvez télécharger les schémas XML pour des connecteurs tels que SQL, SA
 ## Créer et ajouter le mappage
 Vous pouvez créer des transformations ou des mappages dans Visual Studio à l’aide du [Kit de développement logiciel (SDK) Microsoft Azure BizTalk Services](http://www.microsoft.com/download/details.aspx?id=39087), qui est téléchargeable gratuitement.
 
-Pour obtenir de l’aide pour la création d’un mappage, consultez la page [Créer un mappage dans Visual Studio](http://aka.ms/createamapinvs). Une fois le mappage créé et prêt pour la production, vous pouvez l'ajouter (fichier .trfm) à l'application API Transformation BizTalk que vous avez créée dans le portail de gestion Azure.
+Pour obtenir de l’aide pour la création d’un mappage, consultez la page [Créer un mappage dans Visual Studio](http://aka.ms/createamapinvs). Une fois le mappage créé et prêt pour la production, vous pouvez l’ajouter (fichier .trfm) à l’application API Transformation BizTalk que vous avez créée dans le portail Azure.
 
-Si le mappage change ou est modifié après son téléchargement, vous pouvez télécharger le mappage mis à jour. Il remplacera le mappage existant dans l'application API Transformation.
+Si le mappage change ou est modifié après son chargement, vous pouvez charger le mappage mis à jour. Il remplacera le mappage existant dans l’application API Transformation.
 
-1.	Sélectionnez **Parcourir** dans le portail de gestion Azure (sur la gauche de l’écran) et sélectionnez **API Apps**. Si **API Apps** n’est pas visible, sélectionnez **Tout**, puis **API Apps** dans la liste disponible :
+1.	Sélectionnez **Parcourir** dans le portail Azure (sur la gauche de l’écran) et sélectionnez **API Apps**. Si **API Apps** n’est pas visible, sélectionnez **Tout**, puis **API Apps** dans la liste disponible :
 
 	![][7]
 
@@ -116,4 +116,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

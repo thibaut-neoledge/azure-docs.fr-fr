@@ -70,8 +70,8 @@ Pour en savoir plus sur AzCopy, consultez [Prise en main de l'utilitaire de lign
 
 Vous devez ensuite créer des tables externes dans la base de données SQL Data Warehouse pour faire référence aux données dans le stockage d’objets blob Azure. Pour créer une table externe, procédez comme suit :
 
-- [Créer une clé principale][] : pour chiffrer la clé secrète de vos informations d'identification de niveau base de données.
-- [Créer des informations d'identification de niveau base de données] : pour spécifier les informations d'authentification de votre compte de stockage Azure.
+- [Créer une clé principale][] : pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
+- [Créer des informations d’identification de niveau base de données] : pour spécifier les informations d’authentification de votre compte de stockage Azure.
 - [Créer une source de données externe] : pour spécifier l'emplacement de votre stockage d'objets blob Azure.
 - [Créer un format de fichier externe] : pour spécifier la disposition de vos données.
 - [Créer une table externe] : pour référencer les données de stockage Azure.
@@ -174,8 +174,8 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Créer une source de données externe]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [Créer un format de fichier externe]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [Créer une table externe]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[Créer une clé principale]: https://msdn.microsoft.com/fr-FR/library/ms174382.aspx
-[Créer des informations d'identification de niveau base de données]: https://msdn.microsoft.com/fr-FR/library/mt270260.aspx
+[Créer une clé principale]: https://msdn.microsoft.com/library/ms174382.aspx
+[Créer des informations d’identification de niveau base de données]: https://msdn.microsoft.com/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
 
@@ -183,4 +183,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 [Statistiques]: ./sql-data-warehouse-develop-statistics.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

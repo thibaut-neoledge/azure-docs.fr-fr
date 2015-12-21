@@ -36,7 +36,7 @@ Cette section fournit deux exemples détaillés de la manière d’utiliser des 
 
 La méthode classique d’envoi de notifications Push est d’envoyer, pour chaque notification à envoyer, une charge utile spécifique aux services de notification de plateforme (WNS, APNS). Par exemple, pour envoyer une alerte aux APNS, la charge utile est un objet JSON au format suivant :
 
-	{“aps”: {“alert” : “Hello!” }}
+	{"aps": {"alert" : "Hello!" }}
 
 Pour envoyer un message toast similaire à une application Windows Store, la charge utile XML est la suivante :
 
@@ -61,7 +61,7 @@ L’image suivante illustre le processus décrit ci-dessus :
 
 Le modèle pour l’inscription d’une application cliente iOS est le suivant :
 
-	{“aps”:{“alert”:”$(message)”}}
+	{"aps": {"alert": "$(message)"}}
 
 Le modèle correspondant de l’application cliente Windows Store est :
 
@@ -151,4 +151,4 @@ Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les exp
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

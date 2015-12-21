@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/dn205108.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
 # Liste des comptes Azure Storage #
 
@@ -36,7 +36,7 @@ Vous pouvez également ouvrir cette boîte de dialogue à partir du lien **Compt
 ## Pour importer vos comptes de stockage à l'aide d'un fichier de paramètres de publication ##
 
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur **Importer à partir du fichier PUBLISH-SETTINGS**.
-2. (Ignorez cette étape si vous avez déjà enregistré un fichier de paramètres de publication sur votre ordinateur local). Dans la boîte de dialogue **Importer les informations d'abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n'êtes pas encore connecté à votre compte Azure, vous êtes invité à vous connecter. Vous serez ensuite invité à enregistrer un fichier de paramètres de publication Azure. (Vous pouvez ignorer les instructions affichées sur les pages d'ouverture de session ; elles sont fournies par le portail Azure et sont destinées aux utilisateurs de Visual Studio.) Enregistrez-le sur votre ordinateur local.
+2. (Ignorez cette étape si vous avez déjà enregistré un fichier de paramètres de publication sur votre ordinateur local). Dans la boîte de dialogue **Importer les informations d'abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n’êtes pas encore connecté à votre compte Azure, vous y êtes maintenant invité. Vous serez ensuite invité à enregistrer un fichier de paramètres de publication Azure. (Vous pouvez ignorer les instructions affichées sur les pages d'ouverture de session ; elles sont fournies par le portail Azure et sont destinées aux utilisateurs de Visual Studio.) Enregistrez-le sur votre ordinateur local.
 3. Toujours dans la boîte de dialogue **Importer les informations d'abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**.
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Importer les informations d'abonnement**.
 
@@ -100,4 +100,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

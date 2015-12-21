@@ -13,22 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 
 # Prise en main de l'API de création de rapports Azure AD
 
-## Articles de la documentation sur la création de rapports
-
- - [API de création de rapports](active-directory-reporting-api-getting-started.md)
- - [Événements d’audit](active-directory-reporting-audit-events.md)
- - [Rétention](active-directory-reporting-retention.md)
- - [Versions préliminaires](active-directory-reporting-previews.md)
- - [action](active-directory-reporting-search.md)
- - [Renvoi](active-directory-reporting-backfill.md)
- - [Latences](active-directory-reporting-latencies.md)
- - [Événement « Acteur inconnu »](active-directory-reporting-unknown-actor.md)
+*Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Azure Active Directory fournit plusieurs rapports d'activité, de sécurité et d'audit. Ces données peuvent être consommées par le biais du portail Azure, mais peuvent également être très utiles dans de nombreuses autres applications, telles que les outils de systèmes SIEM, d'audit et d'analyse décisionnelle.
 
@@ -179,4 +170,4 @@ Le script renvoie des listes qui répertorient tous les rapports disponibles et 
 - Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Rapports et événements Azure AD (aperçu)](https://msdn.microsoft.com/library/azure/mt126081.aspx) pour plus d'informations sur le service REST d'API Graph
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

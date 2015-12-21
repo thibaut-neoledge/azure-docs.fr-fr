@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mandia"/>
 
 # Gestion et contrôle de vos connecteurs et applications API intégrés
@@ -132,4 +132,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -43,7 +43,7 @@ Tâches par nœud de calcul|4 x nombre de cœurs de nœud
 
 Affichez vos quotas de compte Batch dans le [portail Azure](https://portal.azure.com).
 
-1. Dans ce portail, cliquez sur **Comptes Batch**, puis sur le nom de votre compte Batch.
+1. Dans le portail, cliquez sur **Comptes Batch**, puis sur le nom de votre compte Batch.
 
 2. Dans le panneau associé au compte, cliquez sur **Paramètres** > **Propriétés**.
 
@@ -95,4 +95,4 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

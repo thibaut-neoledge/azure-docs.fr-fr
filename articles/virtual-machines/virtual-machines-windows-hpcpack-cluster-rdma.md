@@ -63,7 +63,7 @@ Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir
 
 4. **Déployer et configurer un nœud principal HPC Pack 2012 R2**
 
-    Téléchargez le dernier package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=47755). Pour la configuration requise et les instructions pour préparer un déploiement d’intégration à Azure, consultez [Guide de prise en main de HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) et [Intégration à Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+    Téléchargez le dernier package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Pour la configuration requise et les instructions pour préparer un déploiement d’intégration à Azure, consultez [Guide de prise en main de HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) et [Intégration à Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 5. **Configurer un certificat de gestion dans l’abonnement Azure**
 
@@ -107,14 +107,14 @@ Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir
 
 ## Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
 
-Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de calcul de cluster sur des machines virtuelles jointes à un domaine Active Directory dans un réseau virtuel Azure. Le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) automatise une grande partie de ce processus et fournit des options de déploiement flexibles, notamment la possibilité de spécifier une machine virtuelle de taille A8 ou A9 pour les nœuds de cluster. La procédure suivante vous guide pour utiliser cette méthode de déploiement automatisé. Vous pouvez également déployer le cluster avec le modèle de déploiement du Gestionnaire de ressources à l’aide d’un modèle de démarrage rapide Azure. Pour les déploiements de test, vous pouvez également déployer le domaine Active Directory, la machine virtuelle du nœud principal, les machines virtuelles du nœud de calcul et d’autres parties de l’infrastructure de clusters HPC Pack dans Azure. Consultez [Options de cluster HPC avec Microsoft HPC Pack dans Azure](virtual-machines-hpcpack-cluster-options.md).
+Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de calcul de cluster sur des machines virtuelles jointes à un domaine Active Directory dans un réseau virtuel Azure. Le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) automatise une grande partie de ce processus et fournit des options de déploiement flexibles, notamment la possibilité de spécifier une machine virtuelle de taille A8 ou A9 pour les nœuds de cluster. La procédure suivante vous guide pour utiliser cette méthode de déploiement automatisé. Vous pouvez également déployer le cluster avec le modèle de déploiement Resource Manager à l’aide d’un modèle de démarrage rapide Azure. Pour les déploiements de test, vous pouvez également déployer le domaine Active Directory, la machine virtuelle du nœud principal, les machines virtuelles du nœud de calcul et d’autres parties de l’infrastructure de clusters HPC Pack dans Azure. Consultez [Options de cluster HPC avec Microsoft HPC Pack dans Azure](virtual-machines-hpcpack-cluster-options.md).
 
 ![Cluster sur les machines virtuelles Azure][iaas]
 
 
 1. **Créer un nœud principal de cluster et des machines virtuelles à nœud de calcul en exécutant le script de déploiement de HPC Pack IaaS sur un ordinateur client**
 
- Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=47755).
+ Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
  Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un Cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md). Pour déployer les nœuds de calcul de taille A8 et A9, consultez les considérations supplémentaires, plus loin dans cet article.
 
@@ -198,8 +198,12 @@ Pour exécuter mpipingpong sur le cluster :
 
     Sur un cluster HPC Pack déployé sur les machines virtuelles Azure, modifiez la commande comme indiqué à l’étape 2.
 
-5. Lorsque le travail est terminé, pour afficher le résultat (dans ce cas, la sortie de la tâche 1 du travail), tapez la commande suivante : task view &lt;JobID&gt;.1
+5. Une fois le travail terminé, pour afficher le résultat (dans ce cas, la sortie de la tâche 1 du travail), tapez la commande suivante :
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   La sortie indiquera des résultats de débit semblables à ceci :
 
   ![Débit ping pong][pingpong2]
@@ -246,4 +250,4 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

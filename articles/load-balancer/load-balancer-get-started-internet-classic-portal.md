@@ -1,6 +1,7 @@
+
 <properties 
-   pageTitle="Création d'un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide du portail Azure | Microsoft Azure"
-   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure"
+   pageTitle="Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure Classic | Microsoft Azure"
+   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure Classic."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail Azure
+# Création d’un équilibreur de charge accessible sur Internet (classique) dans le portail Azure Classic
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +35,7 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 **Pour configurer un ensemble d'équilibrage de charge interne pour les machines virtuelles**
 
-1. Dans le portail Azure, cliquez sur **Machines virtuelles**, puis sur le nom d’une machine virtuelle du jeu d’équilibrage de la charge.
+1. Dans le portail Azure Classic, cliquez sur **Machines virtuelles**, puis sur le nom d’une machine virtuelle du jeu d’équilibrage de la charge.
 2.	Cliquez sur **Points de terminaison**, puis sur **Ajouter**.
 
 4.	Sur la page **Ajouter un point de terminaison à une machine virtuelle**, cliquez sur la flèche droite.
@@ -66,4 +67,4 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

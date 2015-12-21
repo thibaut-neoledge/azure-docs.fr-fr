@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Désactiver, activer ou supprimer un profil
@@ -54,4 +54,4 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

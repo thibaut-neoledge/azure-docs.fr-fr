@@ -22,7 +22,7 @@ Dans le service Gestion des API Azure, les API et leurs opérations sont ajouté
 
 ## <a name="create-apis"> </a>Création d’API
 
-Une API du service Gestion des API représente un ensemble d'opérations qui peuvent être appelées par des applications clientes. Les nouvelles API sont créées dans le portail de gestion des API.
+Une API du service Gestion des API représente un ensemble d'opérations qui peuvent être appelées par des applications clientes. Les API sont créées dans le portail de publication.
 
 Ce guide présente comment créer et configurer une nouvelle API dans Gestion des API.
 
@@ -62,4 +62,4 @@ Dans Gestion des API, un produit contient une ou plusieurs API, ainsi qu'un quot
 [Importation de la définition d’une API avec des opérations]: api-management-howto-import-api.md
 [Création et configuration de paramètres de produit avancés]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

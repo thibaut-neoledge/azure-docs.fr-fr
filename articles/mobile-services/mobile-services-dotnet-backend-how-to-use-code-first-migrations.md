@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Modifications des modèles de données pour un service mobile de backend .NET
@@ -181,4 +181,4 @@ Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajout
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

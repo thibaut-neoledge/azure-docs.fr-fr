@@ -20,6 +20,25 @@
 
 # Notes de publication pour les composants Hadoop sur Azure HDInsight
 
+## Notes pour la version du 02/12/2015 de HDinsight
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight (Windows) 2.1.10.763.1931434 (HDP 1.3.12.0-01795 - inchangé)
+* HDInsight (Windows) 3.0.6.763.1931434 (HDP 2.0.13.0-2117 - inchangé)
+* HDInsight (Windows) 3.1.4.763.1931434 (HDP 2.1.15.0-2374 - inchangé)
+* HDInsight (Windows) 3.2.7.763.1931434 (HDP 2.2.7.1-34 - inchangé)
+* HDInsight (Windows) 3.3.1000.0 (HDP 2.3.3.1-5)
+* HDInsight (Linux) 3.2.1000.0.6392801 (HDP 2.2.7.1-34 - inchangé)
+* HDInsight (Linux) 3.3.1000.0 (HDP 2.3.3.0-3039)
+* Kit de développement logiciel (SDK) 1.5.8
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Version 3.3 de HDInsight ajoutée et versions de HDInsight mises à jour pour tous les clusters HDInsight | Avec cette version, nous avons ajouté HDInsight version 3.3 (basée sur HDP 2.3) et avons également mis à jour d’autres versions de HDP. Les notes de publication de HDP 2.3 sont disponibles [ici](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html). De plus amples informations sur les versions de HDInsight sont disponibles [ici](https://azure.microsoft.com/fr-FR/documentation/articles/hdinsight-component-versioning/).| de diffusion en continu | Tout| N/A
+
 ## Notes relatives à la version du 30/11/2015 de HDInsight
 
 Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
@@ -36,6 +55,25 @@ Cette version contient les mises à jour suivantes.
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versions de HDInsight mises à jour pour tous les clusters HDInsight et les versions HDP pour les clusters HDInsight 3.2 (Windows et Linux) | Avec cette version, les versions de HDInsight et HDP ont été mises à jour | Service | Tout| N/A
+
+
+## Notes pour la version du 27/10/2015 de HDInsight
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight (Windows) 2.1.10.726.1866228 (HDP 1.3.12.0-01795 - inchangé)
+* HDInsight (Windows) 3.0.6.726.1866228 (HDP 2.0.13.0-2117 - inchangé)
+* HDInsight (Windows) 3.1.4.726.1866228 (HDP 2.1.15.0-2374 - inchangé)
+* HDInsight (Windows) 3.2.7.726.1866228 (HDP 2.2.7.1-33)
+* HDInsight (Linux) 3.2.1000.0.6035701 (HDP 2.2.7.1-33)
+* Kit de développement logiciel (SDK) 1.5.8
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versions de HDInsight mises à jour pour tous les clusters HDInsight (Windows et Linux) | Avec cette version, les versions de HDInsight et HDP ont été mises à jour | Service | Tout| N/A
+| Résolution des clusters Jupyter pour Windows Spark en lettres majuscules | Les clusters qui avaient des noms DNS spécifiés en majuscules rencontraient des problèmes avec les blocs-notes Jupyter en raison d’une demande de vérification d’origine. La solution a consisté à modifier le nom DNS de la configuration de Jupyter en minuscules. | de diffusion en continu | HDInsight Spark (Windows)| N/A
 
 
 ## Notes pour la version du 20/10/2015 de HDInsight
@@ -1133,9 +1171,9 @@ Cette version de correctif logiciel a résolu un problème de fuite de mémoire 
 
 Pour plus d’informations sur les paramètres de configuration de mémoire utilisés par YARN et MapReduce sur la plateforme de données Hortonworks utilisée par HDInsight, consultez la page [Déterminer les paramètres de configuration de la mémoire HDP](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks a également fourni un outil permettant de calculer les paramètres de mémoire adéquats.
 
-En ce qui concerne le message d’erreur Azure PowerShell et du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
+En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
 
-* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
+* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell **Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
 
 * Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel HDInsight à partir de [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure/).
 
@@ -1178,7 +1216,7 @@ Ces problèmes de compatibilité sont résolus dans les dernières versions du K
 	* Asie de l'Est
 	* États-Unis - partie centrale septentrionale
 	* Centre-Sud des États-Unis
-* Suppression en cours de HDInsight version 1.6 (HDP 1.1 et Hadoop 1.0.3) et de HDInsight version 2.1 (HDP 1.3 et Hadoop 1.2) du portail Azure. Vous pouvez continuer à créer des clusters Hadoop pour ces versions avec les applets de commande Azure PowerShell ([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) ou avec le [Kit de développement logiciel (SDK) HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Pour plus d'informations, consultez la page [Contrôle de version des composants HDInsight](../hdinsight-component-versioning/).
+* Suppression en cours de HDInsight version 1.6 (HDP 1.1 et Hadoop 1.0.3) et de HDInsight version 2.1 (HDP 1.3 et Hadoop 1.2) du portail Azure. Vous pouvez continuer à créer des clusters Hadoop pour ces versions avec l’applet de commande Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) ou avec le [Kit de développement logiciel (SDK) HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Pour plus d'informations, consultez la page [Contrôle de version des composants HDInsight](../hdinsight-component-versioning/).
 * Changements concernant Hortonworks Data Platform (HDP) dans cette version :
 
 <table border="1"> <tr><th>HDP</th><th>Modifications</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>Aucune modification</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>Aucune modification</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: [« 3.4.5.2.1.3.0-1948 »] -> [« 3.4.5.2.1.3.2-0002 »]</td></tr>
@@ -1384,4 +1422,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

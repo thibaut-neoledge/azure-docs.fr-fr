@@ -73,7 +73,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 7. Pour __Source de données__, vous pouvez choisir une source de données existante ou en créer une.
 
@@ -188,9 +188,9 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
 * [Approvisionnement des clusters HDInsight](hdinsight-provision-clusters.md)
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Prise en main d’Azure HDInsight](../hdinsight-get-started.md)
+* [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Version de Hadoop dans Azure HDInsight](hdinsight-component-versioning.md)
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

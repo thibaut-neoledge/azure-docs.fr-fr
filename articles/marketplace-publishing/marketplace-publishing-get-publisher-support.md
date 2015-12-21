@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/06/2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -60,7 +60,7 @@ Les types de problèmes disponibles sont les suivants :
   - **Managing Customers (Gestion des clients)**
   - **Managing Offers (Gestion des offres)**
   - **Payouts (Paiements)**
-  - **Tableau de bord du vendeur**
+  - **Centre de développement**
   - **Autres**
 
 ## 4\. Demande d'assistance
@@ -92,4 +92,4 @@ Pour savoir comment résoudre des problèmes de support spécifiques, visitez le
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

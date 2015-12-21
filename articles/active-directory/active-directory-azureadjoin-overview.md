@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/07/2015" 
 	ms.author="femila"/>
 
 # Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join
@@ -66,7 +66,7 @@ Azure AD Join a les caractéristiques suivantes :
 | Les utilisateurs se connectent à Windows avec les informations d'identification de leur compte professionnel (comme ils le font déjà). | Les utilisateurs peuvent se connecter à Windows avec les informations d'identification de leur compte professionnel gérées dans Azure AD. Cela est pertinent pour les appareils d'entreprise dans trois cas de figure : l'organisation n'a pas d’annuaire AD local (par exemple, une PME), l'organisation ne crée pas tous les comptes d'utilisateurs dans AD (par exemple, étudiants, consultants, travailleurs saisonniers), les appareils ne peuvent pas être joints à un domaine (local), comme les téléphones ou tablettes exécutant une version mobile. Par exemple, appareil secondaire emporté à l’usine ou dans l’atelier. Fonctionne pour les organisations gérées et fédérées. | Les utilisateurs se connectent à Windows avec les informations d'identification MSA personnelles (comme ils le font déjà). |
 | Les utilisateurs ont accès à l'itinérance des paramètres et au Windows Store. Ces services fonctionnent avec les comptes professionnels (MSA personnel non requis). Les organisations doivent connecter leur annuaire AD local à Azure AD. | Configuration libre-service : les utilisateurs peuvent accéder à l'expérience OOBE via leur compte professionnel plutôt que de faire appel au service informatique pour l’approvisionnement de leurs appareils (les deux méthodes sont prises en charge). | Ajout facilité d’un compte professionnel géré dans AD ou Azure AD. |
 | Authentification unique du Bureau aux sites web/applications/ressources d’entreprise, à la fois localement et dans le cloud. Applications qui utilisent Azure AD pour l'authentification. | Inscription automatique dans l'annuaire d'entreprise (Azure AD) et inscription automatique dans GPM. (fonctionnalité Azure AD Premium) | Fournit l'authentification unique sur les appareils et aux applications/sites web/ressources avec ce compte professionnel. |
-| Les utilisateurs peuvent ajouter leur MSA personnel pour accéder à leurs images/fichiers personnels sans incidence sur les données d'entreprise (les paramètres d'itinérance continuent de fonctionner avec un compte professionnel). Le compte MSA permet l'authentification unique et ne fait plus appel à l’itinérance des paramètres. | Réinitialisation de mot de passe libre-service sur winlogon (possibilité de réinitialiser un mot de passe oublié) (Azure AD Premium est requis). | Fournit l'accès au Store de l’entreprise afin que les utilisateurs puissent acquérir et utiliser des applications métier sur leurs appareils personnels. | |
+| Les utilisateurs peuvent ajouter leur MSA personnel pour accéder à leurs images/fichiers personnels sans incidence sur les données d'entreprise (les paramètres d'itinérance continuent de fonctionner avec un compte professionnel). Le compte MSA permet l'authentification unique et ne fait plus appel à l’itinérance des paramètres. | Réinitialisation de mot de passe libre-service sur winlogon (possibilité de réinitialiser un mot de passe oublié) (Azure AD Premium est requis). | Fournit l’accès au Store de l’entreprise afin que les utilisateurs puissent acquérir et utiliser des applications métier sur leurs appareils personnels. | |
 
 
 ## Informations supplémentaires
@@ -77,4 +77,4 @@ Azure AD Join a les caractéristiques suivantes :
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

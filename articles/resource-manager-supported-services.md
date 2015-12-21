@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/04/2015"
    ms.author="tomfitz"/>
 
 # Prise en charge de Resource Manager pour les services, les régions et les versions API
 
-Azure Resource Manager vous offre un nouveau moyen de déployer et gérer les services qui composent vos applications.
-La plupart des services (mais pas tous) offrent une prise en charge complète ou partielle de Resource Manager. Microsoft prévoit d’activer Resource Manager pour les principaux services dans les solutions futures. En attendant que ce processus soit terminé, il est important pour vous de connaître l’état actuel de la prise en charge pour chaque service. Cette rubrique répertorie les fournisseurs de ressources pris en charge pour Azure Resource Manager.
+Azure Resource Manager vous offre un nouveau moyen de déployer et gérer les services qui composent vos applications. La plupart des services (mais pas tous) offrent une prise en charge complète ou partielle de Resource Manager. Microsoft prévoit d’activer Resource Manager pour les principaux services dans les solutions futures. En attendant que ce processus soit terminé, il est important pour vous de connaître l’état actuel de la prise en charge pour chaque service. Cette rubrique répertorie les fournisseurs de ressources pris en charge pour Azure Resource Manager.
 
 Quand vous déployez vos ressources, vous avez également besoin de connaître les régions qui prennent en charge ces ressources et quelles versions d'API sont disponibles pour les ressources. La section [Régions prises en charge](#supported-regions) vous explique comment trouver les régions dans lesquelles vous pourrez utiliser votre abonnement et vos ressources. La section [Versions d'API prises en charge](#supported-api-versions) vous explique comment déterminer les versions d'API que vous pouvez utiliser.
 
@@ -33,7 +32,7 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Virtual Machines | Oui | Oui, de nombreuses options | Non | [Créer une machine virtuelle](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Oui | [Oui (classique uniquement)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Oui | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Oui | Non | | | |
-| Virtual Machines (classic) | Limité | Oui | Partiel (voir ci-dessous) | - | - |
+| Machines virtuelles (classiques) | Limité | Oui, de nombreuses options | Partiel (voir ci-dessous) | - | - |
 | Remote App | Non | - | - | - | - |
 | Service Fabric | Non | - | - | - | - |
 
@@ -59,9 +58,9 @@ Les ressources Machines virtuelles (classiques) peuvent être déplacées vers u
 | DocumentDB | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DocumentDB) | Oui | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | Storage | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | Non | [Créer un stockage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Compte de stockage](resource-manager-template-storage.md) |
 | Cache Redis | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Oui | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.13-preview) | | | |
 | StorSimple | Non | Non | - | - | - |
 | Cache géré | Non | Non | - | - | - |
 
@@ -70,7 +69,7 @@ Les ressources Machines virtuelles (classiques) peuvent être déplacées vers u
 | Service | Resource Manager activé | Portail | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API Management | Oui | Non | Oui | [Créer une API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| API Apps | Oui | [Oui](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| API Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.ApiApp) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Web Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.WebSite) | Oui, avec des limitations (voir ci-dessous) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
 | Notification Hubs | Oui | [Oui](https://portal.azure.com/#create/Microsoft.NotificationHub) | Oui | [Créer un hub de notification](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
 | Logic Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Oui | | |
@@ -96,7 +95,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| CDN | Oui (version préliminaire) | Non | | | |
+| CDN | Oui | [Oui](https://portal.azure.com/#create/Microsoft.CDN) | | | |
 | Media Service | Non | Non | | | |
 
 
@@ -121,7 +120,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | Non | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AppInsights) | Non | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Maps | Oui | [Oui](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Visual Studio Account | Oui | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -129,7 +128,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automation | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Oui | | |
+| Automation | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.5) | Oui | | |
 | Key Vault | Oui | Non | Oui | [REST Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Scheduler | Oui | Non | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Oui | Non | Oui | | |
@@ -241,4 +240,4 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

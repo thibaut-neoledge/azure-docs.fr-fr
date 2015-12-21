@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Configurer la méthode de routage du trafic en tourniquet (round robin)
@@ -23,8 +23,8 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 
 ## Router le trafic de manière équitable (tourniquet) sur un ensemble de points de terminaison :
 
-1. Dans le volet gauche du portail Azure, cliquez sur l’icône **Traffic Manager** pour ouvrir le volet Traffic Manager. Si vous n’avez pas encore créé votre profil Traffic Manager, consultez [Gérer les profils Traffic Manager](traffic-manager-manage-profiles.md) pour connaître les étapes de création d’un profil Traffic Manager de base.
-2. Dans le portail Azure, dans le volet Traffic Manager, recherchez le profil Traffic Manager qui contient les paramètres que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
+1. Dans le volet gauche du portail Azure Classic, cliquez sur l’icône **Traffic Manager** pour ouvrir le volet Traffic Manager. Si vous n’avez pas encore créé votre profil Traffic Manager, consultez [Gérer les profils Traffic Manager](traffic-manager-manage-profiles.md) pour connaître les étapes de création d’un profil Traffic Manager de base.
+2. Dans le volet Traffic Manager du portail Azure Classic, recherchez le profil Traffic Manager qui contient les paramètres que vous souhaitez modifier, puis cliquez sur la flèche à droite du nom de profil. La page Paramètres du profil s'ouvre.
 3. Dans la page de votre profil, cliquez sur **Points de terminaison** en haut de la page et vérifiez que les points de terminaison de service que vous souhaitez inclure dans votre configuration sont présents. Pour savoir comment ajouter ou supprimer des points de terminaison, consultez [Gérer les points de terminaison dans Traffic Manager](traffic-manager-endpoints.md).
 4. Dans la page de votre profil, cliquez sur **Configurer** en haut pour ouvrir la page de configuration.
 5. Pour **Paramètres de méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Tourniquet**. Si ce n’est pas le cas, cliquez sur **Tourniquet** dans la liste déroulante.
@@ -52,4 +52,4 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

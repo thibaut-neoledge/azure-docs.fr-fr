@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Création et déploiement de projets de déploiement de groupe de ressources Azure | Microsoft Azure"
-   description="Création et déploiement de projets de déploiement de groupe de ressources Azure"
+   pageTitle="Création et déploiement de projets de groupe de ressources Azure à l’aide de Visual Studio | Microsoft Azure"
+   description="Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Création et déploiement de projets de déploiement de groupe de ressources Azure
+# Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
 Le modèle de projet de déploiement de **groupe de ressources Azure** est disponible dans Visual Studio si le Kit de développement logiciel (SDK) Azure 2.6 est installé. Les projets de groupe de ressources Azure vous permettent de regrouper et de publier plusieurs ressources Azure connexes dans une même opération de déploiement. Les projets de groupe de ressources Azure utilisent une technologie appelée **Azure Resource Manager** pour leur mise en œuvre. **Azure Resource Manager** est un service d'API REST permettant de définir des groupes de ressources Azure qui contiennent plusieurs ressources Azure généralement utilisées ensemble et dont le cycle de vie est similaire. À l'aide des groupes de ressources, vous pouvez utiliser toutes les ressources d'un groupe avec un seul appel de fonction, au lieu d'appeler différentes fonctions pour chaque ressource. Pour plus d’informations sur les groupes de ressources Azure, voir [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md). Pour obtenir un scénario de déploiement de groupe de ressources Azure de bout en bout plus détaillé, consultez [Groupe de ressources Azure pour Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
 
@@ -49,9 +49,10 @@ Au cours de cette procédure, vous apprendrez à créer un projet du groupe de r
 
     |Nom de fichier|Description|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Script PowerShell qui appelle des commandes PowerShell à déployer sur Azure Resource Manager.
-
-    **Remarque** Visual Studio utilise ce script PowerShell pour déployer votre modèle. Les modifications apportées à ce script affectant également le déploiement dans Visual Studio, soyez prudent.| !WebSite.json|Fichier de configuration qui spécifie les détails des éléments à déployer sur Azure Resource Manager.| |WebSite.param.dev.json|Fichier de paramètres contenant des valeurs spécifiques requises par le fichier de configuration.| |AzCopy.exe|Outil dont le script PowerShell se sert pour copier des fichiers du chemin d'accès de stockage local vers le conteneur du compte de stockage. Cet outil ne sert que si vous configurez le projet de déploiement afin de déployer votre code en même temps que le modèle.
+    |Deploy-AzureResourceGroup.ps1|Script PowerShell invoquant des commandes PowerShell à déployer dans Azure Resource Manager.<br />**Remarque** Visual Studio utilise ce script PowerShell pour déployer votre modèle. Les modifications apportées à ce script affecteront également le déploiement dans Visual Studio. Par conséquent, modifiez ce script avec prudence.|
+    !WebSite.json|Modèle définissant l’infrastructure que vous souhaitez déployer dans Azure.|
+    |WebSite.param.dev.json|Fichier de paramètres contenant des valeurs spécifiques requises par le fichier de configuration.|
+    |AzCopy.exe|Outil dont se sert le script PowerShell pour copier des fichiers du chemin d’accès de stockage local vers le conteneur du compte de stockage. Cet outil ne sert que si vous configurez le projet de déploiement de façon à déployer votre code en même temps que le modèle.|
 
     Tous les projets de déploiement de groupe de ressources Azure contiennent ces quatre fichiers de base. D'autres projets peuvent contenir des fichiers supplémentaires pour prendre en charge d'autres fonctionnalités.
 
@@ -59,13 +60,13 @@ Au cours de cette procédure, vous apprendrez à créer un projet du groupe de r
 
 Vous pouvez personnaliser un projet de déploiement en modifiant les fichiers de modèle JSON qui décrivent les ressources Azure à déployer. JSON signifie JavaScript Object Notation. Il s'agit d'un format de données sérialisées facile à utiliser.
 
-Les projets de groupe de ressources Azure comprennent deux fichiers de modèle dans le nœud **Modèles** dans l’Explorateur de solutions que vous pouvez modifier : un fichier de modèle Azure Resource Manager et un fichier de paramètres.
+Les projets de groupe de ressources Azure comprennent deux fichiers de modèle sous le nœud **Modèles** de l’Explorateur de solutions que vous pouvez modifier : un fichier de modèle Azure Resource Manager et un fichier de paramètres.
 
-- **Les fichiers de modèle Azure Resource Manager** (qui ont l’extension .json) spécifient les fichiers contenant les ressources souhaitées, ainsi que les paramètres requis par le projet de déploiement, tels que le nom et l’emplacement du site. Ils indiquent également les dépendances des composants dans le groupe de ressources Azure, ainsi que leurs propriétés, telles que les noms, les balises et les règles relatives aux déclencheurs. Vous pouvez modifier ce fichier pour ajouter vos propres fonctionnalités. Par exemple, vous pouvez ajouter une base de données au modèle. Pour connaître les paramètres à spécifier, consultez la documentation de chaque fournisseur de ressources. Pour plus d’informations, consultez [Fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790572.aspx).
+- Les **fichiers de modèle Azure Resource Manager** (qui portent l’extension .json) spécifient les fichiers contenant les ressources souhaitées, ainsi que les paramètres requis par le projet de déploiement, tels que le nom et l’emplacement du site. Ils indiquent également les dépendances des composants dans le groupe de ressources Azure, ainsi que leurs propriétés, telles que les noms, les balises et les règles relatives aux déclencheurs. Vous pouvez modifier ce fichier pour ajouter vos propres fonctionnalités. Par exemple, vous pouvez ajouter une base de données au modèle. Pour connaître les paramètres à spécifier, consultez la documentation de chaque fournisseur de ressources. Pour plus d’informations, voir [Fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790572.aspx).
 
-- Les **fichiers de paramètres** (qui portent l’extension `.param.*.json`) contiennent des valeurs correspondant aux paramètres spécifiés dans le fichier de configuration, qui sont nécessaires pour chaque fournisseur de ressources. Dans cet exemple, le fichier de configuration pour une application web (WebSite.json) définit les paramètres pour *siteName* et *siteLocation*. Durant le déploiement, vous êtes invité à fournir des valeurs pour les paramètres dans le fichier de modèle, et ces valeurs sont stockées dans le fichier de paramètres. Vous pouvez également modifier le fichier de paramètres directement.
+- Les **fichiers de paramètres** (qui portent l’extension `.param.*.json`) contiennent les valeurs des paramètres spécifiés dans le fichier de configuration qui sont nécessaires pour chaque fournisseur de ressources. Dans cet exemple, le fichier de configuration d’une application web (WebSite.json) définit les paramètres pour *siteName* et *siteLocation*. Durant le déploiement, vous êtes invité à fournir des valeurs pour les paramètres dans le fichier de modèle, et ces valeurs sont stockées dans le fichier de paramètres. Vous pouvez également modifier le fichier de paramètres directement.
 
-Les fichiers JSON peuvent être modifiés dans l'éditeur Visual Studio. Si vous installez les [Outils PowerShell pour Visual Studio](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597), vous bénéficiez également des fonctions de mise en surbrillance de la syntaxe, de correspondance d’accolades et IntelliSense, qui facilitent la lecture et l’édition des scripts PowerShell. Un lien pour installer les outils PowerShell s'affiche en haut de l'éditeur s'ils ne sont pas déjà installés.
+Les fichiers JSON peuvent être modifiés dans l'éditeur Visual Studio. Si vous installez les [outils PowerShell pour Visual Studio](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597), vous bénéficiez également des fonctions de mise en surbrillance de la syntaxe, de correspondance d’accolade et d’IntelliSense, qui facilitent la lecture et la modification des scripts PowerShell. Un lien pour installer les outils PowerShell s'affiche en haut de l'éditeur s'ils ne sont pas déjà installés.
 
 ![Installer des outils PowerShell](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796671.png)
 
@@ -85,7 +86,7 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     ![Boîte de dialogue Déployer vers le groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Choisissez le groupe de ressources dans la zone de liste déroulante **Groupe de ressources**, ou créez-en un. Pour créer un groupe de ressources, ouvrez la zone de liste déroulante **Groupe de ressources**, puis choisissez **<Create New...>**.
+1. Choisissez un groupe de ressources existant dans la zone de liste déroulante **Groupe de ressources**, ou créez-en un. Pour créer un groupe de ressources, ouvrez la zone de liste déroulante **Groupe de ressources**, puis choisissez **<Create New...>**.
 
     La boîte de dialogue **Créer un groupe de ressources** s’affiche.
 
@@ -93,23 +94,23 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     >[AZURE.NOTE]En général, lorsque vous démarrez un nouveau projet de déploiement, vous commencez par créer un nouveau groupe de ressources dans lequel effectuer le déploiement.
 
-1. Saisissez un nom et un emplacement pour le groupe de ressources, puis choisissez le bouton **Créer**.
+1. Entrez un nom et un emplacement pour le groupe de ressources, puis choisissez le bouton **Créer**.
 
     L'emplacement du groupe de ressources ne doit pas être identique à celui des ressources, dans la mesure où les ressources d'un groupe peuvent s'étendre sur plusieurs régions.
 
 1. Choisissez la configuration de modèle et les fichiers de paramètres à utiliser pour ce déploiement, ou acceptez le paramétrage par défaut.
 
-    Pour modifier les propriétés d’une ressource, sélectionnez le bouton **Modifier les paramètres**. Si des paramètres obligatoires manquent lors du déploiement, la boîte de dialogue **Modifier les paramètres** s’affiche pour vous permettre de les fournir. S’il manque des valeurs à certains paramètres, **<null>** apparaît dans le champ **Valeur** en regard de ces derniers. Pour cet exemple (ressource d'application web), les paramètres requis comprennent le nom du site, le plan d'hébergement et l'emplacement du site (pour mémoire, ces valeurs de paramètres sont définies sur null par défaut dans le fichier de paramètres). Les autres paramètres ont des valeurs par défaut.
+    Pour modifier les propriétés d’une ressource, sélectionnez le bouton **Modifier les paramètres**. Si des paramètres obligatoires manquent lors du déploiement, la boîte de dialogue **Modifier les paramètres** s’affiche pour vous permettre de les spécifier. Si certains paramètres ne sont pas renseignés, **<null>** apparaît dans la zone **Valeur** en regard de ces paramètres. Pour cet exemple (ressource d'application web), les paramètres requis comprennent le nom du site, le plan d'hébergement et l'emplacement du site (pour mémoire, ces valeurs de paramètres sont définies sur null par défaut dans le fichier de paramètres). Les autres paramètres ont des valeurs par défaut.
 
     ![Boîte de dialogue Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796675.png)
 
-1. Dans la boîte de dialogue **Modifier les paramètres**, entrez le nom du site, l’emplacement du site, le nom du plan d’hébergement, puis vérifiez les valeurs de toutes les autres propriétés. Lorsque vous avez terminé, cliquez sur le bouton **Enregistrer**.
+1. Dans la boîte de dialogue **Modifier les paramètres**, entrez le nom du site, l’emplacement du site et le nom du plan d’hébergement, puis vérifiez les valeurs de toutes les autres propriétés. Lorsque vous avez terminé, cliquez sur le bouton **Enregistrer**.
 
     - Le paramètre *siteName* correspond à la première partie de l’URL de la page web. Par exemple, dans l’URL nomdemonsiteweb.azurewebsites.net, le nom du site est **nomdemonsiteweb**.
 
-    - Le paramètre *hostingPlanName* spécifie votre plan d’hébergement. Dans cet exemple, vous pouvez utiliser « Gratuit ». Pour plus d’informations sur les plans d’hébergement, consultez la rubrique [Présentation détaillée des plans d’Azure App Service](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+    - Le paramètre *hostingPlanName* spécifie votre plan d’hébergement. Dans cet exemple, vous pouvez utiliser « Gratuit ». Pour plus d’informations sur les plans d’hébergement, voir [Présentation détaillée des plans Azure App Service](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
 
-    - Le paramètre *siteLocation* fait référence à la région Azure dans laquelle le site doit être hébergé, par exemple, « Ouest des États-Unis ». Pour obtenir la liste des régions disponibles, consultez la rubrique [Régions Azure](http://azure.microsoft.com/regions/).
+    - Le paramètre *siteLocation* fait référence à la région Azure dans laquelle le site doit être hébergé, par exemple, « Ouest des États-Unis ». Pour obtenir la liste des régions disponibles, voir [Régions Azure](http://azure.microsoft.com/regions/).
 
 1. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure.
 
@@ -117,7 +118,7 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     >[AZURE.NOTE]Il se peut que vous soyez invité à installer les applets de commande Microsoft Azure PowerShell. Ces applets de commande étant nécessaires pour déployer des groupes de ressources Azure, vous devez les installer.
 
-1. Dans un navigateur, ouvrez le [portail Azure en version préliminaire](https://portal.azure.com/). Dans la mesure où il s’agit d’une nouvelle modification, un nouveau message de notification doit être disponible dans l’onglet **Notifications**. Sélectionnez-le pour afficher des détails concernant le nouveau groupe de ressources Azure. Pour afficher la liste de tous les groupes de ressources disponibles, accédez à l’onglet **Parcourir**, puis sélectionnez **Groupes de ressources**.
+1. Dans un navigateur, ouvrez le [portail Azure en version préliminaire](https://portal.azure.com/). Dans la mesure où il s’agit d’une nouvelle modification, un nouveau message de notification doit apparaître dans l’onglet **Notifications**. Sélectionnez-le pour afficher des détails concernant le nouveau groupe de ressources Azure. Pour visualiser la liste de tous les groupes de ressources disponibles, accédez à l’onglet **Parcourir**, puis sélectionnez **Groupes de ressources**.
 
     ![Le groupe de ressources Azure approvisionné](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796676.png)
 
@@ -139,13 +140,13 @@ Si vous utilisez des projets de déploiement cloud créés avec le Kit de dével
 
     1. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
 
-    1. Dans la boîte de dialogue **Nouveau projet**, recherchez le projet **Groupe de ressources Azure** sous **Visual C#**/**Cloud** ou **Visual Basic**/**Cloud**.
+    1. Dans la boîte de dialogue **Nouveau projet**, recherchez le projet **Groupe de ressources Azure** sous **Visual C#**/**Cloud** ou **Visual Basic**/**Cloud**.
 
          Le nom de modèle de projet **Déploiement cloud** a été remplacé par Groupe de ressources Azure.
 
     1. Donnez un nom au projet.
 
-    1. Sélectionnez **Ajouter à la solution** dans la zone de liste déroulante de solutions.
+    1. Dans la zone de liste déroulante de solutions, sélectionnez **Ajouter à la solution** .
 
     1. Ensuite, vous êtes invité à sélectionner un modèle. Dans la mesure où vous déplacez vos modèles existants à partir de votre projet de déploiement cloud créé avec le Kit de développement logiciel (SDK) Azure 2.5, vous pouvez choisir un modèle quelconque. Choisissons le modèle vide au bas de la liste.
 
@@ -157,7 +158,7 @@ Si vous utilisez des projets de déploiement cloud créés avec le Kit de dével
 
     1. Dans l'Explorateur de solutions, recherchez le modèle et les fichiers de paramètres à copier dans le projet de déploiement du Kit de développement logiciel (SDK) Azure 2.5, sélectionnez-les, puis copiez-les.
 
-    2. Collez les fichiers dans le dossier **Modèles** de votre nouveau projet du groupe de ressources du kit de développement logiciel (SDK) Azure 2.6 ou ultérieur.
+    2. Collez les fichiers dans le dossier **Modèles** de votre nouveau projet de groupe de ressources du Kit de développement logiciel (SDK) Azure 2.6 ou ultérieur.
 
 1. Dans l'Explorateur de solutions, recherchez le modèle et les fichiers de paramètres à copier dans le projet de déploiement du Kit de développement logiciel (SDK) Azure 2.5, sélectionnez-les, puis copiez-les.
 
@@ -165,15 +166,15 @@ Si vous utilisez des projets de déploiement cloud créés avec le Kit de dével
 
 1. Si vous déployez également une application web dans votre modèle, vous devez créer une référence du nouveau projet du groupe de ressources du kit de développement logiciel (SDK) Azure 2.6 ou ultérieur vers votre application web.
 
-    1. Dans le menu contextuel du nœud **Références** de votre nouveau projet du groupe de ressources du kit de développement logiciel (SDK) Azure 2.6 ou ultérieur dans l’Explorateur de solutions, sélectionnez **Ajouter une référence**.
+    1. Dans le menu contextuel du nœud **Références** de votre nouveau projet de groupe de ressources du Kit de développement logiciel (SDK) Azure 2.6 ou ultérieur dans l’Explorateur de solutions, sélectionnez **Ajouter une référence**.
 
-    1. Activez la case à cocher en regard de votre application web dans la liste de projets, puis cliquez sur le bouton **OK**.
+    1. Cochez la case en regard de votre application Web dans la liste de projets, puis cliquez sur le bouton **OK**.
 
 1. Dans le menu contextuel du nœud Références de votre nouveau projet du groupe de ressources du kit de développement logiciel (SDK) Azure 2.6 ou ultérieur dans l’Explorateur de solutions, sélectionnez Ajouter une référence.
 
 1. Activez la case à cocher en regard de votre application Web dans la liste de projets, puis cliquez sur le bouton OK.
 
-1. Renommez toutes les occurrences des paramètres *dropLocation* et *dropLocationSasToken* en *\_artifactsLocation* et *\_artifactsLocationSasToken*.
+1. Renommez toutes les occurrences des paramètres *dropLocation* et *dropLocationSasToken* sous la forme *\_artifactsLocation* et *\_artifactsLocationSasToken*.
 
 1. Si vous ne comptez pas les utiliser, vous pouvez supprimer le modèle et les fichiers de paramètres vides qui ont été automatiquement ajoutés au projet du kit de développement logiciel (SDK) Azure 2.6 ou ultérieur lors de sa création.
 
@@ -193,6 +194,6 @@ Des ajustements ont été également apportés à un certain nombre de noms de v
 
 ## Étapes suivantes
 
-Pour savoir comment ajouter des ressources à votre groupe de ressources Azure dans Visual Studio, consultez la rubrique [Ajout de ressources à un groupe de ressources Azure](vs-azure-tools-resource-group-adding-resources.md).
+Pour découvrir comment ajouter des ressources à votre groupe de ressources Azure dans Visual Studio, voir [Ajout de ressources à un groupe de ressources Azure](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

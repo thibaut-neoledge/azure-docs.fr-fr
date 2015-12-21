@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Informations sur la taille des réseaux virtuels dans Azure RemoteApp"
-    description="Découvrez le nombre d’adresses IP requises pour l’exécution d'Azure RemoteApp avec un réseau virtuel" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Informations sur la taille des réseaux virtuels dans Azure RemoteApp | Microsoft Azure"
+    description="Découvrez le nombre d’adresses IP requises pour l’exécution d'Azure RemoteApp avec un réseau virtuel"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,5 @@ Consultez les informations suivantes pour vérifier que votre réseau virtuel es
 
 - [Migration à partir d'un réseau virtuel personnel vers un réseau virtuel Azure](remoteapp-migratevnet.md)
 - [Validation du réseau virtuel Azure à utiliser avec Azure RemoteApp](remoteapp-vnet.md)
-  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

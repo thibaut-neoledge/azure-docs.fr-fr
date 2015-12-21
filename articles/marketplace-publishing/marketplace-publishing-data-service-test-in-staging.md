@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # Tester votre offre de service de données dans l'emplacement intermédiaire
-Après avoir effectué les deux premières étapes [Création de vos comptes de vendeur Microsoft dans le tableau de bord](marketplace-publishing-accounts-creation-registration.md) et [Création de votre offre de service de données dans le portail de publication](marketplace-publishing-data-service-creation.md), vous êtes prêt pour la mise à disposition de votre offre dans Azure Marketplace. Cette rubrique vous guidera dans la première étape appelée « environnement intermédiaire »
+Après avoir effectué les deux premières étapes ([Création de votre compte de développeur Microsoft](marketplace-publishing-accounts-creation-registration.md) et [Création de votre offre de service de données dans le portail de publication](marketplace-publishing-data-service-creation.md)), vous êtes prêt à proposer votre offre dans Azure Marketplace. Cette rubrique vous guidera dans la première étape appelée « environnement intermédiaire »
 
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre offre dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant le lancement de sa production. L'offre apparaît avec le statut Intermédiaire, comme pour un client qui l'aurait déployée.
 
@@ -86,4 +86,4 @@ Si vous êtes satisfait et prêt à publier votre offre, consultez la documentat
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

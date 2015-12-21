@@ -29,11 +29,11 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* [Compte Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) avec une adresse électronique vérifiée
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Avoir suivi le [didacticiel de démarrage rapide](../app-service-mobile-android-get-started.md)
+* [Compte Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) avec une adresse électronique vérifiée.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) : inutile pour un projet de serveur principal Node.js.
+* Suivez le [didacticiel de démarrage rapide](../app-service-mobile-android-get-started.md).
 
-##<a name="create-hub"></a>Créer un hub de notification
+##<a name="create-hub"></a>Créer un Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -82,4 +82,4 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 <!-- URLs -->
 [Démarrage rapide Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

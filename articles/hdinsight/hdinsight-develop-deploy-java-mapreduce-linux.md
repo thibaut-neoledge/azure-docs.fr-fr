@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Développement de programmes MapReduce en Java pour Hadoop dans HDInsight
@@ -31,9 +31,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **Un abonnement Azure** : consultez la page [Obtention d'un essai gratuit Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Un abonnement Azure**
 
-- **Interface de ligne de commande Azure** : pour plus d'informations, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md)
+- **Interface de ligne de commande Azure** : pour plus d’informations, consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md)
 
 ##Configuration des variables d’environnement
 
@@ -61,7 +61,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	* __pom.xml__ - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)qui contient les informations et la configuration utilisées pour générer le projet.
 
-	* __src__ - Le répertoire contenant le répertoire __main\\java\\org\\apache\\hadoop\\examples__ dans lequel vous créerez l'application.
+	* __src__ - Le répertoire contenant le répertoire __main\\java\\org\\apache\\hadoop\\examples__ dans lequel vous créerez l’application.
 
 3. Supprimez le fichier __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__, car il ne sera pas utilisé dans cet exemple.
 
@@ -90,7 +90,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	Ceci indique à Maven que le projet a besoin des bibliothèques (figurant dans &lt;artifactId>) avec une version spécifique (figurant dans &lt;version>). Au moment de la compilation, il sera téléchargé à partir du référentiel Maven par défaut. Vous pouvez utiliser la [recherche du référentiel Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) pour en afficher davantage.
 
-	`<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l'application, car elles sont fournies par le cluster HDInsight au moment de l'exécution.
+	`<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l’application, car elles sont fournies par le cluster HDInsight au moment de l’exécution.
 
 2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
@@ -126,7 +126,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
   		  </plugins>
 	    </build>
 
-	Le premier plug-in configure le [plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), qui est également utilisé pour créer un uberjar (parfois appelé fatjar) contenant toutes les dépendances nécessaires à l'application. Il empêche également la duplication des licences dans le package jar, ce qui peut entraîner des problèmes sur certains systèmes.
+	Le premier plug-in configure le [plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), qui est également utilisé pour créer un uberjar (parfois appelé fatjar) contenant toutes les dépendances nécessaires à l’application. Il empêche également la duplication des licences dans le package jar, ce qui peut entraîner des problèmes sur certains systèmes.
 
 	Le second plug-in configure le compilateur Maven, qui est utilisé pour affecter la version de Java nécessaire à cette application à la version utilisée sur le cluster HDInsight.
 
@@ -213,7 +213,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Création de l'application
 
-1. Remplacez le répertoire par __wordcountjava__, si cela n'a pas déjà été fait.
+1. Remplacez le répertoire par __wordcountjava__, si cela n’a pas déjà été fait.
 
 2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
 
@@ -223,7 +223,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 3. Une fois la commande exécutée, le répertoire __wordcountjava\\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l'exécution.
+	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l’exécution.
 
 
 ##<a id="upload"></a>Téléchargement du fichier jar
@@ -250,7 +250,7 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Elle utilise l'application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\___wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
+	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\___wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
 
 3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
 
@@ -270,7 +270,7 @@ Dans ce document, vous avez appris à développer une tâche MapReduce Java. Con
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 - [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-Pour plus d'informations, consultez également le [Centre pour développeurs Java](/develop/java/).
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](http://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -282,22 +282,14 @@ Pour plus d'informations, consultez également le [Centre pour développeurs Jav
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

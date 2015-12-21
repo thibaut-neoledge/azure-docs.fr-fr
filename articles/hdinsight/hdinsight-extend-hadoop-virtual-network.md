@@ -26,7 +26,7 @@ Azure Virtual Network vous permet d’étendre vos solutions Hadoop à intégrer
 
 ##<a id="whatis"></a>Présentation d’Azure Virtual Network
 
-[Azure Virtual Network](/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
+[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
 
 * Connecter différentes ressources de cloud dans un réseau privé (uniquement dans le cloud).
 
@@ -58,7 +58,7 @@ Azure Virtual Network vous permet d’étendre vos solutions Hadoop à intégrer
 
 Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d'approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](/documentation/services/virtual-network/).
+> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d'approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/).
 >
 > Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités.
 >
@@ -176,4 +176,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="12/06/2015"
   ms.author="hascipio; v-divte"/>
 
 # Conditions préalables générales pour créer une offre pour Azure Marketplace
@@ -29,9 +29,9 @@ Pour obtenir des instructions détaillées sur l’inscription d’un compte de 
 
 > [AZURE.IMPORTANT]Vous n’avez pas besoin de remplir les informations bancaires et fiscales de votre entreprise si vous prévoyez de ne publier que des offres gratuites (ou d’apporter votre propre licence).
 
-> L’inscription de l’entreprise doit être terminée pour pouvoir commencer. Toutefois, si votre entreprise renseigne ses informations fiscales et bancaires dans le compte Mon tableau de bord vendeur, les développeurs peuvent commencer à créer l’image de machine virtuelle dans le [portail de publication](https://publish.windowsazure.com), pour la faire certifier et la tester dans l’environnement intermédiaire Azure. Vous avez besoin de l’approbation complète du compte de vendeur uniquement pour la dernière étape de publication de votre offre dans Azure Marketplace.
+> L’inscription de l’entreprise doit être terminée pour pouvoir commencer. Toutefois, si votre entreprise renseigne ses informations fiscales et bancaires dans le compte de développeur Microsoft, les développeurs peuvent commencer à créer l’image de machine virtuelle dans le [portail de publication](https://publish.windowsazure.com), pour la faire certifier et la tester dans l’environnement intermédiaire Azure. Vous avez besoin de l’approbation complète du compte de vendeur uniquement pour la dernière étape de publication de votre offre dans Azure Marketplace.
 
-> Si vous rencontrez des problèmes pendant l’inscription du vendeur, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975). 2. Choisissez **Inscription au Tableau de bord vendeur et votre compte**. 3. Choisissez **Inscription pour un compte de développeur** . 4. Choisissez une méthode de contact.
+> Si vous rencontrez des problèmes pendant l’inscription du vendeur, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286). 2. Choisissez **Centre de développement**. 3. Choisissez **Profil Éditeur**. 4. Choisissez une méthode de contact.
 
 
 ## Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
@@ -50,4 +50,4 @@ Vous devez ensuite remplir les conditions préalables techniques de chaque type 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

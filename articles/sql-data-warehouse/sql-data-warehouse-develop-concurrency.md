@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure].
+[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Azure].
 
 Une fois que la connexion a été créée, un compte d’utilisateur doit être ajouté.
 
@@ -448,8 +448,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-FR/library/azure/ee336235.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

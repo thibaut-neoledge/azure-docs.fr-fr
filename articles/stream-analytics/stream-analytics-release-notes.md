@@ -13,10 +13,19 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="12/10/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
+
+## Notes relatives à la version du 10/12/2015 de Stream Analytics ##
+
+Cette version contient la mise à jour suivante.
+
+Intitulé | Description
+---|---
+Mise à jour de la version de l’API REST | L’API REST a été mise à jour vers la version suivante : 01-10-2015. Pour plus d’informations, consultez [Informations de référence sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) sur MSDN.
+Intégration d’Azure Machine Learning | Cette version s’accompagne de la prise en charge des fonctions Azure Machine Learning définies par l’utilisateur. Cliquez [ici](stream-analytics-machine-learning-tutorial.md) pour accéder à un didacticiel, et [ici](http://blogs.msdn.com/b/streamanalytics/) pour consulter l’annonce générale dans un billet de blog.
 
 ## Notes relatives à la version du 12/11/2015 de Stream Analytics ##
 
@@ -24,7 +33,7 @@ Cette version contient la mise à jour suivante.
 
 Intitulé | Description
 ---|---
-Nouveau comportement de SELECT | Dans Stream Analytics, SELECT a été étendu pour autoriser * comme accesseur de propriété d’un enregistrement imbriqué. Pour plus d’informations, voir [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Types de données complexes").
+Nouveau comportement de SELECT | Dans Stream Analytics, SELECT a été étendu pour autoriser * comme accesseur de propriété d’un enregistrement imbriqué. Pour plus d’informations, consultez [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Types de données complexes").
 
 ## Notes relatives à la version du 22/10/2015 de Stream Analytics ##
 
@@ -35,7 +44,7 @@ Intitulé | Description
 Fonctionnalités de langage de requête supplémentaires | Stream Analytics a étendu le langage de requête en incluant les fonctionnalités suivantes : [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) et [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Limitations d’agrégation supprimées | Cette version supprime la limitation à 15 agrégats dans une requête. Il n’existe désormais aucune limite du nombre d’agrégats par requête.
 Fonctionnalité GROUP BY System.Timestamp ajoutée | La fonction [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) autorise désormais window\_type ou [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
-Fonctionnalité OFFSET ajoutée pour les fenêtres bascule et récurrentes | Par défaut, les fenêtres [bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) et [récurrente](https://msdn.microsoft.com/library/azure/dn835041.aspx) sont alignées par rapport à l’heure zéro (1/1/0001 12:00:00 AM UTC). Le nouveau paramètre (facultatif) « offsetsize » permet de spécifier un décalage (ou alignement) personnalisé.
+Fonctionnalité OFFSET ajoutée pour les fenêtres bascule et récurrentes | Par défaut, les fenêtres [bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) et [récurrente](https://msdn.microsoft.com/library/azure/dn835041.aspx) sont alignées par rapport à l’heure zéro (1/1/0001 12:00:00 AM UTC). Le nouveau paramètre (facultatif) « offsetsize » permet de spécifier un décalage (ou alignement) personnalisé.
 
 
 ## Notes relatives à la version du 29/09/2015 de Stream Analytics ##
@@ -45,7 +54,7 @@ Cette version contient les mises à jour suivantes.
 Intitulé | Description
 ---|---
 Version préliminaire publique d’IoT Azure Suite | Stream Analytics est inclus dans la version préliminaire publique d’IoT Azure Suite.
-Intégration du portail Azure | En plus de sa présence constante sur le portail Azure Classic, Stream Analytics est désormais intégré dans le [portail Azure](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail Azure Classic, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
+Intégration du portail Azure en version préliminaire | En plus de sa présence continue dans le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
 Prise en charge de la sortie DocumentDB | Les tâches Stream Analytics peuvent désormais générer une sortie vers [DocumentDB](http://azure.microsoft.com/services/documentdb/).
 Prise en charge de l’entrée IoT Hub | Les tâches Stream Analytics peuvent à présent recevoir des données à partir d’IoT Hub.
 TIMESTAMP BY pour les événements hétérogènes | Quand un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez désormais utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas.
@@ -117,11 +126,11 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d’Azure Stream Analytics](../stream.analytics.get.started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

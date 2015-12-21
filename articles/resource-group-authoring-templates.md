@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -236,11 +236,11 @@ Vous définissez des ressources avec la structure suivante :
 | commentaires | Non | Vos commentaires pour documenter les ressources dans votre modèle
 | dependsOn | Non | Ressources desquelles dépend la ressource qui est définie. Les dépendances entre les ressources sont évaluées et les ressources sont déployées dans leur ordre dépendant. Quand les ressources ne dépendent les unes des autres, leur déploiement en parallèle est tenté. La valeur peut être une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.
 | properties | Non | Paramètres de configuration spécifiques aux ressources.
-| les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie.
+| les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**.
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs pour l’élément des **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST ( méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
+Les valeurs de l’élément **properties** sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez les [informations de référence sur Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource à déployer.
 
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
@@ -278,6 +278,9 @@ L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une re
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -326,7 +329,7 @@ Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario p
 
 Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
-Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Créer plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -414,8 +417,8 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
-- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour afficher les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/07/2015"
    ms.author="mmercuri"/>
 
 # Définition de dépendances dans les modèles Azure Resource Manager
@@ -49,6 +49,8 @@ Si vous devez définir une dépendance entre une ressource et les ressources qui
 
 La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur 5 niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressources enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn.
 
+Chaque ressource parente accepte uniquement certains types de ressources comme ressources enfants. Les types de ressource acceptés sont spécifiés dans le [schéma de modèle](https://github.com/Azure/azure-resource-manager-schemas) de la ressource parente. Le nom du type de ressource enfant inclut le nom du type de ressource parente. Par exemple, **Microsoft.Web/sites/config** et **Microsoft.Web/sites/extensions** sont deux ressources enfants de **Microsoft.Web/sites**.
+
 ## fonction de référence
 
 La fonction de référence permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. La propriété représentée par **propertyPath** ci-dessous est facultative ; si elle n’est pas spécifiée, la référence est à la ressource.
@@ -57,11 +59,11 @@ La fonction de référence permet à une expression de tirer sa valeur d’un au
 
 Vous pouvez utiliser cet élément ou l’élément dependsOn pour spécifier les dépendances, mais il est inutile d’utiliser les deux pour la même ressource dépendante. Le guide consiste à utiliser la référence implicite pour éviter le risque qu’un élément dependsOn arrête par inadvertance le moteur de déploiement et l’empêche de réaliser certains aspects du déploiement en parallèle.
 
-Pour plus d’informations, consultez la section [fonction de référence](../resource-group-template-functions/#reference).
+Pour plus d’informations, consultez la [fonction de référence](../resource-group-template-functions/#reference).
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez la section [Création de modèles](resource-group-authoring-templates.md). 
-- Pour obtenir la liste des fonctions disponibles dans un modèle, consultez la section [Fonctions de modèle](resource-group-template-functions.md).
+- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
+- Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

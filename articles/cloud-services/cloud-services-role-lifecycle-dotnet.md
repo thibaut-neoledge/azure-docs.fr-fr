@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Répondez aux événements de cycle de vie d’un service cloud à l'aide de .NET" 
+pageTitle="Gérer les événements de cycle de vie du service cloud | Microsoft Azure" 
 description="Découvrez comment utiliser les méthodes de cycle de vie d'un rôle de service cloud dans .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
@@ -80,4 +80,4 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 ## Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restaurati
 
 Vous pouvez également utiliser l'[API REST BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=325584) pour sauvegarder BizTalk Services.
 
+> [AZURE.NOTE]Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l’édition. Vous devez recréer vos connexions hybrides.
+
 ## Avant de commencer
 
 - Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : tableau comparatif des éditions](biztalk-editions-feature-chart.md).
-
-	**Remarque** Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l'édition.
 
 - À l’aide du portail Azure Classic, vous pouvez créer une sauvegarde à la demande ou planifiée.
 
@@ -135,7 +135,7 @@ Le service BizTalk est systématiquement restauré dans un état **Suspendu**. D
 
 - Il est recommandé de configurer des sauvegardes automatisées dans l'environnement du service BizTalk récemment restauré.
 
-Pour démarrer le service BizTalk dans le portail Azure Classic, sélectionnez le service BizTalk restauré, puis sélectionnez **Reprendre** dans la barre des tâches.
+Pour démarrer le service BizTalk dans le portail Azure Classic, sélectionnez le service BizTalk restauré, puis **Reprendre** dans la barre des tâches.
 
 
 
@@ -233,4 +233,4 @@ Pour créer des services Azure BizTalk Services dans le portail Azure Classic, a
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

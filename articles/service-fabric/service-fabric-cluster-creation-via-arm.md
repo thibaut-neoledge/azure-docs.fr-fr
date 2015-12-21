@@ -27,25 +27,26 @@ Cette page vous permet de configurer un cluster Service Fabric à l’aide d’u
 
 ## Acquisition d'un modèle ARM d’exemple
 
-1. Des modèles ARM d’exemple sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates). Tous les noms de modèles de Service Fabric commencent par « service-fabric-cluster-... ». Vous pouvez rechercher « fabric » dans le référentiel ou simplement faire défiler l'ensemble des modèles d’exemple.
+1. Des modèles ARM d’exemple sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates). Tous les noms de modèles de Service Fabric commencent par « service-fabric ». Vous pouvez rechercher « fabric » dans le dépôt ou simplement faire défiler l’ensemble des modèles d’exemple.
 2. Pour vous aider à trouver rapidement ce que vous cherchez, les modèles ont été nommés comme suit :
-	1. [service-fabric-cluster-5-node-1-nodetype](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype) pour indiquer un modèle de cluster non sécurisé de nœud individuel 5 nœuds.
-	2. [service-fabric-cluster-5-node-1-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad) pour indiquer un modèle de cluster non sécurisé de nœud individuel 5 nœuds compatible WAD.
-	3. [service-fabric-cluster-5-node-secure-1-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-secure-1-nodetype-wad) pour indiquer un modèle de cluster sécurisé de nœud individuel 5 nœuds compatible WAD.
-	4. [service-fabric-cluster-10-node-secure-2-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-secure-1-nodetype-wad) pour indiquer un modèle de cluster sécurisé deux nœuds 10 nœuds compatible WAD.
+	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) pour indiquer un modèle de cluster non sécurisé de nœud individuel 5 nœuds. 
+	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) pour indiquer un modèle de cluster sécurisé de nœud individuel 5 nœuds compatible WAD. 
+	4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) pour indiquer un modèle de cluster sécurisé deux nœuds 10 nœuds compatible WAD. 
 	
 
 ## Création d’un modèle ARM personnalisé
 
 2. Deux choix s’offrent à vous 
-	1. Vous pouvez récupérer un modèle d’exemple à partir de [la galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates) et le modifier.
+	1. Vous pouvez récupérer un modèle d’exemple à partir de la [galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates) et le modifier.
 	2. Connectez-vous au portail Azure et utilisez les pages du portail Service Fabric pour générer le modèle que vous souhaitez personnaliser. La procédure à suivre est décrite ci-dessous.
 3. Connectez-vous au portail Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
-2. Passez en revue la procédure de création du cluster, comme décrite dans [Création d’un cluster Service Fabric via le portail](service-fabric-cluster-creation-via-portal.md), mais ne cliquez pas sur ****créer**. À la place, accédez au résumé et téléchargez le modèle. ![DownloadTemplate][DownloadTemplate]
+2. Passez en revue la procédure de création du cluster, comme décrite dans [Création d’un cluster Service Fabric par le biais du portail](service-fabric-cluster-creation-via-portal.md), mais ne cliquez pas sur ****créer**. À la place, accédez au résumé et téléchargez le modèle.
+
+ ![DownloadTemplate][DownloadTemplate]
 
 ## Déploiement du modèle ARM sur Azure à l'aide d'Azure PS
 
-Reportez-vous à [Déploiement de modèles ARM à l’aide de PS](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la procédure à suivre.
+Consultez [Déploiement de modèles ARM à l’aide de PS](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la façon de déployer le modèle à l’aide de PowerShell.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
@@ -56,4 +57,4 @@ Reportez-vous à [Déploiement de modèles ARM à l’aide de PS](resource-group
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

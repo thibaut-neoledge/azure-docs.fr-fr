@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Essai gratuit de 30 jours d’Azure RemoteApp"
+    pageTitle="Essai gratuit de 30 jours d’Azure RemoteApp | Microsoft Azure"
     description="Découvrez l’essai gratuit de 30 jours d’Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -30,4 +30,4 @@ Vous êtes impatient ? Regardez une courte vidéo sur la [Création d’un dép
 
 Vous avez des commentaires ? Posez des questions sur les [forums de discussion](http://feedback.azure.com/forums/247748-azure-remoteapp). Si vous avez une [formule d’assistance Azure](http://azure.microsoft.com/support/plans/), vous pouvez envoyer un dossier de support. Tous les utilisateurs peuvent envoyer des commentaires sur nos [Forums de commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

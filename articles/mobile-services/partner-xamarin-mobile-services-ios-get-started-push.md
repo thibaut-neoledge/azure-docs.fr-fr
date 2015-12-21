@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -267,7 +267,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             }
         }
 
-8. Dans **TodoListViewController**, modifiez l'action **OnAdd** pour que le jeton d'appareil soit stocké dans **AppDelegeate**, puis stockez-le dans la table **TodoItem** à ajouter.
+8. Dans **QSTodoListViewController**, modifiez l’action **OnAdd** pour que le jeton d’appareil soit stocké dans **AppDelegeate**, puis stockez-le dans la table **TodoItem** à ajouter.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -403,4 +403,4 @@ Vous avez terminé ce didacticiel.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

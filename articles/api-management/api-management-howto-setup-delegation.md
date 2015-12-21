@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
@@ -117,7 +117,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 ## <a name="delegate-example-code"> </a> Exemple de Code ##
 
-Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail Gestion des API, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
+Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
 ****Code C# pour générer le hachage de returnUrl****
 
@@ -166,4 +166,4 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

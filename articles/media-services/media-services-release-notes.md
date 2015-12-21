@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 - [Problèmes actuellement connus](#issues)
 - [Historique des versions de l’API REST](#rest_version_history)
-- [Version novembre 2015](#nov_changes_15)
+- [Version de décembre 2015](#dec_changes_15)
+- [Version de novembre 2015](#nov_changes_15)
 - [Version d'octobre 2015](#oct_changes_15)
 - [Version de septembre 2015](#september_changes_15)
 - [Version d’août 2015](#august_changes_15)
@@ -76,15 +77,28 @@ Les objets Media Services dans le Kit de développement logiciel (SDK) ne peuven
 
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
 
-##<a id="nov_changes_15"></a>Version novembre 2015
+##<a id="dec_changes_15"></a>Version de décembre 2015
 
-Désormais, Azure Media Services propose un service de distribution de licence Widevine Google sur le cloud. Pour plus d’informations, consultez [ce blog d’annonces](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consultez également [ce didacticiel](media-services-protect-with-drm.md) et [référentiel GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+L’équipe du Kit de développement logiciel (SDK) Azure a publié une nouvelle version du package [ Kit de développement logiciel (SDK) Azure pour PHP](http://github.com/Azure/azure-sdk-for-php) qui contient des mises à jour et nouvelles fonctionnalités pour Microsoft Azure Media Services. En particulier, le Kit de développement logiciel (SDK) Azure Media Services pour PHP prend désormais en charge les dernières fonctionnalités de [protection du contenu](media-services-content-protection-overview.md) : chiffrement dynamique avec AES et DRM (PlayReady et Widevine), avec et sans restriction de jeton. Il prend également en charge la mise à l’échelle des [Unités d’encodage](media-services-dotnet-encoding-units.md).
+
+Pour plus d’informations, consultez :
+
+- Le blog [Kit de développement logiciel (SDK) Microsoft Azure Media Services pour PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
+- Les [exemples de code](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants pour vous aider à commencer rapidement :
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
+	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
+
+
+##<a id="nov_changes_15"></a>Version de novembre 2015
+
+Désormais, Azure Media Services propose un service de distribution de licence Widevine Google sur le cloud. Pour plus d’informations, consultez [ce blog d’annonces](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consultez également [ce didacticiel](media-services-protect-with-drm.md) et le [référentiel GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 Notez que les services de distribution de licences Widevine fournis par Azure Media Services sont en version préliminaire. Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
-##<a id="oct_changes_15"></a>Version d’octobre 2015
+##<a id="oct_changes_15"></a>Version d’octobre 2015
 
-Azure Media Services (AMS) est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l'Inde, sud de l'Inde et Inde centrale. Vous pouvez maintenant utiliser le portail Azure Classic pour [créer des comptes Media Services](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
+Azure Media Services (AMS) est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l'Inde, sud de l'Inde et Inde centrale. Vous pouvez maintenant utiliser le Portail Azure Classic pour [créer des comptes Service multimédia](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
 
 - Sud du Brésil : seules les unités réservées d'encodage standard et de base sont disponibles
 - Ouest de l'Inde, sud de l'Inde et Inde centrale : seules les unités réservées d'encodage de base sont disponibles
@@ -94,22 +108,22 @@ Azure Media Services (AMS) est désormais également disponible dans les centres
 
 - AMS offre désormais la possibilité de protéger la vidéo à la demande (VOD) et les flux en direct avec la technologie DRM modulaire Widevine. Vous pouvez utiliser les partenaires des services de distribution suivants pour fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	Vous pouvez utiliser le [kit de développement logiciel (SDK) AMS .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (en commençant par la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
+	Vous pouvez utiliser [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (en commençant par la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
-- AMS a ajouté la prise en charge des vidéos Apple ProRes. Vous pouvez à présent télécharger vos fichiers vidéos sources QuickTime qui utilisent Apple ProRes ou d’autres codecs. Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- AMS a ajouté la prise en charge des vidéos Apple ProRes. Vous pouvez à présent télécharger vos fichiers vidéos sources QuickTime qui utilisent Apple ProRes ou d’autres codecs. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- Vous pouvez à présent utiliser Media Encoder Standard pour effectuer un sous-découpage et une extraction d’archive dynamique. Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- Vous pouvez à présent utiliser Media Encoder Standard pour effectuer un sous-découpage et une extraction d’archive dynamique. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Les mises à jour de filtrage suivantes ont été effectuées :
 
 	- Vous pouvez désormais utiliser le format Apple HTTP Live Streaming (HLS) avec filtre audio uniquement. Cette mise à jour vous permet de supprimer la piste audio uniquement en spécifiant (audio-only=false) dans l'URL.
 	- Lorsque vous définissez des filtres pour vos ressources, vous avez désormais la possibilité de combiner plusieurs filtres (jusqu'à 3) dans une même URL.
 
-	Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Pour plus d’informations, voir [ce](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 - AMS prend désormais en charge I-Frames dans HLS v4. La prise en charge d'I-Frame optimise les opérations d’avance rapide et de retour arrière. Par défaut, toutes les sorties HLS v4 incluent une sélection I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Pour plus d’informations, voir [ce](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 ##<a id="august_changes_15"></a>Version d’août 2015
 
@@ -120,12 +134,12 @@ Azure Media Services (AMS) est désormais également disponible dans les centres
 - Mise à jour d’Azure Media Player avec prise en charge des flux audio multiples. Pour plus d'informations, consultez les pages suivantes :
 	- [Billet de blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
-##<a id="july_changes_15"></a>Version de juillet 2015
+##<a id="july_changes_15"></a>Version de juillet 2015
 
-- Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d’informations, consultez [ce billet de blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d’informations, consultez [ce billet de blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 	Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4K, vous devez obtenir le type d’unité réservée **Premium**. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](media-services-portal-encoding-units).
-- Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, consultez [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
+- Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, consultez [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
 
@@ -275,7 +289,7 @@ La dernière version du Kit de développement logiciel (SDK) de Media Services p
 ### <a id="sept_14_breaking_changes"></a>Dernières modifications
 
 * L'entité **Origin** a été renommée en [StreamingEndpoint].
-* Le comportement par défaut, lorsque le **portail Azure Classic** est utilisé pour encoder puis publier les fichiers MP4, a changé.
+* Le comportement par défaut, lorsque le **Portail Azure Classic** est utilisé pour encoder puis publier les fichiers MP4, a changé.
 
 Auparavant, lorsque vous utilisiez le portail Azure Classic pour publier un élément multimédia vidéo MP4 correspondant à un seul fichier, une URL SAS était créée (les URL SAS vous permettent de télécharger la vidéo depuis un stockage d'objets blob). Aujourd'hui, lorsque vous vous servez du portail Azure Classic pour encoder, puis publier ce type d'élément, l'URL générée pointe vers un point de terminaison de diffusion en continu Azure Media Services. Cette modification n'a pas d'incidence sur les vidéos MP4 qui sont directement téléchargées vers Media Services et publiées sans être encodées par Azure Media Services.
 
@@ -621,4 +635,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="12/04/2015"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -219,11 +219,11 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.**
 
-	Liez ensuite un VNet à votre circuit ExpressRoute. Reportez-vous à la rubrique [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md) pour obtenir des instructions étape par étape. Si vous avez besoin de créer un réseau virtuel pour ExpressRoute, consultez la rubrique [Création d’un réseau virtuel pour ExpressRoute](expressroute-howto-createvnet-classic.md) afin d’obtenir des instructions.
+	Liez ensuite un VNet à votre circuit ExpressRoute. Vous pouvez utiliser [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) avec le mode de déploiement Azure Resource Manager. Nous travaillons actuellement sur les procédures PowerShell.
 
 ##  Pour obtenir l'état d'un circuit ExpressRoute
 
-Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande *Get-AzureRmExpressRouteCircuit*. L'appel sans paramètre répertorie tous les circuits.
+Vous pouvez récupérer ces informations à tout moment à l’aide de l’applet de commande *Get-AzureRmExpressRouteCircuit*. L'appel sans paramètre répertorie tous les circuits.
 
 		Get-AzureRmExpressRouteCircuit
 
@@ -308,7 +308,7 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 ### Désactivation du module complémentaire ExpressRoute premium
 
-Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de la cmdlet PowerShell suivante :
+Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de l’applet de commande PowerShell suivante :
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -357,4 +357,4 @@ Si le fournisseur de services a annulé l’approvisionnement du circuit (l’é
 
 - [Configuration du routage](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

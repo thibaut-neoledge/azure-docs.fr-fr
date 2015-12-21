@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Présentation de Stream Analytics | Microsoft Azure" 
-	description="Découvrez Azure Stream Analytics, un service cloud entièrement géré qui vous permet d’analyser les données de diffusion en continu à partir de l’Internet des objets (IoT) en temps réel." 
-	keywords="analyse de données volumineuses,service cloud,internet des objets,service administré, traitement de flux,streaming analytics,données de diffusion"
+	description="Découvrez Stream Analytics, un service géré qui vous permet d’analyser les données de diffusion en continu à partir de l’Internet des objets (IoT) en temps réel." 
+	keywords="analyse en tant que service, services gérés, traitement des données de diffusion en continu, analyse de diffusion en continu, qu’est-ce que Stream Analytics"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# Qu’est-ce qu’Azure Stream Analytics ?
+# Qu’est-ce que Stream Analytics ?
 
 Azure Stream Analytics (ASA) est un moteur de traitement des événements en temps réel entièrement géré et peu coûteux qui permet d’obtenir des informations détaillées à partir des données. Stream Analytics facilite la configuration de calculs d’analyse en temps réel sur les données de diffusion à partir d’appareils, de capteurs, de sites web, de médias sociaux, d’applications, de systèmes d’infrastructure et bien plus encore.
 
@@ -53,4 +53,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

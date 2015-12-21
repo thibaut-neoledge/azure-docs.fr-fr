@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Résolution des problèmes de contrôle d'accès en fonction du rôle
@@ -22,7 +22,7 @@
 
 Le [contrôle d'accès basé sur un rôle](../role-based-access-control-configure.md) est une fonctionnalité puissante qui vous permet de déléguer l'accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu'elle a besoin de faire. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
 
-Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vous utilisez les rôles sur le portail Azure. Trois rôles courants sont inclus, qui couvrent tous les types de ressources : * Propriétaire * Collaborateur * Lecteur
+Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vous utilisez des rôles dans le portail Azure Classic. Trois rôles courants sont inclus, qui couvrent tous les types de ressources : * Propriétaire * Collaborateur * Lecteur
 
 Les propriétaires et collaborateurs disposent d'un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d'accès à d'autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. [Consultez cet article](../role-based-access-control-configure.md) pour découvrir la procédure détaillée vous permettant d'accorder l'accès.
 
@@ -82,4 +82,4 @@ Les machines virtuelles ont les ressources associées suivantes : * Noms de dom
 
 Si vous n'accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l'accès Collaborateur au groupe de ressources.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

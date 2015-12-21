@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/29/2015"
+    ms.date="12/04/2015"
     ms.author="larryfr"/>
 
 # Développement d'actions de script avec HDInsight
@@ -220,4 +220,4 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 [Personnaliser des clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

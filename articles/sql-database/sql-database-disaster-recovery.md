@@ -23,7 +23,7 @@ La base de données SQL Azure offre les fonctionnalités suivantes pour la récu
 - activation de la réplication géographique [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - réplication géographique standard [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Géo-restauration [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- Nouvelles fonctionnalités de géo-réplication [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- Nouvelles fonctionnalités de géo-réplication [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 Pour en savoir plus sur la préparation aux sinistres et découvrir quand récupérer votre base de données, visitez notre page [Conception pour la continuité des activités](sql-database-business-continuity-design.md).
 
@@ -49,7 +49,7 @@ Utilisez le portail Azure Classic pour mettre fin à la relation de copie contin
 4. Sous **Secondaires**, cliquez avec le bouton droit sur la ligne contenant le nom de la base de données que vous souhaitez récupérer, puis sélectionnez **Failover**.
 
 ###PowerShell
-Utilisez PowerShell pour lancer le basculement vers la base de données secondaire géo-répliquée à l'aide de la cmdlet [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Utilisez PowerShell pour lancer le basculement vers la base de données secondaire géo-répliquée à l'aide de l’applet de commande [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 		
 		$database = Get-AzureRMSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
 		$database | Set-AzureRMSqlDatabaseSecondary –Failover -AllowDataLoss
@@ -131,4 +131,4 @@ Pour en savoir plus, voir [Réception de notifications d'alerte](insights-receiv
 
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

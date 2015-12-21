@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="ggailey777"/>
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Stocker le code de votre projet de service mobile dans le contrôle de code source
 
@@ -98,7 +98,9 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen d
 
 	Une série de commandes indiquant le déploiement de la validation sur le service mobile doit s'afficher.
 
-6. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**. Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
+6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**.
+7. 
+	Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
 
 ##<a name="use-npm"></a>Exploiter le code partagé et les modules Node.js dans vos scripts serveur
 
@@ -138,9 +140,6 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 + [Utilisation des scripts serveur dans Mobile Services] <br/>
 Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
 
-+ [Appel d'une API personnalisée à partir du client] <br/>
- Explique comment créer des API personnalisées pouvant être appelées à partir du client.
-
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
@@ -162,4 +161,4 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

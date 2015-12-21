@@ -51,7 +51,7 @@ Pour plus d’informations sur la prise en charge des périphériques VPN, conta
 | Cisco | ASR | IOS 15.1 (statique), IOS 15.2 (dynamique) | [Exemples Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemples Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0 (statique), IOS 15.1 (dynamique) | [Exemples Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemples Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Appliance MPX CloudBridge ou appliance virtuelle VPX | N/A | [Instructions d’intégration](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatible |
-| Dell SonicWALL | Série TZ, Série NSA, Série SuperMassive, Série NSA classe E | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [Instructions de configuration](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | Non compatible |
+| Dell SonicWALL | Série TZ, Série NSA, Série SuperMassive, Série NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Série BIG-IP | N/A | [Instructions de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Non compatible |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Instructions de configuration](http://docs.fortinet.com/fortigate/admin-guides) | [Instructions de configuration](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Série SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instructions de configuration](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Non compatible |
@@ -78,7 +78,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 **Pour modifier l’exemple :**
 
 1. Ouvrez l’exemple à l’aide du Bloc-notes. 
-1. Recherchez et remplacez toutes les chaînes au format <*texte*> par les valeurs qui correspondent à votre environnement. Prenez soin d’inclure les caractères < and >. Lorsque vous sélectionnez un nom, assurez-vous qu’il est unique. Si une commande ne fonctionne pas, consultez la documentation du fabricant du périphérique.
+1. Recherchez et remplacez toutes les chaînes au format <*texte*> par les valeurs qui correspondent à votre environnement. Prenez soin d’inclure < and >. Lorsque vous sélectionnez un nom, assurez-vous qu’il est unique. Si une commande ne fonctionne pas, consultez la documentation du fabricant du périphérique.
 
 | **Texte de l’exemple** | **Valeur de substitution** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -91,7 +91,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | &lt;SP\_AzureNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau. Exemple : 255.255.0.0 |
 | &lt;SP\_OnPremisesNetworkIpRange&gt; | Spécifiez une plage locale. Exemple : 10.2.1.0 |
 | &lt;SP\_OnPremisesNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau local. Exemple : 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
+| &lt;SP\_AzureGatewayIpAddress&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
 | &lt;SP\_PresharedKey&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
 
@@ -152,8 +152,8 @@ Le tableau ci-après répertorie les offres d’authentification et de chiffreme
 ## Étapes suivantes
 
 
-Pour plus d’informations sur les passerelles VPN, voir l’article [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
+Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
-Pour configurer un VPN site à site, voir l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
+Pour configurer un VPN site à site, consultez [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

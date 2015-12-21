@@ -3,7 +3,7 @@
     description="Apprenez à appliquer un test de contrainte à vos applications Azure Service Fabric à l’aide de Visual Studio Online."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -140,4 +140,4 @@ Les tests de charge de Visual Studio Online proposent des API vous permettant de
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

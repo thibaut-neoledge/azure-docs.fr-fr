@@ -3,8 +3,8 @@
 	description="Une liste des pratiques éprouvées à utiliser avec Azure Storage dans le développement d’applications performantes."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 
@@ -235,7 +235,7 @@ Pour télécharger rapidement un seul objet blob de grande taille, votre applica
 -	.NET : définissez ParallelOperationThreadCount sur un objet BlobRequestOptions à utiliser.
 -	Java/Android : utilisez BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js : utilisez parallelOperationThreadCount sur les options de demande ou sur le service BLOB.
--	C++ : utilisez la méthode blob\_request\_options::set\_parallelism\_factor.
+-	C++ : utilisez la méthode blob_request_options::set_parallelism_factor.
 
 ####<a name="subheading22"></a>Téléchargement rapide de nombreux objets blob
 Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Cela s’avère plus rapide que de télécharger des objets blob individuels avec des téléchargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. Dans le cas d’un objet blob unique, le débit pris en charge est seulement de 60 Mo/seconde (environ 480 Mbits/s). Au moment de la rédaction du présent document, un compte LRS basé sur US prenait en charge un débit de 20 Gbits/s en entrée, soit bien plus que le débit pris en charge par un objet blob individuel. Par défaut, [AzCopy](#subheading18) effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario.
@@ -382,4 +382,4 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

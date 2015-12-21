@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -83,7 +83,7 @@ Voici les signatures des principales fonctions canoniques pour les opérations d
 
 >[AZURE.NOTE]Une fonction enregistrée pour une opération de suppression doit être nommée _del_, car delete est un mot clé réservé en JavaScript.
 
-Chaque script serveur dispose d'une fonction principale et peut avoir des fonctions d'assistance facultatives. Même si un script serveur peut avoir été créé pour une table spécifique, il peut également faire référence à d'autres tables dans la même base de données. Vous pouvez également définir des fonctions communes comme les modules qui sont partagés entre des scripts. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
+Chaque script serveur dispose d'une fonction principale et peut avoir des fonctions d'assistance facultatives. Même si un script serveur peut avoir été créé pour une table spécifique, il peut également faire référence à d’autres tables dans la même base de données. Vous pouvez également définir des fonctions communes comme les modules qui sont partagés entre des scripts. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
 
 ###<a name="register-table-scripts"></a>Procédure : inscription de scripts de table
 
@@ -289,7 +289,7 @@ En JavaScript, c'est une version courte équivalente à la version longue :
 
 ###<a name="work-with-users"></a>Procédure : fonctionnement des utilisateurs
 
-Dans Azure Mobile Services, vous pouvez utiliser un fournisseur d'identité pour authentifier les utilisateurs. Pour plus d'informations, consultez la page [Prise en main de l'authentification]. Lorsqu'un utilisateur authentifié appelle une opération de table, Mobile Services utilise l'[objet user] pour fournir les informations sur l'utilisateur à la fonction de script enregistrée. La propriété **userId** peut être utilisée pour stocker et récupérer des informations spécifiques de l'utilisateur. L'exemple suivant définit la propriété owner pour un élément basé sur l'élément userId d'un utilisateur authentifié :
+Dans Azure Mobile Services, vous pouvez utiliser un fournisseur d'identité pour authentifier les utilisateurs. Pour plus d'informations, consultez la page [Prise en main de l'authentification]. Lorsqu'un utilisateur authentifié appelle une opération de table, Mobile Services utilise l'[objet user] pour fournir les informations sur l'utilisateur à la fonction de script enregistrée. La propriété **userId** peut être utilisée pour stocker et récupérer des informations spécifiques de l'utilisateur. L’exemple suivant définit la propriété owner d’un élément en fonction de l’élément **userId** d’un utilisateur authentifié :
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@ Cette fonction de l'API personnalisée est appelée par une requête HTTP GET au
 
 Dans Azure Mobile Services, vous pouvez utiliser un fournisseur d'identité pour authentifier les utilisateurs. Pour plus d'informations, consultez la page [Prise en main de l'authentification]. Lorsqu'un utilisateur authentifié appelle une API personnalisée, Mobile Services utilise l'[objet user] pour fournir les informations sur l'utilisateur permettant de personnaliser le code de l'API. L'[objet user] est accessible depuis la propriété user de l'[objet request]. La propriété **userId** peut être utilisée pour stocker et récupérer des informations spécifiques de l'utilisateur.
 
-La fonction de l'API personnalisée **OrderPizza** définit la propriété owner pour un élément basé sur l'élément userId d'un utilisateur authentifié :
+La fonction de l’API personnalisée **OrderPizza** définit la propriété owner d’un élément en fonction de l’élément **userId** d’un utilisateur authentifié :
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -449,11 +449,11 @@ Les scripts qui sont enregistrés pour des travaux planifiés ont une fonction p
 
 ###<a name="scheduler-scripts"></a>Procédure : définition de scripts de travail planifié
 
-Un script serveur peut être attribué à un travail qui est défini dans le planificateur Mobile Services. Ces scripts appartiennent au travail et sont exécutés selon la planification du travail. (Vous pouvez aussi utiliser le [portail Azure Classic] pour exécuter des travaux à la demande.) Un script définissant un travail planifié n'a pas de paramètre, car Mobile Services ne lui transmet aucune donnée ; il est exécuté comme une fonction JavaScript régulière et n'interagit pas directement avec Mobile Services.
+Un script serveur peut être attribué à un travail qui est défini dans le planificateur Mobile Services. Ces scripts appartiennent au travail et sont exécutés selon la planification du travail. (Vous pouvez aussi utiliser le [portail Azure Classic] pour exécuter des tâches à la demande.) Un script définissant un travail planifié n'a pas de paramètre, car Mobile Services ne lui transmet aucune donnée ; il est exécuté comme une fonction JavaScript régulière et n'interagit pas directement avec Mobile Services.
 
 Vous définissez des travaux planifiés de l'une des façons suivantes :
 
-+ Dans le [portail Azure Classic], sous l'onglet **Script** dans le planificateur :
++ Dans le [portail Azure Classic], sous l’onglet **Script** dans le planificateur :
 
 	![3][3]
 
@@ -924,7 +924,7 @@ La bonne exécution de la méthode **open** entraîne la transmission de la conn
 
 Pour écrire dans les journaux, utilisez l'[objet console] global. Utilisez la fonction **log** ou **info** pour journaliser les avertissements de niveau des informations. Les fonctions **warning** et **error** journalisent leurs niveaux respectifs qui sont appelés dans les journaux.
 
-> [AZURE.NOTE]Pour afficher les journaux de votre service mobile, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez votre service mobile, puis choisissez l'onglet **Logs**.
+> [AZURE.NOTE]Pour afficher les journaux de votre service mobile, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez votre service mobile, puis choisissez l’onglet **Journaux**.
 
 Vous pouvez aussi utiliser les fonctions de journalisation de l'[objet console] pour formater vos messages à l'aide de paramètres. L'exemple suivant fournit un objet JSON en tant que paramètre à la chaîne du message :
 
@@ -1051,4 +1051,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

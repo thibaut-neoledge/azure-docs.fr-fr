@@ -30,7 +30,7 @@ Voici l’architecture générale de la solution (généralisée pour plusieurs 
 
 ![][1]
 
-L'élément clé de ce diagramme architectural est Azure Service Bus, qui fournit un modèle de programmation des rubriques/abonnements (la page [Programmation Service Bus Pub/Sub] apporte plus d'informations à ce sujet). Le récepteur, dans ce cas le serveur principal Mobile (généralement [Azure Mobile Service], qui initie une notification Push vers les applications mobiles), ne reçoit pas les messages directement à partir des systèmes principaux, mais au lieu de cela, il existe une couche d'abstraction intermédiaire fournie par [Azure Service Bus] qui permet au serveur mobile principal de recevoir des messages à partir d'un ou plusieurs systèmes principaux. Une rubrique Service Bus doit être créée pour chacun des systèmes principaux, par exemple Comptabilité, RH, Finance, qui sont essentiellement des « rubriques » d’intérêt qui génèrent des messages à envoyer en tant que notification Push. Les systèmes principaux envoient les messages à ces rubriques. Un service principal Mobile peut s’abonner à une ou plusieurs de ces rubriques en créant un abonnement Service Bus. Cela autorisera le serveur principal mobile à recevoir une notification du système principal correspondant. Le serveur principal mobile continue à écouter les messages sur ses abonnements et dès qu’un message arrive, il le reprend et l’envoie sous forme de notification à son concentrateur de notification. Pour finir, les concentrateurs de notification remettent ensuite le message à l’application mobile. Pour résumer, les composants clés sont donc :
+L'élément clé de ce diagramme architectural est Azure Service Bus, qui fournit un modèle de programmation des rubriques/abonnements (la page [Programmation Service Bus Pub/Sub] apporte plus d'informations à ce sujet). Le récepteur, dans ce cas le serveur principal Mobile (généralement [Azure Mobile Service], qui initie une notification Push vers les applications mobiles), ne reçoit pas les messages directement à partir des systèmes principaux, mais au lieu de cela, il existe une couche d'abstraction intermédiaire fournie par [Azure Service Bus] qui permet au serveur mobile principal de recevoir des messages à partir d'un ou plusieurs systèmes principaux. Une rubrique Service Bus doit être créée pour chacun des systèmes principaux, par exemple Comptabilité, RH, Finance, qui sont essentiellement des « rubriques » d’intérêt qui génèrent des messages à envoyer en tant que notification Push. Les systèmes principaux envoient les messages à ces rubriques. Un service principal Mobile peut s’abonner à une ou plusieurs de ces rubriques en créant un abonnement Service Bus. Cela autorisera le serveur principal mobile à recevoir une notification du système principal correspondant. Le serveur principal mobile continue à écouter les messages sur ses abonnements et dès qu’un message arrive, il le reprend et l’envoie sous forme de notification à son hub de notification. Pour finir, les hubs de notification remettent ensuite le message à l’application mobile. Pour résumer, les composants clés sont donc :
 
 1. les systèmes principaux (systèmes métiers/hérités)
 	- Crée une rubrique Service Bus
@@ -213,7 +213,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
 	![][3]
 
-	g. Configurez la tâche sur « Exécuter en continu ». Ainsi, lorsque vous vous connectez au portail de gestion Azure, vous devriez voir ce qui suit :
+	g. Configurez la tâche sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [portail Azure Classic], vous devriez voir ce qui suit :
 
 	![][4]
 
@@ -250,7 +250,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
 	![][5]
 
-4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux de WebJob pour confirmer le traitement lorsque vous accédez au lien Journaux dans le portail de gestion Azure pour votre tâche Web :
+4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux WebJob pour confirmer le traitement quand vous accédez au lien Journaux dans le [portail Azure Classic] pour votre tâche Web :
 
 	![][6]
 
@@ -269,5 +269,6 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [Programmation Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [tâche web Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Notification Hubs : didacticiel Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

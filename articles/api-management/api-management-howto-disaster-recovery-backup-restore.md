@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
@@ -36,9 +36,9 @@ Toutes les tâches que vous effectuez sur les ressources à l'aide d’Azure Res
 -	Définissez les autorisations pour l'application que vous avez ajoutée.
 -	Obtenez le jeton d'authentification des demandes pour Azure Resource Manager.
 
-La première étape consiste à créer une application Azure Active Directory. Connectez-vous au [portail de gestion](http://manage.windowsazure.com/) à l'aide de l'abonnement qui contient votre instance de service de gestion des API et accédez à l’onglet **Applications** pour votre Azure Active Directory par défaut.
+La première étape consiste à créer une application Azure Active Directory. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) à l’aide de l’abonnement qui contient votre instance de service Gestion des API et accédez à l’onglet **Applications** pour votre annuaire Azure Active Directory par défaut.
 
->[AZURE.NOTE]Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d'informations sur l'emplacement de votre répertoire par défaut, consultez [Localiser votre répertoire par défaut dans le portail Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d’informations sur l’emplacement de votre annuaire par défaut, consultez [Localiser votre annuaire par défaut](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Création d’une application Azure Active Directory][api-management-add-aad-application]
 
@@ -189,4 +189,4 @@ Consultez les blogs Microsoft suivants pour les deux procédures pas à pas diff
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

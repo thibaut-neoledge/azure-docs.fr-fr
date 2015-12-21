@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -45,7 +45,22 @@ Q : comment puis-je copier des éléments multimédias d’un compte Media Serv
 
 R : pour copier des éléments multimédias d’un compte Media Services vers un autre, utilisez la méthode d’extension [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible dans le référentiel [Extensions du Kit de développement logiciel (SDK) Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Pour plus d’informations, consultez [cette publication de forum](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices).
 
+Q : comment faire pivoter une vidéo au cours du processus d’encodage ?
 
+R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) prend en charge trois angles de rotation (90, 180 et 270). Le comportement par défaut est « Auto », ce qui signifie qu’il tente de détecter les métadonnées de rotation dans le fichier MP4/MOV entrant et de les compenser. Incluez l’élément **Sources** suivant dans l’une des présélections json définies [ici](http://msdn.microsoft.com/library/azure/mt269960.aspx) :
+	
+	"Version": 1.0,
+	"Sources": [
+	{
+	  "Streams": [],
+	  "Filters": {
+	    "Rotation": "90"
+	  }
+	}
+	],
+	"Codecs": [
+	
+	...
 
 ##Parcours d’apprentissage de Media Services
 
@@ -55,4 +70,4 @@ R : pour copier des éléments multimédias d’un compte Media Services vers u
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

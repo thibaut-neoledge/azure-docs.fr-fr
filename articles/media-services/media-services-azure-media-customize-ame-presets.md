@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Manipuler les tâches d’encodage en personnalisant les présélections de tâches 
@@ -518,4 +518,4 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 
 [Schéma XML de l’Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

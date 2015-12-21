@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migration de votre code SQL vers SQL Data Warehouse
@@ -34,8 +34,8 @@ La liste suivante répertorie les fonctionnalités principales non prises en cha
 - Clause OUTPUT
 - Fonctions en ligne définies par l’utilisateur
 - Fonctions à instructions multiples
+- [Expressions de table commune](#Common-table-expressions)
 - [Expressions récursives de table commune (CTE)](#Expressions-récursives-de-table-commune-(CTE)
-- [Mises à jour via les CTE](#Updates-through-CTEs)
 - Fonctions et procédures CLR
 - Fonction $partition
 - Variables de table
@@ -52,13 +52,16 @@ La liste suivante répertorie les fonctionnalités principales non prises en cha
 
 Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications sont fournies dans les articles de développement référencés ci-dessus.
 
+### Expressions de table commune
+L’implémentation actuelle des expressions de table communes (CTE) dans SQL Data Warehouse comporte les fonctionnalités et les limitations suivantes :
+
+**Fonctionnalité CTE** + une CTE peut être spécifiée dans une instruction SELECT. + une CTE peut être spécifiée dans une instruction CREATE VIEW. + une CTE peut être spécifiée dans une instruction de création TABLE AS SELECT (CTAS). + une CTE peut être spécifiée dans une instruction CREATE REMOTE TABLE AS SELECT (CRTAS). + une CTE peut être spécifiée dans une instruction CREATE EXTERNAL TABLE AS SELECT (CETAS). + une table distante peut être référencée à partir d’une CTE. + une table externe peut être référencée à partir d’une expression CTE. + Plusieurs définitions de requête CTE peuvent être définies dans une CTE.
+
+Les **limitations CTE** + une CTE doivent être suivies d’une instruction SELECT unique. Les instructions INSERT, UPDATE, DELETE et MERGE ne sont pas prises en charge. + Une expression de table commune incluant des références à elle-même (expression de table commune récursive) n’est pas prise en charge (voir ci-dessous la section). + Il n’est pas autorisé de spécifier plusieurs clauses WITH dans une CTE n’est pas autorisée. Par exemple, si une définition CTE\_query\_definition contient une sous-requête, celle-ci ne peut pas contenir de clause WITH imbriquée qui définit une autre CTE. + Il est impossible d’utiliser une clause ORDER BY dans une définition CTE\_query\_definition, sauf lorsqu’une clause TOP est spécifiée. + Lorsqu’une CTE est utilisée dans une instruction faisant partie d’un lot, l’instruction qui la précède doit être suivie d’un point-virgule. + Lorsqu’elle est utilisée dans les instructions préparées par sp\_prepare, les CTE se comportent comme d’autres instructions SELECT dans PDW. Toutefois, si les expressions de table communes sont utilisées dans le cadre de CETAS préparées par sp\_prepare, le comportement peut différer selon qu’il s’agit d’instructions SQL Server ou PDW en raison de la façon dont la liaison est mise en œuvre pour sp\_prepare. Si l’instruction SELECT qui référence CTE utilise une colonne erronée, qui n’existe pas dans CTE, sp\_prepare transmet sans détecter l’erreur, mais l’erreur est levée pendant l’instruction sp\_execute.
+
 ### Expressions récursives de table commune (CTE)
 
-Il s'agit d'un scénario complexe sans solution rapide. Les CTE doivent être décomposées et gérées étape par étape. Vous pouvez généralement utiliser une boucle assez complexe, afin de remplir une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
-
-### Mises à jour via les CTE
-
-Si la CTE est non récursive, vous pouvez réécrire la requête pour utiliser des sous-requêtes. Pour les CTE récursives, vous devez d'abord créer le jeu de résultats comme décrit ci-dessus, puis joindre un jeu de résultats final à la table cible et effectuer la mise à jour.
+Il s’agit d’un scénario de migration complexe, et la meilleure procédure consiste à diviser la CTE et à la gérer en procédant par étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
 
 ### Fonctions système
 
@@ -113,4 +116,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

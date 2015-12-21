@@ -63,7 +63,7 @@ Les connexions ExpressRoute permettent d’accéder aux services suivants.
 
 - Services Microsoft Azure
 - Services Microsoft Office 365
-- Services Microsoft CRM Online (prochainement) 
+- Services Microsoft CRM Online 
  
 Vous pouvez visiter la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour consulter une liste détaillée des services pris en charge via ExpressRoute.
 
@@ -124,4 +124,4 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

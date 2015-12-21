@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/30/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

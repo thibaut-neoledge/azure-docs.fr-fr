@@ -17,36 +17,7 @@
 
 # Présentation du groupe de sécurité réseau
 
-Vous êtes probablement familiarisé avec l’utilisation de pare-feux et listes de contrôle d’accès (ACL) pour filtrer le flux de trafic réseau pour les segments de réseau, les ordinateurs individuels et même les cartes d’interface réseau (NIC) au sein d’un ordinateur. Vous pouvez filtrer le flux du trafic réseau dans Azure de manière similaire, comme indiqué ci-dessous.
-
-- **Listes de contrôle d’accès de points de terminaison**.
-	- Peut filtrer uniquement le trafic entrant.
-	- Peut uniquement être utilisé sur les points de terminaison exposés à Internet, ou via un équilibreur de charge interne.
-	- Limité à 50 listes de contrôle d’accès par point de terminaison.
-	- Ne nécessite **PAS** de réseau virtuel (déploiements classiques).
-- **Groupes de sécurité réseau (NSG)**
-	- Autorisent ou refusent le trafic en fonction du sens du trafic, du protocole, de l’adresse et du port source, ainsi que de l’adresse et du port de destination.
-	- Peut contrôler le trafic entrant et sortant sur les machines virtuelles ou des instances de rôle (déploiements classiques), les cartes réseau (déploiements du Gestionnaire de ressources) et les sous-réseaux (tous les déploiements). Cela inclut toutes les ressources connectées aux sous-réseaux, notamment les services de cloud et des environnements AppService.
-	- Ne peut être appliqué qu’aux ressources connectées à un réseau virtuel régional.
-	- N’exige **PAS** la gestion d’un dispositif pare-feu.
-	- Limité à 100 groupes de sécurité réseau, chacun avec 200 règles, par région.
-- **Installations pare-feu**
-	- Implémenté en tant que machines virtuelles dans votre réseau Azure.
-	- Autorisent ou refusent le trafic en fonction du sens du trafic, du protocole, de l’adresse et du port source, ainsi que de l’adresse et du port de destination.
-	- Fournit des fonctionnalités supplémentaires, en fonction de la solution de pare-feu utilisée.
-
-Cet article concerne plus particulièrement les groupes de sécurité réseau. Pour plus d’informations sur les autres options de filtrage de trafic, visitez les liens fournis ci-dessous.
-
-- [Documentation relative aux listes de contrôle d’accès](./virtual-networks-acl.md).
-- [Créer un réseau de périmètre à l’aide de groupes de sécurité réseau et d’équipements de pare-feu](virtual-networks-dmz-nsg-fw-udr-asm.md).
-
-## Comment fonctionne un groupe de sécurité réseau ?
-
-Un groupe de sécurité réseau contient deux types de règles : **Entrantes** et **Sortantes**. Lorsque le trafic circule au sein d’un serveur Windows Azure qui héberge des machines virtuelles ou des instances de rôle, l’hôte charge toutes les règles de groupe de sécurité réseau entrantes ou sortantes du groupe de sécurité réseau, selon la direction du trafic. Ensuite, les hôtes inspectent chaque règle par ordre de priorité. Si une règle correspond au paquet en cours d’analyse par l’hôte, l’action de la règle (autoriser ou refuser) est appliquée. Si aucune règle ne correspond au paquet, le paquet est abandonné. La figure ci-dessous illustre ce flux de décision.
-
-![ACL de groupe de sécurité réseau](./media/virtual-network-nsg-overview/figure3.png)
-
->[AZURE.NOTE]Les règles appliquées à une machine virtuelle ou à une instance de rôle donnée peuvent provenir de plusieurs groupes de sécurité réseau, car vous pouvez associer un groupe de sécurité réseau à une machine virtuelle (déploiements classiques), une carte réseau (Gestionnaire de ressources des déploiements) ou un sous-réseau (tous les déploiements). La section [Association de groupes de sécurité réseau](#Associating-NSGs) décrit comment sont appliquées les règles issues de plusieurs groupes de sécurité réseau selon la direction du trafic.
+Un groupe de sécurité réseau (NSG) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise/rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
 
 Les groupes de sécurité réseau peuvent présenter les propriétés suivantes.
 
@@ -81,9 +52,9 @@ Les balises par défaut sont des identificateurs fournis par le système pour ad
 
 - **VIRTUAL\_NETWORK :** cette balise par défaut indique tous les espaces d’adressage de votre réseau. Elle inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage local connecté et les réseaux virtuels Azure connectés (réseaux locaux).
 
-- **AZURE\_LOADBALANCER :** cette balise par défaut désigne l’équilibreur de charge de l’infrastructure d’Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
+- **AZURE\_LOADBALANCER :** cette balise par défaut indique l’équilibreur de charge de l’infrastructure d’Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
 
-- **INTERNET :** cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. Cette plage inclut également l’[espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+- **INTERNET :** cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. Cette plage inclut [espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Règles par défaut
 
@@ -274,7 +245,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 ## Étapes suivantes
 
 - [Déploiement des groupes de sécurité réseau dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
-- [Déploiement des groupes de sécurité réseau dans le Gestionnaire de ressources](virtual-networks-create-nsg-arm-pportal.md).
+- [Déploiement des groupes de sécurité réseau dans Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

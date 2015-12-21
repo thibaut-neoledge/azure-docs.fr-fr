@@ -56,7 +56,6 @@ Si vous déplacez des utilisateurs entre des forêts et domaines, vous devez tro
 
 Une autre solution consiste à choisir un attribut existant, dont vous êtes sûr qu'il ne changera pas. **employeeID** est un des attributs couramment utilisés. Si vous envisagez un attribut contenant des lettres, assurez-vous de l'absence de risque que la casse (majuscule ou minuscule) change pour la valeur de l’attribut. Des attributs inappropriés qui ne doivent pas être utilisés sont notamment ceux qui ont le nom de l’utilisateur. En cas de mariage ou de divorce, le nom risque de changer, ce qui n’est pas autorisé pour cet attribut. C'est également une raison pour laquelle il n'est même pas possible de sélectionner des attributs comme **userPrincipalName**, **mail** et **targetAddress** dans l'Assistant Installation d'Azure AD Connect. Ces attributs contiennent également le caractère « @ », qui n’est pas autorisé dans sourceAnchor.
 
-
 ### Changement de l’attribut sourceAnchor
 La valeur de l’attribut sourceAnchor ne peut pas être changée une fois que l’objet a été créé dans Azure AD et que l’identité est synchronisée.
 
@@ -69,4 +68,4 @@ Pour cette raison, les restrictions suivantes s’appliquent à Azure AD Connect
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

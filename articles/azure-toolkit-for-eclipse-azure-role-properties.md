@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/fr-FR/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
 # Propriétés du rôle Azure #
 
@@ -24,7 +24,7 @@ Vous avez la possibilité de définir différents paramètres de configuration p
 
 ## Configuration des propriétés de rôle Azure ##
 
-La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Windows Azure).
+La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Microsoft Azure).
 
 ![][ic789599]
 
@@ -439,4 +439,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

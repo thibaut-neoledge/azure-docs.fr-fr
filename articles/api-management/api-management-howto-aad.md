@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
@@ -26,7 +26,7 @@ Ce guide vous explique comment activer l’accès au portail des développeurs p
 
 ## Comment autoriser des comptes de développeurs avec Azure Active Directory
 
-Pour commencer, cliquez sur **Gérer** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -36,7 +36,7 @@ Cliquez sur **Sécurité** dans le menu **Gestion des API** à gauche, puis sur 
 
 ![Identités externes][api-management-security-external-identities]
 
-Cliquez sur **Azure Active Directory**. Notez l’**URL de redirection** et revenez dans votre annuaire Azure Active Directory sur le portail Azure.
+Cliquez sur **Azure Active Directory**. Notez l’**URL de redirection** et revenez à votre annuaire Azure Active Directory dans le portail Azure Classic.
 
 ![Identités externes][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->
