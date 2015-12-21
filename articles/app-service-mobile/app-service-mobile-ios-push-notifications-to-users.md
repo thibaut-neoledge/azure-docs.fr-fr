@@ -18,7 +18,9 @@
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Cette rubrique montre comment envoyer des notifications à tous les appareils inscrits d'un utilisateur spécifique à partir de votre backend mobile. Elle introduit le concept de [modèles], qui donne aux applications clientes la liberté de spécifier des formats de charge utile et divers emplacements réservés lors de l’inscription. L'envoi atteint alors chaque plateforme dotée de ces espaces réservés, générant ainsi des notifications interplateformes.
 
@@ -79,4 +81,4 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 [modèles]: https://msdn.microsoft.com/library/dn530748.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1210_2015--->

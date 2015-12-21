@@ -198,7 +198,7 @@ Cliquez sur **Oui** pour publier l’expérience.
 
 ###Test du service web
 
-Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Windows Azure pour Python (voir [Installation de Python](python-how-to-install.md)).
+Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Microsoft Azure pour Python (voir [Installation de Python](python-how-to-install.md)).
 
 Il vous faudra également l’**espace de travail**, le **service** et l’**api\_key** de votre expérience pour l’exemple de source ci-dessous. Vous pouvez trouver l’espace de travail et le service en cliquant sur **Requête/réponse** ou **Exécution de lot** pour votre expérience dans le tableau de bord de service web.
 

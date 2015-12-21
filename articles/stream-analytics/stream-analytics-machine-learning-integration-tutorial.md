@@ -51,7 +51,7 @@ La configuration requise pour cet article est la suivante :
 
 ## Téléchargement d’un fichier d’entrée CSV vers le stockage d’objets blob
 
-Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris celui qui est spécifié dans la présentation. Pour télécharger le fichier, vous pouvez utiliser [Explorateur du stockage Windows Azure](http://storageexplorer.com/) ou Visual Studio, ainsi qu’un code personnalisé. Pour ce didacticiel, des exemples sont fournis pour Visual Studio.
+Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris celui qui est spécifié dans la présentation. Pour télécharger le fichier, vous pouvez utiliser [Explorateur du stockage Microsoft Azure](http://storageexplorer.com/) ou Visual Studio, ainsi qu’un code personnalisé. Pour ce didacticiel, des exemples sont fournis pour Visual Studio.
 
 1.	Développez Azure et cliquez avec le bouton droit sur le **Stockage**. Choisissez **Attacher un stockage externe** et **Nom de compte** et **Clé de compte**.  
 

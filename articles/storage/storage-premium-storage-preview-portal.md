@@ -329,7 +329,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
 - [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Tailles de machines virtuelles et services cloud pour Windows Azure](../virtual-machines/virtual-machines-size-specs.md)
+- [Tailles de machines virtuelles et services cloud pour Microsoft Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png

@@ -140,7 +140,7 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 
 ## En savoir plus
 
-Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Windows Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
+Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Microsoft Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

@@ -58,7 +58,7 @@ En outre, la mise en cache sur les instances de rôle comporte ces options confi
 -	Configuration facultative de la haute disponibilité sur certains caches.
 -	Utilisation de capacités étendues de mise en cache, comme les régions, les balises et les notifications.
 
-Ce guide offre un aperçu de la prise en main de In-Role Cache. Pour plus d'informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez la page [À propos de In-Role Cache pour le Cache Windows Azure][].
+Ce guide offre un aperçu de la prise en main de In-Role Cache. Pour plus d'informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez la page [À propos de In-Role Cache pour le Cache Microsoft Azure][].
 
 <a name="getting-started-cache-role-instance"></a>
 ## Prise en main de In-Role Cache
@@ -402,7 +402,7 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Fournisseur de caches de sortie pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Directive OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[À propos de In-Role Cache pour le Cache Windows Azure]: http://go.microsoft.com/fwlink/?LinkId=254172
+[À propos de In-Role Cache pour le Cache Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=254172
 [Fournisseur de l'état de session pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Résolution des problèmes et diagnostic pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx

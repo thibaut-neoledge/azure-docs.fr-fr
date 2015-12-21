@@ -144,8 +144,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 > [AZURE.NOTE]Nous vous recommandons d’utiliser la nouvelle méthode Azure Active Directory pour vous connecter à votre abonnement Azure, à partir de l’interface CLI Azure ou d’Azure PowerShell.
 
-<a id="upload"> </a>
-## Étape 3 : chargement de l’image dans Azure
+## <a id="upload"> </a>Étape 3 : chargement de l’image dans Azure ##
 
 ### En cas d’utilisation de l’interface de ligne de commande Azure
 

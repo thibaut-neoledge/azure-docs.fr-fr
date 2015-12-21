@@ -116,7 +116,7 @@ Le tableau 2 fournit un résumé des instructions relatives au serveur de traite
 Où :
 
 - L’entrée correspond à la bande passante de téléchargement en aval (intranet entre la source et le serveur de traitement).
-- La sortie correspond à la bande passante utilisée (internet entre le serveur de traitement et le serveur cible maître). Les nombres concernant la sortie supposent une compression de serveur de traitement moyenne de 30 %.
+- La sortie correspond à la bande passante utilisée (Internet entre le serveur de traitement et le serveur cible maître). Les nombres concernant la sortie supposent une compression de serveur de traitement moyenne de 30 %.
 - Pour le disque cache, un disque de système d'exploitation distinct de 128 Go minimum est recommandé pour tous les serveurs de traitement.
 - Pour le débit du cache disque, le stockage suivant a été utilisé pour l’analyse comparative : 8 disques SAS de 10 000 tr/min avec une configuration RAID 10.
 
@@ -273,12 +273,12 @@ Le serveur de configuration est déployé dans un service cloud Azure créé aut
 	- Lorsque vous cliquez sur **Suivant**, un test est exécuté pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy, le port et les informations d’identification.
 	- Les URL suivantes doivent être accessibles via le proxy :
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	![Inscription de proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -381,7 +381,7 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 8. Si vous exécutez Linux :
 	1. Assurez-vous que vous avez installé les derniers services d'intégration Linux (LIS) avant d'installer le logiciel du serveur cible maître. Vous trouverez la dernière version de LIS, ainsi que des instructions d'installation [ici](https://www.microsoft.com/fr-FR/download/details.aspx?id=46842). Redémarrez la machine après l'installation de LIS.
 	2. Dans **Préparer les ressources (Azure) cibles**, cliquez sur **Télécharger et installer des logiciels supplémentaires (uniquement pour le serveur cible maître Linux)** pour télécharger le package du serveur cible maître Linux. Copiez le fichier tar téléchargé sur l'ordinateur virtuel à l'aide d'un client sftp. Vous pouvez aussi vous connecter au serveur cible maître Linux déployé et utiliser *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* pour télécharger le fichier.
-2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
+	2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
 	3. Extrayez les fichiers du programme d'installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
 	5. Copiez la phrase secrète du serveur de configuration dans un fichier local à l'aide de la commande **echo*`<passphrase>`* > passphrase.txt**
@@ -480,7 +480,7 @@ Si vous exécutez des ordinateurs virtuels ou des serveurs physiques sur lesquel
 	- [Oracle Enterprise Linux 6.4,6.5 (64 bits uniquement)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
 	- [SUSE Linux Enterprise Server SP3 (64 bits uniquement)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
 - Vous pouvez également obtenir la version mise à jour du service de mobilité à partir du dossier C:\\pushinstallsvc\\repository sur le serveur de traitement après avoir mis à jour ce dernier.
-- Si vous avez une machine déjà protégée avec une version antérieure du service mobilité installé, vous pouvez également mettre à niveau automatiquement le service de mobilité sur les machines protégées à partir du portail de gestion. Pour ce faire, sélectionnez le groupe de protection auquel appartient la machine, mettez en surbrillance la machine protégée et cliquez sur le bouton Mettre à jour le service de mobilité en bas. Le bouton Mettre à jour le service de mobilité est activé uniquement si une version plus récente du service de mobilité est disponible. Assurez-vous que le serveur de traitement exécute la dernière version du logiciel du serveur de traitement avant la mise à jour du service de mobilité. Le serveur protégé doit satisfaire toutes les [conditions préalables d’installation Push automatique](#install-the-mobility-service-automatically) pour que la mise à jour du service de mobilité fonctionne.
+- Si vous avez une machine déjà protégée avec une version antérieure du service mobilité installé, vous pouvez également mettre à niveau automatiquement le service de mobilité sur les machines protégées à partir du portail de gestion. Pour ce faire, sélectionnez le groupe de protection auquel appartient la machine, mettez en surbrillance la machine protégée et cliquez sur le bouton Mettre à jour le service de mobilité en bas. Le bouton Mettre à jour le service de mobilité est activé uniquement si une version plus récente du service de mobilité est disponible. Assurez-vous que le serveur de traitement exécute la dernière version du logiciel du serveur de traitement avant la mise à jour du service de mobilité. Le serveur protégé doit satisfaire toutes les [conditions préalables d’installation push automatique](#install-the-mobility-service-automatically) pour que la mise à jour du service de mobilité fonctionne.
 
 ![Sélectionnez un serveur vCenter](./media/site-recovery-vmware-to-azure/ASRVmware_UpdateMobility1.png)
 
@@ -669,7 +669,7 @@ Ajoutez des ordinateurs comme suit :
 
 	![Serveur vCenter](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-5. Dans **Spécifier les comptes**, sélectionnez le compte à utiliser pour installer le service de mobilité sur des ordinateurs protégés. Les informations d'identification de compte sont nécessaires pour l’installation automatique du service de mobilité. Si vous ne pouvez pas sélectionner un compte, assurez-vous que vous en avez établi un comme décrit à l'étape 2. Notez que ce compte ne peut pas être accédé par Azure. Pour Windows server, le compte doit disposer de privilèges d'administrateur sur le serveur source. Pour Linux, le compte doit être racine.
+5. Dans **Spécifier les comptes**, sélectionnez le compte à utiliser pour installer le service de mobilité sur des ordinateurs protégés. Les informations d'identification de compte sont nécessaires pour l’installation automatique du service de mobilité. Si vous ne pouvez pas sélectionner un compte, assurez-vous que vous en avez établi un comme décrit à l'étape 2. Notez que ce compte ne peut pas être accédé par Azure. Pour Windows Server, le compte doit disposer de privilèges d'administrateur sur le serveur source. Pour Linux, le compte doit être racine.
 
 	![Informations d’identification Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 
@@ -723,7 +723,7 @@ Actuellement, vous ne pouvez exécuter que des basculements non planifiés pour 
 
 	![Ajouter des machines virtuelles](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
 
-3. Si nécessaire, vous pouvez personnaliser le plan pour créer des groupes et définir l'ordre dans lequel les ordinateurs du plan de récupération sont basculés. Vous pouvez également ajouter des invites pour des actions manuelles et des scripts. Lors de la récupération vers Azure, les scripts peuvent être ajoutés à l’aide des [Runbooks Azure Automation](site-recovery-runbook-automation.md).
+3. Si nécessaire, vous pouvez personnaliser le plan pour créer des groupes et définir l'ordre dans lequel les ordinateurs du plan de récupération sont basculés. Vous pouvez également ajouter des invites pour des actions manuelles et des scripts. Lors de la récupération vers Azure, les scripts peuvent être ajoutés à l’aide des [runbooks Azure Automation](site-recovery-runbook-automation.md).
 
 4. Sur la page **Plans de récupération**, sélectionnez le plan et cliquez sur **Basculement non planifié**.
 5. Dans **Confirmer le basculement**, vérifiez le sens du basculement (Vers Azure) et sélectionnez le point de récupération vers lequel basculer.

@@ -18,7 +18,8 @@
 
 # Utilisation du client géré pour Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -84,7 +85,7 @@ Cette section explique comment émettre des requêtes à destination du backend 
 - [Sélectionner des colonnes spécifiques]
 - [Rechercher des données par ID]
 
->[AZURE.NOTE]Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoyer les données de pages].
+>[AZURE.NOTE] Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoyer les données de pages].
 
 ### <a name="filtering"></a>Procédure : filtrage des données renvoyées
 
@@ -171,7 +172,7 @@ Vous pouvez également utiliser la méthode [IncludeTotalCount] pour que la requ
 
 Il s'agit d'un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes `Take` et `Skip`. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes.
 
->[AZURE.NOTE]Pour remplacer la limite de 50 lignes dans un backend Mobile Apps, vous devez également appliquer l’attribut [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) à la méthode GET publique et spécifier le comportement de pagination. Lorsqu'il est appliqué à la méthode, l'exemple suivant définit le nombre maximal de lignes renvoyées à 1 000 :
+>[AZURE.NOTE] Pour remplacer la limite de 50 lignes dans un backend Mobile Apps, vous devez également appliquer l’attribut [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) à la méthode GET publique et spécifier le comportement de pagination. Lorsqu'il est appliqué à la méthode, l'exemple suivant définit le nombre maximal de lignes renvoyées à 1 000 :
 
     [EnableQuery(MaxTop=1000)]
 
@@ -259,7 +260,12 @@ Le code suivant montre comment mettre à jour une instance existante avec le mê
 
 	await todoTable.UpdateAsync(todoItem);
 
-Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi : JObject jo = new JObject(); jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”); jo.Add(“Text”, “Hello World”); jo.Add(“Complete”, false); var inserted = await table.UpdateAsync(jo);
+Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi :
+	JObject jo = new JObject();
+	jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”);
+	jo.Add(“Text”, “Hello World”);
+	jo.Add(“Complete”, false);
+	var inserted = await table.UpdateAsync(jo);
 
 Vous devez spécifier un ID lorsque vous effectuez une mise à jour. C'est grâce à cela que le backend identifie l'instance à mettre à jour. L'ID peut être obtenu à partir du résultat de l'appel `InsertAsync`. Si vous essayez de mettre à jour un élément sans fournir de valeur « Id », une `ArgumentException` se déclenche.
 

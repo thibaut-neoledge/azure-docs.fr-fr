@@ -96,7 +96,6 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -151,7 +150,7 @@ Le flux de transition d'états des jeux de données de la fabrique de données i
 
 Les tranches commencent par l’état **Waiting**. Elles attendent alors que les conditions préalables soient respectées avant l’exécution. Ensuite, l’activité est exécutée et la tranche passe à l’état **In-Progress**. L'exécution de l'activité peut alors réussir ou échouer. En fonction du résultat, la tranche passe à l’état **Ready** ou **Failed**.
 
-L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **SKIP** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
+L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Ready** ou **Failed** pour passer à l’état **Waiting**. L'utilisateur peut également activer **Skip** pour la tranche. Dans ce cas, l’activité ne sera pas exécutée et la tranche ne sera pas traitée.
 
 
 ## Gestion des pipelines
@@ -192,10 +191,10 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 1.	Cliquez sur **AVEC DES ERREURS** sur la mosaïque **JEUX DE DONNÉES** sur la page d’accueil de la fabrique de données.
 	
 	![Vignette de jeux de données avec erreur](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	Dans le panneau **JEUX DE DONNÉES AVEC ERREURS**, cliquez sur la table qui vous intéresse.
+2.	Dans le panneau **Jeux de données avec erreurs**, cliquez sur la table qui vous intéresse.
 
 	![Panneau Jeux de données avec erreurs](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **FAILED**.
+3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **Failed**.
 
 	![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’exécution d’activité qui a échoué.
@@ -265,11 +264,11 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 
 ### Utiliser le portail Azure Classic
 
-Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **EXÉCUTER**, figurant sur la barre de commandes.
+Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **Exécuter**, figurant sur la barre de commandes.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **VALIDER**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **Valider**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Utilisation de Microsoft Azure PowerShell
 
@@ -323,7 +322,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -359,7 +358,7 @@ Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azur
 #### Déploiement de l’alerte 
 Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 Une fois le déploiement du groupe de ressources réussi, les messages suivants s’affichent :
 
@@ -398,7 +397,7 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 
 - Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
 
-	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
@@ -545,7 +544,9 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs :
+- FailedRuns
+- SuccessfulRuns
 
 **Déploiement de l’alerte :**
 

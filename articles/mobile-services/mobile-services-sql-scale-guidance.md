@@ -255,7 +255,7 @@ Les étapes suivantes présentent l’obtention des informations de connexion po
 <a name="AdvancedDiagnosing" />
 ### Diagnostics avancés
 
-De nombreuses tâches de diagnostic peuvent être effectuées directement dans le **portail Azure Classic**, mais certaines tâches avancées ne peuvent être que par le biais de **SQL Server Management Studio** ou du **portail de gestion de base de données SQL**. Nous allons utiliser les vues de gestion dynamique, un ensemble de vues renseignées automatiquement avec des informations de diagnostic sur votre base de données. Cette section fournit un ensemble de requêtes que nous pouvons exécuter dans ces vues pour examiner différentes mesures. Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Windows Azure à l'aide de vues de gestion dynamique][].
+De nombreuses tâches de diagnostic peuvent être effectuées directement dans le **portail Azure Classic**, mais certaines tâches avancées ne peuvent être que par le biais de **SQL Server Management Studio** ou du **portail de gestion de base de données SQL**. Nous allons utiliser les vues de gestion dynamique, un ensemble de vues renseignées automatiquement avec des informations de diagnostic sur votre base de données. Cette section fournit un ensemble de requêtes que nous pouvons exécuter dans ces vues pour examiner différentes mesures. Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][].
 
 Après avoir effectué les étapes de la section précédente pour vous connecter à votre base de données dans SQL Server Management Studio, sélectionnez votre base de données dans l'**Explorateur d'objets**. Développez les **vues** et les **vues système** pour afficher la liste des vues de gestion. Pour exécuter les requêtes ci-dessous, sélectionnez votre base de données dans l'**Explorateur d'objets**, sélectionnez **Nouvelle requête**, collez la requête, puis sélectionnez **Exécuter**.
 
@@ -402,7 +402,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Windows Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
+Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -459,7 +459,7 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 [Documentation sur la base de données SQL Azure]: http://azure.microsoft.com/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
 [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
-[Contrôle de Base de données SQL Windows Azure à l'aide de vues de gestion dynamique]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
+[Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Performances et mise à l'échelle de la base de données SQL Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Dépannage de la base de données SQL Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 [Raisons d'utiliser les nouveaux niveaux de service]: http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons

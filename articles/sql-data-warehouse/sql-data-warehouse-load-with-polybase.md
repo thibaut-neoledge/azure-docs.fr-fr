@@ -58,9 +58,11 @@ Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer 
 
 1. Vérifiez si vous disposez déjà d'informations d'identification de base de données. Pour ce faire, utilisez la vue système sys.database\_credentials, et non les sys.credentials qui affichent uniquement les informations d'identification du serveur.
 
-    ``` -- Vérifiez les informations d'identification de base de données existantes. SELECT * FROM sys.database\_credentials;
+    ```
+    -- Vérifiez les informations d'identification de base de données existantes.
+    SELECT * FROM sys.database\_credentials;
 
-3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d’identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n’affecte aucunement l’authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
+3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d'identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n'affecte aucunement l'authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
 
     -- Créer un fichier d'informations d'identification de niveau base de données CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 

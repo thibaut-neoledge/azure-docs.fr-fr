@@ -20,7 +20,7 @@
 
 ## Haute disponibilité d'Azure Scheduler
 
-En tant que service central de la plateforme Windows Azure, Azure Scheduler est hautement disponible et propose le déploiement de service géo-redondant et la réplication de travail géo-régionale.
+En tant que service central de la plateforme Microsoft Azure, Azure Scheduler est hautement disponible et propose le déploiement de service géo-redondant et la réplication de travail géo-régionale.
 
 ### Déploiement de service géo-redondant
 

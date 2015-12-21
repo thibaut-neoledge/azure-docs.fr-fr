@@ -88,7 +88,10 @@ Crée une demande de création de modèle.
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Corps de la demande | AUCUN |
 
 
 **Réponse** :
@@ -138,7 +141,8 @@ Crée une demande d'obtention de modèle.
 |:--------			|:--------								|
 |	id |	Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -200,7 +204,8 @@ Récupère tous les modèles de l'utilisateur actuel.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -268,7 +273,8 @@ Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br
 |:--------			|:--------								|
 |	id | Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
+||| 
+| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
 
 **Réponse** :
 
@@ -285,7 +291,8 @@ Supprime un modèle existant par ID.
 |:--------			|:--------								|
 |	id |	Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -328,7 +335,8 @@ Disponible uniquement pour la build de recommandation.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -564,7 +572,8 @@ Disponible uniquement pour la build de recommandation.
 |	modelId |	Identificateur unique du modèle |
 |	buildId |	Facultatif. Numéro qui identifie une build réussie. |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -643,7 +652,8 @@ Obtient un exemple du modèle de recommandation.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -796,7 +806,8 @@ Voici les types de règles pris en charge : - <strong>BlockList</strong> : per
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -853,7 +864,10 @@ OData XML
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Corps de la requête | <ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que vous avez utilisé dans le fichier de catalogue)</ins><br> <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+|||
+| Corps de la requête | 
+<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que vous avez utilisé dans le fichier de catalogue)</ins><br> 
+<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Réponse** :
@@ -901,7 +915,8 @@ OData XML
 |	modelId |	Identificateur unique du modèle |
 |	filterId |	Identificateur unique du filtre |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -917,7 +932,8 @@ Code d'état HTTP : 200
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -941,7 +957,11 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
+| Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
+| Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
+| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | 
+| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -952,7 +972,10 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion | 1.0 |
+|||
+| Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Réponse** :
@@ -995,7 +1018,8 @@ Récupère tous les éléments de catalogue.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1097,7 +1121,8 @@ OData XML
 |	modelId |	Identificateur unique du modèle |
 |	token |	Jeton du nom de l'élément de catalogue. Doit contenir au moins 3 caractères. |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1151,7 +1176,10 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion | 1.0 | 
+|||
+| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -1312,7 +1340,8 @@ Récupère les métadonnées de tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 |	forModelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1378,7 +1407,8 @@ Obtient les statistiques d'utilisation.
 | endDate |	Date de fin. Format : aaaa/MM/jjTHH:mm:ss |
 | eventTypes |	Chaîne de types d'événements séparés par des virgules ou valeur null pour obtenir tous les événements |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1460,7 +1490,8 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 | modelId |	Identificateur unique du modèle |
 | fileId |	Identificateur unique du fichier d'utilisation du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1482,7 +1513,8 @@ Récupère le contenu intégral du fichier d'utilisation.
 | fid |	Identificateur unique du fichier d'utilisation du modèle |
 | télécharger | 1 |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1502,7 +1534,8 @@ Supprime le fichier d'utilisation du modèle spécifié.
 | modelId |	Identificateur unique du modèle |
 | fileId | Identificateur unique du fichier à supprimer |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1520,7 +1553,8 @@ Supprime tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 | modelId |	Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1541,7 +1575,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | modelId |	Identificateur unique du modèle |
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue. <br/>Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 
 **Réponse** :
@@ -1623,7 +1658,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue.<br/> Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 |rankBuildId| Identificateur unique de la build de classement ou -1 pour la dernière build de classement|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 
 **Réponse** :
@@ -1774,7 +1810,8 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 | modelId |	Identificateur unique du modèle |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| Corps de la demande | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Réponse** :
 
@@ -1849,7 +1886,8 @@ OData XML
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | buildType | Type de la build à appeler : <br/> : « Recommendation » pour une build de recommandation <br> : « Ranking » pour une build de classement <br/> : « Fbt » pour une build FBT
 | apiVersion | 1\.0 |
-||| | Corps de la requête | S’il est laissé vide, le build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi que la liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| 
+| Corps de la requête | S’il est laissé vide, le build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi que la liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Réponse** :
 
@@ -2813,7 +2851,8 @@ Récupère toutes les notifications pour tous les modèles ou pour un seul modè
 |:--------			|:--------								|
 | modelId | Paramètre facultatif. Si vous l'omettez, vous obtenez toutes les notifications pour tous les modèles. <br>Valeur valide : identificateur unique du modèle.|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+|||
+| Corps de la demande | AUCUNE |
 
 **Réponse :**
 
@@ -2864,7 +2903,8 @@ Supprime toutes les notifications lues pour un modèle.
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+|||
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -2881,7 +2921,8 @@ Supprime toutes les notifications pour tous les modèles.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+|||
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 

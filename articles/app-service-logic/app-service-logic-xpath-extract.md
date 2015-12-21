@@ -7,6 +7,7 @@
    manager="dwrede"
    editor=""/>
 
+
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
@@ -16,11 +17,12 @@
    ms.date="12/07/2015"
    ms.author="rajram"/>
 
+
 #Extracteur XPath BizTalk
 
 Le connecteur Extracteur XPath BizTalk permet de rechercher votre application et d’extraire des données d’un contenu XML sur la base d’une expression XPath.
 
-## Utilisation de l’Extracteur XPath BizTalk
+##Utilisation de l’Extracteur XPath BizTalk
 1. Pour utiliser l'Extracteur Xpath BizTalk, vous devez d'abord créer une instance de l'application API d’extracteur Xpath BizTalk. Cela est possible inline, lors de la création d'une application logique, ou en sélectionnant l'application API Extracteur Xpath BizTalk dans Azure Marketplace.
 
 	>[AZURE.NOTE]Aucun paramètre de configuration n'est associé à BizTalk Xpath Extractor.
@@ -30,7 +32,8 @@ Le connecteur Extracteur XPath BizTalk permet de rechercher votre application et
 
 5. Choisissez « Extraire avec XPath ». « Extraire avec XPath » évalue l’expression Xpath d’entrée sur un contenu XML d’entrée donné : ![Entrée Extracteur XPath BizTalk][2]
 
-	Paramètre|Type|Description du paramètre
+
+Paramètre|Type|Description du paramètre
 ---|---|---
 XPath|string|Chemin d'accès de requête dans un code XML.
 XML d'entrée|string|Contenu du XML d’entrée

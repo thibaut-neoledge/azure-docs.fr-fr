@@ -24,7 +24,7 @@ Vous avez la possibilité de définir différents paramètres de configuration p
 
 ## Configuration des propriétés de rôle Azure ##
 
-La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Windows Azure).
+La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Microsoft Azure).
 
 ![][ic789599]
 
