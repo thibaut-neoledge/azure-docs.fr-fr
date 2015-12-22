@@ -3,7 +3,7 @@
 	description="Suivez ce didacticiel pour commencer à utiliser Azure IoT Hub avec C#."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="fsautomata"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,63 +13,71 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
-     ms.author="elioda"/>
+     ms.date="12/14/2015"
+     ms.author="dobett"/>
 
-# Didacticiel : prise en main d’IoT Hubs
+# Didacticiel : prise en main d’Azure IoT Hub
 
 ## Introduction
 
-Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. L’une des plus grandes difficultés dans les projets IoT consiste à pouvoir connecter de manière fiable et sécurisée des appareils au serveur d’applications principal. Pour simplifier ce scénario, Azure IoT Hub propose une messagerie « appareil vers cloud » et « cloud vers appareil » extensible et fiable, garantit la sécurité des communications grâce au contrôle d’accès et aux informations d’identification de sécurité par appareil, et offre des bibliothèques d’appareils pour les plateformes et les langages les plus populaires.
+Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
 
-Ce didacticiel montre comment utiliser le portail Azure pour créer un hub IoT. Il montre également comment créer une identité d’appareil dans votre hub IoT et comment créer un appareil simulé qui envoie des messages de l’appareil vers le cloud et reçoit des messages en provenance du cloud.
+- Offre une messagerie évolutive Appareil vers cloud et Cloud vers appareil fiable.
+- Assure la sécurité des communications grâce aux informations d’identification de sécurité par appareil et au contrôle d’accès.
+- Inclut des bibliothèques d’appareils pour les langages et les plateformes les plus courants.
+
+Ce didacticiel vous explique les procédures suivantes :
+
+- Utilisez le portail Azure pour créer un hub IoT.
+- Créer une identité de l’appareil dans votre hub IoT.
+- Créer un périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
 
 À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
 
-* **CreateDeviceIdentity**, crée une identité d’appareil et une clé de sécurité associée pour connecter votre appareil simulé ;
-* **ReadDeviceToCloudMessages**, qui lit les messages de l’appareil vers le cloud et affiche leur contenu ; et
-* **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de l’appareil vers le cloud chaque seconde.
+* **CreateDeviceIdentity**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter votre appareil simulé ;
+* **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
+* **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT][]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
+> [AZURE.NOTE]L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
-+ Microsoft Visual Studio 2015
++ Microsoft Visual Studio 2015.
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
 
 ## Créer un hub IoT
 
-1. Connectez-vous au [portail Azure].
+Pour que votre périphérique simulé puisse se connecter, vous devez créer un Hub IoT Hub. Les étapes suivantes vous montrent comment exécuter cette tâche à l’aide du portail Azure.
 
-2. Dans la barre de lancement, cliquez sur **Nouveau**, sur **Internet des objets **, puis sur **IoT Hub**.
+1. Connectez-vous au [portail Azure][lnk-portal].
 
-   	![][1]
+2. Dans la barre de lancement, cliquez sur **Nouveau**, sur **Internet des objets**, puis sur **IoT Hub Azure**.
 
-3. Dans le panneau **Nouveau hub IoT**, spécifiez la configuration souhaitée pour le hub IoT.
+    ![][1]
 
-   	![][2]
+3. Dans le panneau **IoT hub**, choisissez la configuration de votre concentrateur IoT.
 
-    * Dans la zone **Nom**, entrez un nom pour identifier votre hub IoT. Une fois le **Nom** validé, une coche verte apparaît dans la case **Nom**.
-    * Modifiez le **Niveau tarifaire et de mise à l’échelle** comme vous le souhaitez. Ce didacticiel ne nécessite pas un niveau spécifique.
-    * Dans la zone **Groupe de ressources**, créez un groupe de ressources ou sélectionnez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-portal.md).
-    * Utilisez **Emplacement** pour indiquer l’emplacement géographique où héberger votre hub IoT.  
+    ![][2]
 
+    * Dans la zone **Nom**, saisissez un nom pour identifier votre hub IoT. Une fois le **Nom** validé et disponible, une coche verte apparaît dans la case **Nom**.
+    * Sélectionnez une **tarification et un niveau de mise à l’échelle**. Ce didacticiel ne nécessite pas un niveau spécifique.
+    * Dans **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups].
+    * Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre concentrateur IoT.  
 
-4. Une fois les options du nouveau hub IoT configurées, cliquez sur **Créer**. La création du hub IoT peut prendre plusieurs minutes. Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil. Vous pouvez aussi surveiller l’avancement depuis la section Notifications.
+4. Une fois que vous avez choisi les options de configuration de votre hub IoT, cliquez sur **Créer**. La création du hub IoT par Azure peut prendre plusieurs minutes. Pour vérifier l’état d’avancement de l’opération, vous pouvez consulter le tableau d’accueil ou le panneau Notifications.
 
     ![][3]
 
+5. Une fois le hub IoT créé, ouvrez le panneau du nouveau hub IoT, prenez note du **nom d’hôte**, puis cliquez sur l’icône **Clés**.
 
-5. Une fois le hub IoT créé, ouvrez le panneau du nouveau hub IoT, prenez note de l’URI et sélectionnez l’icône **Clé** affichée en haut.
+    ![][4]
 
-   	![][4]
+6. Cliquez sur la stratégie **iothubowner**, puis copiez et prenez note de la chaîne de connexion dans le panneau **iothubowner**.
 
-6. Sélectionnez la stratégie d’accès partagé nommée **iothubowner**, puis copiez et prenez note de la chaîne de connexion dans le panneau droit.
+    ![][5]
 
-   	![][5]
-
-Votre hub IoT est maintenant créé et vous connaissez l’URI et la chaîne de connexion dont vous avez besoin pour terminer ce didacticiel.
+Votre hub IoT est maintenant créé et vous connaissez le nom d’hôte et la chaîne de connexion dont vous avez besoin pour terminer ce qu’il reste du didacticiel.
 
 [AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
 
@@ -80,29 +88,29 @@ Votre hub IoT est maintenant créé et vous connaissez l’URI et la chaîne de 
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1.	Dans Visual Studio, cliquez avec le bouton droit sur votre solution et sélectionnez **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis sélectionnez l’action **Démarrer** pour les applications **ProcessDeviceToCloudMessages** et **SimulatedDevice**.
+1.	Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir comme projet de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis sélectionnez **Démarrer** en tant qu’**action** pour les projets **ReadDeviceToCloudMessages** et **SimulatedDevice**.
 
    	![][41]
 
-2.	Appuyez sur **F5**. Les deux applications doivent démarrer et vous devriez voir les messages envoyés par l’application simulée et reçus par l’application de traitement.
+2.	Appuyez sur **F5** pour démarrer les deux applications. La sortie de console de l’application **SimulatedDevice** affiche les messages que votre périphérique simulé envoie à votre concentrateur IoT et la sortie de console de l’application **ReadDeviceToCloudMessages** affiche les messages que votre IoT hub reçoit.
 
    	![][42]
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré un nouveau hub IoT, créé une identité d’appareil dans le Registre d’identités du hub et utilisé cette identité pour programmer un appareil simulé qui envoie des messages de l’appareil vers le cloud. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec les didacticiels suivants :
+Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le portail, puis créé une identité d’appareil dans le registre d’identités du concentrateur. Vous avez utilisé cette identité d’appareil dans un appareil simulé qui envoie des messages de l’appareil vers le cloud au concentrateur et créé une autre application qui affiche les messages reçus par le concentrateur. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les didacticiels suivants :
 
-- [Envoyer des messages du cloud vers des appareils avec IoT Hub][] montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
-- [Traiter les messages des appareils vers cloud][] montre comment traiter de manière fiable des messages interactifs et de télémétrie en provenance d’appareils.
-- [Téléchargement de fichiers à partir d’appareils][] décrit un modèle qui utilise les messages cloud vers appareil pour faciliter les téléchargements de fichiers à partir d’appareils.
+- [Envoyer des messages du cloud vers des appareils avec IoT Hub][lnk-c2d-tutorial] montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
+- [Traiter les messages des appareils vers le cloud][lnk-process-d2c-tutorial] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
+- [Téléchargement de fichiers à partir d’appareils][lnk-upload-tutorial], qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
-Informations supplémentaires sur IoT Hub :
+Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants :
 
-* [Vue d’ensemble d’IoT Hub][]
-* [Guide du développeur IoT Hub][]
-* [Conseils pour IoT Hub][]
-* [Langages et plateformes d’appareils pris en charge][Supported devices]
-* [Centre de développement Azure IoT][]
+* [Vue d’ensemble d’IoT Hub][lnk-hub-overview]
+* [Guide du développeur IoT Hub][lnk-hub-dev-guide]
+* [Concevoir votre solution IoT Hub][lnk-hub-guidance]
+* [Langages et plateformes d’appareils pris en charge][lnk-supported-devices]
+* [Centre de développement Azure IoT][lnk-dev-center]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -110,24 +118,22 @@ Informations supplémentaires sur IoT Hub :
 [3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
 [4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
 [5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[portail Azure]: https://portal.azure.com/
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Traiter les messages des appareils vers cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
+[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
+[lnk-hub-guidance]: iot-hub-guidance.md
+[lnk-hub-dev-guide]: iot-hub-devguide.md
+[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[lnk-dev-center]: http://www.azure.com/develop/iot
+[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-resource-groups]: resource-group-portal.md
+[lnk-portal]: https://portal.azure.com/
 
-[Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
-[Conseils pour IoT Hub]: iot-hub-guidance.md
-[Guide du développeur IoT Hub]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centre de développement Azure IoT]: http://www.azure.com/develop/iot
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

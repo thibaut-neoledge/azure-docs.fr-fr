@@ -26,7 +26,7 @@ Ce didacticiel montre comment utiliser les fonctionnalités d’authentification
 
 ## Authentification et autorisation dans App Service
 
-Pour obtenir une présentation des fonctions utilisées dans ce didacticiel, consultez le didacticiel précédent de cette série, [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-dotnet-get-started.md).
+Pour obtenir une présentation des fonctions utilisées dans ce didacticiel, consultez le didacticiel précédent de cette série, [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-authentication.md).
 
 ## Procédure pour suivre ce didacticiel
 
@@ -304,4 +304,4 @@ Il s’agit du dernier de la série de didacticiels de prise en main d’API App
 	* [Configuration d’un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md)
 	* [Activation du protocole HTTPS pour un site web Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -137,5 +137,6 @@ Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au com
 
 - Pour en savoir plus sur Azure Storage, consultez la documentation de référence Azure Storage sur [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

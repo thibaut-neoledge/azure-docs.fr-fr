@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service
@@ -43,7 +43,7 @@ Vous apprendrez ce qui suit :
 
 Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le Kit de développement logiciel SDK 2.7.1. Les mêmes instructions s’appliquent à Visual Studio 2015 avec la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installée, mais la présentation de certains écrans peut différer des illustrations.
+Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le kit de développement logiciel 2.8.1. Les mêmes instructions s’appliquent à Visual Studio 2015 avec la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installée, mais la présentation de certains écrans peut différer des illustrations.
 
 ## Création d'une application ASP.NET MVC 5
 
@@ -61,7 +61,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
  
 	**Remarque :** veillez à entrer « ContactManager ». Les blocs de code que vous allez copier plus tard partent du principe que le nom du projet est GestionnaireContacts.
 
-1. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle **MVC**. Vérifiez que **Authentification** a la valeur **Comptes d’utilisateur individuels**, que l’option **Héberger dans le cloud** est sélectionnée et que l’option **Application web** est sélectionnée.
+1. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle **MVC**. Vérifiez que l’option **Authentification** est définie sur **Comptes d’utilisateur individuels**, que l’option **Héberger dans le cloud** est cochée et que **App Service** est sélectionné.
 
 	![Boîte de dialogue New ASP.NET Project](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -712,7 +712,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 Si vous rencontrez des problèmes, voici quelques suggestions pour essayer de les résoudre.
 
-* Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.7.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs lorsque Visual Studio essaie de créer le serveur de base de données ou la base de données.
+* Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.8.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs au moment où Visual Studio essaie de créer le serveur de base de données ou la base de données.
 * Message d’erreur « Opération non prise en charge pour votre type d’offre d’abonnement » lors de la création de ressources Azure : comme ci-dessus.
 * Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](web-sites-dotnet-get-started.md). Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
 * Aucune option pour sélectionner la chaîne de connexion dans l’Assistant de publication Web lors du déploiement : si vous avez utilisé une autre méthode pour créer vos ressources Azure (par exemple, vous essayez de déployer vers une application web et une base de données SQL créée dans le portail), la base de données SQL peut ne pas être associée à l’application web. La solution la plus simple consiste à créer une application web et une base de données en utilisant Visual Studio comme indiqué dans le didacticiel. Vous n’êtes pas obligé de reprendre le didacticiel du début. Dans l’Assistant de publication web, vous pouvez choisir de créer une application web ; vous obtiendrez la même boîte de dialogue de création de ressources Azure que lorsque vous créez le projet.
@@ -797,4 +797,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -40,7 +40,9 @@ Pour les scénarios d’API, il existe plusieurs nouveautés utiles :
 - **Prise en charge pour une utilisation directe d’Azure Active Directory**, sans que le code client n’ait besoin d’échanger le jeton AAD par un jeton de session : votre client peut simplement inclure les jetons AAD dans l’en-tête d’autorisation, conformément à la spécification de jeton du porteur. Cela signifie aussi qu’aucun Kit de développement logiciel (SDK) propre à App Service n’est nécessaire côté client ou serveur. 
 - **Accès de service à service ou « interne »** : si vous disposez d’un processus de démon ou de tout autre client qui aurait besoin d’accéder aux API sans interface, vous pouvez demander un jeton en utilisant un principal du service AAD et le passer à App Service pour permettre une authentification avec votre application.
 - **Autorisation différée** : il est fréquent que les applications aient des restrictions d’accès qui varient en fonction des parties de l’application. Peut-être souhaitez-vous que certaines API soient disponibles publiquement et que d’autres nécessitent une connexion ? Avec la fonctionnalité d’authentification/autorisation, c’était tout ou rien. En effet, l’ensemble du site exigeait une connexion. Cette option existe toujours, mais vous pouvez aussi autoriser le code de votre application à prendre des décisions d’accès après que l’utilisateur a été authentifié auprès d’App Service.
-
+ 
+Pour plus d’informations sur les nouvelles fonctions d’authentification dans Azure App Service, consultez la page [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-authentication.md). Pour plus d’informations sur la migration des applications API existantes à partir du modèle API Apps précédent vers le nouveau, consultez la section [Migration des applications API existantes](#migrating-existing-api-apps) plus loin dans cet article.
+ 
 ### CORS
 En lieu et place d’un paramètre d’application **MS\_CrossDomainOrigins** séparé par des virgules, il existe désormais dans le portail de gestion Azure un panneau qui permet de configurer la fonctionnalité CORS. Il est aussi possible de la configurer à l’aide des outils Resource Manager, tels que Microsoft Azure PowerShell, CLI ou l’[Explorateur de ressources](https://resources.azure.com/). Définissez la propriété **cors** du type de ressource **Microsoft.Web/sites/config** pour votre ressource **&lt;nom du site&gt/web**. Par exemple :
 
@@ -62,7 +64,7 @@ Le panneau de définition d’API est maintenant disponible dans Web Apps, Mobil
         }
     }
 
-À ce stade, le point de terminaison des métadonnées doit être accessible publiquement sans authentification pour permettre à de nombreux clients en aval (par exemple, la génération de code Visual Studio et le flux PowerApps « Ajouter une API ») de l’utiliser. Cela signifie que si vous utilisez l’authentification App Service et que vous voulez exposer la définition d’API à partir de votre application proprement dite, vous devez utiliser l’option d’authentification différée décrite précédemment pour que l’itinéraire vers vos métadonnées Swagger soit public.
+À ce stade, le point de terminaison des métadonnées doit être accessible publiquement sans authentification pour permettre à de nombreux clients en aval (par exemple, la génération de client API REST Visual Studio et le flux PowerApps « Ajouter une API ») de l’utiliser. Cela signifie que si vous utilisez l’authentification App Service et que vous voulez exposer la définition d’API à partir de votre application proprement dite, vous devez utiliser l’option d’authentification différée décrite précédemment pour que l’itinéraire vers vos métadonnées Swagger soit public.
 
 ## Portail de gestion
 Le fait de sélectionner **Nouveau > Web + Mobile > Application API** dans le portail a pour effet de créer des applications API qui reflètent les nouvelles fonctionnalités décrites dans l’article. **Parcourir > API Apps** affiche uniquement ces nouvelles applications API. Une fois que vous accédez à une application API, le panneau partage la même disposition et les mêmes fonctionnalités que celles de Web Apps et Mobile Apps. Les seules différences se situent au niveau du contenu du démarrage rapide et de l’ordre des paramètres.
@@ -71,13 +73,13 @@ Les applications API existantes (ou les applications API Marketplace créées à
 
 ## Visual Studio
 
-La plupart des outils Web Apps fonctionnent avec les nouvelles applications API, car ils partagent le même type de ressource **Microsoft.Web/sites** sous-jacent. En revanche, les outils Azure Visual Studio doivent être mis à niveau vers la version 2.8.1 ou une version ultérieure, car ils exposent un certain nombre de fonctionnalités spécifiques aux API. Téléchargez le Kit de développement logiciel (SDK) à partir de la [page de téléchargement Azure](https://azure.microsoft.com/downloads/).
+La plupart des outils Web Apps fonctionne avec les nouvelles applications API, car ils partagent le même type de ressource **Microsoft.Web/sites** sous-jacent. En revanche, les outils Azure Visual Studio doivent être mis à niveau vers la version 2.8.1 ou une version ultérieure, car ils exposent un certain nombre de fonctionnalités spécifiques aux API. Téléchargez le kit de développement logiciel (SDK) à partir de la [page de téléchargement Azure](https://azure.microsoft.com/downloads/).
 
 Avec la rationalisation des types App Service, la publication est aussi unifiée sous **Publier > Microsoft Azure App Service** :
 
 ![Publication API Apps](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-Pour en savoir plus sur le SDK 2.8.1, lisez l’annonce sur [ce billet de blog](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-1-for-net).
+Pour en savoir plus sur le kit de développement logiciel SDK 2.8.1, lisez l’annonce sur [ce billet de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
 
 Vous pouvez aussi importer manuellement le profil de publication à partir du portail de gestion pour activer la publication. Cependant, Cloud Explorer, la génération de code et la sélection/création d’applications API nécessitera le SDK 2.8.1 ou une version ultérieure.
 
@@ -95,12 +97,12 @@ Les étapes de redéploiement sont identiques aux étapes de déploiement d’un
 ### Authentification
 Les services d’authentification App Service prennent en charge les mêmes fonctionnalités que celles qui étaient disponibles avec l’ancien modèle API Apps. Si vous utilisez des jetons de session et que vous avez besoin de Kits de développement logiciel (SDK), utilisez les SDK client et serveur suivants :
 
-- Client : [SDK Client Azure Mobile](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
+- Client : [Kit de développement logiciel Client Azure Mobile](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
 - Serveur : [Extension d’authentification .NET Microsoft Azure Mobile App](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
 
 Si vous utilisiez à la place les SDK alpha App Service, ceux-ci sont maintenant déconseillés :
 
-- Client : [SDK Microsoft Azure AppService](http://www.nuget.org/packages/Microsoft.Azure.AppService)
+- Client : [Kit de développement logiciel Microsoft Azure AppService](http://www.nuget.org/packages/Microsoft.Azure.AppService)
 - Serveur : [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
 
 En revanche, aucun SDK spécifique à App Service n’est nécessaire si vous utilisez directement le jeton AAD, en particulier avec Azure Active Directory.
@@ -119,10 +121,24 @@ L’ancien modèle API Apps proposait des API qui permettaient de découvrir pen
 ### Logic Apps
 Le concepteur Logic Apps proposera une intégration particulièrement transparente au nouveau modèle API Apps début 2016. Ceci dit, le connecteur HTTP intégré à Logic Apps peut appeler n’importe quel point de terminaison HTTP et il prend en charge l’authentification du principal du service, qui est aussi prise en charge en mode natif par les services d’authentification App Service. Découvrez comment utiliser une API hébergée par App Service dans Logic Apps en consultant l’article [Utilisation de votre API personnalisée hébergée sur App Service avec Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
+### <a id="documentation"></a> Documentation de l’ancien modèle d’applications API
+Certains articles [azure.microsoft.com](https://azure.microsoft.com) écrits au sujet de l’ancien modèle API Apps ne s’appliquent pas au nouveau modèle et vont être supprimés du site. Leurs URL seront redirigées vers l’élément équivalent le plus proche fonctionnant avec le nouveau modèle, mais vous aurez toujours accès aux anciens articles dans le [référentiel de documentation GitHub d’azure.microsoft.com](https://github.com/Azure/azure-content). La plupart des articles que vous pourriez souhaiter consulter se trouve dans le dossier [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Voici des liens directs vers quelques-uns des sujets susceptibles de vous être utiles si vous utilisez une version plus ancienne d’API apps ou si vous créez de nouvelles applications d’API de connecteur depuis Marketplace.
+
+* [Vue d’ensemble de l’authentification](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
+* [Protéger une application API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
+* [Utiliser une application API Apps interne](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-consume-internal.md)
+* [Utilisation avec authentification du flux client](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-authentication-client-flow.md)
+* [Déployer et configurer une application API de connecteur SaaS](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
+* [Provisionner une application API avec une nouvelle passerelle](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-arm-new-gateway-provision.md)
+* [Déboguer une application API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-debug.md)
+* [Se connecter à une plateforme SaaS](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-connect-to-saas.md)
+* [Optimiser une application API pour Logic Apps](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-optimize-for-logic-apps.md)
+* [Déclencheurs d’application API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-triggers.md)
+
 ## Étapes suivantes
-Pour en savoir plus, lisez les articles de la [section Documentation API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour pour prendre en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
+Pour en savoir plus, lisez les articles de la [section Documentation de l’API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour pour prendre en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

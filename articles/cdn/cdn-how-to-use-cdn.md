@@ -135,11 +135,16 @@ Vous pouvez mapper le point de terminaison HTTP CDN à un nom de domaine personn
 
 Pour plus d'informations sur le mappage d'un domaine personnalisé, consultez la rubrique [Comment mapper le contenu du réseau de distribution de contenu Azure (CDN) à un domaine personnalisé](cdn-map-content-to-custom-domain.md).
 
+## Gestion du CDN par programmation
+
+Microsoft Azure CDN peut être géré par le biais de la programmation à l’aide de l’[API REST de fournisseur de ressources CDN](https://msdn.microsoft.com/library/mt634456.aspx).
+
+
 ## Voir aussi
 
 - [Comment activer le réseau de distribution de contenu pour Azure](cdn-create-new-endpoint.md)
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
 - [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
- 
+- [Fournisseur de ressources CDN API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

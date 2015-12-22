@@ -291,7 +291,7 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 ## Écriture dans un objet blob d’ajout
 
-Un objet blob d’ajout est un nouveau type d’objet blob, introduit avec la version 5.x de la bibliothèque cliente de stockage Microsoft Azure pour .NET. Il est optimisé pour les opérations d’ajout, telles que la journalisation. Comme un objet blob de blocs, un objet blob d’ajout est composé de blocs. Mais lorsqu’il est ajouté à un objet blob d’ajout, un nouveau bloc l’est toujours à la fin. Vous ne pouvez pas mettre à jour ou supprimer un bloc dans un objet blob d’ajout. Les ID de bloc dans un objet blob d’ajout ne sont pas visibles, comme pour un objet blob de blocs.
+Un objet blob d’ajout est un nouveau type d’objet blob, introduit avec la version 5.x de la bibliothèque cliente de stockage Windows Azure pour .NET. Il est optimisé pour les opérations d’ajout, telles que la journalisation. Comme un objet blob de blocs, un objet blob d’ajout est composé de blocs. Mais lorsqu’il est ajouté à un objet blob d’ajout, un nouveau bloc l’est toujours à la fin. Vous ne pouvez pas mettre à jour ou supprimer un bloc dans un objet blob d’ajout. Les ID de bloc dans un objet blob d’ajout ne sont pas visibles, comme pour un objet blob de blocs.
  
 Chaque bloc d’un objet blob d’ajout peut avoir une taille différente (jusqu’à 4 Mo), et un objet blob d’ajout peut contenir au maximum 50 000 blocs. La taille maximale d’un objet blob d’ajout est donc légèrement supérieure à 195 Go (4 Mo x 50 000 blocs).
 
@@ -350,6 +350,7 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [Prise en main du stockage de table pour .NET](storage-dotnet-how-to-use-tables.md)
 - [Prise en main du stockage en files d’attente pour .NET](storage-dotnet-how-to-use-queues.md)
 - [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Utiliser une base de données SQL pour stocker des données relationnelles](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

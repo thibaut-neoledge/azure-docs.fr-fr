@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery : test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre"
+	pageTitle="Test de performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre avec Site Recovery | Microsoft Azure"
 	description="Cet article fournit des informations sur les tests des performances pour la réplication d’un site local à un autre à l’aide d’Azure Site Recovery."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery : test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre
+# Test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local avec Site Recovery
 
 Vous pouvez utiliser Microsoft Azure Site Recovery pour orchestrer et gérer la réplication des machines virtuelles et des serveurs physiques sur Azure ou sur un centre de données secondaire. Cet article présente les résultats des tests de performances que nous avons effectués lors de la réplication de machines virtuelles Hyper-V entre deux centres de données locaux.
 
@@ -195,13 +195,7 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 |Mesure|Compteur|
 |---|---|
-|UC|\\Processor(\_Total)\\% Processor Time|
-|Mémoire disponible|\\Memory\\Available MBytes|
-|E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
-|Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
-|Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
-|Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
-|Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|UC|\\Processor(\_Total)\\% Processor Time| |Mémoire disponible|\\Memory\\Available MBytes| |E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Étapes suivantes
@@ -210,4 +204,4 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

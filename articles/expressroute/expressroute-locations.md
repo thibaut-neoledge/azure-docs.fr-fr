@@ -71,7 +71,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Interxion** | Pris en charge | Pris en charge | Amsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Pris en charge | Pris en charge | Melbourne, Sydney |
-| **MTN** | Pris en charge | Non pris en charge | Londres |
+| **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **NTT Communications** | Pris en charge | Non pris en charge | Londres +, Tokyo |
 | **[Orange](http://www.orange-business.com/)** | Pris en charge | Non pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
@@ -95,7 +95,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Bientôt disponible | Non pris en charge | Chicago+, Washington DC+ |
-| **[Communications de niveau 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
 
 #### Cloud de Chine
@@ -139,4 +139,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

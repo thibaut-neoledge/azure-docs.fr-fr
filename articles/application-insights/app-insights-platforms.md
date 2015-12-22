@@ -75,7 +75,7 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 
 ## Exportation et analyse de données
 
-+ [Alooma](http://alooma.com/blog/application-insights-amazon-redshift)
++ [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [Stream Analytics](app-insights-export-power-bi.md)
 
@@ -83,4 +83,4 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
