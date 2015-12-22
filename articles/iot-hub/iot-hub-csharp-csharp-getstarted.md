@@ -100,17 +100,17 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le portail, puis créé une identité d’appareil dans le registre d’identités du concentrateur. Vous avez utilisé cette identité d’appareil dans un appareil simulé qui envoie des messages de l’appareil vers le cloud au concentrateur et créé une autre application qui affiche les messages reçus par le concentrateur. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les didacticiels suivants :
 
-- [Envoyer des messages du cloud vers des appareils avec IoT Hub][lnk-c2d-tutorial] montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
-- [Traiter les messages des appareils vers le cloud][lnk-process-d2c-tutorial] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
-- [Téléchargement de fichiers à partir d’appareils][lnk-upload-tutorial], qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
+- [Envoyer des messages du cloud vers des appareils avec IoT Hub](lnk-c2d-tutorial) montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
+- [Traiter les messages des appareils vers le cloud](lnk-process-d2c-tutorial) montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
+- [Téléchargement de fichiers à partir d’appareils](lnk-upload-tutorial), qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
 Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants :
 
-* [Vue d’ensemble d’IoT Hub][lnk-hub-overview]
-* [Guide du développeur IoT Hub][lnk-hub-dev-guide]
-* [Concevoir votre solution IoT Hub][lnk-hub-guidance]
-* [Langages et plateformes d’appareils pris en charge][lnk-supported-devices]
-* [Centre de développement Azure IoT][lnk-dev-center]
+* [Vue d’ensemble d’IoT Hub](lnk-hub-overview)
+* [Guide du développeur IoT Hub](lnk-hub-dev-guide)
+* [Concevoir votre solution IoT Hub](lnk-hub-guidance)
+* [Langages et plateformes d’appareils pris en charge](lnk-supported-devices)
+* [Centre de développement Azure IoT](lnk-dev-center)
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
