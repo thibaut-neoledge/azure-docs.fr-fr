@@ -343,16 +343,16 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
 | Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All |
 | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Messages HTTP 403 (interdit) |  HTTP.Response.StatusCode == 403 | Réseau |
+| Messages HTTP 404 (introuvable) | HTTP.Response.StatusCode == 404  | Réseau |
+| 404 (tous)  | *StatusCode == 404 | Tous |
+| Problème d'autorisation de la signature d'accès partagé (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Réseau |
+| Messages HTTP 409 (conflit) | HTTP.Response.StatusCode == 409 | Réseau |
+| 409 (tous) | *StatusCode == 409 | Tous |
+| Valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors  | AzureStorageLog.RequestStatus == "ClientOtherError" | Serveur |
+| Avertissement de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Serveur |
+| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Serveur, Réseau |
+| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Serveur |
 
 
 ## Étapes suivantes
