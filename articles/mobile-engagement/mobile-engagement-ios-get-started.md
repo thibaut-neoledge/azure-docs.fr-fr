@@ -176,8 +176,7 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[kit de développement logiciel (SDK) iOS Mobile Engagement]: http://go.microsoft.com/?linkid=9864553
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[kit de développement logiciel (SDK) iOS Mobile Engagement]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -185,4 +184,4 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

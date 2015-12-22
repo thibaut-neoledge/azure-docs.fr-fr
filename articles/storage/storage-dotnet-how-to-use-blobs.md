@@ -350,6 +350,7 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [Prise en main du stockage de table pour .NET](storage-dotnet-how-to-use-tables.md)
 - [Prise en main du stockage en files d’attente pour .NET](storage-dotnet-how-to-use-queues.md)
 - [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Utiliser une base de données SQL pour stocker des données relationnelles](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

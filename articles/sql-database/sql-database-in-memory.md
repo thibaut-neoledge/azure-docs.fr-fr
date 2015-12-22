@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,7 @@ Cette rubrique met l’accent sur deux démonstrations, l’une pour OLTP In-Mem
 - utiliser le code pour tester les variations pour voir les différences dans les résultats de performances ; ou
 - lire le code pour comprendre le scénario et savoir comment créer et utiliser des objets In-Memory.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### OLTP In-Memory.
 
@@ -230,7 +231,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
@@ -241,7 +242,7 @@ Dans l’idéal, vous devez prévoir d’exécuter ostress.exe sur une machine v
 
 Sur la machine virtuelle (ou sur l’hôte que vous avez choisi d’utiliser), installez les utilitaires RML qui incluent ostress.exe.
 
-- Consultez la discussion sur ostress.exe dans [Exemple de base de données OLTPIn-Memory](http://msdn.microsoft.com/library/mt465764.aspx).
+- Consultez la discussion sur ostress.exe dans [Exemple de base de données OLTPIn-Memory](http://msdn.microsoft.com/library/mt465764.aspx),
  - ou l’[exemple de base de données pour In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx),
  - ou encore, [Blog pour l’installation de ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
@@ -527,4 +528,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

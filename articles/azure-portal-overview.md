@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Présentation de la version préliminaire du portail Microsoft Azure"
-	description="Apprenez à utiliser le portail Microsoft Azure en version préliminaire."
+	pageTitle="Présentation du portail Microsoft Azure"
+	description="Apprenez à utiliser le portail Microsoft Azure."
 	services=""
 	documentationCenter=""
 	authors="davidwrede"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
-# Présentation de la version préliminaire du portail Microsoft Azure
+# Présentation du portail Microsoft Azure
 
-Le portail Microsoft Azure en version préliminaire permet de configurer et de gérer l'ensemble de vos ressources Azure. Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes : - Un **marketplace complet** permettant de parcourir des milliers d'articles de Microsoft et d'autres fournisseurs qui peuvent être achetés et/ou mis en service. - Une **expérience de navigation unifiée et évolutive** qui permet de trouver facilement les ressources qui vous intéressent et d'effectuer diverses opérations de gestion. - Des **pages de gestion cohérente** (ou panneaux) qui permettent de gérer de nombreux services Azure grâce à un affichage cohérent des paramètres, des actions, des informations de facturation, des données d'utilisation et d'analyse d'intégrité, et bien plus encore. -Une **expérience personnelle** qui vous permet de créer un écran d'accueil personnalisé avec les informations que vous voulez voir chaque fois que vous vous connectez. Vous pouvez également personnaliser n'importe quel panneau contenant des vignettes.
+Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos ressources Azure. Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes : - Un **marketplace complet** permettant de parcourir des milliers d'articles de Microsoft et d'autres fournisseurs qui peuvent être achetés et/ou mis en service. - Une **expérience de navigation unifiée et évolutive** qui permet de trouver facilement les ressources qui vous intéressent et d'effectuer diverses opérations de gestion. - Des **pages de gestion cohérente** (ou panneaux) qui permettent de gérer de nombreux services Azure grâce à un affichage cohérent des paramètres, des actions, des informations de facturation, des données d'utilisation et d'analyse d'intégrité, et bien plus encore. -Une **expérience personnelle** qui vous permet de créer un écran d'accueil personnalisé avec les informations que vous voulez voir chaque fois que vous vous connectez. Vous pouvez également personnaliser n'importe quel panneau contenant des vignettes.
 
  ![Navigation au sein de l'interface utilisateur du portail Azure][UIOrientation]
 
@@ -32,7 +32,7 @@ Azure possède un marketplace proposant des milliers d'articles que vous pouvez 
 
 1.	Windows Server 2012 est proposé, vous pouvez donc le sélectionner dans la catégorie Calcul.  
 2.	Saisissez les informations de base dans un formulaire.
-3.	Cliquez sur Créer. Votre machine virtuelle sera immédiatement mise en service.
+3.	Cliquez sur « Créer ». Votre machine virtuelle sera immédiatement configurée.
 
 L'unité Notification Hub vous préviendra une fois votre ressource créée et un panneau de gestion s'ouvrira (vous pourrez toujours accéder à ces ressources plus tard).
 
@@ -78,7 +78,7 @@ Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte 
 
 Passons en revue ce que vous avez appris dans ce didacticiel :- Vous avez vu comment vous inscrire, comment obtenir un abonnement et accéder au portail. - Vous avez vu comment naviguer dans le portail et comment créer et parcourir des ressources. - Vous avez vu comment créer une ressource et parcourir les ressources existantes. - Vous avez vu la structure et la gestion des panneaux et comment gérer de façon cohérente les différents types de ressources. - Vous avez vu comment personnaliser le portail pour afficher les informations qui vous intéressent. - Vous avez vu comment contrôler l'accès aux ressources à l'aide du contrôle d'accès en fonction du rôle (RBAC). - Vous avez vu comment obtenir de l'aide.
 
-Le portail Microsoft Azure en version préliminaire simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](http://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](http://feedback.azure.com/forums/223579-azure-preview-portal) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
+Le portail Microsoft Azure simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](http://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](http://feedback.azure.com/forums/223579-azure-preview-portal) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Le portail Microsoft Azure en version préliminaire simplifie grandement la cré
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

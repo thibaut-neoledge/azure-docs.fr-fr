@@ -205,10 +205,10 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer des passerelles et finaliser vos connexions, vous pouvez passer à l’**étape 3** dans la section [Créer un réseau virtuel avec les connectivités ExpressRoute et site à site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) de l’article.
+5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer des passerelles et finaliser vos connexions, vous pouvez passer à l’**étape 4** dans la section [Créer un réseau virtuel avec les connectivités ExpressRoute et site à site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) de l’article.
 
 ## Étapes suivantes
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

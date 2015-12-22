@@ -74,15 +74,15 @@ App Service transmet le jeton JWT dans l’en-tête d’autorisation d’une req
  
 Dans une API .NET, vous pouvez utiliser l’attribut `Authorize` et, pour une autorisation affinée, vous pouvez facilement écrire du code basé sur des revendications, car les données de cette dernière sont renseignées pour vous dans les classes .NET.
 
-## Authentification d’un principal du service
+## <a id="internal"></a> Authentification du compte de service
 
-Vous pouvez également utiliser l’authentification du Service d’application pour les scénarios internes, notamment pour l’appel d’une application API à une autre application API. Dans ce scénario, vous pouvez utiliser des informations d’identification correspondant à un compte de service et non les informations d’identification d’authentification de l’utilisateur final. Un compte de service est également appelé *principal du service*, et l’authentification à l’aide de ce compte est également appelée « scénario de service à service ».
+Vous pouvez également utiliser l’authentification du Service d’application pour les scénarios internes, notamment pour l’appel d’une application API à une autre application API. Dans ce scénario, vous pouvez utiliser des informations d’identification correspondant à un compte de service et non les informations d’identification d’authentification de l’utilisateur final. Un compte de service est également appelé *principal de service* dans Azure Active Directory, et l’authentification pratiquée avec ce type de compte est également appelée « scénario de service à service ».
 
-Pour les scénarios internes, vous pouvez protéger l’application API en utilisant Azure Active Directory et fournir un jeton d’autorisation du principal de service AAD lorsque vous appelez l’application API. Vous pouvez demander le jeton en fournissant l’ID client et la clé secrète du client à partir de l’application AAD. Aucun code spécial propre à Azure n’est nécessaire, comme c’était le cas pour la gestion du jeton Zumo Mobile Services. Vous trouverez un exemple de ce scénario à l’aide de ASP.NET API apps dans le didacticiel [Authentification par principal du service pour les applications API](app-service-api-dotnet-service-principal-auth.md).
+Pour les scénarios service à service, vous pouvez protéger l’application API en utilisant Azure Active Directory et fournir un jeton d’autorisation du principal de service AAD lorsque vous appelez l’application API. Vous pouvez demander le jeton en fournissant l’ID client et la clé secrète du client à partir de l’application AAD. Aucun code spécial propre à Azure n’est nécessaire, comme c’était le cas pour la gestion du jeton Zumo Mobile Services. Vous trouverez un exemple de ce scénario utilisant ASP.NET API apps dans le didacticiel [Authentification par principal du service pour les applications API](app-service-api-dotnet-service-principal-auth.md).
 
-Si vous souhaitez gérer un scénario de service à service sans utiliser l’authentification App Service, vous pouvez utiliser les certificats clients ou l’authentification de base. Pour plus d’informations sur les certificats clients dans Azure, consultez [Configuration de l’authentification mutuelle TLS pour une application Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+Si vous souhaitez gérer un scénario de service à service sans utiliser l’authentification App Service, vous pouvez utiliser les certificats clients ou l’authentification de base. Pour plus d’informations sur les certificats clients dans Azure, consultez [Configuration de l’authentification mutuelle TLS pour une application Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Pour plus d’informations sur la configuration de l’authentification de base dans ASP.NET, consultez [filtres d’authentification dans ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-L’authentification du principal du service à partir d’une application logique du Service d’application pour une application API est un cas particulier qui est expliqué dans [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md).
+L’authentification du compte de service à partir d’une application logique du Service d’application pour une application API est un cas particulier qui est expliqué dans [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Plus d’informations
 
@@ -96,4 +96,4 @@ Si vous suivez la série des didacticiels de prise en main pour ASP.NET et API A
 
 Pour plus d’informations sur l’utilisation du nœud et Java dans Azure App Service, consultez le [Centre de développement Node.js](/develop/nodejs/) et le [centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

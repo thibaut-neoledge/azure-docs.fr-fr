@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Dans cet article, vous apprendrez à utiliser Visual Studio pour créer votre premier pipeline. Ce didacticiel se déroule comme suit :
@@ -204,7 +205,7 @@ Lorsque vous publierez la solution à l’étape suivante, le fichier HQL sera c
 
 21. Dans la page Configurer une fabrique de données, procédez comme suit :
 	1. Sélectionnez l’option **Créer une fabrique de données**.
-	2. Entrez **FirstPipelineUsingVS** comme **Nom**. 
+	2. Entrez **FirstPipelineUsingVS** comme **Nom**.
 	
 		> [AZURE.IMPORTANT]Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez l’erreur **Le nom de la fabrique de données « FirstPipelineUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple, votrenomFirstPipelineUsingVS). Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 		> 
@@ -243,4 +244,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

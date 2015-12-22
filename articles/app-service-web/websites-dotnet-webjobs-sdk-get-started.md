@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="12/14/2015"
 	ms.author="tdykstra"/>
 
 # Créer une tâche web .NET dans Azure App Service
 
-Ce didacticiel montre comment écrire du code pour une simple application ASP.NET MVC 5 à plusieurs niveaux utilisant le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) avec les [files d’attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) et les [objets blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). Ce didacticiel montre comment déployer l’application sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et sur la [base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
+Ce didacticiel montre comment écrire du code pour une simple application ASP.NET MVC 5 à plusieurs niveaux utilisant le [kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md).
+
+L’objectif du [kit de développement logiciel (SDK) WebJobs](websites-webjobs-resources.md) consiste à simplifier le code que vous écrivez pour les tâches web courantes, telles que le traitement d’image, le traitement de la file d’attente, l’agrégation RSS, la maintenance des fichiers et l’envoi des messages électroniques. Le kit de développement logiciel (SDK) WebJobs dispose de fonctionnalités intégrées fonctionnant avec le stockage Azure et Service Bus et servant à planifier des tâches, à gérer des erreurs et à nombreux autres scénarios courants. En outre, il est évolutif et il existe un [référentiel open source contenant les extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 L'exemple d'application concerne un panneau d'affichage publicitaire. Les utilisateurs peuvent télécharger des images pour les annonces ; un processus principal convertit les images en miniatures. La page de liste des annonces affiche des miniatures et la page de détails des annonces affiche les images en taille réelle. Voici une capture d'écran :
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
+
+Cet exemple d’application fonctionne avec des [files d’attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) et [objets blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). Ce didacticiel montre comment déployer l’application sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et sur la [base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
 ## <a id="prerequisites"></a>Configuration requise
 
@@ -246,7 +250,7 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 12. Entrez un **Nom d'utilisateur de la base de données** et un **Mot de passe de la base de données**.
 
-	Si vous avez sélectionné **New SQL Database server**, vous ne devez pas entrer un nom et un mot de passe existant ici, mais une nouvelle paire nom/mot de passe que vous allez choisir maintenant et utiliser ultérieurement lorsque vous accéderez à la base de données. Si vous avez sélectionné un serveur créé auparavant, vous devez entrer le mot de passe du compte d’utilisateur administratif déjà créé.
+	Si vous avez sélectionné **New SQL Database server**, vous ne devez pas entrer un nom et un mot de passe existant ici, mais une nouvelle paire nom/mot de passe que vous allez choisir maintenant et utiliser ultérieurement lorsque vous accèderez à la base de données. Si vous avez sélectionné un serveur créé auparavant, vous devez entrer le mot de passe du compte d’utilisateur administratif déjà créé.
 
 13. Cliquez sur **Create**.
 
@@ -465,7 +469,7 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- *Global.asax.cs*  
 	- Dans le dossier *Controllers* : *AdController.cs*.
 	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
-- Dans le dossier *Views\\Home* : *Index.cshtml*
+	- Dans le dossier *Views\\Home* : *Index.cshtml*
 	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
@@ -812,4 +816,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

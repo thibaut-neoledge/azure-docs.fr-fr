@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Créer un entrepôt de données SQL
@@ -29,6 +29,10 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 - Créer un serveur qui héberge votre base de données.
 - Créer une base de données qui contient l’exemple de base de données AdventureWorksDW.
+
+Si vous essayez de migrer une base de données existante vers SQL Data Warehouse, consultez le [vue d’ensemble de la Migration](./sql-data-warehouse-get-started-overview-migrate.md) ou utilisez [utilitaire de Migration de](./sql-data-warehouse-migrate-migration-utility.md).
+
+Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -60,7 +64,7 @@ Dans la base de données SQL et SQL Data Warehouse, chaque base de données est 
 
     ![Créer un serveur](./media/sql-data-warehouse-get-started-provision/create-server.png)
 
-3. Renseignez les informations pour le **nouveau serveur**.
+3. Renseignez les informations correspondant au **Nouveau serveur**.
     
 	- **Nom du serveur**. Entrez un nom pour votre serveur logique. Il est unique pour chaque site géographique.
 	- **Nom de l’administrateur du serveur**. Entrez un nom d’utilisateur pour le compte d’administrateur de serveur.
@@ -93,9 +97,9 @@ Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes pr�
   
         ![Sélectionner un exemple](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
-    - **Groupe de ressources**. Vous pouvez conserver les valeurs par défaut. Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
+    - **Groupe de ressources** Vous pouvez conserver les valeurs par défaut. Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
     
-    - **Abonnement**. Sélectionnez l’abonnement à facturer pour cette base de données.
+    - **Abonnement** Sélectionnez l’abonnement à facturer pour cette base de données.
 
 1. Cliquez sur **Créer** pour créer votre base de données SQL Data Warehouse.
 
@@ -130,4 +134,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

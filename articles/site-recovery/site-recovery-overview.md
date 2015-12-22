@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-ce que Site Recovery ?" 
+	pageTitle="Qu’est ce que Site Recovery ? | Microsoft Azure" 
 	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques situés en local sur Microsoft Azure, ou sur un site local secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/29/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Qu’est-ce que Site Recovery ?
@@ -22,6 +22,7 @@ Site Recovery est un service Azure qui met en œuvre la stratégie de continuit�
 
 
 ## Pourquoi utiliser Azure Site Recovery ? 
+
 - **Récit de continuité d’activité et récupération d’urgence simplifiées (Business Continuity Disaster Recovery, BCDR)** : Site Recovery facilite la gestion de la réplication, du basculement et de la récupération pour vos charges de travail et applications locales.
 - **Réplication flexible** : vous pouvez répliquer des serveurs locaux, des machines virtuelles Hyper-V et des machines virtuelles VMware. Site Recovery utilise la réplication intelligente : seuls les blocs de données sont répliqués, et non l’ensemble du disque dur virtuel, lors de la réplication initiale. Lors de la réplication en continu, seul le delta des changements est répliqué. Site Recovery prend en charge le transfert de données hors ligne et utilise des optimiseurs WAN. 
 - **Éliminer le besoin d’un centre de données secondaire** : Site Recovery peut automatiser la réplication entre les centres de données, mais offre également la possibilité d’ignorer un emplacement local secondaire en effectuant la réplication sur Azure. Les données répliquées sont stockées dans Azure Storage, avec toute la résilience que cela implique.
@@ -37,10 +38,10 @@ Machines virtuelles VMware | Serveur VMware local | Stockage Azure | [Déployer
 Serveur Windows/Linux physique | Serveur physique local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure.md)
 Machines virtuelles Hyper-V | Serveur hôte Hyper-V local dans le cloud VMM | Stockage Azure | [Déployer](site-recovery-vmm-to-azure.md)
 Machines virtuelles Hyper-V | Site Hyper-V local (un ou plusieurs serveurs hôte Hyper-V) | Stockage Azure | [Déployer](site-recovery-hyper-v-site-to-azure.md)
-Machines virtuelles Hyper-V locales| Serveur hôte Hyper-V local dans le cloud VMM | Serveur hôte Hyper-V local dans le cloud VMM dans le centre de données secondaire | [Déployer](site-recovery-vmm-to-vmm)
+Machines virtuelles Hyper-V locales| Serveur hôte Hyper-V local dans le cloud VMM | Serveur hôte Hyper-V local dans le cloud VMM dans le centre de données secondaire | [Déployer](site-recovery-vmm-to-vmm.md)
 Machines virtuelles Hyper-V | Serveur hôte Hyper-V local dans le cloud VMM avec le stockage SAN| Serveur hôte Hyper-V local dans le cloud VMM avec le stockage SAN dans le centre de données secondaire | [Déployer](site-recovery-vmm-san.md)
-Machines virtuelles VMware | Serveur VMware local | Centre de données secondaire exécutant VMware | [Déployer](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
-Serveur Windows/Linux physique | Serveur physique local | Centre de données secondaire | [Déployer](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+Machines virtuelles VMware | Serveur VMware local | Centre de données secondaire exécutant VMware | [Déployer](site-recovery-vmware-to-vmware.md) 
+Serveur Windows/Linux physique | Serveur physique local | Centre de données secondaire | [Déployer](site-recovery-vmware-to-vmware.md) 
 
 Ils sont résumés dans les schémas suivants.
 
@@ -67,4 +68,4 @@ En savoir plus en consultant [Aide relative à la charge de travail Site Recover
 Une fois que vous avez fini de consulter cette présentation, vous pouvez [en savoir plus](site-recovery-components.md) sur l’architecture Site Recovery.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

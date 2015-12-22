@@ -19,7 +19,7 @@
 
 # Création d’un service Azure Search dans le Portail Azure Classic
 
-Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du Portail Azure Classic, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la mise en surbrillance des résultats, la navigation à facettes, les profils de score et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](seach-what-is-search.md).
+Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du Portail Azure Classic, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la mise en surbrillance des résultats, la navigation à facettes, les profils de score et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](search-what-is-azure-search.md).
 
 ## Ajouter gratuitement Azure Search à votre abonnement
 
@@ -123,4 +123,4 @@ Les informations suivantes vous expliquent comment créer et gérer des applicat
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

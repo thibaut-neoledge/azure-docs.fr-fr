@@ -82,7 +82,7 @@ Dans cette section, vous allez créer une application HTML connectée à votre a
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste **Autoriser les demandes à partir des noms d'hôte**. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT]Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste **Autoriser les demandes à partir des noms d'hôte**. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Hébergement et exécution de votre application HTML
 
@@ -154,4 +154,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
