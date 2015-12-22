@@ -20,6 +20,7 @@
 
 # Prise en main de In-Memory (version préliminaire) dans la base de données SQL
 
+
 Les fonctions In-Memory améliorent considérablement la performance des charges de travail transactionnelles et analytiques dans les bonnes situations.
 
 Cette rubrique met l’accent sur deux démonstrations, l’une pour OLTP In-Memory, et l’autre pour l’analyse In-Memory. Chaque démonstration est fournie avec les opérations et le code dont vous avez besoin pour exécuter la démonstration. Vous pouvez :
@@ -47,7 +48,7 @@ Les procédures stockées compilées en mode natif exigent moins d’instruction
 
 #### In-Memory Analytics 
 
-La fonction In-Memory [Analytics](#install_analytics_manuallink) est :
+La fonction In-Memory [Analytics](#install_analytics_manuallink)est :
 
 - Index Columnstore
 
@@ -230,7 +231,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
@@ -276,7 +277,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Pour exécuter la ligne de commande ostress.exe précédente :
 
 
-1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS, pour supprimer toutes les données insérées lors des exécutions précédentes : ```
+1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS, pour supprimer toutes les données insérées lors des exécutions précédentes :
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -301,7 +303,8 @@ Lorsque ostress.exe est terminé, la durée d’exécution est indiquée à la d
 Une fois le résultat de l’exécution de \_inmem obtenu, effectuez les opérations suivantes pour l’exécution de \_indisk :
 
 
-1. Réinitialisez la base de données en exécutant la commande suivante dans SSMS, et ce, pour supprimer toutes les données insérées lors de l’exécution précédente : ```
+1. Réinitialisez la base de données en exécutant la commande suivante dans SSMS, et ce, pour supprimer toutes les données insérées lors de l’exécution précédente :
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
