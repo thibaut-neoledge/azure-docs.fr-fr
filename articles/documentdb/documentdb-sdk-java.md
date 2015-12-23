@@ -64,6 +64,7 @@ Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) s
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
+| [1\.5.0](#1.5.0) | 4 décembre 2015  |---
 | [1\.4.0](#1.4.0) | 5 octobre 2015 |---
 | [1\.3.0](#1.3.0) | 5 octobre 2015 |---
 | [1\.2.0](#1.2.0) | 5 août 2015 |---
