@@ -81,11 +81,11 @@ Avant d’exécuter l’outil :
 
 
 1.	Téléchargez et ouvrez l’outil [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Vous devrez exécuter des macros, et donc, sélectionner cette option pour activer la modification et activer le contenu lorsque vous y êtes invité. 
-2.	Dans **Select a planner type**, sélectionnez **Detailed Planner** dans la zone de liste.
+2.	Dans **Sélectionner un type de planificateur**, sélectionnez **Detailed Planner** dans la zone de liste.
 
 	![Mise en route](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3.	Dans la feuille de calcul **Workload Qualification**, saisissez les informations obligatoires. Vous devez renseigner tous les champs marqués.
+3.	Dans la feuille de calcul **Qualification de la charge de travail**, saisissez les informations obligatoires. Vous devez renseigner tous les champs marqués.
 
 	- Dans **Cœurs de processeur**, spécifiez le nombre total de cœurs sur un serveur source.
 	- Dans **Allocation de mémoire en Mo** spécifiez la taille de la mémoire RAM d’un serveur source. 
