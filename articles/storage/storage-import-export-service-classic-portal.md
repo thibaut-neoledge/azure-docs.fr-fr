@@ -96,7 +96,7 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **IJe fournirai mes informations d’expédition pour ce travail d’importation après envoi de mon colis**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d’expédition pour ce travail d’importation après envoi de mon colis**, puis terminez le processus d'importation.
 
 7. Pour entrer le numéro de suivi après avoir expédié votre colis, revenez à la page **Importer/Exporter** de votre compte de stockage dans le portail de gestion, sélectionnez votre tâche dans la liste, puis choisissez **Informations d'expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 	
