@@ -102,9 +102,9 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Dans le panneau de l’application web, l’icône **Connexions hybrides** indique à présent qu’une connexion hybride a été créée.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -181,7 +181,6 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png

@@ -174,7 +174,6 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 ## Étapes suivantes
 
-- En savoir plus sur les [composants StorSimple](storsimple-components.md). 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
 <!---HONumber=AcomDC_1203_2015-->
