@@ -83,7 +83,9 @@ namespace TodoList_WebApp
 -	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -118,7 +120,11 @@ Votre application est maintenant correctement configurée pour communiquer avec 
 - Vous pouvez utiliser des balises autorisées dans vos contrôleurs pour exiger que l’utilisateur se connecte avant d’accéder à une page donnée. Ouvrez `Controllers\HomeController.cs` et ajoutez la balise `[Authorize]` au contrôleur About.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	Vous pouvez également utiliser OWIN pour émettre des demandes d’authentification provenant directement de votre code. Ouvrez `Controllers\AccountController.cs`. Dans les actions SignIn() et SignOut(), émettez les demandes de test OpenID Connect et de déconnexion, respectivement.
 
@@ -205,6 +211,8 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Sécuriser une API web avec le modèle d’application v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Pour obtenir des ressources supplémentaires, consultez :
+- [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=AcomDC_1203_2015-->

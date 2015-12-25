@@ -63,7 +63,8 @@ L’exemple d’application présenté dans ce didacticiel, [WebApp-RoleClaims-D
 
 1.	Clonez ou téléchargez l’exemple de solution depuis [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) dans votre répertoire local.
 
-2.	Suivez les instructions dans [Exécution de l’échantillon comme application à client unique](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) pour configurer l’application et le projet Azure Active Directory. Veillez à suivre toutes les instructions pour convertir l'application mutualisée en application à client unique.
+2.	Suivez les instructions dans [Exécution de l’échantillon comme application à client unique](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) pour configurer l’application et le projet Azure Active Directory.
+Veillez à suivre toutes les instructions pour convertir l'application mutualisée en application à client unique.
 
 3.	Dans l’affichage du [portail Azure Classic](https://manage.windowsazure.com) de votre application Azure Active Directory nouvellement créée, cliquez sur l’onglet **UTILISATEURS**. Ensuite, attribuez les rôles que vous souhaitez aux utilisateurs de votre choix.
 
@@ -214,11 +215,11 @@ public class RoleClaimContext : DbContext
 
 11. Ajoutez les décorations [Authorize] en surbrillance aux actions correspondantes ci-dessous.
 	<pre class="prettyprint">
-...
+	...
 
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -244,7 +245,9 @@ public class WorkItemsController : Controller
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-}</pre>Sachant que vous vous occupez des mappages de rôles dans l’interface utilisateur du portail Azure Classic, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
+	}</pre>
+	
+	Sachant que vous vous occupez des mappages de rôles dans l’interface utilisateur du portail Azure Classic, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
 
 	> [AZURE.NOTE] Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), votre HTTP POST risque d’échouer lors de la validation du jeton d’anti-contrefaçon pour les motifs suivants :
 	> + Azure Active Directory n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui, par défaut, est nécessaire au jeton d’anti-contrefaçon.
@@ -275,70 +278,72 @@ public class WorkItemsController : Controller
 		
 14.	Dans Views\\WorkItems\\Create.cshtml (élément généré automatiquement), recherchez la méthode d’assistance `Html.BeginForm` et modifiez-la comme suit :
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
-    @Html.AntiForgeryToken()
+	{
+	    @Html.AntiForgeryToken()
+	    
+	    &lt;div class="form-horizontal"&gt;
+	        &lt;h4&gt;WorkItem&lt;/h4&gt;
+	        &lt;hr /&gt;
+	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-offset-2 col-md-10"&gt;
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	    &lt;/div&gt;
+	
+	    <mark>&lt;script&gt;
+	            // People/Group Picker Code
+	            var maxResultsPerPage = 14;
+	            var input = document.getElementById("AssignedToName");
+	            var token = "@ViewData["token"]";
+	            var tenant = "@ViewData["tenant"]";
+	
+	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+	
+	            // Submit the selected user/group to be asssigned.
+	            $("#submit-button").click({ picker: picker }, function () {
+	                if (!picker.Selected())
+	                    return;
+	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+	            });
+	    &lt;/script&gt;</mark>
+	
+	}</pre>
 
-    &lt;div class="form-horizontal">
-        &lt;h4>WorkItem&lt;/h4>
-        &lt;hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        &lt;div class="form-group">
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
-                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            &lt;div class="col-md-offset-2 col-md-10">
-                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-            &lt;/div>
-        &lt;/div>
-    &lt;/div>
-
-    <mark>&lt;script>
-            // People/Group Picker Code
-            var maxResultsPerPage = 14;
-            var input = document.getElementById("AssignedToName");
-            var token = "@ViewData["token"]";
-            var tenant = "@ViewData["tenant"]";
-
-            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
-
-            // Submit the selected user/group to be asssigned.
-            $("#submit-button").click({ picker: picker }, function () {
-                if (!picker.Selected())
-                    return;
-                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-            });
-    &lt;/script></mark>
-
-}</pre>Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
+	Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
 
 15. Ouvrez la [Console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) et exécutez **Enable-Migrations – EnableAutomaticMigrations**. Cette commande, similaire à l'option que vous avez sélectionnée lorsque vous avez publié l'application dans Azure, permet de mettre à jour le schéma de base de données de votre application dans [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) lorsque vous la déboguez dans Visual Studio.
 

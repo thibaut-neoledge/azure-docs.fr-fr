@@ -42,9 +42,10 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Insérez ensuite le code suivant dans le corps de la classe :
 
-		class SimpleEventProcessor : IEventProcessor
-	    {
-	        Stopwatch checkpointStopWatch;
+	```
+    class SimpleEventProcessor : IEventProcessor
+	{
+	    Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -80,7 +81,8 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	} ````
+	}
+    ````
 
 	Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost**. Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 
