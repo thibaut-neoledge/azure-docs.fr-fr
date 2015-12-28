@@ -16,7 +16,8 @@
 	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
-  Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application universelle Windows
+  # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application universelle Windows
+
 
   Le didacticiel de démarrage rapide pour les applications universelles Windows n’est pas tout à fait prêt... Revenez plus tard et recherchez les mises à jour à partir de @AzureAD sur Twitter.
 
