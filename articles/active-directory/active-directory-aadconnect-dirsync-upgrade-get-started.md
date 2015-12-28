@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD | Microsoft Azure"
-   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
+   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Microsoft Azure AD | Microsoft Azure"
+   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Microsoft Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -16,7 +16,7 @@
    ms.date="12/16/2015"
    ms.author="shoatman;billmath"/>
 
-# Mise à niveau de la synchronisation Windows Azure Active Directory (DirSync) vers Azure AD Connect
+# Mise à niveau de la synchronisation Microsoft Azure Active Directory (DirSync) vers Azure AD Connect
 
 Cette documentation vous aidera à mettre à niveau votre installation DirSync existante vers Azure AD Connect.
 
@@ -169,8 +169,8 @@ Une fois ces 4 opérations effectuées, sans erreur, et si vous êtes satisfait 
 
 ### Désinstallation de DirSync (ancien serveur)
 
-- Dans **Programmes et fonctionnalités**, recherchez l'**outil de synchronisation Windows Azure Active Directory**
-- Désinstallez l'**outil de synchronisation Windows Azure Active Directory**
+- Dans **Programmes et fonctionnalités**, recherchez l'**outil de synchronisation Microsoft Azure Active Directory**
+- Désinstallez l'**outil de synchronisation Microsoft Azure Active Directory**
 - Notez que la désinstallation peut prendre jusqu'à 15 minutes.
 
 Une fois DirSync désinstallé, aucun serveur actif n'exporte vers Azure AD. L'étape suivante doit être terminée pour que les modifications dans votre Active Directory local continuent à être synchronisées avec Azure AD.
@@ -197,4 +197,4 @@ Notez que, lorsqu'Azure AD Connect est installé, vous pouvez [vérifier l'insta
 
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

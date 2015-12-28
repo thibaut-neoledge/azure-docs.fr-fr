@@ -68,7 +68,7 @@ Lorsque vous recevez une erreur d’allocation, voyez si le scénario décrit s�
 
 En règle générale, tant que l’erreur n’indique pas que la taille de machine virtuelle demandée n’est pas prise en charge, vous pouvez toujours réessayer ultérieurement, car il est possible que des ressources suffisantes aient été libérées dans le cluster pour prendre en charge votre demande. Si l’erreur est liée à un problème de prise en charge de la taille de machine virtuelle demandée, essayez une autre taille de machine virtuelle. Sinon, la seule option possible consiste à supprimer la contrainte d’épinglage.
 
-Deux scénarios d’échec courants sont liés au groupe d’affinités. Le groupe d’affinités était auparavant utilisé pour assurer une proximité étroite aux instances de machines virtuelles ou de services, ou encore pour permettre la création d’un réseau virtuel (VNet). Avec l’introduction du réseau virtuel régional, le groupe d’affinités n’est plus nécessaire pour la création d’un réseau virtuel. La réduction du problème de latence du réseau dans l’infrastructure Windows Azure a modifié la recommandation relative à l’utilisation d’un groupe d’affinités pour la proximité entre la machine virtuelle et le service.
+Deux scénarios d’échec courants sont liés au groupe d’affinités. Le groupe d’affinités était auparavant utilisé pour assurer une proximité étroite aux instances de machines virtuelles ou de services, ou encore pour permettre la création d’un réseau virtuel (VNet). Avec l’introduction du réseau virtuel régional, le groupe d’affinités n’est plus nécessaire pour la création d’un réseau virtuel. La réduction du problème de latence du réseau dans l’infrastructure Microsoft Azure a modifié la recommandation relative à l’utilisation d’un groupe d’affinités pour la proximité entre la machine virtuelle et le service.
 
 La Figure 5 ci-dessous présente la taxonomie des scénarios d’allocation (épinglés). ![Taxonomie d’une allocation épinglée](./media/virtual-machines-allocation-failure/Allocation3.png)
 
@@ -227,4 +227,4 @@ Impossible de mettre à niveau le déploiement. La taille de la machine virtuell
 
 une erreur interne s'est produite sur le serveur. Relancez la demande. » ou « Impossible de produire une allocation pour le service.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

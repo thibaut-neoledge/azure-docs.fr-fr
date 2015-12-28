@@ -81,11 +81,11 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | | Serveur DNS secondaire | Il s'agit d'une configuration requise. | |
 | | Interface réseau : Adresses IP fixes de contrôleur Data 0 | Ces adresses IP doivent être routables vers Internet.</br>Adresse IP fixe de contrôleur 0 :</br>Adresse IP fixe de contrôleur 1 :|
 | | | | |
-| **Paramètres d'interface réseau supplémentaires** | Interface réseau : Data 1</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 4</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| **Paramètres d'interface réseau supplémentaires** | Interface réseau : Data 1</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 4</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
 | | | | |
 | **Création d’un conteneur de volumes** | Nom du conteneur de volumes : | nom du conteneur | |
 | | Compte Azure Storage : | nom et clé d'accès du compte de stockage à associer à ce conteneur de volume | |

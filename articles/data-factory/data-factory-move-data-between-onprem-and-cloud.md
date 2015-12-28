@@ -385,7 +385,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités sont de **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -514,10 +514,15 @@ Vous pouvez également créer un service lié SQL Server à l’aide du panneau 
 7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
 8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
 
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Sélectionnez l’**authentification** que le service Data Factory doit utiliser pour se connecter à la base de données. 2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**. 4. Cliquez sur **OK** pour fermer la boîte de dialogue. 
+	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Sélectionnez l’**authentification** que le service Data Factory doit utiliser pour se connecter à la base de données. 
+	2.	Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 
+	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.  
+	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
 4. Cliquez sur **OK** pour fermer le panneau **Informations d’identification**. 
 5. Cliquez sur **OK** dans le panneau **Nouvelle banque de données**. 	
-6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.
+	![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
@@ -589,7 +594,8 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Flux de données pour la copie à l’aide de la passerelle de gestion des données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données : 
+![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure Classic](http://portal.azure.com) ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Le développeur des données utilise le panneau « Services liés » afin de définir un nouveau service lié pour un magasin de données local à l’aide de la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l'application de configuration des informations d’identification comme indiqué dans la procédure étape par étape pour spécifier les types d'authentification et les informations d’identification. La boîte de dialogue de l’application de configuration des informations d'identification communiquera avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d'identification.

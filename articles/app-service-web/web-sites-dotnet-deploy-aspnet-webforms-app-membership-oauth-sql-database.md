@@ -393,13 +393,13 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
 5. Dans le menu déroulant de **Google Developers Console**, cliquez sur **Gestionnaire d’API**, puis sur **informations d’identification**.
 6. Cliquez sur **Créer un identifiant client** sous **OAuth**. La boîte de dialogue **Créer un identifiant client** s’affiche. ![Google - Créer un identifiant client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Dans la boîte de dialogue **Créer un identifiant client**, conservez le type d’application par défaut **Application Web**.  
-8. Pour **Origines JavaScript autorisées**, entrez l’URL SSL que vous avez utilisée précédemment dans ce didacticiel (****https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL). Cette URL est l'origine de votre application. Pour cet exemple, vous entrerez uniquement l'URL de test de l'hôte local (localhost). Vous pouvez cependant entrer plusieurs URL pour l’hôte local (localhost) et la production.
+8. Pour **Origines JavaScript autorisées**, entrez l’URL SSL que vous avez utilisée précédemment dans ce didacticiel (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL). Cette URL est l'origine de votre application. Pour cet exemple, vous entrerez uniquement l'URL de test de l'hôte local (localhost). Vous pouvez cependant entrer plusieurs URL pour l’hôte local (localhost) et la production.
 
 9. Définissez les **URI de redirection autorisés** comme suit :
 
 		https://localhost:44300/signin-google  
 
-	Cette valeur est l’URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (****https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).
+	Cette valeur est l’URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).
  
 10. Cliquez sur le bouton **Créer**.
 11. Dans Visual Studio, mettez à jour la méthode `UseGoogleAuthentication` de la page *Startup.Auth.cs* en copiant et collant les valeurs **AppId** et **App Secret** dans la méthode. Les valeurs **AppId** et **App Secret** indiquées ci-après sont de simples exemples et ne fonctionneront pas.  

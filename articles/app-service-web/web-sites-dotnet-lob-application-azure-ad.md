@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à créer une application métier ASP.NET
 
 Le locataire Azure Active Directory que vous utilisez peut être un annuaire Azure uniquement ou bien il peut être synchronisé avec votre annuaire Active Directory local pour créer une expérience d’authentification unique pour les utilisateurs locaux ou distants.
 
->[AZURE.NOTE]Pour Azure App Service Web Apps, vous pouvez configurer l’authentification par rapport à un locataire Azure Active Directory en quelques clics. Pour plus d’informations, consultez [Utiliser Active Directory pour l’authentification dans Azure App Service](web-sites-authentication-authorization.md).
+>[AZURE.NOTE] Pour Azure App Service Web Apps, vous pouvez configurer l’authentification par rapport à un locataire Azure Active Directory en quelques clics. Pour plus d’informations, consultez [Utiliser Active Directory pour l’authentification dans Azure App Service](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Ce que vous allez créer ##
@@ -40,7 +40,7 @@ Vous allez créer une application CRUD (Create-Read-Update-Delete) métier simpl
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
@@ -140,7 +140,7 @@ Ici, vous allez publier l’application sur une application web dans Azure App S
 
 8. Sous **Autorisations pour d’autres applications**, pour l’entrée **Azure Active Directory**, sélectionnez **Connexion et lecture de profils utilisateurs** et **Lire les données du répertoire** dans la liste déroulante **Autorisations déléguées**.
 
-	> [AZURE.NOTE]Les autorisations exactes dont vous avez besoin ici dépendent de la fonctionnalité voulue pour votre application. Si certaines autorisations nécessitent de définir le rôle **Administrateur global**, ce didacticiel n’a besoin que du rôle **Utilisateur**.
+	> [AZURE.NOTE] Les autorisations exactes dont vous avez besoin ici dépendent de la fonctionnalité voulue pour votre application. Si certaines autorisations nécessitent de définir le rôle **Administrateur global**, ce didacticiel n’a besoin que du rôle **Utilisateur**.
 
 9.  Cliquez sur **Save**.
 
@@ -151,11 +151,13 @@ Ici, vous allez publier l’application sur une application web dans Azure App S
 
 11. Dans Visual Studio, ouvrez **Web.Release.config** dans votre projet. Insérez le code XML suivant dans la balise `<configuration>`, puis remplacez la valeur de chaque clé par les informations que vous avez enregistrées pour votre nouvelle application Azure Active Directory.
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Assurez-vous que la valeur ida:PostLogoutRedirectUri se termine par une barre oblique « / ».
+&lt;appSettings&gt;
+   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+&lt;/appSettings&gt;</pre>
+
+	Assurez-vous que la valeur ida:PostLogoutRedirectUri se termine par une barre oblique « / ».
 
 1. Cliquez avec le bouton droit sur votre projet et sélectionnez **Publier**.
 
@@ -220,39 +222,44 @@ public class RoleClaimContext : DbContext
 
 11. Ajoutez les décorations [Authorize] en surbrillance aux actions correspondantes ci-dessous.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
-}</pre>Sachant que vous vous occupez des mappages de rôles dans l’interface utilisateur du portail Azure Classic, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-	> [AZURE.NOTE]Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), votre HTTP POST risque d’échouer lors de la validation du jeton d’anti-contrefaçon pour les motifs suivants : + Azure Active Directory n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui, par défaut, est nécessaire au jeton d’anti-contrefaçon. + S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS. Vous vous chargerez de cela à l’étape suivante.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
+	
+	Sachant que vous vous occupez des mappages de rôles dans l’interface utilisateur du portail Azure Classic, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
+
+	> [AZURE.NOTE] Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), votre HTTP POST risque d’échouer lors de la validation du jeton d’anti-contrefaçon pour les motifs suivants :
+	> + Azure Active Directory n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui, par défaut, est nécessaire au jeton d’anti-contrefaçon.
+	> + S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS.
+	> Vous vous chargerez de cela à l’étape suivante.
 
 12.  Dans App\_Start\\Startup.Auth.cs, ajoutez la ligne de code suivante à la méthode `ConfigureAuth`. Cliquez avec le bouton droit sur chaque erreur de résolution de noms pour résoudre le problème.
 
@@ -278,70 +285,71 @@ public class WorkItemsController : Controller
 		
 14.	Dans Views\\WorkItems\\Create.cshtml (élément généré automatiquement), recherchez la méthode d’assistance `Html.BeginForm` et modifiez-la comme suit :
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
-    @Html.AntiForgeryToken()
-
-    &lt;div class="form-horizontal">
-        &lt;h4>WorkItem&lt;/h4>
-        &lt;hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        &lt;div class="form-group">
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
-                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
-
-        &lt;div class="form-group">
-            &lt;div class="col-md-offset-2 col-md-10">
-                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-            &lt;/div>
-        &lt;/div>
-    &lt;/div>
-
-    <mark>&lt;script>
-            // People/Group Picker Code
-            var maxResultsPerPage = 14;
-            var input = document.getElementById("AssignedToName");
-            var token = "@ViewData["token"]";
-            var tenant = "@ViewData["tenant"]";
-
+	{
+	    @Html.AntiForgeryToken()
+	    
+	    &lt;div class="form-horizontal"&gt;
+	        &lt;h4&gt;WorkItem&lt;/h4&gt;
+	        &lt;hr /&gt;
+	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-offset-2 col-md-10"&gt;
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	    &lt;/div&gt;
+	
+	    <mark>&lt;script&gt;
+	            // People/Group Picker Code
+	            var maxResultsPerPage = 14;
+	            var input = document.getElementById("AssignedToName");
+	            var token = "@ViewData["token"]";
+	            var tenant = "@ViewData["tenant"]";
+	
             var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
-
-            // Submit the selected user/group to be asssigned.
-            $("#submit-button").click({ picker: picker }, function () {
-                if (!picker.Selected())
-                    return;
-                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-            });
-    &lt;/script></mark>
-
-}</pre>Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
+	
+	            // Submit the selected user/group to be asssigned.
+	            $("#submit-button").click({ picker: picker }, function () {
+	                if (!picker.Selected())
+	                    return;
+	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+	            });
+	    &lt;/script&gt;</mark>
+	
+	}</pre>
+Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
 
 15. Ouvrez la [Console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) et exécutez **Enable-Migrations –EnableAutomaticMigrations**. Cette commande, similaire à l’option que vous avez sélectionnée lorsque vous avez publié l’application dans Azure, permet de mettre à jour le schéma de base de données de votre application dans [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) lorsque vous la déboguez dans Visual Studio.
 

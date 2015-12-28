@@ -60,7 +60,7 @@ Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consu
 
 Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
-Pour plus d’informations sur l’utilisation de Traffic Manager avec Web Apps, consultez les billets de blog [Utilisation de Windows Azure Traffic Manager avec WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Pour plus d’informations sur l’utilisation de Traffic Manager avec Web Apps, consultez les billets de blog [Utilisation de Microsoft Azure Traffic Manager avec WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -131,7 +131,7 @@ Pour obtenir l’ID SCSI de chacun des disques durs SCSI d’une machine virtu
 
 Remarque : assurez-vous que le système dispose d’une connectivité Internet avant de télécharger et d’installer les packages supplémentaires.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Cette commande permet de télécharger ces 15 packages à partir du référentiel CentOS 6.6 et de les installer :
 
@@ -152,7 +152,7 @@ perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
 perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-	
+
 perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
 perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
@@ -167,17 +167,21 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 REMARQUE : si l’ordinateur source utilise un système de fichiers Reiser ou XFS pour l’appareil racine ou de démarrage, les packages suivants doivent être téléchargés et installés sur le système cible maître Linux avant la protection.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Appliquer des modifications de configuration personnalisées
 

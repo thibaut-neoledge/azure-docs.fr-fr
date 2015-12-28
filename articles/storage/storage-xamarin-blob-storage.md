@@ -173,6 +173,10 @@ Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Az
 
 Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md) [Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) [Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+[Introduction à Microsoft Azure Storage](storage-introduction.md) 
+[Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) 
+[Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) 
+[Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)
+[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
 <!---HONumber=AcomDC_1217_2015-->

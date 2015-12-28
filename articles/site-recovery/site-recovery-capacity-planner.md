@@ -81,7 +81,7 @@ Avant d’exécuter l’outil :
 
 	![Mise en route](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3.	Dans la feuille de calcul **Workload Qualification**, saisissez les informations obligatoires. Vous devez renseigner tous les champs marqués.
+3.	Dans la feuille de calcul **Qualification de la charge de travail**, saisissez les informations obligatoires. Vous devez renseigner tous les champs marqués.
 
 	- Dans **Cœurs de processeur**, spécifiez le nombre total de cœurs sur un serveur source.
 	- Dans **Allocation de mémoire en Mo**, spécifiez la taille de la mémoire RAM d’un serveur source. 

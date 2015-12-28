@@ -96,7 +96,7 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-&lt;tr
+
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -323,7 +323,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -357,7 +357,7 @@ Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azur
 #### Déploiement de l’alerte 
 Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 Une fois le déploiement du groupe de ressources réussi, les messages suivants s’affichent :
 
@@ -543,7 +543,9 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs :
+- FailedRuns
+- SuccessfulRuns
 
 **Déploiement de l’alerte :**
 

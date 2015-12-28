@@ -449,7 +449,7 @@ Si vous souhaitez utiliser une clé de chiffrement de par clé (KEK) pour établ
 
 ### Définir des autorisations de coffre de clés pour autoriser l’accès à la plateforme Azure pour trouver les clés et les secrets
 
-La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffrement dans le coffre de clés Azure afin de les mettre à disposition de la machine virtuelle pour lancer et déchiffrer le volume du système d’exploitation de machine virtuelle. Pour accorder à la plateforme Windows Azure les autorisations nécessaires pour accéder au coffre de clés, la propriété *enabledForDiskEncryption* doit être définie sur le coffre de clés. Vous pouvez définir la propriété enabledForDiskEncryption de votre coffre de clés à l’aide de l’applet de commande PS du coffre de clés :
+La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffrement dans le coffre de clés Azure afin de les mettre à disposition de la machine virtuelle pour lancer et déchiffrer le volume du système d’exploitation de machine virtuelle. Pour accorder à la plateforme Microsoft Azure les autorisations nécessaires pour accéder au coffre de clés, la propriété *enabledForDiskEncryption* doit être définie sur le coffre de clés. Vous pouvez définir la propriété enabledForDiskEncryption de votre coffre de clés à l’aide de l’applet de commande PS du coffre de clés :
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName <yourVaultName> -ResourceGroupName <yourResourceGroup> -EnabledForDiskEncryption
 
@@ -806,4 +806,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

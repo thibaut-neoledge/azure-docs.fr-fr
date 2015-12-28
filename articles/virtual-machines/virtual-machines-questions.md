@@ -28,7 +28,7 @@ Cet article aborde certaines questions courantes sur les machines virtuelles Azu
 
 Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Vous pouvez exécuter des versions récentes de Windows Server, ainsi que diverses distributions de Linux. Pour les détails de prise en charge, consultez les liens suivants :
 
-• Pour les machines virtuelles Windows : [Prise en charge logicielle du serveur Microsoft pour les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Pour les machines virtuelles Windows : [Prise en charge logicielle du serveur Microsoft pour les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Pour les machines virtuelles Linux : [Linux dans des distributions prises en charge par Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
@@ -158,4 +158,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
