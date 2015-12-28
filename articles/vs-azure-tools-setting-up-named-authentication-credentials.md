@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Configuration des informations d’authentification nommées"
+   pageTitle="Configuration des informations d’authentification nommées | Microsoft Azure"
    description="Découvrez comment fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure dans le cadre de la publication d’une application dans Azure à partir de Visual Studio, ou de l’analyse d’un service cloud existant."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/02/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuration des informations d’authentification nommées
 
@@ -71,4 +71,4 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
     1. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

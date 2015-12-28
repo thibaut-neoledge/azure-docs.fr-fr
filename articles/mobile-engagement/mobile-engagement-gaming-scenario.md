@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="Mise en œuvre d’Azure Mobile Engagement avec une application de jeux"
+	description="Scénario d’application de jeux pour mettre en œuvre Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -69,4 +69,4 @@ Grâce à cette analyse, le responsable de projet mobile décide de créer des s
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

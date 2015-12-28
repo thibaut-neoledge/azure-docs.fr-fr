@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
@@ -262,7 +262,7 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 
 ## Étapes suivantes
 
-- Déploiement de [machines virtuelles MultiNIC dans un scénario d'application à 2 couches pour un déploiement avec gestionnaire de ressources](virtual-network-deploy-multinic-arm-template).
-- Déploiement de [machines virtuelles MultiNIC dans un scénario d'application à 2 couches pour un déploiement classique](virtual-network-deploy-multinic-classic-ps).
+- Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement Resource Manager](virtual-network-deploy-multinic-arm-template.md).
+- Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement classique](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

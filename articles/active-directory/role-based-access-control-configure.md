@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="12/14/2015"
 	ms.author="inhenk"/>
 
-# Contrôle d’accès en fonction du rôle Azure Active Directory
+# Contrôle d’accès en fonction du rôle Azure
 
 ## Contrôle d’accès en fonction du rôle
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 ### Concepts de base de la gestion d’accès dans Azure
-Chaque abonnement Azure est hébergé dans un annuaire Azure Active Directory. Seuls les utilisateurs, les groupes et les applications de ce répertoire peuvent être autorisés à gérer les ressources de l’abonnement Azure à l’aide du portail Azure Classic, des outils de ligne de commande Azure et des API de gestion Azure.
+Chaque abonnement Azure est hébergé dans un annuaire Azure Active Directory. Seuls les utilisateurs, les groupes et les applications de ce répertoire peuvent être autorisés à gérer les ressources de l’abonnement Azure à l’aide du portail Azure, des outils de ligne de commande Azure et des API de gestion Azure.
 
 L’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans l’étendue appropriée. Pour accorder l’accès à la totalité de l’abonnement, attribuez un rôle dans l’étendue de l’abonnement. Pour accorder l’accès à un groupe de ressources spécifique au sein d’un abonnement, attribuez un rôle dans l’étendue du groupe de ressources. Vous pouvez également attribuer des rôles à des ressources spécifiques, telles que des sites web, des machines virtuelles et des sous-réseaux, pour accorder l’accès à une seule ressource.
 
@@ -44,9 +44,9 @@ Les administrateur et coadministrateurs d’abonnement classiques ont un accès 
 Le modèle d’autorisation plus précis (contrôle d’accès basé sur les rôles Azure) est pris en charge uniquement par le portail Azure (https://portal.azure.com) et les API Azure Resource Manager. Les utilisateurs et les applications qui se voient attribuer des rôles RBAC (dans l’étendue abonnement/groupe de ressources/ressource) ne peuvent pas utiliser le portail de gestion classique (http://manage.windowsazure.com) et les API de gestion des services Azure.
 
 ### Autorisation pour les opérations de gestion et les opérations de données
-Le modèle d’autorisation plus précis (contrôle d’accès basé sur les rôles Azure) est pris en charge uniquement pour les opérations de gestion des ressources Azure dans le portail Azure Classic et les API Azure Resource Manager. Toutes les opérations de niveau de données pour les ressources Azure ne peuvent pas être autorisées via le RBAC. Par exemple, les opérations create/read/update/delete des comptes de stockage peuvent être contrôlées via le RBAC, mais le contrôle des opérations create/read/update/delete des objets blob ou des tables dans le compte de stockage n'est pas encore possible. De même, les opérations create/read/update/delete d'une base de données SQL peuvent être contrôlées via le RBAC, mais le contrôle des opérations create/read/update/delete des tables SQL dans la base de données n'est pas encore possible.
+Le modèle d’autorisation plus précis (contrôle d’accès basé sur les rôles Azure) est pris en charge uniquement pour les opérations de gestion des ressources Azure dans le portail Azure et les API Azure Resource Manager. Toutes les opérations de niveau de données pour les ressources Azure ne peuvent pas être autorisées via le RBAC. Par exemple, les opérations create/read/update/delete des comptes de stockage peuvent être contrôlées via le RBAC, mais le contrôle des opérations create/read/update/delete des objets blob ou des tables dans le compte de stockage n'est pas encore possible. De même, les opérations create/read/update/delete d'une base de données SQL peuvent être contrôlées via le RBAC, mais le contrôle des opérations create/read/update/delete des tables SQL dans la base de données n'est pas encore possible.
 
-## Gérer l’accès à l’aide du portail Azure Classic
+## Gérer l’accès à l’aide du portail Azure
 ### Voir l’accès
 Sélectionnez les paramètres d’accès dans la section Essentials du panneau du groupe de ressources. Le panneau **Users** répertorie l’ensemble des utilisateurs, groupes et applications qui peuvent accéder au groupe de ressources. L’accès est attribué sur le groupe de ressources ou hérité d’une affectation sur l’abonnement parent.
 
@@ -191,4 +191,4 @@ La propriété **AssignableScopes** du rôle personnalisé détermine les person
 
 **Qui est autorisé à afficher les rôles personnalisés pouvant être affectés dans une étendue ?** Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue. Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

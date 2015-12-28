@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implémentation de recommandations de sécurité dans le Centre de sécurité Azure | Microsoft Azure"
+   pageTitle="Gestion des recommandations de sécurité dans le Centre de sécurité Azure | Microsoft Azure"
    description="Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Implémentation de recommandations de sécurité dans le Centre de sécurité Azure
+# Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
 
@@ -25,10 +25,12 @@ Ce document explique comment les recommandations du Centre de sécurité Azure p
 ## Qu’est-ce que le Centre de sécurité Azure ?
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
-##Qu’est-ce qu’une recommandation de sécurité ?
+## Quelles sont les recommandations de sécurité ?
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Quand des failles de sécurité potentielles sont identifiées, des recommandations sont créées. Les recommandations vous guident tout au long du processus de configuration du contrôle.
 
-## Définition des recommandations
+## Mise en œuvre des recommandations de sécurité
+
+### Définition des recommandations
 
 Dans [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md), vous apprendrez à :
 
@@ -38,11 +40,7 @@ Dans [Définition des stratégies de sécurité dans le Centre de sécurité Azu
 
 Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de ligne de base, les logiciels anti-programme malveillant, les [ACL pour les points de terminaison](virtual-machines-set-up-endpoints.md), les [groupes de sécurité réseau](virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de base de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
 
-La section **Afficher des recommandations pour** du panneau **Stratégie de sécurité** vous donne une liste de recommandations que vous pouvez appliquer aux ressources de l’abonnement spécifié.
-
-![][1]
-
-## Recommandations concernant la surveillance
+### Recommandations concernant la surveillance
 
 Après la définition d’une stratégie de sécurité, le Centre de sécurité Azure analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La mosaïque **Recommandations** du panneau **Centre de sécurité** vous permet de connaître le nombre total de recommandations fournies par le Centre de sécurité Azure.
 
@@ -86,7 +84,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | Activer le chiffrement transparent des données des bases de données SQL | Recommande l’activation du chiffrement pour les bases de données SQL (service Azure SQL uniquement). |
 | Déployer l’agent de machine virtuelle | Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
 
-## Application des recommandations
+### Application des recommandations
 Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé. Voyons comment appliquer une recommandation en prenant comme exemple la recommandation Activer le logiciel anti-programme malveillant :
 
 1. Dans le panneau **Recommandations** , sélectionnez **Activer le logiciel anti-programme malveillant**. ![][5]
@@ -98,7 +96,7 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 
 [Microsoft Antimalware](azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
 
-## Déploiement de solutions partenaires intégrées
+### Déploiement de solutions partenaires recommandées
 
 L’une des recommandations peut concerner le déploiement d’une solution de sécurité intégrée fournie par un partenaire Microsoft. Prenons un exemple pour voir comment procéder :
 
@@ -120,14 +118,13 @@ Les journaux du pare-feu d’applications web sont maintenant entièrement inté
 ## Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
-- Pour savoir comment configurer une stratégie de sécurité, consultez [Définition de stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md).
+- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des stratégies de sécurité
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
 <!--Image references-->
-[1]: ./media/security-center-recommendations/show-recommendations-for.png
 [2]: ./media/security-center-recommendations/recommendations-tile.png
 [3]: ./media/security-center-recommendations/filter-recommendations.png
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
@@ -138,4 +135,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

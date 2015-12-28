@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@ L’équilibrage de charge interne (ILB) est une amélioration de la sécurité 
 			
 L'infrastructure limite l'accessibilité et crée une limite de confiance entre les adresses IP virtuelles d'équilibrage de charge pour un service cloud ou un réseau virtuel et ne sera jamais exposée directement à un point de terminaison Internet. Cela permet aux applications cœur de métier internes de s'exécuter dans Azure et d’être accessibles dans le cloud ou en local.
 
-## Scénarios pour l’équilibrage de charge interne
+## Scénarios pour l’équilibreur de charge interne
 
 Vous pouvez utiliser l'ILB dans beaucoup de nouvelles configurations, notamment les suivantes :
 
@@ -92,4 +92,4 @@ Un autre scénario pour le système cœur de métier est d'avoir un VPN de site 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

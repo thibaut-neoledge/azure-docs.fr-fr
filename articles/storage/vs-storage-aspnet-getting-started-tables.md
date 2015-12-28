@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prendre en main le stockage de tables et les services connectés de Visual Studio (ASP.NET)
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## Vue d'ensemble
-Cet article explique comment prendre en main le stockage de tables Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article vous montre comment effectuer des tâches courantes dans les tables Azure, y compris la création et la suppression d’une table, ainsi que la manipulation des entités de table. Les exemples ont été écrits en code C# et utilisent la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour obtenir des informations plus générales sur l’utilisation du stockage de tables Azure, consultez la page [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md).
+Cet article explique comment prendre en main Azure Table Storage dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article vous montre comment effectuer des tâches courantes dans les tables Azure, y compris la création et la suppression d’une table, ainsi que la manipulation des entités de table. Les exemples ont été écrits en code C# et utilisent la [bibliothèque du client de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour obtenir des informations plus générales sur l’utilisation d’Azure Table Storage, consultez la page [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md).
 
 Le stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
@@ -167,4 +159,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

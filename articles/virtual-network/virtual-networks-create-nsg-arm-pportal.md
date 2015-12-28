@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Génération de NSG à l’aide du portail en version préliminaire
@@ -56,4 +56,4 @@ Pour créer des règles dans un NSG existant à partir du portail en version pr�
 
 ![Portail en version préliminaire : Nouvelle règle](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

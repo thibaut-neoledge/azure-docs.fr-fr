@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2015"
+   ms.date="12/07/2015"
    ms.author="kasing"/>
 
 # Gérer vos machines virtuelles à l’aide d’Azure PowerShell
@@ -97,4 +97,12 @@ Pour créer une machine virtuelle Windows dans Azure, consultez [Utilisation d�
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=Oct15_HO3-->
+## Créer une machine virtuelle basée sur Linux
+
+Utilisez les instructions contenues dans [Création et préconfiguration d’une machine virtuelle Linux avec Azure Powershell](virtual-machines-ps-create-preconfigure-linux-vms.md) pour créer une nouvelle machine virtuelle préconfigurée basée sur Linux dans Azure :
+
+- des disques supplémentaires ;
+- une appartenance à un jeu d’équilibrage de la charge ;
+- une adresse IP statique.
+
+<!---HONumber=AcomDC_1217_2015-->

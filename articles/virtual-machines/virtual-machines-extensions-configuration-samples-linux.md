@@ -19,12 +19,19 @@
 
 # Exemples de configuration d’extension de machine virtuelle Linux
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
+
 Cet article présente un exemple de configuration des extensions d’une machine virtuelle Azure pour les machines virtuelles Linux.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
+Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-extensions-features.md).
 
 Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
 
@@ -101,7 +108,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
         }
 
 ### Extension VM Access (réinitialisation du mot de passe)
-Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -117,7 +124,7 @@ Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAc
         }
 
 ### Application de correctifs au système d’exploitation
-Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -190,4 +197,4 @@ Voici un modèle de machine virtuelle complet pour la création d’une machine 
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

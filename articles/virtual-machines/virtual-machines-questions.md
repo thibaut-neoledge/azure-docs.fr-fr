@@ -69,7 +69,7 @@ Vous devez établir une connexion à distance pour vous connecter à la machine 
 - [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
 - [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
-En cas de problème avec le bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) pour résoudre le problème.
+En cas de problème avec le bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](virtual-machines-extensions-features.md) pour résoudre le problème.
 
 Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
@@ -102,7 +102,7 @@ Pour des informations générales sur les outils et processus de migration vers 
 
 Les images fournies par Azure n’ont pas de nom d’utilisateur et de mot de passe préconfigurés. Lorsque vous créez une machine virtuelle à l’aide de l’une de ces images, vous devez fournir un nom d’utilisateur et un mot de passe que vous utiliserez pour vous connecter à la machine virtuelle.
 
-Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) pour résoudre le problème.
+Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](virtual-machines-extensions-features.md) pour résoudre le problème.
 
 Informations supplémentaires :
 
@@ -158,4 +158,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

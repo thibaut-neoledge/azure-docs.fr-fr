@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Configuration avancée et extensions des applications web Azure App Service
@@ -26,7 +26,7 @@ En utilisant les déclarations [XML Document Transformation](http://msdn.microso
 ##<a id="transform"></a>Configuration avancée via ApplicationHost.config
 La plateforme App Service apporte flexibilité et contrôle à la configuration de l’application web. Bien que le fichier de configuration ApplicationHost.config IIS standard ne puisse pas être modifié directement dans App Service, la plateforme prend en charge un modèle de transformation ApplicationHost.config déclaratif basé sur XDT.
 
-Pour tirer parti de cette fonctionnalité de transformation, vous créez un fichier ApplicationHost.xdt avec du contenu XDT et le placez à la racine de l’application web. Vous devrez peut-être redémarrer l’application web pour que les modifications soient appliquées.
+Pour tirer parti de cette fonctionnalité de transformation, vous créez un fichier ApplicationHost.xdt avec du contenu XDT et vous le placez à la racine du site (d:\\home\\site) dans la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). Vous devrez peut-être redémarrer l’application web pour que les modifications soient appliquées.
 
 L’exemple applicationHost.xdt suivant montre comment ajouter une nouvelle variable d’environnement personnalisée à une application web utilisant PHP 5.4.
 
@@ -46,7 +46,7 @@ L’exemple applicationHost.xdt suivant montre comment ajouter une nouvelle vari
 
 Un fichier journal avec le statut et les détails de transformation est disponible à la racine FTP sous LogFiles\\Transform.
 
-Pour d'autres exemples, consultez la page [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+Pour d’autres exemples, consultez la page [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples).
 
 **Remarque**<br /> Les éléments de la liste de modules sous `system.webServer` ne peuvent être ni supprimés ni réorganisés, mais des ajouts à la liste sont possibles.
 
@@ -181,4 +181,4 @@ Il est possible de désactiver toutes les extensions privées (non préinstallé
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

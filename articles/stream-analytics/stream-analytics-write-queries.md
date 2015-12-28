@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="12/11/2015" 
 	ms.author="jeffstok"/>
 
 # Écriture de requêtes dans Stream Analytics
@@ -34,7 +34,7 @@ Une requête de logique de traitement de flux écrite dans Azure Stream Analytic
 2.	Les nouvelles tâches disposent d'un modèle de requête pour vous aider à commencer. Le modèle de requête effectue une requête « pass-through » qui transfère tous les champs provenant d'événements d'entrée vers la sortie.
 
     - Si vous avez défini au moins une entrée et une sortie pour votre tâche, vous pouvez remplacer les champs « [YourOutputAlias] » et « [YourInputAlias] » d'espace réservé par les alias de l'entrée et de la sortie que vous souhaitez utiliser en premier. En outre, vous pouvez toujours créer et tester votre requête dans le portail Azure sans définir d'entrées et de sorties pour la tâche.
-    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requêtes, examinez les modèles de requête courants illustrés [ici](stream-analytics-query-patterns).  
+    - Si vous souhaitez effectuer un traitement supérieur à une simple opération « pass-through », vous pouvez modifier la définition de la requête. Pour vous familiariser avec la création de requêtes, examinez les modèles de requête courants illustrés [ici](stream-analytics-stream-analytics-query-patterns.md).  
   
     ![Fenêtre Données de requête](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

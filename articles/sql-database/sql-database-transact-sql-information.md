@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Informations sur le langage Transact-SQL de la base de données SQL Azure | Microsoft Azure"
-   description="Instructions relatives au langage Transact-SQL dans la base de données SQL Azure"
+   pageTitle="Non pris en charge dans Azure SQL Database T-SQL | Microsoft Azure"
+   description="Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,16 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Informations sur le langage Transact-SQL de la base de données SQL Azure
+# Différences dans le langage Transact-SQL Azure SQL Database.
 
-La plupart des instructions relatives au langage Transact-SQL pour SQL Server 2016 sont entièrement prises en charge dans la base de données SQL Microsoft Azure. Cela inclut les types de données, les opérateurs et les fonctions du curseur chaîne, arithmétiques et logiques de SQL Server, ainsi que les autres éléments Transact-SQL dont dépendent de la plupart des applications. Les fonctions partiellement ou pas du tout prises en charge sont généralement associées à des différences liées à la façon dont la base de données SQL gère la base de données (fichier, haute disponibilité et fonctionnalités de sécurité) ou pour les fonctionnalités d’objectif spécial comme le service broker. Étant donné que la base de données SQL isole les nombreuses fonctionnalités de dépendance sur la base de données master, de nombreuses activités au niveau du serveur sont inappropriées et ainsi non prises en charge. Les fonctionnalités déconseillées dans SQL Server ne sont généralement pas prises en charge dans la base de données SQL.
+
+La plupart des fonctionnalités Transact-SQL que les applications utilisent sont prises en charge dans Microsoft SQL Server et Azure SQL Database. Vous trouverez ci-dessous une liste partielle des fonctionnalités prises en charge pour les applications :
+
+- Types de données.
+- Opérateurs.
+- Fonctions de chaîne, arithmétiques, logiques et de curseur.
+
+Toutefois, Azure SQL Database est conçu pour isoler les fonctionnalités de toute dépendance sur la base de données **maître**. Par conséquent, de nombreuses activités au niveau du serveur ne correspondent pas à la base de données SQL et ne sont pas prises en charge. Cette rubrique décrit en détail les fonctionnalités qui ne sont pas entièrement prises en charge dans la base de données SQL.
+
+De plus, les fonctionnalités déconseillées dans SQL Server ne sont généralement pas prises en charge dans la base de données SQL.
 
 ## Mise à niveau vers la version 12 de la base de données SQL
 
-Cette rubrique traite des fonctionnalités qui sont disponibles avec la base de données SQL lors de la mise à niveau gratuite vers la V12 de la base de données SQL. Pour plus d’informations sur la V12, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md). La V12 de la base de données SQL ajoute des améliorations de performances et de gestion, ainsi que de prise en charge des fonctionnalités supplémentaires. Les fonctionnalités ajoutées sont répertoriées ci-dessous, avec d’une part les fonctionnalités qui sont entièrement prises en charge et d’autre part les fonctionnalités partiellement prises en charge.
+Cette rubrique traite des fonctionnalités qui sont disponibles avec la base de données SQL lors de la mise à niveau gratuite vers la V12 de la base de données SQL. Pour plus d'informations sur la V12, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md). La V12 de la base de données SQL ajoute des améliorations de performances et de gestion, ainsi que de prise en charge des fonctionnalités supplémentaires. Les fonctionnalités ajoutées sont répertoriées ci-dessous, avec d’une part les fonctionnalités qui sont entièrement prises en charge et d’autre part les fonctionnalités partiellement prises en charge.
 
 ## Fonctionnalités partiellement prises en charge par la V12 de la base de données SQL
 
@@ -38,7 +47,7 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - Tables : [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
 - Types (personnalisés) : [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
 - Utilisateurs : [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
-- Onglets : [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms173846.aspx)
+- Onglets : [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
 ## Fonctionnalités non prises en charge par la base de données SQL
 
@@ -65,6 +74,7 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - KILL STATS JOB
 - Serveurs liés, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, nom à 3 ou 4 parties
 - Serveurs maître/cible
+- [Intégration du CLR avec SQL Server](http://msdn.microsoft.com/library/ms254963.aspx) .NET Framework
 - Gouverneur de ressources
 - Recherche sémantique
 - Informations d’identification du serveur
@@ -87,12 +97,14 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 
 ## Référence complète Transact-SQL
 
-Pour plus d’informations sur la grammaire, l’utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
 
 ### À propos des balises « S’applique à »
 
-La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 et la base de données SQL Microsoft Azure. En haut de chaque rubrique se trouve une section indiquant les produits qui prennent en charge l’objet de la rubrique. Si un produit est omis, cela signifie que la fonctionnalité décrite dans la rubrique n’est pas disponible pour ce produit. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu’ils sont appliqués à**SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à la base de données SQL Microsoft Azure.
+La référence sur Transact-SQL comprend des rubriques relatives aux versions de SQL Server allant de 2008 jusqu'à présent. Sous le titre de la rubrique, il existe généralement une ligne « S'applique à » qui répertorie les versions de SQL Server et éventuellement d'autres noms de produits. Souvent les mêmes balises « S'applique à » répertorient également Azure SQL Database. Si une balise « S'applique à » ne répertorie pas Azure SQL Database, le contenu de la rubrique ne s'applique pas à Azure SQL Database. Parfois, une ligne « S'applique à » qui répertorie plusieurs produits s'affiche, chacune avec une petite icône pour indiquer si la rubrique s'applique à chaque produit.
 
-Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L’instruction **CREATE USER** peut être utilisée dans n’importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S’applique à** sont insérées dans les descriptions d’argument appropriées dans le corps de la rubrique.
+ Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu'ils sont appliqués à **SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à Azure SQL Database.
 
-<!---HONumber=Nov15_HO3-->
+Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
+
+<!---HONumber=AcomDC_1217_2015-->

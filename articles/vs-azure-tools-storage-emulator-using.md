@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Configuration et utilisation de l’émulateur de stockage avec Visual Studio"
+   pageTitle="Configuration et utilisation de l’émulateur de stockage avec Visual Studio | Microsoft Azure"
    description="Configuration et utilisation de l’émulateur de stockage avec Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuration et utilisation de l’émulateur de stockage avec Visual Studio
 
@@ -43,4 +43,4 @@ L’émulateur de stockage fournit une interface utilisateur qui permet de voir 
 
 Le nœud Azure Storage dans l’Explorateur de serveurs permet d’afficher des données et de modifier les paramètres des données d’objets blob et de tables de vos comptes de stockage, y compris celui de l’émulateur de stockage. Pour plus d’informations, consultez [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

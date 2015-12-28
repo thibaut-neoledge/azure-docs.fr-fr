@@ -21,11 +21,11 @@
 
 ## Créer l’API dans le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Utilisez une adresse du type *VotreNomUtilisateur*@*VotreSociété*.com. Quand vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
+1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
  
-2. Sélectionnez **Parcourir** dans la barre des tâches : ![][14]
+2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][14]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
+3. Faites défiler la liste pour sélectionner PowerApps ou tapez *powerapps* : ![][15]
 
 4. Dans **PowerApps**, sélectionnez **Gérer les API** : ![Rechercher des API inscrites][1]
 
@@ -53,7 +53,7 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrèt
 
 2. Sélectionnez **Parcourir**, puis **Active Directory** :
 
-	> [AZURE.NOTE]Active Directory s’ouvre alors dans le portail Azure Classic.
+	> [AZURE.NOTE]Active Directory s’ouvre dans le portail Azure Classic.
 
 3. Sélectionnez le nom de client de votre organisation : ![Démarrer Azure Active Directory][6]
 
@@ -73,7 +73,7 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrèt
 
 7. Une fois l’opération réussie, vous êtes redirigé vers la nouvelle application AAD. Sélectionnez **Configurer** : ![Application AAD Contoso][10]
 
-8. Définissez l’**URL de réponse** située sous la section _OAuth 2_ sur l’URL de redirection que vous avez reçue quand vous avez ajouté la nouvelle API Office 365 Utilisateurs dans le portail Azure (dans cette rubrique). Sélectionnez **Ajouter une application** : ![Configurer l’application AAD Contoso][11]
+8. Définissez l’**URL de réponse** située sous la section _OAuth 2_ sur l’URL de redirection que vous avez reçue quand vous avez ajouté la nouvelle API Office 365 Utilisateurs dans le portail Azure (dans cette rubrique). Sélectionnez **Ajouter une application** : ![Configuration de l’application AAD Contoso][11]
 
 9. Dans la fenêtre **Autorisations pour d’autres applications**, sélectionnez **API Office 365 Unifié (version préliminaire) **, puis sélectionnez **OK**.
 
@@ -84,7 +84,7 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrèt
 Une nouvelle application Azure Active Directory est créée. Vous pouvez utiliser cette application dans la configuration de votre API Office 365 Utilisateurs dans le portail Azure.
 
 ## Résumé et étapes suivantes
-Vous venez de voir comment ajouter l’API Office 365 Outlook à PowersApps Enterprise. Vous verrez ensuite comment accorder aux utilisateurs l’accès à l’API pour qu’ils puissent l’ajouter à leurs applications :
+Dans cette rubrique, vous avez vu comment ajouter l’API Office 365 Users à PowersApps Enterprise. Ensuite, donnez accès à l’API pour les utilisateur afin qu’ils puissent l’ajouter à leurs applications :
 
 [Ajouter une connexion et attribuer un accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@ Vous venez de voir comment ajouter l’API Office 365 Outlook à PowersApps Ent
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

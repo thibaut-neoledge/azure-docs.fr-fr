@@ -3,11 +3,18 @@
 	description="Cet article fournit une vue d'ensemble de la protection DPM d’une batterie de serveurs SharePoint sur Azure"
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="giridharreddy"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/22/2015" ms.author="sammehta"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
+	ms.author="giridham;jimpark"/>
 
 
 # Sauvegarde d'une batterie de serveurs SharePoint sur Azure
@@ -212,7 +219,7 @@ Dans l'exemple ci-dessous, l’*élément de récupération SharePoint* a été 
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 
-5. A ce stade, suivez les [étapes de récupération ci-dessus](#restore-a-sharepoint-item-from-disk-using-dpm) pour la récupération d'une base de données de contenu Sharepoint à partir du disque.
+5. À ce stade, suivez les [étapes de récupération ci-dessus](#restore-a-sharepoint-item-from-disk-using-dpm) pour la récupération d'une base de données de contenu SharePoint à partir du disque.
 
 ## FAQ
 Q : Quelles versions de DPM prennent en charge SQL 2014 et SQL 2012 (SP2)<br>R : DPM 2012 R2 avec le correctif cumulatif 4
@@ -226,4 +233,4 @@ Q : Puis-je restaurer une base de données SharePoint sur l'emplacement d'origin
 - Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

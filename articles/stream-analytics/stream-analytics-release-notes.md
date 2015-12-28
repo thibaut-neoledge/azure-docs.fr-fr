@@ -24,8 +24,8 @@ Cette version contient la mise à jour suivante.
 
 Intitulé | Description
 ---|---
-Mise à jour de la version de l’API REST | L’API REST a été mise à jour vers la version suivante : 01-10-2015. Pour plus d’informations, consultez [Informations de référence sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) sur MSDN.
-Intégration d’Azure Machine Learning | Cette version s’accompagne de la prise en charge des fonctions Azure Machine Learning définies par l’utilisateur. Cliquez [ici](stream-analytics-machine-learning-tutorial.md) pour accéder à un didacticiel, et [ici](http://blogs.msdn.com/b/streamanalytics/) pour consulter l’annonce générale dans un billet de blog.
+Mise à jour de la version de l’API REST | L’API REST a été mise à jour vers la version suivante : 01-10-2015. Vous trouverez plus d’informations sur MSDN à l’adresse [références d’API REST de gestion Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) et [intégration de Machine Learning dans Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
+Intégration d’Azure Machine Learning | Cette version s’accompagne de la prise en charge des fonctions Azure Machine Learning définies par l’utilisateur. Cliquez [ici](stream-analytics-machine-learning-tutorial.md) pour accéder à un didacticiel, et [ici](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx) pour consulter l’annonce générale dans un billet de blog.
 
 ## Notes relatives à la version du 12/11/2015 de Stream Analytics ##
 
@@ -44,7 +44,7 @@ Intitulé | Description
 Fonctionnalités de langage de requête supplémentaires | Stream Analytics a étendu le langage de requête en incluant les fonctionnalités suivantes : [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) et [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Limitations d’agrégation supprimées | Cette version supprime la limitation à 15 agrégats dans une requête. Il n’existe désormais aucune limite du nombre d’agrégats par requête.
 Fonctionnalité GROUP BY System.Timestamp ajoutée | La fonction [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) autorise désormais window\_type ou [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
-Fonctionnalité OFFSET ajoutée pour les fenêtres bascule et récurrentes | Par défaut, les fenêtres [bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) et [récurrente](https://msdn.microsoft.com/library/azure/dn835041.aspx) sont alignées par rapport à l’heure zéro (1/1/0001 12:00:00 AM UTC). Le nouveau paramètre (facultatif) « offsetsize » permet de spécifier un décalage (ou alignement) personnalisé.
+Fonctionnalité OFFSET ajoutée pour les fenêtres bascule et récurrentes | Par défaut, la [fenêtre bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) et la [ fenêtre récurrente](https://msdn.microsoft.com/library/azure/dn835041.aspx) sont alignées par rapport à l’heure zéro (1/1/0001 12:00:00 AM UTC). Le nouveau paramètre (facultatif) « offsetsize » permet de spécifier un décalage (ou alignement) personnalisé.
 
 
 ## Notes relatives à la version du 29/09/2015 de Stream Analytics ##
@@ -133,4 +133,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

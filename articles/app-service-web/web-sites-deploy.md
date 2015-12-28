@@ -40,7 +40,7 @@ La meilleure méthode pour déployer une application Web consiste à configurer 
 
 * [Automatiser le déploiement avec MSBuild](#msbuild)
 * [Copier des fichiers avec des scripts et des outils FTP](#ftp)
-* [Automatiser le déploiement avec Windows PowerShell(#powershell)
+* [Automatiser le déploiement avec Windows PowerShell](#powershell)
 * [Automatiser le déploiement avec l’API de gestion .NET](#api)
 * [Déploiement à partir de l’interface de ligne de commande Azure](#cli)
 * [Déploiement à partir de la ligne de commande Web Deploy](#webdeploy)
@@ -52,14 +52,14 @@ La meilleure méthode pour déployer une application Web consiste à configurer 
 
 Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Diffusion continue au moyen de Visual Studio Team Services
+##<a name="vsts"></a>Diffusion continue au moyen de Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (anciennement Team Foundation Service) est une solution Microsoft basée sur le cloud pour le contrôle du code source et la collaboration d’équipe. Ce service est gratuit pour une équipe allant jusqu'à 5 développeurs. Vous pouvez effectuer une diffusion continue vers une application Web dans App Services, et votre référentiel peut utiliser [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Team Services](http://www.visualstudio.com/) (anciennement Team Foundation Service) est une solution Microsoft basée sur le cloud pour le contrôle du code source et la collaboration d’équipe. Ce service est gratuit pour une équipe allant jusqu'à 5 développeurs. Vous pouvez effectuer une diffusion continue vers une application Web dans App Services, et votre référentiel peut utiliser [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Pour plus d'informations, consultez les ressources suivantes :
 
-* [Livraison continue Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md) Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. TFVC est l’option de contrôle du code source centralisée, contrairement à Git, qui est l’option de contrôle du code source distribuée.
-* [Livraison continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
+* [Livraison continue sur Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. TFVC est l’option de contrôle du code source centralisée, contrairement à Git, qui est l’option de contrôle du code source distribuée.
+* [Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
 
 ##<a name="git"></a>Sites Web référentiels avec Git
 
@@ -142,7 +142,7 @@ Pour plus d'informations sur le déploiement en ligne de commande avec MSBuild, 
 
 ##<a name="ftp"></a>Copier des fichiers avec des scripts et des outils FTP
 
-Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
+Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application Web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
 
 Bien que les utilitaires FTP permettent de copier facilement vos fichiers d’application web dans Azure, ils n’effectuent ou ne coordonnent pas automatiquement de tâches de déploiement telles que le déploiement d’une base de données ou la modification de chaînes de connexion. De même, de nombreux outils FTP ne comparent pas les fichiers source et de destination afin d'ignorer la copie des fichiers qui n'ont pas été modifiés. Pour des applications volumineuses, le fait de toujours copier tous les fichiers peut allonger la durée des déploiements, même dans le cas d’une mise à jour mineure, puisque tous les fichiers sont toujours copiés.
 
@@ -170,7 +170,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 * [Tout automatiser avec les bibliothèques de gestion Azure et .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Présente l’API de gestion .NET et fournit des liens vers d’autres documentations.
 
-##<a name="cli"></a>Déploiement à partir de l’interface de ligne de commande Azure
+##<a name="cli"></a>Déploiement à partir de l’interface de ligne de commande Azure (Azure CLI)
 
 Vous pouvez utiliser la ligne de commande avec des ordinateurs Windows, Mac ou Linux pour vos déploiements en utilisant le FTP. Ce faisant, vous pouvez également accéder à l'API de gestion REST Azure en utilisant l'interface en ligne de commande interplateforme.
 
@@ -204,4 +204,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

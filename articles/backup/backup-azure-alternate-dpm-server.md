@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
+	ms.author="giridham;jimpark"/>
 
 # Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde
 Vous pouvez maintenant récupérer les données que vous avez protégées dans un coffre Azure Backup à partir de n'importe quel serveur DPM inscrit auprès de ce coffre. Ainsi, le processus permettant d’effectuer cette opération est totalement intégré à la console d'administration DPM et est semblable aux autres flux de travail de récupération.
@@ -21,7 +28,7 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 
     ![Ajouter un serveur DPM externe](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
-2. Fournissez les **informations d'identification** associées au serveur DPM pour lequel les données sont récupérées, choisissez le **serveur DPM** dans la liste des serveurs DPM inscrits auprès du coffre de sauvegarde et saisissez la **phrase secrète de chiffrement** associée au serveur DPM pour lequel les données sont en cours de récupération.
+2. Téléchargez à partir du coffre les nouvelles **informations d'identification** associées au **serveur DPM** pour lequel les données sont récupérées, choisissez le serveur DPM dans la liste des serveurs DPM inscrits auprès du coffre de sauvegarde et saisissez la **phrase secrète de chiffrement** associée au serveur DPM pour lequel les données sont en cours de récupération.
 
     ![Informations d'identification d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
@@ -96,4 +103,4 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 ## Étapes suivantes :
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Phase 2 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration de contrôleurs de domaine
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
-Au cours de cette phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine dans le réseau virtuel Azure dans la gestion des services. Les requêtes web des clients pour les ressources de la batterie de serveurs SharePoint peuvent être authentifiées sur le réseau virtuel Azure, plutôt que d'envoyer le trafic d'authentification via la connexion VPN ou Azure ExpressRoute vers votre réseau local.
+Au cours de cette phase de déploiement d’une batterie SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn dans des services d’infrastructure Azure, vous configurez deux contrôleurs de domaine dans le réseau virtuel Azure. Les requêtes web des clients pour les ressources de la batterie de serveurs SharePoint peuvent être authentifiées sur le réseau virtuel Azure, au lieu d’envoyer le trafic d’authentification via la connexion VPN de site à site ou Azure ExpressRoute vers votre réseau local.
 
 Vous devez terminer cette opération avant de passer à la [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
 
@@ -31,15 +31,15 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 
 Élément | Nom de la machine virtuelle | Image de galerie | Taille minimale
 --- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier ordinateur SQL Server, par exemple SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second ordinateur SQL Server, par exemple SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nœud majoritaire du cluster, par exemple MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
-6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur d'applications SharePoint, par exemple APP1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur d'applications SharePoint, par exemple APP2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur Web SharePoint, par exemple WEB1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur Web SharePoint, par exemple WEB2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | Standard\_A2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | Standard\_A2
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier ordinateur SQL Server, par exemple SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | Standard\_A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second ordinateur SQL Server, par exemple SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | Standard\_A5
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nœud majoritaire du cluster, par exemple MN1) | Windows Server 2012 R2 Datacenter | Standard\_A1
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur d'applications SharePoint, par exemple APP1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | Standard\_A4
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur d'applications SharePoint, par exemple APP2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | Standard\_A4
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur Web SharePoint, par exemple WEB1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | Standard\_A4
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur Web SharePoint, par exemple WEB2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | Standard\_A4
 
 **Table M – machines virtuelles pour la batterie de serveurs SharePoint 2013 intranet dans Azure**
 
@@ -50,75 +50,73 @@ Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines
 - Table M pour les machines virtuelles ;
 - Table V pour les paramètres du réseau virtuel ;
 - Table S pour le sous-réseau ;
+- Table ST pour vos comptes de stockage ;
 - Table A pour les groupes à haute disponibilité ;
-- Table C pour vos services cloud.
 
-Souvenez-vous que vous avez défini les tables, V, S, A et C au cours de la [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Souvenez-vous que vous avez défini les tables V, S, ST et A au cours de la [Phase 1 : configurer Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant à l'invite de commandes Azure PowerShell.
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
+Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
+
+	# Set up key variables
+	$rgName="<resource group name>"
+	$locName="<Azure location of your resource group>"
+	$saName="<Table ST – Item 1 – Storage account name column>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	
 	# Create the first domain controller
 	$vmName="<Table M – Item 1 - Virtual machine name column>"
-	$vmSize="<Table M – Item 1 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 1 – Availability set name column>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$subnetName="<Table S – Item 1 – Subnet name column>"
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 6 – Value column>
-
-	$serviceName="<Table C – Item 1 – Cloud service name column>"
-	$vnetName="<Table V – Item 1 – Value column>"
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
+	$vmSize="<Table M – Item 1 - Minimum size column>"
+	$staticIP="<Table V – Item 6 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
 	# Create the second domain controller
 	$vmName="<Table M – Item 2 - Virtual machine name column>"
-	$vmSize="<Table M – Item 2 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vmSize="<Table M – Item 2 - Minimum size column>"
+	$staticIP="<Table V – Item 7 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 7 – Value column>
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou nom DNS intranet.
 
 ## Configuration du premier contrôleur de domaine
 
-Ouvrez une session sur le premier contrôleur de domaine en utilisant les informations d'identification du compte d'administrateur local.
-
-### <a id="logon"></a>Connexion une machine virtuelle à l’aide d’une connexion Bureau à distance
-
-1.	Dans le portail Azure Classic, cliquez sur **Machines virtuelles** dans le volet gauche.
-2.	Pour vous connecter à une machine virtuelle, cliquez sur **En cours d'exécution** dans la colonne **État** en regard de son nom.
-3.	Dans la barre de commandes en bas de la page, cliquez sur **Connexion**.
-4.	Le portail Azure Classic vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
-5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer ComputerName.rdp depuis manage.windowsazure.com ? » Cliquez sur **Ouvrir**.
-6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
-7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
-8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName*\*LocalAdministratorAccountName*
-9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
-10.	Cliquez sur **OK**.
-11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.
+Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à la première machine virtuelle contrôleur de domaine. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
 
 Ensuite, vous devez ajouter le disque de données supplémentaire au premier contrôleur de domaine.
 
@@ -127,13 +125,13 @@ Ensuite, vous devez ajouter le disque de données supplémentaire au premier con
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
 2.	Dans le volet de contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
-4.	Dans la page **Avant de commencer** de l’Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Dans la page **Sélectionner le serveur et le disque**, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
-6.	Dans la page **Spécifier la taille du volume**, cliquez sur **Suivant**.
-7.	Dans la page **Affecter à la lettre d’un lecteur ou à un dossier**, cliquez sur **Suivant**.
-8.	Dans la page **Sélectionner les paramètres du système de fichiers**, cliquez sur **Suivant**.
-9.	Dans la page **Confirmer les sélections**, cliquez sur **Créer**.
-10.	Quand l’initialisation est terminée, cliquez sur **Fermer**.
+4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l'invite, cliquez sur OK.
+6.	À la page Spécifier la taille du volume, cliquez sur **Suivant**.
+7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
+8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
+9.	À la page Confirmer les sélections, cliquez sur **Créer**.
+10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
 Ensuite, testez la connectivité du premier contrôleur de domaine aux emplacements sur le réseau de votre organisation.
 
@@ -142,7 +140,7 @@ Ensuite, testez la connectivité du premier contrôleur de domaine aux emplaceme
 1.	Ouvrez une invite de commandes Windows PowerShell à partir du bureau.
 2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses IP des ressources sur le réseau de votre entreprise.
 
-Cette procédure garantit que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite.
+Cette procédure garantit que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite. Si ce test de base échoue, contactez votre service informatique pour résoudre les problèmes liés à la résolution du nom DNS et à la remise de paquets.
 
 Ensuite, à partir de l'invite de commandes Windows PowerShell sur le premier contrôleur de domaine, exécutez les commandes suivantes :
 
@@ -150,23 +148,43 @@ Ensuite, à partir de l'invite de commandes Windows PowerShell sur le premier co
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-L'ordinateur redémarre.
+Vous serez invité à fournir les informations d'identification d'un compte d'administrateur de domaine. L'ordinateur redémarre.
 
 ## Configuration du second contrôleur de domaine
 
-Ouvrez une session sur le second contrôleur de domaine en utilisant les informations d'identification du compte d'administrateur local. Pour obtenir des instructions, consultez la rubrique [Connexion une machine virtuelle à l'aide d'une connexion Bureau à distance](#logon).
+Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à la seconde machine virtuelle contrôleur de domaine. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
 
 Ensuite, vous devez ajouter le disque de données supplémentaire au second contrôleur de domaine. Consultez la rubrique [Initialisation d'un disque vide](#datadisk).
 
-Ensuite, testez votre connectivité aux emplacements sur le réseau de votre organisation depuis le second contrôleur de domaine. Consultez la rubrique [Test de la connectivité](#testconn). Utilisez cette procédure pour garantir que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite.
-
-Ensuite, à partir de l'invite de commandes Windows PowerShell sur le second contrôleur de domaine, exécutez les commandes suivantes :
+Ensuite, exécutez les commandes suivantes à partir de l'invite de commandes Windows PowerShell sur le second contrôleur de domaine :
 
 	$domname="<DNS domain name of the domain for which this computer will be a domain controller>"
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-L'ordinateur redémarre.
+Vous serez invité à fournir les informations d'identification d'un compte d'administrateur de domaine. L'ordinateur redémarre.
+
+Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel) et de la table M (pour vos machines virtuelles).
+
+1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
+2.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
+3.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
+5.	Dans le **volet Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
+6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
+7.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
+8.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
+
+Notez que les deux contrôleurs de domaine sont redémarrés afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils ont été promus contrôleurs de domaine.
+
+L'étape suivante est la création d'un site de réplication Active Directory pour garantir que les serveurs dans le réseau virtuel Azure utilisent les contrôleurs de domaine locaux. Connectez-vous au contrôleur de domaine principal en tant qu'administrateur, puis exécutez les commandes suivantes à partir d'une invite de commandes Windows PowerShell de niveau administrateur :
+
+	$vnet="<Table V – Item 1 – Value column>"
+	$vnetSpace="<Table V – Item 5 – Value column>"
+	New-ADReplicationSite -Name $vnet 
+	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
 
 ## Configuration de comptes et d'autorisations de batterie de serveurs SharePoint
 
@@ -203,49 +221,12 @@ Ensuite, procédez comme suit pour ajouter des propriétés de compte aux nouvea
 10.	Dans la zone de texte, saisissez **<YourDomain>\\sp\_install**, puis cliquez sur **OK**.
 11.	Sélectionner **Autoriser** pour la **création des objets ordinateur**, puis cliquez trois fois sur **OK**.
 
-Ensuite, mettez à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel).
-
-1.	Dans le volet gauche du portail Azure Classic, cliquez sur **Réseaux**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
-2.	Cliquez sur **Configurer**.
-3.	Sous **Serveurs DNS**, supprimez les entrées correspondant aux serveurs DNS qui se trouvent sur votre réseau local.
-4.	Sous **Serveurs DNS**, ajoutez deux entrées avec des noms conviviaux et les adresses IP des deux éléments de tables suivants :
- - Table V – Élément 6 – Colonne Valeur
- - Table V – Élément 7 – Colonne Valeur
-5.	Dans la barre de commandes de la partie inférieure, cliquez sur **Enregistrer**.
-6.	Dans le volet gauche du portail Azure Classic, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard du nom de votre premier contrôleur de domaine.
-7.	Dans la barre de commandes, cliquez sur **Redémarrer**.
-8.	Lorsque le premier contrôleur de domaine est démarré, cliquez sur la colonne **État** en regard du nom de votre second contrôleur de domaine.
-9.	Dans la barre de commandes, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
-
-Notez que vous redémarrez les deux contrôleurs de domaine afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils sont promus contrôleurs de domaine.
-
-Ensuite, vous devez créer un site de réplication Active Directory pour garantir que les serveurs dans le réseau virtuel Azure utilisent les contrôleurs de domaine locaux. Ouvrez une session sur le contrôleur de domaine principal avec le compte sp\_install, puis exécutez les commandes suivantes à partir d'une invite de commandes de niveau administrateur Windows PowerShell :
-
-	$vnet="<Table V – Item 1 – Value column>"
-	$vnetSpace="<Table V – Item 5 – Value column>"
-	New-ADReplicationSite -Name $vnet
-	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
-
-Ce schéma illustre la configuration résultant de la réussite de cette phase, avec les noms d’ordinateur d’espaces réservés.
+Cela illustre la configuration résultant de la réussite de cette phase, avec les noms d’ordinateur d’espaces réservés.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
+- Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
-## Ressources supplémentaires
-
-[Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

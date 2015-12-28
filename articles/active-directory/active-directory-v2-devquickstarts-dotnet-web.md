@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application web MVC .NET
@@ -48,14 +48,14 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 - ajouter la plateforme **Web** pour votre application ;
 - entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
-## 2\. Configurez votre application pour utiliser le pipeline d'authentification OWIN
+## 2. Configurez votre application pour utiliser le pipeline d'authentification OWIN
 Ici, nous allons configurer l’intergiciel OWIN pour utiliser le protocole d’authentification OpenID Connect. OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
 -	Pour commencer, ouvrez le fichier `web.config` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `<appSettings>`.
     -	L’élément `ida:ClientId` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
     -	L’élément `ida:RedirectUri` est l’**URI de redirection** que vous avez saisi dans le portail.
 
--	Ajoutez ensuite les packages NuGet d'intergiciel (middleware) OWIN au projet à l'aide de la console du gestionnaire de package.
+-    Ajoutez ensuite les packages NuGet d'intergiciel (middleware) OWIN au projet à l'aide de la console du gestionnaire de package.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -80,7 +80,7 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	Ouvrez le fichier `App_Start\Startup.Auth.cs` et implémentez la méthode `ConfigureAuth(...)`. Les paramètres que vous fournissez dans `OpenIdConnectAuthenticationOptions` serviront de coordonnées pour que votre application puisse communiquer avec Azure AD. Vous devrez également configurer l’authentification des cookies ; l’intergiciel OpenID Connect utilise des cookies en coulisses.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -212,7 +212,7 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 [Sécuriser une API web avec le modèle d’application v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Pour obtenir des ressources supplémentaires, consultez :
-- [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

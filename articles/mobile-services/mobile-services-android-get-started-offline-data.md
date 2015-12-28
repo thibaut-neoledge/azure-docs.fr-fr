@@ -39,7 +39,7 @@ Que vous soyez hors connexion ou connecté, des conflits peuvent survenir chaque
 
 ## Mettre à jour l’application pour prendre en charge la synchronisation hors connexion
 
-Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQL Light** sur votre appareil.
+Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQLite** sur votre appareil.
 
 Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, faites appel à un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
 
@@ -51,14 +51,14 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 2. Ajoutez les instructions **import** suivantes au fichier *ToDoActivity.java* :
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Dans la partie supérieure de la classe `ToDoActivity`, modifiez la déclaration de la variable `mToDoTable` en remplaçant la classe `MobileServiceTable<ToDoItem>` par la classe `MobileServiceSyncTable<ToDoItem>`.
 
@@ -112,7 +112,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -139,7 +139,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 	Au démarrage, cela entraîne la synchronisation de l’appareil avec la table Azure. Sinon, le dernier contenu hors connexion du magasin local s’affiche.
 
 
- 
+
 9. Pour utiliser cette requête, mettez à jour le code dans la méthode `refreshItemsFromTable` (première ligne de code dans le bloc `try`) :
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -165,8 +165,8 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-pla
 
 Testez les scénarios suivants :
 
-1. Ajoutez de nouveaux éléments sur votre appareil. 
-2. Vérifiez que les éléments ne s’affichent pas dans le portail. 
+1. Ajoutez de nouveaux éléments sur votre appareil.
+2. Vérifiez que les éléments ne s’affichent pas dans le portail.
 3. Appuyez ensuite sur **Actualiser** et vérifiez qu’ils s’affichent à présent.
 4. Modifiez ou ajoutez un élément dans le portail, puis appuyez sur **Actualiser** et vérifiez que les modifications s’affichent sur votre appareil.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

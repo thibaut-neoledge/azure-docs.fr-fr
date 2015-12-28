@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Vue d'ensemble
 
@@ -36,13 +25,13 @@ Cet article fournit des exemples de code C# qui montrent comment utiliser la ver
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, voir l’article [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Utilisation du stockage de tables à partir de .NET").
 
 
-Certains extraits de code illustrent l'attribut **Table** utilisé dans des fonctions [appelées manuellement](vs-storage-webjobs-getting-started-blobs.md#manual), c'est-à-dire sans utiliser l'un des attributs de déclenchement.
+Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions [appelées manuellement](vs-storage-webjobs-getting-started-blobs.md#manual), c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
 ## Ajout d’une entité à une table
 
-Pour ajouter des entités à une table, utilisez l'attribut **Table** avec un paramètre **ICollector<T>** ou **IAsyncCollector<T>**, dans lequel **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
+Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector<T>** ou **IAsyncCollector<T>**, dans lequel **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
 
-L'exemple de code suivant ajoute des entités **Person** à une table nommée *Ingress*.
+L’exemple de code suivant ajoute des entités **Person** à une table nommée *Ingress*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -73,7 +62,7 @@ En général, le type que vous utilisez avec **ICollector** est dérivé de **Ta
 		    public string Name { get; set; }
 		}
 
-Si vous souhaitez utiliser directement l'API Azure Storage, vous pouvez ajouter un paramètre **CloudStorageAccount** à la signature de méthode.
+Si vous souhaitez utiliser directement l’API Azure Storage, vous pouvez ajouter un paramètre **CloudStorageAccount** à la signature de méthode.
 
 ## Surveillance en temps réel
 
@@ -91,9 +80,9 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 
 ## Lecture de plusieurs entrées à partir d’une table
 
-Pour lire une table, utilisez l'attribut **Table** avec un paramètre **IQueryable<T>** paramètre où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
+Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
-L'exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
+L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
 
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -109,9 +98,9 @@ L'exemple de code suivant lit et enregistre toutes les lignes de la table **Ingr
 
 ### Lecture d’une entité unique à partir d’une table
 
-Il existe un constructeur d'attribut **Table** présentant deux paramètres supplémentaires, qui vous permettent de spécifier la clé de partition et la clé de ligne lorsque vous souhaitez effectuer une liaison avec une entité de table unique.
+Il existe un constructeur d’attribut **Table** présentant deux paramètres supplémentaires, qui vous permettent de spécifier la clé de partition et la clé de ligne lorsque vous souhaitez effectuer une liaison avec une entité de table unique.
 
-L'exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d'attente :
+L’exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -131,13 +120,13 @@ L'exemple de code suivant lit une ligne de table pour une entité **Person** bas
 		}
 
 
-La classe **Person** figurant dans cet exemple n'est pas obligée d'implémenter **ITableEntity**.
+La classe **Person** figurant dans cet exemple n’est pas obligée d’implémenter **ITableEntity**.
 
 ## Utilisation directe de l’API de stockage .NET pour travailler avec une table
 
-Vous pouvez également utiliser l'attribut **Table** avec un objet **CloudTable**, afin de garantir une utilisation plus souple des tables.
+Vous pouvez également utiliser l’attribut **Table** avec un objet **CloudTable**, afin de garantir une utilisation plus souple des tables.
 
-L'exemple de code suivant utilise un objet **CloudTable** pour ajouter une entité unique à la table *Ingress*.
+L’exemple de code suivant utilise un objet **CloudTable** pour ajouter une entité unique à la table *Ingress*.
 
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
@@ -153,7 +142,7 @@ L'exemple de code suivant utilise un objet **CloudTable** pour ajouter une entit
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour en savoir plus sur l'utilisation de l'objet **CloudTable**, consultez [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables.md).
+Pour en savoir plus sur l’utilisation de l’objet **CloudTable**, consultez [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables.md).
 
 ## Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 
@@ -165,4 +154,4 @@ Pour en savoir plus sur la gestion du traitement de tables déclenché par un me
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

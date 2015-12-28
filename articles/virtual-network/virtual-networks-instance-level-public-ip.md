@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
@@ -123,4 +123,4 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

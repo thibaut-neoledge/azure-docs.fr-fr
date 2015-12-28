@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Construction de chaînes de filtrage pour le Concepteur de tables"
+   pageTitle="Construction de chaînes de filtrage pour le Concepteur de tables | Microsoft Azure"
    description="Construction de chaînes de filtrage pour le Concepteur de tables"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Construction de chaînes de filtrage pour le Concepteur de tables
 
@@ -99,4 +99,4 @@ L’exemple suivant retourne les entités dont la propriété CustomerSince a la
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

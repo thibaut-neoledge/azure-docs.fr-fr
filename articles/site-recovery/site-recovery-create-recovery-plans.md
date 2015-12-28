@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création de plans de récupération" 
-	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées sur des serveurs locaux ou sur un centre de données secondaire." 
+	pageTitle="Créer des plans de récupération | Microsoft Azure" 
+	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées, sur des serveurs locaux, vers Microsoft Azure ou un centre de données secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Création de plans de récupération
+# Créer des plans de récupération
 
-Le service Site Recovery offre une solution fiable de continuité d’activité et de récupération d’urgence qui protège vos machines virtuelles et vos serveurs physiques locaux en orchestrant et en automatisant la réplication et le basculement sur Microsoft Azure ou sur un centre de données secondaire local. Pour bénéficier d’une introduction aux scénarios de déploiement de Site Recovery, consultez la [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
+Le service Site Recovery offre une solution fiable de continuité d’activité et de récupération d’urgence, qui protège vos machines virtuelles et vos serveurs physiques locaux en orchestrant et en automatisant la réplication et le basculement vers Microsoft Azure ou un centre de données secondaire local. Pour bénéficier d’une introduction aux scénarios de déploiement de Site Recovery, consultez la [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
 
 ## Dans cet article
 
@@ -54,7 +54,7 @@ Pour créer un plan de récupération, procédez comme suit :
 	- Si vous exécutez une réplication de VMM à VMM à l’aide de SAN, sélectionnez VMM dans le champ **Type de source**, puis les serveurs VMM source et cible. Pour afficher les clouds configurés pour la réplication SAN, cliquez sur **SAN**.
 	- Si vous exécutez une réplication de VMM vers Microsoft Azure, sélectionnez VMM dans le champ **Type de source**. Sélectionnez le serveur VMM source et **Azure** en tant que cible.
 	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez Site Hyper-V dans le champ Type de source. Sélectionnez le site en tant que source et **Azure **en tant que cible.
-	- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
+- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
 
 2\. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous souhaitez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
 
@@ -63,7 +63,7 @@ Pour créer un plan de récupération, procédez comme suit :
 Une fois que vous avez ajouté les machines virtuelles protégées ou les groupes de réplication au groupe par défaut du plan de récupération et créé le plan, vous pouvez le personnaliser :
 
 - **Ajouter des groupes** : il est possible d’ajouter des groupes supplémentaires au plan de récupération. Les groupes sont numérotés dans l’ordre dans lequel vous les ajouter. Vous pouvez ajouter jusqu’à sept groupes. Une fois que vous les avez ajoutés, vous pouvez y intégrer davantage de machines ou de groupes de réplication. Notez que les machines virtuelles et les groupes de réplication peuvent être incorporés au sein d’un seul plan de récupération.
-- **Ajouter un script **: ajoutez des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
+- ****Ajouter un script **: ajoutez des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
 - **Ajouter une action manuelle** : il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il est arrêté au point d’insertion de l’action manuelle, et une boîte de dialogue vous invite à confirmer la bonne réalisation de l’action manuelle.
 
 ### Étendre des plans de récupération avec des scripts
@@ -124,4 +124,4 @@ Vous pouvez exécuter différents types de basculement de plan de récupération
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

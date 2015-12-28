@@ -7,12 +7,12 @@
    manager=""
    editor="" />
 <tags
-   ms.service="multiple"
+   ms.service="application-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 # Configurer les diagnostics Azure pour envoyer des données à Application Insights
@@ -92,7 +92,7 @@ Voici un exemple complet de fichier de configuration publique qui envoie toutes 
 Il existe certaines limitations à connaître pour cette fonctionnalité
 
 - Les canaux sont uniquement destinés à fonctionner avec un type journal et non avec des compteurs de performances. Si vous spécifiez un canal comprenant un élément compteur de performances, il sera ignoré. 
-- Le niveau de consignation d'un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure. Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l'élément Logs et tenter d'envoyer des journaux détaillés à la synchronisation Application Insight. L'attribut *scheduledTransferLogLevelFilter* doit toujours collecter au moins autant de journaux que ceux que vous essayez d'envoyer à un récepteur. 
+- Le niveau de consignation d'un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure. Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l’élément Journaux et tenter d’envoyer des journaux détaillés vers le journal de suivi Application Insight. L'attribut *scheduledTransferLogLevelFilter* doit toujours collecter au moins autant de journaux que ceux que vous essayez d'envoyer à un récepteur. 
 - Vous ne pouvez pas envoyer des données blob collectées par l'extension des diagnostics Azure à Application Insights. Par exemple, rien qui soit spécifié sous le nœud *Directories*. Pour les vidages sur incident, le vidage sur incident réel sera toujours envoyé au stockage d'objets blob et seule une notification de génération du vidage sur incident sera envoyée à Application Insights. 
 
 
@@ -101,4 +101,4 @@ Il existe certaines limitations à connaître pour cette fonctionnalité
 - Utilisez [PowerShell](cloud-services-diagnostics-powershell.md) pour activer l'extension des diagnostics Azure pour votre application. 
 - Utilisez [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) pour activer l'extension des diagnostics Azure pour votre application 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

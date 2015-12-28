@@ -20,9 +20,11 @@
 # Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 L’utilisation de modèles Azure PowerShell et Gestionnaire de ressources offre davantage de puissance et de flexibilité dans Microsoft Azure. Vous pouvez utiliser les tâches décrites dans cet article pour créer et gérer des ressources de machine virtuelle.
 
@@ -53,7 +55,7 @@ La plupart des applications fonctionnant dans Microsoft Azure sont générées 
 
 Une fois que vous avez défini un modèle de ressource basé sur JSON, vous pouvez l’utiliser une commande PowerShell pour déployer les ressources définies dans Azure. Vous pouvez exécuter ces commandes séparément dans l'interface de commande PowerShell ou les intégrer dans un script qui contient une logique d'automatisation supplémentaire.
 
-Les ressources que vous créez à l’aide de modèles Azure Resource Manager sont déployées sur un *groupe de ressources Azure* nouveau ou existant. Un groupe de ressources vous permet de gérer plusieurs ressources déployées ensemble sous forme de groupe logique. Cela vous permet de gérer le cycle de vie global de l’application/du groupe.
+Les ressources que vous créez à l'aide de modèles Azure Resource Manager sont déployées sur un *groupe de ressources Azure* nouveau ou existant. Un groupe de ressources vous permet de gérer plusieurs ressources déployées ensemble sous forme de groupe logique. Cela vous permet de gérer le cycle de vie global de l’application/du groupe.
 
 Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
@@ -61,13 +63,13 @@ Si vous êtes intéressé par la création de modèles, consultez [Création de 
 
 Pour les tâches de création d’une ressource, vous aurez besoin d’un groupe de ressources si vous n’en avez pas encore.
 
-Dans la commande suivante, remplacez *nom de groupe de ressources* par le nom du nouveau groupe de ressources et *emplacement Azure* par l’emplacement du centre de données Azure dans lequel vous souhaitez enregistrer la ressource, puis exécutez la commande :
+Dans la commande suivante, remplacez *nom de groupe de ressources* par le nom du nouveau groupe de ressources et *emplacement Azure* par l'emplacement du centre de données Azure dans lequel vous souhaitez enregistrer la ressource, puis exécutez la commande :
 
 	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
-## <a id="windowsvm"></a>TÂCHE : Création d’une machine virtuelle
+## <a id="windowsvm"></a>TÂCHE : Création d'une machine virtuelle
 
-Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Déployer une machine virtuelle Windows simple dans l’ouest des États-Unis](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Déployer une machine virtuelle Windows simple dans l'ouest des États-Unis](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
@@ -126,7 +128,7 @@ Si vous souhaitez voir une vidéo de l’exécution de cette tâche, regardez ce
 
 ## <a id="customvm"></a>TÂCHE : Créer une machine virtuelle avec un disque spécialisé
 
-Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Créer une machine virtuelle à partir d’un disque VHD spécialisé](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Créer une machine virtuelle à partir d'un disque VHD spécialisé](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 Dans la commande suivante, remplacez *nom du déploiement* par le nom que vous souhaitez utiliser pour le déploiement et *nom de groupe de ressources* par le nom du groupe de ressources existant, puis exécutez la commande :
 
@@ -155,7 +157,7 @@ Si vous souhaitez voir une vidéo de l’exécution de cette tâche, regardez ce
 
 ## <a id="multivm"></a>TÂCHE : Créer plusieurs machines virtuelles dans un réseau virtuel avec un équilibreur de charge externe
 
-Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Créer une machine virtuelle à partir d’un disque VHD spécialisé](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Cette tâche utilise un modèle de la galerie de modèles. Pour en savoir plus sur le modèle, consultez [Créer une machine virtuelle à partir d'un disque VHD spécialisé](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
@@ -368,7 +370,7 @@ Si vous souhaitez voir une vidéo de l’exécution de cette tâche, regardez ce
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
 ## Ressources supplémentaires
-[Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’applications](virtual-machines-app-frameworks.md)
+[Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'applications](virtual-machines-app-frameworks.md)
 
 [Fournisseurs de solutions de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -376,4 +378,4 @@ Si vous souhaitez voir une vidéo de l’exécution de cette tâche, regardez ce
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

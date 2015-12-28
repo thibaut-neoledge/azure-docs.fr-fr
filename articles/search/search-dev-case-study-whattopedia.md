@@ -52,7 +52,7 @@ Notre objectif était de créer une infrastructure complète uniquement basée s
  
 ### Composants de haut niveau
 
-Nous avons créé une véritable entreprise, pas simplement un site. Tous ces efforts nécessitaient une gamme complète d'outils et d'applications. Nous avons adopté Visual Studio et Visual Studio Online pour le développement, Team Foundation Service (TFS) Online pour le contrôle de la source et la gestion des processus Scrum, Office 365 pour la communication et la collaboration, et bien entendu Microsoft Azure pour toutes les opérations liées au site et le stockage. L'ID de Visual Studio a fourni directement les données à Azure, tandis que l'intégration à TFS Online a permis d'accroître la productivité.
+Nous avons créé une véritable entreprise, pas simplement un site. Tous ces efforts nécessitaient une gamme complète d'outils et d'applications. Nous avons adopté Visual Studio et Visual Studio Team Services pour le développement, Team Foundation Service (TFS) Online pour le contrôle de la source et la gestion des processus Scrum, Office 365 pour la communication et la collaboration, et bien entendu Microsoft Azure pour toutes les opérations liées au site et le stockage. L'ID de Visual Studio a fourni directement les données à Azure, tandis que l'intégration à TFS Online a permis d'accroître la productivité.
 
 Le diagramme ci-dessous montre les composants de haut niveau utilisés dans l'infrastructure WhatToPedia.
 
@@ -421,4 +421,4 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

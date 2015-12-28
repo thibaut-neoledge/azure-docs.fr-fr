@@ -19,6 +19,17 @@
 
 # Création et configuration d'une machine virtuelle Windows avec Resource Manager et Azure PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 Ces étapes vous montrent comment construire un jeu de commandes Azure PowerShell pour créer et configurer une machine virtuelle Azure. Vous pouvez utiliser ce processus de blocs de construction pour créer un jeu de commandes pour une nouvelle machine virtuelle Windows et pour développer un déploiement existant. Vous pouvez également l’utiliser pour créer plusieurs jeux de commandes qui créent rapidement un environnement de développement/test personnalisé ou un environnement pour professionnels de l’informatique.
@@ -84,7 +95,7 @@ Vous devez choisir pour votre compte de stockage un nom global unique contenant 
 
 	Get-AzureRmStorageAccount | Sort Name | Select Name
 
-Pour vérifier si un nom de compte de stockage choisi est globalement unique, vous devez exécuter la commande **Test-AzureName**.
+Pour vérifier si le nom de compte de stockage choisi est unique, exécutez la commande **Test-AzureName**.
 
 	Test-AzureName -Storage <Proposed storage account name>
 
@@ -122,7 +133,7 @@ Utilisez cette commande pour répertorier les groupes à haute disponibilité ex
 
 Les machines virtuelles basées sur Resource Manager peuvent être configurées avec des règles NAT de trafic entrant pour autoriser le trafic entrant provenant d’Internet et pour être placées dans un ensemble à charge équilibrée. Dans les deux cas, vous devez spécifier une instance d’équilibreur de charge et d’autres paramètres. Pour plus d’informations, consultez [Création d’un équilibreur de charge à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
 
-Les machines virtuelles créées avec le modèle de déploiement Resource Manager requièrent un réseau virtuel Resource Manager. Si nécessaire, créez un réseau virtuel basé sur Resource Manager avec au moins un sous-réseau pour la nouvelle machine virtuelle. Voici un exemple d’un nouveau réseau virtuel nommé **TestNet** avec deux sous-réseaux nommés **frontendSubnet** et **backendSubnet**.
+Les machines virtuelles créées avec le modèle de déploiement Resource Manager requièrent un réseau virtuel Resource Manager. Si nécessaire, créez un réseau virtuel basé sur Resource Manager avec au moins un sous-réseau pour la nouvelle machine virtuelle. Voici un exemple de nouveau réseau virtuel nommé **TestNet** avec deux sous-réseaux nommés **frontendSubnet** et **backendSubnet**.
 
 	$rgName="LOBServers"
 	$locName="West US"
@@ -384,4 +395,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

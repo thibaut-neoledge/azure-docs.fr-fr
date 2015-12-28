@@ -3,9 +3,9 @@
    description="Décrit comment configurer les informations de diagnostic pour le débogage des services cloud Azure et des machines virtuelles dans Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure
 
@@ -357,4 +357,4 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

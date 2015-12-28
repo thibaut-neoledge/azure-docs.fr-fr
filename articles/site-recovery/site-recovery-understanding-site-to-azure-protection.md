@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble de la protection entre un site et Azure" 
+	pageTitle="Comprendre la réplication Hyper-V avec Azure Site Recovery | Microsoft Azure" 
 	description="Utilisez cet article pour comprendre les concepts techniques qui vous permettent d’installer, de configurer et de gérer avec succès Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Vue d’ensemble de la protection entre un site Hyper-V ou VMM et Azure
+# Comprendre la réplication Hyper-V avec Azure Site Recovery
 
 Cet article décrit les concepts techniques qui vous permettent de configurer et de gérer avec succès la protection entre un site Hyper-V ou un site VMM et Azure à l’aide d’Azure Site Recovery.
 
@@ -79,4 +79,4 @@ Il existe une logique de nouvelle tentative intégrée lorsque des erreurs de r�
 - [Contacter le support Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Les erreurs ASR courantes et leur résolution](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

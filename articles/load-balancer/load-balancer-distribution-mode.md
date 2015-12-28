@@ -40,14 +40,14 @@ Pour les machines virtuelles, vous pouvez utiliser Powershell pour modifier les 
  
 Ajouter un point de terminaison Azure à une machine virtuelle et définir le mode de distribution d'équilibrage de charge
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM
+	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
 >[AZURE.NOTE]LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut de l’équilibrage de charge à 5 tuples.
 
 
 Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -74,7 +74,7 @@ Si l'élément LoadBalancerDistribution n'est pas présent, l'équilibrage de ch
 
 Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le mode de distribution doit être défini sur le jeu de points de terminaison d'équilibrage de charge :
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+	Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### Configuration du service cloud pour modifier le mode de distribution
 
@@ -99,7 +99,7 @@ Vous pouvez exploiter le Kit de développement logiciel (SDK) Azure pour .NET 2
 
 ## Exemple d’API
 
-Vous pouvez configurer la distribution d’équilibrage de charge à l’aide de l’API de gestion des services. Assurez-vous d’ajouter l’en-tête x-ms-version, défini sur la version 2014-09-01 ou une version ultérieure.
+Vous pouvez configurer la distribution de l’équilibreur de charge à l’aide de l’API de gestion des services. Vérifiez que l’en-tête `x-ms-version` est définie sur la version `2014-09-01` ou ultérieure.
  
 Mettre à jour la configuration du jeu d'équilibrage de la charge spécifié dans un déploiement
 
@@ -149,4 +149,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

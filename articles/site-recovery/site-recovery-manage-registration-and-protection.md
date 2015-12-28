@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer l’inscription et la protection des systèmes" 
+	pageTitle="Annuler l’inscription des serveurs et de désactiver la protection | Microsoft Azure" 
 	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées, sur des serveurs locaux, vers Microsoft Azure ou un centre de données secondaire. Utilisez cet article pour annuler l’inscription des serveurs à partir d’un coffre Site Recovery et pour désactiver la protection des machines virtuelles et serveurs physiques." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Gérer l’inscription et la protection des systèmes
+# Annuler l’inscription des serveurs et de désactiver la protection
 
 Cet article explique comment annuler l’inscription des serveurs du coffre Microsoft Site Recovery et comment désactiver la protection des machines virtuelles protégées par ce logiciel. Après avoir lu cet article, peut-être aurez-vous des questions. Le cas échéant, publiez-les sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -212,4 +212,4 @@ Si vous souhaitez arrêter la protection d'une machine virtuelle VMware ou d’u
 	- **Désactiver la protection** : si vous activez cette option et l’enregistrez, la machine n’est plus protégée par Site Recovery. Les paramètres de protection de la machine seront automatiquement nettoyés.
 	- **Supprimer du coffre** : si vous sélectionnez cette option, la machine est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine ne seront pas affectés. Pour supprimer les paramètres de la machine et supprimer la machine virtuelle de l’abonnement Azure, vous devrez nettoyer les paramètres en désinstallant le service de mobilité. ![Supprimer les options](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #Création d'itinéraires définis par l'utilisateur (UDR) dans l'interface de ligne de commande (CLI) Azure
@@ -191,4 +191,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

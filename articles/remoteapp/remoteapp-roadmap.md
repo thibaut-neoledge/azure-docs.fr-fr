@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="12/16/2015"
     ms.author="elizapo" />
 
 # Nouveautés à venir sur Azure RemoteApp
 
 Nous cherchons constamment à améliorer Azure RemoteApp sur la base de vos commentaires. Voici un calendrier général des nouvelles fonctionnalités à paraître.
 
-|Fonctionnalité|Jan.-Mars 2016|Avril-mars 2016|
+|Fonctionnalité|Jan.-Mars 2016|Avril-juin 2016|
 |-----------|-------|-------|
 |Azure Remote App disponible dans le [portail Azure Classic](http://manage.windowsazure.com) et le [portail Azure](http://portal.azure.com) |X | |
 |Application universelle Windows 10 pour la version préliminaire d’Azure RemoteApp|X| |
@@ -28,6 +28,9 @@ Nous cherchons constamment à améliorer Azure RemoteApp sur la base de vos comm
 |Client de type HTML5 pour Azure RemoteApp|X ||
 |Prise en charge d’Azure Resource Manager (ARM)||X|
 |Fournisseur de solutions cloud (CSP)||X|
+|Disponibilité en Inde|X||
+|Disponibilité au Royaume-Uni||X|
+
 
 Autres améliorations apportées au cours de l’année :
 
@@ -43,4 +46,4 @@ Autres améliorations apportées au cours de l’année :
 - Disponibilité dans les centres de données australiens
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

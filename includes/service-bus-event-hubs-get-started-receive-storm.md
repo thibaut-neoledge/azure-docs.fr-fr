@@ -2,7 +2,7 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
-Pour plus d'informations sur les modèles de réception Event Hubs, consultez la page [Vue d'ensemble d'Event Hubs][].
+Pour plus d’informations sur les modèles de réception Event Hubs, consultez la page [Vue d’ensemble d’Event Hubs][].
 
 Ce didacticiel utilise une installation [HDInsight Storm][], fournie avec la commande « spout » Event Hubs déjà disponible.
 
@@ -16,7 +16,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][], fournie avec la com
 
 4. Dans Eclipse, créez un projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
 
-   	![][12]
+   ![][12]
 
 5. Sélectionnez l'option **Utiliser l'emplacement d'espace de travail par défaut**, puis cliquez sur **Suivant**.
 
@@ -220,7 +220,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][], fournie avec la com
 	Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
 
 <!-- Links -->
-[Vue d'ensemble d'Event Hubs]: event-hubs-overview.md
+[Vue d’ensemble d’Event Hubs]: event-hubs-overview.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [Analyse des données de capteur dans HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
@@ -230,4 +230,4 @@ Ce didacticiel utilise une installation [HDInsight Storm][], fournie avec la com
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="Découvrez comment déployer une application web sur une machine virtuelle. Ce script crée les ressources requises dans votre abonnement Azure si elles n'existent pas."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publish-WebApplicationVM (script Windows PowerShell)
 
@@ -189,4 +189,4 @@ Le fichier de configuration JSON spécifie les détails de ce qui doit être dé
 
 Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est configuré. Une machine virtuelle et un service cloud sont requis, mais la section de la base de données est facultative.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer Azure Service Bus à l'aide d'Azure Automation"
+	pageTitle="Gérer Azure Service Bus à l’aide d’Azure Automation | Microsoft Azure"
 	description="Découvrez comment utiliser le service Azure Automation pour gérer Azure Service Bus."
 	services="service-bus, automation"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/09/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 * Consultez l'article relatif à la [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

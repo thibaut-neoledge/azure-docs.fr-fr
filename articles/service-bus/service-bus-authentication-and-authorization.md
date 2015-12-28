@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
-# Configuration de l’authentification et de l’autorisation Service Bus
+# Authentification et de autorisation Service Bus
 
 Les applications peuvent s’authentifier dans Azure Service Bus à l’aide de l’authentification de la Signature d’accès partagé (SAS) ou via Azure Active Directory Access Control (également appelé Service de contrôle d’accès ou ACS). L’authentification par Signature d’accès partagé permet aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton de signature d’accès partagé que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
 
-SAS est recommandée sur ACS, car elle offre un schéma d’authentification simple, flexible et facile à utiliser pour le Service Bus. Les applications peuvent utiliser des associations de sécurité dans les scénarios dans lesquels elles n’ont pas à tenir compte de la notion d’« utilisateur » autorisée.
+SAS est recommandée sur ACS, car elle offre un schéma d’authentification simple, flexible et facile à utiliser pour le Service Bus. Les applications peuvent utiliser des SAP dans les scénarios dans lesquels elles n’ont pas à tenir compte de la notion d’« utilisateur » autorisé.
 
 ## Authentification avec une signature d’accès partagé
 
@@ -27,7 +27,7 @@ SAS est recommandée sur ACS, car elle offre un schéma d’authentification sim
 
 Vous pouvez configurer des clés pour SAS dans un espace de noms Service Bus. La clé s’applique à toutes les entités de messagerie dans cet espace de noms. Vous pouvez également configurer des clés sur les rubriques et files d’attente Service Bus. SAS est également pris en charge sur les relais Service Bus.
 
-Pour utiliser des associations de sécurité, vous pouvez configurer un objet [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) sur un espace de noms, une file d’attente ou une rubrique comprend les éléments suivants :
+Pour utiliser des associations de sécurité, vous pouvez configurer un objet [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) sur un espace de noms, une file d’attente ou une rubrique comprenant les éléments suivants :
 
 - *Nom de clé* qui identifie la règle.
 
@@ -37,11 +37,11 @@ Pour utiliser des associations de sécurité, vous pouvez configurer un objet [S
 
 - Les *droits* représentant la collection des droits écouter, envoyer ou gérer les droits accordés.
 
-Les règles d’autorisation configurées au niveau de l’espace de noms peuvent accorder l’accès à toutes les entités dans un espace de noms pour les clients avec des jetons signés à l’aide de la clé correspondante. Un maximum de 12 règles d’autorisation peut être configuré sur un espace de noms, une file d’attente ou une rubrique Service Bus. Par défaut, un élément [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) avec tous les droits est configuré pour chaque espace de noms lorsqu’il est mis en service à l’origine.
+Les règles d’autorisation configurées au niveau de l’espace de noms peuvent accorder l’accès à toutes les entités dans un espace de noms pour les clients avec des jetons signés à l’aide de la clé correspondante. Un maximum de 12 règles d’autorisation peut être configuré sur un espace de noms, une file d’attente ou une rubrique Service Bus. Par défaut, un élément [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) avec tous les droits est configuré pour chaque espace de noms dès sa mise en service initiale.
 
-Pour accéder à une entité, le client requiert un jeton SAS créé à l’aide d’une règle [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) spécifique. Le jeton SAS est généré à l’aide du code HMAC-SHA256 d’une chaîne de ressource qui se compose de l’URI de la ressource à laquelle vous souhaitez accéder et d’une échéance avec une clé de chiffrement associée à la règle d’autorisation.
+Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide d’une règle [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) spécifique. Le jeton SAS est généré à l’aide du code HMAC-SHA256 d’une chaîne de ressource qui se compose de l’URI de la ressource à laquelle vous souhaitez accéder et d’une échéance avec une clé de chiffrement associée à la règle d’autorisation.
 
-La prise en charge de l’authentification SAS pour Service Bus est incluse dans le Kit de développement Azure .NET SDK versions 2.0 et ultérieures. SAS inclut l’assistance pour [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
+La prise en charge de l’authentification SAS pour Service Bus est incluse dans le Kit de développement Azure .NET SDK versions 2.0 et ultérieures. SAP inclut l’assistance pour [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
 ## Authentification ACS
 
@@ -73,4 +73,4 @@ Pour obtenir une vue d’ensemble de SAP dans Service Bus, consultez [Signatures
 
 Vous trouverez d’autres informations sur les jetons ACS dans [Comment demander un jeton ACS via le protocole OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -32,8 +32,8 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 
 Élément | Nom de la machine virtuelle | Image de galerie | Taille minimale 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | D1 standard
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | D1 standard
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | D2 standard
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | D2 standard
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (serveur de base de données principal, par exemple SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (serveur de base de données secondaire, par exemple SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nœud majoritaire du cluster, par exemple MN1) | Windows Server 2012 R2 Datacenter | D1 standard
@@ -42,9 +42,9 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 
 **Table M - Machines virtuelles pour l'application métier à haute disponibilité dans Azure** (en anglais)
 
-Pour une liste complète des tailles des machines virtuelles, consultez la rubrique [Tailles de machines virtuelles et de services cloud pour Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Pour obtenir la liste complète des tailles des machines virtuelles, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
-Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines virtuelles pour les deux contrôleurs de domaine. Spécifiez les valeurs des variables en supprimant les caractères < and >. Notez que ce jeu de commandes PowerShell utilise les valeurs des tables suivantes :
+Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines virtuelles pour les deux contrôleurs de domaine. Spécifiez les valeurs des variables en supprimant les caractères < and >. Notez que ce bloc de commandes PowerShell utilise les valeurs des tables suivantes :
 
 - Table M pour les machines virtuelles ;
 - Table V pour les paramètres du réseau virtuel ;
@@ -54,7 +54,7 @@ Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines
 
 Souvenez-vous que vous avez défini les tables V, S, ST et A au cours de la [Phase 1 : configurer Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et versions antérieures, remplacez toutes les instances d’« -AzureRM » par « -Azure » et ajoutez la commande **Switch-AzureMode AzureResourceManager** avant d’exécuter toute commande. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -165,17 +165,16 @@ Vous serez invité à fournir les informations d'identification d'un compte d'ad
 
 Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel) et de la table M (pour vos machines virtuelles).
 
-1.	Dans le volet gauche du portail Azure, cliquez sur **Parcourir tout > Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
-2.	Dans le volet de votre réseau virtuel, cliquez sur **Tous les paramètres**.
-3.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
-4.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
-	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
-	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
-5.	Dans le volet gauche du portail Azure, cliquez sur **Parcourir tout > Machines virtuelles**.
-6.	Dans le **volet Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
-7.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
-8.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
-9.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
+1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
+2.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
+3.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
+5.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
+6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
+7.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
+8.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
 
 Notez que les deux contrôleurs de domaine sont redémarrés afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils ont été promus contrôleurs de domaine.
 
@@ -196,18 +195,6 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configurer l'infrastructure SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+- Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
-## Ressources supplémentaires
-
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

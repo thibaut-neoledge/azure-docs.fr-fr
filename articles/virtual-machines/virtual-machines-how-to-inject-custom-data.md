@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
 
 
@@ -81,6 +81,6 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 <!--Link references-->
 [Référence sur l’opération Ajouter un rôle de l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+[Interface de ligne de commande Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

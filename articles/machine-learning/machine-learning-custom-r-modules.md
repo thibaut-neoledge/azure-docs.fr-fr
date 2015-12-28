@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ Un module R personnalisé est défini par un fichier .zip contenant au moins de
 Des fichiers auxiliaires supplémentaires peuvent également être inclus dans le fichier .zip, qui fournit des fonctionnalités accessibles à partir du module personnalisé. Cette option est décrite ci-dessous.
 
 ## Exemple de démarrage rapide : définir, mettre en package et enregistrer un module R personnalisé
-Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement [ici](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement depuis le [fichier CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémentation standard du module Add Rows utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module Add Rows standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme rbind. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée. Si le paramètre d’échange a la valeur **FALSE**, il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE**, il ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier qui implémente la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.
 
@@ -92,7 +92,7 @@ Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, pui
 
 Pour les enregistrer dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Machine Learning Studio, cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module Custom Add Rows.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Charger les zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 Le module **Custom Add Rows** peut désormais être ouvert par vos expériences Machine Learning.
 
@@ -363,4 +363,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

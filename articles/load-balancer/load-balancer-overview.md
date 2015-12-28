@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -26,6 +26,38 @@ Il peut être configuré pour :
 - équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Nous appelons cela [l’équilibrage de charge interne (ILB)](load-balancer-internal-overview.md).
 - 	Transfert du trafic externe à une instance spécifique de machine virtuelle
 
+## Présentation de l’équilibreur de charge Azure dans le portail Azure Classic et Azure Resource Manager (ARM)
+
+Toutes les ressources du cloud ont besoin d’une adresse IP publique pour être accessibles depuis Internet. L’infrastructure cloud de Microsoft Azure utilise des adresses IP non routables dans ses ressources et des traduction d’adresses réseau (NAT) avec des adresses IP publiques pour communiquer avec Internet.
+
+Il existe 2 modèles de déploiement dans Microsoft Azure et les implémentations d’équilibreur de charge associées :
+
+ 
+### Portail Azure Classic
+
+Azure Classic est le premier modèle de déploiement implémenté dans Microsoft Azure. Dans ce modèle, une adresse IP publique et un nom de domaine complet sont affectés à un service cloud. En outre, les machines virtuelles déployées dans une limite de service cloud peuvent être regroupées afin d’utiliser un équilibreur de charge. L’équilibreur de charge effectue une traduction de port et équilibre la charge du trafic réseau en tirant parti de l’adresse IP publique du service cloud.
+
+Dans un modèle de déploiement classique, la traduction de port est effectuée à l’aide de points de terminaison qui constituent une relation un-à-un entre le port public affecté de l’adresse IP publique et le port local attribué pour envoyer le trafic vers une machine virtuelle spécifique.
+
+L’équilibrage de charge est effectué à l’aide des points de terminaison du jeu d’équilibrage de charge. Ces points de terminaison constituent une relation un-à-plusieurs entre l’adresse IP publique et les ports locaux affectés à toutes les machines virtuelles du jeu qui répondent au trafic réseau à charge équilibrée.
+
+Le nom de domaine de l’adresse IP publique qu’un équilibreur de charge doit utiliser dans ce modèle de déploiement est le suivant : `<cloud service name>.cloudapp.net`.
+
+Il s’agit d’une représentation graphique d’un équilibreur de charge dans un modèle de déploiement classique : ![équilibrage de charge basé sur le hachage](./media/load-balancer-overview/asm-lb.png)
+
+### Azure Resource Manager
+ 
+Le concept d’équilibreur de charge est différent dans Azure Resource Manager (ARM), car aucun service cloud n’est nécessaire pour créer un équilibreur de charge.
+
+Dans ARM, une adresse IP publique est sa propre ressource et peut être associée à un nom de domaine ou nom DNS. Dans ce cas, l’adresse IP publique est associée à la ressource d’équilibreur de charge. Par conséquent, les règles d’équilibreur de charge et les règles NAT entrantes utilisent l’adresse IP publique comme point de terminaison Internet pour les ressources recevant le trafic réseau à charge équilibrée.
+
+Une ressource d’interface réseau (NIC) contient la configuration d’adresse IP (publique ou privée) d’une machine virtuelle. Une fois qu’une carte réseau est ajoutée au pool d’adresses IP principales de l’équilibreur de charge, ce dernier démarre l’envoi du trafic réseau à charge équilibrée selon les règles à charge équilibrée créées.
+
+Un groupe à haute disponibilité est la méthode de regroupement qui permet d’ajouter des machines virtuelles à l’équilibreur de charge. Le groupe à haute disponibilité permet de s’assurer que les machines virtuelles ne se trouvent pas dans le même matériel physique. En outre, en cas de défaillance relative à l’infrastructure cloud physique, il permet de vérifier que l’équilibreur de charge a toujours une machine virtuelle qui reçoit le trafic réseau à charge équilibrée.
+
+Il s’agit d’une représentation graphique d’un équilibreur de charge dans Azure Resource Manager (ARM) :
+
+![équilibrage de charge basé sur le hachage](./media/load-balancer-overview/arm-lb.png)
 
 ## Fonctionnalités d’équilibrage de charge
 
@@ -76,8 +108,6 @@ Tout le trafic sortant vers Internet à partir de votre service d’origine pass
 
 La configuration de l’équilibrage de charge Azure prend en charge le NAT « plein cône » pour UDP. Le NAT« plein cône » est un type de NAT où le port autorise les connexions entrantes à partir de n’importe quel hôte externe (en réponse à une requête sortante).
 
-![snat](./media/load-balancer-overview/load-balancer-snat.png)
-
 
 >[AZURE.NOTE]Notez que pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l’équilibrage de charge Azure. L’hôte externe voit le trafic entrant comme un port alloué d’adresse IP virtuelle. Si vous avez besoin d’un grand nombre de connexions sortantes, il est recommandé que les machines virtuelles utilisent des adresses IP publiques de niveau d’instance, afin de disposer d’une adresse IP sortante dédiée pour SNAT (Source Network Address Translation). Cela réduit le risque d’épuisement du port.
 >
@@ -100,4 +130,4 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

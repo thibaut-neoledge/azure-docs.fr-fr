@@ -19,7 +19,15 @@
 
 # Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure
 
-Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
+> [AZURE.SELECTOR]
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
+
+
+Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
 
@@ -37,7 +45,7 @@ Cet article montre comment utiliser les modèles Azure Resource Manager et l’
 
 ## Préparation
 
-Avant de pouvoir utiliser l'interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l'interface de ligne de commande Azure, ainsi qu'un compte Azure. Si vous n'avez pas l'interface de ligne de commande Azure, [installez-la](xplat-cli-install.md).
+Avant de pouvoir utiliser l'interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l'interface de ligne de commande Azure, ainsi qu'un compte Azure. Si vous ne disposez pas de l'interface de ligne de commande Azure, [installez-la](xplat-cli-install.md).
 
 ### Mettre à jour votre interface de ligne de commande Microsoft Azure vers la version 0.9.0 ou une version ultérieure
 
@@ -48,7 +56,7 @@ Entrez `azure --version` pour savoir si vous avez déjà installé la version 0
 
 Si vous disposez d'une version antérieure à la version 0.9.0, vous devez la mettre à jour en utilisant l'un des programmes d'installation natifs ou via **npm**, en tapant `npm update -g azure-cli`.
 
-Vous pouvez également exécuter l’interface de ligne de commande Azure en tant que conteneur Docker à l’aide de l’[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
+Vous pouvez également exécuter l'interface de ligne de commande Azure en tant que conteneur Docker à l'aide de l'[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
 
 	docker run -it microsoft/azure-cli
 
@@ -687,7 +695,7 @@ Ici encore, vous devez rechercher les valeurs que vous souhaitez entrer pour les
 
 Évidemment, vous aurez besoin d’un fichier .vhd pour cela. Vous pouvez utiliser un fichier dont vous disposez dans Azure ou en télécharger un.
 
-Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
+Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
 Pour une machine virtuelle Linux, consultez [Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
@@ -767,7 +775,7 @@ Procédez comme suit pour déployer une application de plusieurs machines virtue
 
 ### Étape 1 : examen du fichier JSON pour obtenir le modèle
 
-Voici le contenu du fichier JSON relatif au modèle. La version la plus récente est disponible [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Cette rubrique utilise le commutateur `--template-uri` pour appeler le modèle, mais vous pouvez également utiliser le commutateur `--template-file` pour transmettre une version locale.
+Voici le contenu du fichier JSON relatif au modèle. Si vous voulez la version la plus récente, elle se trouve [dans le référentiel GitHub de modèles](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Cette rubrique utilise le commutateur `--template-uri` pour appeler le modèle, mais vous pouvez également utiliser le commutateur `--template-file` pour transmettre une version locale.
 
 
     {
@@ -1301,4 +1309,4 @@ Pour consulter d'autres exemples d'utilisation de l'interface de ligne de comman
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,25 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (ASP.NET 5)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ##Vue d'ensemble
 
 Cet article explique comment prendre en main le stockage d’objets blob Azure dans Visual Studio, après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET 5 via la boîte de dialogue Ajouter des services connectés de Visual Studio.
 
-Le stockage d’objets blob Azure est un service permettant de stocker de grandes quantités de données accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main le stockage d’objets blob après avoir créé un compte de stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio dans un projet ASP.NET 5.
+Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main le stockage d’objets blob après avoir créé un compte de stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio dans un projet ASP.NET 5.
 
 De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un stockage, créez un ou plusieurs conteneurs dans le stockage. Par exemple, dans un stockage appelé « Scrapbook », vous pouvez créer des conteneurs dans le stockage appelé « images » pour stocker des photos et un autre appelé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob. Pour plus d’informations sur la manipulation d’objets blob par programme, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md "Utilisation du stockage d’objets blob à partir de .NET").
 
@@ -81,7 +72,7 @@ Vous pouvez aussi utiliser **CloudBlobClient** pour créer un conteneur dans vot
     await container.CreateIfNotExistsAsync();
 
 
-**REMARQUE :** les API qui effectuent des appels au stockage Azure dans ASP.NET 5 sont asynchrones. Pour plus d’informations, consultez la page [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**REMARQUE :** les API qui effectuent des appels au stockage Azure dans ASP.NET 5 sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
 
 Pour rendre publics les fichiers présents dans le conteneur, vous pouvez configurer le conteneur en conséquence à l’aide du code suivant :
 
@@ -166,4 +157,4 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

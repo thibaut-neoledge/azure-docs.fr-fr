@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="12/11/2015" 
 	ms.author="josephd"/>
 
 # Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test
@@ -185,4 +185,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

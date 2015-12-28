@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # Services liés de calcul
@@ -49,7 +49,8 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ version | Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cl
 linkedServiceName | Le magasin d'objets blob utilisé par le cluster à la demande pour le stockage et le traitement des données. | Oui
 additionalLinkedServiceNames | Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. | Non
 osType | Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. | Non
+hcatalogLinkedServiceName | Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande sera créé à l’aide de la base de données SQL Azure comme metastore. | Non
 
 ### Propriétés avancées
 
@@ -103,14 +105,15 @@ yarnConfiguration | Spécifie les paramètres de configuration Yarn (yarn-site.x
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
@@ -130,14 +133,14 @@ dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut e
 zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est « Small » (petite). | Non
  
 #### Spécification des tailles de nœud
-Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l'article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
+Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
 
 Si vous souhaitez créer des nœuds principaux et des nœuds de travail de taille D4, vous devez spécifier la valeur **Standard\_D4** pour les propriétés headNodeSize et dataNodeSize.
 
 	"headNodeSize": "Standard_D4",	
 	"dataNodeSize": "Standard_D4",
 
-Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez le nom des **applets de commande et API** du tableau fourni dans l’article ci-dessus.
+Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez le nom des **applets de commande et API** du tableau fourni dans l’article ci-dessus.
 
 
 
@@ -214,8 +217,8 @@ Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriét
 
 Une autre option consiste à fournir le point de terminaison batchUri comme indiqué ci-dessous.
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### Propriétés
 
@@ -255,7 +258,7 @@ apiKey | L'API du modèle d'espace de travail publié. | Oui
 
 
 ## Service lié Analytique Azure Data Lake
-Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure avant d’utiliser l’[activité U-SQL Analytique Data Lake](data-factory-usql-activity.md) dans un pipeline.
+Créez un service lié **Azure Data Lake Analytics** pour lier un service de calcul Azure Data Lake Analytics à une fabrique de données Azure avant d’utiliser l’[activité U-SQL Data Lake Analytics](data-factory-usql-activity.md) dans un pipeline.
 
 L’exemple suivant présente la définition JSON pour le service lié Analytique Azure Data Lake.
 
@@ -282,7 +285,7 @@ Propriété | Description | Requis
 Type | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui
 accountName | Nom du compte du service Analytique Azure Data Lake. | Oui
 dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake. | Non
-autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. | Oui
+autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur Data Factory et une fois la connexion OAuth effectuée. | Oui
 subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé).
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
@@ -290,6 +293,6 @@ sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de 
 
 ## Service lié Azure SQL
 
-Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

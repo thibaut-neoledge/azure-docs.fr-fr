@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
-
 Au cours de cette dernière phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez un groupe de disponibilité SQL Server AlwaysOn et ajoutez les bases de données de l'application.
 
 Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) pour toutes les phases.
@@ -83,7 +82,7 @@ Après la préparation d’au moins une base de données (à l’aide de la mét
 1.	Revenez à la session Bureau à distance pour le serveur de bases de données principal.
 2.	Dans le volet gauche de **SQL Server Management Studio**, cliquez avec le bouton droit sur **Haute disponibilité AlwaysOn**, puis cliquez sur **Assistant Nouveau groupe de disponibilité**.
 3.	Dans la page **Introduction**, cliquez sur **Suivant**. 
-4.	Sur la page **Spécifier le nom du groupe de disponibilité**, entrez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
+4.	Dans la page **Spécifier le nom du groupe de disponibilité**, tapez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
 5.	Dans la page **Sélectionner des bases de données**, sélectionnez les bases de données de l’application qui ont été sauvegardées, puis cliquez sur **Suivant**. Ces bases de données répondent à la configuration requise pour un groupe de disponibilité, car vous avez effectué au moins une sauvegarde complète sur le réplica principal prévu.
 6.	Dans la page **Spécifier les réplicas**, cliquez sur **Ajouter un réplica**.
 7.	Sous **Se connecter au serveur**, tapez le nom du serveur de base de données secondaire, puis cliquez sur **Connecter**. 
@@ -116,16 +115,8 @@ Vous pouvez créer une configuration d’écouteur pour le groupe de disponibili
 
 Une fois l'écouteur configuré, vous devez configurer toutes les machines virtuelles du serveur Web de manière à ce qu'elles utilisent l'écouteur au lieu du nom du premier serveur SQL dans le cluster. Au lieu d'utiliser un nouveau nom DNS et un enregistrement mappés sur l'adresse IP virtuelle de l'instance d'équilibrage de charge interne, configurez les machines virtuelles du serveur web pour utiliser un alias SQL. Pour avoir plus de détails et prendre connaissance de la procédure à suivre, consultez [Alias SQL pour SharePoint](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx) (en anglais).
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Consultez ces [recommandations](virtual-machines-infrastructure-services-implementation-guidelines.md) si vous déployez votre propre charge de travail informatique dans Azure.
 
-[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

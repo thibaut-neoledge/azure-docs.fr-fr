@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell pour des réseaux virtuels résidant dans le même abonnement | Microsoft Azure"
+   pageTitle="Création d’une connexion de passerelle VPN en réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell pour des réseaux virtuels résidant dans le même abonnement | Microsoft Azure"
    description="Cet article vous guide dans l’interconnexion de réseaux virtuels avec Azure Resource Manager et PowerShell"
    services="vpn-gateway"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # Configuration d’une connexion de réseau virtuel à réseau virtuel pour des réseaux virtuels d’un même abonnement à l’aide d’Azure Resource Manager et de PowerShell
@@ -23,19 +23,23 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Cet article vous guidera à travers les étapes à l’aide du modèle de déploiement Resource Manager. Vous pouvez sélectionner l’article correspondant au modèle de déploiement et l’outil de déploiement à l’aide des onglets ci-dessus. À ce stade, nous ne proposons pas de solution pour les connexions de réseau virtuel à réseau virtuel pour les réseaux virtuels créés à l’aide de la méthode de déploiement Resource Manager et qui se trouvent dans différents abonnements. L’équipe travaille actuellement sur une solution qui devrait être prête d’ici la fin de l’année. Lorsqu’elle sera disponible, cet article inclura les étapes la concernant. Les étapes ci-dessous concernent des réseaux virtuels situés dans le même abonnement.
+Cet article vous guidera à travers les étapes à l’aide du modèle de déploiement Resource Manager. Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez.
 
-Si vos réseaux virtuels ont été créés à l’aide du modèle de déploiement classique, consultez [Création d’une connexion de réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md). Le modèle de déploiement classique prend en charge la connexion de réseaux virtuels situés dans différents abonnements.
+À ce stade, nous ne proposons pas de solution pour les connexions de réseau virtuel à réseau virtuel pour les réseaux virtuels créés à l’aide de la méthode de déploiement Resource Manager et qui se trouvent dans différents abonnements. L’équipe travaille actuellement sur une solution qui devrait être prête d’ici la fin de l’année ou le début de l’année prochaine. Lorsqu’elle sera disponible, cet article inclura les étapes la concernant. Les étapes ci-dessous concernent des réseaux virtuels situés dans le même abonnement.
 
-Si vous souhaitez connecter un réseau virtuel créé selon le modèle de déploiement classique à un réseau virtuel créé à l’aide du modèle Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+**À propos des modèles de déploiement Azure**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+- Si vos réseaux virtuels ont été créés à l’aide du modèle de déploiement classique, consultez [Création d’une connexion de réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md). Le modèle de déploiement classique prend en charge la connexion de réseaux virtuels situés dans différents abonnements.
+	
+- Si vous souhaitez connecter un réseau virtuel créé selon le modèle de déploiement classique à un réseau virtuel créé à l’aide du modèle Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+## Diagramme de connexions
 
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différentes régions. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma ci-dessous.
 
-
 ![Schéma de connectivité de réseau virtuel à réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
-
  
 ## Pourquoi connecter des réseaux virtuels ?
 
@@ -82,7 +86,11 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-- Applets de commande Azure PowerShell (version 1.0 ou ultérieure). Vous pouvez télécharger et installer cette version à partir de la section Windows PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+## Installer les modules PowerShell
+
+Vous aurez besoin de la dernière version des applets de commande PowerShell Azure Resource Manager pour configurer votre connexion.
+
+[AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
 
 ## 1\. Planification de vos plages d’adresses IP
@@ -115,7 +123,7 @@ Valeurs pour VNet2 :
 
 ## 2\. Connexion à votre abonnement 
 
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, voir la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
 Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
@@ -175,7 +183,7 @@ Dans cette étape, vous allez créer la passerelle de réseau virtuel de votre r
 ## 7\. Créer VNet2
 
 
-Une fois que vous avez configuré VNet1, répétez les étapes précédentes pour paramétrer VNet2 et la configuration de sa passerelle. Une fois les deux réseaux virtuels et leurs passerelles configurés, passez à l’**Étape 8. Connecter les passerelles**.
+Une fois que vous avez configuré VNet1, répétez les étapes précédentes pour paramétrer VNet2 et la configuration de sa passerelle. Une fois les réseaux virtuels et leurs passerelles configurés, passez à l’**Étape 8. Connecter les passerelles**.
 
 ## 8\. Connecter les passerelles
 
@@ -209,7 +217,7 @@ Vous pouvez utiliser l’exemple d’applet de commande suivant. Veillez à modi
 
 		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
- Une fois l’applet de commande exécutée, faites défiler pour afficher les valeurs. Dans l’exemple ci-dessous, l’état de la connexion indique *Connecté* et vous pouvez voir les octets d’entrée et de sortie.
+ Une fois l'applet de commande exécutée, faites défiler pour afficher les valeurs. Dans l’exemple ci-dessous, l’état de la connexion indique *Connecté* et vous pouvez voir les octets d’entrée et de sortie.
 
 	Body:
 	{
@@ -255,8 +263,6 @@ Après avoir vérifié que les sous-réseaux de votre passerelle sont correcteme
 
 ## Étapes suivantes
 
-Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-Pour plus d’informations sur les réseaux virtuels, consultez [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

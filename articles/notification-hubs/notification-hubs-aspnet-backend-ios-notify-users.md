@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Notification des utilisateurs via Azure Notification Hubs avec service principal .NET"
+	pageTitle="Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET"
 	description="Découvrez comment envoyer des notifications Push aux utilisateurs dans Azure. Exemples de code écrits en Objective-C et l'API .NET pour le serveur principal."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
-#Notification des utilisateurs via Azure Notification Hubs avec service principal .NET
+#Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ##Vue d'ensemble
 
-La prise en charge des notifications Push dans Azure vous permet d’accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme présenté dans la rubrique de conseils [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx).
+La prise en charge des notifications Push dans Azure vous permet d’accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme présenté dans la rubrique de conseils [Inscription auprès du serveur principal de votre application](notification-hubs-registration-management.md#registration-management-from-a-backend).
 
 > [AZURE.NOTE]Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) de ce didacticiel.
 
@@ -262,7 +262,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		@end
 
-	Le code ci-dessus implémente la logique expliquée dans l'article [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx), et utilise NSURLSession pour passer des appels REST à votre serveur principal d'application et NSUserDefaults pour stocker en local la valeur registrationId renvoyée par le concentrateur de notification.
+	Le code ci-dessus implémente la logique expliquée dans l'article [Inscription auprès du serveur principal de votre application](notification-hubs-registration-management.md#registration-management-from-a-backend), et utilise NSURLSession pour passer des appels REST à votre serveur principal d'application et NSUserDefaults pour stocker en local la valeur registrationId renvoyée par le concentrateur de notification.
 
 	Notez que cette classe a besoin que sa propriété **authorizationHeader** soit définie afin de fonctionner correctement. Cette propriété est définie par la classe **ViewController** après la connexion.
 
@@ -465,4 +465,4 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

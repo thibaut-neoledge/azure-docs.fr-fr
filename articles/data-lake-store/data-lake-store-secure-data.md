@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Sécurisation des données stockées dans Azure Data Lake Store
@@ -159,9 +159,10 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 ## Voir aussi
 
 - [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
+- [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

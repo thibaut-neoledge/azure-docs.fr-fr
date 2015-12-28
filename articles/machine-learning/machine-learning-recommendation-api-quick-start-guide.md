@@ -18,7 +18,7 @@
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
 
-Ce document décrit comment intégrer votre service ou application pour utiliser Microsoft Azure Machine Learning Recommendations.
+Ce document décrit comment intégrer votre service ou application pour utiliser Microsoft Azure Machine Learning Recommendations. Vous trouverez plus d'informations sur l'API Recommendations dans la [galerie](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,9 +34,9 @@ Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
 * Générez un modèle de recommandation : il s’agit d’une opération asynchrone dans laquelle le système de recommandation prend toutes les données d’utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la build, vous obtenez un ID de build. Utilisez-le pour vérifier à quel moment s’est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations.
 * Utilisez les recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d’éléments.
 
-Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning Recommendations.
+Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning Recommendations. Vous pouvez télécharger un exemple d'application qui implémente chacune de ces étapes également à partir de la [galerie.](http://1drv.ms/1xeO2F3)
 
-##Limitations
+##Limites
 
 * Le nombre maximal de modèles par abonnement est de 10.
 * Le nombre maximal d'éléments pouvant être contenus dans un catalogue est de 100 000.
@@ -47,24 +47,23 @@ Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning
 ##Intégration
 
 ###Authentification
-Microsoft Azure Marketplace prend en charge les méthodes d’authentification de base ou OAuth.
+Microsoft Azure Marketplace prend en charge les méthodes d’authentification de base ou OAuth. Vous pouvez facilement trouver les clés de compte en accédant aux clés sur le Marketplace sous [vos paramètres de compte](https://datamarket.azure.com/account/keys).
 ####Authentification de base
 Ajoutez l’en-tête d’autorisation :
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Convertir en Base64 (C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Convertir en Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-Vous obtenez votre clé de compte [ici](https://datamarket.azure.com/account/keys).
 
 
 
@@ -84,14 +83,11 @@ Création d'une requête « Créer un modèle » :
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName	|	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 |
-|	apiVersion		| 1.0 |
-|||
-| Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
 
 
 **Réponse** :
@@ -137,15 +133,12 @@ Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelId	|	Identificateur unique du modèle (respecte la casse)  |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-|	apiVersion		| 1.0 |
-|||
-| Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d'un élément</td></tr><tr><td>Nom de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l'élément</td></tr><tr><td>Catégorie de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, arts dramatiques...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, livre<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), livre<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, livre<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, livre</pre>|
+|	modelId |	Identificateur unique du modèle (respecte la casse) |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoir</th><th>Type</th><th>Description</th></tr><tr><td>ID d’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Nom de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l’élément</td></tr><tr><td>Catégorie de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle appartient cet élément (par exemple, livres de cuisine, théâtre…)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Réponse** :
@@ -186,15 +179,12 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelId	|	Identificateur unique du modèle (respecte la casse) |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-|	apiVersion		| 1.0 |
-|||
-| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID d’utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identifiant d’utilisateur unique</td></tr><tr><td>Id de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identifiant d’élément unique</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, si fourni, indiquer la date</td><td>L’un des éléments suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>149452, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>6360, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>50321, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>71285, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>224450, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>236645, 1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>107951, 1b3d95e2-84e4-c 414-bb38-be9cf461c347</pre>|
+|	modelId |	Identificateur unique du modèle (respecte la casse) |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>ID de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -235,13 +225,12 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
-|||
-|Corps de la demande| Entrée de données d’événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l’exemple de corps d’événement ci-dessous.)|
+|	apiVersion | 1\.0 |
+||| |Corps de la demande| Entrée de données d’événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l’exemple de corps d’événement ci-dessous.)|
 
 
 - Exemple pour l'événement « Click » :
@@ -324,15 +313,14 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-| modelId |	Identificateur unique du modèle (respecte la casse)  |
+| modelId |	Identificateur unique du modèle (respecte la casse) |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | AUCUNE |
+||| | Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -398,15 +386,15 @@ OData XML
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelId			|	Identificateur unique du modèle (respecte la casse)	|
-|	onlyLastBuild	|	Indique s'il faut retourner l'historique de build du modèle en totalité ou uniquement l'état de la build la plus récente.	|
-|	apiVersion		|	1\.0									|
+|	modelId |	Identificateur unique du modèle (respecte la casse) |
+|	onlyLastBuild |	Indique s'il faut retourner l'historique de build du modèle en totalité ou uniquement l'état de la build la plus récente. |
+|	apiVersion |	1\.0 |
 
 
 **Réponse** :
@@ -473,11 +461,11 @@ OData XML
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle (respecte la casse) |
 | itemIds | Liste des éléments séparés par des virgules faisant l’objet d’une recommandation.<br>Longueur maximale : 1024 |
@@ -485,7 +473,7 @@ OData XML
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
 
-**Réponse** :
+**Réponse :**
 
 Code d'état HTTP : 200
 
@@ -659,12 +647,11 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nom du paramètre	|	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | id | Identificateur unique du modèle (respecte la casse) |
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
+||| | Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
 
 **Réponse** :
 
@@ -685,4 +672,4 @@ OData XML
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

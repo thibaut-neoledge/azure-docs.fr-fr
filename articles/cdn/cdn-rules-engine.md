@@ -63,6 +63,7 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 - L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
 
 ## Voir aussi
+* [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](cdn-rules-engine-details.md)
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)
 * [Statistiques en temps réel dans Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Rapports HTTP avancés](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

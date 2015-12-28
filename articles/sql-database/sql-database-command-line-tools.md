@@ -54,10 +54,9 @@ Les applets de commande suivant seront exécutés sur l’abonnement sélectionn
 
 Créez le groupe de ressources qui contient le serveur. Vous pouvez modifier la commande suivante pour utiliser un emplacement valide.
 
-Pour obtenir la liste des emplacements valides de serveur de Base de données SQL Azure, exécutez les applets de commande suivants :
+Pour obtenir la liste des emplacements valides de serveur de Base de données SQL Azure, exécutez l’applet de commande suivante :
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 Si vous disposez déjà d’un groupe de ressources, vous pouvez créer directement un serveur ou modifier et exécuter la commande suivante pour créer un nouveau groupe de ressources :
 
@@ -128,4 +127,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 - [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

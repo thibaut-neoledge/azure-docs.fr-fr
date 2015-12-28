@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,29 +13,20 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Mise en route avec le stockage de tables Azure et les appareils connectés Visual Studio
 
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
-
 ## Vue d’ensemble
 
-Cet article explique comment prendre en main le stockage de tables Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET 5 via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
+Cet article explique comment prendre en main Azure Table Storage dans Visual Studio après avoir créé ou référencé un compte Azure Storage dans un projet ASP.NET 5 via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
-L’opération **Ajouter des services connectés** installe les packages NuGet appropriés pour accéder au stockage Azure de votre projet et ajoute la chaîne de connexion pour le compte de stockage aux fichiers de configuration du projet.
+L’opération **Ajouter des services connectés** installe les packages NuGet appropriés pour accéder au stockage Azure de votre projet et ajoute la chaîne de connexion pour le compte de stockage aux fichiers de configuration de votre projet.
 
-Pour obtenir des informations plus générales sur l’utilisation du stockage de tables Azure, consultez la page [Comment utiliser le stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md).
+Pour obtenir des informations plus générales sur l’utilisation d’Azure Table Storage, consultez la page [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md).
 
 Pour commencer, vous devez créer une table dans votre compte de stockage. Nous allons vous montrer comment créer une table Azure dans le code. Nous vous indiquerons aussi comment effectuer des opérations de base sur les tables et les entités, telles que l'ajout, la modification et la lecture d’entités de table. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET.
 
@@ -45,7 +36,7 @@ Pour commencer, vous devez créer une table dans votre compte de stockage. Nous 
 
 Pour accéder aux tables dans les projets ASP.NET 5, vous devez inclure les éléments suivants aux fichiers sources C# qui accèdent au stockage de tables Azure.
 
-1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **using**.
+1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **Using**.
 
 	    using Microsoft.Framework.Configuration;
 	    using Microsoft.WindowsAzure.Storage;
@@ -211,4 +202,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

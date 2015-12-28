@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : Quelles sont les différences ?
@@ -26,7 +26,7 @@ Si vous connaissez bien le service Azure AD mis à la disposition générale ou 
 ## Comptes Microsoft et comptes Azure AD
 Le modèle d’application v2.0 permet aux développeurs d’écrire des applications qui prennent en charge la connexion à partir de comptes Microsoft et de comptes Azure AD, à l’aide d’un seul point de terminaison. Vous pouvez donc écrire votre application en ignorant complètement le type de compte avec lequel l’utilisateur se connecte. Bien entendu, vous *pouvez* faire en sorte que votre application reconnaisse le type de compte utilisé dans une session particulière, mais vous n’y êtes pas tenu.
 
-Par exemple, si votre application appelle les [API REST Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), certaines fonctionnalités et données supplémentaires seront disponibles pour les utilisateurs de l’entreprise, telles que leurs sites SharePoint ou données d’annuaire. Néanmoins, pour de nombreuses actions, telles que la [lecture du courrier d’un utilisateur](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), le code peut être exactement le même pour les comptes Microsoft et Azure AD.
+Par exemple, si votre application appelle les [API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), certaines fonctionnalités et données supplémentaires seront disponibles pour les utilisateurs de l’entreprise, telles que leurs sites SharePoint ou les données Directory. Néanmoins, pour de nombreuses actions, telles que la [lecture du courrier d’un utilisateur](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), le code peut être exactement le même pour les comptes Microsoft et Azure AD.
 
 L’intégration de votre application aux comptes Microsoft et Azure AD est désormais un simple processus. Vous pouvez utiliser un seul et même ensemble de points de terminaison, une seule et même bibliothèque et une seule et même inscription d’application pour accéder aux mondes des consommateurs et de l’entreprise. Pour en savoir plus sur la version préliminaire du modèle d’application v2.0, consultez [la vue d’ensemble](active-directory-appmodel-v2-overview.md).
 
@@ -108,7 +108,7 @@ Autoriser une application à demander des autorisations dynamiquement via le par
 ## Accès hors connexion
 Le modèle d’application v2.0 introduit une nouvelle autorisation bien connue pour les applications : l’étendue `offline_access`. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement « Accéder aux données hors connexion », que l’utilisateur doit accepter. Demander l’autorisation `offline_access` permet à votre application web de recevoir les jetons d’actualisation OAuth 2.0 du point de terminaison v2.0. Les jetons d’actualisation sont de longue durée, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées.
 
-Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/oauth2/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/oauth2/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
+Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/oauth2/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/oauth2/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
 
 Pour en savoir plus sur OAuth 2.0, les jetons d’actualisation et les jetons d’accès, consultez [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
 
@@ -121,4 +121,4 @@ Pour en savoir plus sur les demandes spécifiques émises dans les jetons du mod
 ## Limitations de la version préliminaire
 Il existe un certain nombre de restrictions dont vous devez être conscient lorsque vous générez une application avec le modèle d’application v2.0 pendant la version préliminaire publique. Consultez le [document relatif aux limitations du modèle d’application v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

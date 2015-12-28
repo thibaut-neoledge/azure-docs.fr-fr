@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Comment créer des groupes de sécurité réseau dans l’interface de ligne de commande Azure
@@ -32,7 +32,7 @@ Les exemples de commandes de l’interface de ligne de commande Azure ci-dessous
 ## Comment créer le groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
@@ -269,4 +269,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

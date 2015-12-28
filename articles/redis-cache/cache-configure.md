@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Configuration de Cache Redis Azure"
-   description="Comprendre la configuration de Redis par défaut pour Cache Redis Azure et apprendre à configurer vos instances de Cache Redis Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	pageTitle="Configuration de Cache Redis Azure"
+	description="Comprendre la configuration de Redis par défaut pour Cache Redis Azure et apprendre à configurer vos instances de Cache Redis Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn" />
 <tags 
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="12/03/2015"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="12/11/2015"
+	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
 
@@ -116,7 +116,20 @@ Cliquez sur **Compte de stockage** pour sélectionner le compte de stockage à u
 
 Cliquez sur **OK** pour enregistrer la configuration de la persistance.
 
->[AZURE.IMPORTANT]La persistance des données Redis est disponible uniquement pour les caches de niveau Premium.
+>[AZURE.IMPORTANT]La persistance des données Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md).
+
+## Taille du cluster Redis
+
+Cliquez sur **Taille du cluster Redis (version préliminaire)** pour ajouter ou supprimer des partitions d’un cache de niveau Premium en cours d’exécution avec clustering activé.
+
+>[AZURE.NOTE]Notez que si le niveau Premium du cache Redis Azure a été publié en disponibilité générale, la fonctionnalité Taille du cluster Redis est actuellement en version préliminaire.
+
+![Taille du cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+
+Pour modifier le nombre de partitions, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**, puis cliquez sur **OK** pour enregistrer.
+
+>[AZURE.IMPORTANT]Le clustering Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer le clustering Redis pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md).
+
 
 ## Utilisateurs et balises
 
@@ -184,7 +197,7 @@ Vous pouvez adresser en toute sécurité des commandes aux instances de Cache Re
 >[AZURE.IMPORTANT]La Console Redis ne fonctionne pas avec le réseau virtuel ou le clustering.
 >
 >-	[Réseau virtuel](cache-how-to-premium-vnet.md) : lorsque votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
->-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base lorsqu’il est démarré avec le commutateur `-c`. Pour plus d’informations, voir [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le didacticiel [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+>-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base lorsqu’il est démarré avec le commutateur `-c`. Pour plus d'informations, consultez [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel de cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
 
@@ -199,4 +212,4 @@ Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azur
 ## Étapes suivantes
 -	Pour plus d’informations sur l’utilisation des commandes Redis, voir [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

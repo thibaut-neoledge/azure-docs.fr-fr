@@ -86,7 +86,7 @@ Provisioned et Enabled sont les seuls états dans lesquels le circuit peut se tr
 
 Le circuit ExpressRoute affiche l'état indiqué dès que vous exécutez l'applet de commande PowerShell pour supprimer le circuit ExpressRoute.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 Vous devez contacter votre fournisseur de connectivité pour annuler l’approvisionnement du circuit ExpressRoute. **Important :** Microsoft continuera à facturer le circuit jusqu'à ce que vous exécutiez l'applet de commande PowerShell pour annuler l’approvisionnement du circuit.
@@ -121,4 +121,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

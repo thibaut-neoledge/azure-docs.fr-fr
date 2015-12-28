@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Comment migrer des groupes d’affinités vers un réseau virtuel régional
@@ -66,4 +66,4 @@ Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

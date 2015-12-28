@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,25 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## Vue d'ensemble
 
-Cet article explique comment prendre en main le stockage d’objets blob Azure après avoir créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article montre comment créer des conteneurs d’objets blob et effectuer d’autres tâches courantes telles que le chargement, le référencement, le téléchargement et la suppression d’objets blobs. Les exemples sont écrits en C# et utilisent la [bibliothèque du client de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Cet article explique comment prendre en main Azure Blob Storage après avoir créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article montre comment créer des conteneurs d’objets blob et effectuer d’autres tâches courantes telles que le chargement, le référencement, le téléchargement et la suppression d’objets blobs. Les exemples ont été écrits en C# et utilisent la [bibliothèque du client de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
+ - Pour obtenir des informations plus générales sur l’utilisation d’Azure Blob Storage, consultez [Comment utiliser Azure Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md).
  - Pour plus d’informations sur les projets ASP.NET, consultez [ASP.NET](http://www.asp.net).
 
 
@@ -74,7 +65,7 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
 
 ## Création d’un conteneur d’objets blob dans le code
 
-Vous pouvez aussi utiliser l'objet **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Pour cela, il vous suffit d'ajouter un appel à **CreateIfNotExistsAsync** au code ci-dessus, comme l'illustre l'exemple ci-après.
+Vous pouvez aussi utiliser l’objet **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Pour cela, il vous suffit d’ajouter un appel à **CreateIfNotExistsAsync** au code ci-dessus, comme l’illustre l’exemple ci-après.
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();
@@ -95,7 +86,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 
 ## Création d'une liste d'objets blob dans un conteneur
 
-Pour répertorier les objets blob dans un conteneur, utilisez la méthode **ListBlobs** pour récupérer les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **photos**.
+Pour répertorier les objets blob dans un conteneur, utilisez la méthode **ListBlobs** pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre comment récupérer et générer l’URI de chaque élément du conteneur **photos**.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
@@ -124,7 +115,7 @@ Pour répertorier les objets blob dans un conteneur, utilisez la méthode **List
 		}
 	}
 
-Comme indiqué dans l’exemple précédent, le service blob suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l'ensemble d'objets blob de blocs suivant, situé dans un conteneur nommé **photos**.
+Comme indiqué dans l’exemple précédent, le service blob suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l’ensemble d’objets blob de blocs suivant, situé dans un conteneur nommé **photos**.
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -135,14 +126,14 @@ Comme indiqué dans l’exemple précédent, le service blob suit également le 
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-Lorsque vous appelez **ListBlobs** pour le conteneur « photos » (comme illustré dans l'exemple précédent), la collection renvoyée contient les objets **CloudBlobDirectory** et **CloudBlockBlob** qui représentent les répertoires et objets blob contenus au niveau supérieur. L’exemple suivant illustre le résultat obtenu.
+Lorsque vous appelez **ListBlobs** pour le conteneur « photos » (comme illustré dans l’exemple précédent), la collection renvoyée contient les objets **CloudBlobDirectory** et **CloudBlockBlob** qui représentent les répertoires et objets blob contenus au niveau supérieur. L’exemple suivant illustre le résultat obtenu.
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Vous pouvez également affecter au paramètre **UseFlatBlobListing** de la méthode **ListBlobs** la valeur **true**. Ceci aura pour résultat le renvoi de chaque objet blob en tant que **CloudBlockBlob**, indépendamment du répertoire. L'exemple ci-après illustre l'appel à **ListBlobs**.
+Vous pouvez également affecter au paramètre **UseFlatBlobListing** de la méthode **ListBlobs** la valeur **true**. Ceci aura pour résultat le renvoi de chaque objet blob en tant que **CloudBlockBlob**, indépendamment du répertoire. L’exemple ci-après illustre l’appel à **ListBlobs**.
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -209,9 +200,9 @@ Pour supprimer un objet blob, utilisez la méthode **Delete**.
 
 Si vous répertoriez un grand nombre d’objets blob ou que vous souhaitez contrôler le nombre de résultats renvoyés lors d’une opération de création de liste, vous pouvez répertorier les objets blob dans des pages de résultats. L’exemple suivant illustre comment renvoyer les résultats dans des pages de manière asynchrone afin que l’exécution ne soit pas bloquée lorsqu’un ensemble volumineux de résultats est attendu.
 
-Cet exemple montre une liste plate d'objets blob. Vous pouvez également avoir une liste hiérarchique en définissant le paramètre **useFlatBlobListing** de la méthode **ListBlobsSegmentedAsync** sur **false**.
+Cet exemple montre une liste plate d’objets blob. Vous pouvez également avoir une liste hiérarchique en définissant le paramètre **useFlatBlobListing** de la méthode **ListBlobsSegmentedAsync** sur **false**.
 
-Comme l'exemple de méthode appelle une méthode asynchrone, il doit être précédé du mot clé **async** et doit renvoyer un objet **Task**. Le mot clé d'attente spécifié pour la méthode **ListBlobsSegmentedAsync** suspend l'exécution de l'exemple de méthode jusqu'à ce que la tâche de création de liste soit terminée.
+Comme l’exemple de méthode appelle une méthode asynchrone, il doit être précédé du mot clé **async** et doit renvoyer un objet **Task**. Le mot clé d’attente spécifié pour la méthode **ListBlobsSegmentedAsync** suspend l’exécution de l’exemple de méthode jusqu’à ce que la tâche de création de liste soit terminée.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -246,4 +237,4 @@ Comme l'exemple de méthode appelle une méthode asynchrone, il doit être préc
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

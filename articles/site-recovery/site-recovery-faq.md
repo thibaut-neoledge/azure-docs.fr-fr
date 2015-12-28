@@ -98,7 +98,7 @@ Lors de la réplication normale, les données sont répliquées dans le stockage
 
 Oui. Lorsque vous utilisez Site Recovery pour coordonner la réplication et le basculement dans vos succursales, vous obtenez une orchestration unifiée et l’affichage de toutes les charges de travail de vos succursales dans un emplacement central. Vous pouvez facilement exécuter les basculements et gérer la récupération d’urgence de toutes les succursales à partir de votre siège social, sans vous rendre dans ces succursales.
 
-### Existe-t-il un kit de développement logiciel (SDK) que je peux utiliser pour automatiser le flux de travail du logiciel ASR ?
+### Existe-t-il un kit de développement logiciel (SDK) que je peux utiliser pour automatiser le flux de travail de Site Recovery ?
 
 Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l’API Rest, de PowerShell ou du Kit de développement logiciel (SDK) Azure. En savoir plus dans [Déploiement d’Azure Site Recovery avec PowerShell](site-recovery-deploy-with-powershell.md).
 
@@ -223,4 +223,4 @@ Oui, vous pouvez répliquer les machines virtuelles Hyper-V et Azure, ou entre d
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

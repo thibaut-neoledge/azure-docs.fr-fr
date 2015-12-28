@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus et la technologie d'analyse avancée (ADAPT) 
 
-Ce document décrit différentes manières d’envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Cette tâche fait partie du processus de science des données Azure fourni par Azure Machine Learning. Plusieurs tâches de manipulation des données sont abordées : exploration des données et génération de fonctionnalités. Des requêtes Hive génériques qui montrent comment explorer des données ou générer des fonctionnalités à l’aide de Hive dans un cluster Hadoop Azure HDInsight. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive intégrées.
+Ce document décrit différentes manières d’envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Cette tâche fait partie du processus d’analyse Cortana (CAP). Plusieurs tâches de manipulation des données sont abordées : exploration des données et génération de fonctionnalités. Des requêtes Hive génériques qui montrent comment explorer des données ou générer des fonctionnalités à l’aide de Hive dans un cluster Hadoop Azure HDInsight sont présentées. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive intégrées.
 
 Des exemples de requêtes propres aux scénarios mettant en œuvre le [jeu de données NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état.
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-## Conditions préalables
+## Composants requis
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
@@ -34,14 +34,14 @@ Cet article suppose que vous avez :
 
 
 ## <a name="submit"></a>Comment envoyer des requêtes Hive
-Pour envoyer des requêtes Hive, utilisez au choix :
+Les requêtes Hive peuvent être envoyées à l'aide des applications suivantes :
 
-* la ligne de commande Hadoop sur le nœud principal du cluster ;
-* l’interpréteur IPython Notebook ;
-* l’éditeur Hive ;
-* des scripts Azure PowerShell.
+* La **ligne de commande Hadoop** sur le nœud principal du cluster
+* **IPython Notebook**
+* **Éditeur Hive**
+* Scripts **PowerShell**
 
-Des requêtes Hive sont similaires à SQL. Les utilisateurs maîtrisant SQL peuvent trouver l’<a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">aide-mémoire SQL-Hive</a> utile.
+Des requêtes Hive sont similaires à SQL. Les utilisateurs maîtrisant SQL peuvent trouver l'<a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">aide-mémoire SQL-Hive</a> utile.
 
 Lors de l’envoi d’une requête Hive, vous pouvez également contrôler la destination de sa sortie : écran, fichier local sur le nœud principal ou blob Azure.
 
@@ -67,7 +67,7 @@ Les utilisateurs peuvent exécuter une commande du type
 
 pour envoyer des requêtes Hive simples directement dans la ligne de commande Hadoop. Voici un exemple, où l’encadré rouge indique la commande qui envoie la requête Hive et l’encadré vert, la sortie de la requête Hive.
 
-![Create workspace][10]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### Envoyer des requêtes Hive dans des fichiers HQL
 
@@ -85,9 +85,9 @@ Par défaut, après l’envoi d’une requête Hive dans la console de ligne de 
 
 #### Envoyer des requêtes Hive dans la console de commande Hive
 
-Les utilisateurs peuvent également ouvrir la console de commande Hive en exécutant la commande `hive` dans la ligne de commande Hadoop, puis ils peuvent envoyer les requêtes Hive depuis la console de commande Hive, à l’invite **hive>**. Voici un exemple.
+Les utilisateurs peuvent également ouvrir la console de commande Hive en exécutant la commande `hive` dans la ligne de commande Hadoop, puis ils peuvent envoyer les requêtes Hive depuis la console de commande Hive, à l'invite **hive>**. Voici un exemple.
 
-![Create workspace][11]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 Ici, les deux encadrés rouges indiquent les commandes utilisées pour ouvrir la console de commande Hive et envoyer la requête Hive dans cette console. L’encadré vert montre la sortie de la requête Hive.
 
@@ -108,17 +108,17 @@ Les utilisateurs peuvent également enregistrer les résultats d’une requête 
 
 Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans **wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
 
-![Create workspace][13]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 Pour visualiser la sortie de la requête Hive dans le stockage de blob, ouvrez le conteneur par défaut du cluster Hadoop avec Azure Storage Explorer (ou un outil équivalent). Vous pouvez utiliser le filtre (encadré rouge) pour retrouver un blob dont le nom comporte les lettres spécifiées.
 
-![Create workspace][14]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### Avec l’éditeur Hive ou des commandes Azure PowerShell
 
 Les utilisateurs peuvent également utiliser Query Console (un éditeur Hive) en saisissant l’URL au format
 
-*https://&#60;Hadoop nom de cluster>.azurehdinsight.net/Home/HiveEditor*
+*https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
 
 dans un navigateur Web. Notez que vous devrez entrer les informations d'identification du cluster Hadoop pour vous connecter. Vous pouvez également [envoyer des tâches Hive avec PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
@@ -177,7 +177,7 @@ Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez s
 4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeatures)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-###<a name="hive-frequencyfeature"></a> Génération de fonctionnalités basées sur la fréquence
+###<a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
 
 Parfois, il est intéressant de calculer les fréquences des niveaux d’une variable catégorielle ou des niveaux combinés de plusieurs variables catégorielles. Les utilisateurs peuvent utiliser les scripts suivants pour calculer ces fréquences :
 
@@ -272,7 +272,7 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
 
 Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat\_or\_lon*pi/180*, qui convertit les degrés en radians. Ici, *lat\_or\_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Create workspace][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.
 
@@ -310,13 +310,8 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

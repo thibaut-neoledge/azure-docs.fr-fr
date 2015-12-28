@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Version préliminaire du modèle d’application v2.0 : Sécuriser une API Web à l’aide de node.js
@@ -38,11 +38,11 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 L'application terminée est également fournie à la fin de ce didacticiel.
 
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application.
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -149,7 +149,7 @@ Le résultat de la commande doit ressembler à ceci :
 
 Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
-> [AZURE.NOTE]Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
+> [AZURE.NOTE] Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
 
 Depuis la ligne de commande, accédez au répertoire azuread
 
@@ -769,7 +769,7 @@ Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Face
 > [AZURE.IMPORTANT]
 Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
-### 2\. Pour finir, protégez certains points de terminaison
+### 2. Pour finir, protégez certains points de terminaison
 
 Pour protéger les points de terminaison, spécifiez l’appel passport.authenticate() avec le protocole que vous souhaitez utiliser.
 
@@ -857,4 +857,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

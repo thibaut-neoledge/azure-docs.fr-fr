@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,25 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Mise en route avec le stockage de files d’attente Azure et les appareils connectés Visual Studio
 
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## Vue d’ensemble
 
-Cet article explique comment prendre en main le stockage de files d’attente Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
+Cet article explique comment prendre en main Azure Queue Storage dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
 
-Nous allons vous montrer comment créer une file d’attente Azure dans votre compte de stockage et y accéder. Nous vous indiquerons aussi comment effectuer des opérations de base sur les files d’attente, comme l’ajout, la modification, la lecture et la suppression des messages des files d’attente. Les exemples ont été écrits en code C# et utilisent la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
+Nous allons vous montrer comment créer une file d’attente Azure dans votre compte de stockage et y accéder. Nous vous indiquerons aussi comment effectuer des opérations de base sur les files d’attente, comme l’ajout, la modification, la lecture et la suppression des messages des files d’attente. Les exemples ont été écrits en code C# et utilisent la [bibliothèque du client de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
 
 Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
 
@@ -61,7 +52,7 @@ Pour accéder à des files d’attente dans les projets ASP.NET, vous devez incl
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**REMARQUE :** placez tout le code ci-dessus avant celui des exemples suivants.
+**REMARQUE** placez tout le code ci-dessus avant celui des exemples suivants.
 
 ## Créer une file d’attente dans le code
 
@@ -72,7 +63,7 @@ Pour créer une file d’attente Azure dans le code, ajoutez simplement un appel
 
 ## Ajout d'un message à une file d'attente
 
-Pour insérer un message dans une file d’attente existante, créez un objet **CloudQueueMessage**, puis appelez la méthode **AddMessage**.
+Pour insérer un message dans une file d’attente existante, créez un nouvel objet **CloudQueueMessage**, puis appelez la méthode **AddMessage**.
 
 Un objet **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
@@ -95,7 +86,7 @@ En appelant la méthode PeekMessage(), vous pouvez lire furtivement le message a
 
 ## Lire et supprimer un message dans une file d’attente
 
-Votre code permet de supprimer (retirer) un message d'une file d'attente en deux étapes. 1. Lorsque vous appelez GetMessage(), vous obtenez le message suivant au sein de la file d'attente. Tout message renvoyé par un appel GetMessage() n'est plus visible par les autres codes lisant les messages de cette même file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. 2. Pour finaliser la suppression du message de la file d’attente, vous devez appeler **DeleteMessage**.
+Votre code permet de supprimer (retirer) un message d'une file d'attente en deux étapes. 1. Lorsque vous appelez GetMessage(), vous obtenez le message suivant au sein de la file d'attente. Tout message renvoyé par un appel GetMessage() n'est plus visible par les autres codes lisant les messages de cette même file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. 2. Pour finaliser la suppression du message de la file d’attente, appelez **DeleteMessage**.
 
 Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Le code suivant appelle **DeleteMessage** juste après le traitement du message.
 
@@ -179,4 +170,4 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

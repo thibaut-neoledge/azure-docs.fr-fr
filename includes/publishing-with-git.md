@@ -60,7 +60,7 @@ Pour activer un référentiel Git pour votre application Web, procédez comme 
 
 1. Connectez-vous au [portail Azure].
 
-2. Faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
+2. Dans le panneau de l’application Web, cliquez sur **Paramètres > Déploiement continu**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
 
 	![Référentiel Git local](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Pour activer un référentiel Git pour votre application Web, procédez comme 
 
 Pour publier votre application Web vers Azure à l’aide de Git local, procédez comme suit :
 
-1. Dans la section Déploiement du panneau de votre application web, cliquez sur **Déploiement introuvable**.
+1. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés** pour l’**URL Git**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -138,7 +138,7 @@ Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert 
 
 1. Commencez par placer vos fichiers d’application web dans le référentiel sélectionné qui sera utilisé dans le cadre d’un déploiement continu.
 
-2. Dans le portail, faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez sur **Choisir une source**, puis sur **GitHub** par exemple.
+2. Dans le panneau de l’application Web, dans le portail, cliquez sur **Paramètres > Livraison continue**. Cliquez sur **Choisir une source**, puis sur **GitHub** par exemple.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -154,7 +154,7 @@ Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert 
 
 Azure crée une association avec le référentiel sélectionné et récupère les fichiers à partir de la branche spécifiée. À l'issue de cette procédure, la section **Déploiement** du panneau de votre application web affiche un message **Déploiement actif** qui indique la réussite du déploiement.
 
-7. À ce stade, votre projet a été déployé à partir du référentiel de votre choix vers votre application web. Pour vérifier que cette application web est active, cliquez sur l'**URL** en haut du portail. Le navigateur doit accéder à l’application web.
+7. À ce stade, votre projet a été déployé à partir du référentiel de votre choix vers votre application web. Pour vérifier que cette application web est active, cliquez sur l’**URL** en haut du portail. Le navigateur doit accéder à l’application web.
 
 8. Pour vérifier que le déploiement continu s’effectue à partir du référentiel de votre choix, envoyez une modification vers le référentiel par le biais d’une transmission de type push. Votre application web doit se mettre à jour pour prendre en compte les modifications, peu de temps après la transmission de type push vers le référentiel. Vous pouvez vérifier que la mise à jour a été récupérée dans le panneau **Déploiements** de votre application web.
 
@@ -192,11 +192,11 @@ Une fois que vous avez configuré votre référentiel comme indiqué ainsi que v
 
 ## Désactiver le déploiement continu
 
-Le déploiement continu peut être désactivé dans le panneau **Déploiements**. Dans la section **Déploiement** du panneau de votre application web, cliquez sur **Déploiement actif**, puis sur **Déconnecter**.
+Le déploiement continu peut être désactivé dans le panneau **Déploiements**. Dans le panneau de l’application Web, cliquez sur **Paramètres > Déploiement continu**. puis sur **Déconnecter**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
-Après avoir répondu **Oui** au message de confirmation, vous pouvez revenir au panneau de votre application web et cliquer sur **Configurer un déploiement continu** si vous souhaitez configurer la publication à partir d'une autre source.
+Après avoir répondu **Oui** au message de confirmation, vous pouvez revenir au panneau de votre application web et cliquer sur **Paramètre > Déploiement continu** si vous souhaitez configurer la publication à partir d’une autre source.
 
 ## <a id="Step8"></a>Résolution des problèmes
 
@@ -208,7 +208,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 **Cause** : Cette erreur peut se produire si l'application web n'est pas opérationnelle.
 
-**Résolution** : Démarrez l'application web dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l’application web n’est pas en cours d’exécution.
+**Résolution** : démarrez l’application web dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l’application web n’est pas en cours d’exécution.
 
 
 ****
@@ -297,4 +297,4 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Diffusion continue sur Azure au moyen de Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

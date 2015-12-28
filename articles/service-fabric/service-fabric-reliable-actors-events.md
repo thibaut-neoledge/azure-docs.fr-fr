@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Événements Acteurs fiables"
-   description="Présentation des événements pour Acteurs fiables Service Fabric"
+   pageTitle="Événements Reliable Actors | Microsoft Azure"
+   description="Présentation des événements pour Reliable Actors Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -17,12 +17,12 @@
    ms.author="amanbha"/>
 
 
-# Événements des acteurs
-Les événements d'acteur sont un moyen d'envoyer des notifications Meilleur effort de l'acteur aux clients. Les événements d'acteur sont conçus pour la communication acteur-client et ne doivent pas être utilisés pour la communication acteur-acteur.
+# Événements d’acteurs
+Les événements d’acteur sont un moyen d’envoyer des notifications Meilleur effort de l’acteur aux clients. Les événements d’acteur sont conçus pour la communication acteur-client et ne doivent pas être utilisés pour la communication acteur-acteur.
 
-Les extraits de code suivants montrent comment utiliser les événements d'acteur dans votre application.
+L’extrait de code suivant montre comment utiliser les événements d’acteur dans votre application.
 
-Définissez une interface qui décrit les événements publiés par l'acteur. Cette interface doit être dérivée de l'interface `IActorEvents`. Les arguments des méthodes doivent être [sérialisables en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Les méthodes doivent retourner une valeur nulle, car les notifications d'événement sont unidirectionnelles et Meilleur effort.
+Définissez une interface qui décrit les événements publiés par l'acteur. Cette interface doit être dérivée de l'interface `IActorEvents`. Les arguments des méthodes doivent être [sérialisables en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Les méthodes doivent retourner une valeur nulle, car les notifications d’événement sont unidirectionnelles et Meilleur effort.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -63,13 +63,13 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-En cas de basculement, l'acteur peut basculer sur un nœud ou processus différent. Le proxy de l'acteur gère les abonnements actifs et s'y réabonne automatiquement. Vous pouvez contrôler l'intervalle de réabonnement via l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Pour vous désabonner, utilisez l'API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l'acteur gère les abonnements actifs et s'y réabonne automatiquement. Vous pouvez contrôler l'intervalle de réabonnement via l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
-Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent. Le runtime Actors envoie la notification aux abonnés à l'événement, le cas échéant.
+Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

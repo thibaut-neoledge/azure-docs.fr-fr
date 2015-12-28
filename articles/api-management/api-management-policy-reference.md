@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
@@ -26,9 +26,11 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 
 -	[Accès aux stratégies de restriction][]
 	-	[Check HTTP header][] : applique l’existence et/ou la valeur d’un en-tête HTTP.
-	-	[Limit call rate][] : empêche les pics d’utilisation de l’API en limitant les appels et/ou le taux de consommation de la bande passante.
+	-	[Limit call rate by subscription][] : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
+	-	[Limit call rate by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
 	-	[Restrict caller IPs][] : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
-	-	[Set usage quota][] : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité.
+	-	[Set usage quota by subscription][] : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
+	-	[Set usage quota by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
 	-	[Validate JWT][] : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 -	[Stratégies avancées][]
 	-	[Control flow][] : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions][] booléennes.
@@ -38,7 +40,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.
 	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) : envoie une demande à l’URL indiquée.
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
-	-	[Set status code](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
+	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
 	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
 -	[Stratégies d’authentification][]
 	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
@@ -46,6 +48,8 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 -	[Stratégies de mise en cache][] 
 	-	[Get from cache][] : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
 	-	[Store to cache][] : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
+	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) : récupère un élément mis en cache par clé.
+	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) : stocke un élément mis en cache par clé.
 -	[Stratégies interdomaines][] 
 	-	[Allow cross-domain calls][] : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.
 	-	[CORS][] : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.
@@ -69,9 +73,9 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
 [Accès aux stratégies de restriction]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Check HTTP header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[Limit call rate]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[Limit call rate by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [Restrict caller IPs]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[Set usage quota]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[Set usage quota by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [Validate JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [Stratégies avancées]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -116,4 +120,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

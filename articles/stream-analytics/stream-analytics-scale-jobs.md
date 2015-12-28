@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux #
@@ -61,7 +61,7 @@ La requête précédente a deux étapes.
 
 Les conditions suivantes doivent être respectées pour procéder au partitionnement d'une étape :
 
-- La source d'entrée doit être partitionnée. Pour plus d'informations, consultez le [Guide de développement pour Azure Analytics](../stream-analytics-developer-guide.md) et le [Guide de programmation Event Hubs](../azure-event-hubs-developer-guide.md).
+- La source d'entrée doit être partitionnée. Pour plus d'informations, consultez le [Guide de développement pour Azure Analytics](../stream-analytics-developer-guide.md) et le [Guide de programmation des concentrateurs d'événements](../event-hubs/event-hubs-programming-guide.md).
 - L'instruction SELECT de la requête doit lire à partir d'une source d'entrée partitionnée.
 - La requête de l'étape doit contenir le mot clé **Partition By**
 
@@ -265,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

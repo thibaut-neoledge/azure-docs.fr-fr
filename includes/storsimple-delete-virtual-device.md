@@ -1,7 +1,9 @@
-#### To delete a virtual device
+#### Suppression d’un appareil virtuel
 
-1. Sign in to the Management Portal.
+1. Connectez-vous au portail de gestion.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de la machine virtuelle.
+
+<!---HONumber=AcomDC_1217_2015-->

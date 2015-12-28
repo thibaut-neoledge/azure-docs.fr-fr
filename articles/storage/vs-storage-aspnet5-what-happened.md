@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet ASP.NET 5 (services connectés Azure Storage de Visual Studio) ?
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
-> - [What Happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ## Références ajoutées
 
@@ -45,6 +36,6 @@ De plus, le package NuGet nommé **Microsoft.Framework.Configuration.Json** a é
 ## Chaîne de connexion pour Azure Storage ajoutée
 Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
-Pour plus d’informations, consultez [ASP.NET 5](http://www.asp.net/vnext).
+Pour plus d’informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

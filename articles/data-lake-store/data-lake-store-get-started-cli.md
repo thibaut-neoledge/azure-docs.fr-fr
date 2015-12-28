@@ -23,6 +23,7 @@
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
 
 Apprenez à utiliser l'interface de ligne de commande Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme la création de dossiers, le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble de Data Lake Store](data-lake-store-overview.md).
 
@@ -192,4 +193,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

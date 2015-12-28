@@ -23,13 +23,16 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
- 
+
+>[AZURE.NOTE]Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Par conséquent, vous devez vous assurer que l’interface CLI Azure est configurée pour le mode Gestionnaire de ressources, à l’aide de la commande « azure config mode arm ».
+
+>Si vous voyez « erreur: « dns » n’est pas une commande azure », cela est probablement dû au fait que vous utilisez Azure CLI en mode ASM et non en mode Gestionnaire de ressources.
  
 ## Création d’une zone DNS
 
-Pour créer une zone DNS pour héberger votre domaine, utilisez la fonction `azure network dns zone create` :
+Pour créer une nouvelle zone DNS pour héberger votre domaine, utilisez `azure network dns zone create` :
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 L’opération crée une nouvelle zone DNS dans le système DNS Azure. Vous pouvez éventuellement spécifier un tableau de balises Azure Resource Manager. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -48,20 +51,20 @@ L’opération retourne une zone DNS avec son ID, le nombre de jeux d’enregist
 
 ## Création de la liste des zones DNS
 
-Pour récupérer les zones DNS au sein d'un groupe de ressources, utilisez la commande `azure network dns zone list` :
+Pour récupérer les zones DNS au sein d’un groupe de ressources, utilisez la commande `azure network dns zone list` :
 
 	azure network dns zone list myresourcegroup
 
 
 ## Mise à jour d’une zone DNS
 
-Vous pouvez apporter des modifications à une ressource de zone DNS à l'aide de `azure network dns zone set`. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de `azure network dns zone set`. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 	azure network dns zone set myresourcegroup contoso.com -t prod=value2
 
 ## Suppression d’une zone DNS
 
-Les zones DNS peuvent être supprimées à l'aide de la commande `azure network dns zone delete`.
+Les zones DNS peuvent être supprimées à l’aide de la commande `azure network dns zone delete`.
  
 Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA à la racine de la zone qui ont été créés automatiquement en même temps que cette dernière.
 
@@ -77,4 +80,4 @@ Cette opération comporte un commutateur « -q » qui supprime l’invite pour
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application iOS
@@ -22,4 +22,4 @@ Le didacticiel de démarrage rapide pour iOS n’est pas tout à fait prêt... R
 
 > [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD mis à la disposition générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

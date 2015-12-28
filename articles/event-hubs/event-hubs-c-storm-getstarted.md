@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -86,8 +86,8 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des concentrateurs d’événements et Storm.
 
-- Le didacticiel [Analyse des données de capteur avec Storm et HDInsight] est un didacticiel présentant un scénario complet qui tire parti des concentrateurs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
-- Le didacticiel [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
+- Le didacticiel [Analyse des données de capteur avec Storm et HDInsight][] est un didacticiel présentant un scénario complet qui tire parti des concentrateurs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
+- Le didacticiel [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight][] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -111,4 +111,4 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -293,8 +293,9 @@ Maintenant que vous connaissez les principes de base du service blob Azure, suiv
 - Consultez le [blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Consultez l'exemple d'objet blob de blocs PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - Consultez l'exemple d'objet blob de pages PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-
-Pour plus d’informations, consultez également le [Centre de développement PHP](/develop/php/).
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+ 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
@@ -305,4 +306,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

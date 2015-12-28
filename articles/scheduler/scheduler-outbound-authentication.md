@@ -234,10 +234,14 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `ActiveDirectoryOAu
 |:--|:--|
 |_authentification (élément parent)_ |Objet d'authentification pour l'authentification ActiveDirectoryOAuth.|
 |_type_ |Obligatoire. Type d'authentification. Pour l'authentification ActiveDirectoryOAuth, la valeur doit être `ActiveDirectoryOAuth`.|
-|_locataire_ |Obligatoire. L'identifiant du locataire est un ID qui est utilisé pour identifier le locataire Active Directory.|
+|_locataire_ |Obligatoire. L’identificateur de client pour le client Azure AD.|
 |_audience_ |Obligatoire. Cette option est définie sur https://management.core.windows.net/.|.
 |_clientId_ |Obligatoire. Indiquer l'identifiant client pour l'application Azure AD.|
 |_secret_ |Obligatoire. Secret du client qui demande le jeton.|
+
+### Déterminer votre identificateur de client
+
+Vous pouvez trouver l’identificateur de client pour le client Azure AD en exécutant `Get-AzureAccount` dans Azure PowerShell.
 
 ## Corps de la réponse pour l'authentification ActiveDirectoryOAuth
 
@@ -246,14 +250,14 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 |Élément |Description |
 |:--|:--|
 |_authentification (élément parent)_ |Objet d'authentification pour l'authentification ActiveDirectoryOAuth.|
-|_type_ |Type d'authentification. Pour l'authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`.|
-|_locataire_ |L'identifiant du locataire est utilisé pour identifier le locataire Active Directory.|
-|_audience_ |Cette option est définie sur https://management.core.windows.net/.|.
+|_type_ |Type d'authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`.|
+|_locataire_ |L’identificateur de client pour le client Azure AD. |
+|_audience_ |Cette option est définie sur https://management.core.windows.net/.|
 |_clientId_ |L'identifiant client pour l'application Azure AD.|
 
 ## Exemple de requête et de réponse pour l'authentification ActiveDirectoryOAuth
 
-L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ActiveDirectoryOAuth`. La requête est la suivante :
+L’exemple de requête suivant effectue une requête PUT qui incorpore l’authentification `ActiveDirectoryOAuth`. La requête est la suivante :
 
 	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
 	x-ms-version: 2013-03-01
@@ -272,7 +276,7 @@ L'exemple de requête suivant effectue une requête PUT qui incorpore l'authenti
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -356,4 +360,4 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -19,6 +19,17 @@
 
 # Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Vous pouvez facilement créer une machine virtuelle basée sur Windows à l’aide d’un modèle du Gestionnaire des ressources avec Azure PowerShell. Ce modèle crée une machine virtuelle unique exécutant Windows dans un nouveau réseau virtuel avec un seul sous-réseau dans un nouveau groupe de ressources.
@@ -288,4 +299,4 @@ Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWi
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

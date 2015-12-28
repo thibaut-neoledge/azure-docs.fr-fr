@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev" />
 
 # Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
@@ -184,4 +184,4 @@ ou
 Pour obtenir un exemple de procédure pas à pas complet utilisant le processus d’analyse Cortana avec un jeu de données public, consultez [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

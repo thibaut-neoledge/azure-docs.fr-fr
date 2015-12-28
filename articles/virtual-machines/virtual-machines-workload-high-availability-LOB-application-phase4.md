@@ -20,7 +20,6 @@
 # Charge de travail des applications métier, phase 4 : configurer des serveurs Web
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
- 
 
 Au cours de cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez les serveurs Web et y chargez votre application métier.
 
@@ -30,11 +29,21 @@ Vous devez procéder à cette opération avant de passer à la [Phase 5](virtua
 
 Il existe deux serveurs Web virtuels dans lesquels vous pouvez déployer des applications ASP.NET ou des applications plus anciennes pouvant être hébergées par les Internet Information Services (IIS) 8 dans Windows Server 2012 R2.
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et versions antérieures, remplacez toutes les instances d’« -AzureRM » par « -Azure » et ajoutez la commande **Switch-AzureMode AzureResourceManager** avant d’exécuter toute commande. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
-
 Tout d'abord, vous configurez l'équilibrage de charge interne de manière à ce qu'Azure répartisse le trafic client vers l'application métier de manière équitable entre les deux serveurs Web. Pour cela, vous devez spécifier une instance d'équilibrage de charge interne comportant un nom et une adresse IP propre qui sont affectés à partir de l'espace d'adressage du sous-réseau que vous avez affecté à votre réseau virtuel Azure.
 
-Renseignez les variables et exécutez l’ensemble des commandes suivant :
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Spécifiez les valeurs des variables en supprimant les caractères < and >. Notez que les jeux de commandes PowerShell suivants utilisent les valeurs des tables suivantes :
+
+- Table M pour les machines virtuelles ;
+- Table V pour les paramètres du réseau virtuel ;
+- Table S pour le sous-réseau ;
+- Table ST pour vos comptes de stockage ;
+- Table A pour les groupes à haute disponibilité ;
+
+Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant à l'invite de commandes Azure PowerShell.
 
 	# Set up key variables
 	$rgName="<resource group name>"
@@ -53,15 +62,7 @@ Renseignez les variables et exécutez l’ensemble des commandes suivant :
 
 Ajoutez ensuite un enregistrement d'adresse DNS à l'infrastructure DNS de votre organisation pour résoudre le nom de domaine complet de l'application métier (par exemple, lobapp.corp.contoso.com) au niveau de l'adresse IP affectée à l'équilibrage de charge interne (la valeur de $privIP dans le bloc de commandes Azure PowerShell précédent).
 
-Utilisez ensuite le bloc de commandes PowerShell suivant permet de créer les machines virtuelles pour les deux serveurs Web. Ce jeu de commandes PowerShell utilise les valeurs des tables suivantes :
-
-- Table M pour les machines virtuelles ;
-- Table V pour les paramètres du réseau virtuel ;
-- Table S pour le sous-réseau ;
-- Table ST pour vos comptes de stockage ;
-- Table A pour les groupes à haute disponibilité ;
-
-Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md), et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Utilisez ensuite le bloc de commandes PowerShell suivant permet de créer les machines virtuelles pour les deux serveurs Web.
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -99,7 +100,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vmSize="<Table M – Item 7 - Minimum size column>"
 	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
 	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -128,7 +129,7 @@ Ensuite, installez et configurez IIS pour chaque serveur Web.
 2. Dans la page Avant de commencer, cliquez sur **Suivant**.
 3. Dans la page Sélectionner le type d’installation, cliquez sur **Suivant**.
 4. Dans la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
-5. Dans la page Rôles de serveur, cliquez sur **Serveur Web (IIS)** dans la liste **Rôles**.
+5. Dans la page Rôles de serveur, cliquez sur **Serveur Web (IIS)** dans la liste des **rôles**.
 6. Quand vous y êtes invité, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.
 7. Dans la page Sélectionner des fonctionnalités, cliquez sur **Suivant**.
 8. Dans la page Serveur Web (IIS), cliquez sur **Suivant**.
@@ -148,18 +149,6 @@ Ce diagramme représente la configuration résultant de l'exécution de cette ph
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 5 : Créer le groupe de disponibilité et ajouter les bases de données de l’application](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+- Pour terminer la configuration de cette charge de travail, utilisez la [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
-## Ressources supplémentaires
-
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais)
-
-[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

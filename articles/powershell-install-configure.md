@@ -121,11 +121,11 @@ Consultez les ressources suivantes pour obtenir de l’aide sur des applets de c
 
 
 
-- Vous pouvez également obtenir des informations de référence sur les applets de commande des modules Azure PowerShell dans la bibliothèque Azure. Pour plus d’informations, consultez la page [Référence des applets de commande Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Vous pouvez également obtenir des informations de référence sur les applets de commande des modules Azure PowerShell dans la bibliothèque Azure. Pour plus d’informations, consultez la page [Référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/dn708514.aspx).
 
 Pour obtenir de l’aide de la communauté, essayez ces forums populaires :
 
 - [Forum Azure sur MSDN (en anglais)](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

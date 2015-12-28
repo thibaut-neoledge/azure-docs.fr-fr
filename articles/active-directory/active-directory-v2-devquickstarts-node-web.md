@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application Web NodeJS
@@ -43,16 +43,16 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Web** pour votre application.
-- Entrez l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `http://localhost:3000/auth/openid/return`.
+- ajouter la plateforme **Web** pour votre application ;
+- entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `http://localhost:3000/auth/openid/return`.
 
-## 2\. Ajoutez des éléments requis à votre répertoire
+## 2. Ajoutez des éléments requis à votre répertoire
 
-Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
+Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
 
 - `npm install express`
 - `npm install ejs`
@@ -74,13 +74,13 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 
 Cela installera les bibliothèques dont dépend passport-azure-ad.
 
-## 3\. Configurez votre application pour utiliser la stratégie passport-nod-js
+## 3. Configurez votre application pour utiliser la stratégie passport-nod-js
 Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d’authentification OpenID Connect. Passport sera utilisé notamment pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur.
 
 -	Pour commencer, ouvrez le fichier `config.js` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `exports.creds`.
     -	L’élément `clientID:` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
     -	L’élément `returnURL` est l’**URI de redirection** que vous avez saisi dans le portail.
-    - Le `clientSecret` est la clé secrète que vous avez générée dans le portail
+    - Le `clientSecret` est la clé secrète que vous avez générée dans le portail.
 
 - Ouvrez ensuite le fichier `app.js` dans la racine du projet et ajoutez l’appel suivant pour appeler la stratégie `OIDCStrategy` qui est fournie avec `passport-azure-ad`
 
@@ -88,7 +88,7 @@ Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Ajouter de la journalisation 
+// Add some logging
 var log = bunyan.createLogger({ 
 	name: 'Microsoft OIDC Example Web Application' 
 }); 
@@ -246,7 +246,7 @@ app.post('/auth/openid/return',
   });
 ```
 
-## 4\. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
+## 4. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
 
 Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 à l’aide du protocole d’authentification OpenID Connect. `passport-azure-ad` a pris en charge le laborieux processus d’élaboration des messages d’authentification, de validation des jetons d’Azure AD et de gestion des sessions utilisateur. Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
 
@@ -421,4 +421,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

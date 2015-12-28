@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## Vue d’ensemble
 
@@ -88,4 +90,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

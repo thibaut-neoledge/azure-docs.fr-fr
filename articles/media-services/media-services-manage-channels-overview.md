@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="11/03/2015"  
+	ms.date="12/15/2015"  
 	ms.author="juliako"/>
 
 #Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -208,13 +208,13 @@ Exécution|Prêt (aucun programme en cours d'exécution)<p>ou<p> Diffusion en co
 En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
 Arrêté|Arrêté|Non
 
-###Sous-titrage et insertion de publicités 
+##<a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités 
 
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
 
 Standard|Remarques
 ---|---
-CEA-708 et EIA-608 (708/608)|ACE-708 et EIA-608 sont des normes de sous-titrage fermées pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d'entrée encodé. Vous devez utiliser un encodeur multimédia dynamique capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribuera le contenu avec les sous-titres insérés à vos utilisateurs.
+CEA-708 et EIA-608 (708/608)|CEA-708 et EIA-608 sont des normes de sous-titrage codé pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d’entrée encodé. Vous devez utiliser un encodeur multimédia dynamique capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribuera le contenu avec les sous-titres insérés à vos utilisateurs.
 TTML dans ismt (pistes textuelles Smooth Streaming)|L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants : MPEG DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous serez seulement en mesure de distribuer le flux aux clients Smooth Streaming.
 SCTE-35|Système de signalisation numérique utilisé pour signaler l’insertion de publicités. Les récepteurs en aval utilisent le signal pour ajouter les publicités au flux pendant le temps alloué. SCTE-35 doit être envoyé comme piste partiellement allouée dans le flux d’entrée.<p><p>Notez qu’actuellement, le seul format de flux d’entrée pris en charge transmettant les signaux publicitaires est le format MP4 fragmenté (Smooth Streaming), qui est aussi le seul format de sortie compatible.
 
@@ -240,7 +240,7 @@ Autres considérations liées à l’utilisation des canaux et des composants as
 
 ##Création de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux
 
-Pour plus d'informations sur les encodeurs en direct locaux, consultez [Utilisation d'encodeurs tiers en direct avec Azure Media Services (en anglais)](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
+Pour plus d’informations sur les encodeurs en direct locaux, consultez [Utilisation d’encodeurs tiers en direct avec Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
@@ -269,4 +269,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

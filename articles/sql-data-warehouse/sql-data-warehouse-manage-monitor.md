@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -131,7 +131,7 @@ Vérifier la colonne *operation\_type* de l’exécution de l’étape de requê
 
 ### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
 
-Utilisez l'ID de demande et de l'Index de l'étape pour récupérer des informations sur la distribution de requête SQL Server dans le cadre de l'étape de la requête SQL. Enregistrez l'ID de nœud et le SPID.
+Utilisez l'ID de demande et de l'Index de l'étape pour récupérer des informations sur la distribution de requête SQL Server dans le cadre de l'étape de la requête SQL. Enregistrer l’ID de Distribution et le SPID.
 
 ```
 
@@ -149,7 +149,7 @@ Utilisez la requête suivante pour récupérer le plan d'exécution SQL Server p
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

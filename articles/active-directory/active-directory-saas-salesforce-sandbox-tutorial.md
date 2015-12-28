@@ -3,9 +3,7 @@
 #Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Salesforce Sandbox.  
-Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce.  
-Pour plus d’informations, consultez la page [Présentation de Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Salesforce Sandbox. Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce. Pour plus d’informations, consultez la page [Présentation de Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -68,7 +66,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurer l’URL de l’application")
 
-4. Si vous avez déjà configuré l'authentification unique pour une autre instance Salesforce Sandbox dans votre annuaire, vous devez également configurer l’**URL de l'émetteur** en utilisant la même valeur que pour l’**URL d’authentification**. Le champ **URL de l'émetteur** peut être trouvé en cochant la case **Afficher les paramètres avancés** à la page **Configurer l’URL de l’application** de la boîte de dialogue.
+4. Si vous avez déjà configuré l’authentification unique pour une autre instance Salesforce Sandbox dans votre répertoire, vous devez également configurer l’**identificateur** en utilisant la même valeur que pour l’**URL d’authentification**. Pour afficher le champ **Identificateur** cochez la case **Afficher les paramètres avancés** sur la page **Configurer l’URL de l’application** de la boîte de dialogue.
 
 4.  Dans la page **Configurer l’authentification unique à Salesforce Sandbox**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -97,8 +95,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte Name, indiquez le nom de votre configuration (par exemple, *SPSSOWAAD\_Test*).
     2.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **ID d’entité**, tapez **https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
-    4.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
+    3.  Dans la zone de texte **ID d’entité**, tapez ****https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
+4.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL**.
@@ -190,4 +188,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

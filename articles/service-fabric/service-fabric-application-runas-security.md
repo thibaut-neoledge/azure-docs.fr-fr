@@ -91,13 +91,13 @@ Nous allons maintenant ajouter le fichier MySetup.bat au projet Visual Studio po
 Ouvrez le fichier MySetup.bat et ajoutez les commandes suivantes.
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > test.txt
+echo System TestVariable définie sur > test.txt
 echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Pour supprimer cette variable système utilisez
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l'Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez
@@ -129,7 +129,7 @@ Dans le fichier PowerShell, ajoutez la commande suivante pour définir une varia
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## Application de RunAsPolicy aux services
+## Application de RunAsPolicy aux services 
 Dans les étapes ci-dessus, vous avez vu comment appliquer une stratégie RunAs à un point SetupEntryPoint. Allons plus loin et explorons comment créer des principaux différents qui peuvent être appliqués en tant que stratégies de service.
 
 ### Création de groupes d'utilisateurs locaux
@@ -169,7 +169,7 @@ Vous pouvez créer un utilisateur local qui peut être utilisé pour sécuriser 
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +184,8 @@ La section **RunAsPolicy** pour un **ServiceManifestImport** spécifie le compte
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -272,7 +272,7 @@ Le manifeste d'application ci-dessous affiche un grand nombre des différents pa
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +290,4 @@ Le manifeste d'application ci-dessous affiche un grand nombre des différents pa
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

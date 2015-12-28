@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Gestion des serveurs DNS utilisés par un réseau virtuel
@@ -65,4 +65,4 @@ Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configurat
 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

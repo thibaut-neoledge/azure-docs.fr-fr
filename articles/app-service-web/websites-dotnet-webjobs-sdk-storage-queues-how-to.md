@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs
@@ -22,7 +22,7 @@
 
 Ce guide fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs de Microsoft Azure avec le service de stockage de file d’attente Microsoft Azure.
 
-Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
+Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) ou [plusieurs comptes de stockage](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 La plupart des extraits de code présentent uniquement les fonctions, et non le code chargé de créer l’objet `JobHost` comme dans cet exemple :
 
@@ -62,7 +62,8 @@ Ce guide comprend les sections suivantes :
 	- Configuration des paramètres QueueTrigger
 	- Définition des valeurs des paramètres de constructeur du Kit de développement logiciel (SDK) WebJobs dans le code
 -   [Déclenchement manuel d’une fonction](#manual)
--   [Écriture de journaux](#logs)
+-   [Écriture de journaux](#logs) 
+-   [Gestion des erreurs et configuration des délais d'attente](#errors)
 -   [Étapes suivantes](#nextsteps)
 
 ## <a id="trigger"></a> Comment déclencher une fonction lors de la réception d’un message de file d’attente
@@ -131,13 +132,15 @@ Le Kit de développement logiciel (SDK) implémente un algorithme d’interrupti
 
 ### <a id="instances"></a> Instances multiples
 
-Si votre application web s’exécute sur plusieurs instances, une tâche web continue se lance sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut entraîner que certaines fonctions traitent deux fois les mêmes données ; ces fonctions doivent donc être idempotentes (écrites de façon que, si elles sont appelées de manière répétitive avec les mêmes données d’entrée, elles ne produisent pas des résultats en double).
+Si votre application web s'exécute sur plusieurs instances, une tâche web continue se lance sur chaque machine, qui attend des déclencheurs et essaie d'exécuter les fonctions. Le déclencheur de la file d'attente SDK WebJobs empêche automatiquement une fonction de traiter un message de file d'attente plusieurs fois ; les fonctions ne doivent pas nécessairement être écrites pour être idempotent. Toutefois, si vous souhaitez vous assurer qu'une seule instance d'une fonction s'exécute même lorsqu'il existe plusieurs instances de l'application web hôte, vous pouvez utiliser l'attribut `Singleton`.
 
 ### <a id="parallel"></a> Exécution en parallèle
 
 Si vous avez plusieurs fonctions à l’écoute sur différentes files d’attente, le Kit de développement logiciel (SDK) les appelle en parallèle en cas de réception de messages simultanés.
 
-Il en est de même quand plusieurs messages sont reçus en provenance d’une file d’attente unique. Par défaut, le Kit de développement logiciel (SDK) obtient un lot de 16 messages de file d’attente à la fois et exécute la fonction qui les traite en parallèle. [La taille de lot est configurable](#config). Quand le nombre de messages en cours de traitement tombe sous la moitié de la taille de lot, le Kit de développement logiciel (SDK) obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par la fonction est une fois et demie la taille de lot. Cette limite s’applique séparément à chaque fonction qui présente un attribut `QueueTrigger`. Si vous ne souhaitez pas d’exécution en parallèle pour les messages reçus sur une file d’attente, affectez la valeur 1 à la taille de lot.
+Il en est de même quand plusieurs messages sont reçus en provenance d’une file d’attente unique. Par défaut, le Kit de développement logiciel (SDK) obtient un lot de 16 messages de file d’attente à la fois et exécute la fonction qui les traite en parallèle. [La taille de lot est configurable](#config). Quand le nombre de messages en cours de traitement tombe sous la moitié de la taille de lot, le Kit de développement logiciel (SDK) obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par la fonction est une fois et demie la taille de lot. Cette limite s’applique séparément à chaque fonction qui présente un attribut `QueueTrigger`.
+
+Si vous ne souhaitez pas d'exécution en parallèle pour les messages reçus sur une file d'attente, vous pouvez affecter la valeur 1 à la taille de lot. Voir aussi **Davantage de contrôle sur le traitement de la file d'attente** dans [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a id="queuemetadata"></a>Obtenir des métadonnées de file d’attente ou de message en file d’attente
 
@@ -581,9 +584,31 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 
 ![Journal d’erreurs dans la table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
+Si vous souhaitez incorporer dans votre propre journal, consultez [cet exemple](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs).
+
+## <a id="errors"></a>Gestion des erreurs et configuration des délais d'attente
+
+Le SDK WebJobs inclut également un attribut [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) que vous pouvez utiliser pour qu'une fonction soit annulée si elle ne se termine pas dans un laps de temps spécifié. Et si vous souhaitez déclencher une alerte lorsque trop d'erreurs se produisent pendant une période de temps spécifiée, vous pouvez utiliser l'attribut `ErrorTrigger`. Voici un [exemple ErrorTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+
+Vous pouvez également désactiver et activer dynamiquement des fonctions pour contrôler si elles peuvent être déclenchées, en utilisant un commutateur de configuration qui peut être un paramètre d'application ou le nom de variable d'environnement. Pour l'exemple de code, consultez l'attribut `Disable` dans le [référentiel des exemples du Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs).
+
 ## <a id="nextsteps"></a>Étapes suivantes
 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

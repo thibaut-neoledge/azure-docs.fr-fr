@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Présentation du groupe de sécurité réseau
@@ -248,4 +248,4 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 - [Déploiement des groupes de sécurité réseau dans Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

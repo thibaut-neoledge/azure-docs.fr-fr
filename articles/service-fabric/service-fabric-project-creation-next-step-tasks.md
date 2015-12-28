@@ -72,8 +72,8 @@ Service Fabric Explorer offre un moyen facile de visualiser votre cluster, y com
 ### Contrôle de la version et mise à niveau de vos services
 Service Fabric permet un contrôle de version indépendant et la mise à niveau de services indépendants d'une application. Pour en savoir plus, consultez [Gestion de version et mise à niveau de vos services][app-upgrade-tutorial].
 
-### Configuration de l'intégration continue avec Visual Studio Online
-Pour savoir comment configurer un processus d’intégration continue pour votre application Service Fabric, consultez [Configurer l’intégration continue avec Visual Studio Online][ci-with-vso].
+### Configuration de l’intégration continue avec Visual Studio Team Services
+Pour savoir comment configurer un processus d’intégration continue pour votre application Service Fabric, consultez [Configurer l’intégration continue avec Visual Studio Team Services][ci-with-vso].
 
 
 <!-- Links -->
@@ -85,4 +85,4 @@ Pour savoir comment configurer un processus d’intégration continue pour votre
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

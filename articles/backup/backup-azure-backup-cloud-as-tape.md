@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes : - sauvegarder des données selon la planification qui convient le mieux aux besoins de leur organisation - conserver les données sauvegardées pour de plus longues périodes - intégrer Azure à leurs besoins de rétention à long terme (à la place des bandes).
@@ -60,4 +60,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

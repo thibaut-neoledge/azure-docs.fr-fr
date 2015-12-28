@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Définir une adresse IP privée statique dans l’invite de commande AZURE
@@ -264,4 +264,4 @@ Sortie attendue :
 - En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

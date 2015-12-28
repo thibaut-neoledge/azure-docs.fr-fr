@@ -3,7 +3,7 @@
 	description="Étapes à suivre pour copier, déplacer et migrer des données et des bases de données dans Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Déplacer des bases de données entre des serveurs, entre des abonnements, au sein et hors d’Azure
 ##Pour déplacer une base de données sur un autre serveur dans le même abonnement
@@ -29,4 +29,4 @@
 ## Pour créer une copie d’une base de données en vue d’une utilisation hors d’Azure
 - [Exportez un fichier BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

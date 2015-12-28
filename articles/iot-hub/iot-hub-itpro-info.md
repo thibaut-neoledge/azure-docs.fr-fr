@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # Configuration et gestion de l’accès à IoT Hub
@@ -42,11 +42,11 @@ L’accès aux autres points de terminaison de gestion dans un concentrateur IoT
 Cet article contient des informations destinées aux professionnels de l’informatique et aux développeurs configurant leurs environnements de développement et de test. Suivez ces liens pour en savoir plus sur le service Azure IoT Hub :
 
 - [Qu’est-ce qu’Azure IoT Hub ?][lnk-iothub]
-- La section [« Sécurité » du guide du développeur Azure IoT Hub][lnk-devguide] fournit des informations supplémentaires sur les jetons et le système d’autorisation d’IoT Hub.
+- La [section Sécurité du guide du développeur Azure IoT Hub][lnk-devguide] contient des informations supplémentaires sur les jetons et le système d’autorisation d’IoT Hub.
 - [Gestion d’IoT Hub via le portail Azure][lnk-manage-portal] explique comment utiliser le portail Azure pour gérer votre IoT Hub.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

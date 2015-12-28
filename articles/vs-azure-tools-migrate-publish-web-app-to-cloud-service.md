@@ -3,9 +3,9 @@
    description="Découvrez comment migrer et publier une application web sur un service cloud Azure à partir de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio
 
@@ -208,4 +208,4 @@ Pour publier une application web sur Azure, l’application doit utiliser un des
 ## Étapes suivantes
 Pour plus d’informations sur la publication, consultez [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consultez également [Configuration des informations d’authentification nommées](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

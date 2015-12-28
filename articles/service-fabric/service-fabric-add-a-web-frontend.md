@@ -60,7 +60,7 @@ Pour obtenir une idée de ce que nous avons fait, nous allons déployer la nouve
 
 ## Connecter les services
 
-Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une application unique, vous pouvez avoir des services accessibles via TCP, d’autres via une API REST HTTP et d’autres encore via des sockets web. Pour des informations sur les options disponibles et les compromis inhérents, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md). Dans ce didacticiel, nous suivrons une des approches les plus simples et utiliserons les classes `ServiceProxy`/`ServiceCommunicationListener` fournies dans le Kit de développement logiciel (SDK).
+Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une application unique, vous pouvez avoir des services accessibles via TCP, d’autres via une API REST HTTP et d’autres encore via des sockets web. Pour des informations sur les options disponibles et les compromis inhérents, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md). Dans ce didacticiel, nous suivrons l’une des approches les plus simples et utiliserons les classes `ServiceProxy`/`ServiceRemotingListener` fournies dans le Kit de développement logiciel (SDK).
 
 Dans l'approche `ServiceProxy` (modélisée sur les appels de procédure distante ou RPC), vous définissez une interface qui agit comme contrat public pour le service, puis utilisez cette interface pour générer une classe proxy pour l'interaction avec le service.
 
@@ -130,13 +130,13 @@ Maintenant que nous avons défini l’interface, nous devons la mettre en œuvre
     ```
 
 
-### Exposer le service avec état à l’aide de ServiceCommunicationListener
+### Exposer le service avec état à l’aide de ServiceRemotingListener
 
 Avec l'interface `ICounter` mise en œuvre, l'étape finale de l'activation du service avec état à appeler à partir d'autres services consiste à ouvrir un canal de communication. Pour les services avec état, Service Fabric fournit une méthode remplaçable appelée `CreateServiceReplicaListeners` où vous pouvez spécifier un ou plusieurs écouteurs de communication basés sur le type de communication à activer pour votre service.
 
 >[AZURE.NOTE]La méthode équivalente pour ouvrir un canal de communication sur des services sans état est appelée `CreateServiceInstanceListeners`.
 
-Dans ce cas, nous vous proposons un `ServiceCommunicationListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients avec `ServiceProxy`.
+Dans ce cas, nous vous proposons un `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients avec `ServiceProxy`.
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     {
         new ServiceReplicaListener(
             (initParams) =>
-                new ServiceCommunicationListener<ICounter>(initParams, this))
+                new ServiceRemotingListener<ICounter>(initParams, this))
     };
 }
 ```
@@ -194,7 +194,7 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d�
 
 Ce didacticiel s’est concentré sur l’ajout d’un serveur web frontal communiquant avec un service avec état, mais vous pouvez suivre un modèle très similaire pour communiquer avec les acteurs. En fait, il est un peu plus simple.
 
-Lorsque vous créez un projet d’acteur, Visual Studio génère automatiquement un projet d’interface pour vous. Vous pouvez utiliser cette interface pour générer un proxy d’acteur intervenant dans le projet web pour communiquer avec l’acteur. Le canal de communication est fourni automatiquement, vous n'avez donc pas besoin de faire quelque chose d'équivalent à l'établissement d'un `ServiceCommunicationListener` comme vous l'avez fait pour le service avec état dans ce didacticiel.
+Lorsque vous créez un projet d’acteur, Visual Studio génère automatiquement un projet d’interface pour vous. Vous pouvez utiliser cette interface pour générer un proxy d’acteur intervenant dans le projet web pour communiquer avec l’acteur. Le canal de communication est fourni automatiquement, vous n’avez donc aucune opération à faire, telle que l’établissement d’un `ServiceRemotingListener` comme vous l’avez fait pour le service avec état dans ce didacticiel.
 
 ## Services web en cours d’exécution sur un cluster local
 
@@ -221,4 +221,4 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

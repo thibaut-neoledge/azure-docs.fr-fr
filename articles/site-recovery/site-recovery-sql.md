@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Récupération d’urgence avec SQL Server et Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Protéger SQL Server avec la récupération d’urgence SQL Server et Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération de SQL Server sur un site local secondaire ou sur Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Récupération d'urgence avec SQL Server et Azure Site Recovery 
+# Protéger SQL Server avec la récupération d’urgence SQL Server et Azure Site Recovery 
 
 Azure Site Recovery est un service Azure qui met en œuvre la stratégie de continuité des activités et de récupération d'urgence (ou BCDR pour Business Continuity and Disaster Recovery) de votre entreprise en coordonnant la réplication, le basculement et la récupération d’ordinateurs virtuels et de serveurs physiques. Site Recovery prend en charge plusieurs mécanismes de réplication qui protègent de manière cohérente la réplication et le basculement d’ordinateurs vers Azure ou un centre de données secondaire. Pour une présentation de tous les scénarios de déploiement, consultez [Présentation d’Azure Site Recovery](site-recovery-overview.md).
 
@@ -374,4 +374,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

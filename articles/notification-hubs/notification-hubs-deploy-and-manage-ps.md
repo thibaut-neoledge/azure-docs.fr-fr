@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/10/2015" 
 	ms.author="wesmc"/>
 
 # Déploiement et gestion des concentrateurs de notification à l'aide de PowerShell
@@ -27,10 +27,10 @@ Cet article vous montre comment utiliser Création et gestion d’Azure Notifica
 
 Si vous devez également créer un nouvel espace de noms pour Service Bus pour vos concentrateurs de notification, consultez [Gestion de Service Bus avec PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
 
-La gestion des concentrateurs de notification n’est pas directement prise en charge par les applets de commande inclus avec Azure PowerShell. La meilleure approche à partir de PowerShell consiste à référencer l'assembly Microsoft.ServiceBus.dll. L'assembly est distribué avec le [package NuGet Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+La gestion des concentrateurs de notification n’est pas directement prise en charge par les applets de commande inclus avec Azure PowerShell. Dans PowerShell, la meilleure approche consiste à référencer l’assembly Microsoft.Azure.NotificationHubs.dll. L’assembly est distribué avec le [package NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 
-## Conditions préalables
+## Composants requis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -43,13 +43,13 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 ## Ajout d'une référence à l'assembly .NET pour Service Bus
 
-La gestion d’Azure Notification Hubs n’est pas encore incluse avec les applets de commande PowerShell dans Azure PowerShell. Pour approvisionner les concentrateurs de notification et les autres entités Service Bus qui ne sont pas exposées via les applets de commande existants, vous pouvez utiliser le client .NET pour Service Bus dans le [package NuGet Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+La gestion d’Azure Notification Hubs n’est pas encore incluse avec les applets de commande PowerShell dans Azure PowerShell. Pour approvisionner les hubs de notification, vous pouvez utiliser le client .NET fourni dans le [package NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Tout d'abord, vérifiez que votre script trouve bien l'assembly **Microsoft.ServiceBus.dll**, qui est installé avec le package NuGet dans un projet Visual Studio. Pour plus de flexibilité, le script effectue ces étapes :
+Tout d’abord, vérifiez que votre script trouve bien l’assembly **Microsoft.Azure.NotificationHubs.dll**, qui est installé avec le package NuGet dans un projet Visual Studio. Pour plus de flexibilité, le script effectue ces étapes :
 
 1. Détermine le chemin d'accès à partir duquel il a été appelé.
 2. Parcourt le chemin d'accès jusqu'au dossier nommé `packages`. Ce dossier est créé lorsque vous installez les packages NuGet pour les projets Visual Studio.
-3. Dans le dossier `packages`, il effectue une recherche récursive pour trouver l'assembly **Microsoft.ServiceBus.dll**.
+3. Dans le dossier `packages`, il effectue une recherche récursive pour trouver l’assembly **Microsoft.Azure.NotificationHubs.dll**.
 4. Référence l'assembly pour rendre les types disponibles pour une utilisation ultérieure.
 
 Voici comment ces étapes sont implémentées dans un script PowerShell :
@@ -58,53 +58,53 @@ Voici comment ces étapes sont implémentées dans un script PowerShell :
 
 try
 {
-    # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    # WARNING: Make sure to reference the latest version of Microsoft.Azure.NotificationHubs.dll
+    Write-Output "Adding the [Microsoft.Azure.NotificationHubs.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
-    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
+    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.Azure.NotificationHubs.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Output "The [Microsoft.Azure.NotificationHubs.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
 {
-    Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
+    Write-Error("Could not add the Microsoft.Azure.NotificationHubs.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
 ```
 
 ## Créez la classe NamespaceManager
 
-Pour configurer les concentrateurs de notification et d'autres entités Service Bus, créez une instance de la classe [NamespaceManager](http://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) dans le Kit de développement.
+Pour approvisionner les hubs de notification, créez une instance de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) à partir du Kit de développement logiciel (SDK).
 
 Vous pouvez utiliser l'applet de commande [Get-AzureSBAuthorizationRule] inclus avec Azure PowerShell pour récupérer une règle d'autorisation servant à fournir une chaîne de connexion. Nous allons stocker une référence à l'instance `NamespaceManager` dans la variable `$NamespaceManager`. Nous allons utiliser `$NamespaceManager` pour configurer un concentrateur de notification.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-# Create the NamespaceManager object to create the event hub
+# Create the NamespaceManager object to create the hub
 Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-$NamespaceManager=[Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
 Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 
 ## Configuration d’un nouveau concentrateur de notification 
 
-Pour configurer un concentrateur de notification, utilisez l’[API .NET pour Service Bus]. Cet article porte uniquement sur les concentrateurs de notification. Pour travailler avec d'autres entités Service Bus, consultez [Gestion de Service Bus avec PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
+Pour approvisionner un hub de notification, utilisez l’[API .NET pour Notification Hubs].
 
 Dans cette partie du script, nous allons créer quatre variables locales supplémentaires.
 
-1. `$Namespace` : affectez le nom de l’espace de noms dans lequel vous souhaitez créer un concentrateur de notification.
-2. `$Path` : définissez ce chemin d'accès sur le nom du nouveau concentrateur de notification. Par exemple, « MonConcentrateur ».    
-3. `$WnsPackageSid` : définissez cette propriété sur le SID du package pour votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey` : définissez cette propriété sur la clé secrète pour votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
+2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».    
+3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
-Ces variables sont utilisées pour la connexion à votre espace de noms Service Bus et la création d’un nouveau concentrateur de notification configuré pour gérer les notifications Windows Notification Services (WNS) avec les informations d'identification WNS pour une application Windows. Pour plus d'informations sur l'obtention du SID du package et de la clé secrète, consultez le didacticiel [Prise en main de Notification Hubs](notification-hubs-windows-store-dotnet-get-started.md).
+Ces variables sont utilisées pour la connexion à votre espace de noms et la création d’un nouveau hub de notification configuré pour gérer les notifications Windows Notification Services (WNS) avec les informations d’identification WNS pour une application Windows. Pour plus d’informations sur l’obtention du SID du package et de la clé secrète, consultez le didacticiel [Prise en main de Notification Hubs](notification-hubs-windows-store-dotnet-get-started.md).
 
-+ L'extrait de code de script utilise l’objet `NamespaceManager` pour vérifier que le concentrateur de notification identifié par `$Path` existe.
++ L’extrait de script utilise l’objet `NamespaceManager` pour vérifier que le hub de notification identifié par `$Path` existe.
 
-+ S’il n'existe pas, le script crée un `NotificationHubDescription` avec les informations d'identification WNS et le transmet à la méthode `CreateNotificationHub` de la classe `NamespaceManager`.
++ S’il n’existe pas, le script crée un `NotificationHubDescription` avec les informations d’identification WNS et le transmet à la méthode `CreateNotificationHub` de la classe `NamespaceManager`.
 
 ``` powershell
 
@@ -113,7 +113,7 @@ $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
 
-$WnsCredential = New-Object -TypeName Microsoft.ServiceBus.Notifications.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
+$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
 
 # Query the namespace
 $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
@@ -126,7 +126,7 @@ if ($CurrentNamespace)
     # Create the NamespaceManager object used to create a new notification hub
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
     Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-    $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
     Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 
     # Check to see if the Notification Hub already exists
@@ -137,7 +137,7 @@ if ($CurrentNamespace)
     else
     {
         Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
-        $NHDescription = New-Object -TypeName Microsoft.ServiceBus.Notifications.NotificationHubDescription -ArgumentList $Path;
+        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
         $NHDescription.WnsCredential = $WnsCredential;
         $NamespaceManager.CreateNotificationHub($NHDescription);
         Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
@@ -165,10 +165,10 @@ Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts
 [offres spéciales membres]: http://azure.microsoft.com/pricing/member-offers/
 [version d'évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
 [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell.md
-[API .NET pour Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API .NET pour Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

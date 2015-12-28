@@ -355,4 +355,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

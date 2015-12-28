@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="erikre"/>
 
 
@@ -218,7 +218,7 @@ Commencez par créer un simple modèle de données avec du code. Ce modèle de d
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier *Modèles*, puis sélectionnez **Ajouter** -> **Classe**. ![Sélectionner Classe](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png) La boîte de dialogue **Ajouter un nouvel élément** s’affiche.  
 
-2. Nommez cette nouvelle classe *Contacts.cs*. ![Boîte de dialogue Ajouter un nouvel élément](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
+2. Nommez cette nouvelle classe *Contacts.cs*, puis cliquez sur **Ajouter**. ![Boîte de dialogue Ajouter un nouvel élément](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. Remplacez le code par défaut par le code suivant :  
 
 		using System.ComponentModel.DataAnnotations;
@@ -389,8 +389,8 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
 
 3. Accédez à la [Console développeur de Google](https://console.developers.google.com/). Vous devez également vous connecter avec votre compte de messagerie de développeur Google (gmail.com). Si vous n’avez pas de compte Google, sélectionnez le lien **Créer un compte**. Vous accédez alors à **Google Developers Console**. ![Console développeur de Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)
 
-4. Cliquez sur le bouton **Create Project (Créer un projet)** et entrez un nom et un ID de projet (vous pouvez utiliser les valeurs par défaut). Cochez ensuite **case du contrat** et cliquez sur le bouton **Créer**. ![Google - Nouveau projet](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) En quelques secondes, le projet est créé et votre navigateur affiche la nouvelle page de projets.
-5. Sous l'onglet de gauche, cliquez sur **APIs & auth (API et authentification)**, puis cliquez sur **Credentials (Informations d'identification)**.
+4. Cliquez sur le bouton **Sélectionner un projet** > **Créer un projet** et entrez un nom et un ID de projet (vous pouvez utiliser les valeurs par défaut). Cochez ensuite **case du contrat** et cliquez sur le bouton **Créer**. ![Google - Nouveau projet](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) En quelques secondes, le projet est créé et votre navigateur affiche la nouvelle page de projets.
+5. Dans le menu déroulant de **Google Developers Console**, cliquez sur **Gestionnaire d’API**, puis sur **informations d’identification**.
 6. Cliquez sur **Créer un identifiant client** sous **OAuth**. La boîte de dialogue **Créer un identifiant client** s’affiche. ![Google - Créer un identifiant client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Dans la boîte de dialogue **Créer un identifiant client**, conservez le type d’application par défaut **Application Web**.  
 8. Pour **Origines JavaScript autorisées**, entrez l’URL SSL que vous avez utilisée précédemment dans ce didacticiel (****https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL). Cette URL est l'origine de votre application. Pour cet exemple, vous entrerez uniquement l'URL de test de l'hôte local (localhost). Vous pouvez cependant entrer plusieurs URL pour l’hôte local (localhost) et la production.
@@ -401,7 +401,7 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
 
 	Cette valeur est l’URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (****https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).
  
-10. Cliquez sur le bouton **Create Client ID (Créer un ID de client)**.
+10. Cliquez sur le bouton **Créer**.
 11. Dans Visual Studio, mettez à jour la méthode `UseGoogleAuthentication` de la page *Startup.Auth.cs* en copiant et collant les valeurs **AppId** et **App Secret** dans la méthode. Les valeurs **AppId** et **App Secret** indiquées ci-après sont de simples exemples et ne fonctionneront pas.  
 
 		using System;
@@ -638,7 +638,7 @@ Maintenant que l'application web est terminée, vous pouvez la publier sur Azure
 ###Publication de l'application 
 1. Dans Visual Studio, créez le projet (**Ctrl+Maj+B**).
 2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**. ![Option du menu Publier](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png) La boîte de dialogue **Publier le site Web** s’affiche. ![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. Sous l’onglet **Profil**, sélectionnez **Application web Azure** comme cible de publication, si cette option n’est pas déjà sélectionnée. ![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
+3. Sous l’onglet **Profil**, sélectionnez **Azure App Service** comme cible de publication, si cette option n’est pas déjà sélectionnée. ![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. Cliquez sur **Se connecter** si vous n'êtes pas encore connecté.
 5. Sélectionnez l’application Web que vous avez créée précédemment dans ce didacticiel à partir de la zone de liste déroulante **Applications web existantes**, puis cliquez sur le bouton **OK**. ![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms25.png) Si vous êtes invité à enregistrer les modifications apportées au profil, sélectionnez **Oui**.
 6. Cliquez sur l’onglet **Paramètres**. ![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
@@ -701,4 +701,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

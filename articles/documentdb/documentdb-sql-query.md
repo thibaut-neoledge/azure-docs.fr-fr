@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # Requête SQL dans DocumentDB
@@ -186,7 +186,7 @@ Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentd
 ## Principes de base d’une requête SQL DocumentDB
 Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée.
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -661,6 +661,37 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
 	    "isRegistered": true
 	}]
 
+###Opérateur TOP
+Le mot clé TOP peut être utilisé pour limiter le nombre de valeurs provenant d'une requête. Lorsque TOP est utilisé conjointement avec la clause ORDER BY, le jeu de résultats est limité aux N premières valeurs ordonnées ; sinon, il retourne les N premiers résultats dans un ordre non défini. En tant que meilleure pratique, dans une instruction SELECT, utilisez toujours une clause ORDER BY avec la clause TOP. Il s'agit de la seule façon d'indiquer de manière prévisible les lignes qui sont affectées par TOP.
+
+
+**Requête**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**Résultats**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+L’opérateur TOP peut être utilisé avec une valeur constante (comme indiqué ci-dessus) ou avec une valeur variable à l'aide de requêtes paramétrables. Pour plus d'informations, consultez les requêtes paramétrables ci-dessous.
+
 ## Clause ORDER BY
 Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur la clause Order by, consultez la [Procédure pas à pas relative à Order By de DocumentDB](documentdb-orderby.md).
 
@@ -1076,6 +1107,15 @@ Cette demande peut ensuite être envoyée à DocumentDB comme requête JSON para
         ] 
     }
 
+L'argument de l’opérateur TOP peut être défini à l'aide de requêtes paramétrables, comme indiqué ci-dessous.
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
+        ] 
+    }
+
 Les valeurs de paramètres peuvent être n'importe quel format JSON valide (chaînes, nombres, valeurs booléennes, null, même des tableaux ou des valeurs JSON imbriquées). De plus, comme DocumentDB est sans schéma, les paramètres ne sont pas validés par rapport à un type.
 
 ##Fonctions intégrées
@@ -1428,7 +1468,7 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
       "id": "WakefieldFamily"
     }]
 
-Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n’avez pas un index spatial pour les chemins d’accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
+Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n'avez pas un index spatial pour les chemins d'accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
 
 ST\_WITHIN peut être utilisé pour vérifier si un point se trouve dans un polygone. Généralement, les polygones sont utilisés pour représenter des limites comme les codes postaux, les frontières d'États ou les formations naturelles. Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les requêtes « within » seront servies efficacement dans l'index.
 
@@ -1449,7 +1489,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l’emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
+>[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
@@ -1602,6 +1642,22 @@ D'abord, pour le système de type, nous prenons en charge tous les types JSON pr
 		new Parent { familyName = "Smith", givenName = "Joe" };
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
+
+### Liste des opérateurs LINQ pris en charge
+Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inclus avec le Kit de développement logiciel .NET DocumentDB.
+
+-	**Select** : les projections sont traduites en SQL SELECT, y compris la construction d'objets
+-	**Where** : les filtres sont traduits en SQL WHERE et prennent en charge la traduction entre && , ||, ! vers les opérateurs SQL
+-	**SelectMany** : autorise le déroulement de tableaux vers la clause SQL JOIN. Peut être utilisé pour associer/imbriquer des expressions afin de filtrer les éléments de tableau
+-	**OrderBy et OrderByDescending** : se traduit par ORDER BY croissant ou décroissant :
+-	**CompareTo** : se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes car ils ne sont pas comparables dans .NET
+-	**Take** : se traduit par SQL TOP pour limiter les résultats provenant d'une requête
+-	**Math Functions** : prend en charge la traduction de .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan et Truncate vers les fonctions SQL intégrées équivalentes.
+-	**String Functions** : prend en charge la traduction de .NET’s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString et ToUpper vers les fonctions SQL intégrées équivalentes.
+-	**Array Functions** : prend en charge la traduction à partir de .NET’s Concat, Contains et Count pour les fonctions SQL intégrées équivalentes.
+-	**Geospatial Extension Functions** : prend en charge la traduction des méthodes stub Distance, Within, IsValid et IsValidDetailed vers les fonctions SQL intégrées équivalentes.
+-	**User Defined Function Extension Function** : prend en charge la traduction de la méthode stub UserDefinedFunctionProvider.Invoke vers la fonction définie par l’utilisateur correspondante.
+-	**Miscellaneous** : prend en charge la traduction des opérateurs conditionnels et coalesce. Peut traduire Contains en chaîne CONTAINS, ARRAY\_CONTAINS ou SQL IN, selon le contexte.
 
 ### Opérateurs de requête SQL
 Voici certains exemples illustrant comment certains des opérateurs de requête LINQ standard sont traduits en requêtes DocumentDB.
@@ -2088,4 +2144,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

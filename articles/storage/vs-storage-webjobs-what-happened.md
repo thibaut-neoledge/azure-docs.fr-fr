@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ? | Microsoft Azure"
-	description="Décrit ce qui s’est produit dans un projet de tâche web une fois que vous vous connectez à un compte de stockage à l’aide des services connectés de Visual Studio" 
+	description="Décrit ce qui s’est produit dans un projet de tâche web une fois que vous vous connectez à un compte de stockage à l’aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,15 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ?
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
-
 
 ## Références ajoutées
 
@@ -41,4 +36,4 @@ Dans le fichier App.config de votre projet, les entrées **AzureWebJobsStorage**
 
 Pour plus d’informations, consultez [Ressources Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->
