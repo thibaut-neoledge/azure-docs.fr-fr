@@ -32,7 +32,7 @@ La solution utilise deux sources de données différentes :
 - **jeu de données de diagnostic et de signaux des véhicules simulés** et 
 - **catalogue de véhicules**
 
-Un simulateur de télématique des véhicules est intégré à cette solution. Ce simulateur émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. Cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=717075) pour télécharger la **solution Vehicle Telematics Simulator Visual Studio** afin de la personnaliser en fonction de vos besoins. Le catalogue de véhicules contient un jeu de données de référence associé à un mappage VIN/modèle.
+Un simulateur de télématique des véhicules est intégré à cette solution. Ce simulateur émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. Cliquez sur [Vehicle Telematics Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) pour télécharger la **solution Vehicle Telematics Simulator Visual Studio** afin de la personnaliser en fonction de vos besoins. Le catalogue de véhicules contient un jeu de données de référence associé à un mappage VIN/modèle.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -130,7 +130,7 @@ La tâche Stream Analytics reçoit les données du composant Event Hub, effectue
 *Figure 7 - Requête de la tâche Stream Analytics pour l’ingestion de données*
 
 ### Analyse en mode batch
-Nous allons également générer un volume supplémentaire de signaux de véhicules simulés ainsi qu’un jeu de données de diagnostic pour permettre une analyse en mode batch approfondie. Cette étape est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela un pipeline nommé « PrepareSampleDataPipeline » dans le workflow Azure Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=717077) pour télécharger la solution Data Factory custom DotNet activity Visual Studio afin de la personnaliser en fonction de vos besoins.
+Nous allons également générer un volume supplémentaire de signaux de véhicules simulés ainsi qu’un jeu de données de diagnostic pour permettre une analyse en mode batch approfondie. Cette étape est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela un pipeline nommé « PrepareSampleDataPipeline » dans le workflow Azure Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Cliquez sur [Activité personnalisée Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) pour télécharger la solution Data Factory custom DotNet activity Visual Studio afin de la personnaliser en fonction de vos besoins.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -360,7 +360,7 @@ Figure 15 - Requête Stream Analytics pour le traitement en temps réel
 
 Toutes les moyennes sont calculées sur un TumblingWindow de 3 secondes. Nous utilisons TubmlingWindow dans ce cas car nous avons besoin d’intervalles de temps contigus et sans chevauchement.
 
-Pour en savoir plus sur les fonctionnalités de « fenêtrage » dans Azure Stream Analytics, cliquez [ici](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Pour en savoir plus sur les fonctionnalités de « fenêtrage » dans Azure Stream Analytics, cliquez sur [Fenêtrage (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Prédiction en temps réel**
 
@@ -375,7 +375,7 @@ Une application est incluse dans le cadre de la solution pour configurer le mod�
 
 Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez intégrer une application métier avec le flux d’analyse en temps réel pour des scénarios tels que les alertes, les notifications, la messagerie, etc.
 
-Cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations.
+Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations.
 
 **** Pour exécuter l’application de tableau de bord en temps réel **
 
@@ -696,4 +696,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

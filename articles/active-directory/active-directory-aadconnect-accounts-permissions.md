@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/02/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -122,4 +122,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

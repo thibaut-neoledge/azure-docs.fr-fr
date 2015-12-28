@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Automatisation de la protection entre un site local VMM et Azure à l’aide de PowerShell"
-	description="Automatisation du déploiement d'Azure Site Recovery à l'aide de PowerShell."
+	pageTitle="Réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide d'Azure Site Recovery et PowerShell | Microsoft Azure"
+	description="Découvrez comment automatiser la réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide de Site Recovery et PowerShell."
 	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-#  Déploiement d'Azure Site Recovery avec PowerShell
-Windows PowerShell® est un interpréteur de ligne de commande et un langage de script basé sur des tâches, conçu spécialement pour l'administration système. L'utilisation d'applets de commande PowerShell pour Azure Site Recovery est prise en charge entre un site Hyper-V géré par VMM et Azure.
+# Réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide d'Azure Site Recovery et PowerShell
 
-## Vue d'ensemble
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles dans divers scénarios de déploiement. Pour obtenir la liste complète des scénarios de déploiement, consultez la [Vue d'ensemble d'Azure Site Recovery](site-recovery-overview.md).
+## Vue d’ensemble
 
-Cet article vous montre comment utiliser PowerShell pour automatiser les tâches courantes de déploiement d'Azure Site Recovery, y compris l’orchestration et l’automatisation de la protection des charges de travail exécutées sur des machines virtuelles, sur des serveurs hôtes Hyper-V situés dans des clouds privés VMM. Dans ce scénario, les machines virtuelles sont répliquées d'un site VMM principal vers Azure à l'aide de Hyper-V Replica.
+Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles dans divers scénarios de déploiement. Pour obtenir la liste complète des scénarios de déploiement, consultez la [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
+
+Cet article vous montre comment utiliser PowerShell pour automatiser les tâches courantes à effectuer lorsque vous configurez Azure Site Recovery pour répliquer des machines virtuelles Hyper-V dans des clouds System Center VMM vers le stockage Azure.
 
 L’article indique les conditions prérequises pour le scénario et montre comment configurer un coffre Récupération de sites, installer le fournisseur Azure Site Recovery sur le serveur VMM source, inscrire le serveur dans le coffre, ajouter un compte de stockage Azure, installer l'agent Azure Recovery Services sur les serveurs hôtes Hyper-V, configurer les paramètres de protection des clouds VMM qui seront appliqués à toutes les machines virtuelles protégées, puis activer la protection pour ces machines virtuelles. Pour finir, vous pourrez tester le basculement pour vous assurer que tout fonctionne comme prévu.
 
-Si vous rencontrez des problèmes pour mettre en œuvre ce scénario, posez vos questions sur le [Forum Azure Recovery Services](http://go.microsoft.com/fwlink/?LinkId=313628).
+Si vous rencontrez des problèmes pour mettre en œuvre ce scénario, posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Avant de commencer
 
 Assurez-vous que les conditions préalables sont remplies :
+
 ### Conditions préalables pour Azure
 
-- Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Si vous n'en possédez pas, commencez avec une [version d'évaluation gratuite](http://aka.ms/try-azure). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](http://go.microsoft.com/fwlink/?LinkId=378268).
-- Vous aurez besoin d'un compte de stockage Azure pour stocker les données répliquées dans Azure. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Pour en savoir plus sur la configuration du stockage Azure, consultez la page [Introduction à Microsoft Azure Storage](http://go.microsoft.com/fwlink/?LinkId=398704).
-- Vous devez vous assurer que les machines virtuelles que vous souhaitez protéger sont conformes aux exigences Azure. Pour plus d'informations, consultez la section [Prise en charge des machines virtuelles](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A).
+- Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer par une version d’[essai gratuit](pricing/free-trial/).
+- Vous aurez besoin d’un compte de stockage Azure pour stocker les données répliquées. La géo-réplication doit être activée pour ce compte. Il doit se trouver dans la même région que le coffre Azure Site Recovery et être associé au même abonnement. [En savoir plus sur Azure Storage](../storage/storage-introduction.md).
+- Vous devez vous assurer que les machines virtuelles que vous souhaitez protéger sont conformes à la [configuration requise pour les machines virtuelle Azure](site-recovery-best-practices.md#virtual-machines).
 
 ### Configuration requise pour VMM
 - Vous aurez besoin d'un serveur VMM exécuté sur System Center 2012 R2.
-- Tout serveur VMM contenant des machines virtuelles à protéger doit exécuter le fournisseur Azure Site Recovery. Celui-ci est installé lors du déploiement d'Azure Site Recovery.
 - Vous aurez besoin d'au moins un cloud sur le serveur VMM que vous souhaitez protéger. Le coud doit contenir :
 	- un ou plusieurs groupes hôtes VMM ;
 	- un ou plusieurs serveurs hôtes Hyper-V ou clusters dans chaque groupe hôte ;
 	- une ou plusieurs machines virtuelles sur le serveur Hyper-V source.
-- Pour en savoir plus sur la configuration des clouds VMM :
-	- Lisez la documentation sur les clouds privés VMM dans les sections [Nouveautés sur le cloud privé dans System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) et [VMM 2012 et les clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
-	- En savoir plus sur la [Configuration de l'infrastructure de cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- Une fois vos éléments d'infrastructure de cloud en place, consultez la documentation sur la création de clouds privés dans les sections [Création d'un cloud privé dans VMM](http://go.microsoft.com/fwlink/?LinkId=324953) et [Procédure pas à pas : création de clouds privés avec System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/?LinkId=324954).
 
 ### Conditions préalables liées à Hyper-V
 
 - Les serveurs hôtes Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.
-- Si vous utilisez Hyper-V dans un cluster, notez que le service Broker du cluster n'est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. Pour obtenir des instructions, consultez la section [Configurer le service Broker de réplication Hyper-V](http://go.microsoft.com/fwlink/?LinkId=403937).
+- Si vous utilisez Hyper-V dans un cluster, notez que le service Broker du cluster n'est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. Pour ce faire, dans le Gestionnaire de serveur > Gestionnaire du cluster de basculement, connectez-vous au cluster, cliquez sur **Configurer un rôle** et sélectionnez **Service Broker de réplication Hyper-V** dans l'écran **Sélectionner un rôle** de l'Assistant Haute disponibilité. 
 - Tout cluster ou serveur hôte Hyper-V pour lequel vous souhaitez gérer la protection doit être inclus dans un cloud VMM.
 
 ### Conditions préalables liées au mappage réseau
@@ -68,15 +64,12 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 
 - Les machines virtuelles que vous souhaitez protéger sur le serveur VMM source doivent être connectées à un réseau de machines virtuelles. Ce réseau doit être lié à un réseau logique lui-même associé au cloud.
 - Un réseau Azure auquel les machines virtuelles répliquées peuvent se connecter après le basculement. Vous sélectionnerez ce réseau au moment du basculement. Le réseau doit être dans la même région que votre abonnement Azure Site Recovery.
-- En savoir plus sur le mappage réseau :
-	- [Configuration de la mise en réseau logique dans VMM](http://go.microsoft.com/fwlink/?LinkId=386307)
-	- [Configuration de réseaux de machines virtuelles et de passerelles dans VMM](http://go.microsoft.com/fwlink/?LinkId=386308)
-	- [Configurer et analyser des réseaux virtuels dans Azure](http://go.microsoft.com/fwlink/?LinkId=402555)
+- [En savoir plus](site-recovery-network-mapping.md) sur le mappage réseau :
 
 ###Conditions préalables pour PowerShell
-Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d’informations sur la configuration de PowerShell, consultez la section [Installation et configuration d’Azure PowerShell](powershell-install-configure.md). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
+Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](powershell-install-configure.md). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
 
-Pour obtenir des conseils sur l’utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Pour obtenir des conseils sur l'utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## Étape 1 : Définition de l’abonnement 
 
@@ -315,9 +308,9 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 
 Dès lors que les serveurs, les clouds et les réseaux ont été configurés correctement, vous pouvez activer la protection pour les machines virtuelles du cloud. Notez les points suivants :
 
-Les machines virtuelles doivent répondre aux exigences liées à Azure. Pour en savoir plus sur ces dernières, consultez la page <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Configuration requise et prise en charge</a> dans le guide de planification.
+Les machines virtuelles doivent répondre à la [configuration requise pour les machines virtuelles Azure](site-recovery-best-practices.md#virtual-machines).
 
-Pour activer la protection, vous devez définir les propriétés du système d'exploitation et du disque du système d'exploitation pour la machine virtuelle. Lorsque vous créez une machine virtuelle dans VMM à l'aide d'un modèle de machine virtuelle, vous pouvez définir la propriété. Vous pouvez également définir ces propriétés pour des machines virtuelles existantes dans les onglets **Général** et **Configuration matérielle** des propriétés de la machine virtuelle. Si vous ne définissez pas ces propriétés dans VMM, vous pourrez les configurer dans le portail Azure Site Recovery.
+Pour activer la protection, vous devez définir les propriétés du système d'exploitation et du disque du système d'exploitation pour la machine virtuelle. Lorsque vous créez une machine virtuelle dans VMM à l'aide d'un modèle de machine virtuelle, vous pouvez définir la propriété. Vous pouvez également définir ces propriétés pour des machines virtuelles existantes sous les onglets **Général** et **Configuration matérielle** des propriétés de la machine virtuelle. Si vous ne définissez pas ces propriétés dans VMM, vous pourrez les configurer dans le portail Azure Site Recovery.
 
 
 	
@@ -452,13 +445,8 @@ if($isJobLeftForProcessing)
 ```
 
 
-##<a id="next" name="next" href="#next"></a>Étapes suivantes
-<UL>
+## Étapes suivantes
 
-<LI>Pour plus d'informations sur les applets de commande PowerShell d’Azure Site Recovery, consultez l'article<a href="https://msdn.microsoft.com/library/dn850420.aspx"> ici</a>.
+[Découvrez plus](https://msdn.microsoft.com/library/dn850420.aspx) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
 
-<LI>Pour planifier et déployer Azure Site Recovery dans un environnement de production complet, consultez le <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guide de planification d'Azure Site Recovery</a> et le <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guide de déploiement d'Azure Site Recovery</a>.</LI>
-
-<LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

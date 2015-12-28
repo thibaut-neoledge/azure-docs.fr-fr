@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées vers des appareils iOS
@@ -23,9 +23,9 @@
 - [iOS](notification-hubs-ios-send-localized-breaking-news)
 
 
-##Vue d'ensemble
+##Vue d’ensemble
 
-Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
+Cette rubrique montre comment utiliser la fonctionnalité de [modèles](notification-hubs-templates.md) d’Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Dans ce didacticiel, vous commencez avec l’application iOS que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
 
 
 Ce scénario comporte deux parties :
@@ -40,7 +40,7 @@ Ce scénario comporte deux parties :
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code.
 
-Vous avez également besoin de Visual Studio 2012.
+Visual Studio 2012 ou une version ultérieure est facultative.
 
 
 
@@ -66,14 +66,14 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
 		}
 	}
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs]. Vous trouverez une référence pour le langage d'expression des modèles dans [Procédure : Service Bus Notification Hubs (applications iOS)].
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d’informations en lisant notre article [Modèles](notification-hubs-templates.md).
 
 ##Interface utilisateur de l’application
 
 Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
 
 
-Dans votre MainStoryboard\_iPhone.storyboard, ajoutez un contrôle segmenté avec les trois langues que nous prenons en charge : anglais, français et mandarin.
+Dans votre MainStoryboard\_iPhone.storyboard, ajoutez un contrôle segmenté avec les trois langues que nous prendrons en charge : anglais, français et mandarin.
 
 ![][13]
 
@@ -83,7 +83,6 @@ Puis, assurez-vous d’ajouter un IBOutlet dans votre ViewController.h comme ind
 
 ##Création de l’application iOS
 
-Pour adapter vos applications clientes afin qu'elles puissent recevoir des messages localisés, vous devez remplacer vos inscriptions *natives* (c.-à-d. les inscriptions qui ne spécifient pas de modèle) par des inscriptions avec modèle.
 
 1. Dans Notification.h, ajoutez la méthode *retrieveLocale*, puis modifiez le magasin et les méthodes d'abonnement comme indiqué :
 
@@ -126,12 +125,12 @@ Pour adapter vos applications clientes afin qu'elles puissent recevoir des messa
 
 		    NSString* template = [NSString stringWithFormat:@"{"aps":{"alert":"$(News_%@)"},"inAppMessage":"$(News_%@)"}", localeString, localeString];
 
-		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"newsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
+		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
 	Remarquez que nous utilisons à présent la méthode *registerTemplateWithDeviceToken* au lieu de *registerNativeWithDeviceToken*. Lorsque nous nous abonnons à un modèle, nous devons fournir le modèle json ainsi qu'un nom pour le modèle (car notre application peut vouloir s'abonner à différents modèles). Assurez-vous d'abonner vos catégories sous la forme de balises, car nous voulons nous assurer de recevoir les notifications pour ces nouvelles.
 
-	Enfin, ajoutez une méthode pour extraire les paramètres régionaux des paramètres utilisateur par défaut :
+	Ajoutez une méthode pour extraire les paramètres régionaux des paramètres utilisateur par défaut :
 
 		- (int) retrieveLocale {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -141,7 +140,7 @@ Pour adapter vos applications clientes afin qu'elles puissent recevoir des messa
 		    return locale < 0?0:locale;
 		}
 
-3. Maintenant que nous avons modifié notre classe Notifications, nous devons nous assurer que notre paramètre ViewController utilise le nouveau paramètre UISegmentControl. Ajoutez la ligne suivante dans la méthode *viewDidLoad* pour garantir l'affichage des paramètres régionaux actuellement sélectionnés :
+2. Maintenant que nous avons modifié notre classe Notifications, nous devons nous assurer que notre paramètre ViewController utilise le nouveau paramètre UISegmentControl. Ajoutez la ligne suivante dans la méthode *viewDidLoad* pour garantir l'affichage des paramètres régionaux actuellement sélectionnés :
 
 		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
@@ -158,19 +157,90 @@ Pour adapter vos applications clientes afin qu'elles puissent recevoir des messa
 	        }
 	    }];
 
-4. Enfin, vous devez mettre à jour la méthode *didRegisterForRemoteNotificationsWithDeviceToken* dans votre AppDelegate.m afin que vous puissiez correctement actualiser votre abonnement lorsque votre application démarre. Modifiez votre appel sur la méthode *subscribe* de notifications comme suit :
+3. Enfin, vous devez mettre à jour la méthode *didRegisterForRemoteNotificationsWithDeviceToken* dans votre AppDelegate.m afin que vous puissiez correctement actualiser votre abonnement lorsque votre application démarre. Modifiez votre appel sur la méthode *subscribe* de notifications comme suit :
 
-		NSSet* categories = [notifications retrieveCategories];
-	    int locale = [notifications retrieveLocale];
-	    [notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
+		NSSet* categories = [self.notifications retrieveCategories];
+	    int locale = [self.notifications retrieveLocale];
+	    [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
 	        if (error != nil) {
 	            NSLog(@"Error registering for notifications: %@", error);
 	        }
 	    }];
 
-##Envoi de notifications localisées à partir de votre serveur principal
+##(facultatif) Envoyer des notifications de modèle localisé à partir de l’application console .NET.
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
+
+
+
+##(facultatif) Envoyer des notifications de modèle localisé à partir de l’appareil
+
+Si vous n’avez pas accès à Visual Studio ou si vous souhaitez simplement essayer d’envoyer les notification de modèle localisé directement depuis l’application sur votre appareil. Vous pouvez simplement ajouter les paramètres de modèle localisé à la méthode `SendNotificationRESTAPI` que vous avez défini précédemment, dans le didacticiel.
+
+		- (void)SendNotificationRESTAPI:(NSString*)categoryTag
+		{
+		    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+									 defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+
+		    NSString *json;
+
+		    // Construct the messages REST endpoint
+		    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+		                                       HUBNAME, API_VERSION]];
+
+		    // Generated the token to be used in the authorization header.
+		    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+
+		    //Create the request to add the template notification message to the hub
+		    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+		    [request setHTTPMethod:@"POST"];
+
+		    // Add the category as a tag
+		    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+
+			// Template notification
+	        json = [NSString stringWithFormat:@"{"messageParam":"Breaking %@ News : %@","
+					"News_English":"Breaking %@ News in English : %@","
+					"News_French":"Breaking %@ News in French : %@","
+					"News_Mandarin":"Breaking %@ News in Mandarin : %@","
+	                categoryTag, self.notificationMessage.text,
+	                categoryTag, self.notificationMessage.text,  // insert English localized news here
+	                categoryTag, self.notificationMessage.text,  // insert French localized news here
+	                categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
+
+	        // Signify template notification format
+	        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+
+			// JSON Content-Type
+			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+		    //Authenticate the notification message POST request with the SaS token
+		    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+
+		    //Add the notification message body
+		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+
+		    // Send the REST request
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+		               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+	           {
+	           NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+	               if (error || httpResponse.statusCode != 200)
+	               {
+	                   NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+	               }
+	               if (data != NULL)
+	               {
+	                   //xmlParser = [[NSXMLParser alloc] initWithData:data];
+	                   //[xmlParser setDelegate:self];
+	                   //[xmlParser parse];
+	               }
+	           }];
+
+		    [dataTask resume];
+		}
+
+
 
 
 ## Étapes suivantes
@@ -179,9 +249,6 @@ Pour plus d’informations sur l’utilisation des modèles, consultez :
 
 - [Notification des utilisateurs avec Notification Hubs : ASP.NET]
 - [Notification des utilisateurs avec Notification Hubs : Mobile Services]
-- [Recommandations relatives à Notification Hubs]
-
-Une référence relative à la langue d'expression du modèle se trouve dans [Notification Hubs, procédure pour iOS].
 
 
 
@@ -199,7 +266,7 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 
 
 <!-- URLs. -->
-[Procédure : Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-ios
 [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
@@ -218,7 +285,7 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs, procédure pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

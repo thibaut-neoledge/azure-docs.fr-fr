@@ -161,7 +161,7 @@ Vous pouvez ensuite utiliser le fichier .pem du portail classique ou avec le mod
 
 ## Connexion à votre machine virtuelle
 
-La commande **ssh** utilise un nom d'utilisateur pour ouvrir une session, l'adresse réseau de l'ordinateur, et le port auquel se connecter à l'adresse, ainsi que de nombreuses autres variations spéciales. (Pour plus d'informations sur **ssh**, vous pouvez commencer [ici](https://en.wikipedia.org/wiki/Secure_Shell))
+La commande **ssh** utilise un nom d'utilisateur pour ouvrir une session, l'adresse réseau de l'ordinateur, et le port auquel se connecter à l'adresse, ainsi que de nombreuses autres variations spéciales. (Pour plus d’informations sur **ssh**, consultez cet [article sur Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell))
 
 Une utilisation typique avec le déploiement du gestionnaire de ressources peut ressembler à ce qui suit, si vous avez spécifié simplement un sous-domaine et un emplacement de déploiement :
 
@@ -298,4 +298,4 @@ Vous pouvez lire les suggestions de la rubrique [Dépannage SSH connexions](virt
  
 Maintenant que vous êtes connecté à votre machine virtuelle, veillez à mettre à jour la distribution que vous avez choisie avant de continuer à l'utiliser.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

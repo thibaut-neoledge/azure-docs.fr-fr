@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Prise en main du stockage de files d'attente et des services connectés Visual Studio (projets WebJob) | Microsoft Azure"
 	description="Comment commencer à utiliser le stockage de files d'attente Azure dans un projet WebJob après la connexion à un compte Azure Storage à l'aide des services connectés Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
 ## Vue d’ensemble
 
-Cet article explique comment prendre en main le stockage de files d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
+Cet article explique comment prendre en main le stockage de files d'attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d'Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
 Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
 
@@ -552,4 +543,4 @@ Dans une table Azure, les journaux **Console.Out** et **Console.Error** ressembl
 
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

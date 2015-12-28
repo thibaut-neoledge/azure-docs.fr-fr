@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD | Microsoft Azure"
-   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
+   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Microsoft Azure AD | Microsoft Azure"
+   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Microsoft Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/02/2015"
+   ms.date="12/16/2015"
    ms.author="shoatman;billmath"/>
 
-# Mise à niveau de la synchronisation Windows Azure Active Directory (DirSync) vers Azure AD Connect
+# Mise à niveau de la synchronisation Microsoft Azure Active Directory (DirSync) vers Azure AD Connect
 
 Cette documentation vous aidera à mettre à niveau votre installation DirSync existante vers Azure AD Connect.
 
@@ -56,16 +56,15 @@ Les modifications de configuration suivantes sont prises en charge avec DirSync 
 - Autre ID (UPN)
 - Synchronisation de mot de passe et paramètres hybrides d'Exchange
 - Vos paramètres domaine/forêt et Azure AD
+- Filtrage basé sur les attributs de l'utilisateur
 
 Les modifications suivantes ne peuvent pas être mises à niveau. Si vous avez apporté ces modifications, la mise à niveau sera bloquée.
 
 ![Blocage de la mise à niveau](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-Dans ces cas, il est recommandé d'installer un nouveau serveur Azure AD Connect en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) et de vérifier l'ancienne configuration de DirSync et la nouvelle configuration d'Azure AD Connect. Appliquez de nouveau les éventuelles modifications à l'aide de la configuration personnalisée, comme décrit dans [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md).
-
+Dans ces cas, il est recommandé d’installer un nouveau serveur Azure AD Connect en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) et de vérifier l’ancienne configuration de DirSync et la nouvelle configuration d’Azure AD Connect. Appliquez de nouveau les éventuelles modifications à l’aide de la configuration personnalisée, comme décrit dans [Azure AD Connect Sync : configuration personnalisée](active-directory-aadconnectsync-whatis.md).
 
 - Modifications de DirSync non prises en charge, par exemple : attributs supprimés et utilisation d'une DLL d'extension personnalisée
-- Filtrage basé sur les attributs de l'utilisateur
 
 Les mots de passe utilisés par DirSync pour les comptes de service ne peuvent pas être récupérés et ne seront pas migrés. Ces mots de passe seront réinitialisés lors de la mise à niveau.
 
@@ -170,8 +169,8 @@ Une fois ces 4 opérations effectuées, sans erreur, et si vous êtes satisfait 
 
 ### Désinstallation de DirSync (ancien serveur)
 
-- Dans **Programmes et fonctionnalités**, recherchez l'**outil de synchronisation Windows Azure Active Directory**
-- Désinstallez l'**outil de synchronisation Windows Azure Active Directory**
+- Dans **Programmes et fonctionnalités**, recherchez l'**outil de synchronisation Microsoft Azure Active Directory**
+- Désinstallez l'**outil de synchronisation Microsoft Azure Active Directory**
 - Notez que la désinstallation peut prendre jusqu'à 15 minutes.
 
 Une fois DirSync désinstallé, aucun serveur actif n'exporte vers Azure AD. L'étape suivante doit être terminée pour que les modifications dans votre Active Directory local continuent à être synchronisées avec Azure AD.
@@ -198,4 +197,4 @@ Notez que, lorsqu'Azure AD Connect est installé, vous pouvez [vérifier l'insta
 
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

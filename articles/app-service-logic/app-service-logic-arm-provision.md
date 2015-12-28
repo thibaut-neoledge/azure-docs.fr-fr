@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="tomfitz"/>
 
 # Créer une application logique à l'aide d'un modèle
@@ -133,7 +133,7 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Interface de ligne de commande Azure
 
@@ -142,4 +142,4 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Livraison continue avec Git et Visual Studio Team Services dans Azure" 
+	pageTitle="Livraison continue avec Git et Visual Studio Team Services dans Azure | Microsoft Azure" 
 	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin d’utiliser Git pour les générer et les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git
 
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

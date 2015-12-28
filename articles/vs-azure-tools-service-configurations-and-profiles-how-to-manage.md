@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Gestion des configurations de service et des profils"
+   pageTitle="Gestion des configurations de service et des profils | Microsoft Azure"
    description="Découvrez comment utiliser les configurations de service et les fichiers de configuration de profils | qui stockent les paramètres pour les environnements de déploiement et comment publier les paramètres pour les services cloud."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Gestion des configurations de service et des profils
 
@@ -131,4 +131,4 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 Pour en savoir plus sur la configuration des autres parties de votre projet Azure à partir de Visual Studio, consultez [Configuration d'un projet Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

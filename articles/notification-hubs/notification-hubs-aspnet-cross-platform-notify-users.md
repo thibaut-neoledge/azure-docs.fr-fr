@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
@@ -88,9 +88,6 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 
 +  **[Vue d'ensemble d'Azure Notification Hubs][Templates]**<br/>Rubrique générale offrant des informations plus détaillées sur les modèles.
 
-+  **[Procédures Notification Hubs pour Windows Store]**<br/>Fait notamment référence au langage d'expression de modèles.
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Procédures Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

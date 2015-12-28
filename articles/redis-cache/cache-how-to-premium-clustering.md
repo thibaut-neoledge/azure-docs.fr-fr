@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # Comment configurer le clustering Redis pour un Cache Redis Azure Premium
@@ -78,6 +78,16 @@ Une fois le cache créé, vous vous y connectez et l’utilisez tout comme un ca
 	    }
 	}
 
+## Ajout ou suppression de partitions d’un cache de niveau Premium en cours d’exécution
+
+Pour ajouter ou supprimer des partitions d’un cache de niveau Premium en cours d’exécution avec clustering activé, cliquez sur **Taille du cluster Redis (version préliminaire)** dans le panneau **Paramètres**.
+
+>[AZURE.NOTE]Notez que si le niveau Premium du cache Redis Azure a été publié en disponibilité générale, la fonctionnalité Taille du cluster Redis est actuellement en version préliminaire.
+
+![Taille du cluster Redis][redis-cache-redis-cluster-size]
+
+Pour modifier le nombre de partitions, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**, puis cliquez sur **OK** pour enregistrer.
+
 ## Forum aux questions sur le clustering
 
 La liste suivante présente différentes réponses aux questions les plus fréquemment posées sur le clustering du Cache Redis Azure.
@@ -103,7 +113,7 @@ Pour plus d'informations, consultez [Modèle de distribution de clés](http://re
 
 ## Quelle est la taille de cache la plus grande que je peux créer ?
 
-La plus grande taille de cache Premium est 53 Go. Vous pouvez créer jusqu’à 10 partitions, ce qui donne une taille maximale de 530 Go. Si vous avez besoin d'une plus grande taille, vous pouvez en [faire la demande](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Pour plus d'informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).
+La plus grande taille de cache Premium est 53 Go. Vous pouvez créer jusqu’à 10 partitions, ce qui donne une taille maximale de 530 Go. Si vous avez besoin d'une plus grande taille, vous pouvez en [faire la demande](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Pour plus d’informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 ## Tous les clients Redis prennent-ils en charge le clustering ?
 
@@ -131,7 +141,7 @@ Avec SSL, remplacez `1300N` par `1500N`.
 
 ## Puis-je configurer le clustering pour un cache créé précédemment ?
 
-Pour le moment, vous pouvez activer et configurer le clustering uniquement quand vous créez un cache.
+Pour le moment, vous pouvez activer le clustering uniquement quand vous créez un cache. Vous pouvez modifier le nombre de partitions une fois le cache créé, mais vous ne pouvez pas ajouter un clustering à un cache de niveau Premium ou supprimer le clustering d'un cache de niveau premium une fois le cache créé. Un cache de niveau Premium avec clustering activé et une seule partition est différent d'un cache de niveau Premium de la même taille mais sans clustering.
 
 ## Puis-je configurer le clustering pour un cache De base ou Standard ?
 
@@ -140,7 +150,7 @@ Le clustering est disponible uniquement pour les caches de niveau Premium.
 ## Puis-je utiliser le clustering avec les fournisseurs d’état de session ASP.NET Redis et de mise en cache de la sortie ?
 
 -	**Fournisseur de caches de sortie Redis** : aucune modification requise.
--	**Fournisseur d'état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.0 ou ultérieure, sans quoi une exception est levée. Il s'agit d'une modification avec rupture. Pour plus d'informations, consultez [Détails de la modification avec rupture pour la version v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Fournisseur d'état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.0 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ## Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
@@ -166,4 +176,6 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1210_2015-->
+[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!---HONumber=AcomDC_1217_2015-->

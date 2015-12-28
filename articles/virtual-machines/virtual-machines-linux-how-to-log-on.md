@@ -14,22 +14,19 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
-
-
 
 
 #Connexion à une machine virtuelle exécutant Linux #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
-Pour une machine virtuelle exécutant un système d'exploitation Linux, vous devez utiliser un client SSH (Secure Shell) pour vous connecter.
-
 Installez un client SSH sur l’ordinateur utilisé pour vous connecter à la machine virtuelle. Vous pouvez opérer votre choix parmi de nombreux clients SSH, dont :
 
 - Si vous utilisez un ordinateur qui exécute un système d’exploitation Windows, vous pouvez utiliser un client SSH tel que PuTTY. Pour plus d’informations, consultez la page [Téléchargement PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- Si vous utilisez un ordinateur qui exécute un système d’exploitation Linux, vous pouvez utiliser un client SSH tel que OpenSSH. Pour plus d’informations, consultez la page [OpenSSH](http://www.openssh.org/).
+- Pour une machine virtuelle exécutant un système d’exploitation Linux, utilisez un client SSH (Secure Shell) pour ouvrir une session. La grande majorité des distribution sont, par défaut, dotées de cette fonctionnalité. Consultez la page [comment utiliser SSH](virtual-machines-linux-use-ssh-key.md) pour plus d’informations sur Linux.
+
 
 >[AZURE.NOTE]Pour obtenir des conseils concernant les exigences et le dépannage, consultez [Connexion d’une machine virtuelle Azure à l’aide de RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294)-.
 
@@ -56,4 +53,4 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 <!-- LINKS -->
 [Réinitialisation d’un mot de passe ou SSH pour les machines virtuelles Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

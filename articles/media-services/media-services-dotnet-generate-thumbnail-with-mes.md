@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
 Les considérations suivantes s'appliquent :
 
 - L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-- Les éléments Jpg/Png/BmpVideo possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit selon leur format :
+- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
 	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
 	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
@@ -383,4 +383,4 @@ Les considérations suivantes s'appliquent :
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

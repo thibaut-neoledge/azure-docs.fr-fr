@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP réservées
@@ -41,7 +41,7 @@ Pour empêcher la modification des adresses IP, vous pouvez réserver une adress
 
 Avant de pouvoir utiliser une adresse IP réservée, vous devez l'ajouter à votre abonnement. Pour créer une adresse IP réservée à partir du pool d'adresses IP publiques disponibles dans la région *Centre des États-Unis*, exécutez la commande PowerShell suivante :
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
 
@@ -67,7 +67,7 @@ Une fois une adresse IP réservée, elle reste associée à votre abonnement jus
 ## Association d’une adresse IP réservée à un service cloud
 Le script ci-dessous crée une adresse IP réservée, puis l’associe à un nouveau service cloud nommé *TestService*.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

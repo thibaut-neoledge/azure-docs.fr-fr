@@ -264,10 +264,13 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 - Incluez uniquement vos disques durs. N’incluez pas d’accessoires tels que des câbles d’alimentation ou USB.
 
 
+## Voir aussi
+
+[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # Utilisation de PowerShell pour gérer des ressources Service Bus et des concentrateurs d'événements
@@ -24,9 +24,9 @@ Microsoft Azure PowerShell est un environnement de création de scripts vous per
 
 Avant de débuter, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement], les [offres spéciales membres] ou la [version d'évaluation gratuite].
+- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][], les [offres spéciales membres][] ou la [version d'évaluation gratuite][].
 
-- Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell].
+- Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
 
 - Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
@@ -253,14 +253,16 @@ Pour créer une file d'attente ou une rubrique, effectuez une vérification de l
 
 ## Étapes suivantes
 
-Cet article fournit une présentation générale de l'approvisionnement des entités de Service Bus à l'aide de PowerShell. Bien qu'il existe un nombre limité d'applets de commande PowerShell disponibles pour gérer les entités de messagerie Service Bus, en référençant l'assembly Microsoft.ServiceBus.dll, pratiquement toutes les opérations que vous pouvez effectuer à l'aide des bibliothèques clientes .NET peuvent également être effectuées dans un script PowerShell.
+Cet article comporte une présentation générale de l’approvisionnement des entités de Service Bus à l’aide de PowerShell. Bien qu'il existe un nombre limité d'applets de commande PowerShell disponibles pour gérer les entités de messagerie Service Bus, en référençant l'assembly Microsoft.ServiceBus.dll, pratiquement toutes les opérations que vous pouvez effectuer à l'aide des bibliothèques clientes .NET peuvent également être effectuées dans un script PowerShell.
 
-Vous trouverez d'autres exemples détaillés sur ces billets de blog :
+Vous trouverez d’autres exemples détaillés dans ces billets de blog :
 
 - [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts PowerShell Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Vous pouvez également télécharger des scripts prêts à l’emploi :
+
+- [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET pour Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API .NET pour Service Bus]: https://msdn.microsoft.com/fr-FR/library/azure/mt419900.aspx
 [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="Découvrez comment utiliser Cloud Explorer pour rechercher et gérer des ressources Azure dans Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Gestion des ressources Azure avec Cloud Explorer
 
@@ -95,4 +95,4 @@ Pour trouver des ressources portant un nom spécifique dans les abonnements de v
 
 Lorsque vous entrez des caractères dans la zone de recherche, seules les ressources qui correspondent à ces caractères apparaissent dans l'arborescence de ressources.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -25,7 +25,7 @@
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application iOS. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
-Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs].
+Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-routing-tag-expressions.md).
 
 
 ##Composants requis
@@ -64,6 +64,8 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		@property NSData* deviceToken;
 
+		- (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName;
+
 		- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*)categories
 					completion:(void (^)(NSError* error))completion;
 
@@ -75,7 +77,17 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
-6. Copiez le code suivant dans la section d’implémentation du fichier Notifications.m et remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du concentrateur de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
+6. Copiez le code suivant dans la section d’implémentation du fichier Notifications.m.
+
+	    SBNotificationHub* hub;
+
+		- (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName{
+
+		    hub = [[SBNotificationHub alloc] initWithConnectionString:listenConnectionString
+										notificationHubPath:hubName];
+
+			return self;
+		}
 
 		- (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -97,32 +109,32 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		- (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
 		{
-		    SBNotificationHub* hub = [[SBNotificationHub alloc]
-										initWithConnectionString:@"<connection string with listen access>"
-										notificationHubPath:@"<hub name>"];
+		   //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
 
-		    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
+			NSString* templateBodyAPNS = @"{"aps":{"alert":"$(messageParam)"}}";
+
+			[hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
+				jsonBodyTemplate:templateBodyAPNS expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
 
 
-	Cette classe utilise le stockage local pour stocker et récupérer les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également une méthode pour s’inscrire à ces catégories.
-
-	> [AZURE.NOTE]Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
+	Cette classe utilise le stockage local pour stocker et récupérer les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également une méthode pour s’inscrire à ces catégories à l’aide de l’inscription de [modèle](notification-hubs-templates.md).
 
 7. Dans le fichier AppDelegate.h, ajoutez une instruction import pour Notifications.h et une propriété pour une instance de la classe Notifications :
 
 		#import "Notifications.h"
 
 		@property (nonatomic) Notifications* notifications;
+	
 
-	Cela permet de créer une instance singleton de la classe Notification dans AppDelegate.
+8. Dans la méthode **didFinishLaunchingWithOptions** du fichier AppDelegate.m, ajoutez ce code pour initialiser l’instance de notifications au début de la méthode.
+ 
+	Dans `HUBNAME` et `HUBLISTENACCESS` (définis dans hubinfo.h), le nom du hub de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenus précédemment doivent avoir remplacé les espaces réservés `<hub name>` et `<connection string with listen access>`.
 
-8. Dans la méthode **didFinishLaunchingWithOptions** du fichier AppDelegate.m, ajoutez ce code pour initialiser l’instance de notifications au début de la méthode :
+		self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
 
-		self.notifications = [[Notifications alloc] init];
-
-	Ce dernier initialise le singleton Notification.
+	> [AZURE.NOTE]Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
 
 9. Dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** du fichier AppDelegate.m, remplacez le code de la méthode par le code suivant pour transmettre le jeton d’appareil à la classe Notifications. La classe Notifications effectue l’enregistrement pour les notifications avec les catégories. Si l’utilisateur modifie les sélections de catégorie, nous appelons la méthode `subscribeWithCategories` en réponse au bouton **S’abonner** pour mettre à jour les sections.
@@ -163,6 +175,10 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 11. Dans le fichier ViewController.m, ajoutez une instruction import pour AppDelegate.h et copiez le code suivant dans la méthode **subscribe** générée par le Xcode. Ce code met à jour l’inscription aux notifications pour utiliser les nouvelles balises de catégories choisies par l’utilisateur dans l’interface utilisateur.
 
+		```
+		#import "Notifications.h"
+		```
+
 		NSMutableArray* categories = [[NSMutableArray alloc] init];
 
 	    if (self.WorldSwitch.isOn) [categories addObject:@"World"];
@@ -176,7 +192,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 	    [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
 	        if (!error) {
-	            [self MessageBox:@"Notification" message:@"Subscribed!"];
+	            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
 	        } else {
 	            NSLog(@"Error subscribing: %@", error);
 	        }
@@ -189,7 +205,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		// This updates the UI on startup based on the status of previously saved categories.
 
-		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
+		Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
 	    NSSet* categories = [notifications retrieveCategories];
 
@@ -205,14 +221,21 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 L’application peut désormais stocker un ensemble de catégories dans le stockage local de l’appareil utilisé pour s’inscrire auprès du Notification Hub au démarrage de l’application. L’utilisateur peut modifier la sélection des catégories au démarrage et cliquer sur la méthode **subscribe** pour mettre à jour l’inscription de l’appareil. Ensuite, vous allez mettre à jour l’application pour envoyer les notifications de dernières nouvelles directement dans l’application elle-même.
 
 
-##Envoi de notifications
+##(Facultatif) Envoyer des notifications avec balises
 
-Normalement, les notifications doivent être envoyées par un service principal mais, pour ce didacticiel, nous allons mettre à jour notre code d’envoi de notifications pour pouvoir envoyer des notifications de dernières nouvelles directement à partir de l’application. Pour cela, nous allons mettre à jour la méthode `SendNotificationRESTAPI` que nous avons définie dans le didacticiel [Prise en main de Notification Hubs][get-started].
+Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section suivante et envoyer des notifications à partir de l’application elle-même. Vous pouvez également envoyer la notification de modèle appropriée à partir du [portail Azure Classic] à l’aide de l’onglet Débogage de votre hub de notification.
+
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 
-1. Dans ViewController.m, mettez à jour la méthode `SendNotificationRESTAPI` comme suit, pour qu’elle récupère un paramètre `pns` du service de notification de la plateforme et un paramètre pour la balise de catégorie.
+##(Facultatif) Envoyer des notifications depuis l’appareil
 
-		- (void)SendNotificationRESTAPI:(NSString*)pns Category:(NSString*)categoryTag
+Normalement, les notifications doivent être envoyées par un service principal. Toutefois, vous pouvez envoyer des notifications de dernières nouvelles directement à partir de l’application. Pour cela, nous allons mettre à jour la méthode `SendNotificationRESTAPI` que nous avons définie dans le didacticiel [Prise en main de Notification Hubs][get-started].
+
+
+1. Dans ViewController.m, mettez à jour la méthode `SendNotificationRESTAPI` comme suit pour qu’elle accepte un paramètre pour la balise de catégorie et envoie une notification de [modèle](notification-hubs-templates.md) adaptée.
+
+		- (void)SendNotificationRESTAPI:(NSString*)categoryTag
 		{
 		    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
 									 defaultSessionConfiguration] delegate:nil delegateQueue:nil];
@@ -226,58 +249,22 @@ Normalement, les notifications doivent être envoyées par un service principal 
 		    // Generated the token to be used in the authorization header.
 		    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-		    //Create the request to add the APNS notification message to the hub
+		    //Create the request to add the template notification message to the hub
 		    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 		    [request setHTTPMethod:@"POST"];
 
 		    // Add the category as a tag
 		    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
 
-		    // Windows Notification format of the notification message
-		    if ([pns isEqualToString:@"wns"])
-		    {
-		        json = [NSString stringWithFormat:@"<?xml version="1.0" encoding="utf-8"?>"
-		                                           "<toast>"
-		                                           "<visual><binding template="ToastText01">"
-		                                           "<text id="1">Breaking %@ News : %@</text>"
-		                                           "</binding>"
-		                                           "</visual>"
-		                                           "</toast>",
-		                categoryTag, self.notificationMessage.text];
+			// Template notification
+	        json = [NSString stringWithFormat:@"{"messageParam":"Breaking %@ News : %@"}",
+	                categoryTag, self.notificationMessage.text];
 
-		        // Signify windows notification format
-		        [request setValue:@"windows" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+	        // Signify template notification format
+	        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 
-		        // XML Content-Type
-		        [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
-
-		        // Set X-WNS-TYPE header
-		        [request setValue:@"wns/toast" forHTTPHeaderField:@"X-WNS-Type"];
-		    }
-
-		    // Google Cloud Messaging Notification format of the notification message
-		    if ([pns isEqualToString:@"gcm"])
-		    {
-		        json = [NSString stringWithFormat:@"{"data":{"message":"Breaking %@ News : %@"}}",
-		                categoryTag, self.notificationMessage.text];
-		        // Signify gcm notification format
-		        [request setValue:@"gcm" forHTTPHeaderField:@"ServiceBusNotification-Format"];
-
-				// JSON Content-Type
-				[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-		    }
-
-		    // Apple Notification format of the notification message
-		    if ([pns isEqualToString:@"apns"])
-		    {
-		        json = [NSString stringWithFormat:@"{"aps":{"alert":"Breaking %@ News : %@"}}",
-		                categoryTag, self.notificationMessage.text];
-		        // Signify apple notification format
-		        [request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
-
-				// JSON Content-Type
-				[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-		    }
+			// JSON Content-Type
+			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
 		    //Authenticate the notification message POST request with the SaS token
 		    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
@@ -288,19 +275,20 @@ Normalement, les notifications doivent être envoyées par un service principal 
 		    // Send the REST request
 		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
 		               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-		               {
-		               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		                   if (error || httpResponse.statusCode != 200)
-		                   {
-		                       NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
-		                   }
-		                   if (data != NULL)
-		                   {
-		                       //xmlParser = [[NSXMLParser alloc] initWithData:data];
-		                       //[xmlParser setDelegate:self];
-		                       //[xmlParser parse];
-		                   }
-		               }];
+	           {
+	           NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+	               if (error || httpResponse.statusCode != 200)
+	               {
+	                   NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+	               }
+	               if (data != NULL)
+	               {
+	                   //xmlParser = [[NSXMLParser alloc] initWithData:data];
+	                   //[xmlParser setDelegate:self];
+	                   //[xmlParser parse];
+	               }
+	           }];
+
 		    [dataTask resume];
 		}
 
@@ -318,11 +306,10 @@ Normalement, les notifications doivent être envoyées par un service principal 
 									@"Technology", @"Science", @"Sports", nil];
 
 		    // Lets send the message as breaking news for each category to WNS, GCM, and APNS
+			// using a template.
 		    for(NSString* category in categories)
 		    {
-		        [self SendNotificationRESTAPI:@"wns" Category:category];
-		        [self SendNotificationRESTAPI:@"gcm" Category:category];
-		        [self SendNotificationRESTAPI:@"apns" Category:category];
+		        [self SendNotificationRESTAPI:category];
 		    }
 		}
 
@@ -339,7 +326,7 @@ Normalement, les notifications doivent être envoyées par un service principal 
 
 	Lorsque vous sélectionnez **S’abonner**, l'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil aux balises sélectionnées depuis le concentrateur de notification.
 
-2. Entrez un message à envoyer comme dernières nouvelles, puis appuyez sur le bouton **Envoyer des notifications**
+2. Entrez un message à envoyer comme dernières nouvelles, puis appuyez sur le bouton **Envoyer une notification**. Vous pouvez également exécuter l’application console .NET pour générer des notifications.
 
 	![][2]
 
@@ -356,9 +343,7 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 	Apprenez à développer l’application relative aux dernières nouvelles pour permettre l’envoi de notifications localisées.
 
-+ **[Notification des utilisateurs avec Notification Hubs]**
 
-	Apprenez à transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s’agit d’une solution appropriée pour l’envoi de notifications uniquement vers des utilisateurs spécifiques.
 
 
 
@@ -376,11 +361,12 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
+[portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

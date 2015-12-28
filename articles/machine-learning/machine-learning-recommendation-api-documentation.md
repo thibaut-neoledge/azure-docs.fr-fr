@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
@@ -26,37 +26,22 @@ Ce document décrit les API Microsoft Azure Machine Learning Recommendations.
 ##1\. Présentation générale
 Ce document fait référence aux API. Nous vous recommandons de commencer par consulter le document « Azure Machine Learning Recommendation – Démarrage rapide ».
 
-Les API Azure Machine Learning Recommendations peuvent être divisées en 10 groupes logiques :
+Les API Azure Machine Learning Recommendations peuvent être divisées en groupes logiques comme ci-après :
 
-1.	<ins>Modèle – De base</ins> : API permettant d'effectuer des opérations de base sur un modèle (par exemple, création, mise à jour et suppression d'un modèle).
-2.	<ins>Modèle – Avancé</ins> : API permettant d'obtenir des analyses de données avancées sur le modèle.
-3.	<ins>Règles métiers de modèle</ins> : API permettant de gérer des règles métiers sur les résultats des recommandations de modèle.
-4.	<ins>Catalogue</ins> : API permettant d'effectuer des opérations de base sur un catalogue de modèles. Un catalogue contient des informations de métadonnées sur les éléments des données d'utilisation.
-5.	<ins>Fonctionnalité</ins> : API permettant d’obtenir des analyses sur des éléments du catalogue, ainsi qu’une méthode d’utilisation de ces informations pour créer de meilleures recommandations.
-6.	<ins>Données d'utilisation</ins> : API permettant d'effectuer des opérations de base sur les données d'utilisation de modèle. Les données d'utilisation dans leur forme élémentaire consistent en des lignes composées de paires de &#60;userId&#62;,&#60;itemId&#62;.
-7.	<ins>Build</ins> : API permettant de déclencher une build de modèle et d'effectuer des opérations de base en rapport avec cette build. Vous pouvez déclencher une build de modèle dès que vous avez des données d'utilisation utiles.
-8.	<ins>Recommendation</ins> : API permettant d'utiliser des recommandations au terme de l'exécution de la build d'un modèle.
-9.	<ins>Données utilisateur</ins> : API permettant d’extraire des informations relatives aux données d’utilisation de l’utilisateur.
-10.	<ins>Notifications</ins> : API permettant de recevoir des notifications sur les problèmes liés à vos opérations d'API. (Par exemple, si vous signalez les données d'utilisation via acquisition de données et que la plupart des événements traités échouent, une notification d'erreur est déclenchée.)
+- <ins>Limitations</ins> : limitations concernant les API Recommandations.
+- <ins>Informations générales</ins> : informations sur l'authentification, l’URI de service et le contrôle de version.
+- <ins>Modèle – De base</ins> : API permettant d'effectuer des opérations de base sur un modèle (par exemple, création, mise à jour et suppression d'un modèle).
+- <ins>Modèle – Avancé</ins> : API permettant d'obtenir des analyses de données avancées sur le modèle.
+- <ins>Règles métiers de modèle</ins> : API permettant de gérer des règles métiers sur les résultats des recommandations de modèle.
+- <ins>Catalogue</ins> : API permettant d'effectuer des opérations de base sur un catalogue de modèles. Un catalogue contient des informations de métadonnées sur les éléments des données d'utilisation.
+- <ins>Fonctionnalité</ins> : API permettant d’obtenir des analyses sur des éléments du catalogue, ainsi qu’une méthode d’utilisation de ces informations pour créer de meilleures recommandations.
+- <ins>Données d'utilisation</ins> : API permettant d'effectuer des opérations de base sur les données d'utilisation de modèle. Les données d'utilisation dans leur forme élémentaire consistent en des lignes composées de paires de &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Build</ins> : API permettant de déclencher une build de modèle et d'effectuer des opérations de base en rapport avec cette build. Vous pouvez déclencher une build de modèle dès que vous avez des données d'utilisation utiles.
+- <ins>Recommendation</ins> : API permettant d'utiliser des recommandations au terme de l'exécution de la build d'un modèle.
+- <ins>Données utilisateur</ins> : API permettant d’extraire des informations relatives aux données d’utilisation de l’utilisateur.
+- <ins>Notifications</ins> : API permettant de recevoir des notifications sur les problèmes liés à vos opérations d'API. (Par exemple, si vous signalez les données d'utilisation via acquisition de données et que la plupart des événements traités échouent, une notification d'erreur est déclenchée.)
 
-##2\. Rubriques avancées
-
-###2\.1. Qualité de la recommandation
-
-La création d'un modèle de recommandation est généralement suffisante pour permettre au système de fournir des recommandations. Toutefois, la qualité de la recommandation varie en fonction de l'utilisation traitée et de la couverture du catalogue. Par exemple, si vous avez beaucoup d'éléments froids (éléments n'étant pas beaucoup utilisés), le système aura des difficultés à émettre une recommandation pour de tels éléments ou à utiliser l'un de ces éléments en tant qu'élément recommandé. Pour remédier au problème des éléments froids, le système autorise l'utilisation des métadonnées des éléments pour améliorer les recommandations. Ces métadonnées sont appelées « caractéristiques ». L'auteur d'un livre et l'acteur d'un film sont des exemples de caractéristiques. Les caractéristiques sont fournies via le catalogue sous la forme de chaînes clé/valeur. Pour obtenir le format complet du fichier catalogue, consultez la [section Importer des données de catalogue](#81-import-catalog-data). La section suivante explique l'utilisation de caractéristiques pour améliorer le modèle de recommandation.
-
-###2\.2. Build de classement
-
-L'amélioration du modèle de recommandation exige le recours à des caractéristiques significatives. Dans cette optique, une nouvelle build a été introduite : la build de classement. Cette build permet de classer l'utilité des caractéristiques. Une caractéristique est significative si elle reçoit un score d'au moins 2 de la build de classement.
-Après avoir déterminé les caractéristiques significatives, déclenchez une build de recommandation avec la liste (ou sous-liste) des caractéristiques significatives. Il est possible d'utiliser ces caractéristiques pour améliorer à la fois les éléments chauds et les éléments froids. Pour utiliser des caractéristiques pour des éléments chauds, vous devez configurer le paramètre de build `UseFeatureInModel`. Pour utiliser des caractéristiques pour des éléments froids, vous devez activer le paramètre de build `AllowColdItemPlacement`.
-Remarque : il est impossible d'activer `AllowColdItemPlacement` sans activer `UseFeatureInModel`.
-
-###2\.3. Raisonnement de la recommandation
-
-Le raisonnement de la recommandation est un autre aspect de l'utilisation des caractéristiques. En effet, le moteur Azure Machine Learning Recommendations peut utiliser des caractéristiques pour fournir des explications sur la recommandation (ou « raisonnement »), renforçant ainsi la confiance de l'utilisateur de la recommandation envers l'élément recommandé. 
-Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `ReasoningFeatureList` doivent être configurés avant la demande d'une build de recommandation.
-
-##3\. Limites
+##2\. Limites
 
 - Le nombre maximal de modèles par abonnement est de 10.
 - Le nombre maximal d'éléments pouvant être contenus dans un catalogue est de 100 000.
@@ -64,21 +49,36 @@ Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `Reas
 - La taille maximale des données pouvant être envoyées dans POST (par exemple, importation des données de catalogue ou des données d'utilisation) est de 200 Mo.
 - Le nombre de transactions par seconde pour une build de modèle de recommandation inactive est d'environ 2 TPS. Une build de modèle de recommandation active peut prendre en charge jusqu'à 20 TPS.
 
-##4\. API – Informations générales
+##3\. API – Informations générales
 
-###4\.1. Authentification
+###3\.1. Authentification
 Respectez les instructions de Microsoft Azure Marketplace concernant l'authentification. Le Marketplace prend en charge les méthodes d'authentification De base et OAuth.
 
-###4\.2. URI de service
+###3\.2. URI de service
 Les URI racines de service des API Azure Machine Learning Recommendations se trouvent [ici](https://api.datamarket.azure.com/amla/recommendations/v3/).
 
 L'URI de service complet est exprimée à l'aide des éléments de la spécification OData.
 
-###4\.3. Version de l'API
+###3\.3. Version de l'API
 À la fin de chaque appel d'API doit se trouver un paramètre de requête appelé apiVersion qui doit avoir la valeur 1.0.
 
-###4\.4. Respect de la casse des ID
+###3\.4. Respect de la casse des ID
 Les ID, quelle que soit l'API qui les retourne, respectent la casse. Ils doivent donc être utilisés comme tels quand ils sont passés en tant que paramètres dans les appels d'API ultérieurs. Par exemple, les ID de modèle et de catalogue respectent la casse.
+
+##4\. Qualité des recommandations et éléments froids
+
+###4\.1. Qualité de la recommandation
+
+La création d'un modèle de recommandation est généralement suffisante pour permettre au système de fournir des recommandations. Toutefois, la qualité de la recommandation varie en fonction de l'utilisation traitée et de la couverture du catalogue. Par exemple, si vous avez beaucoup d'éléments froids (éléments n'étant pas beaucoup utilisés), le système aura des difficultés à émettre une recommandation pour de tels éléments ou à utiliser l'un de ces éléments en tant qu'élément recommandé. Pour remédier au problème des éléments froids, le système autorise l'utilisation des métadonnées des éléments pour améliorer les recommandations. Ces métadonnées sont appelées « caractéristiques ». L'auteur d'un livre et l'acteur d'un film sont des exemples de caractéristiques. Les caractéristiques sont fournies via le catalogue sous la forme de chaînes clé/valeur. Pour obtenir le format complet du fichier catalogue, consultez la [section Importer des données de catalogue](#81-import-catalog-data).
+
+###4\.2. Build de classement
+
+L'amélioration du modèle de recommandation exige le recours à des caractéristiques significatives. Dans cette optique, une nouvelle build a été introduite : la build de classement. Cette build permet de classer l'utilité des caractéristiques. Une caractéristique est significative si elle reçoit un score d'au moins 2 de la build de classement. Après avoir déterminé les caractéristiques significatives, déclenchez une build de recommandation avec la liste (ou sous-liste) des caractéristiques significatives. Il est possible d'utiliser ces caractéristiques pour améliorer à la fois les éléments chauds et les éléments froids. Pour utiliser des caractéristiques pour des éléments chauds, vous devez configurer le paramètre de build `UseFeatureInModel`. Pour utiliser des caractéristiques pour des éléments froids, vous devez activer le paramètre de build `AllowColdItemPlacement`. Remarque : il est impossible d'activer `AllowColdItemPlacement` sans activer `UseFeatureInModel`.
+
+###4\.3. Raisonnement de la recommandation
+
+Le raisonnement de la recommandation est un autre aspect de l'utilisation des caractéristiques. En effet, le moteur Azure Machine Learning Recommendations peut utiliser des caractéristiques pour fournir des explications sur la recommandation (ou « raisonnement »), renforçant ainsi la confiance de l'utilisateur de la recommandation envers l'élément recommandé. Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `ReasoningFeatureList` doivent être configurés avant la demande d'une build de recommandation.
+
 
 ##5\. Modèle – De base
 
@@ -797,6 +797,9 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7\. Règles métiers de modèle
 Voici les types de règles pris en charge :
 - <strong>BlockList</strong> : permet de fournir une liste d’éléments à ne pas retourner dans les résultats de la recommandation.
@@ -981,8 +984,8 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 | Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
 | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
 | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
-| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | 
-| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | 
+| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -997,6 +1000,7 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 | apiVersion | 1.0 |
 |||
 | Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+
 
 
 **Réponse** :
@@ -1200,9 +1204,9 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 | filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion | 1.0 | 
+| apiVersion | 1.0 |
 |||
-| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID d’élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille de fichier maximale : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -1879,7 +1883,7 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 |FbtSupportThreshold | Niveau de conservatisme du modèle. Nombre de co-occurrences d'éléments à prendre en compte pour la modélisation.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | Limite le nombre d'éléments dans un ensemble fréquent.| Integer | 2-3 (2) |
 |FbtMinimalScore | Score minimal d'un jeu fréquent pour que celui-ci soit inclus dans les résultats retournés. Plus le score est élevé, mieux c'est.| Double | 0 et plus (0) |
-|FbtSimilarityFunction | Définit la fonction de similarité à utiliser par le build. | String | cooccurrence, élévation, jaccard (élévation) |
+|FbtSimilarityFunction | Définit la fonction de similarité à utiliser par le build. Élévation favorise la sérendipité, cooccurence favorise la prévisibilité, et Jaccard est un bon compromis entre les deux. | Chaîne | cooccurrence, élévation, jaccard (élévation) |
 
 
 ###11\.2. Déclencher une build de recommandation
@@ -2158,13 +2162,13 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
 
 États de build valides :
-- Created : l'entrée de demande de build a été créée.
-- Queued : la demande de build a été déclenchée et mise en file d'attente.
-- Building : la build est en cours d'exécution.
-- Success : la build a été correctement exécutée
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+ - Created : l'entrée de demande de build a été créée. 
+ - Queued : la demande de build a été déclenchée et mise en file d'attente.
+  - Building : la build est en cours d'exécution.
+   - Success : la build a été correctement exécutée 
+   - Error : la build s'est terminée par un échec. 
+   - Cancelled : la build a été annulée. 
+   - Cancelling : la build est en cours d'annulation.
 
 
 Valeurs valides pour le type de build :
@@ -2254,7 +2258,7 @@ Récupère les paramètres de build.
 | buildId | Identificateur unique de la build. |
 | apiVersion | 1\.0 |
 
-**Réponse :**La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes
+**Réponse :**
 
 Code d'état HTTP : 200
 
@@ -2791,7 +2795,7 @@ L’API retourne une liste d’éléments prédits en fonction de l’historique
 
 Remarques :
  1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT.
- 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
+  2. Si la build active est de type FBT, cette méthode renvoie une erreur.
 
 | Méthode HTTP | URI |
 |:--------|:--------|
@@ -2831,7 +2835,7 @@ Remarques :
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -3093,4 +3097,4 @@ Ce document ne vous accorde aucun droit légal à la propriété intellectuelle 
 © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

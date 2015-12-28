@@ -78,7 +78,7 @@ Si vous devez générer une chaîne de connexion Event Hub avec les informations
 Vous trouverez ci-dessous une liste de kits de développement logiciel (SDK) et d’intégration pouvant être utilisés avec IoT Hub :
 
 * [Client Event Hubs Java](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Vous trouverez le lien vers la source de spout disponible [ici](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Vous pouvez afficher la [source spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) sur GitHub.
 * [Intégration Apache Spark](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Registre d’identité des appareils
@@ -532,4 +532,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

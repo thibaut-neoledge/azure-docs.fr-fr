@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 Cette rubrique contient des informations sur l'insertion de différents types de publicité du côté client.
 
-Pour en savoir plus sur la prise en charge du sous-titrage et des publicités dans les vidéos en flux continu, consultez la page [Normes de sous-titrage et d’insertion de publicités prises en charge](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
+Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicités dans les vidéos en flux live, consultez la page [Normes de sous-titrage codé et d’insertion de publicités prises en charge](media-services-manage-channels-overview.md#cc_and_ads).
 
  
 ##<a id="insert_ads_into_media"></a>Insertion de publicités dans vos supports
@@ -515,7 +515,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 
 ###VastLinearCompanionPage
 
-Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L’élément <RemoteAdSource> spécifie l’emplacement du fichier VAST.
+Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L'élément <RemoteAdSource> spécifie l'emplacement du fichier VAST.
 	
 	<mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -812,4 +812,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -27,11 +27,9 @@ Le portail fonctionne parfaitement sur les PC, les Mac et les tablettes modernes
 Les versions les plus récentes des navigateurs suivants sont prises en charge :
 
 - Edge (version la plus récente)
-- Internet Explorer (11 et versions ultérieures)
-- Safari (7 et versions ultérieures)
+- Internet Explorer 11
+- Safari (dernière version, Mac uniquement)
 - Chrome (version la plus récente)
 - Firefox (version la plus récente)
 
-*Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

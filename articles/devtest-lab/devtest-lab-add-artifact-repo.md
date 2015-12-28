@@ -1,6 +1,6 @@
     <properties
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,10 +20,10 @@
 
 ## Vue d'ensemble
 
-Par défaut, une instance de DevTest Lab inclut des artefacts à partir du référentiel d’artefacts Azure DevTest Lab officiel. Vous pouvez ajouter un référentiel d’artefacts Git à votre laboratoire pour inclure les artefacts créés par votre équipe. Le référentiel peut être hébergé sur [GitHub](https://github.com) ou sur [Visual Studio Online (VSO)](https://visualstudio.com).
+Par défaut, une instance de DevTest Lab inclut des artefacts à partir du référentiel d’artefacts Azure DevTest Lab officiel. Vous pouvez ajouter un référentiel d’artefacts Git à votre laboratoire pour inclure les artefacts créés par votre équipe. Le référentiel peut être hébergé sur [GitHub](https://github.com) ou sur [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Pour découvrir comment créer un référentiel GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- Pour découvrir comment créer un projet Visual Studio Online avec un référentiel Git, consultez [Se connecter à Visual Studio Online](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+- Pour découvrir comment créer un projet Team Services avec un référentiel Git, consultez [Se connecter à Visual Studio Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La capture d’écran suivante montre un exemple de référentiel contenant des artefacts dans GitHub : ![Exemple de référentiel d’artefacts GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
@@ -115,4 +115,4 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
     3. Entrez le **Jeton d’accès personnel** enregistré dans le référentiel d’artefacts.
     4. Appuyez sur **Enregistrer**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

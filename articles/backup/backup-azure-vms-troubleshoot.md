@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2015" ms.author="trinadhk";"aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Dépannage de la sauvegarde de machine virtuelle Azure
@@ -116,9 +123,14 @@ Comme toutes les extensions, l’extension de sauvegarde a besoin d’accéder �
 
 La nécessité de résoudre des adresses Internet publiques a été évoquée [ici](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Vous devez vérifier la configuration DNS du réseau virtuel et vous assurer que les URI Azure peuvent être résolus.
 
-Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, procédez comme suit :
+Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, effectuez une des opérations suivantes :
 
-1. Obtenez la liste des [adresses IP de centres de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) à débloquer.
-2. Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
+1. Mettez sur liste blanche les plages IP de datacenter Azure.
+    - Obtenez la liste des [adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) à débloquer.
+    - Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
+    - Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès aux adresses IP.
+2. Créez un chemin d'accès pour le trafic HTTP
+    - Si vous des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic. Les étapes du déploiement d’un serveur proxy HTTP sont expliquées [ici](backup-azure-vms-prepare.md#2-network-connectivity).
+    - Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès à Internet à partir du proxy HTTP.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

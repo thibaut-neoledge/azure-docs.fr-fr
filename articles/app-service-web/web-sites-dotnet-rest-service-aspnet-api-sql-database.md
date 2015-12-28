@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # Créer un service REST à l’aide de l’API Web ASP.NET et de Base de données SQL dans Azure App Service
 
-Ce didacticiel explique comment déployer une application Web ASP.NET dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de l’Assistant Publier le site Web de Visual Studio 2013 ou Visual Studio Express 2013 pour le Web.
+Ce didacticiel explique comment déployer une application Web ASP.NET dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de l’Assistant Publier le site Web de Visual Studio 2013 ou Visual Studio Community 2013.
 
 Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez donc commencer vos développements Azure gratuitement.
 
@@ -44,9 +44,9 @@ Vous développerez une application Web de liste de contacts simple basée sur AS
 
 1. Démarrez Visual Studio 2013.
 1. Dans le menu **File**, cliquez sur **New Project**.
-3. Dans la boîte de dialogue **New Project**, développez **Visual C#** et sélectionnez **Web**, puis **ASP.NET MVC 5 Web Application**. Nommez l'application **GestionnaireContacts**, puis cliquez sur **OK**.
+3. Dans la boîte de dialogue **New Project**, développez **Visual C#** et sélectionnez **Web**, puis **ASP.NET Web Application**. Nommez l'application **GestionnaireContacts**, puis cliquez sur **OK**.
 
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. Dans la boîte de dialogue **New ASP.NET Project**, sélectionnez le modèle **MVC**, activez la case à cocher **Web API**, puis cliquez sur **Change Authentication**.
 
@@ -58,7 +58,7 @@ Vous développerez une application Web de liste de contacts simple basée sur AS
 
 	L’exemple d’application que vous créez ne sera pas doté de fonctionnalités nécessitant la connexion de l’utilisateur. Pour plus d’informations sur l’implémentation de fonctionnalités d’authentification et d’autorisation, consultez la section [Étapes suivantes](#nextsteps) à la fin de ce didacticiel.
 
-1. Dans la boîte de dialogue **New ASP.NET Project**, cliquez sur **OK**.
+1. Dans la boîte de dialogue **New ASP.NET Project**, vérifiez que la case **Host in the Cloud** est cochée, puis cliquez sur **OK**.
 
 	![Boîte de dialogue New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
@@ -187,7 +187,7 @@ Commencez par créer un modèle de données simple dans le code.
     		}
 		}
 
-La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire ContactID requise par la base de données. Pour plus d'informations sur les modèles de données, consultez la section [Étapes suivantes](#nextsteps) à la fin de ce didacticiel.
+La classe **Contact** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire ContactID dont la base de données a besoin. Pour plus d'informations sur les modèles de données, consultez la section [Étapes suivantes](#nextsteps) à la fin de ce didacticiel.
 
 ### Création de pages Web permettant aux utilisateurs de l'application d'utiliser des contacts
 
@@ -500,10 +500,11 @@ Par :
 
 1. Dans la console du Gestionnaire de package, exécutez la commande suivante pour installer Knockout.
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
+
 ## Ajouter un contrôleur pour l’interface d’API Web Restful
 
-1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur Contrôleurs, cliquez sur **Ajouter**, puis sur **Contrôleur...**
+1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur Contrôleurs, cliquez sur **Ajouter**, puis sur **Contrôleur...** 
 
 1. Dans la boîte de dialogue **Add Scaffold**, entrez **Web API 2 Controller with actions, using Entity Framework**, puis cliquez sur **Ajouter**.
 
@@ -624,11 +625,13 @@ Pour plus d’informations, consultez la page [Projet de sécurité d’applicat
 
 1. Ajoutez l'instruction *using* suivante au contrôleur de contacts pour accéder à l'attribut **[ValidateHttpAntiForgeryToken]**.
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. Ajoutez l’attribut **[ValidateHttpAntiForgeryToken]** aux méthodes Post du **ContactsController** pour le protéger des menaces XSRF. Vous l'ajouterez aux méthodes d'action « PutContact », « PostContact » et **DeleteContact**.
 
-	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. Mettez à jour la section *Scripts* du fichier *Views\\Home\\Index.cshtml* pour inclure le code d’obtention des jetons XSRF.
 
@@ -683,6 +686,7 @@ Pour plus d’informations, consultez la page [Projet de sécurité d’applicat
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
 ## Publier la mise à jour de l’application dans Azure et Base de données SQL
@@ -724,9 +728,9 @@ L'application est à présent exécutée dans le cloud et utilise la base de don
 
 ## Étapes suivantes
 
-Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
+Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Microsoft Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
 
-Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Windows Azure, consultez les liens suivants.
+Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Microsoft Azure, consultez les liens suivants.
  
 
 * [Mise en route d’Entity Framework avec MVC][EFCodeFirstMVCTutorial] (en anglais)
@@ -810,4 +814,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!------HONumber=AcomDC_1217_2015-->

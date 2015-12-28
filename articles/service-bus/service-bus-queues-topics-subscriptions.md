@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # Files d’attente, rubriques et abonnements Service Bus
@@ -25,7 +25,7 @@ Les entités de messagerie qui constituent l’essentiel des fonctionnalités de
 
 Les files d’attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du premier entré, premier sorti (FIFO). En d’autres termes, les messages sont généralement prévus pour être reçus et traités par les récepteurs dans l’ordre dans lesquels ils ont été ajoutés à la file d’attente, et chaque message est reçue et traitée par un seul consommateur de message. Un des principaux avantages de l’utilisation des files d’attente consiste à réaliser le « découplage temporel » des composants d’application. En d’autres termes, les producteurs (expéditeurs) et les consommateurs (récepteurs) ne sont pas forcés d’envoyer et de recevoir des messages simultanément, car les messages sont stockés durablement dans la file d’attente. En outre, le producteur n’a pas à attendre de réponse du destinataire pour continuer de traiter et d’envoyer d’autres messages.
 
-Un des avantages associés est le « nivellement de charge », qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes. Dans de nombreuses applications, la charge système varie au fil du temps. Cependant le temps de traitement nécessaire à chaque élément de travail est normalement constant. L’ajout d’une file d’attente entre les producteurs et les consommateurs des messages fait que l’application de destination doit être en mesure de gérer seulement une charge moyenne, plutôt que la charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies concernant les infrastructures nécessaires pour faire face à la charge de travail de l’application. À mesure que la charge augmente, d’autres processus de travail peuvent être ajoutés pour lire les éléments de la file d’attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet d’optimiser l’utilisation des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils demandent les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle « consommateur simultané ».
+Un des avantages associés est le nivellement de charge, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes. Dans de nombreuses applications, la charge système varie au fil du temps. Cependant le temps de traitement nécessaire à chaque élément de travail est normalement constant. L’ajout d’une file d’attente entre les producteurs et les consommateurs des messages fait que l’application de destination doit être en mesure de gérer seulement une charge moyenne, plutôt que la charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies concernant les infrastructures nécessaires pour faire face à la charge de travail de l’application. À mesure que la charge augmente, d’autres processus de travail peuvent être ajoutés pour lire les éléments de la file d’attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet d’optimiser l’utilisation des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils demandent les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle « consommateur simultané ».
 
 L’utilisation de files d’attente comme intermédiaire entre les producteurs et les consommateurs de message fournit un couplage souple inhérent entre les composants. Producteurs et consommateurs étant indépendants les uns des autres, il est possible de mettre à niveau un consommateur sans que cela affecte le producteur.
 
@@ -146,7 +146,7 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 
 Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Ces modifications sont appelées *actions de filtrage*. Lorsqu’un abonnement est créé, vous pouvez fournir une expression de filtre fonctionnant sur les propriétés du message, aussi bien les propriétés du système (par exemple, **étiquette**) et les propriétés personnalisées (par exemple, **StoreName**.) L’expression de filtre SQL est facultative dans ce cas ; sans expression de filtre SQL, toute action de filtre définie sur un abonnement sera effectuée sur tous les messages de cet abonnement.
 
-Avec l’exemple précédent, pour filtrer les messages provenant uniquement de Store1, vous devez créer l’abonnement au tableau de bord comme suit :
+Avec l’exemple précédent, pour filtrer les messages provenant uniquement de **Store1**, vous devez créer l’abonnement au tableau de bord comme suit :
 
 ```
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
@@ -158,7 +158,7 @@ Pour plus d’informations sur les valeurs de filtre possibles, consultez la doc
 
 ## Event Hubs
 
-Les [concentrateurs d’événements](http://azure.microsoft.com/services/event-hubs/) constituent un service de traitement des événements utilisé pour fournir des sorties d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Ce service, lorsqu’il est utilisé avec d’autres services en aval, est particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’Internet des Objets (IoT).
+[Event Hubs](http://azure.microsoft.com/services/event-hubs/) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Ce service, lorsqu’il est utilisé avec d’autres services en aval, est particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’Internet des Objets (IoT).
 
 Les concentrateurs d’événements sont une construction de diffusion de message, et bien qu’ils ressemblent aux files d’attente et aux rubriques, leurs caractéristiques sont très différentes. Par exemple, les concentrateurs d’événements ne fournissent pas de message TTL, de lettres mortes, de transactions ou d’accusés de réception comme ils le sont pour les fonctions de messagerie répartie traditionnelle sans diffusion en continu. Les concentrateurs d’événements fournissent d’autres fonctionnalités de flux de données telles que le partitionnement, conservation de l’ordre et relecture du flux de données.
 
@@ -167,8 +167,9 @@ Les concentrateurs d’événements sont une construction de diffusion de messag
 Consultez la rubrique avancée suivante pour obtenir d’autres informations et des exemples d’utilisation des entités de messagerie répartie Service Bus.
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Didacticiel .NET sur la messagerie répartie Service Bus](https://msdn.microsoft.com/library/azure/hh367512.aspx)
-- [Guide du développeur pour les concentrateurs d'événements](../event-hubs-programming-guide.md)
+- [Didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md)
+- [Didacticiel REST sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-rest.md)
+- [Guide du développeur pour les concentrateurs d'événements](../event-hubs/event-hubs-programming-guide.md)
 - [Messagerie répartie : filtres avancés](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

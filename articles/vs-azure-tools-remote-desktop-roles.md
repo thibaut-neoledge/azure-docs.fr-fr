@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Utilisation du Bureau à distance avec des rôles Azure"
+   pageTitle="Utilisation du bureau à distance avec les rôles Azure | Microsoft Azure"
    description="Utilisation du Bureau à distance avec des rôles Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Utilisation du Bureau à distance avec des rôles Azure
 
@@ -75,4 +75,4 @@ Après avoir publié votre service cloud sur Azure, vous pouvez utiliser l'Explo
 
 1. Entrez le nom d'utilisateur et le mot de passe que vous avez créés précédemment. Vous êtes maintenant connecté à votre session à distance.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

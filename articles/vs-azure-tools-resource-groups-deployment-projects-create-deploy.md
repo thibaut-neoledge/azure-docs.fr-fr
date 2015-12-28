@@ -3,9 +3,9 @@
    description="Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
@@ -196,4 +196,4 @@ Des ajustements ont été également apportés à un certain nombre de noms de v
 
 Pour découvrir comment ajouter des ressources à votre groupe de ressources Azure dans Visual Studio, voir [Ajout de ressources à un groupe de ressources Azure](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Effectuer un test de charge de votre application avec Visual Studio Online | Microsoft Azure"
-    description="Apprenez à appliquer un test de contrainte à vos applications Azure Service Fabric à l’aide de Visual Studio Online."
+    pageTitle="Effectuer un test de charge de votre application avec Visual Studio Team Services | Microsoft Azure"
+    description="Apprenez à appliquer un test de contrainte à vos applications Azure Service Fabric à l’aide de Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,7 +16,7 @@
     ms.date="10/28/2015"
     ms.author="cawa" />
 
-# Effectuer un test de charge de votre application avec Visual Studio Online
+# Effectuez un test de charge de votre application avec Visual Studio Team Services
 
 Cet article montre comment utiliser les fonctionnalités de test de charge de Visual Studio pour soumettre une application à un test de contrainte. Il utilise un serveur principal de service avec état Service Fabric et un serveur frontal web de service sans état. L’exemple d’application utilisé ici est un simulateur de localisation d’avions. Vous indiquez l’ID de l’avion, son point de départ et sa destination. Le serveur principal de l’application traite les demandes et le serveur frontal affiche l’avion correspondant aux critères sur une carte.
 
@@ -27,7 +27,7 @@ Le diagramme suivant illustre l’application Service Fabric que vous allez test
 ## Composants requis
 Avant de commencer, vous devez effectuer les opérations suivantes.
 
-- Obtenir un compte Visual Studio Online (VSO). Vous pouvez en obtenir un gratuitement sur [Visual Studio Online](https://www.visualstudio.com).
+- Obtenir un compte Visual Studio Team Services (VSTS). Vous pouvez en obtenir un gratuitement sur [Visual Studio Team Services](https://www.visualstudio.com).
 - Obtenir et installer Visual Studio 2013 ou Visual Studio 2015. Cet article utilise Visual Studio 2015 Enterprise, mais Visual Studio 2013 et autres éditions fonctionnent de la même façon.
 - Déployer votre application dans un environnement intermédiaire. Consultez la page [Publier une application sur un cluster distant à l’aide de Visual Studio](service-fabric-publish-app-remote-cluster.md) pour plus d’informations à ce sujet.
 - Comprendre le modèle d’utilisation de votre application. Cette information sert à simuler le modèle de charge.
@@ -94,13 +94,13 @@ Un projet de test de charge se compose d’un ou plusieurs scénarios décrits p
 1. Dans la section **Paramètres d’exécution**, spécifiez la durée du test de charge.
     >[AZURE.NOTE]L’option **Itérations de tests** est disponible uniquement lorsque vous exécutez le test de charge localement à l’aide de Visual Studio.
 
-1. Dans la section **Emplacement** de **Paramètres d’exécution**, spécifiez l’emplacement où les requêtes de tests de charge sont générées. L’Assistant peut vous inviter à vous connecter à votre compte Visual Studio Online. Connectez-vous à l’aide de votre compte Visual Studio Online, puis choisissez un emplacement géographique. Quand vous avez terminé, cliquez sur le bouton **Terminé**.
+1. Dans la section **Emplacement** de **Paramètres d’exécution**, spécifiez l’emplacement où les requêtes de tests de charge sont générées. L’assistant peut vous inviter à vous connecter à votre compte Team Services. Connectez-vous à l’aide de votre compte Team Services, puis choisissez un emplacement géographique. Quand vous avez terminé, cliquez sur le bouton **Terminé**.
 
 1. Une fois le test de charge créé, ouvrez le projet .loadtest et choisissez les paramètres d’exécution actuels, par exemple **Paramètres d’exécution** > **Paramètres d’exécution1 [active]**. Cette opération ouvre les paramètres d’exécution dans la fenêtre **Propriétés**.
 
-1. Dans la section **Résultats** de la fenêtre de propriétés de **paramètres d’exécution**, le paramètre **Stockage des détails de minuterie** doit avoir la valeur par défaut **Aucun**. Changez cette valeur en **Tous les détails individuels** pour obtenir plus d’informations sur le résultat du test de charge. Consultez la page [Test de charge](https://www.visualstudio.com/load-testing.aspx) pour plus d’informations sur la connexion à Visual Studio Online et l’exécution d’un test de charge.
+1. Dans la section **Résultats** de la fenêtre de propriétés de **paramètres d’exécution**, le paramètre **Stockage des détails de minuterie** doit avoir la valeur par défaut **Aucun**. Changez cette valeur en **Tous les détails individuels** pour obtenir plus d’informations sur le résultat du test de charge. Consultez la page [Test de charge](https://www.visualstudio.com/load-testing.aspx) pour plus d’informations sur la connexion à Visual Studio Team Services et l’exécution d’un test de charge.
 
-### Exécuter un test de charge avec Visual Studio Online
+### Exécuter un test de charge avec Visual Studio Team Services
 
 Utilisez la commande **Exécuter le test de charge** pour démarrer les tests.
 
@@ -124,7 +124,7 @@ Consultez la page [Analyse des résultats des tests de charge dans la vue Graphi
 
 ## Automatiser votre test de charge
 
-Les tests de charge de Visual Studio Online proposent des API vous permettant de gérer les tests de charge et d’analyser les résultats dans un compte Visual Studio Online. Consultez la page [API Rest de test de charge Cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) pour plus d’informations.
+Les tests de charge de Visual Studio Team Services proposent des API vous permettant de gérer les tests de charge et d’analyser les résultats dans un compte Team Services. Consultez la page [API Rest de test de charge Cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) pour plus d’informations.
 
 ## Étapes suivantes
 - [Surveillance et diagnostic des services dans une configuration de développement d'ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -140,4 +140,4 @@ Les tests de charge de Visual Studio Online proposent des API vous permettant de
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

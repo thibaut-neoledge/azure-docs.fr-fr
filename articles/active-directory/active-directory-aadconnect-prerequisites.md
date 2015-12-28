@@ -34,6 +34,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 - Si vous prévoyez d'utiliser la fonctionnalité **Écriture différée du mot de passe**, les contrôleurs de domaine doivent être exécutés sous Windows Server 2008 (avec le dernier SP) ou une version ultérieure.
 - Impossible d’installer Azure AD Connect sur Small Business Server ou Windows Server Essentials. Le serveur doit utiliser Windows Server Standard ou une version supérieure.
 - Azure Active Directory Connect doit être installé sur Windows Server 2008 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre si vous utilisez la configuration rapide. Si vous utilisez des paramètres personnalisés, le serveur peut également être autonome et n’a pas besoin d’être joint à un domaine.
+- Si vous installez Azure AD Connect sous Windows Server 2008, veillez à appliquer les derniers correctifs à partir de Windows Update. L'installation ne pourra pas démarrer sur un serveur non corrigé.
 - Si vous prévoyez d’utiliser la fonctionnalité **Synchronisation de mot de passe**, le serveur Azure AD Connect doit être exécuté sous Windows Server 2008 R2 SP1 ou une version ultérieure.
 - [.Net 4.5.1](#component-prerequisites) (ou une version ultérieure) et [PowerShell 3.0](#component-prerequisites) (ou une version ultérieure) doivent être installés sur le serveur Azure AD Connect.
 - Si les services de fédération Active Directory sont déployés, les serveurs sur lesquels ces services ou le proxy d’application web doivent être installés doivent être Windows Server 2012 R2 ou version ultérieure. La [gestion à distance de Windows](#windows-remote-management) doit être activée sur ces serveurs pour l’installation à distance.
@@ -48,7 +49,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 
 **Connectivité**
 
-- Si vous utilisez un proxy sortant pour la connexion à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l’assistant d’installation et le dispositif de synchronisation d’Azure AD puissent se connecter à Internet et à Azure AD.
+- Si vous utilisez un proxy sortant pour la connexion à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l’assistant d’installation et le dispositif de synchronisation d’Azure AD puissent se connecter à Internet et à Azure AD. Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente l'adresse IP réelle du proxy ou le nom d’hôte.
 
 ```
     <system.net>
@@ -62,7 +63,25 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
     </system.net>
 ```
 
-Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente le nom d’hôte ou l’adresse IP réelle du proxy. Si votre proxy limite les URL accessibles, les URL documentées dans [URL et plages d’adresses IP Office 365](https://support.office.com/fr-FR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) doivent être ouvertes dans le proxy.
+Si votre serveur proxy nécessite une authentification, la section devrait se présenter ainsi.
+
+```
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy
+            usesystemdefault="true"
+            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+            bypassonlocal="true"
+            />
+        </defaultProxy>
+    </system.net>
+```
+
+Avec cette modification dans le fichier machine.config, l'Assistant d’installation et le moteur de synchronisation répondront aux demandes d'authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page de **configuration**, les informations d'identification de l’utilisateur sont utilisées. Sur la page de **configuration** à la fin de l'Assistant d'installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) qui a été créé.
+
+Pour plus d’informations sur l’[élément proxy par défaut](https://msdn.microsoft.com/library/kd3cf2ex.aspx), consultez MSDN.
+
+- Si votre proxy limite les URL accessibles, les URL documentées dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) doivent être ouvertes dans le proxy.
 
 **Autres**
 
@@ -146,6 +165,6 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 
 
 ## Étapes suivantes
-En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

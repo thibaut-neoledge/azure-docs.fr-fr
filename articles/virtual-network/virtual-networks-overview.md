@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/29/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Présentation du réseau virtuel
@@ -31,6 +31,8 @@ Le même réseau peut être hébergé dans Azure, comme illustré sur la figure 
 
 Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant votre routeur de réseau virtuel à accéder à l’Internet public sans aucune configuration. Les pare-feu peuvent être remplacés par des groupes de sécurité réseau (NSG) appliqués à chaque sous-réseau individuel. Et les équilibreurs de charge physiques sont remplacés par des équilibreurs de charge internes et accessibles via internet dans Azure.
 
+>[AZURE.NOTE]Il existe deux modes de déploiement dans Azure : classique (également appelé Service Management) et Azure Resource Manager (ARM). Les réseaux virtuels classiques peuvent être ajoutés à un groupe d’affinités ou créés en tant que réseau virtuel régional. Si vous avez un réseau virtuel dans un groupe d’affinités, il est recommandé de [migrer vers un réseau virtuel régional](./virtual-networks-migrate-to-regional-vnet.md).
+
 ## Avantages du réseau virtuel
 
 - **Isolement**. Les réseaux virtuels sont totalement isolés les uns des autres. Cela vous permet de créer des réseaux disjoints pour le développement, le test et la production qui utilisent les mêmes blocs d’adresses CIDR.
@@ -46,10 +48,6 @@ Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant vot
 - **Connectivité**. Les réseaux virtuels peuvent être connectés entre eux et même à votre centre de données local, en utilisant une connexion VPN de site à site ou une connexion ExpressRoute. Pour en savoir plus sur les passerelles VPN, Consultez [À propos des passerelles VPN](./vpn-gateway-about-vpngateways.md). Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](./expressroute-introduction.md).
 
     >[AZURE.NOTE]Assurez-vous de créer un réseau virtuel avant de déployer des machines virtuelles IaaS ou des instances de rôle PaaS dans votre environnement Azure. Les machines virtuelles sur ARM requièrent un réseau virtuel et, si vous ne spécifiez pas de réseau virtuel existant, Azure crée un réseau virtuel par défaut dont le bloc d’adresses CIDR peut entrer en conflit avec votre réseau local. Ce qui empêche la connexion de votre réseau virtuel à votre réseau local.
-
-## Modes de déploiement
-
-    >[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md). 
     
 ## Sous-réseaux
 
@@ -85,10 +83,10 @@ Par exemple, les NSG peuvent être utilisés pour assurer la sécurité sur votr
 Les appliances virtuelles dépendent des [itinéraires définis par l’utilisateur et du transfert d’IP](../virtual-networks-udr-overview.md).
 
 ## Limites
-Il existe des limites pour le nombre de réseaux virtuels autorisés dans un abonnement, veuillez vous reporter à la section [Limites de mise en réseau Azure](azure-subscription-service-limits.md#networking-limits) pour plus d’informations.
+Il existe des limites pour le nombre de réseaux virtuels autorisés dans un abonnement. Veuillez vous reporter à la section [Limites de mise en réseau Azure](azure-subscription-service-limits.md#networking-limits) pour plus d’informations.
 
 ## Tarification
-L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplémentaires. Les instances de calcul lancées dans le réseau virtuel seront facturées à un tarif standard, comme l’indique la section [Tarification liée aux machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/). Les [passerelles VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) et les [adresses IP publiques](https://azure.microsoft.com/pricing/details/ip-addresses/) utilisées dans le réseau virtuel peuvent également être facturés au tarif standard.
+L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplémentaires. Les instances de calcul lancées dans le réseau virtuel seront facturées à un tarif standard, comme l’indique la section [Tarification liée aux machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/). Les [passerelles VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) et les [adresses IP publiques](https://azure.microsoft.com/pricing/details/ip-addresses/) utilisées dans le réseau virtuel peuvent également être facturées au tarif standard.
 
 ## Étapes suivantes
 
@@ -100,4 +98,4 @@ L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplé
 - [Réserver une adresse IP publique](../virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

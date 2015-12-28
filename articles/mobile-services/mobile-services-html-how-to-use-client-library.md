@@ -66,7 +66,7 @@ Le code suivant montre comment filtrer des données en incluant une clause `wher
 	    alert("Error: " + err);
 	});
 
-En ajoutant l'appel à `where` sur l'objet Query et en transmettant un objet comme paramètre, vous indiquez à Mobile Services de renvoyer uniquement les lignes dont la colonne `complete` contient la valeur `false`. Étudiez également l'URI de requête ci-dessous. Vous remarquerez que nous modifions la chaîne de requête elle-même :
+En appelant `where` sur l’objet Query et en transmettant un objet comme paramètre, vous indiquez à Mobile Services de renvoyer uniquement les lignes dont la colonne `complete` contient la valeur `false`. Étudiez également l'URI de requête ci-dessous. Vous remarquerez que nous modifions la chaîne de requête elle-même :
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -504,8 +504,7 @@ L'exemple suivant montre comment utiliser le SDK Live avec des API WinJS pour of
 	// Start the sign-in process.
 	authenticate();
 
-Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="darosa"/>
 
 # Les signatures d’accès partagé
@@ -257,4 +257,4 @@ Pour obtenir d’autres exemples de signature d’accès partagé en C# et JavaS
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

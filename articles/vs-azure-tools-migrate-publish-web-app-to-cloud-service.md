@@ -3,9 +3,9 @@
    description="Découvrez comment migrer et publier une application web sur un service cloud Azure à partir de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio
 
@@ -125,7 +125,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. Pour publier l’application web sur Azure, ouvrez le menu contextuel du projet web et choisissez **Publier sur Azure**.
 
-    La boîte de dialogue **Publication d’application Azure** s’ouvre et Visual Studio démarre le processus de déploiement. Pour plus d’informations sur la publication de l’application, consultez la section **Publication d’une application Azure à partir de Visual Studio** dans [Publication d’un service cloud à l’aide de Windows Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
+    La boîte de dialogue **Publication d’application Azure** s’ouvre et Visual Studio démarre le processus de déploiement. Pour plus d’informations sur la publication de l’application, consultez la section **Publication d’une application Azure à partir de Visual Studio** dans [Publication d’un service cloud à l’aide de Microsoft Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
     >[AZURE.NOTE]Vous pouvez également publier l'application web à partir du projet Azure. Pour cela, ouvrez le menu contextuel du projet Azure, puis sélectionnez **Publier**.
 
@@ -208,4 +208,4 @@ Pour publier une application web sur Azure, l’application doit utiliser un des
 ## Étapes suivantes
 Pour plus d’informations sur la publication, consultez [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consultez également [Configuration des informations d’authentification nommées](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1217_2015-->

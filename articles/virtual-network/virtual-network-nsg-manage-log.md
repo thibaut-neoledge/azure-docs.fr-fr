@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/02/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #Analyse de journaux pour les groupes de sécurité réseau (NSG)
@@ -114,4 +114,4 @@ Vous devez vous connecter à votre compte de stockage et récupérer les entrée
 - Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

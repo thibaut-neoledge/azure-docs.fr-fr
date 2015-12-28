@@ -3,9 +3,9 @@
    description="Découvrez comment vous assurer que l’adresse IP virtuelle de votre service cloud Azure ne change pas."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Conserver une adresse IP virtuelle constante pour un service cloud
 
@@ -45,4 +45,4 @@ L’adresse IP virtuelle d’un service cloud est allouée la première fois qu
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

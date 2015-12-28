@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Itinéraires définis par l’utilisateur et transfert IP
@@ -90,4 +90,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](../virtual-network-create-udr-arm-template) et les associer à des sous-réseaux. 
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](../virtual-network-create-udr-classic-ps) et les associer à des sous-réseaux.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

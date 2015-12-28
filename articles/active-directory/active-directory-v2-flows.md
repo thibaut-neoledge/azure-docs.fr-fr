@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Types d’applications
@@ -127,4 +127,4 @@ De nombreuses architectures incluent une API Web qui doit appeler une autre API
 
 Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la concession d'informations d'identification du porteur OAuth 2.0 Jwt, également appelée [flux On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Toutefois, le flux On-Behalf-Of n’est pas actuellement implémenté dans la version d’évaluation du modèle d’application v2.0. Pour observer le fonctionnement de ce flux dans le service Azure AD généralement disponible, consultez l'[exemple de code On-Behalf-Of sur GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

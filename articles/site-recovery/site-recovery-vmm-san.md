@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer la protection entre des sites VMM locaux avec la réplication SAN"
+	pageTitle="Configurer la protection entre des sites VMM locaux à l’aide de SAN avec Azure Site Recovery | Microsoft Azure"
 	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles Hyper-V entre les sites locaux en utilisant la réplication SAN."
 	services="site-recovery"
 	documentationCenter=""
@@ -16,9 +16,9 @@
 	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
-# Configurer la protection entre des sites VMM locaux avec la réplication SAN
+# Configurer la protection entre des sites VMM locaux à l’aide de SAN avec Azure Site Recovery
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour en savoir plus sur les scénarios de déploiement, consultez [Présentation d’Azure Site Recovery](site-recovery-overview.md).
+Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour en savoir plus sur les scénarios de déploiement, consultez [Présentation d’Azure Site Recovery](site-recovery-overview.md).
 
 Cette procédure explique comment déployer Azure Site Recovery pour orchestrer et automatiser la protection des charges de travail de machine virtuelle sur un serveur Hyper-V local géré par System Center VMM vers un autre site VMM local, à l'aide de la réplication basée sur des groupes de stockage (SAN).
 
@@ -383,4 +383,4 @@ Depuis **Dashboard**, vous pouvez télécharger la dernière version des fichier
 
 Pour plus d'informations sur les interactions avec les tâches et le tableau de bord, consultez la page [Opérations et surveillance](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

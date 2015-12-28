@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Présentation du Kit de développement logiciel (SDK) Azure WebJobs
@@ -22,11 +22,11 @@
 
 Cet article explique la nature du Kit de développement logiciel (SDK) WebJobs, examine quelques scénarios courants pour lesquels il est utile, et présente son utilisation dans votre code.
 
-[WebJobs](websites-webjobs-resources.md) est une fonctionnalité de Microsoft Azure App Service qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web. La fonction du Kit de développement logiciel (SDK) WebJobs est de simplifier l’écriture de code qui s’exécute en tant que tâche web et fonctionne avec des files d’attente, des objets blob et des tables Azure Storage, ainsi que des files d’attente Service Bus.
+[WebJobs](websites-webjobs-resources.md) est une fonctionnalité de Microsoft Azure App Service qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web, application API ou application mobile. L’objectif du [kit de développement logiciel (SDK) WebJobs](websites-webjobs-resources.md) consiste à simplifier le code que vous écrivez pour les tâches web courantes, telles que le traitement d’image, le traitement de la file d’attente, l’agrégation RSS, la maintenance des fichiers et l’envoi des messages électroniques. Le kit de développement logiciel (SDK) WebJobs dispose de fonctionnalités intégrées fonctionnant avec le stockage Azure et Service Bus et servant à planifier des tâches, à gérer des erreurs et à nombreux autres scénarios courants. En outre, il est évolutif et il existe un [référentiel open source contenant les extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 Ce Kit comprend les composants suivants :
 
-* **Packages NuGet**. Les packages NuGet que vous ajoutez à un projet d'application console Visual Studio fournissent une infrastructure que votre code utilise pour fonctionner avec le service Azure Storage ou des files d'attente Service Bus.   
+* **Packages NuGet**. Les packages NuGet que vous ajoutez à un projet d'application console Visual Studio fournissent une infrastructure que votre code utilise en décorant vos méthodes avec les attributs SDK de WebJobs.
   
 * **Tableau de bord**. Cette partie du Kit de développement logiciel (SDK) WebJobs est incluse dans Microsoft Azure App Service ; elle offre des fonctions évoluées de surveillance et de diagnostic pour les programmes qui utilisent les packages NuGet. Vous n’avez pas à écrire du code pour utiliser ces fonctions.
 
@@ -46,11 +46,17 @@ Voici quelques scénarios typiques plus faciles à gérer avec le Kit de dévelo
 
 * Autres tâches longues que vous voulez exécuter dans un thread en arrière-plan (par exemple, [envoi de courriers électroniques](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure)).
 
+* Toutes les tâches que vous souhaitez exécuter sur un planning, par exemple une opération de sauvegarde exécutée toutes les nuits.
+
 Dans un grand nombre de ces scénarios, vous souhaiterez mettre à l'échelle une application web de sorte à ce qu’elle puisse être exécutée sur plusieurs machines virtuelles, qui exécuteraient plusieurs WebJobs simultanément. Dans certains scénarios, cela pourrait entraîner le traitement multiple de mêmes données, mais ceci n'est pas un problème lorsque vous utilisez la file d'attente intégrée, blob et les déclencheurs de bus de service du Kit de développement logiciel (SDK) de WebJobs. Le Kit de développement logiciel (SDK) garantit que vos fonctions ne seront traitées qu'une seule fois pour chaque message ou objet blob.
+
+Le SDK WebJobs facilite également la gestion des scénarios de traitement des erreurs courantes. Vous pouvez définir des alertes pour envoyer des notifications lorsqu’une fonction échoue, et vous pouvez définir des délais d'attente afin qu’une fonction soit automatiquement annulée si elle ne se termine pas dans un délai spécifié.
 
 ## <a id="code"></a> Exemples de code
 
-Le code de traitement des tâches typiques fonctionnant avec Azure Storage est simple. Dans une application console, vous écrivez des méthodes pour les tâches en arrière-plan que vous voulez exécuter et vous les décorez avec des attributs du Kit de développement logiciel (SDK) WebJobs. Votre méthode `Main` crée un objet `JobHost`, qui coordonne les appels aux méthodes que vous écrivez. L’infrastructure du Kit de développement logiciel (SDK) WebJobs sait quand appeler vos méthodes d’après les attributs associés que vous utilisez dans ces méthodes.
+Le code de traitement des tâches typiques fonctionnant avec Azure Storage est simple. Dans votre méthode `Main` de Console Application, vous créez un objet `JobHost` qui coordonne les appels aux méthodes que vous écrivez. L’infrastructure du Kit de développement logiciel (SDK) WebJobs sait quand appeler vos méthodes et quels valeurs de paramètre utiliser d’après les attributs associés que vous utilisez dans ces méthodes. Le SDK fournit des *déclencheurs* qui spécifient les conditions déclenchant l’appel de la fonction, et des *binders* qui spécifient comment obtenir des informations vers et depuis des paramètres de méthode.
+
+Par exemple, l’attribut [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) déclenche l’appel d’une fonction lorsqu’une file d’attente reçoit un message ; si le message est enregistré au format JSON pour un tableau d’octets ou un type personnalisé, il est automatiquement désérialisé. L’attribut [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) déclenche un processus lorsqu'un nouvel objet blob est créé dans un compte Azure Storage.
 
 Voici un programme simple qui interroge une file d’attente et crée un objet blob pour chaque message de file d’attente reçu :
 
@@ -79,9 +85,77 @@ La fonction utilise ensuite ces paramètres pour écrire la valeur du message en
 
 		writer.WriteLine(inputText);
 
-Les fonctionnalités de déclencheur et de classeur du Kit de développement logiciel (SDK) WebJobs simplifient considérablement le code que vous devez écrire avec des files d'attente Azure Storage et Service Bus. L'infrastructure du SDK écrit pour vous le code de bas niveau nécessaire à la gestion des files d'attente et au traitement des objets blob. Elle crée des files d'attente qui n'existent pas encore, ouvre une file d'attente, lit les messages en attente, supprime les messages en attente une fois qu'ils ont été traités, crée des conteneurs d'objets blob qui n'existent pas encore, écrit dans les objets blob, etc.
+Les fonctionnalités de déclencheur et de classeur du Kit de développement logiciel (SDK) WebJobs simplifient considérablement le code que vous devez écrire. L'infrastructure du SDK écrit pour vous le code de bas niveau nécessaire à la gestion des files d'attente et au traitement des objets blob. Par exemple, elle crée des files d'attente qui n'existent pas encore, ouvre une file d'attente, lit les messages en attente, supprime les messages en attente une fois qu'ils ont été traités, crée des conteneurs d'objets blob qui n'existent pas encore, écrit dans les objets blob, etc.
 
-Le Kit de développement logiciel (SDK) WebJobs offre différentes manières d’utiliser Azure Storage. Par exemple, si le paramètre auquel vous associez l’attribut `QueueTrigger` est un tableau d’octets ou un type personnalisé, il est automatiquement désérialisé à partir de JSON. De plus, vous pouvez utiliser un attribut `BlobTrigger` pour déclencher un processus lorsqu’un nouvel objet blob est créé dans un compte Azure Storage. (Remarque : bien que l’élément `QueueTrigger` recherche les nouveaux messages de file d’attente en quelques secondes, `BlobTrigger` peut prendre jusqu’à 20 minutes pour détecter nouvel objet blob. `BlobTrigger` recherche les objets blob chaque fois que `JobHost` démarre, vérifiant ensuite périodiquement les journaux Azure Storage pour détecter de nouveaux objets blob.)
+L’exemple de code suivant présente différents déclencheurs dans une tâche WebJob : `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, et `ErrorTrigger`.
+
+```
+    public class Functions
+    {
+        public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
+        TextWriter log)
+        {
+            log.WriteLine(message);
+        }
+
+        public static void ProcessFileAndUploadToBlob(
+            [FileTrigger(@"import\{name}", "*.*", autoDelete: true)] Stream file,
+            [Blob(@"processed/{name}", FileAccess.Write)] Stream output,
+            string name,
+            TextWriter log)
+        {
+            output = file;
+            file.Close();
+            log.WriteLine(string.Format("Processed input file '{0}'!", name));
+        }
+
+        [Singleton]
+        public static void ProcessWebHookA([WebHookTrigger] string body, TextWriter log)
+        {
+            log.WriteLine(string.Format("WebHookA invoked! Body: {0}", body));
+        }
+
+        public static void ProcessGitHubWebHook([WebHookTrigger] string body, TextWriter log)
+        {
+            dynamic issueEvent = JObject.Parse(body);
+            log.WriteLine(string.Format("GitHub WebHook invoked! ('{0}', '{1}')",
+                issueEvent.issue.title, issueEvent.action));
+        }
+
+        public static void ErrorMonitor(
+        [ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+        [SendGrid(
+            To = "admin@emailaddress.com",
+            Subject = "Error!")]
+         SendGridMessage message)
+        {
+            // log last 5 detailed errors to the Dashboard
+            log.WriteLine(filter.GetDetailedMessage(5));
+            message.Text = filter.GetDetailedMessage(1);
+        }
+    }
+```
+
+## Planification <a id="schedule"></a>
+
+L’attribut `TimerTrigger` permet de déclencher des fonctions selon une planification. Vous pouvez planifier une tâche Web dans son ensemble via des fonctions individuelles Azure ou de la planification d'une tâche WebJob à l’aide du SDK WebJobs `TimerTrigger`. Voici un exemple de code.
+
+```
+public class Functions
+{
+    public static void ProcessTimer([TimerTrigger("*/15 * * * * *", RunOnStartup = true)]
+    TimerInfo info, [Queue("queue")] out string message)
+    {
+        message = info.FormatNextOccurrences(1);
+    }
+}
+```
+
+Pour d’autres exemples de code, consultez [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) dans le référentiel azure-webjobs-sdk-extensions sur GitHub.com.
+
+## Extensibilité
+
+Vous n'êtes pas limité aux fonctionnalités intégrées, en effet le SDK WebJobs vous permet d’écrire les binders et déclencheurs personnalisés. Par exemple, vous pouvez écrire des déclencheurs pour les événements du cache et les planifications périodiques. Un [référentiel Open Source](https://github.com/Azure/azure-webjobs-sdk-extensions) contient un [guide détaillé sur l'extensibilité du SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) et l'exemple de code pour vous aider à commencer à écrire vos propres déclencheurs et binders.
 
 ## <a id="workerrole"></a>Utilisation du Kit de développement logiciel (SDK) WebJobs en dehors de WebJobs
 
@@ -89,19 +163,21 @@ Un programme qui utilise le Kit de développement logiciel (SDK) WebJobs est un
 
 Toutefois, le tableau de bord est uniquement disponible en tant qu’extension d’une application web Microsoft Azure App Service. Si vous voulez que l’exécution ait lieu en dehors de WebJobs, mais souhaitez pouvoir utiliser le tableau de bord, vous pouvez configurer une application web de manière à utiliser le compte de stockage auquel la chaîne de connexion du tableau de bord du Kit de développement logiciel (SDK) WebJobs fait référence ; le tableau de bord WebJobs de cette application affiche alors les données concernant l’exécution des fonctions de votre programme, qui s’exécute ailleurs. Vous pouvez accéder au tableau de bord via l’URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Pour plus d’informations, consultez le billet de blog [Récupération d’un tableau de bord pour un développement local avec le Kit de développement logiciel (SDK) WebJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx) (notez cependant que le billet de blog affiche un ancien nom de chaîne de connexion).
 
-## <a id="nostorage"></a>Utilisation du Kit de développement logiciel (SDK) WebJobs pour l’appel d’une fonction
+## <a id="nostorage"></a>Fonctionnalités du tableau de bord
 
-Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même si vous ne devez pas utiliser directement des files d’attente, des objets blob et des tables Azure Storage, et des files d’attente Service Bus :
+Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même si vous n’utilisez pas les déclencheurs ou binders du SDK WebJobs :
 
 * Vous pouvez appeler des fonctions depuis le tableau de bord.
 * Vous pouvez réexécuter des fonctions depuis le tableau de bord.
 * Vous pouvez afficher les journaux dans le tableau de bord, liés à une tâche web spécifique (journaux d’application, écrits via les éléments Console.Out, Console.Error, Trace, etc.) ou liés à l’appel de fonction spécifique à l’origine de leur génération (journaux écrits via un objet `TextWriter` que le Kit de développement logiciel (SDK) passe à la fonction, en tant que paramètre). 
 
-* Pour en savoir plus, consultez les pages [Appel manuel d’une fonction](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) et [Écriture de journaux](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
+Pour en savoir plus, consultez les pages [Appel manuel d’une fonction](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) et [Écriture de journaux](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
 
 ## <a id="nextsteps"></a>Étapes suivantes
 
 Pour en savoir plus sur le Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
+
+Pour plus d'informations sur les dernières améliorations apportées au SDK WebJobs, consultez les [Notes de publication](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

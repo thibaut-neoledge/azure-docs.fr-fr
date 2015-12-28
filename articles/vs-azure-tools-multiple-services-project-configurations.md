@@ -3,9 +3,9 @@
    description="Découvrez comment configurer un projet de service cloud Azure en modifiant les fichiers ServiceDefinition.csdef et ServiceConfiguration.cscfg."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuration de votre projet Azure à l'aide de plusieurs configurations de service
 
@@ -110,4 +110,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 |Développement|Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent.|
 |Web|Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

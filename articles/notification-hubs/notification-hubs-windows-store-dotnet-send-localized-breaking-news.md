@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
@@ -39,7 +39,7 @@ Ce scénario comporte deux parties :
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code.
 
-Vous avez également besoin de Visual Studio 2012.
+Vous avez également besoin de Visual Studio 2012 (ou version ultérieure).
 
 
 ##Concepts de modèle
@@ -56,7 +56,7 @@ Remarque : pour envoyer des notifications localisées, vous pouvez notamment cr
 		"News_Mandarin": "..."
 	}
 
-Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle qui se réfère à la bonne propriété. Par exemple, une application Windows Store qui veut recevoir un simple message toast doit s'inscrire pour le modèle suivant :
+Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle qui se réfère à la bonne propriété. Par exemple, une application Windows Store qui veut recevoir un simple message toast doit s’inscrire pour le modèle suivant, avec les balises correspondantes :
 
 	<toast>
 	  <visual>
@@ -68,16 +68,12 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
 
 
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs]. Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store].
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d’informations en lisant notre article [Modèles](notification-hubs-templates.md).
 
 
 ##Interface utilisateur de l’application
 
 Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
-
-
-Pour adapter vos applications clientes afin qu'elles puissent recevoir des messages localisés, vous devez remplacer vos inscriptions *natives* (c.-à-d. les inscriptions qui ne spécifient pas de modèle) par des inscriptions avec modèle.
-
 
 Dans votre application Windows Store :
 
@@ -109,29 +105,37 @@ Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiab
         <ToggleSwitch Header="Technology" Name="TechnologyToggle" Grid.Row="2" Grid.Column="1"/>
         <ToggleSwitch Header="Science" Name="ScienceToggle" Grid.Row="3" Grid.Column="1"/>
         <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
-        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
+        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
 
 ##Création de l’application cliente Windows Store
 
 1. Dans la classe Notifications, ajoutez un paramètre de paramètre régional aux méthodes *StoreCategoriesAndSubscribe* et *SubscribeToCateories*.
 
-		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
             ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-            await SubscribeToCategories(locale, categories);
+            return await SubscribeToCategories(categories);
         }
 
-        public async Task SubscribeToCategories(string locale, IEnumerable<string> categories)
+        public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            var template = String.Format(@"<toast><visual><binding template=""ToastText01""><text id=""1"">$(News_{0})</text></binding></visual></toast>", locale);
 
-            await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
+            if (categories == null)
+            {
+                categories = RetrieveCategories();
+            }
+
+            // Using a template registration. This makes supporting notifications across other platforms much easier.
+            // Using the localized tags based on locale selected.
+            string templateBodyWNS = String.Format("<toast><visual><binding template="ToastText01"><text id="1">$(News_{0})</text></binding></visual></toast>", locale);
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
 
-	Notez qu'au lieu d'appeler la méthode *RegisterNativeAsync*, nous appelons *RegisterTemplateAsync* : nous inscrivons un format de notification spécifique dans lequel le modèle dépend des paramètres régionaux. Nous avons également fourni un nom pour le modèle (« newsTemplate »), parce qu’il est possible que nous inscrivions plusieurs modèles (par exemple un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
+	Notez qu'au lieu d'appeler la méthode *RegisterNativeAsync*, nous appelons *RegisterTemplateAsync* : nous inscrivons un format de notification spécifique dans lequel le modèle dépend des paramètres régionaux. Nous avons également fourni un nom pour le modèle (« localizedWNSTemplateExample »), parce qu’il est possible que nous inscrivions plusieurs modèles (par exemple un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
 
 	Notez que si un appareil inscrit plusieurs modèles avec la même balise, un message entrant ciblant cette balise entraînera l'envoi de plusieurs notifications à l'appareil (un pour chaque modèle). Ce comportement s'avère utile lorsque le même message logique doit générer plusieurs notifications visuelles, par exemple affichant un badge et un toast dans une application Windows Store.
 
@@ -143,27 +147,44 @@ Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiab
             return locale != null ? locale : "English";
         }
 
-3. Dans le fichier MainPage.xaml.cs, mettez le gestionnaire de clics de bouton à jour en extrayant la valeur actuelle de la zone de liste modifiable Paramètres régionaux et en la fournissant à l’appel de la classe Notifications, comme indiqué ci-après :
+3. Dans le fichier MainPage.xaml.cs, mettez le gestionnaire de clics de bouton à jour en extrayant la valeur actuelle de la zone de liste déroulante Paramètres régionaux et en la fournissant à l’appel de la classe Notifications, comme indiqué ci-après :
 
-		 var locale = (string)Locale.SelectedItem;
+        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var locale = (string)Locale.SelectedItem;
 
-         var categories = new HashSet<string>();
-         if (WorldToggle.IsOn) categories.Add("World");
-         if (PoliticsToggle.IsOn) categories.Add("Politics");
-         if (BusinessToggle.IsOn) categories.Add("Business");
-         if (TechnologyToggle.IsOn) categories.Add("Technology");
-         if (ScienceToggle.IsOn) categories.Add("Science");
-         if (SportsToggle.IsOn) categories.Add("Sports");
+            var categories = new HashSet<string>();
+            if (WorldToggle.IsOn) categories.Add("World");
+            if (PoliticsToggle.IsOn) categories.Add("Politics");
+            if (BusinessToggle.IsOn) categories.Add("Business");
+            if (TechnologyToggle.IsOn) categories.Add("Technology");
+            if (ScienceToggle.IsOn) categories.Add("Science");
+            if (SportsToggle.IsOn) categories.Add("Sports");
 
-         await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
+				 categories);
 
-         var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
-         dialog.Commands.Add(new UICommand("OK"));
-         await dialog.ShowAsync();
+            var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
+				string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        }
 
-4. Enfin, dans le fichier App.xaml.cs, n'oubliez pas de mettre à jour l'appel du singleton Notifications dans la méthode *OnLaunched*.
 
-		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
+4. Enfin, dans votre fichier App.xaml.cs, veillez à mettre à jour votre méthode `InitNotificationsAsync` pour extraire les paramètres régionaux et les utiliser lors de l’abonnement :
+
+        private async void InitNotificationsAsync()
+        {
+            var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
+
+            // Displays the registration ID so you know it was successful
+            if (result.RegistrationId != null)
+            {
+                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
 
 
 ##Envoi de notifications localisées à partir de votre serveur principal
@@ -174,9 +195,6 @@ Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiab
 
 
 
-## Étapes suivantes
-
-Pour plus d'informations sur l'utilisation des modèles, consultez [Notification des utilisateurs avec Notification Hubs : ASP.NET], [Notification des utilisateurs avec Notification Hubs : Mobile Services] et [Recommandations relatives à Notification Hubs]. Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store].
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -187,30 +205,10 @@ Pour plus d'informations sur l'utilisation des modèles, consultez [Notification
 
 <!-- Images. -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notification des utilisateurs avec Notification Hubs : ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notification des utilisateurs avec Notification Hubs : Mobile Services]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 
@@ -226,8 +224,8 @@ Pour plus d'informations sur l'utilisation des modèles, consultez [Notification
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

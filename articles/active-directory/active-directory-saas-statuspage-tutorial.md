@@ -97,7 +97,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     > [AZURE.NOTE]Contactez l’équipe de support StatusPage à l’adresse [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) pour demander les métadonnées nécessaires à la configuration de l’authentification unique.
 
 
-    a. À partir des métadonnées, copiez la valeur de l’émetteur et collez-la dans la zone de texte **Émetteur**.
+    a. À partir des métadonnées, copiez la valeur de l’émetteur et collez-la dans la zone de texte **Identificateur**.
 
     b. À partir des métadonnées, copiez l’URL de réponse et collez-la dans la zone de texte **URL de réponse**.
 
@@ -244,4 +244,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

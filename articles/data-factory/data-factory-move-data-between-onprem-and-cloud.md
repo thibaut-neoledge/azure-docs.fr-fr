@@ -73,7 +73,7 @@ Ces messages sont dus à une configuration incorrecte du pare-feu ou du serveur 
 Les deux pare-feu concernés peuvent être : les pare-feu d'entreprise en cours d'exécution sur le routeur central de l'entreprise et le pare-feu Windows configuré en tant que démon sur l'ordinateur local où la passerelle est installée. Voici quelques considérations :
 
 - Il est inutile de modifier la stratégie entrante du pare-feu d'entreprise.
-- Le pare-feu d’entreprise et le Pare-feu Windows doivent activer la règle sortante pour les ports TCP 80, 443 et de 9305 à 9354. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre les services de cloud et la passerelle de gestion des données.
+- Le pare-feu d’entreprise et le Pare-feu Windows doivent activer la règle sortante pour les ports TCP 80, 443 et de 9350 à 9354. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre les services de cloud et la passerelle de gestion des données.
 
 Le programme d'installation MSI configurera automatiquement les règles de pare-feu Windows pour les ports entrants de l'ordinateur de la passerelle (voir la section consacrée aux ports et à la sécurité ci-dessus).
 
@@ -594,7 +594,7 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Flux de données pour la copie à l’aide de la passerelle de gestion des données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données :
+Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données : 
 ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure Classic](http://portal.azure.com) ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
@@ -618,4 +618,4 @@ Voici un flux de données global et un résumé des opérations servant à la co
 	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

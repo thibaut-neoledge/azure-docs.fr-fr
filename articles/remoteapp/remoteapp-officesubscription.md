@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/24/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -22,11 +22,14 @@
 
 Saviez-vous que vous pouvez utiliser votre abonnement Office 365 existant dans Azure RemoteApp pour partager des applications Office à partir du cloud ? Continuez votre lecture pour en savoir plus sur vos options Office 365 + Azure RemoteApp, notamment pour consulter des liens vers des articles sur Office 365 qui vous aideront à tirer le meilleur parti de votre abonnement.
 
+## Comment utiliser des comptes Office 365 pour Azure RemoteApp ?
+Pour des informations détaillées, consultez le nouvel article de Peter : [comment utiliser Azure RemoteApp avec des comptes d’utilisateur Office 365](remoteapp-o365user.md)
+
 ## Puis-je utiliser mon abonnement Office 365 pour exécuter des applications Office dans Azure RemoteApp ?
 
 Oui. En fait, l’utilisation de votre abonnement Office 365 est la seule façon d’importer vos applications Office dans Azure RemoteApp.
 
-(Remarque : si votre déploiement Azure RemoteApp est fourni par un partenaire d'hébergement, ce dernier peut éventuellement vous fournir des licences Office dans le cadre d’un [contrat de licence de fournisseur de services](http://www.microsoft.com/fr-FR/Licensing/licensing-programs/spla-program.aspx))
+(Remarque : si votre déploiement Azure RemoteApp est fourni par un partenaire d’hébergement, ce dernier peut éventuellement vous fournir des licences Office dans le cadre d’un [contrat de licence de fournisseur de services](http://www.microsoft.com/fr-FR/Licensing/licensing-programs/spla-program.aspx))
 
 
 L’avantage de votre abonnement Office 365 est qu’il vous permet d’utiliser la même licence utilisateur dans de nombreux environnements et plateformes, y compris dans le cloud Azure. Lorsque vous utilisez des applications Office dans Azure RemoteApp, vous n’avez pas besoin d’acheter des licences supplémentaires ou de configurer vos licences existantes d’une manière particulière. Il vous suffit de disposer d’un abonnement Office 365 qui inclut [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
@@ -74,7 +77,7 @@ Pour déployer Office 365 ProPlus sur une collection, le plus simple est de [d�
 
 ### Utilisation d’une image personnalisée
 
-Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.microsoft.com/library/Dn782858.aspx) pour l’installation.
+Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.microsoft.com/library/Dn782858.aspx) d’installation.
 
 ### Désactivation des mises à jour automatiques pour Office 365 ProPlus dans votre image personnalisée - IMPORTANT
 
@@ -99,7 +102,7 @@ Il existe de nombreuses raisons pour mettre à jour l’image dans votre collect
 - Mettre à jour votre application personnalisée
 - Modifier d’autres paramètres de configuration pour l’image elle-même
 
-Pour consulter les étapes de bout en bout de mise à jour de votre collection pour utiliser l’image mise à jour, cliquez [ici](remoteapp-update.md). Toutefois, pour savoir comment mettre à jour l’image et Office 365 ProPlus, consultez les informations suivantes.
+Pour consulter la procédure de bout en bout de mise à jour de votre collection pour utiliser l’image mise à jour, cliquez [ici](remoteapp-update.md). Toutefois, pour savoir comment mettre à jour l’image et Office 365 ProPlus, consultez les informations suivantes.
 
 Deux options s’offrent à vous pour la mise à jour de votre image : remplacer votre image par une nouvelle image ou mettre à jour manuellement votre image existante.
 
@@ -117,7 +120,7 @@ Avec cette option, vous utilisez les outils Windows standard pour appliquer des 
 Vous avez besoin de plus d’informations sur l’utilisation de l’outil Déploiement d’Office pour les mises à jour ?
 
 - [Déployer des produits Office « Démarrer en un clic » pour Office 365 à l’aide de l’outil Déploiement d’Office](https://technet.microsoft.com/library/JJ219423.aspx)
-- [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo en anglais)
+- [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo)
 - [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

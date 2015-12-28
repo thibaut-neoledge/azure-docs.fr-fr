@@ -52,19 +52,26 @@ Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer 
 2. Utilisez [CREATE MASTER KEY (Transact-SQL)][] pour créer une clé principale pour votre base de données. Si votre base de données a déjà une clé principale, vous n'avez pas besoin d'en créer une autre. Cette clé est utilisée pour chiffrer vos informations d’identification « secrètes » au cours de l’étape suivante.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
 1. Vérifiez si vous disposez déjà d'informations d'identification de base de données. Pour ce faire, utilisez la vue système sys.database\_credentials, et non les sys.credentials qui affichent uniquement les informations d'identification du serveur.
 
     ```
-    -- Vérifiez les informations d'identification de base de données existantes.
-    SELECT * FROM sys.database\_credentials;
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
-3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d'identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n'affecte aucunement l'authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
+3. Utilisez [CREATE CREDENTIAL (Transact-SQL)][] pour créer des informations d’identification de niveau base de données pour chaque compte de stockage Azure auquel vous souhaitez accéder. Dans cet exemple, IDENTITY est un nom convivial pour les informations d'identification. Il n’affecte aucunement l’authentification à Azure Storage. SECRET est votre clé de compte de stockage Azure.
 
-    -- Créer un fichier d'informations d'identification de niveau base de données CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
+    ```
+    -- Create a database scoped credential
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Si vous devez supprimer des informations d’identification de niveau base de données, utilisez [DROP CREDENTIAL (Transact-SQL)][] :
 
@@ -205,7 +212,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Une requête sur une table externe peut échouer avec l’erreur *« Requête abandonnée--le seuil de rejet maximal a été atteint lors de la lecture à partir d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
+> [AZURE.NOTE]Une requête sur une table externe peut échouer avec l’erreur *« Requête abandonnée : le seuil de rejet maximal a été atteint lors de la lecture à partir d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
 
 
 ## Charger des données à partir d’objets Blob Microsoft Azure Storage
@@ -359,4 +366,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

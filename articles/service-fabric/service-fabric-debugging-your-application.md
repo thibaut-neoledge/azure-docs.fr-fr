@@ -55,7 +55,7 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-- [Tester un service Service Fabric](service-fabric-test-your-service-index.md).
+- [Tester un service Service Fabric](service-fabric-testability-overview.md).
 - [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
@@ -64,6 +64,5 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -350,12 +350,13 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, voir les l
 
 - [Bibliothèque iOS Azure Storage]
 - [API REST d’Azure Storage]
-- [Blog de l’équipe Azure Storage]
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Blog de l'équipe Azure Storage]
 
 Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, publiez un message sur la page des [Commentaires relatifs à Azure Storage](http://feedback.azure.com/forums/217298-storage).
 
 [Bibliothèque iOS Azure Storage]: https://github.com/azure/azure-storage-ios
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
+[Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

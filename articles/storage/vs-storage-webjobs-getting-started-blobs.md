@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
 ## Vue d'ensemble
 
-Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
+Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x. Quand vous ajoutez un compte de stockage à un projet de tâche web à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d'Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
 
 
@@ -210,7 +201,7 @@ Le Kit de développement logiciel (SDK) WebJobs s'assure qu'aucune fonction **Bl
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* Fonction appelée pour l’objet blob ("*{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*", par exemple : « WebJob1.Functions.CopyBlob »)
+* Fonction appelée pour l'objet blob ("*{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*", par exemple : « WebJob1.Functions.CopyBlob »)
 * Nom du conteneur
 * Type d’objet blob (« BlockBlob » ou « PageBlob »)
 * Nom de l’objet blob
@@ -238,4 +229,4 @@ Les sujets associés abordés dans cet article sont les suivants :
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des objets blob Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

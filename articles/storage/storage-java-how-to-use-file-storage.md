@@ -212,6 +212,7 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage]
 - [API REST d’Azure Storage]
 - [Blog de l'équipe Azure Storage]
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Kit de développement Azure Storage (SDK) pour Java]: https://github.com/azure/azure-storage-java
@@ -222,4 +223,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

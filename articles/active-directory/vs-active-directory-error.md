@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="12/10/2015" 
 	ms.author="tarcher"/>
 
 # Erreur lors de la détection de l’authentification
@@ -26,7 +26,7 @@ L'Assistant a trouvé un type d'authentification incompatible lors de l'opérati
 
 ###Types de projet
 
-L’Assistant vérifie le type de projet que vous développez afin d’injecter la logique d’authentification appropriée au projet. S’il existe un contrôleur qui dérive de `ApiController` dans le projet, celui-ci est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, celui-ci est considéré comme un projet MVC. Tout autre élément est considéré comme non pris en charge par l’Assistant. Les projets WebForms ne sont pas pris en charge actuellement.
+L’Assistant vérifie le type de projet que vous développez afin d’injecter la logique d’authentification appropriée au projet. S’il existe un contrôleur qui dérive de `ApiController` dans le projet, le projet est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, le projet est considéré comme un projet MVC. Les autres éléments ne sont pas pris en charge par l’assistant. Les projets WebForms ne sont pas pris en charge actuellement.
 
 ###Code d’authentification compatible
 
@@ -95,6 +95,5 @@ Pour détecter une ancienne forme d’authentification d’un compte professionn
 Pour modifier le type d'authentification, supprimez le type d'authentification incompatible, puis réexécutez l'Assistant.
 
 Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

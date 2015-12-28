@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utiliser Application Insights avec les diagnostics Azure pour résoudre les problèmes de service cloud | Microsoft Azure"
+   pageTitle="Résoudre les problèmes de Cloud Services à l’aide d’Application Insights | Microsoft Azure"
    description="Découvrez comment résoudre les problèmes de service cloud en utilisant Application Insights pour traiter les données des diagnostics Azure."
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# Utiliser Application Insights avec les diagnostics Azure pour résoudre les problèmes de service cloud
+# Résoudre les problèmes de Cloud Services à l’aide d’Application Insights
 
 Avec le [Kit de développement logiciel (SDK) Azure 2.8](https://azure.microsoft.com/downloads/) et l'extension des diagnostics Azure 1.5, vous pouvez désormais envoyer directement à Application Insights les données des diagnostics Azure de votre service cloud. Les différents types de journaux collectés par les diagnostics Azure, notamment les journaux des applications, les journaux des événements Windows, les journaux ETW et les compteurs de performances, peuvent maintenant être envoyés à Application Insights et affichés dans l'interface utilisateur du portail Application Insights. Si vous utilisez également le Kit de développement logiciel (SDK) Application Insights, vous pouvez désormais obtenir des analyses des métriques et des journaux provenant de votre application, ainsi que les données de niveau système et infrastructure provenant des diagnostics Azure.
   
@@ -61,7 +61,7 @@ Pour afficher les données des diagnostics Azure dans Application Insights :
 
 ![Métriques personnalisées dans Metrics Explorer][5]
 
-- Utilisez [Search](../application-insights/app-insights-diagnostic-search.md) pour effectuer des recherches dans les différents journaux de suivi envoyés par Azure Diagnostics. Pour exemple, si une exception non prise en charge dans un rôle a provoqué un incident et le recyclage du rôle, cette information s'affiche dans le canal *Application* du *Journal des événements Windows*. Vous pouvez utiliser la fonctionnalité de recherche pour rechercher l'erreur dans le journal des événements Windows et obtenir l'arborescence complète des appels de procédure de l'exception, ce qui vous permet de trouver la cause racine du problème. 
+- Utilisez [Search](../application-insights/app-insights-diagnostic-search.md) pour effectuer des recherches dans les différents journaux de suivi envoyés par Azure Diagnostics. Par exemple, si une exception non prise en charge dans un rôle a provoqué un incident et le recyclage du rôle, cette information s’affiche dans le canal *Application* du *Journal des événements Windows*. Vous pouvez utiliser la fonctionnalité de recherche pour rechercher l'erreur dans le journal des événements Windows et obtenir l'arborescence complète des appels de procédure de l'exception, ce qui vous permet de trouver la cause racine du problème. 
 
 ![Rechercher dans les traces][6]
 
@@ -78,4 +78,4 @@ Pour afficher les données des diagnostics Azure dans Application Insights :
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

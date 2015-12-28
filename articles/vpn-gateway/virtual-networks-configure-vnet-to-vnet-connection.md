@@ -23,11 +23,14 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Cet article vous guide tout au long de la procédure de création et de connexion de plusieurs réseaux virtuels à l’aide du modèle de déploiement classique (également appelé Service Management). Ces étapes utilisent une combinaison du portail Azure Classic (et non le portail Azure) et des applets de commande PowerShell. Si vous souhaitez connecter des réseaux virtuels créés à l’aide du modèle de déploiement Azure Resource Manager, voir l’onglet ci-dessus. Les étapes varient en fonction du modèle.
 
-Vous pouvez également connecter un réseau virtuel créé dans le modèle de déploiement classique à un réseau virtuel créé à l’aide du modèle Resource Manager. Consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Cet article vous guide tout au long de la procédure de création et de connexion de plusieurs réseaux virtuels à l’aide du modèle de déploiement classique (également appelé Service Management). Ces étapes utilisent une combinaison du portail Azure Classic (et non le portail Azure) et des applets de commande PowerShell. Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**À propos des modèles de déploiement Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+Si vous souhaitez connecter un réseau virtuel créé dans le modèle de déploiement classique à un réseau virtuel créé à l’aide du modèle Resource Manager. Consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différents abonnements et différentes régions. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma ci-dessous :
 
@@ -112,9 +115,9 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
 1. Connectez-vous au **portail Azure Classic** (pas au portail Azure).
 
-2. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l’Assistant Configuration.
+2. Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
-Dans la page **Détails du réseau virtuel**, entrez les informations suivantes.
+Sur la page **Détails du réseau virtuel**, entrez les informations suivantes.
 
   ![Détails du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -123,7 +126,7 @@ Dans la page **Détails du réseau virtuel**, entrez les informations suivantes.
 
 
 
-Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
+Sur la page **Connectivité VPN et serveurs DNS**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
   ![Serveurs DNS et connectivité VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -132,7 +135,7 @@ Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suiva
 
   - N’activez aucune des cases à cocher. Cliquez sur la flèche située en bas à droite pour passer à l’écran suivant.
 
-Dans la page **Espaces d’adresses du réseau virtuel**, indiquez la plage d’adressage que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel. Il est particulièrement important de sélectionner une plage qui ne chevauche pas une des plages qui sont utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau, qui peut extraire une plage d’adresses IP de votre espace d’adressage de réseau local pour l’utiliser pour votre réseau virtuel.
+Sur la page **Espaces d’adresses du réseau virtuel**, indiquez la plage d’adressage que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel. Il est particulièrement important de sélectionner une plage qui ne chevauche pas une des plages qui sont utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau, qui peut extraire une plage d’adresses IP de votre espace d’adressage de réseau local pour l’utiliser pour votre réseau virtuel.
 
 
   ![Espaces d’adressage du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -142,7 +145,7 @@ Dans la page **Espaces d’adresses du réseau virtuel**, indiquez la plage d’
   - **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local. Pour cet exemple, nous allons utiliser 10.1.0.0/16 pour VNet1.
   - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
 
-**Cliquez sur la coche** en bas à droite de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention *Créé* apparaît sous *État* sur la page *Réseaux* du portail Azure Classic.
+**Cliquez sur la coche** en bas à droite de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention *Créé* apparaît sous *État* sur la page *Réseaux* du Portail Azure Classic.
 
 ## Créer un autre réseau virtuel
 
@@ -156,9 +159,9 @@ Ensuite, répétez la procédure précédente pour créer un autre réseau virtu
 
 Quand vous créez une configuration de réseau virtuel à réseau virtuel, vous devez configurer chaque réseau virtuel pour identifier l’autre comme un site de réseau local. Dans cette procédure, vous allez configurer chaque réseau virtuel comme réseau local. Si vous avez déjà configuré des réseaux virtuels, c’est ici que vous pouvez les ajouter comme réseaux locaux dans le portail Azure Classic.
 
-1. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Ajouter un réseau local**
+1. Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Ajouter un réseau local**
 
-2. Dans la page **Spécifier les détails de votre réseau local**, pour **Nom**, entrez le nom d’un réseau virtuel que vous souhaitez utiliser dans votre configuration de réseau virtuel à réseau virtuel. Pour cet exemple, nous allons utiliser VNet1, car nous allons faire pointer VNet2 vers ce réseau virtuel pour notre configuration.
+2. Sur la page **Spécifier les détails de votre réseau local**, pour **Nom**, entrez le nom d’un réseau virtuel que vous souhaitez utiliser dans votre configuration de réseau virtuel à réseau virtuel. Pour cet exemple, nous allons utiliser VNet1, car nous allons faire pointer VNet2 vers ce réseau virtuel pour notre configuration.
 
   Pour le périphérique VPN, utilisez n’importe quelle adresse IP. En général, vous utilisez la véritable adresse IP externe d’un périphérique VPN. Pour les configurations de réseau virtuel à réseau virtuel, vous allez utiliser l’adresse IP de la passerelle. Toutefois, étant donné que vous n’avez pas encore créé la passerelle, nous utilisons l’adresse IP que vous spécifiez ici comme espace réservé. Vous revenez ensuite dans ces paramètres et vous les configurez avec les adresses IP de passerelle correspondantes une fois celles-ci générées par Azure.
 
@@ -222,20 +225,11 @@ Attendez l’initialisation des connexions. Une fois la passerelle initialisée,
 
 ## Étapes suivantes
 
-
-Si vous souhaitez ajouter des machines virtuelles à votre réseau virtuel, consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
-
-Pour plus d’informations sur le schéma de configuration, consultez [Schéma de Configuration de réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
-
-Pour plus d’informations sur l’API REST, consultez [Opérations sur les passerelles de réseau virtuel](https://msdn.microsoft.com/library/azure/jj154113.aspx).
-
-Pour plus d’informations sur les passerelles VPN, consultez [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
-
-Pour plus d’informations sur les réseaux virtuels, consultez [Présentation du réseau virtuel ](../virtual-network/virtual-networks-overview.md) et [FAQ sur le réseau virtuel](../virtual-network/virtual-networks-faq.md).
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md) pour connaître les différentes étapes.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

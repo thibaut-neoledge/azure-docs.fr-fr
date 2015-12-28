@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Procédure de restauration automatique de Microsoft Azure vers VMware" 
-   description="Cet article décrit comment Microsoft Azure Site Recovery et l’outil vContinuum peuvent être utilisés pour restaurer automatiquement une machine virtuelle sur VMware." 
+   pageTitle="Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques d’Azure sur VMware | Microsoft Azure" 
+   description="Cet article décrit la restauration automatique d’une machine virtuelle VMware qui a été répliquée vers Azure à l’aide d’Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
    authors="ruturaj" 
@@ -9,142 +9,121 @@
 
 <tags
    ms.service="site-recovery"
-   ms.devlang="powershell"
+   ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.workload="storage-backup-recovery" 
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Procédure de restauration automatique de Microsoft Azure vers VMware
+# Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques d’Azure sur VMware à l’aide d’Azure Site Recovery
 
-Ce document vous explique la procédure de restauration automatique de Microsoft Azure vers votre site VMware. Vous devez déjà avoir suivi les étapes décrites dans le didacticiel [Configurer la protection entre des machines virtuelles ou des serveurs physiques VMware locaux et Azure](site-recovery-vmware-to-azure.md).
+## Vue d’ensemble
 
-Une fois qu’un basculement a été effectué sur Microsoft Azure, les machines virtuelles sont disponibles dans l’onglet dédié. Si vous décidez de procéder à une restauration automatique, suivez la procédure ci-dessous.
+Ce document décrit la restauration automatique des machines virtuelles VMware et des serveurs physiques Windows/Linux d’Azure sur votre site local.
 
-Si vous effectuez une restauration automatique de Microsoft Azure vers votre site VMware, l’opération peut être exécutée uniquement sur une machine virtuelle. Même si votre source initiale sur VMware était une machine physique, un basculement sur Microsoft Azure suivi par une restauration automatique vers VMware la convertira en machine virtuelle.
+Pour configurer la réplication et le basculement pour ce scénario, suivez les instructions de [cet article](site-recovery-vmware-to-azure.md). À l’issue d’un basculement réussi des machines virtuelles VMware ou des serveurs physiques sur Azure à l’aide de Site Recovery, les ordinateurs seront disponibles dans l’onglet Machines virtuelles Azure.
 
-## Vue d'ensemble
+>[AZURE.NOTE]Vous ne pouvez restaurer automatiquement que des machines virtuelles VMware et des serveurs physiques Windows/Linux d’Azure sur des machines virtuelles VMware sur le site principal local. Si vous effectuez la restauration automatique d’un ordinateur physique, le basculement vers Azure le convertit en machine virtuelle Azure, et la restauration automatique sur VMware le convertit en machine virtuelle VMware.
 
-1.  Installez le serveur vContinuum en local.
-
-    a. Faites-le pointer vers le serveur de configuration.
-
-2.  Déployez un serveur de traitement sur Microsoft Azure.
-
-3.  Installez un serveur maître cible en local.
-
-4.  Procédure de protection des machines virtuelles basculées en local
-
-    a. Considérations relatives à la configuration
-
-5.  Surveillance de la protection des machines virtuelles basculées en local
-
-6.  Basculement en local des machines virtuelles
-
-Vous trouverez ci-dessous la présentation de la configuration effectuée via la procédure suivante. La configuration a d’ores et déjà été partiellement effectuée pendant le basculement.
-
--   Les lignes bleues représentent les connexions utilisées lors du basculement.
-
--   Les lignes rouges représentent les connexions utilisées lors de la restauration automatique.
-
--   Les lignes avec des flèches représentent les connexions vers Internet.
+Le diagramme ci-dessous représente le scénario de basculement et de restauration automatique. Les lignes bleues représentent les connexions utilisées lors du basculement. Les lignes rouges représentent les connexions utilisées lors de la restauration automatique. Les lignes avec des flèches représentent les connexions vers Internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
 
-## Installer en local le serveur vContinuum
+## Étape 1 : Installer le serveur vContinuum en local
 
-La configuration vContinuum est disponible à l’adresse [emplacement de téléchargement](http://go.microsoft.com/fwlink/?linkid=526305). Installez également le correctif logiciel indiqué ici sur le serveur vContinuum - disponible à l’[emplacement de téléchargement](http://go.microsoft.com/fwlink/?LinkID=533813).
+Vous devez installer un serveur vContinuum en local et le pointer vers le serveur de configuration.
 
-1.  Lancez la configuration afin de démarrer l’installation du serveur vContinuum. Cliquez sur **Suivant**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-2.  Spécifiez l’adresse IP et le port du serveur CX. Sélectionnez HTTPS.
+1.  [Téléchargez vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
+2.  Après l’avoir téléchargé, téléchargez la dernière version [de mise à jour de vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
+3.  Exécutez le programme d’installation de la dernière version pour installer vContinuum. Dans la page **d’accueil**, cliquez sur **Suivant**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+4.  Dans la première page de l’Assistant, spécifiez l’adresse IP et le port du serveur CX. Sélectionnez **Utiliser HTTPS**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-3.  Pour découvrir l’adresse IP du serveur CX, accédez au déploiement du serveur de configuration sur Azure, puis affichez son tableau de bord.
+5.  Recherchez l’adresse IP du serveur de configuration dans l’onglet **Tableau de bord** de la machine virtuelle du serveur de configuration dans Azure. ![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
-	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
-
-4.  Pour découvrir le port public CX, accédez à l’onglet Points de terminaison sur la page de la machine virtuelle, puis identifiez le port public des points de terminaison HTTPS.
+6.  Recherchez le port public HTTPS du serveur de configuration dans l’onglet **Points de terminaison** de la machine virtuelle du serveur de configuration dans Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-5.  Spécifiez la phrase secrète du serveur de configuration. Vous devez avoir noté la phrase secrète lors de l’inscription du serveur de configuration. Vous auriez également eu recours à la phrase secrète lors des déploiements du serveur maître cible et du serveur de traitement. Si vous ne vous souvenez pas de la phrase secrète, accédez au serveur de configuration sur Microsoft Azure et recherchez-la à l’emplacement « C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase ».
+7. Dans la page **Détails de la phrase secrète du serveur de configuration**, spécifiez la phrase secrète que vous avez notée lors de l’inscription du serveur de configuration. Si vous l’avez oubliée, recherchez-la dans **C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase** sur la machine virtuelle du serveur de configuration.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
-6.  Spécifiez l’emplacement d’installation du serveur vContinuum, puis démarrez l’installation.
+8.  Dans la page **Sélectionner l’emplacement de destination**, indiquez où vous souhaitez installer le serveur vContinuum, puis cliquez sur **Installer**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-7.  Une fois l’installation terminée, lancez le serveur vContinuum pour observer son fonctionnement. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+9. Une fois l’installation terminée, vous pouvez lancer vContinuum. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 
-## Installer le serveur de traitement sur Microsoft Azure
+## Étape 2 : Installer un serveur de processus dans Azure 
 
-Pour que les machines virtuelles de Microsoft Azure puissent renvoyer les données sur le serveur maître cible en local, un serveur de traitement doit être installé sur Microsoft Azure. Dans Microsoft Azure, le serveur de traitement doit être déployé sur le réseau du serveur de configuration.
+Vous devez installer un serveur de processus dans Azure pour que les machines virtuelles d’Azure puissent renvoyer les données sur un serveur cible maître local.
 
-1.  Sur la page des **serveurs de configuration** dans Azure, effectuez votre sélection pour ajouter un nouveau serveur de traitement.
+1.  Dans la page **Serveurs de configuration** d’Azure, effectuez votre sélection pour ajouter un nouveau serveur de processus.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image9.png)
 
-2.  Indiquez un nom de serveur de traitement, puis entrez un nom et un mot de passe pour vous connecter à la machine virtuelle en tant qu'administrateur. Sélectionnez le serveur de configuration sur lequel vous enregistrez le serveur de traitement. Celui-ci doit être le même serveur que vous utilisez pour protéger et basculer vos machines virtuelles. Indiquez le réseau Azure dans lequel le serveur de traitement doit être déployé. Celui-ci doit être le même réseau que celui du serveur de configuration. Indiquez une adresse IP unique à partir du sous-réseau select et commencez le déploiement.
+2.  Indiquez un nom de serveur de processus, puis un nom et un mot de passe pour vous connecter à la machine virtuelle en tant qu’administrateur. Sélectionnez le serveur de configuration sur lequel vous voulez inscrire le serveur de processus. Celui-ci doit être le même serveur que vous utilisez pour protéger et basculer vos machines virtuelles.
+3.  Indiquez le réseau Azure dans lequel le serveur de processus doit être déployé. Celui-ci doit être le même réseau que celui du serveur de configuration. Indiquez une adresse IP unique dans le sous-réseau sélectionné et commencez le déploiement.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image10.png)
 
+4.  Une tâche est déclenchée pour déployer le serveur de processus.
 
-Une tâche de déploiement du serveur de traitement est alors déclenchée.
+	![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+5.  Une fois le serveur de processus déployé dans Azure, vous pouvez vous y connecter à l’aide des informations d’identification que vous avez spécifiées. Inscrivez le serveur de processus de la même façon que vous inscrit le serveur de processus local.
 
-Une fois que le serveur de traitement est déployé sur Azure, vous pouvez vous y connecter à l’aide des informations d’identification que vous avez définies. Pour inscrire le serveur de traitement, appliquez la procédure utilisée pour la mise en œuvre de la protection.
+	![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image12.png)
+>[AZURE.NOTE]Les serveurs inscrits pendant la restauration automatique ne sont pas visibles dans les propriétés de la machine virtuelle dans Site Recovery. Ils sont affichés uniquement dans l’onglet **Serveurs** du serveur de configuration auquel ils sont associés. L’affichage des serveurs de processus dans l’onglet peut prendre environ 10 à 15 minutes.
 
-Les serveurs inscrits pendant la restauration ne sont pas visibles dans les propriétés de la machine virtuelle. Ils sont affichés uniquement dans l’onglet Serveurs, sous le serveur de configuration auquel ils sont associés. L’inscription du serveur de traitement sous le serveur de configuration peut prendre entre 10 et 15 minutes.
 
-## Installer un serveur maître cible en local
+## Étape 3 : Installer un serveur cible maître local
 
-En fonction des machines virtuelles côté source dont vous disposez, vous devez installer en local un serveur maître cible Linux ou Windows.
+En fonction du système d’exploitation des machines virtuelles sources dont vous disposez, vous devez installer en local un serveur cible maître Linux ou Windows.
 
-### Déployer un serveur maître cible Windows
+### Déployer un serveur cible maître Windows
 
-Un serveur maître cible est d’ores et déjà fourni avec la configuration du serveur vContinuum. Lorsque vous installez le serveur vContinuum, un serveur maître cible est également déployé sur la même machine et inscrit sur le serveur de configuration.
+Un serveur cible maître Windows est d’ores et déjà fourni avec la configuration du serveur vContinuum. Lorsque vous installez le serveur vContinuum, un serveur maître est également déployé sur la même machine et inscrit sur le serveur de configuration.
 
-1.  Pour commencer le déploiement, créez en local une machine vide sur l’hôte ESX sur lequel vous souhaitez récupérer les machines virtuelles de Microsoft Azure.
+1.  Pour commencer le déploiement, créez en local une machine vide sur l’hôte ESX sur lequel vous souhaitez récupérer les machines virtuelles d’Azure.
 
-2.  Vérifiez qu’au moins deux disques sont attachés à la machine virtuelle (un pour le SE et l’autre pour le lecteur de rétention).
+2.  Vérifiez qu’au moins deux disques sont attachés à la machine virtuelle, l’un pour le système d’exploitation et l’autre pour le lecteur de rétention.
 
 3.  Installez le système d'exploitation.
 
-4.  Installez le serveur vContinuum sur le serveur. Cette action terminera l’installation du serveur maître cible.
+4.  Installez le serveur vContinuum sur le serveur. Cette opération complète l’installation du serveur cible maître.
 
-### Déployer un serveur maître cible Linux
+### Déployer un serveur cible maître Linux
 
-1.  Pour commencer le déploiement, créez en local une machine vide sur l’hôte ESX sur lequel vous souhaitez récupérer les machines virtuelles de Microsoft Azure.
+1.  Pour commencer le déploiement, créez en local une machine vide sur l’hôte ESX sur lequel vous souhaitez récupérer les machines virtuelles d’Azure.
 
-2.  Vérifiez qu’au moins deux disques sont attachés à la machine virtuelle (un pour le SE et l’autre pour le lecteur de rétention).
+2.  Vérifiez qu’au moins deux disques sont attachés à la machine virtuelle, l’un pour le système d’exploitation et l’autre pour le lecteur de rétention.
 
-3.  Installez le système d’exploitation Linux. Le système maître cible Linux ne doit pas utiliser LVM pour les espaces de stockages racines ou de rétention. Le serveur maître cible Linux est configuré pour éviter la découverte des disques/partitions LVM par défaut.
-4.  Les partitions que vous créez sont
+3.  Installez le système d’exploitation Linux. Le système cible maître Linux ne doit pas utiliser LVM pour les espaces de stockage racine ou de rétention. Un serveur cible maître Linux est configuré pour éviter la découverte des disques/partitions LVM par défaut.
+4.  Partitions que vous pouvez créer :
 
 	![](./media/site-recovery-failback-azure-to-vmware/image13.png)
 
-5.  Avant de démarrer l’installation du serveur maître cible, exécutez la procédure de post-installation ci-dessous.
+5.  Avant de démarrer l’installation du serveur cible maître, exécutez la procédure de post-installation ci-dessous.
 
 
 #### Procédure de post-installation du système d’exploitation
 
-Pour obtenir l’ID SCSI de chacun des disques durs SCSI d’une machine virtuelle Linux, activez le paramètre disk.EnableUUID = TRUE. Pour activer ce paramètre, suivez la procédure ci-dessous :
+Pour obtenir l’ID SCSI de chacun des disques durs SCSI d’une machine virtuelle Linux, activez le paramètre disk.EnableUUID = TRUE, comme suit :
 
 1. Arrêtez votre machine virtuelle.
-2. Cliquez avec le bouton droit sur l’entrée de la machine virtuelle du panneau de gauche, puis sélectionnez **Modifier les paramètres.**
-3. Cliquez sur l’onglet **Options**. Sélectionnez l’**élément Avancé>Général** sur la gauche, puis cliquez sur les **Paramètres de configuration** affichés sur la droite. L’option Paramètres de configuration est inactive lorsque l’ordinateur est en cours d’exécution. Pour rendre cet onglet actif, arrêtez l’ordinateur.
+2. Cliquez avec le bouton droit sur l’entrée de la machine virtuelle dans le panneau gauche, puis sélectionnez **Modifier les paramètres**.
+3. Cliquez sur l’onglet **Options**. Sélectionnez **Avancé > Général** > **Paramètres de configuration**. L’option **Paramètres de configuration** est disponible uniquement lorsque la machine est arrêtée.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. Vérifiez si une ligne comportant **disk.EnableUUID** existe. Si cette valeur existe et qu’elle est définie sur False, remplacez ce paramétrage par True (ces éléments sont sensibles à la casse). Si cette valeur existe et qu’elle est définie sur true, cliquez sur Annuler et testez la commande SCSI du système d’exploitation invité après le démarrage. Si elle n’existe pas, cliquez sur **Ajouter des lignes.**
-5. Dans la colonne Nom, ajoutez disk.EnableUUID. Définissez la valeur sur TRUE. N’ajoutez pas les valeurs ci-dessus avec des guillemets doubles.
+4. Vérifiez si une ligne comportant **disk.EnableUUID** existe. Le cas échéant et si elle est définie sur **False**, définissez la sur **True **(non-respect de la casse). Si elle existe et qu’elle est définie sur true, cliquez sur **Annuler** et testez la commande SCSI dans le système d’exploitation invité après le démarrage. Si elle n’existe pas, cliquez sur **Ajouter une ligne**.
+5. Dans la colonne **Nom**, ajoutez disk.EnableUUID. Définissez la valeur sur TRUE. N’ajoutez pas les valeurs ci-dessus avec des guillemets doubles.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
 
@@ -154,7 +133,7 @@ Remarque : assurez-vous que le système dispose d’une connectivité Internet
 
 \# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
-La commande ci-dessus téléchargera les 15 packages mentionnés ci-dessous à partir du référentiel CentOS 6 et procèdera à leur installation.
+Cette commande permet de télécharger ces 15 packages à partir du référentiel CentOS 6.6 et de les installer :
 
 bc-1.06.95-1.el6.x86\_64.rpm
 
@@ -186,7 +165,7 @@ snappy-1.1.0-1.el6.x86\_64.rpm
 
 wget-1.12-5.el6\_6.1.x86\_64.rpm
 
-REMARQUE : si l’ordinateur source utilise un système de fichiers Reiser ou XFS pour l’appareil racine ou de démarrage, les packages suivants doivent être téléchargés et installés sur le système maître cible Linux avant la protection.
+REMARQUE : si l’ordinateur source utilise un système de fichiers Reiser ou XFS pour l’appareil racine ou de démarrage, les packages suivants doivent être téléchargés et installés sur le système cible maître Linux avant la protection.
 
 \# cd /usr/local
 
@@ -204,358 +183,230 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 \# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-#### Appliquer les modifications de configuration personnalisée
+#### Appliquer des modifications de configuration personnalisées
 
-Avant d’appliquer les modifications de configuration personnalisée, assurez-vous d’avoir exécuté la procédure de post-installation.
+Avant d’appliquer ces modifications, assurez-vous que vous avez terminé la section précédente, puis procédez comme suit :
 
-Pour appliquer les modifications de configuration personnalisée, procédez comme suit :
 
 1. Copiez le binaire de l’agent unifié RHEL (Red Hat Enterprise Linux) 6-64 sur le SE nouvellement créé.
 
-2. Exécutez la commande tar ci-dessous pour désarchiver le fichier binaire.
+2. Exécutez cette commande pour décompresser le fichier binaire : **tar -zxvf <nom du fichier>**.
 
-**tar -zxvf <Nom fichier>**
+3. Exécutez cette commande pour accorder des autorisations : **# chmod 755 ./ApplyCustomChanges.sh**.
 
-3. Exécutez la commande ci-dessous pour attribuer l’autorisation.
+4. Exécutez le script : **#./ApplyCustomChanges.sh**. Exécutez le script une seule fois sur le serveur. Redémarrez le serveur après l’exécution du script.
 
-\# **chmod 755 ./ApplyCustomChanges.sh**
 
-4. Lancez la commande ci-dessous, puis exécutez le script.
 
-**# ./ApplyCustomChanges.sh**
+### Installer le serveur Linux
 
-REMARQUE : exécutez le script une seule fois sur le serveur. **Redémarrez** le serveur une fois le script ci-dessus exécuté.
 
-### Démarrer l’installation du serveur maître cible
+1. [Téléchargez](http://go.microsoft.com/fwlink/?LinkID=529757) le fichier d’installation.
+2. Copiez le fichier sur la machine virtuelle du serveur cible maître Linux à l’aide d’un utilitaire de client sftp de votre choix. Vous pouvez également vous connecter à la machine virtuelle du serveur cible maître Linux et utiliser wget pour télécharger le package d’installation à partir du lien fourni.
+3. Connectez-vous à la machine virtuelle du serveur cible maître Linux à l’aide d’un client ssh de votre choix.
+4. Si vous êtes connecté au réseau Azure sur lequel est déployé votre serveur cible maître Linux via une connexion VPN, utilisez l’adresse IP interne du serveur que vous pouvez trouver dans l’onglet **Tableau de bord** de la machine virtuelle, ainsi que le port 22, pour vous connecter au serveur cible maître Linux à l’aide de Secure Shell.
+5. Si vous vous connectez au serveur cible maître Linux via une connexion Internet publique, utilisez l’adresse IP virtuelle publique du serveur cible maître Linux (de l’onglet **Tableau de bord** des machines virtuelles) et le point de terminaison public créé pour ssh.
+6. Extrayez les fichiers de l’archive tar du programme d’installation du serveur cible maître Linux compressée en exécutant *tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64** dans le répertoire qui contient le fichier du programme d’installation.
 
-[Téléchargez](http://go.microsoft.com/fwlink/?LinkID=529757) le fichier d’installation du serveur maître cible Linux.
+	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
-Copiez le programme d’installation du serveur maître cible Linux téléchargé sur la machine virtuelle du serveur maître cible Linux à l’aide d’un utilitaire de client sftp de votre choix. Vous pouvez également vous connecter à la machine virtuelle du serveur maître cible Linux et utiliser wget pour télécharger le package d’installation à partir du lien fourni.
+7. Si vous avez extrait les fichiers du programme d’installation dans un autre répertoire, utilisez le répertoire dans lequel le contenu de l’archive tar a été extrait. À partir de ce répertoire, exécutez « sudo ./install.sh ».
 
-Connectez-vous à la machine virtuelle du serveur maître cible à l’aide d’un client ssh de votre choix.
+	![](./media/site-recovery-failback-azure-to-vmware/image17.png)
 
-Si vous êtes connecté au réseau Microsoft Azure sur lequel est déployé votre serveur maître cible Linux via une connexion VPN, utilisez l’adresse IP interne associée au serveur maître cible Linux et obtenue à partir du tableau de bord de la machine virtuelle, ainsi que le port 22, pour vous connecter au serveur maître cible Linux à l’aide de Secure Shell.
+8. Lorsque vous êtes invité à choisir un rôle principal, sélectionnez **2 (Master Target)**. Ne modifiez pas les autres valeurs par défaut des autres options d’installation.
+9. Attendez que l’installation se poursuive jusqu’à l’affichage de la ligne Host Config Interface. L’utilitaire de configuration de l’hôte associé au serveur cible maître Linux est un utilitaire de ligne de commande. Ne redimensionnez pas la fenêtre de l’utilitaire du client ssh. Utilisez les touches de direction pour sélectionner l’option **Global**, puis appuyez sur ENTRÉE sur votre clavier.
 
-Si vous vous connectez au serveur maître cible Linux via une connexion Internet publique, utilisez l’adresse IP virtuelle publique du serveur maître cible Linux (de la page du tableau de bord des machines virtuelles) et le point de terminaison public créé pour ssh.
+	![](./media/site-recovery-failback-azure-to-vmware/image18.png)
 
-Décompressez les fichiers de l’archive tar du programme d’installation compressé du serveur maître cible Linux en exécutant
+	![](./media/site-recovery-failback-azure-to-vmware/image19.png)
 
-*“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*”* dans le répertoire hébergeant le programme d’installation du serveur maître cible.
 
-![](./media/site-recovery-failback-azure-to-vmware/image16.png)
+10. Dans le champ **IP**, entrez l’adresse IP interne du serveur de configuration (vous pouvez le trouver dans l’onglet **Tableau de bord** de la machine virtuelle du serveur de configuration), puis appuyez sur ENTRÉE. Dans le champ **Port**, entrez la valeur **22**, puis appuyez sur ENTRÉE.
+11.  Laissez le champ **Use HTTPS** défini sur **Yes**, puis appuyez sur ENTRÉE.
+12.  Entrez la phrase secrète générée sur le serveur de configuration. Si vous utilisez un client PuTTY pour connecter un ordinateur Windows via ssh à la machine virtuelle Linux, appuyez sur les touches Maj + Insertion pour coller le contenu du Presse-papiers. Pour copier la phrase secrète sur le presse-papiers local, appuyez sur les touches Ctrl-C et exécutez Maj + Insertion pour la coller. Appuyez sur ENTRÉE.
+13.  Utilisez la touche Droite pour quitter, puis appuyez sur ENTRÉE. Attendez la fin de l’installation.
 
-Si vous avez auparavant décompressé les fichiers du programme d’installation dans un répertoire différent, modifiez le chemin de manière à les placer dans le répertoire contenant l’archivage tar. À partir de ce répertoire, exécutez sudo ./install.sh
+	![](./media/site-recovery-failback-azure-to-vmware/image20.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image17.png)
+Si pour une raison quelconque, l’inscription du serveur cible maître Linux sur le serveur de configuration échoue, vous pouvez réessayer en exécutant l’utilitaire de configuration de l’hôte à partir de l’emplacement /usr/local/ASR/Vx/bin/hostconfigcli (vous devez tout d’abord définir des autorisations d’accès à ce répertoire en exécutant chmod en tant que super utilisateur).
 
-Lorsque vous êtes invité à choisir le rôle principal de cet agent, sélectionnez 2 (maître cible).
 
-Ne modifiez pas les autres valeurs par défaut des autres options d’installation.
+#### Valider l’inscription du serveur cible maître
 
-Attendez que l’installation soit terminée et que la ligne de commande Host Config s’affiche. L’utilitaire de configuration de l’hôte associé au serveur maître cible Linux est un utilitaire de ligne de commande. Ne redimensionnez pas la fenêtre de l’utilitaire du client ssh. Utilisez les touches de direction pour sélectionner l’option Global, puis appuyez sur la touche Entrée de votre clavier.
+Vous pouvez valider l’inscription du serveur cible maître sur le serveur de configuration dans Coffre Azure Site Recovery > **Serveur de configuration** > **Détails du serveur**.
 
-![](./media/site-recovery-failback-azure-to-vmware/image18.png)
+>[AZURE.NOTE]Après avoir inscrit le serveur cible maître, si vous recevez des erreurs de configuration indiquant que la machine virtuelle a peut-être été supprimée d’Azure ou que les points de terminaison ne sont pas configurés correctement, c’est parce que la configuration du serveur cible maître est détectée par les points de terminaison Azure lorsque le serveur cible maître est déployé dans Azure, même si cela n’est pas vrai pour un serveur cible maître local. Cela n’affecte pas la restauration automatique, et vous pouvez ignorer ces erreurs.
 
-![](./media/site-recovery-failback-azure-to-vmware/image19.png)
 
-1.  Dans le champ IP, entrez l’adresse IP interne du serveur de configuration obtenue à partir de la page du tableau de bord des machines virtuelles, puis appuyez sur Entrée.
 
-2.  Dans le champ Port, entrez la valeur 22, puis appuyez sur Entrée.
+## Étape 4 : Protéger les machines virtuelles sur le site local
 
-3.  Laissez l’option Utiliser HTTPS définie sur Oui. Appuyez de nouveau sur la touche Entrée.
+Vous devez protéger les machines virtuelles sur le site local avant de procéder à la restauration automatique.
 
-4.  Entrez la phrase secrète générée sur le serveur de configuration. Si vous utilisez le client PuTTY pour connecter un ordinateur Windows via ssh à la machine virtuelle du serveur maître cible Linux, appuyez sur les touches Maj + Insertion pour coller le contenu du Presse-papiers. Pour copier la phrase secrète sur le presse-papiers local, appuyez sur les touches Ctrl-C et exécutez Maj + Insertion pour la coller. Appuyez sur Entrée.
+### Avant de commencer
 
-5.  Utilisez la touche Droite pour quitter, puis appuyez sur Entrée.
+Le basculement d’une machine virtuelle vers Microsoft Azure ajoute un lecteur temporaire associé au fichier de page. Il s’agit d’un lecteur supplémentaire qui n’est généralement pas requis par votre machine virtuelle basculée, dans la mesure où bien souvent, elle présente déjà un lecteur dédié au fichier de page. Avant de commencer à inverser la protection des machines virtuelles, vérifiez que le lecteur n’est plus en ligne, et qu’il n’est ainsi plus protégé. Procédez comme suit :
 
-Attendez que l'installation se termine.
+1.  Ouvrez Gestion de l’ordinateur, puis sélectionnez Gestion du stockage, de manière à ce que les disques en ligne soient répertoriés et associés à la machine.
+2.  Sélectionnez le disque temporaire attaché à la machine, et configurez sa mise hors ligne. 
 
-![](./media/site-recovery-failback-azure-to-vmware/image20.png)
+### Protéger les machines virtuelles
 
-Si pour une raison quelconque l’inscription de votre serveur maître cible Linux échoue, réessayez en exécutant l’utilitaire de configuration de l’hôte à partir de l’emplacement /usr/local/ASR/Vx/bin/hostconfigcli (il vous faut tout d’abord définir les autorisations d’accès à ce répertoire en exécutant chmod en tant que superutilisateur).
+1. Sur le portail Azure, vérifiez l’état des machines virtuelles afin de vous assurer de leur basculement.
 
+	![](./media/site-recovery-failback-azure-to-vmware/image21.png)
 
-#### Valider l’inscription du serveur maître cible sur le serveur de configuration
+2. Lancez vContinuum sur votre machine.
 
-Pour valider l’inscription du serveur maître cible sur le serveur de configuration, accédez à la page Détails du serveur, accessible via la page Serveur de configuration du coffre Azure Site Recovery.
+	![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-Remarque : après avoir inscrit le serveur maître cible, vous risquez de constater qu’il affiche une erreur de configuration dont les causes possibles sont les suivantes : la machine virtuelle peut être supprimée d’Azure ou les points de terminaison ne sont pas correctement configurés. Cela vient du fait que la configuration du serveur maître cible est détectée par les points de terminaison Azure lorsque le serveur maître cible est déployé dans Azure. Mais cette situation n'est pas vraie pour le serveur maître cible local, et l'erreur peut être ignorée. Pour cette raison, la restauration automatique ne rencontrera aucune erreur.
+3. Cliquez sur **Nouvelle protection** et sélectionnez le type de système d’exploitation.
 
+4.  Dans la nouvelle fenêtre qui s’ouvre, sélectionnez **Type de SE** > **Obtenir les détails** pour les machines virtuelles que vous souhaitez restaurer automatiquement. Dans **Détails du serveur principal**, identifiez et sélectionnez les machines virtuelles que vous souhaitez protéger. Les machines virtuelles sont répertoriées sous le nom d’hôte vCenter sur lequel elles se trouvaient avant le basculement.
+5.  Lorsque vous sélectionnez une machine virtuelle à protéger (et qu’elle est déjà basculée vers Azure), une fenêtre indépendante indiquant deux entrées associées s’affiche. Ceci est dû au fait que le serveur de configuration détecte deux instances de machines virtuelles inscrites. Vous devez supprimer l’entrée de machine virtuelle sur site, de manière à pouvoir protéger la machine virtuelle appropriée. Pour identifier l’entrée appropriée de machine virtuelle Microsoft Azure, connectez-vous à la machine virtuelle Microsoft Azure, puis accédez à C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. Dans le fichier drscout.conf, identifiez l’ID d’hôte. Dans la boîte de dialogue vContinuum, conservez l’entrée associée à l’ID d’hôte sur la machine virtuelle. Supprimez toutes les autres entrées. Pour sélectionner la machine virtuelle appropriée, vérifiez son adresse IP. La plage d’adresses IP locale sera la machine virtuelle locale.
 
-## Commencer la protection des machines virtuelles basculées en local
+	![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-Avant de restaurer automatiquement les machines virtuelles basculées en local, il vous faudra d’abord assurer leur protection. Pour protéger les machines virtuelles d’une application, procédez comme suit.
+	![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-### Remarque sur le lecteur temporaire
+6. Sur le serveur vCenter, arrêtez la machine virtuelle. Vous pouvez également supprimer les machines virtuelles locales.
+7. Spécifiez alors le serveur cible maître local sur lequel vous souhaitez protéger les machines virtuelles. Pour ce faire, connectez-vous au serveur vCenter sur lequel vous souhaitez effectuer la restauration automatique.
 
-Le basculement d’une machine virtuelle vers Microsoft Azure ajoute un lecteur temporaire associé au fichier de page. Il s’agit d’un lecteur supplémentaire qui n’est généralement pas requis par votre machine virtuelle basculée, dans la mesure où bien souvent, elle présente déjà un lecteur dédié au fichier de page.
+	![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-Avant de commencer à inverser la protection des machines virtuelles, vérifiez que le lecteur n’est plus en ligne, et qu’il n’est ainsi plus protégé.
+8. Sélectionnez le serveur cible maître basé sur l’hôte sur lequel vous souhaitez récupérer la machine virtuelle.
 
-Pour ce faire,
+	![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-1.  Ouvrez Gestion de l’ordinateur (via l’outil d’administration du panneau de configuration ou en cliquant avec le bouton droit sur Ce PC dans la fenêtre de l’Explorateur, puis sur Gérer.)
+9. Indiquez l’option de réplication pour chacune des machines virtuelles. Pour ce faire, vous devez sélectionner la banque de données du site de récupération sur laquelle les machines virtuelles seront récupérées. Le tableau ci-dessous récapitule les différentes options que vous devez fournir pour chaque machine virtuelle.
 
-2.  Sélectionnez Gestion du stockage, de manière à ce que les disques soient répertoriés en ligne et associés à la machine.
+	![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-3.  Sélectionnez le disque temporaire attaché à la machine, et configurez sa mise hors ligne.
+	**Option** | **Valeur recommandée d’option**
+	---|---
+	Adresse IP du serveur de processus | Sélectionnez le serveur de processus déployé dans Azure.
+	Retention size in MB| 
+	Retention value | 1
+	Days/Hours | Jours
+	Intervalle de cohérence | 1
+	Sélectionner une banque de données cible | Banque de données disponible sur le site de récupération. La banque de données doit contenir suffisamment d’espace et être disponible sur l’hôte ESX sur lequel vous souhaitez restaurer la machine virtuelle.
 
-4.  Une fois qu’il a été mis hors ligne, vous pouvez poursuivre l’inversion de la protection de la machine virtuelle.
 
-### Plan de protection pour les machines virtuelles
+10. Configurez les propriétés acquises par la machine virtuelle après le basculement sur le site local. Les propriétés sont récapitulées dans le tableau ci-dessous.
 
-Sur le portail Microsoft Azure, examinez l’état des machines virtuelles afin de vous assurer de leur basculement.
+	![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image21.png)
+	**Propriété** | **Détails**
+	---|---
+	Configuration réseau| Sélectionnez chaque carte réseau détectée et cliquez sur **Modifier** pour configurer l’adresse IP de restauration automatique de la machine virtuelle. 
+	Hardware Configuration| Spécifiez l’UC et la mémoire de la machine virtuelle. Les paramètres peuvent être appliqués à toutes les machines virtuelles que vous essayez de protéger. Pour identifier les valeurs appropriées des paramètres UC et Mémoire, référez-vous à la taille de rôle des machines virtuelles IAAS afin de connaître le nombre de cœurs et le volume de mémoire alloués.
+	Nom complet | Après la restauration automatique sur le site local, vous pouvez renommer les machines virtuelles telles qu’elles apparaissent dans l’inventaire de vCenter. Le nom par défaut est le nom d’hôte de la machine virtuelle. Pour identifier le nom de la machine virtuelle, consultez la liste du groupe Protection.
+	NAT Configuration | Cette propriété est abordée en détail ci-dessous.
 
-Remarque : durant le basculement de Microsoft Azure vers le système local, la machine virtuelle Microsoft Azure est considérée similaire à une machine virtuelle physique. Un basculement vers le système local est exécuté vers une machine virtuelle.
+	![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
-1.  Lancez le serveur vContinuum sur votre machine.
+#### Configurer des paramètres NAT
 
-![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+1. Pour activer la protection des machines virtuelles, vous devez établir deux canaux de communication. Le premier canal doit être défini entre la machine virtuelle et le serveur de processus. Ce canal collecte les données de la machine virtuelle et les envoie au serveur de processus qui les envoie à son tour au serveur cible maître. Si le serveur de processus et la machine virtuelle à protéger sont sur le même réseau virtuel Azure, il n’est pas nécessaire de recourir aux paramètres NAT. Dans le cas contraire, spécifiez les paramètres NAT. Affichez l’adresse IP publique du serveur de processus dans Azure. 
 
-2.  Dans le paramètre **Choose Application**, sélectionnez **P2V**.
+	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
-3.  Pour commencer, cliquez sur l’option **New Protection**.
+2. Le second canal est défini entre le serveur de processus et le serveur cible maître. Devez-vous recourir aux paramètres NAT ? Cela dépend si vous utilisez une connexion VPN ou si vous communiquez via Internet. Ne sélectionnez pas NAT si vous utilisez un réseau VPN, mais uniquement si vous utilisez une connexion Internet.
 
-4.  Dans la fenêtre qui s’ouvre, vous allez commencer à protéger les machines virtuelles basculées en local.
+	![](./media/site-recovery-failback-azure-to-vmware/image29.png)
 
-    a. Dans **OS type**, sélectionnez le type de système d’exploitation en fonction des machines virtuelles que vous souhaitez basculer, puis cliquez sur **Get Details**.
+	![](./media/site-recovery-failback-azure-to-vmware/image30.png)
 
-    b. Dans **Primary server details**, vous devez identifier les machines virtuelles que vous souhaitez protéger.
+3. Si vous n’avez pas supprimé les machines virtuelles locales comme indiqué et si la banque de données cible de la restauration automatique contient toujours les anciens fichiers VMDK, vous devez alors vous assurer que la machine virtuelle restaurée automatiquement est créée à un nouvel emplacement. Pour ce faire, sélectionnez **Paramètres avancés** et spécifiez un autre dossier cible de restauration dans **Paramètres de nom de dossier**. Conservez les paramètres par défaut des autres options. Appliquez les paramètres de nom de dossier à l’ensemble des serveurs.
 
-    c. Les machines virtuelles sont répertoriées suivant leur nom d’hôte d’ordinateur, non en fonction de leur visibilité sur vCenter ou Microsoft Azure.
+	![](./media/site-recovery-failback-azure-to-vmware/image31.png)
 
-    d. Les machines virtuelles sont répertoriées sous le nom d’hôte vCenter qui les hébergeait avant le basculement.
+4. Exécutez une vérification de la disponibilité pour vous assurer que les machines virtuelles sont prêtes à être protégées en local.
 
-    e. Une fois que vous avez identifié les machines virtuelles que vous souhaitez protéger, sélectionnez-les une par une.
+	![](./media/site-recovery-failback-azure-to-vmware/image32.png)
 
-5.  Lorsque vous sélectionnez une machine virtuelle à protéger (et qu’elle est déjà basculée vers Microsoft Azure), une fenêtre contextuelle indiquant deux entrées associées s’affiche. Ceci est dû au fait que le serveur de configuration a détecté deux instances de machines virtuelles inscrites. Vous devez supprimer l’entrée de machine virtuelle sur site, de manière à pouvoir protéger la machine virtuelle appropriée. Notez que les entrées s’affichent en fonction du nom d’hôte d’ordinateur. Pour identifier l’entrée appropriée de machine virtuelle Microsoft Azure, connectez-vous à la machine virtuelle Microsoft Azure, puis accédez à C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. Dans le fichier drscout.conf, identifiez l’ID d’hôte. Dans la boîte de dialogue vContinuum, conservez l’entrée associée à l’ID d’hôte dans la machine virtuelle. Supprimez toutes les autres entrées.
 
-![](./media/site-recovery-failback-azure-to-vmware/image22.png)
+5. Patientez jusqu’à la fin de son exécution. Si elle est fructueuse sur toutes les machines virtuelles, vous pouvez spécifier un nom pour le plan de protection, puis cliquer sur **Protéger** pour commencer.
 
-6.  Pour sélectionner la machine virtuelle appropriée, vérifiez son adresse IP. La plage d’adresses IP locale sera la machine virtuelle locale.
-7.  Cliquez sur **Supprimer** pour supprimer l'entrée.
+	![](./media/site-recovery-failback-azure-to-vmware/image33.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-8.  Accédez au serveur vCenter et arrêtez la machine virtuelle sur le serveur vCenter
-9.  Vous pouvez ensuite supprimer également les machines virtuelles locales
-10.  Vous devez ensuite spécifier le serveur maître cible local sur lequel vous souhaitez protéger les machines virtuelles.
-11.  Pour cela, connectez-vous au serveur vCenter sur lequel vous souhaitez effectuer la restauration.
+6. Vous pouvez surveiller la progression dans vContinuum.
 
-![](./media/site-recovery-failback-azure-to-vmware/image24.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image34.png)
 
-12.  Sélectionnez le serveur maître cible basé sur l’hôte sur lequel vous souhaitez récupérer les machines virtuelles.
+7. À l’issue de l’étape **Activation d’un plan de protection**, vous pouvez surveiller la protection des machines virtuelles sur le portail Site Recovery.
 
-![](./media/site-recovery-failback-azure-to-vmware/image24.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image35.png)
 
-13.  Fournissez ensuite l’option de réplication pour chacune des machines virtuelles.
+8. Vous pouvez observer l’état exact en cliquant sur la machine virtuelle et en surveillant sa progression.
 
-![](./media/site-recovery-failback-azure-to-vmware/image25.png)
-
-14.  Pour cela, vous devez sélectionner le côté de récupération **Datastore**. Il s’agit de la banque de données sur laquelle les machines virtuelles seront récupérées.
-
-Les différentes options que vous devez fournir par machine virtuelle sont les suivantes :
-
-**Option** | **Valeur recommandée d’option**
----|---
-Process Server IP | Sélectionnez le serveur de traitement déployé sur Microsoft Azure
-Retention size in MB| 
-Retention value | 1
-Days/Hours | Jours
-Consistency Interval | 1
-Select Target Datastore | La banque de données disponible sur le côté de récupération. La banque de données doit présenter suffisamment d’espace et être disponible sur l’hôte ESX sur lequel vous souhaitez déployer la machine virtuelle.
-15.  Vous pouvez ensuite configurer les propriétés acquises par la machine virtuelle après le basculement sur le site local. Les différentes propriétés à configurer sont les suivantes :
-
-![](./media/site-recovery-failback-azure-to-vmware/image26.png)
-
-
-**Propriété** | **Méthode de configuration**
----|---
-Network Configuration|Pour chaque NIC détectée, configurez l’adresse IP de basculement associée à la machine virtuelle. Sélectionnez la carte d’interface réseau, puis cliquez sur **Modifier** pour définir les détails de l’adresse IP.
-Hardware Configuration|Vous pouvez spécifier les valeurs CPU (UC) et Memory (mémoire) associées à la machine virtuelle. Ce paramètre peut être appliqué à toutes les machines virtuelles que vous essayez de protéger.
-Display Name|Pour identifier les valeurs appropriées pour CPU et Memory, référez-vous à la taille de rôle des machines virtuelles IAAS afin de connaître le nombre de cœurs et le volume de mémoire alloués.
-Display Name|Après le basculement en local, vous pouvez définir le nouveau nom d’affichage des machines virtuelles dans l’inventaire de vCenter. Notez que la valeur par défaut affichée ici est le nom d’hôte de la machine virtuelle. Pour identifier le nom de la machine virtuelle, consultez la liste du groupe Protection.
-NAT Configuration|Cette propriété est abordée en détail ci-dessous.
-
-![](./media/site-recovery-failback-azure-to-vmware/image27.png)
-
-
-
-> **Sélection des paramètres PS NAT**
->
-> Pour activer la protection des machines virtuelles, vous devez établir deux canaux de communication.
->
-> Le premier canal est à définir entre la machine virtuelle et le serveur de traitement. Ce canal recueille les données de la machine virtuelle, avant de les envoyer vers le serveur de traitement. Ce dernier transmet les données au serveur maître cible. Si le serveur de traitement et la machine virtuelle à protéger sont sur le même réseau virtuel Microsoft Azure, il n’est pas nécessaire de recourir aux paramètres NAT. Si le serveur de traitement et la machine virtuelle à protéger sont sur deux réseaux virtuels différents, vous devez définir les paramètres NAT pour le serveur de traitement, puis sélectionner la première option.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image28.png)
->
-> Pour identifier l’adresse IP publique du serveur de traitement, accédez au déploiement de ce serveur dans Microsoft Azure.
->
-> Le deuxième canal est défini entre le serveur de traitement et le serveur maître cible. Devez-vous recourir aux paramètres NAT ? Cela dépend si vous utilisez une connexion VPN entre le serveur maître cible et le serveur de traitement ou si la protection est assurée via Internet. Si le serveur de traitement interagit avec le serveur maître cible via une connexion VPN, ne sélectionnez pas cette option. SI le lien est établi via une connexion Internet, définissez les paramètres NAT pour le serveur de traitement.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image29.png)
->
-> Pour identifier l’adresse IP publique du serveur de traitement, accédez au déploiement de ce serveur dans Microsoft Azure.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image30.png)
-
-1.  Si vous n’avez pas supprimé les machines virtuelles en local, tel que définie à l’étape 5.d et si la banque de données cible de la restauration automatique, tel que défini à l’étape 7.A contient toujours les anciens fichiers VMDK, vous devez également vous assurer que la machine virtuelle restaurée automatiquement est créée à un nouvel emplacement. Pour ce faire, sélectionnez l’option Advanced Settings, puis spécifiez un dossier cible de restauration différent dans la section **Folder Name Settings** de la fenêtre Advanced Settings.
-
-![](./media/site-recovery-failback-azure-to-vmware/image31.png)
-
-Les valeurs par défaut des autres options de cette fenêtre peuvent être conservées. Assurez-vous d’appliquer les paramètres de nom de dossier à l’ensemble des serveurs.
-
-2.  Ensuite, accédez à l’étape finale de la Protection. Vous devez ici exécuter une vérification de la disponibilité afin de contrôler que les machines virtuelles sont prêtes à être protégées en local.
-
-![](./media/site-recovery-failback-azure-to-vmware/image32.png)
-
-	a.  Click on the readiness check and wait for it to complete.
-
-	b.  The Readiness Report tab will give the information if all the
-    virtual machines are ready.
-
-	c.  If the Readiness Report is successful on all the virtual machines it
-    will allow you to specify a name to the Protection plan
-
-![](./media/site-recovery-failback-azure-to-vmware/image33.png)
-
-	d.  Give the plan a new Name and begin Protect by clicking the button
-    below.
-
-
-3.  La Protection commence.
-
-    a. Vous pouvez voir la progression de la protection sur le serveur vContinuum.
-
-![](./media/site-recovery-failback-azure-to-vmware/image34.png)
-
-	b.  Once the step **Activating Protection Plan** is completed, you can
-    monitor the protection of the virtual machines via the ASR Portal.
-
-	c.  You can also monitor the protection via Azure Site Recovery.
-
-![](./media/site-recovery-failback-azure-to-vmware/image35.png)
-
-Pour afficher l’état exact des paires, cliquez sur la machine virtuelle et surveillez sa progression dans la section dédiée à la réplication de volume.
-
-![](./media/site-recovery-failback-azure-to-vmware/image36.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image36.png)
 
 ## Préparer le plan de restauration automatique
 
-Vous pouvez préparer un plan de restauration automatique à l’aide de vContinuum, de manière à pouvoir restaurer automatiquement l’application en local, à tout moment. Ces plans de récupération sont très similaires aux plans de récupération automatique de système.
+Vous pouvez préparer un plan de restauration automatique à l’aide de vContinuum afin de pouvoir restaurer automatiquement l’application sur le site local, à tout moment. Ces plans de récupération sont très similaires aux plans de récupération de Site Recovery.
 
-1.  Lancez vContinuum, puis sélectionnez l’option **Manage plans**.
+1.  Lancez vContinuum et sélectionnez **Gérer des plans** > **Récupérer**. Vous pouvez voir la liste de tous les plans qui ont été utilisés pour le basculement des machines virtuelles. Vous pouvez utiliser ces mêmes plans pour la récupération.
 
-2.  Sélectionnez **Recover** dans les sous-options.
+	![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image37.png)
+2. Sélectionnez le plan de protection et l’ensemble des machines virtuelles que vous souhaitez récupérer par son biais. Lorsque vous sélectionnez chaque machine virtuelle, vous pouvez voir plus de détails, notamment le serveur ESX cible et le disque de machine virtuelle source. Cliquez sur **Suivant** pour lancer l’Assistant Récupération, puis sélectionnez les machines virtuelles à récupérer.
 
-3.  Vous pouvez afficher la liste de tous les plans utilisés pour protéger les machines virtuelles. Ces plans peuvent également servir à la restauration.
+	![](./media/site-recovery-failback-azure-to-vmware/image38.png)
 
-4.  Sélectionnez le plan de protection, puis l’ensemble des machines virtuelles que vous souhaitez récupérer par son biais.
+3. Vous pouvez procéder à une récupération en utilisant plusieurs options, mais nous vous recommandons d’utiliser **Dernière balise** et de sélectionner **Appliquer pour toutes les machines virtuelles** pour vous assurer que les dernières données de la machine virtuelle seront utilisées.
+4. Exécutez la vérification de disponibilité (**Readiness Check**). Elle vérifie si les paramètres appropriés sont configurés pour la récupération des machines virtuelles. Cliquez sur **Suivant** si toutes les vérifications sont réussies. Si tel n’est pas le cas, vérifiez le journal et résolvez les erreurs.
 
-    a. En sélectionnant chacune des machines virtuelles, vous pouvez afficher des détails sur la machine virtuelle source, le serveur ESX cible dans lequel la machine virtuelle sera récupérée et le disque source de la machine virtuelle.
+	![](./media/site-recovery-failback-azure-to-vmware/image39.png)
 
-5.  Pour démarrer l’assistant **Recover**, cliquez sur Next.
+8.  Dans **Configuration de la machine virtuelle**, assurez-vous de la bonne définition des paramètres de récupération. Vous pouvez modifier les paramètres de la machine virtuelle au besoin.
 
-6.  Sélectionnez les machines virtuelles que vous souhaitez récupérer.
+	![](./media/site-recovery-failback-azure-to-vmware/image40.png)
 
-    a. Consultez la liste des machines virtuelles que vous pouvez récupérer.
+9. Passez en revue la liste des machines virtuelles à récupérer et spécifiez un ordre de récupération. Notez que les machines virtuelles sont répertoriées à l’aide du nom d’hôte de l’ordinateur. Il peut s’avérer difficile de mapper le nom d’hôte d’ordinateur à la machine virtuelle. Pour mapper les noms, accédez au **Tableau de bord** des machines virtuelles dans Azure et recherchez le nom d’hôte de machine virtuelle.
 
-![](./media/site-recovery-failback-azure-to-vmware/image38.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image41.png)
 
-	b.  You can **recover based on** multiple options however we recommend
-    the **Latest Tag.** This will ensure that the latest data from the
-    virtual machine will be used.
+10. Spécifiez un nom de plan et sélectionnez **Récupérer plus tard**. Nous vous recommandons de procéder à une récupération ultérieure, car la protection initiale risque de ne pas être terminée.
+11. Cliquez sur **Récupérer** pour enregistrer le plan ou déclencher la récupération si vous avez choisi de procéder à une récupération maintenant et pas plus tard. Vous pouvez vérifier le statut de la récupération pour voir si le plan a été enregistré.
 
-	c.  Select **Apply for All VMs** to ensure that the latest tag will be
-    chosen for all the virtual machines.
+	![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
-
-7.  Exécutez la vérification de disponibilité (**Readiness Check**). Elle vous indiquera si les paramètres appropriés sont définis pour activer la dernière récupération de balises de la machine virtuelle. Si toutes les vérifications sont réussies, cliquez sur Next. Sinon, étudiez le journal et résolvez les erreurs.
-
-![](./media/site-recovery-failback-azure-to-vmware/image39.png)
-
-8.  Dans l’étape de configuration de machine virtuelle de l’assistant, assurez-vous de la bonne définition des paramètres de récupération. Si les paramètres de machine virtuelle sont différents de ceux requis, vous pouvez les modifier. Comme nous avons déjà exécuté cette action durant la protection, vous pouvez l’ignorer ici.
-
-![](./media/site-recovery-failback-azure-to-vmware/image40.png)
-
-9.  Enfin, parcourez la liste des machines virtuelles à récupérer.
-
-    a. Spécifiez un ordre de récupération des machines virtuelles.
-
-Remarque : les machines virtuelles sont répertoriées par nom d’hôte d’ordinateur. Il peut s’avérer difficile de mapper le nom d’hôte d’ordinateur sur la machine virtuelle. Pour mapper les noms, accédez au tableau de bord des machines virtuelles dans Azure IAAS, et étudiez le nom d’hôte de la machine virtuelle.
-
-![](./media/site-recovery-failback-azure-to-vmware/image41.png)
-
-10.  Attribuez le nom dans le champ **Recovery plan name**, puis sélectionnez **Recover later** dans **Recovery options.**
-
-    a. Si vous souhaitez procéder immédiatement à la récupération, sélectionnez **Recover now** sous **Recovery options**.
-
-    b. Il est recommandé de sélectionner l’option Recovery Later, dans la mesure où la réplication initiale de la protection n’est pas obligatoirement terminée.
-
-    c. Enfin, cliquez sur le bouton **Recover** afin d’enregistrer le plan ou de déclencher la récupération en fonction du paramétrage de **Recovery options**.
-
-11.  En affichant l’état de récupération, vous pouvez vérifier l’enregistrement du plan.
-
-![](./media/site-recovery-failback-azure-to-vmware/image42.png)
-
-12.  Si vous avez choisi de procéder ultérieurement à la récupération, vous serez informé de la création du plan et de la possibilité de récupération ultérieure.
-
-![](./media/site-recovery-failback-azure-to-vmware/image43.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
 ## Récupérer les machines virtuelles
 
-Une fois le plan créé, vous pouvez décider de récupérer les machines virtuelles. Au préalable, vous devez vous assurer que les machines virtuelles ont terminé la synchronisation.
+Une fois le plan créé, vous pouvez récupérer les machines virtuelles. Au préalable, vous devez vous assurer que les machines virtuelles ont terminé la synchronisation. Si l’état de réplication présente la mention OK, cela signifie que la protection est achevée et que le seuil d’objectif de point de récupération est atteint. Vous pouvez vérifier l’intégrité dans les propriétés des machines virtuelles.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image44.png)
 
-Si l’état de réplication présente la mention OK, cela signifie que la protection est achevée et que le seuil d’objectif de point de récupération est atteint. Pour confirmer l’intégrité de la paire de réplication, accédez aux propriétés de la machine virtuelle.
-
-**Avant de lancer la récupération, arrêtez les machines virtuelles Microsoft Azure. Ainsi, vous être certain d’évacuer tout risque de syndrome Split-Brain, et vos clients profiteront d’une copie de l’application. Une fois que vous êtes sûr que les machines virtuelles Microsoft Azure sont arrêtées, suivez la procédure suivante.**
-
-Pour démarrer la récupération en local des machines virtuelles, vous devez démarrer le plan enregistré.
-
-1.  Dans l’outil vContinuum, sélectionnez l’option **Monitor**, dédiée à la surveillance des plans.
-
-2.  L’assistant répertorie les plans exécutés jusqu’à présent.
-
-![](./media/site-recovery-failback-azure-to-vmware/image45.png)
-
-3.  Sélectionnez le nœud **Recovery**, puis le plan que vous souhaitez récupérer.
-
-    a. Il vous indiquera que le plan n’a pas encore démarré.
-
-4.  Pour démarrer la récupération, cliquez sur **Start**.
-
-5.  Vous pouvez surveiller la récupération des machines virtuelles.
+Avant de lancer la récupération, arrêtez les machines virtuelles Azure. Cela permet de s’assurer de l’absence de Split-Brain et que les utilisateurs auront accès uniquement à une copie de l’application.
 
 
-![](./media/site-recovery-failback-azure-to-vmware/image46.png)
+1.  Démarrez le plan enregistré. Dans vContinuum, sélectionnez **Surveiller** les plans. Cette option répertorie tous les plans qui ont été exécutés.
 
-6. Une fois que les machines virtuelles ont été mises sous tension, vous pouvez vous y connecter sur votre serveur vCenter.
+	![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
-## Protéger de nouveau sur Microsoft Azure après une restauration automatique
+2.  Sélectionnez le plan dans **Récupération**, puis cliquez sur **Démarrer**. Vous pouvez surveiller la récupération. Une fois que les machines virtuelles ont été activées, vous pouvez vous y connecter dans vCenter.
 
-Une fois que la restauration rapide a été effectuée, vous pouvez souhaiter rétablir la protection des machines virtuelles. Pour reconfigurer la protection, procédez comme suit.
+	![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
-1.  Vérifiez que les machines virtuelles en local fonctionnent et que l’application peut interagir avec vos clients finaux.
+## Protéger de nouveau les machines virtuelles sur Azure après une restauration automatique
 
-2.  Dans le portail Microsoft Azure Site Recovery, sélectionnez les machines virtuelles, puis supprimez-les.
+Une fois la restauration automatique effectuée, vous souhaiterez probablement rétablir la protection des machines virtuelles. Procédez comme suit :
 
-    a. Désactivez la protection des machines virtuelles. Ainsi, vous êtes certains que les machines virtuelles ne sont plus protégées.
+1.  Vérifiez que les machines virtuelles en local fonctionnent et que les applications sont joignables.
+2.  Sur le portail Azure Site Recovery, sélectionnez les machines virtuelles, puis supprimez-les. Désactivez la protection des machines virtuelles. Vous êtes ainsi certain que les machines virtuelles ne sont plus protégées.
+3.  Dans Azure, supprimez les machines virtuelles Azure basculées.
+4.  Supprimez les anciennes machines virtuelles sur vSphere. Il s’agit des machines virtuelles préalablement basculées vers Azure.
+5.  Sur le portail Site Recovery, protégez les machines virtuelles récemment basculées. Une fois qu’elles sont protégées, vous pouvez les ajouter à un plan de récupération.
+ 
+## Étapes suivantes
 
-3.  Accédez aux machines virtuelles Azure IAAS et supprimez les éléments basculés.
-
-4.  Supprimez les anciennes machines virtuelles sur vSphere. Il s’agit des machines virtuelles préalablement basculées vers Microsoft Azure.
-
-5.  Sur le portail de récupération automatique du système, activez la protection des machines virtuelles récemment basculées.
-
-6.  Une fois que les machines virtuelles sont protégées, vous pouvez les ajouter à un plan de récupération et définir leur protection continue.
-
+[En savoir plus](site-recovery-vmware-to-azure.md) sur la réplication des machines virtuelles VMware sur Microsoft Azure
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

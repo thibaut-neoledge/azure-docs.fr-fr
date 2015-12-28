@@ -3,9 +3,9 @@
    description="Résolvez les problèmes d’utilisation de Visual Studio pour créer et déployer des applications web dans Docker sur Windows avec Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/20/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Résolution des erreurs Docker
 
@@ -100,4 +100,4 @@ R : Une solution consiste à utiliser OpenSSL sur le serveur pour générer les
 
 Une autre solution est de télécharger OpenSSL pour Windows, de générer les certificats et clés nécessaires, puis de charger l’autorité de certification, les certificats de serveur et les clés sur la machine Linux. Pour plus d’informations sur l’établissement d’une connexion sécurisée à Docker, consultez [Protection du socket démon de Docker avec HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

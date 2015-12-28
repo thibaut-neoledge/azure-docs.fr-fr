@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour afficher et gérer les tâches StorSimple
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## Vue d’ensemble
 
@@ -43,7 +45,7 @@ Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base 
 
 - **Appareil** : nom de l’appareil sur lequel la tâche a été lancée.
 
-- **Démarré le** : heure à laquelle la tâche a été lancée.
+- **Démarré le** : date à laquelle la tâche a été lancée.
 
 - **Progression** : pourcentage d’achèvement d’une tâche en cours d’exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
@@ -61,7 +63,7 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 
 #### Pour afficher les détails d’une tâche
 
-1. Dans la page **Tâches**, affichez la ou les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
+1. Sur la page **Tâches**, affichez les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
 
 2. Sélectionnez une tâche.
 
@@ -75,7 +77,7 @@ Pour annuler une tâche en cours d’exécution, procédez comme suit.
 
 ### Pour annuler une tâche
 
-1. Dans la page **Tâches**, affichez la ou les tâches en cours d’exécution que vous voulez annuler en exécutant une requête avec les filtres appropriés.
+1. Dans la page **Tâches**, affichez les tâches en cours d’exécution que vous voulez annuler en exécutant une requête avec les filtres appropriés.
 
 1. Sélectionnez la tâche.
 
@@ -91,4 +93,4 @@ Cette tâche est à présent annulée.
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

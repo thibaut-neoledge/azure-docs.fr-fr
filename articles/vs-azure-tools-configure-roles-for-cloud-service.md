@@ -3,9 +3,9 @@
    description="Découvrez comment installer et configurer des rôles pour les services cloud Azure à l’aide de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuration des rôles pour un service cloud Azure avec Visual Studio
 
@@ -376,4 +376,4 @@ Les certificats de gestion que vous associez à vos configurations de service s�
 ## Étapes suivantes
 En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

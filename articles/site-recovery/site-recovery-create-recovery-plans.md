@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création de plans de récupération" 
-	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées sur des serveurs locaux ou sur un centre de données secondaire." 
+	pageTitle="Créer des plans de récupération | Microsoft Azure" 
+	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées, sur des serveurs locaux, vers Microsoft Azure ou un centre de données secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Création de plans de récupération
+# Créer des plans de récupération
 
-Le service Site Recovery offre une solution fiable de continuité d’activité et de récupération d’urgence qui protège vos machines virtuelles et vos serveurs physiques locaux en orchestrant et en automatisant la réplication et le basculement sur Microsoft Azure ou sur un centre de données secondaire local. Pour bénéficier d’une introduction aux scénarios de déploiement de Site Recovery, consultez la [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
+Le service Site Recovery offre une solution fiable de continuité d’activité et de récupération d’urgence, qui protège vos machines virtuelles et vos serveurs physiques locaux en orchestrant et en automatisant la réplication et le basculement vers Microsoft Azure ou un centre de données secondaire local. Pour bénéficier d’une introduction aux scénarios de déploiement de Site Recovery, consultez la [Vue d’ensemble d’Azure Site Recovery](site-recovery-overview.md).
 
 ## Dans cet article
 
@@ -124,4 +124,4 @@ Vous pouvez exécuter différents types de basculement de plan de récupération
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

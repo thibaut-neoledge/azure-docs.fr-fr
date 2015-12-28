@@ -53,14 +53,14 @@ Ce didacticiel part du principe que vous disposez de :
 
 ##<a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
 
-Nous utilisons le [jeu de données NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/) pour illustrer le processus de migration. Le jeu de données NYC Taxi est disponible, comme mentionné dans cet article, sur le stockage d'objets blob Azure, [ici](http://www.andresmh.com/nyctaxitrips/). Les données comprennent deux fichiers, le fichier trip\_data.csv qui contient les détails de voyage et le fichier trip\_far.csv qui contient les détails des prix payés pour chaque voyage. Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+Nous utilisons le [jeu de données NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/) pour illustrer le processus de migration. Le jeu de données NYC Taxi est disponible, comme mentionné dans cet article, sur Azure Blob Storage [données NYC Taxi](http://www.andresmh.com/nyctaxitrips/). Les données comprennent deux fichiers, le fichier trip\_data.csv qui contient les détails de voyage et le fichier trip\_far.csv qui contient les détails des prix payés pour chaque voyage. Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
 
 Vous pouvez adapter les procédures fournies ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
 
 ##<a name="create-adf"></a> Création d’une Azure Data Factory
 
-Les instructions pour la création d’une fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://ms.portal.azure.com/) sont fournies [ici](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
+Les instructions pour la création d’une nouvelle fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://ms.portal.azure.com/) sont fournies [Créer une fabrique de données Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
 
 ## Installez et configurez la passerelle de gestion des données.
 
@@ -301,4 +301,4 @@ Une fois que le pipeline s'exécute, vous devez être en mesure de voir des donn
 
 Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

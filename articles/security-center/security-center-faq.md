@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -103,4 +103,4 @@ Les recommandations relatives aux listes de contrôle d’accès s’appliquent 
 ### Les machines virtuelles Linux sont-elles prises en charge ?
 Le Centre de sécurité Azure fournit une surveillance de base pour les machines virtuelles Linux (Ubuntu versions 12.04, 14.04, 14.10 et 15.04 uniquement). Une surveillance renforcée de l’intégrité de la sécurité et une analyse/collecte de données améliorée seront prochainement disponibles, tout comme la prise en charge d’autres distributions de Linux.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

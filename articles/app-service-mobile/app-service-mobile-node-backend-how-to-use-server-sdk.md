@@ -77,12 +77,13 @@ Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant 
 
 Cette application crée une simple WebAPI optimisée pour les applications mobiles avec un seul point de terminaison (`/tables/TodoItem`) qui fournit un accès non authentifié à un datastore SQL sous-jacent à l’aide d’un schéma dynamique. Cette API est adaptée pour les démarrages rapides de bibliothèques client suivants :
 
+- [Android Client QuickStart]
 - [iOS Client QuickStart]
+- [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
 - [Xamarin.Android Client QuickStart]
 - [Xamarin.Forms Client QuickStart]
-- [Windows Store Client QuickStart]
-- [HTML/Javascript Client QuickStart]
+
 
 Vous trouverez le code pour cette application de base dans l’[exemple basicapp sur GitHub].
 
@@ -321,6 +322,33 @@ Vous trouverez ci-dessous un exemple de fichier _azureMobile.js_ implémentant c
     };
 
 Nous vous recommandons d’ajouter _azureMobile.js_ à votre fichier _.gitignore_ (ou un autre fichier ignore de contrôle du code source) pour éviter que les mots de passe soient stockés dans le cloud. Veillez à toujours configurer les paramètres de production dans les paramètres d’application du [portail Azure].
+
+### <a name="howto-appsettings"><a>Paramètres d’application pour la configuration de votre application mobile
+
+La plupart des paramètres du fichier _azureMobile.js_ ont un paramètre équivalent dans le [portail Azure]. Utilisez la liste suivante pour configurer votre application dans les paramètres d’application :
+
+| Paramètre d'application | Paramètre _azureMobile.js_ | Description | Valeurs valides |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS\_MobileAppName** | name | Nom de l’application | string |
+| **MS\_MobileLoggingLevel** | logging.level | Niveau minimal de journal pour les messages à consigner | error, warning, info, verbose, debug, silly |
+| **MS\_DebugMode** | debug | Activer ou désactiver le mode débogage | true, false |
+| **MS\_TableSchema** | data.schema | Nom de schéma par défaut pour les tables SQL | string (valeur par défaut : dbo) |
+| **MS\_DynamicSchema** | data.dynamicSchema | Activer ou désactiver le mode débogage | true, false |
+| **MS\_DisableVersionHeader** | version (sur Undefined)| Désactive l'en-tête X-ZUMO-Server-Version | true, false |
+| **MS\_SkipVersionCheck** | skipversioncheck | Désactive la vérification de la version de l’API client | true, false |
+
+Pour définir un paramètre d’application :
+
+1. Connectez-vous au [portail Azure].
+2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
+3. Le panneau Paramètres s'ouvre par défaut. S’il ne s’ouvre pas, cliquez sur **Paramètres**.
+4. Cliquez sur **Paramètres de l’application** dans le menu GÉNÉRAL.
+5. Accédez à la section Paramètres de l’application.
+6. Si votre paramètre d’application existe déjà, cliquez sur la valeur correspondante pour la modifier.
+7. Si votre paramètre d’application n’existe pas, saisissez-le dans la zone Clé et la valeur dans la zone Valeur.
+8. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
+
+La modification de la plupart des paramètres requiert le redémarrage du service.
 
 ### <a name="howto-use-sqlazure"></a>Procédure : utiliser la base de données SQL comme datastore de production
 
@@ -609,7 +637,7 @@ Les applications Node.js ont accès à un large éventail d’outils de journaux
 
 ## <a name="in-portal-editing"></a>Expérience de modification du code dans le portail
 
-Certains outils spéciaux du portail Azure permettent de travailler facilement sur un projet de serveur principal Node.js sans avoir à télécharger le projet de code. Les outils Easy Tables et Easy APIs du portail vous permettent de créer et utiliser des tables et des API personnalisées directement dans le portail. Vous pouvez même modifier l’opération de table et les scripts d’API dans le portail à l’aide de l’éditeur « Monaco » de Visual Studio Online.
+Certains outils spéciaux du portail Azure permettent de travailler facilement sur un projet de serveur principal Node.js sans avoir à télécharger le projet de code. Les outils Easy Tables et Easy APIs du portail vous permettent de créer et utiliser des tables et des API personnalisées directement dans le portail. Vous pouvez même modifier l’opération de table et les scripts d’API dans le portail à l’aide de l’éditeur « Monaco » de Visual Studio Team Services.
 
 ### <a name="work-easy-tables"></a>Procédure : utiliser l’outil Easy Tables dans le portail Azure
 
@@ -620,7 +648,7 @@ Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal,
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
 + **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur Visual Studio Online.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur Visual Studio Team Services.
 + **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
 + **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
 + **Supprimer des lignes** : supprimer des lignes de données spécifiques.
@@ -632,15 +660,15 @@ Lorsque vous cliquez sur **Easy APIs** dans vos paramètres de site principal, v
 
 ![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP donnée, modifier le fichier de script d’API dans l’éditeur Visual Studio Online ou afficher les journaux de diffusion en continu.
+Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP donnée, modifier le fichier de script d’API dans l’éditeur Visual Studio Team Services ou afficher les journaux de diffusion en continu.
 
-###<a name="online-editor"></a>Procédure : modifier le code dans Visual Studio Online
+###<a name="online-editor"></a>Procédure : modifier le code dans Visual Studio Team Services
 
-Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans Visual Studio Online sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
+Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans Visual Studio Team Services sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
 
-1. Dans le panneau de votre serveur Mobile App, cliquez sur **Tous les paramètres** > **Easy Tables** ou **Easy APIs**, cliquez sur une table ou une API, puis cliquez sur **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur Visual Studio Online.
+1. Dans le panneau de votre serveur Mobile App, cliquez sur **Tous les paramètres** > **Easy Tables** ou **Easy APIs**, cliquez sur une table ou une API, puis cliquez sur **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur Visual Studio Team Services.
 
-	![Éditeur de code de Visual Studio Online](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Éditeur de code Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
 
@@ -657,6 +685,7 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Android Client QuickStart]: app-service-mobile-android-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -693,4 +722,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

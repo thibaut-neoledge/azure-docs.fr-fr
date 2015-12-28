@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`. Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](xplat-cli-azure-resource-manager.md) et [Utiliser PowerShell avec Resource Manager](../powershell-azure-resource-manager.md) pour des informations plus complètes sur la mise à jour et la configuration.
+
 
 ## Tableau des images couramment utilisées
 
@@ -52,6 +52,8 @@ Cet article explique comment parcourir et sélectionner des images de machine vi
 
 ## Interface de ligne de commande Azure
 
+> [AZURE.NOTE]Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`.
+
 La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur (qui ne respecte pas la casse) et une offre (si vous connaissez l'offre). La liste suivante en est un petit exemple (de nombreuses listes sont assez longues) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
 
     azure vm image list westus canonical ubuntuserver
@@ -71,7 +73,7 @@ La façon la plus simple et la plus rapide de rechercher une image à utiliser a
 
 La colonne **Urn** aura le même format que celui que vous passez à `azure vm quick-create`.
 
-Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en détectant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite location avec un emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
+Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en recherchant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite de localisation avec l’emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -85,7 +87,7 @@ Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans
     data:    AlertLogic.Extension                            westus  
 
 
-Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci-dessus est simplement un extrait de code. Supposons que vous ayez remarqué que « Canonical » est, en fait, un éditeur d'image présent dans l'emplacement « West US ». Vous pouvez maintenant rechercher ses offres en appelant `azure vm image list-offers` et en passant l’emplacement et l’éditeur aux invites, comme dans l’exemple suivant :
+Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci-dessus est simplement un extrait de code. Supposons que vous ayez remarqué que « Canonical » est, en fait, un éditeur d'image présent dans l'emplacement « West US ». Vous pouvez maintenant rechercher ses offres en appelant `azure vm image list-offers` et en indiquant l’emplacement et l’éditeur aux invites, comme dans l’exemple suivant :
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -97,7 +99,7 @@ Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-Nous savons maintenant que dans la région « West US », « Canonical »publie l'offre **UbuntuServer** sur Azure. Mais quelles sont les références SKU ? Pour les obtenir, vous appelez `azure vm image list-skus` et répondez à l’invite en indiquant l’emplacement, l’éditeur et l’offre que vous avez détectée.
+Nous savons maintenant que dans la région « West US », « Canonical »publie l'offre **UbuntuServer** sur Azure. Mais quelles sont les références SKU ? Pour les obtenir, appelez `azure vm image list-skus` et répondez à l’invite en indiquant l’emplacement, l’éditeur et l’offre que vous avez détectés.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -148,6 +150,11 @@ Cette vidéo illustre les étapes ci-dessus à l'aide de l'interface de ligne de
 
 
 ## PowerShell
+
+Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](xplat-cli-azure-resource-manager.md) et [Utiliser Azure PowerShell avec Resource Manager](../powershell-azure-resource-manager.md) pour obtenir des informations complètes sur la mise à jour et la configuration.
+
+> [AZURE.NOTE]L’applet de commande `Switch-AzureMode` a été supprimée dans les modules Azure PowerShell supérieurs à 1.0. Avec cette version et les plus récentes, remplacez les commandes ci-dessous par la portion `Azure` partie remplacée par `AzureRm`. Si vous utilisez les modules Azure PowerShell antérieurs à 1.0, utilisez les commandes ci-dessous. Cependant, vous devez d’abord `Switch-AzureMode AzureResourceManager`.
+
 
 Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Azure, vous devez, dans certains cas, spécifier une image en combinant les propriétés d'image suivantes :
 
@@ -244,4 +251,4 @@ Cette vidéo illustre les étapes ci-dessus à l'aide de PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -156,6 +156,6 @@ Pour vous déconnecter de votre compte GitHub, ouvrez le panneau Synchronisation
 
 ## Étapes suivantes
 
-Pour plus d'informations sur l'intégration du contrôle de code source, consultez les ressources suivantes : [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) ; [Votez pour votre système de contrôle de code source préféré](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) ; [Azure Automation : Intégration du contrôle de code source de runbooks à l'aide de Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
+Pour plus d’informations sur l’intégration du contrôle de code source, consultez les ressources suivantes : [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) ; [Votez pour votre système de contrôle de code source préféré](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) ; [Azure Automation : Intégration du contrôle de code source de runbooks à l’aide de Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

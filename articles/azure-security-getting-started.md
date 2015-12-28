@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="12/10/2015"
    ms.author="yuridio"/>
 
 #Prise en main de la sécurité de Microsoft Azure
@@ -241,4 +241,4 @@ Azure dispose de contrôles de sécurité en place pour implémenter l’atténu
 
 [Blog Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

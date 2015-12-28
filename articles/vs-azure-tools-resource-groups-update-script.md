@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="11/20/2015"
 	ms.author="kempb" />
 
 # Mise à jour du script PowerShell d’un projet de groupe de ressources Azure
@@ -59,7 +59,7 @@ Ces instructions se rapportent aux numéros de ligne. Pour activer la numérotat
 
 	```
 	$StorageAccountKey = (Get-AzureRMStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
-	$StorageAccountContext = New-AzureRMStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+	$StorageAccountContext = (Get-AzureRmStorageAccount -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Context
 	```
 
 1. À la ligne 87, remplacez le code suivant :
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -38,7 +38,7 @@ Figure 2 :
 La configuration requise pour cet article est la suivante :
 
 1.	Un abonnement Azure actif.
-2.	Un fichier CSV contenant des données. Celui de la Figure 2 est fourni ici au téléchargement, ou vous pouvez créer le vôtre. Ce didacticiel a été rédigé en partant du principe que c’est le tableau fourni au téléchargement qui est utilisé.
+2.	Un fichier CSV contenant des données. Celui de la Figure 2 est disponible au téléchargement [sur GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv), ou vous pouvez créer le vôtre. Ce didacticiel a été rédigé en partant du principe que c’est le tableau fourni au téléchargement qui est utilisé.
 
 À un haut niveau, les étapes suivantes vont être exécutées :
 
@@ -51,9 +51,9 @@ La configuration requise pour cet article est la suivante :
 
 ## Téléchargement d’un fichier d’entrée CSV vers le stockage d’objets blob
 
-Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris celui qui est spécifié dans la présentation. Pour télécharger le fichier, vous pouvez utiliser [Explorateur du stockage Microsoft Azure](http://storageexplorer.com/) ou Visual Studio, ainsi qu’un code personnalisé. Pour ce didacticiel, des exemples sont fournis pour Visual Studio.
+Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris celui qui est spécifié dans la présentation. Pour télécharger le fichier, vous pouvez utiliser l’[Explorateur du stockage Azure](http://storageexplorer.com/) ou Visual Studio, ainsi qu’un code personnalisé. Pour ce didacticiel, des exemples sont fournis pour Visual Studio.
 
-1.	Développez Azure et cliquez avec le bouton droit sur le **Stockage**. Choisissez **Attacher un stockage externe** et **Nom de compte** et **Clé de compte**.  
+1.	Développez Azure et cliquez avec le bouton droit sur le **stockage**. Choisissez **Attacher un stockage externe** et indiquez le **Nom de compte** et la **Clé de compte**.  
 
     ![explorateur de serveurs du didacticiel machine learning stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
@@ -65,14 +65,14 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris 
 
 ## Ajoutez le modèle d’analyse de sentiments de la galerie Cortana Analytics
 
-1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Analytics  
+1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Analytics.  
 2.	Cliquez sur **Ouvrir** dans Studio :  
 
     ![ouvrir le studio machine learning du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
 3.	Connectez-vous pour accéder à l’espace de travail. Choisissez le site qui convient le mieux à votre site.
-4.	Maintenant, cliquez sur **Exécuter** en bas de l’écran de Studio  
-5.	Une fois qu’elle s’exécute avec succès, cliquez sur **Déployer le Service Web**.
+4.	Cliquez sur **Exécuter** en bas de l’écran de Studio  
+5.	Une fois exécuté, cliquez sur **Déployer le service web**.
 6.	Le modèle d’analyse de sentiments est désormais prêt à l’utilisation. Pour valider, cliquez sur le bouton **test**, saisissez un texte tel que « J’aime Microsoft ». Le test doit retourner un résultat similaire à ce qui suit :
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
@@ -96,26 +96,34 @@ Notez l’URL et la clé d’accès du service web depuis le fichier excel tél�
     ![saisie machine learning d’ajout de données du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
 4.	Sur la première page de la fenêtre d’assistant **Ajouter une entrée**, sélectionnez **flux de données**, puis cliquez sur Suivant. Sur la deuxième page, sélectionnez **Stockage d’objets blob** comme entrée, puis cliquez sur **Suivant**.
-5.	Sur la page **Paramètres de l’objet blob de stockage** de l’assistant, fournissez le nom de conteneur blob du compte stockage défini précédemment, au moment du téléchargement des données. Cliquez sur **Suivant**. Choisissez **CSV** en tant que **Format de sérialisation de l’événement**. Acceptez les valeurs par défaut pour le reste de la **Configuration de la sérialisation**. Cliquez sur **OK**.  
+5.	Sur la page **Paramètres du stockage d’objets blob** de l’assistant, fournissez le nom de conteneur d’objets blob du compte de stockage défini précédemment, au moment du téléchargement des données. Cliquez sur **Suivant**. Choisissez **CSV** en tant que **format de sérialisation de l’événement**. Acceptez les valeurs par défaut pour le reste de la **configuration de la sérialisation**. Cliquez sur **OK**.  
 6.	Accédez à l’onglet **Sorties**, puis cliquez sur **Ajouter une sortie**.  
 
     ![résultat d’ajout d’analyse du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-7.	Choisissez **Stockage d’objets blob** et fournissez les mêmes paramètres, à l’exception du conteneur. L’**Entrée** a été configurée pour assurer la lecture à partir du conteneur nommé « test » dans lequel le fichier **CSV** a été téléchargé. Pour **Sortie**, saisir « RésultatTest ». Les noms de conteneur doivent être différents et vous devez vérifier que ce conteneur existe.
-8.	Cliquez sur **Suivant** pour configurer les **Paramètres de sérialisation** de sortie. Comme avec Entrée, choisissez **CSV** et cliquez sur le bouton **OK**.
-9.	Accédez à l’onglet **Fonctions**, puis cliquez sur **Ajouter une fonction Learning Machine**.  
+7.	Choisissez **Stockage d’objets blob** et fournissez les mêmes paramètres, à l’exception du conteneur. L’**entrée** a été configurée pour assurer la lecture à partir du conteneur nommé « test » dans lequel le fichier **CSV** a été téléchargé. Pour **Sortie**, entrez « RésultatTest ». Les noms de conteneur doivent être différents et vous devez vérifier que ce conteneur existe.
+8.	Cliquez sur **Suivant** pour configurer les **paramètres de sérialisation** de sortie. Comme pour Entrée, choisissez **CSV** et cliquez sur le bouton **OK**.
+9.	Accédez à l’onglet **Fonctions**, puis cliquez sur **Ajouter une fonction Machine Learning**.  
 
     ![fonction machine learning d’ajout de didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
-10.	Sur la page **Paramètres du Service Web Machine Learning**, recherchez l’espace de travail de Machine Learning, le service web et le point de terminaison par défaut. Pour ce didacticiel, appliquez les paramètres manuellement pour vous familiariser avec la configuration du service web d’un espace de travail quelconque dont vous connaissez l’URL et avez la clé. Fournir le point de terminaison **URL** et **Clé API**. Cliquez ensuite sur **OK**.
+10.	Sur la page **Paramètres du Service Web Machine Learning**, recherchez l’espace de travail de Machine Learning, le service web et le point de terminaison par défaut. Pour ce didacticiel, appliquez les paramètres manuellement pour vous familiariser avec la configuration du service web d’un espace de travail quelconque dont vous connaissez l’URL et avez la clé. Indiquez l’**URL** et la **clé API** du point de terminaison. Cliquez ensuite sur **OK**.
 
     ![service web machine learning de didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
 11.	Accédez à l’onglet **Requête** et modifiez la requête comme indiqué ci-dessous :
 
-    ![requête machine learning de didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)
+```
+	WITH subquery AS (  
+		SELECT text, sentiment(text) as result from input  
+	)  
+	  
+	Select text, result.[Score]  
+	Into output  
+	From subquery  
+```
 
-12. Cliquez sur **Enregistrer** pour enregistrer la feuille de calcul.
+12. Cliquez sur **Enregistrer** pour enregistrer la feuille de calcul.    
 
 ## Démarrage du travail Stream Analytics et examen du résultat
 
@@ -142,4 +150,4 @@ La fonction Azure Machine Language liée aux mesures peut également être obser
 
     ![affichage du moniteur ml du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

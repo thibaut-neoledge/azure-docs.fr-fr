@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
 
-Lorsque vous créez un compte Azure Media Services, vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Notez que vous pouvez ajouter plusieurs comptes de stockage à votre compte Media Services.
+Lorsque vous créez un compte Azure Media Services, vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Notez que vous pouvez [ajouter plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md) à votre compte Media Services.
 
 Lors de la création d’un compte de stockage, Azure génère deux clés d’accès de stockage 512 bits, qui sont utilisées pour authentifier l’accès à votre compte de stockage. Pour sécuriser vos connexions de stockage, il est recommandé de régénérer et d’alterner périodiquement vos clés d’accès de stockage. Vous bénéficiez de deux clés d’accès (primaire et secondaire), ce qui vous permet de conserver vos connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé. Cette procédure est également appelée « substitution des clés d’accès ».
 
-Media Services fait l’objet d’une dépendance par rapport à l’une des clés de stockage (primaire ou secondaire). Plus précisément, les localisateurs utilisés pour diffuser en continu ou télécharger vos ressources dépendent de la clé d’accès. Lors de la substitution des clés d’accès de stockage, vous devez également veiller à mettre à jour vos localisateurs pour éviter toute interruption de votre service de diffusion en continu.
+Media Services dépend d'une clé de stockage qui lui est fournie. Plus précisément, les localisateurs utilisés pour diffuser en continu ou télécharger vos ressources dépendent de la clé d’accès de stockage spécifiée. Lors de la création d'un compte AMS, Media Services choisit une dépendance sur la clé d'accès de stockage principale par défaut, mais en tant qu'utilisateur, vous pouvez mettre à jour la clé de stockage d’AMS. Vous devez indiquer à Media Services quelle clé utiliser en suivant les étapes décrites dans cette rubrique. De même, lors de la substitution des clés d’accès de stockage, vous devez également veiller à mettre à jour vos localisateurs pour éviter toute interruption de votre service de diffusion en continu (cette étape est également décrite dans la rubrique).
 
->[AZURE.NOTE]Après avoir régénéré une clé de stockage, vous devez impérativement synchroniser la mise à jour avec Media Services.
-
-Cette rubrique décrit les étapes à appliquer pour substituer les clés de stockage et mettre à jour Media Services pour utiliser la clé de stockage appropriée. Notez que si vous possédez plusieurs comptes de stockage, vous devez effectuer cette procédure pour chacun d’eux.
-
->[AZURE.NOTE]Avant d’appliquer les étapes décrites dans cette rubrique sur un compte de production, veillez à les tester sur un compte de pré-production.
+>[AZURE.NOTE]Si vous possédez plusieurs comptes de stockage, vous devez effectuer cette procédure pour chacun d’eux.
+>
+>Avant d’appliquer les étapes décrites dans cette rubrique sur un compte de production, veillez à les tester sur un compte de pré-production.
 
 
 ## Étape 1 : régénérer la clé d’accès de stockage secondaire
@@ -79,13 +77,15 @@ L’exemple de code suivant montre comment construire la demande de clé https:/
 		    }
 		}
 
-Ensuite, mettez à jour les localisateurs existants (qui font l’objet d’une dépendance par rapport à l’ancienne clé de stockage).
+Après cette étape, mettez à jour les localisateurs existants (qui font l’objet d’une dépendance par rapport à l’ancienne clé de stockage), comme indiqué dans l’étape suivante.
 
 >[AZURE.NOTE]Patientez 30 minutes avant d’effectuer des opérations avec Media Services (par exemple, avant de créer des localisateurs) afin d’éviter tout impact sur les tâches en cours.
 
 ##Étape 3 : mettre à jour les localisateurs 
 
-Au bout de 30 minutes, vous pouvez recréer vos localisateurs OnDemand afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage secondaire et qu’ils conservent l’URL existante.
+>[AZURE.NOTE]Lors de la substitution des clés d’accès de stockage, vous devez veiller à mettre à jour vos localisateurs existants pour éviter toute interruption de votre service de diffusion en continu.
+
+Attendez au moins 30 minutes après la synchronisation de la nouvelle clé de stockage avec AMS. Vous pouvez ensuite recréer vos localisateurs OnDemand afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage spécifiée tout en conservant l’URL existante.
 
 Notez que lorsque vous mettez à jour (ou que vous recréez) un localisateur SAS, l’URL sera toujours modifiée.
 
@@ -159,4 +159,4 @@ Utilisez la même procédure que celle décrite dans l’[étape 3](media-servi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

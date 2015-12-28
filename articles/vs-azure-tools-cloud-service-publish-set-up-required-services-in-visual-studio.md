@@ -3,9 +3,9 @@
    description="Découvrez les procédures de configuration des services de compte de stockage et cloud et de votre application Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 Pour en savoir plus sur la publication d’applications entre Visual Studio et Azure, consultez la page [Publication d’un service cloud en utilisant les outils Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

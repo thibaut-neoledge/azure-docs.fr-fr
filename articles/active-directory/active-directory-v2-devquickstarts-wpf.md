@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Ajouter une connexion à une application de bureau Windows
@@ -40,20 +40,20 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application.
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## 2. Installez et configurez ADAL
-Une fois l'application enregistrée auprès de Microsoft, vous pouvez installer ADAL et saisir votre code associé aux identités.  Pour qu'ADAL puisse communiquer le point de terminaison v2.0, vous devez lui fournir des informations sur l'enregistrement de votre application.
+Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
 
--	Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
+-    Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
 ```
 
 -	Dans le projet TodoListClient, ouvrez `app.config`. Remplacez les valeurs des éléments de la section `<appSettings>` afin qu’elles reflètent les valeurs saisies dans le portail d’inscription d’applications. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
@@ -247,4 +247,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

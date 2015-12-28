@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="08/25/2015"
+ ms.date="12/08/2015"
  ms.author="rasquill"/>
 #Gestion des extensions de machine virtuelle
 
@@ -26,7 +26,7 @@ Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machin
 
 Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités grâce auxquels d’autres programmes peuvent fonctionner sur des machines virtuelles Azure (par exemple, l’extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d’accès à la machine virtuelle à partir de PowerShell, l’interface de ligne de commande Azure et des clients REST pour réinitialiser ou modifier des valeurs d’accès à distance de votre machine virtuelle Azure).
 
->[AZURE.IMPORTANT]Pour obtenir une liste complète des extensions selon les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/dn606311.aspx). Étant donné que chaque extension de machine virtuelle prend en charge une fonctionnalité spécifique, elle détermine ce que vous pouvez et ne pouvez pas faire avec une extension. Par conséquent, avant de modifier votre machine virtuelle, assurez-vous d'avoir bien lu la documentation relative à l'extension de machine virtuelle que vous souhaitez utiliser. La suppression de certaines extensions de machine virtuelle n'est pas prise en charge. D'autres ont des propriétés qui peuvent être définies et qui modifient radicalement le comportement de la machine virtuelle.
+>[AZURE.IMPORTANT]Pour obtenir une liste complète des extensions selon les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-extensions-features.md). Étant donné que chaque extension de machine virtuelle prend en charge une fonctionnalité spécifique, elle détermine ce que vous pouvez et ne pouvez pas faire avec une extension. Par conséquent, avant de modifier votre machine virtuelle, assurez-vous d'avoir bien lu la documentation relative à l'extension de machine virtuelle que vous souhaitez utiliser. La suppression de certaines extensions de machine virtuelle n'est pas prise en charge. D'autres ont des propriétés qui peuvent être définies et qui modifient radicalement le comportement de la machine virtuelle.
 
 Les tâches les plus courantes sont :
 
@@ -40,7 +40,7 @@ Les tâches les plus courantes sont :
 
 ##Recherche d'extensions disponibles
 
-Les extensions de machines virtuelles Azure sont (pour une liste complète des extensions suivant les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/dn606311.aspx)). Vous pouvez localiser l'extension et obtenir des informations étendues en utilisant :
+Les extensions de machines virtuelles Azure sont (pour une liste complète des extensions suivant les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-extensions-features.md)). Vous pouvez localiser l'extension et obtenir des informations étendues en utilisant :
 
 -   PowerShell
 -   Interface multiplateforme Azure (Azure CLI)
@@ -142,4 +142,4 @@ Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécess
 
 >[AZURE.NOTE]Des extensions peuvent également utiliser des configurations définies avec JSON. En cas d’utilisation de ces types d’extension, seul l’élément **SampleConfig** est utilisé.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

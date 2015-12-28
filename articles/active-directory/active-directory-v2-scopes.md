@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Étendues, autorisations et consentements
@@ -116,4 +116,4 @@ Si votre application ne sollicite pas l’étendue `offline_access`, elle ne re�
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

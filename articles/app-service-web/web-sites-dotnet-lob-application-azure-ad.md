@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Créer une application web .NET MVC dans Azure App Service avec authentification Azure Active Directory #
@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à créer une application métier ASP.NET
 
 Le locataire Azure Active Directory que vous utilisez peut être un annuaire Azure uniquement ou bien il peut être synchronisé avec votre annuaire Active Directory local pour créer une expérience d’authentification unique pour les utilisateurs locaux ou distants.
 
->[AZURE.NOTE]Pour Azure App Service Web Apps, vous pouvez configurer l’authentification par rapport à un locataire Azure Active Directory en quelques clics. Pour plus d’informations, consultez [Utiliser Active Directory pour l’authentification dans Azure App Service](web-sites-authentication-authorization.md).
+>[AZURE.NOTE] Pour Azure App Service Web Apps, vous pouvez configurer l’authentification par rapport à un locataire Azure Active Directory en quelques clics. Pour plus d’informations, consultez [Utiliser Active Directory pour l’authentification dans Azure App Service](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Ce que vous allez créer ##
@@ -40,14 +40,14 @@ Vous allez créer une application CRUD (Create-Read-Update-Delete) métier simpl
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
 - Un locataire Azure Active Directory avec les utilisateurs de différents groupes
 - Les autorisations permettant de créer des applications sur le locataire AAD
-- Visual Studio 2013
-- Le [Kit de développement logiciel (SDK) Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou une version ultérieure
+- Visual Studio 2013 ou une version ultérieure
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou version ultérieure
 
 <a name="bkmk_sample"></a>
 ## Utiliser l’exemple d’application pour le modèle métier ##
@@ -63,8 +63,7 @@ L’exemple d’application présenté dans ce didacticiel, [WebApp-RoleClaims-D
 
 1.	Clonez ou téléchargez l’exemple de solution depuis [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) dans votre répertoire local.
 
-2.	Suivez les instructions dans [Exécution de l’échantillon comme application à client unique](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) pour configurer l’application et le projet Azure Active Directory.
-Veillez à suivre toutes les instructions pour convertir l'application mutualisée en application à client unique.
+2.	Suivez les instructions dans [Exécution de l’échantillon comme application à client unique](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) pour configurer l’application et le projet Azure Active Directory. Veillez à suivre toutes les instructions pour convertir l'application mutualisée en application à client unique.
 
 3.	Dans l’affichage du [portail Azure Classic](https://manage.windowsazure.com) de votre application Azure Active Directory nouvellement créée, cliquez sur l’onglet **UTILISATEURS**. Ensuite, attribuez les rôles que vous souhaitez aux utilisateurs de votre choix.
 
@@ -91,9 +90,17 @@ Ici, vous allez publier l’application sur une application web dans Azure App S
 
 4. Une fois connecté, cliquez sur **Nouveau** pour créer une application web dans Azure.
 
-5. Renseignez tous les champs obligatoires. Vous aurez besoin d’une connexion de base de données pour permettre à cette application de stocker les mappages de rôles, les jetons mis en cache et les données d’application éventuelles.
+5. Renseignez tous les champs obligatoires dans **Hébergement**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. Vous aurez besoin d’une connexion de base de données pour permettre à cette application de stocker les mappages de rôles, les jetons mis en cache et les données d’application éventuelles. Dans la boîte de dialogue **Créer App Service**, cliquez sur **Services**. Cliquez sur le signe plus (+) à côté de **Base de données SQL** pour ajouter une nouvelle base de données.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. Dans la boîte de dialogue**Configurer une base de données SQL**, sélectionnez ou créez un serveur, définissez un nom et cliquez sur **OK**.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. Cliquez sur **Créer**. Une fois l’application web créée, la boîte de dialogue **Publier le site web** s’ouvre.
 
@@ -123,7 +130,7 @@ Ici, vous allez publier l’application sur une application web dans Azure App S
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
-2.	Une fois l'application créée, mettez à jour le manifeste de l'application de la même façon qu'auparavant en suivant les instructions dans [Définir vos rôles d'application](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
+2.	Une fois l’application créée, mettez à jour le manifeste de l’application de la même façon qu’auparavant en suivant les instructions dans [Définir vos rôles d’application](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
 
 3.	Dans l’affichage du [portail Azure Classic](https://manage.windowsazure.com) de votre application Azure Active Directory nouvellement créée, cliquez sur l’onglet **UTILISATEURS**. Ensuite, attribuez les rôles que vous souhaitez aux utilisateurs de votre choix.
 
@@ -165,7 +172,7 @@ Si vous voulez attacher l’application web publiée au débogueur (dans ce cas,
 
 Dans cette partie du didacticiel, vous allez apprendre à créer la fonctionnalité métier souhaitée à partir de l’exemple d’application. Vous allez créer un dispositif de suivi d’éléments de travail CRUD simple, semblable au contrôleur TaskTracker, mais en utilisant la génération de modèles automatique et le modèle de conception CRUD standard. Vous allez aussi utiliser le fichier Scripts\\AadPickerLibrary.js inclus pour enrichir votre application avec les données de l’API Azure Active Directory Graph.
 
-5.	Dans le dossier Modèles, créez un modèle [Code First](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) intitulé WorkItem.cs et remplacez le code par le code suivant :
+5.	Dans le dossier Modèles, créez un nouveau modèle [Code First](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) intitulé WorkItem.cs et remplacez le code par le code suivant :
 
 		using System.ComponentModel.DataAnnotations;
 		
@@ -217,34 +224,34 @@ public class RoleClaimContext : DbContext
 	<pre class="prettyprint">
 	...
 
-	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-	public class WorkItemsController : Controller
-	{
-	...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
 	}</pre>
 	
 	Sachant que vous vous occupez des mappages de rôles dans l’interface utilisateur du portail Azure Classic, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
@@ -265,7 +272,7 @@ public class RoleClaimContext : DbContext
         ViewData["token"] = AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
         ViewData["tenant"] = ConfigHelper.Tenant;
 
-13.	La méthode `AcquireToken()` n'est pas encore définie. Définissez-la maintenant dans la classe `WorkItemsController`. Cliquez avec le bouton droit sur chaque erreur de résolution de noms pour résoudre le problème.
+13.	La méthode `AcquireToken()` n’est pas encore définie. Définissez-la maintenant dans la classe `WorkItemsController`. Cliquez avec le bouton droit sur chaque erreur de résolution de noms pour résoudre le problème.
 
         static string AcquireToken(string userObjectId)
         {
@@ -331,7 +338,7 @@ public class RoleClaimContext : DbContext
 	            var token = "@ViewData["token"]";
 	            var tenant = "@ViewData["tenant"]";
 	
-	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
 	            // Submit the selected user/group to be asssigned.
 	            $("#submit-button").click({ picker: picker }, function () {
@@ -342,10 +349,9 @@ public class RoleClaimContext : DbContext
 	    &lt;/script&gt;</mark>
 	
 	}</pre>
+Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
 
-	Dans le script, l’objet AadPicker appelle l’[API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) pour rechercher des utilisateurs et des groupes qui correspondent à l’entrée.
-
-15. Ouvrez la [Console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) et exécutez **Enable-Migrations – EnableAutomaticMigrations**. Cette commande, similaire à l'option que vous avez sélectionnée lorsque vous avez publié l'application dans Azure, permet de mettre à jour le schéma de base de données de votre application dans [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) lorsque vous la déboguez dans Visual Studio.
+15. Ouvrez la [Console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) et exécutez **Enable-Migrations –EnableAutomaticMigrations**. Cette commande, similaire à l’option que vous avez sélectionnée lorsque vous avez publié l’application dans Azure, permet de mettre à jour le schéma de base de données de votre application dans [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) lorsque vous la déboguez dans Visual Studio.
 
 15. Exécutez maintenant l’application dans le débogueur Visual Studio ou republiez-la sur App Service Web Apps. Connectez-vous en tant que propriétaire d’application et accédez à `https://<webappname>.azurewebsites.net/WorkItems/Create`. Vous pouvez maintenant sélectionner un utilisateur ou un groupe Azure Active Directory dans la liste déroulante ou taper un texte pour filtrer la liste.
 
@@ -382,4 +388,4 @@ Maintenant que vous avez configuré les autorisations et la fonctionnalité mét
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

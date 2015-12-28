@@ -51,11 +51,11 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 
     En cas de modification du pourcentage d’échantillonnage, délai avant que le pourcentage d’échantillonnage puisse de nouveau être augmenté pour capturer plus de données.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     Lors des variations du pourcentage d’échantillonnage, valeur minimale autorisée.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     Lors des variations du pourcentage d’échantillonnage, valeur maximale autorisée.
 
@@ -63,7 +63,7 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 
     Lors du calcul de la moyenne mobile, poids affecté à la valeur la plus récente. Utilisez une valeur inférieure ou égale à 1. Plus les valeurs sont petites, moins l’algorithme est réactif en cas de modifications brusques.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     Valeur affectée lorsque l’application vient de démarrer. Ne diminuez pas cette valeur pendant le débogage.
 
@@ -297,4 +297,4 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
  * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

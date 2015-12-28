@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Basculement via Microsoft Azure Site Recovery" 
+	pageTitle="Qu’est ce que Site Recovery ? | Microsoft Azure" 
 	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Basculement via Microsoft Azure Site Recovery
@@ -250,4 +250,4 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

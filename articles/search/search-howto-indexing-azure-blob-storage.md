@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
 
-Depuis un certain temps déjà, les clients Azure Search sont en mesure d’indexer « automatiquement » certaines sources de données couramment utilisées à l’aide des indexeurs pour [Base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) et [Azure DocumentDB](documentdb-search-indexer.md).
+Depuis un certain temps déjà, les clients Azure Search sont en mesure d’indexer automatiquement certaines sources de données couramment utilisées à l’aide des indexeurs pour [Base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) et [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
 
 Nous complétons aujourd’hui ces fonctionnalités par la prise en charge de l’indexation des documents stockés dans Azure Blob Storage. De nombreux clients nous ont demandé de simplifier l’indexation des documents stockés dans des objets blob, tels que les fichiers PDF, les documents Office ou les pages HTML. Jusqu’à présent, cette opération impliquait l’écriture de code personnalisé pour l’extraction du texte, ainsi que l’ajout des documents à un index Azure Search.
 
@@ -104,7 +104,7 @@ Azure Search indexe chaque document (objet blob) comme suit :
 
 Vous n’avez pas besoin de définir les champs relatifs à chacune des propriétés ci-dessus dans votre index de recherche. Il vous suffit de capturer les propriétés dont vous devez disposer pour votre application.
 
-> [AZURE.NOTE]Les noms de champ figurant dans votre index existant diffèrent généralement des noms de champ générés lors de l’extraction de document. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété fournis par Azure Search sur les noms de champ de votre index de recherche.
+> [AZURE.NOTE]Les noms de champ figurant dans votre index existant diffèrent généralement des noms de champ générés lors de l’extraction de document. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété fournis par Azure Search sur les noms de champ de votre index de recherche. Découvrez ci-dessous une exemple d’utilisation de mappage de champ.
 
 ## Sélection du champ de clé de document et gestion des différences de nom de champ
 
@@ -144,6 +144,8 @@ Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des 
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]Pour en savoir plus sur les mappages de champs, consultez [cet article](search-indexers-customization.md).
+
 ## Indexation incrémentielle et détection des suppressions
 
 Lorsque vous configurez un indexeur d’objets blob à exécuter selon une planification, ce dernier réindexe uniquement les objets blob modifiés, comme déterminé par l’horodateur `LastModified` des objets blob.
@@ -152,7 +154,7 @@ Lorsque vous configurez un indexeur d’objets blob à exécuter selon une plani
 
 Pour indiquer que certains documents doivent être supprimés de l’index, vous devez utiliser une stratégie de suppression réversible : plutôt que de supprimer les objets blob correspondants, ajoutez une propriété de métadonnées personnalisée pour signaler leur suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données.
 
-> [AZURE.NOTE]Si vous supprimez simplement les objets blob au lieu d’utiliser une stratégie de détection des suppressions, les documents correspondants ne seront pas supprimés de l’index de recherche.
+> [AZURE.WARNING]Si vous supprimez simplement les objets blob au lieu d’utiliser une stratégie de détection des suppressions, les documents correspondants ne seront pas supprimés de l’index de recherche.
 
 Par exemple, la stratégie ci-après considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
@@ -177,189 +179,33 @@ Par exemple, la stratégie ci-après considère qu’un objet blob est supprimé
 
 Le tableau ci-après récapitule le traitement appliqué pour chaque format de document et décrit les propriétés de métadonnées extraites par Azure Search.
 
-<table style="font-size:12">
-
-<tr>
-<th>Format de document/type de contenu</th>
-<th>Propriétés de métadonnées propres au type de contenu</th>
-<th>Détails du traitement </th>
-</tr>
-
-<tr>
-<td>HTML (text/html)</td>
-<td>
-"metadata_content_encoding"<br/>
-"metadata_content_type"<br/>
-"metadata_language"<br/>
-"metadata_description"<br/>
-"metadata_keywords"<br/>
-"metadata_title"
-</td>
-<td>Suppression du balisage HTML et extraction du texte</td>
-</tr>
-
-<tr>
-<td>PDF (application/pdf)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_language"<br/>
-"metadata_author"<br/>
-"metadata_title"
-</td>
-<td>Extraction du texte, y compris les documents incorporés (à l’exclusion des images)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_character_count"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"<br/>
-"metadata_page_count"<br/>
-"metadata_word_count"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_character_count"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"<br/>
-"metadata_page_count"<br/>
-"metadata_word_count"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"<br/>
-"metadata_slide_count"<br/>
-"metadata_title"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_author"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"<br/>
-"metadata_slide_count"<br/>
-"metadata_title"
-</td>
-<td>Extraction du texte, y compris les documents incorporés</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-"metadata_content_type"<br/>
-"metadata_message_from"<br/>
-"metadata_message_to"<br/>
-"metadata_message_cc"<br/>
-"metadata_message_bcc"<br/>
-"metadata_creation_date"<br/>
-"metadata_last_modified"<br/>
-"metadata_subject"
-</td>
-<td>Extraction du texte, y compris les pièces jointes</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-"metadata_content_type"
-</td>
-<td>Extraction du texte de tous les documents figurant dans l’archive</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-"metadata_content_type"</br>
-"metadata_content_encoding"</br>
-</td>
-<td>Suppression du balisage XML et extraction du texte </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-"metadata_content_type"</br>
-"metadata_content_encoding"
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Texte brut (text/plain)</td>
-<td>
-"metadata_content_type"</br>
-"metadata_content_encoding"</br>
-</td>
-<td></td>
-</tr>
-</table>
+Format de document/type de contenu | Propriétés de métadonnées propres au type de contenu | Détails du traitement
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Suppression du balisage HTML et extraction du texte
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extraction du texte, y compris les documents incorporés (à l’exclusion des images)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extraction du texte, y compris les documents incorporés
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extraction du texte, y compris les documents incorporés
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extraction du texte, y compris les documents incorporés
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extraction du texte, y compris les documents incorporés
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraction du texte, y compris les documents incorporés
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraction du texte, y compris les documents incorporés
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
+ZIP (application/zip) | `metadata_content_type` | Extraction du texte de tous les documents figurant dans l’archive
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Suppression du balisage XML et extraction du texte </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrayez le texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+Texte brut (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## Utilisation de métadonnées personnalisées pour contrôler l’extraction de document
 
 Vous pouvez ajouter des propriétés de métadonnées à un objet blob pour contrôler certains aspects du processus d’indexation d’objets blob et d’extraction de document. Les propriétés actuellement prises en charge sont les suivantes :
 
-<table style="font-size:12">
-
-<tr>
-<th>Nom de la propriété</th>
-<th>Valeur de la propriété</th>
-<th>Explication</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>Demande à l’indexeur d’objets blob d’ignorer complètement l’objet blob&#160;; aucune extraction de métadonnées ou de contenu ne sera tentée. Cela se révèle utile lorsque vous souhaitez ignorer certains types de contenu, ou quand un objet blob spécifique échoue à plusieurs reprises et interrompt le processus d’indexation.
-</td>
-</tr>
-
-</table>
+Nom de la propriété | Valeur de la propriété | Explication
+--------------|----------------|------------
+AzureSearch\_Skip | "true" | Demande à l’indexeur d’objets blob d’ignorer complètement l’objet blob ; aucune extraction de métadonnées ou de contenu ne sera tentée. Cela se révèle utile lorsque vous souhaitez ignorer certains types de contenu, ou quand un objet blob spécifique échoue à plusieurs reprises et interrompt le processus d’indexation.
 
 ## Aidez-nous à améliorer Azure Search
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

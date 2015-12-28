@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
+   pageTitle="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs | Microsoft Azure"
    description="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
 
@@ -313,4 +313,4 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

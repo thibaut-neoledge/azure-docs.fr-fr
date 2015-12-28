@@ -22,7 +22,7 @@
 
 Auparavant, un développeur d’application qui souhaitait prendre en charge à la fois les comptes Microsoft et Azure Active Directory devait opérer une intégration avec deux systèmes distincts. Désormais, le modèle d’application v2.0 permet de connecter les utilisateurs avec les deux types de compte. Moyennant une intégration unique, vous pouvez toucher un public qui représente plusieurs millions d’utilisateurs titulaires aussi bien de comptes personnels que de professionnels/scolaires.
 
-Vos applications peuvent aussi exploiter un [ensemble d’API Office 365 REST](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) en utilisant un compte d’un type ou l’autre. Actuellement, ces API incluent les API Courrier, Contacts et Calendriers d’Outlook. Des services supplémentaires seront ajoutés dans un avenir proche.
+Vos applications peuvent aussi exploiter un [ensemble d’API Office 365 REST](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) en utilisant n’importe lequel de ces types de compte. Actuellement, ces API incluent les API Courrier, Contacts et Calendriers d’Outlook. Des services supplémentaires seront ajoutés dans un avenir proche.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -49,7 +49,7 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 - Dites-nous ce que vous pensez de la version préliminaire sur le [forum des utilisateurs](http://feedback.azure.com/forums/169401-azure-active-directory), votre avis nous intéresse ! Ajoutez l’intitulé « AppModelv2 : » dans le titre de votre publication, cela nous aidera à la repérer.
 - [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md)
 - [Informations de référence sur les jetons du modèle d’application v2.0](active-directory-v2-tokens.md)
-- [Informations de référence sur les API Office 365 REST](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Informations de référence sur les API Office 365 REST](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Étendues et consentement dans le point de terminaison v2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

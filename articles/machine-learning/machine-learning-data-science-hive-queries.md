@@ -274,11 +274,11 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles [ici](http://www.movable-type.co.uk/scripts/latlong.html), sur le site de Peter Lapisu. Dans ce code Javascript, la fonction toRad() est simplement `lat_or_lon*pi/180`, qui convertit les degrés en radians. Ici, `lat_or_lon` est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html), créé par Peter Lapisu. Dans ce code Javascript, la fonction toRad() est simplement `lat_or_lon*pi/180`, qui convertit les degrés en radians. Ici, `lat_or_lon` est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
 
 ![Create workspace][1]
 
-La liste complète des FDU Hive intégrées est disponible [ici](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+La liste complète des UDF intégrées Hive est disponible dans le [manuel de programmation UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
 
 ## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 
@@ -325,4 +325,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

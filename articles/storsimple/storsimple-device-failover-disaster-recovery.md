@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
 
 ## Vue d'ensemble
 
-Ce didacticiel décrit les étapes nécessaires pour basculer un appareil StorSimple en cas d’urgence. Un basculement vous permet de migrer vos données à partir d’un appareil source dans le centre de données vers un autre appareil physique ou virtuel situé à un emplacement géographique identique ou différent. Le basculement de l’appareil est orchestré via la fonctionnalité de récupération d’urgence et se lance à partir de la page Appareils. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle s’affichent.
+Ce didacticiel décrit les étapes nécessaires pour basculer un appareil StorSimple en cas d’urgence. Un basculement vous permet de migrer vos données à partir d’un appareil source dans le centre de données vers un autre appareil physique ou virtuel situé à un emplacement géographique identique ou différent.
+
+Le basculement de l’appareil est orchestré via la fonctionnalité de récupération d’urgence et se lance à partir de la page Appareils. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle s’affichent.
 
 ![Page Appareils](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+Les instructions de ce didacticiel concerne les appareils physiques et virtuels StorSimple pour toutes les versions du logiciel.
+
+
 
 ## Récupération d’urgence et basculement d’appareil
 
@@ -40,6 +46,18 @@ Pour tout basculement d’appareil, tenez compte des éléments suivants :
 - Pour la récupération d’urgence, tous les volumes dans les conteneurs de volume doivent être hors connexion et les conteneurs de volume doivent être associés à un instantané de cloud. 
 - Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés. 
 - Les appareils connectés à votre service mais ne répondant pas aux critères d’espace ne seront pas disponibles en tant qu’appareils cibles.
+
+#### Basculement de l'appareil entre les versions du logiciel
+
+Un service StorSimple Manager dans un déploiement peut avoir plusieurs appareils physiques et virtuels, exécutant tous des versions différentes du logiciel. Selon la version du logiciel, les types de volumes sur les appareils peuvent également être différents. Par exemple, un appareil exécutant Update 2 ou une version ultérieure aurait des volumes épinglés localement à plusieurs niveaux (l'archivage étant un sous-ensemble des niveaux). Un appareil pré-Update 2 en revanche peut avoir des volumes à plusieurs niveaux et d'archivage.
+
+Utilisez le tableau suivant pour déterminer si vous pouvez basculer vers un autre appareil exécutant une autre version logicielle et le comportement des types de volumes pendant la récupération d'urgence.
+
+| Basculement à partir de | Autorisé pour un appareil physique | Autorisé pour un appareil virtuel |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Update 2 à pré-Update 1 (version 0.1, 0.2, 0.3) | Non | Non |
+| Update 2 à Update 1 (1, 1.1, 1.2) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous la forme à plusieurs niveaux. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
+| Update 2 à Update 2 (version ultérieure) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous le type de volume de départ ; à plusieurs niveaux pour à plusieurs niveaux et épinglés localement pour épinglés localement. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
 
 ## Basculement vers un autre appareil physique
 
@@ -95,10 +113,8 @@ Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un
 
 ## Basculement vers un appareil virtuel StorSimple
 
-Vous devez avoir créé et configuré un appareil virtuel StorSimple avant d’exécuter cette procédure.
+Vous devez avoir créé et configuré un appareil virtuel StorSimple avant d’exécuter cette procédure. En cas d'exécution d'Update 2, pensez à utiliser un appareil virtuel 8020 pour la récupération d'urgence avec 64 To et le stockage Premium.
  
->[AZURE.NOTE]**Dans cette version, la quantité de stockage prise en charge sur l’appareil virtuel StorSimple est de 30 To.**
-
 Procédez comme suit pour restaurer votre appareil vers un appareil virtuel StorSimple cible.
 
 1. Vérifiez que le conteneur de volume que vous souhaitez basculer est associé à des instantanés de cloud.
@@ -119,7 +135,6 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 	b. Sous **Choisir un périphérique cible pour les volumes dans les conteneurs sélectionnés**, sélectionnez un appareil virtuel StorSimple dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
 	
-	>[AZURE.NOTE]**Si votre appareil physique exécute Update 1, vous pouvez uniquement basculer vers un appareil virtuel exécutant Update 1. Si l’appareil virtuel cible exécute une version antérieure du logiciel, vous obtiendrez une erreur indiquant que le logiciel de votre appareil cible doit être mis à jour.**
 
 1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -131,7 +146,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 ![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment restaurer un périphérique physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
 
@@ -147,7 +162,7 @@ Après avoir effectué un basculement, vous devrez peut-être :
 - [Désactiver votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+Pour plus d'informations sur l'utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

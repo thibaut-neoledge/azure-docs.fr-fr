@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 MPEG-DASH est une norme ISO pour la diffusion en continu adaptative de contenu vidéo, qui offre des avantages significatifs pour ceux qui souhaitent proposer un résultat de diffusion vidéo en continu adaptative de haute qualité. Avec MPEG-DASH, le flux vidéo est automatiquement ramené à une définition inférieure quand le réseau est encombré. Cela réduit le risque pour un utilisateur de voir une vidéo « interrompue » pendant que le lecteur télécharge les quelques secondes suivantes à lire (également appelée mise en mémoire tampon). À mesure que l'encombrement du réseau diminue, le lecteur vidéo renvoie à son tour un flux de qualité supérieure. Cette capacité d'adaptation de la bande passante requise entraîne également un temps de départ plus rapide pour la vidéo. Cela signifie que les premières secondes peuvent être lues dans un segment de moindre qualité rapide à télécharger, puis que la qualité s'améliore une fois le contenu suffisant mis en mémoire tampon.
 
-Dash.js est un lecteur de vidéo MPEG-DASH open source écrit en JavaScript. Son objectif est de fournir un lecteur robuste, inter-plateformes qui peut être réutilisé librement dans les applications qui requièrent une lecture vidéo. Il assure la lecture MPEG-DASH dans n'importe quel navigateur prenant en charge W3C Media Source Extensions (MSE) aujourd'hui, à savoir Chrome et IE11 (d'autres navigateurs ont indiqué leur intention de prendre en charge MSE). Pour plus d'informations sur DASH.js, consultez le référentiel dash.js GitHub.
+Dash.js est un lecteur de vidéo MPEG-DASH open source écrit en JavaScript. Son objectif est de fournir un lecteur robuste, inter-plateformes qui peut être réutilisé librement dans les applications qui requièrent une lecture vidéo. Il assure la lecture MPEG-DASH dans n’importe quel navigateur prenant en charge W3C Media Source Extensions (MSE) aujourd’hui, à savoir Chrome, Microsoft Edge et IE11 (d’autres navigateurs ont indiqué leur intention de prendre en charge MSE). Pour plus d'informations sur DASH.js, consultez le référentiel dash.js GitHub.
 
 
 ##Création d'un lecteur vidéo de diffusion en continu basé sur le navigateur
@@ -38,7 +38,6 @@ Pour créer une page web simple qui affiche un lecteur vidéo avec les contrôle
 1. Afficher les résultats dans un navigateur qui implémente MSE
 
 L'initialisation du lecteur peut être effectuée en seulement quelques lignes de code JavaScript. À l'aide de dash.js, il est vraiment très simple d'incorporer une vidéo MPEG-DASH dans vos applications basées sur le navigateur.
-
 
 ##Création de la page HTML
 
@@ -115,4 +114,4 @@ Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

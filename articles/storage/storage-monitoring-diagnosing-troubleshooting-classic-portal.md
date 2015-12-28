@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/10/2015"
 	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 
 [AZURE.INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou selon une formule combinée. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser diverses technologies de stockage telles que les tables, les objets blob, les files d'attente ou les fichiers de Microsoft Azure Storage, en plus d'autres magasins de données tels que les bases de données relationnelles et de documents.
 
@@ -915,4 +915,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

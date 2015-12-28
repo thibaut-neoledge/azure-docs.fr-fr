@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Mise à niveau des projets vers la version actuelle d’Azure Tools"
+   pageTitle="Mise à niveau des projets vers la version actuelle d’Azure Tools | Microsoft Azure"
    description="Découvrez comment mettre à niveau un projet Azure dans Visual Studio vers la version actuelle d’Azure Tools"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Mise à niveau des projets vers la version actuelle d’Azure Tools pour Visual Studio
 
@@ -51,4 +51,4 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 1. Générez le projet, puis résolvez les erreurs qui résultent des modifications de l’API. Pour plus d’informations sur la modification de votre code pour la nouvelle version, consultez la documentation de l’API concernée.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

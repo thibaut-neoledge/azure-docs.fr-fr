@@ -3,9 +3,9 @@
 	description="Découvrez comment activer le débogage distant lors de l'utilisation de la remise continue pour publier sur Azure."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 # Activation du débogage distant lors de l'utilisation de la remise continue pour publier sur Azure
 
 En procédant comme suit, vous pouvez activer le débogage distant dans Azure, pour des services cloud ou des machines virtuelles, quand vous utilisez la [remise continue](cloud-services-dotnet-continuous-delivery.md) afin de publier sur Azure.
@@ -62,7 +62,7 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 
     $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
     $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-    $extensionName = "RemoteDebugVS2015"
+    $extensionName&#160;= "RemoteDebugVS2015"
     $version = "1.*"
     $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
@@ -90,4 +90,4 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 
 6. Importez le certificat (.pfx) sur l'ordinateur sur lequel Visual Studio et le Kit de développement logiciel (SDK) Azure pour .NET sont installés.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

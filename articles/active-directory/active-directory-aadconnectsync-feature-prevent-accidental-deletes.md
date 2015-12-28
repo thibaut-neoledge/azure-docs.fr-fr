@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect Sync : Prévention des suppressions accidentelles
@@ -25,7 +25,7 @@ La valeur par défaut de 500 objets peut être modifiée dans PowerShell à l'ai
 
 Lorsque cette fonctionnalité est activée, l'exportation s'arrête si le nombre de suppressions vers Azure AD est trop important et vous recevez un courrier électronique similaire à celui-ci :
 
-![Suppressions accidentelles d'e-mails](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+![Bonjour. Au moment où le service de synchronisation d’identité a détecté que le nombre de suppressions avait dépassé le seuil configuré pour fabrikam.com. En tout, 1 234 objets ont été envoyés pour suppression au cours de ce cycle de synchronisation des identités. La valeur configurée de 500 objets pour le seuil de suppression a été atteinte ou dépassée. Avant que nous puissions continuer, vous devez confirmer que ces suppressions doivent être traitées. Consultez la rubrique Éviter les suppressions accidentelles pour plus d’informations concernant l’erreur indiquée dans ce message électronique.](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 Si l'événement n'était pas prévu, examinez la situation et corrigez-la si nécessaire. Pour voir les objets devant être supprimés, procédez comme suit :
 
@@ -48,4 +48,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

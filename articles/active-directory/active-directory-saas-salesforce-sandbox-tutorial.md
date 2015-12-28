@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurer l’URL de l’application")
 
-4. Si vous avez déjà configuré l'authentification unique pour une autre instance Salesforce Sandbox dans votre annuaire, vous devez également configurer l’**URL de l'émetteur** en utilisant la même valeur que pour l’**URL d’authentification**. Le champ **URL de l'émetteur** peut être trouvé en cochant la case **Afficher les paramètres avancés** à la page **Configurer l’URL de l’application** de la boîte de dialogue.
+4. Si vous avez déjà configuré l’authentification unique pour une autre instance Salesforce Sandbox dans votre répertoire, vous devez également configurer l’**identificateur** en utilisant la même valeur que pour l’**URL d’authentification**. Pour afficher le champ **Identificateur** cochez la case **Afficher les paramètres avancés** sur la page **Configurer l’URL de l’application** de la boîte de dialogue.
 
 4.  Dans la page **Configurer l’authentification unique à Salesforce Sandbox**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -190,4 +190,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

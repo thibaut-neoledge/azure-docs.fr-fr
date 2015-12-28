@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/11/2015"
 	ms.author="glenga"/>
 
 
@@ -139,4 +139,4 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 [portail Azure Classic]: http://manage.windowsazure.com
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

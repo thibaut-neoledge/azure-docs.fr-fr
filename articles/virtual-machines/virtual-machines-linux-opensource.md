@@ -131,7 +131,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 13. [Concepts de base : RAID](virtual-machines-linux-configure-raid.md)
 14. [Concepts de base : capture d'une machine virtuelle Linux pour en faire un modèle](virtual-machines-linux-capture-image.md)
 15. [Concepts de base : Agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Concepts de base : extensions et fonctionnalités des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [Concepts de base : extensions et fonctionnalités des machines virtuelles Azure](virtual-machines-extensions-features.md)
 17. [Concepts de base : injection de données personnalisées dans une machine virtuelle à utiliser avec Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blog sur les concepts de base : génération d'une distribution Linux à haute disponibilité dans Azure en 12 étapes](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blog sur les concepts de base : automatisation de l'approvisionnement de Linux dans Azure avec l'interface de ligne de commande Azure, node.js et jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -311,4 +311,4 @@ Cette section présente en premier lieu une entrée de blog contenant une série
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

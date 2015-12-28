@@ -20,7 +20,7 @@
 
 Cet article décrit comment créer une application cliente qui utilise le [Kit de développement logiciel (SDK) d’appareil Azure IoT pour Java][lnk-java-sdk] afin de communiquer avec Azure IoT Hub. Ce didacticiel vous montre comment créer et générer le projet à l'aide de l’outil [Maven][apache-maven]. Vous pouvez suivre ces instructions sur une machine Windows ou Linux.
 
-Vous trouverez la documentation de l'API Java [ici][lnk-java-api-docs].
+Vous pouvez afficher les [docs de l’API Java][lnk-java-api-docs] à titre de référence.
 
 ## Installation
 
@@ -214,7 +214,7 @@ Pour modifier la granularité de la journalisation, incluez la ligne suivante da
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]Vous trouverez [ici](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html) une explication des différents niveaux de journalisation.
+> [AZURE.NOTE]Vous trouverez une explication des différents [niveaux de journalisation](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Ensuite, définissez la propriété JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@ Pour enregistrer des trames AMQP, définissez la variable d'environnement `PN_TR
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

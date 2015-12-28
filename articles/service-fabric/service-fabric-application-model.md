@@ -3,7 +3,7 @@
    description="Comment modéliser et décrire des applications et des services dans Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/02/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"   
+   ms.author="seanmck"/>
 
 # Modéliser une application dans Service Fabric
 
@@ -172,7 +172,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MyCodeA** et **MyCodeB**, deux dossiers de même nom contiennent les fichiers binaires nécessaires pour chaque package de code.
 
-### Utilisation de SetupEntrypoint
+### Utilisation de SetupEntryPoint
 
 **SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple :
 
@@ -248,4 +248,4 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -20,7 +20,7 @@
 ## Introduction
 Cet article décrit comment les applications [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) peuvent utiliser **ElasticSearch** et **Kibana** pour le stockage, l’indexation et la recherche de traces d’applications. [ElasticSearch](https://www.elastic.co/guide/index.html) est un moteur de recherche et d’analyse en temps réel open source, distribué et évolutif, qui convient parfaitement à cette tâche et qui peut être installé sur des machines virtuelles Windows ou Linux exécutées sous Microsoft Azure. ElasticSearch peut traiter très efficacement les traces *structurées* produites à l’aide de technologies telles que **Event Tracing for Windows (ETW)**.
 
-ETW est utilisé par le runtime Service Fabric pour sourcer les informations de diagnostic (traces) et constitue également la méthode recommandée pour le sourçage des informations de diagnostics des applications Service Fabric. Cela garantit une corrélation entre les traces fournies par le runtime et celles fournies par l’application, tout en facilitant la résolution des problèmes. Les modèles de projet Service Fabric dans Visual Studio incluent une API de journalisation (basée sur la classe .NET **EventSource**) qui émet des traces ETW par défaut. Pour une vue d’ensemble du traçage d’applications Service Fabric à l’aide d’ETW, consultez [cet article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+ETW est utilisé par le runtime Service Fabric pour sourcer les informations de diagnostic (traces) et constitue également la méthode recommandée pour le sourçage des informations de diagnostics des applications Service Fabric. Cela garantit une corrélation entre les traces fournies par le runtime et celles fournies par l’application, tout en facilitant la résolution des problèmes. Les modèles de projet Service Fabric dans Visual Studio incluent une API de journalisation (basée sur la classe .NET **EventSource**) qui émet des traces ETW par défaut. Pour obtenir une vue d’ensemble du traçage d’applications Service Fabric à l’aide d’ETW, consultez [cet article](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 Pour que les traces s’affichent dans ElasticSearch, elles doivent être capturées en temps réel sur les nœuds de cluster Service Fabric (pendant l’exécution de l’application) et envoyées au point de terminaison ElasticSearch. Il existe deux options principales pour la capture de traces :
 
@@ -32,7 +32,7 @@ Dans le reste de cet article, nous allons expliquer comment configurer ElasticSe
 
 
 ## Configuration d’ElasticSearch sur Azure
-La façon la plus simple de configurer le service ElasticSearch sur Azure passe par les [**modèles Azure ARM**](https://azure.microsoft.com/documentation/articles/resource-group-overview/). Un [modèle ARM de démarrage rapide pour ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) est disponible à partir du référentiel de modèles de démarrage rapide Azure. Ce modèle utilise des comptes de stockage distincts pour les unités d’échelle (groupes de nœuds) et peut approvisionner des nœuds client et serveur distincts avec des configurations différentes et divers nombres de disques de données associés.
+La façon la plus simple de configurer le service ElasticSearch sur Azure consiste à passer par les [**modèles Azure ARM**](../resource-group-overview.md). Un [modèle ARM de démarrage rapide pour ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) est disponible à partir du référentiel de modèles de démarrage rapide Azure. Ce modèle utilise des comptes de stockage distincts pour les unités d’échelle (groupes de nœuds) et peut approvisionner des nœuds client et serveur distincts avec des configurations différentes et divers nombres de disques de données associés.
 
 Dans cet article, nous allons utiliser un autre modèle appelé **ES-MultiNode** à partir de la [branche Microsoft Patterns & Practices ELK](https://github.com/mspnp/semantic-logging/tree/elk/). Ce modèle est un peu plus facile à utiliser ; il crée un cluster ElasticSearch protégé par défaut par l’authentification de base HTTP. Avant de continuer, veuillez télécharger le [référentiel Microsoft P&P « elk »](https://github.com/mspnp/semantic-logging/tree/elk/) dans GitHub sur votre ordinateur (soit en clonant le référentiel, soit en téléchargeant un fichier ZIP). Le modèle ES-MultiNode se trouve dans le dossier du même nom.
 >[AZURE.NOTE]Le modèle ES-MultiNode et les scripts associés prennent actuellement en charge la version 1.7 d’ElasticSearch. La prise en charge d’ElasticSearch 2.0 sera ajoutée à une date ultérieure.
@@ -240,10 +240,10 @@ On y est ! Chaque fois que le service est exécuté, il commence à envoyer des
 ![Kibana affichant des événements d’application du cluster Party][2]
 
 ## Étapes suivantes
-- [En savoir plus sur le diagnostic et la surveillance d’un service Fabric Service](service-fabric-diagnose-monitor-your-service-index.md)
+- [En savoir plus sur le diagnostic et la surveillance d’un service Fabric Service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

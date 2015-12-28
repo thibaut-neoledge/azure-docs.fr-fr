@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Protocoles - OAuth 2.0 et OpenID Connect
@@ -64,4 +64,4 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

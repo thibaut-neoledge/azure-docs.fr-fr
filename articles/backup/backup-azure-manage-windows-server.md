@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="12/15/2015"
 	ms.author="jimpark; aashishr; giridham"/>
 
 
@@ -54,4 +54,4 @@ Exécutez ensuite les tâches suivantes :
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

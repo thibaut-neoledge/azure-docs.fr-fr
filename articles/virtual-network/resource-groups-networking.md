@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Fournisseur de ressources réseau
@@ -274,4 +274,6 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Oct15_HO3-->
+Aujourd’hui
+
+<!---HONumber=AcomDC_1217_2015-->

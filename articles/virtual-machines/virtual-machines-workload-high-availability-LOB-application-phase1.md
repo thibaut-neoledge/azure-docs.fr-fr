@@ -66,10 +66,10 @@ Consultez votre service informatique afin de déterminer ces espaces d'adressage
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
-Élément | Nom convivial du serveur DNS | Adresse IP du serveur DNS 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+Élément | Adresse IP du serveur DNS 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **Table D : serveurs DNS locaux**
 
@@ -85,13 +85,24 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 **Table L : préfixes d'adresses pour le réseau local**
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et versions antérieures, remplacez toutes les instances d’« -AzureRM » par « -Azure » et ajoutez la commande **Switch-AzureMode AzureResourceManager** avant d’exécuter toute commande. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+Démarrez d'abord une invite de commandes Azure PowerShell.
 
-Ouvrez une invite Azure PowerShell.
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Créez ensuite un groupe de ressources pour votre application métier.
+Tout d’abord, démarrez une invite Azure PowerShell et connectez-vous à votre compte.
 
-Pour déterminer un nom de groupe de ressources unique, utilisez cette commande pour répertorier vos groupes de ressources existants.
+	Login-AzureRMAccount
+
+Obtenez votre nom d'abonnement à l'aide de la commande suivante.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Définissez votre abonnement Azure. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Créez ensuite un groupe de ressources pour votre application métier. Pour déterminer un nom de groupe de ressources unique, utilisez cette commande pour répertorier vos groupes de ressources existants.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@ Vous aurez besoin de ces noms lors de la création des machines virtuelles au co
 
 Pour chaque compte de stockage, vous devez choisir un nom global unique contenant uniquement des chiffres et des lettres minuscules. Vous pouvez utiliser cette commande pour répertorier les comptes de stockage existants.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Pour créer le premier compte de stockage, exécutez ces commandes.
 
@@ -169,12 +180,12 @@ Puis utilisez ces commandes pour créer des passerelles pour la connexion VPN de
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Et, enfin, configurez le périphérique VPN sur site pour qu'il se connecte à la passerelle VPN Azure. Pour plus d’informations, consultez [Configurer votre périphérique VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Et, enfin, configurez le périphérique VPN local pour qu’il se connecte à la passerelle VPN Azure. Pour plus d’informations, consultez [Configurer votre périphérique VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Pour configurer votre périphérique VPN sur site, vous avez besoin des éléments suivants :
 
-- L’adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel (affichée à l’aide de la commande **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
-- la clé IPsec prépartagée pour la connexion VPN de site à site (Table V- Élément 8 – Colonne Valeur)
+- L’adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel, affichée à l’aide de la commande **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**.
+- la clé IPsec prépartagée pour la connexion VPN de site à site (Table V- Élément 8 – Colonne Valeur).
 
 Ensuite, assurez-vous que l'espace d'adressage du réseau virtuel est accessible à partir de votre réseau local. Pour cela, il vous suffit généralement d'ajouter un itinéraire correspondant à l'espace d'adressage du réseau virtuel à votre périphérique VPN, puis de transmettre cet itinéraire au reste de l'infrastructure de routage du réseau de votre organisation. Consultez votre service informatique pour déterminer la procédure à suivre.
 
@@ -207,18 +218,6 @@ Vous trouverez ci-dessous la configuration résultant de l'exécution de cette p
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 2 : configuration de contrôleurs de domaine](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+- Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
-## Ressources supplémentaires
-
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

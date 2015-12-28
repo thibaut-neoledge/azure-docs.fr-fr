@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Présentation du Centre de sécurité Azure
@@ -112,7 +112,7 @@ La rubrique [Prise en main du Centre de sécurité Azure](security-center-get-st
 Ce document vous a donné un aperçu du Centre de sécurité Azure et de sa mise en route. Pour en savoir plus, consultez les articles suivants :
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des stratégies de sécurité
-- [Implémentation de recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) – Découvrez comment des recommandations peuvent vous aider à protéger vos ressources Azure
+- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) – Découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) – Découvrez comment surveiller l’intégrité de vos ressources Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
@@ -126,4 +126,4 @@ Ce document vous a donné un aperçu du Centre de sécurité Azure et de sa mise
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

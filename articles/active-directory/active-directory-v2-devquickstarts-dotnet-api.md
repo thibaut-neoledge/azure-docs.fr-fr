@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : Sécuriser une API web MVC
@@ -42,13 +42,12 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 
-Cette solution Visual Studio contient également une valeur « TodoListClient », qui est une application simple WPF. La valeur « TodoListClient » permet d'indiquer comment un utilisateur se connecte et comment un client peut émettre des requêtes à votre API Web. Les valeurs TodoListClient et TodoListService sont, dans ce cas, représentées par la même application. Pour configurer la valeur TodoListClient, vous devez également :
-
-- ajouter la plateforme **Mobile** pour votre application.
+Cette solution Visual Studio contient également une valeur « TodoListClient », qui est une application simple WPF.  La valeur « TodoListClient » permet d'indiquer comment un utilisateur se connecte et comment un client peut émettre des requêtes à votre API Web. Les valeurs TodoListClient et TodoListService sont, dans ce cas, représentées par la même application. Pour configurer la valeur TodoListClient, vous devez également : 
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2\. Configurez votre application pour utiliser le pipeline d'authentification OWIN
+## 2. Configurez votre application pour utiliser le pipeline d'authentification OWIN
 
 Une fois l'application enregistrée, vous devez la configurer pour qu'elle puisse communiquer avec le point de terminaison v2.0 afin de valider les requêtes entrantes et les jetons.
 
@@ -158,4 +157,4 @@ Vous pouvez à présent aborder d’autres rubriques. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

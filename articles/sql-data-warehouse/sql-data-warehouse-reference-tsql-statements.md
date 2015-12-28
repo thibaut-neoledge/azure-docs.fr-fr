@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW\_SHOWEXECUTIONPLAN
+- [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW\_SHOWPARTITIONSTATS
 - DBCC PDW\_SHOWSPACEUSED
 - [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -128,4 +128,4 @@ Pour accéder à d’autres exemples TSQL, consultez la [Vue d’ensemble sur le
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # Utilisation du stockage d’objets blob Azure à partir de Python
@@ -106,12 +106,13 @@ Pour supprimer un objet blob, appelez **delete\_blob**.
 
 Maintenant que vous connaissez les bases du stockage des objets blob, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
--   Consultez le [blog de l'équipe Azure Storage][]
+- Consultez le [blog de l'équipe Azure Storage][]
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-Pour plus d’informations, consultez également le [Centre de développement Python](/develop/python/).
+Pour plus d’informations, consultez également le [Centre pour développeurs Python](/develop/python/).
 
 [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

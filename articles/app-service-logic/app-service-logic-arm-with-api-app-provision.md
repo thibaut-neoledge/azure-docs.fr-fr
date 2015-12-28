@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="tomfitz"/>
 
 # Créer une application logique et une application API à l'aide d'un modèle
@@ -387,7 +387,7 @@ Notez que l'application logique utilise le jeton pour appeler la passerelle.
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Interface de ligne de commande Azure
 
@@ -396,4 +396,4 @@ Notez que l'application logique utilise le jeton pour appeler la passerelle.
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

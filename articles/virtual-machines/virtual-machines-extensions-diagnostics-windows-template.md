@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](virtual-machines-extensions-authoring-templates.md). Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.
   
@@ -119,7 +119,9 @@ Le code suivant décrit le XML de configuration des diagnostics qui collecte les
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-Le nœud XML de définition de mesures de la configuration ci-dessus est un élément de configuration important, car il indique la manière dont les compteurs de performances définis précédemment dans le fichier XML du nœud *PerformanceCounter* sont regroupés et stockés. Ces mesures sont à l’origine des graphiques et des alertes du portail Azure. Il est donc important de les inclure dans la configuration si vous souhaitez afficher les données de surveillance dans le portail.
+Le nœud XML de définition de mesures de la configuration ci-dessus est un élément de configuration important, car il indique la manière dont les compteurs de performances définis précédemment dans le fichier XML du nœud *PerformanceCounter* sont regroupés et stockés.
+
+> [AZURE.IMPORTANT]Ces mesures déterminent les graphiques et alertes de surveillance dans le portail Azure. Le nœud **Mesures** avec les paramètres *resourceID* et **MetricAggregation** doit être inclus dans la configuration de diagnostic pour votre machine virtuelle si vous voulez que les données de surveillance de la machine virtuelle apparaissent dans le portail Azure.
 
 Voici un exemple de code XML pour les définitions de mesures :
 
@@ -130,12 +132,13 @@ Voici un exemple de code XML pour les définitions de mesures :
 
 L’attribut *resourceID* identifie de façon unique la machine virtuelle dans votre abonnement. Veillez à utiliser les fonctions subscription() et resourceGroup() afin que le modèle mette automatiquement à jour ces valeurs en fonction de l’abonnement et du groupe de ressources concernés par le déploiement.
 
-Si vous créez plusieurs machines virtuelles dans une boucle, vous devez remplir la valeur *resourceID* avec une fonction copyIndex() pour différencier correctement chaque machine virtuelle. La valeur *xmlCfg* peut être mise à jour pour prendre en charge ceci, comme indiqué ici :
+Si vous créez plusieurs machines virtuelles dans une boucle, vous devez remplir la valeur *resourceID* avec une fonction copyIndex() pour différencier correctement chaque machine virtuelle. La valeur *xmlCfg* peut être mise à jour pour prendre en charge ce paramètre, comme indiqué ici :
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 La valeur MetricAggregation de *PT1H* et *PT1M* fait référence à une agrégation sur une minute et à une agrégation sur une heure.
+
+## Tables WADMetrics dans le stockage
 
 La configuration des mesures ci-dessus génère les tables de votre compte de stockage de diagnostics avec les conventions d’affectation de noms suivantes :
 
@@ -165,4 +168,4 @@ Chaque table WADMetrics contient les colonnes suivantes :
 - Déployer le modèle Resource Manager à l’aide d’[Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) ou de la [ligne de commande Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 - En savoir plus sur la [création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

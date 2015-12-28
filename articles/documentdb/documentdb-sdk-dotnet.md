@@ -30,6 +30,13 @@
 
 ## Notes de publication
 
+### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
+  - Prise en charge LINQ étendue, y compris de nouveaux opérateurs pour la pagination, les expressions conditionnelles et la comparaison de plages.
+    - Opérateur Take pour activer le comportement SELECT TOP dans LINQ
+    - Opérateur CompareTo pour activer les comparaisons de plages de chaînes
+    - Opérateurs Conditional (?) et Coalesce (??)
+  - **[Résolu]** ArgumentOutOfRangeException lors de la combinaison de projection de modèle avec Where-In dans la requête linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Résolu]** Si la dernière expression n’est pas Select, le fournisseur LINQ n’effectuait aucune projection et créait une expression SELECT * incorrecte. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
@@ -105,18 +112,19 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 23 novembre 2015 |---
-| [1\.5.0](#1.5.0) | 5 octobre 2015 |---
-| [1\.4.1](#1.4.1) | 25 août 2015 |---
-| [1\.4.0](#1.4.0) | 13 août 2015 |---
-| [1\.3.0](#1.3.0) | 5 août 2015 |---
-| [1\.2.0](#1.2.0) | 6 juillet 2015 |---
-| [1\.1.0](#1.1.0) | 30 avril 2015 |---
-| [1\.0.0](#1.0.0) | 8 avril 2015 |---
-| [0\.9.3-version préliminaire](#0.9.x-preview) | 12 mars 2015 | 29 février 2016
-| [0\.9.2-version préliminaire](#0.9.x-preview) | Janvier 2015 | 29 février 2016
-| [0\.9.1-version préliminaire](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016
-| [0\.9.0-version préliminaire](#0.9.x-preview) | 21 août 2014 | 29 février 2016
+| [1\.5.2](#1.5.2) | 14 décembre 2015 |---
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |---
+| [1\.5.0](#1.5.0) | 5 octobre 2015 |---
+| [1\.4.1](#1.4.1) | 25 août 2015 |---
+| [1\.4.0](#1.4.0) | 13 août 2015 |---
+| [1\.3.0](#1.3.0) | 5 août 2015 |---
+| [1\.2.0](#1.2.0) | 6 juillet 2015 |---
+| [1\.1.0](#1.1.0) | 30 avril 2015 |---
+| [1\.0.0](#1.0.0) | 8 avril 2015 |---
+| [0\.9.3-version préliminaire](#0.9.x-preview) | 12 mars 2015 | 29 février 2016
+| [0\.9.2-version préliminaire](#0.9.x-preview) | Janvier 2015 | 29 février 2016
+| [0\.9.1-version préliminaire](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016
+| [0\.9.0-version préliminaire](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -125,5 +133,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1217_2015-->

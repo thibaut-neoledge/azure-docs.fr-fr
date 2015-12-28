@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
-Cette rubrique contient des liens vers des instructions pas à pas pour le déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn avec le modèle de déploiement classique. La batterie de serveurs comprend les ordinateurs suivants :
+Cette rubrique contient des liens vers des instructions pas à pas pour le déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn. La batterie de serveurs comprend les ordinateurs suivants :
 
 - Deux serveurs Web SharePoint
 - Deux serveurs d'applications SharePoint
@@ -29,7 +29,7 @@ Cette rubrique contient des liens vers des instructions pas à pas pour le dépl
 - Un serveur de nœud majoritaire du cluster
 - Deux contrôleurs de domaine
 
-Il s'agit de la configuration avec des noms d'espace réservé pour chaque serveur :
+Il s'agit de la configuration avec des noms d'espace réservé pour chaque serveur.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
@@ -37,7 +37,7 @@ Deux ordinateurs pour chaque rôle assurent une haute disponibilité. Toutes les
 
 Vous déployez cette configuration dans les phases suivantes :
 
-- [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Créez un compte de stockage, des services de cloud et un réseau virtuel intersite.
+- [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Créez un compte de stockage, des groupes à haute disponibilité et un réseau virtuel intersite.
 - [Phase 2 : configurer les contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md). Créez et configurez des réplicas de contrôleurs de domaine des services de domaine Active Directory (AD DS).
 - [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md). Créez et configurez des machines virtuelles SQL Server, préparez-les pour une utilisation avec SharePoint, puis créez le cluster.
 - [Phase 4 : configurer les serveurs SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Créez et configurez les quatre machines virtuelles SharePoint.
@@ -50,8 +50,8 @@ Cette configuration est un guide normatif par phase pour une architecture préd�
 N'oubliez pas les éléments suivants :
 
 - Si vous êtes un responsable d'implémentation expérimenté de SharePoint, n'hésitez pas à adapter les instructions dans les étapes 3 à 5 et créez la batterie de serveurs qui correspond le mieux à vos besoins.
-- Si vous avez déjà une implémentation de cloud hybride Azure, n'hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
-- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l’isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md).
+- Si un déploiement de cloud hybride Azure existe déjà, n’hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
+- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez proposer une sécurité supplémentaire équivalente à l’isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -61,19 +61,6 @@ Pour plus d’informations sur SharePoint avec les groupes de disponibilité SQL
 
 ## Étape suivante
 
-Pour démarrer la configuration de cette charge de travail, passez à la [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+- Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-
-## Ressources supplémentaires
-
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

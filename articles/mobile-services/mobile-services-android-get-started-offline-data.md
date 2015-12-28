@@ -39,7 +39,7 @@ Que vous soyez hors connexion ou connecté, des conflits peuvent survenir chaque
 
 ## Mettre à jour l’application pour prendre en charge la synchronisation hors connexion
 
-Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQL Light** sur votre appareil.
+Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQLite** sur votre appareil.
 
 Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, faites appel à un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -306,7 +306,7 @@ Remarque : une fois le déploiement effectué, comptez environ 2 heures pour p
 
 • Enregistrez le fichier en local
 
-**Configurez les rapports Power BI** • Ouvrez le fichier de concepteur « VehicleTelemetryAnalytics - Desktop Report.pbix » à partir de Power BI Desktop. Le cas échéant, installez Power BI Desktop depuis cet [emplacement](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurez les rapports Power BI** • Ouvrez le fichier de concepteur « VehicleTelemetryAnalytics - Desktop Report.pbix » à partir de Power BI Desktop. Le cas échéant, installez Power BI Desktop depuis [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331).
 
 • Cliquez sur **Modifier des requêtes**.
 
@@ -390,4 +390,4 @@ Un jeu de données, un rapport et un tableau de bord vide sont alors créés.
 
 Félicitations ! Vous avez correctement créé les rapports et le tableau de bord pour obtenir des informations en temps réel, prédictives et par lots sur l’état des véhicules et les habitudes de conduite.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

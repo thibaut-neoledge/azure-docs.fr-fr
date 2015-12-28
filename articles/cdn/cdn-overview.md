@@ -49,8 +49,9 @@ Le niveau Standard de CDN inclut les fonctionnalités suivantes :
 - Équilibrage de la charge
 - Protection DDOS
 - [Purge rapide](cdn-purge-endpoint.md)
+- [Gestion via l’API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Fonctionnalités Premium
 
 Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard, ainsi que les fonctionnalités suivantes :
@@ -59,4 +60,4 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 - [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 - [Statistiques en temps réel](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Créer une campagne marketing numérique sur Azure App Service Web Apps
@@ -139,4 +139,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

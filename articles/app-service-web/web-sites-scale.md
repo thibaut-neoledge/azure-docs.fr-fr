@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Mise à l’échelle d’une application web dans Microsoft Azure App Service #
@@ -200,4 +200,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

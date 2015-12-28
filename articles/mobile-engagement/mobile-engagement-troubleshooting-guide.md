@@ -78,7 +78,9 @@ Vous trouverez d’autres instructions de dépannage spécifiques de plateforme 
 
 	- Assurez-vous que les certificats sont valides et non expirés pour les Notifications Push iOS. 
 	- Vérifiez que vous configurez correctement un certificat de *Production* dans votre application Mobile Engagement. 
+	- Assurez-vous d’effectuer le test sur un *périphérique physique réel.* Le simulateur iOS ne peut pas traiter les messages push.
 	- Vérifiez que l’identificateur d’offres groupées est correctement configuré dans l’application mobile. Suivez les instructions disponibles [ici](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+	- Lors du test, utilisez la distribution « Ad Hoc » dans votre profil d’approvisionnement mobile. Vous ne pourrez pas recevoir de notification si votre application est compilée à l’aide de « Debug »
 
 2. **Android**
 
@@ -87,7 +89,7 @@ Vous trouverez d’autres instructions de dépannage spécifiques de plateforme 
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Assurez-vous qu’il ne manque pas une autorisation ou que l’une d’elle n’est pas mal configurée dans le fichier manifeste Android.
-	- Si vous recevez des notifications système, mais pas dans l’application, passez en revue la [section Spécifier une icône de section](mobile-engagement-android-get-started.md), car il est probable que vous ne spécifiez pas l’icône correcte dans le fichier de manifeste Android. 
+	- Si vous recevez des notifications système, mais pas dans l’application, passez en revue la [section Spécifier une icône de notifications](mobile-engagement-android-get-started.md), car il est probable que vous ne spécifiez pas l’icône correcte dans le fichier manifeste Android. 
 	- Si vous envoyez une notification BigPicture, assurez-vous, au cas où vous disposez de serveurs d’images externes, qu’ils sont en mesure de prendre en charge HTTP « GET » et « HEAD ».
 
 3. **Windows**
@@ -98,7 +100,7 @@ Vous trouverez d’autres instructions de dépannage spécifiques de plateforme 
 			<Grid x:Name="EngagementGrid"></Grid>
 
 ### J’ai créé une notification Push/annonce/campagne et même après qu’il m’ait envoyé la notification, il est affiché en tant qu’« Actif ». Qu’est-ce que cela signifie ? 
-La **campagne** que vous avez créée dans Mobile Engagement est appelée ainsi parce qu’il s’agit d’une notification Push à long terme, ce qui signifie que lorsque de nouveaux appareils se connectent à votre plate-forme d’engagement, ils reçoivent automatiquement une notification que vous configurez à ce niveau, s’ils répondent aux critères que vous avez définis dans la campagne. Il ne s’agit pas d’une notification unique, émise une fois pour toutes. Vous devez cliquer manuellement sur le bouton **Terminer** pour mettre fin à la campagne afin qu’elle n’envoie pas d’autres notifications.
+La **campagne** que vous avez créée dans Mobile Engagement est appelée ainsi parce qu’il s’agit d’une notification Push à long terme, ce qui signifie que lorsque de nouveaux appareils se connectent à votre plate-forme d’engagement mobile, ils reçoivent automatiquement une notification que vous configurez à ce niveau, s’ils répondent aux critères que vous avez définis dans la campagne. Il ne s’agit pas d’une notification unique, émise une fois pour toutes. Vous devez cliquer manuellement sur le bouton **Terminer** pour mettre fin à la campagne afin qu’elle n’envoie pas d’autres notifications.
 
 ### J’ai créé une campagne Push et je reçois des notifications indiquant qu’elle est réussie. Toutefois chaque fois que j’ouvre l’application, j’obtiens la notification qui a motivé mon action ? 
 Cette erreur est susceptible de se produire pendant le test et si vous utilisez des émulateurs ou certains frameworks tels que TestFlight. Dans ce cas précis, chaque application exécute une instance, détecte un nouvel ID de périphérique l’envoie à notre serveur principal, ce qui fait que la plateforme Mobile Engagement le traite comme nouveau périphérique et envoie la notification.
@@ -107,8 +109,8 @@ Cette erreur est susceptible de se produire pendant le test et si vous utilisez 
 
 Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 
-1. Recherchez votre problème dans les threads existants sur le forum StackOverflow et le [forum MSDN](https://social.msdn.microsoft.com/Forums/windows/fr-FR/home?forum=azuremobileengagement), s’il n’y en a pas, posez une question. 
-2. Si vous recherchez une fonctionnalité manquante, ajoutez/soumettez votre demande sur notre [forum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
+1. Recherchez votre problème dans les threads existants sur le forum StackOverflow et le [forum MSDN](https://social.msdn.microsoft.com/Forums/windows/fr-FR/home?forum=azuremobileengagement) et, s’il n’y en a pas, posez une question. 
+2. Si vous trouvez une fonctionnalité manquante, ajoutez / votez pour la demande sur notre [forum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
 3. Si vous bénéficiez d’une assistance Microsoft, ouvrez un incident de support en fournissant les détails suivants : 
 	- ID d’abonnement Azure
 	- Plate-forme (par exemple, iOS, Android etc.)
@@ -118,4 +120,4 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 	- Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
 	- Détails de l’erreur avec message d’erreur exact et scénario
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

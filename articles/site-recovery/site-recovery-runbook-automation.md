@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération" 
+   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération | Microsoft Azure" 
    description="Cet article explique comment Microsoft Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de Microsoft Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers Microsoft Azure" 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # Ajouter des Runbooks Azure Automation à des plans de récupération
 
@@ -158,69 +156,68 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 
 1.  Créez un Runbook dans le compte Microsoft Azure Automation, en lui donnant le nom **OpenPort80**.
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  Accédez à la vue Auteur du Runbook et optez pour le mode brouillon.
 
 3.  Commencez par spécifier la variable à utiliser en tant que contexte du plan de récupération.
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  Ensuite, connectez-vous à l’abonnement via le nom d’abonnement et les informations d’identification adéquats.
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> Remarque : vous pouvez utiliser ici les ressources Microsoft Azure intitulées **AzureCredential** et **AzureSubscriptionName**.
+	Remarque : vous pouvez utiliser ici les ressources Microsoft Azure intitulées **AzureCredential** et **AzureSubscriptionName**.
 
-5.  À présent, indiquez les informations relatives au point de terminaison et au GUID de la machine virtuelle pour laquelle exposer le point de terminaison, c’est-à-dire la machine virtuelle frontale, dans ce cas.
+5.  À présent, indiquez les informations relatives au point de terminaison et au GUID de la machine virtuelle pour laquelle vous souhaitez exposer le point de terminaison. Dans ce cas, la machine virtuelle frontale.
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-Cela permet de spécifier le protocole du point de terminaison Microsoft Azure, le port local sur la machine virtuelle et le port public mappé qui lui est associé. Ces variables sont les paramètres requis par les commandes Microsoft Azure qui ajoutent des points de terminaison aux machines virtuelles. La valeur VMGUID conserve le GUID de la machine virtuelle sur laquelle vous devez agir.
+	Cela permet de spécifier le protocole du point de terminaison Microsoft Azure, le port local sur la machine virtuelle et le port public mappé qui lui est associé. Ces variables sont les paramètres requis par les commandes Microsoft Azure qui ajoutent des points de terminaison aux machines virtuelles. La valeur VMGUID conserve le GUID de la machine virtuelle sur laquelle vous devez agir.
 
 6.  Le script va maintenant extraire le contexte de la valeur VMGUID donnée et créer un point de terminaison sur la machine virtuelle qu’il référence.
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
-7. Une fois cette opération terminée, appuyez sur l’option Publier (![](media/site-recovery-runbook-automation/20.png)) pour autoriser la mise à disponibilité de votre script pour l’exécution. 
+7. Une fois cette opération terminée, appuyez sur l’option Publier (![](media/site-recovery-runbook-automation/20.png)) pour autoriser la mise à disponibilité de votre script pour l’exécution.
 
 Le script complet est indiqué ci-dessous, à titre de référence.
 
@@ -313,4 +310,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Configuration requise du système StorSimple | Microsoft Azure" 
-   description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple." 
+   description="Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/30/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli"/>
 
 # Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
@@ -60,9 +60,9 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 |TCP 443 (HTTPS)<sup>3</sup>| Sortie | WAN | Oui |<ul><li>Le port de sortie est utilisé pour accéder aux données dans le cloud.</li><li>L’utilisateur peut configurer le proxy web sortant.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li></ul>|
 |UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. |
 | UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet. |
-| TCP 9354 | Sortie | WAN | Dans certains cas, consultez les notes. |Le port de sortie est utilisé par l’appareil StorSimple Manager pour communiquer avec le service StorSimple Manager. Ce port est requis si votre réseau actuel ne prend pas en charge HTTP 1.1 pour se connecter à Internet, par exemple lors de l’utilisation d’un serveur proxy HTTP 1.0. <br> Si vous vous connectez via un serveur proxy, consultez [les spécifications de Service Bus](https://msdn.microsoft.com/library/azure/ee706729.aspx) pour plus d’informations. |
+| TCP 9354 | Sortie | WAN | Oui |Le port de sortie est utilisé par l’appareil StorSimple Manager pour communiquer avec le service StorSimple Manager. |
 | 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
-| 5985 | Dans | LAN | Non | Le port entrant est utilisé par le gestionnaire d’instantanés StorSimple pour communiquer avec le périphérique StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP. |
+| 5985 | Dans | LAN | Non | Le port entrant est utilisé par le gestionnaire d’instantanés StorSimple pour communiquer avec l’appareil StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP. |
 | 5986 | Dans | LAN | Non | Ce port est utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTPS. |
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
@@ -73,19 +73,72 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 > [AZURE.IMPORTANT]Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
 
-### Routage de port
+### Métrique de routage
 
-Le routage de port est différent selon la version logicielle s’exécutant sur votre appareil StorSimple.
+Une métrique de routage est associée aux interfaces et à la passerelle qui acheminent les données vers les réseaux spécifiés. La métrique de routage est utilisée par le protocole de routage pour calculer le meilleur chemin vers une destination donnée, si plusieurs chemins existent pour la même destination. La métrique de routage est inversement proportionnelle à la préférence.
 
-- Si l’appareil exécute une version logicielle antérieure à Update 1, telles que la version GA, 0.1, 0.2 ou 0.3, le routage de port est déterminé comme suit :
+Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Plus d'informations sur [applet de commande Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
 
-     Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet
+Les algorithmes de routage sont différents selon la version logicielle s’exécutant sur votre appareil StorSimple.
 
-- Si l’appareil exécute Update 1, le routage de port est déterminé comme suit :
+**Versions antérieures à Update 1**
 
-     DATA 0 > Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet
+Cela comprend les versions logicielles antérieures à Update 1 telles que la version mise à la disponibilité générale, 0.1, 0.2 ou 0.3. L'ordre basé sur les métriques de routage est le suivant :
 
-    Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
+   *Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
+
+
+**Versions comprises entre Update 1 et Update 2**
+
+Cela comprend les versions logicielles telles que 1, 1.1 ou 1.2. L'ordre basé sur les métriques de routage est défini comme suit :
+
+   *DATA 0 > Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
+
+   Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
+
+
+**Versions ultérieures à Update 2**
+
+Update 2 présente plusieurs améliorations en matière de réseau et les métriques de routage ont changé. Le comportement peut être expliqué comme suit.
+
+- Un ensemble de valeurs prédéterminées ont été attribuées aux interfaces réseau. 	
+		
+- Examinez la table d'exemple ci-dessous et les valeurs (d’exemple) attribuées aux différentes interfaces réseau lorsqu'elles sont activées ou désactivées pour le cloud, mais avec une passerelle configurée.
+
+		
+	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
+	|-----|---------------|---------------------------|
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 || Data 2 | 3 | 30 || Data 3 | 4 | 40 || Data 4 | 5 | 50 || Data 5 | 6 | 60 |
+
+
+- L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
+	 
+	*Data 0 > Data 1 > Data 2 > Data 4 > Data 5*
+
+	Cela peut s’expliquer par l’exemple suivant.
+
+	Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
+
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	
+	*où les nombres entre parenthèses indiquent les métriques de routage respectives.*
+	
+	En cas d’échec de Data 0, le trafic cloud sera acheminé via Data 5. Étant donné qu'une passerelle est configurée sur tous les autres réseaux, si Data 0 et Data 5 échouaient, le trafic cloud serait acheminé via Data 1.
+ 
+
+- En cas d'échec d’une interface réseau activée pour le cloud, 3 tentatives de connexion à l’interface sont effectuées à une intervalle de 30 secondes. Si toutes les tentatives échouent, le trafic est acheminé vers l’interface activée pour le cloud disponible suivante selon la table de routage. Si toutes les interfaces activées pour le cloud échouent, l’appareil basculera vers l’autre contrôleur (pas de redémarrage dans ce cas).
+	
+- En cas d’échec de l’adresse IP virtuelle pour une interface réseau compatible iSCSI, 3 tentatives seront effectuées à une intervalle de 2 secondes. Ce comportement est le même que dans les versions précédentes. Si toutes les interfaces réseau iSCSI échouent, un basculement de contrôleur se produit (accompagné d'un redémarrage).
+
+
+- Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez [alerte d'échec de l'adresse IP virtuelle](storsimple-manage-alerts.md).
+	
+- En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
+
+	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+		
+	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
+
 
 ### Meilleures pratiques de mise en réseau
 
@@ -102,9 +155,9 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 
 ## Configuration requise pour la haute disponibilité de StorSimple
 
-La plateforme matérielle fournie avec la solution StorSimple offre des fonctionnalités de disponibilité et de fiabilité qui constituent la base d’une infrastructure de stockage à tolérance de panne et à haute disponibilité dans votre centre de données. Cependant, vous devez vous conformer aux meilleures pratiques et conditions requises pour garantir la disponibilité de votre solution Azure StorSimple. Avant de déployer Azure StorSimple, examinez attentivement les conditions requises et meilleures pratiques suivantes pour l’appareil StorSimple et les ordinateurs hôtes connectés.
+La plateforme matérielle fournie avec la solution StorSimple offre des fonctionnalités de disponibilité et de fiabilité qui constituent la base d’une infrastructure de stockage à tolérance de panne et à haute disponibilité dans votre centre de données. Cependant, vous devez vous conformer aux meilleures pratiques et conditions requises pour garantir la disponibilité de votre solution StorSimple. Avant de déployer StorSimple, examinez attentivement les conditions requises et meilleures pratiques suivantes pour l’appareil StorSimple et les ordinateurs hôtes connectés.
 
-Pour plus d’informations sur la surveillance et la maintenance des composants matériels de votre appareil StorSimple, consultez la page [Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel](storsimple-monitor-hardware-status.md) et [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+Pour plus d’informations sur la surveillance et la maintenance des composants matériels de votre appareil StorSimple, consultez [Utilisation du service StorSimple Manager pour surveiller les composants et l’état du matériel](storsimple-monitor-hardware-status.md) et [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
 ### Configuration requise pour la haute disponibilité et procédures pour votre appareil StorSimple
 
@@ -117,7 +170,7 @@ Les appareils StorSimple incluent des modules d’alimentation et de refroidisse
 - Connectez vos modules PCM à différentes sources d’alimentation pour assurer la disponibilité en cas de panne d’une source d’alimentation.
 - Si un module PCM tombe en panne, demandez immédiatement son remplacement.
 - Ne retirez un module PCM en panne que si vous disposez d’un module de rechange et êtes prêt à l’installer.
-- Ne supprimez pas les deux modules PCM en même temps. Le module PCM inclut le module de batterie de secours. La suppression des deux modules PCM entraîne un arrêt sans protection de la batterie ; dans ce cas, l’état de l’appareil ne sera pas sauvegardé. Pour plus d’informations sur la batterie, consultez [Entretenir le module de batterie de secours](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Ne supprimez pas les deux modules PCM en même temps. Le module PCM inclut le module de batterie de secours. La suppression des deux modules PCM entraîne un arrêt sans protection de la batterie ; dans ce cas, l’état de l’appareil ne sera pas sauvegardé. Pour plus d’informations sur la batterie, consultez [Entretien du module de batterie de secours](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Modules de contrôleur
 
@@ -131,7 +184,7 @@ Les appareils StorSimple incluent des modules de contrôleur redondants et écha
 
 - Assurez-vous que les connexions réseau aux deux modules de contrôleur sont identiques, et que les interfaces réseau connectées ont une configuration réseau identique.
 
-- Si un module de contrôleur tombe en panne ou doit être remplacé, assurez-vous que l’autre module de contrôleur est dans un état actif avant de procéder au remplacement du module défaillant. Pour vérifier si un contrôleur est actif, accédez à [Identifier le contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+- Si un module de contrôleur tombe en panne ou doit être remplacé, assurez-vous que l’autre module de contrôleur est dans un état actif avant de procéder au remplacement du module défaillant. Pour vérifier si un contrôleur est actif, consultez [Identification du contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
 - Ne supprimez pas les deux modules de contrôleur en même temps. Si un contrôleur est en cours de basculement, n’arrêtez pas le module de contrôleur de secours, et ne le retirez pas du châssis.
 
@@ -153,7 +206,7 @@ Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre i
 
 - Si possible, utilisez MPIO sur les serveurs pour vous assurer qu’ils peuvent tolérer une panne de liaison, de réseau ou d’interface.
 
-Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### Disques SSD et disques durs
 
@@ -179,9 +232,9 @@ L’appareil StorSimple (modèle 8600) est équipé d’un boîtier EBOD (Extend
 
 - Si un module de contrôleur de boîtier EBOD tombe en panne, demandez immédiatement son remplacement.
 
-- Si un module de contrôleur de boîtier EBOD tombe en panne, avant de remplacer le module défectueux, assurez-vous que l’autre module de contrôleur est actif. Pour vérifier si un contrôleur est actif, accédez à [Identifier le contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+- Si un module de contrôleur de boîtier EBOD tombe en panne, avant de remplacer le module défectueux, assurez-vous que l’autre module de contrôleur est actif. Pour vérifier si un contrôleur est actif, consultez [Identification du contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Lors du remplacement d’un module de contrôleur EBOD, surveillez en permanence l’état du composant dans le service StorSimple Manager. Pour cela, accédez à **Maintenance** - **Matériel**.
+- Lors du remplacement d’un module de contrôleur EBOD, surveillez en permanence l’état du composant dans le service StorSimple Manager. Pour cela, accédez à **Maintenance** - **État du matériel**.
 
 - Si un câble SAS est défectueux ou doit être remplacé (cette décision doit être prise après consultation du support technique Microsoft), veillez à retirer uniquement le câble à remplacer.
 
@@ -203,4 +256,4 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

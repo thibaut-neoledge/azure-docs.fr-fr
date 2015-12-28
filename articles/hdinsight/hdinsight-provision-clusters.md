@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="12/11/2015"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop dans HDInsight
@@ -50,9 +50,9 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	
 - **Système d’exploitation**
 
-	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants :
-	- **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** :
-	- **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux) (version préliminaire)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants : 
+	- **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : 
+	- **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Type de cluster** et **taille du cluster (également appelé nœuds de données)**
 
@@ -98,7 +98,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	- le nœud de travail (au moins 1 nœud)
 	- les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
 
-	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d’informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
 	>[AZURE.NOTE]La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
@@ -120,7 +120,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![tailles de nœud de machine virtuelle HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-	Sélectionnez une taille de machine virtuelle pour les nœuds. Pour en savoir plus, consultez la rubrique [Tailles de services cloud](cloud-services-sizes-specs.md)
+	Sélectionnez une taille de machine virtuelle pour les nœuds. Pour en savoir plus, consultez la rubrique [Tailles pour Cloud Services](cloud-services-sizes-specs.md).
 
 	Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
@@ -217,7 +217,7 @@ Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé [Personn
 
 ### Personnalisation de clusters HDInsight à l'aide d'une action de script
 
-Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **ACTION DE SCRIPT**, une option de configuration qui peut être utilisée à partir du portail, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster.md).
+Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **Action de script**, une option de configuration qui peut être utilisée à partir du portail, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Utilisation des réseaux virtuels Azure
@@ -256,22 +256,22 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 **Création d'un cluster HDInsight**
 
 1. Connectez-vous au [portail Azure][azure-preview-portal].
-2. Cliquez sur **NOUVEAU**, sur **ANALYSE DES DONNÉES**, puis sur **HDINSIGHT**.
+2. Cliquez sur **NOUVEAU**, sur **Analyse des données**, puis sur **HDInsight**.
 
     ![Créer un cluster dans le portail Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Créer un cluster dans le portail Azure")
 
 3. Tapez ou sélectionnez les valeurs suivantes :
 
-  * **NOM DE CLUSTER** : saisissez un nom pour le cluster. Une coche verte s‘affiche en face du nom de cluster si le nom est disponible.
-  * **TYPE DE CLUSTER** : sélectionnez **Hadoop**.
-  * **SYSTÈME D’EXPLOITATION DE CLUSTER** : sélectionnez **Windows Server 2012 R2 Datacenter**.
-  * **ABONNEMENT** : sélectionnez l’abonnement Azure qui sera utilisé pour créer ce cluster.
-  * **GROUPE DE RESSOURCES** : sélectionnez un groupe de ressources existant ou créez un nouveau groupe de ressource. Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
-  * **INFORMATIONS D’IDENTIFICATION** : configurez le nom d’utilisateur et le mot de passe de l’utilisateur Hadoop (HTTP). Si vous activez le bureau à distance du cluster, vous devrez configurer le nom d'utilisateur et le mot de passe du bureau distant, et une date d'expiration de compte. Cliquez sur **SÉLECTIONNER** au bas de l’écran pour enregistrer les modifications.
+  * **Nom de cluster** : saisissez un nom pour le cluster. Une coche verte s‘affiche en face du nom de cluster si le nom est disponible.
+  * **Type de cluster** : sélectionnez **Hadoop**.
+  * **Système d’exploitation de cluster** : sélectionnez **Windows Server 2012 R2 Datacenter**.
+  * **Abonnement** : sélectionnez l’abonnement Azure qui sera utilisé pour créer ce cluster.
+  * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez un nouveau groupe de ressource. Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
+  * **Informations d’identification** : configurez le nom d’utilisateur et le mot de passe de l’utilisateur Hadoop (HTTP). Si vous activez le bureau à distance du cluster, vous devrez configurer le nom d'utilisateur et le mot de passe du bureau distant, et une date d'expiration de compte. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer les modifications.
 
 	   	![Provide cluster credentials](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-  * **SOURCE DE DONNÉES** : créez un compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster.
+  * **Source de données** : créez un compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster.
 
    		![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
@@ -280,13 +280,13 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
   		* **Choisir un conteneur par défaut**: utilisez cette option pour entrer le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
   		* **Emplacement**: zone géographique où se trouve le compte de stockage ou dans laquelle il sera créé. Cet emplacement détermine l'emplacement du cluster.  Le cluster et le compte de stockage par défaut doit se situer dans le même datacenter Azure.
   	
-  * **NIVEAUX DE TARIFICATION DU NŒUD** : définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
+  * **Niveaux de tarification du nœud** : définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
   
 
 		![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
 
 
-  * **CONFIGURATION FACULTATIVE** sert à sélectionner la version de cluster et à configurer d’autres paramètres facultatifs, par exemple ajouter un **Réseau virtuel**, définir un **Metastore externe** pour conserver les données Hive et Oozie, utiliser des Actions de Script pour personnaliser un cluster et installer des composants personnalisés ou utiliser des comptes de stockage supplémentaires avec le cluster.
+  * **Configuration facultative** sert à sélectionner la version de cluster et à configurer d’autres paramètres facultatifs, par exemple ajouter un **Réseau virtuel**, définir un **Metastore externe** pour conserver les données Hive et Oozie, utiliser des Actions de Script pour personnaliser un cluster et installer des composants personnalisés ou utiliser des comptes de stockage supplémentaires avec le cluster.
 
   		* **Version HDInsight**: sélectionnez la version que vous souhaitez utiliser pour le cluster. Pour plus d’informations, consultez la rubrique [Versions de clusters HDInsight](hdinsight-component-versioning.md).
   		* **Réseau virtuel**: sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.  
@@ -320,7 +320,6 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
-
 4. Cliquez sur **Create**. En sélectionnant l’option **Épingler au tableau d’accueil**, une mosaïque est ajoutée pour le cluster dans le Tableau d’accueil de votre portail. L'icône indique que le cluster est en cours de création et sera modifiée pour représenter l'icône HDInsight une fois la création terminée.
 
 
@@ -330,7 +329,7 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 
 
 	
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée **NOTIFICATIONS** à gauche de la page pour vérifier le processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil, ou l’entrée **Notifications** à gauche de la page pour vérifier le processus d’approvisionnement.
 	
 
 5. Une fois la création terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
@@ -342,18 +341,18 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section **Bases** :
 
 
-	* **PARAMÈTRES** et **TOUS LES PARAMÈTRES** : affichent le panneau **PARAMÈTRES** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
-	* **TABLEAU DE BORD**, **TABLEAU DE BORD DU CLUSTER** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
-	* **BUREAU À DISTANCE** : permet d’activer/de désactiver le Bureau à distance sur les nœuds de cluster.
-	* **METTRE À L’ÉCHELLE LE CLUSTER** : permet de modifier le nombre de nœuds de travail pour ce cluster.
-	* **SUPPRIMER** : permet de supprimer le cluster HDInsight.
-	* **DÉMARRAGE RAPIDE (![icône nuage et foudre = démarrage rapide](./media/hdinsight-provision-clusters/quickstart.png))** : affiche des informations qui vous aideront à prendre en main HDInsight.
-	* **UTILISATEURS (![icône d’utilisateurs](./media/hdinsight-provision-clusters/users.png))** : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+	* **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
+	* **Bureau à distance** : permet d’activer/de désactiver le Bureau à distance sur les nœuds de cluster.
+	* **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
+	* **Supprimer** : permet de supprimer le cluster HDInsight.
+	* **Démarrage rapide (![icône nuage et foudre = démarrage rapide](./media/hdinsight-provision-clusters/quickstart.png))** : affiche des informations qui vous aideront à prendre en main HDInsight.
+	* **Utilisateurs(![icône d’utilisateurs](./media/hdinsight-provision-clusters/users.png))** : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 	
 
 		> [AZURE.IMPORTANT]Il affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail et n’a aucun effet sur les personnes autorisées à se connecter au cluster HDInsight, ou à soumettre des travaux.
 		
-	* **BALISES (![icône de balise](./media/hdinsight-provision-clusters/tags.png))** : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+	* **Balises(![icône de balise](./media/hdinsight-provision-clusters/tags.png))** : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos Cloud Services. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 
 ## Créer à l’aide d’un modèle ARM
 
@@ -408,6 +407,7 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
 - Création d’un compte Azure Storage
 - Création d'un conteneur d'objets blob Azure
 - Création d'un cluster HDInsight
+
 
 	$subscriptionId = "<Azure Subscription ID>"
 	
@@ -755,4 +755,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop avec le compte
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

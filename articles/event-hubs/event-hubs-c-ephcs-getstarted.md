@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -24,13 +24,13 @@
 
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la rubrique [Vue d’ensemble des concentrateurs d’événements].
+Pour plus d’informations, consultez la rubrique [Vue d’ensemble des concentrateurs d’événements][].
 
-Dans ce didacticiel, vous allez apprendre à ingérer les messages dans un concentrateur d’événements à l’aide d’une application console en C et à les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements] en C#.
+Dans ce didacticiel, vous allez apprendre à ingérer les messages dans un concentrateur d’événements à l’aide d’une application console en C et à les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements][] en C#.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-+ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines-linux-tutorial.md) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
++ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines/virtual-machines-linux-tutorial.md) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
 
 + Microsoft Visual Studio Express 2013 pour Windows ;
 
@@ -79,11 +79,11 @@ Votre concentrateur d’événements est désormais créé et vous disposez des 
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1.	Exécutez le projet **Receiver** dans Visual Studio, puis attendez qu’il démarre les récepteurs pour toutes les partitions.
+1.	Exécutez le projet **Récepteur** dans Visual Studio, puis attendez qu’il démarre les récepteurs pour toutes les partitions.
 
    	![][21]
 
-2.	Exécutez le programme **Sender**. Les événements s’affichent dans la fenêtre de réception.
+2.	Exécutez le programme **Expéditeur**. Les événements s’affichent dans la fenêtre de réception.
 
    	![][24]
 
@@ -91,10 +91,10 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
 
-- Un [exemple d'application complet qui utilise des hubs d’événements].
-- L’exemple de [montée en puissance du traitement des événements avec Event Hubs].
-- Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
-- [Vue d’ensemble des concentrateurs d’événements]
+- Un [exemple d'application complet qui utilise des hubs d’événements][].
+- L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
+- Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
+- [Vue d’ensemble des concentrateurs d’événements][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -115,6 +115,6 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

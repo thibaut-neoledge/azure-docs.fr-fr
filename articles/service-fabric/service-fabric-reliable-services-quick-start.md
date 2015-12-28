@@ -145,7 +145,7 @@ protected override async Task RunAsync(CancellationToken cancelServicePartitionR
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
             // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
@@ -214,8 +214,10 @@ Une fois que les services sont en cours d'exécution, vous pouvez voir les évé
 
 [En savoir plus sur les Collections fiables](service-fabric-reliable-services-reliable-collections.md)
 
-[Gérer un service Service Fabric](service-fabric-manage-your-service-index.md)
+[Déployer une application](service-fabric-deploy-remove-applications.md)
+
+[Mise à niveau de l’application](service-fabric-application-upgrade.md)
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

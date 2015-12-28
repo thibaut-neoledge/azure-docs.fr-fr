@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/16/2015" 
 	ms.author="tomfitz"/>
 
 # Déployer une application Web liée à un référentiel GitHub
@@ -101,7 +101,7 @@ L'application Web a également une ressource enfant qui est définie dans la sec
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Interface de ligne de commande Azure
 
@@ -110,4 +110,4 @@ L'application Web a également une ressource enfant qui est définie dans la sec
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

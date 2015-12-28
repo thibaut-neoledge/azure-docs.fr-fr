@@ -37,7 +37,7 @@ Suggestions : - si vous ne recevez pas de messages texte (SMS) sur votre télé
 **Remarque :** vous pouvez modifier ultérieurement votre numéro de téléphone par défaut en mettant à jour [vos informations de profil](https://account.windowsazure.com/Profile).
 
 ## Êtes-vous sûr que le mode de paiement que vous utilisez lors de l’inscription est pris en charge pour les activations ou paiements Azure ?
-- Les cartes de crédit virtuelles et non prépayées ne sont pas acceptées.
+- Les cartes de crédit / débit virtuelles et prépayées ne sont pas acceptées.
 - Les fournisseurs de cartes de crédit acceptées varient selon le pays auquel est associé le compte.
 
 Suggestions : - n’utilisez pas de carte bancaire virtuelle ou prépayée. -Essayez d’utiliser une autre carte de crédit valide et prise en charge si le paiement ou l’activation échoue. -Assurez-vous que la carte de crédit est active et que votre banque ne bloque pas les transactions en ligne pour des raisons de sécurité.
@@ -60,4 +60,4 @@ Suggestions : - si vous déjà activé un abonnement Azure auparavant et que l�
 ## Vous ne parvenez toujours pas à vous inscrire ?
 Veuillez [contacter le support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une assistance si vous rencontrez toujours des problèmes d’inscription ou si votre problème n’est pas abordé dans cet article.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

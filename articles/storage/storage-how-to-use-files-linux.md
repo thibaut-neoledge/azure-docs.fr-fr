@@ -120,6 +120,7 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 
 - [Stockage de fichiers Azure : un système de fichiers SMB dans le cloud sans friction pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
 ### Outils pris en charge pour le stockage de fichiers
 
@@ -137,4 +138,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

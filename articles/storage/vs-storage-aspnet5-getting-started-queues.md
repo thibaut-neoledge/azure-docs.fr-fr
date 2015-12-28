@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Prendre en main le stockage de files d’attente et les services connectés de Visual Studio (ASP.NET 5)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ##Vue d'ensemble
 
@@ -35,12 +26,12 @@ Le service de stockage de files d'attente Azure permet de stocker un grand nombr
 
 Pour commencer, vous devez créer une file d’attente Azure dans votre compte de stockage. Nous allons vous montrer comment créer une file d’attente dans le code. Et aussi comment effectuer des opérations de base sur les files d’attente, comme l’ajout, la modification, la lecture et la suppression de messages de files d’attente. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
 
-**REMARQUE :** parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, consultez la page [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**REMARQUE :** parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
 
 - Pour plus d’informations sur la manipulation de files d’attente par programme, consultez la page [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md).
-- Pour des informations générales sur le stockage Azure, consultez la [documentation du stockage](https://azure.microsoft.com/documentation/services/storage/).
-- Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](http://azure.microsoft.com/documentation/services/cloud-services/).
-- Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net).
+- Pour des informations générales sur le Azure Storage, consultez la [documentation relative au stockage](https://azure.microsoft.com/documentation/services/storage/).
+- Pour des informations générales sur les services cloud Azure, consultez la [documentation Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Pour plus d’informations sur la programmation des applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net).
 
 
 
@@ -85,7 +76,7 @@ Pour créer la file d’attente Azure dans le code, ajoutez simplement un appel
 
 ##Ajout d'un message à une file d'attente
 
-Pour insérer un message dans une file d’attente existante, créez un objet **CloudQueueMessage**, puis appelez la méthode **AddMessageAsync**.
+Pour insérer un message dans une file d’attente existante, créez un nouvel objet **CloudQueueMessage**, puis appelez la méthode **AddMessageAsync**.
 
 Un objet **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
@@ -137,7 +128,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
 
 ## Obtention de la longueur de la file d'attente
 
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **FetchAttributes** demande au service de File d’attente d’extraire les attributs de la file d’attente, y compris le nombre de messages. La propriété **ApproximateMethodCount** renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **FetchAttributes** demande au service de files d’attente d’extraire les attributs de la file d’attente, y compris le nombre de messages. La propriété **ApproximateMethodCount** renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -152,7 +143,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 
 ## Utiliser le modèle Async-Await avec les API de file d’attente commune
 
-Cet exemple décrit comment utiliser le modèle Async-Await avec les API de file d’attente commune. Cet exemple appelle la version asynchrone de chacune des méthodes indiquées. Vous pouvez le constater grâce au post-correctif Async de chaque méthode. Quand une méthode asynchrone est utilisée, le modèle Async-Await suspend l’exécution locale jusqu’à la fin de l’appel. Ce comportement permet au thread actuel d’effectuer d'autres tâches afin d’éviter les goulots d’étranglement au niveau des performances et d’améliorer la réactivité globale de votre application. Pour plus d’informations sur l’utilisation du modèle Async-Await dans .NET, consultez la page [Programmation asynchrone avec Async et Await (C# et Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+Cet exemple décrit comment utiliser le modèle Async-Await avec les API de file d’attente commune. Cet exemple appelle la version asynchrone de chacune des méthodes indiquées. Vous pouvez le constater grâce au post-correctif Async de chaque méthode. Quand une méthode asynchrone est utilisée, le modèle Async-Await suspend l’exécution locale jusqu’à la fin de l’appel. Ce comportement permet au thread actuel d’effectuer d'autres tâches afin d’éviter les goulots d’étranglement au niveau des performances et d’améliorer la réactivité globale de votre application. Pour plus d’informations sur l’utilisation du modèle Async-Await dans .NET, consultez l’article [Async et Await (C# et Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -185,4 +176,4 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

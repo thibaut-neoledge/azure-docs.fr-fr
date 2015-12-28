@@ -362,9 +362,9 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analyse du stockage](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Surveillance d'un compte de stockage](storage-monitor-storage-account.md)
-- [Utilisation de AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

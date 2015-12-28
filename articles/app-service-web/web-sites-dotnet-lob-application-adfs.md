@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # Créer une application web .NET MVC dans Azure App Service avec authentification AD FS
@@ -97,11 +97,16 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
   &lt;add key="webpages:Enabled" value="false" />
   &lt;add key="ClientValidationEnabled" value="true" />
   &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" />
+</del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" />
+</del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" />
+</del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" />
+</mark>
+  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" />
+</mark>
 
 &lt;/appSettings>
 </pre>Renseignez les valeurs de clé en fonction de votre environnement respectif.
@@ -119,7 +124,7 @@ Ici, vous allez publier l’application dans une application web d’App Servic
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Sélectionnez **Microsoft Azure Web Apps**.
+2. Cliquez sur **Microsoft Azure App Service**.
 3. Si vous n’êtes pas connecté à Azure, cliquez sur **Se connecter** et utilisez le compte Microsoft de votre abonnement Azure.
 4. Une fois connecté, cliquez sur **Nouveau** pour créer une application web.
 5. Renseignez tous les champs obligatoires. Comme vous vous connecterez plus tard à des données locales, vous n’allez pas créer de base de données pour cette application web.
@@ -343,4 +348,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

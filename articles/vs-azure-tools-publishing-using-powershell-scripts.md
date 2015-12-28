@@ -3,9 +3,9 @@
    description="Découvrez comment utiliser les scripts Windows PowerShell à partir de Visual Studio pour la publication dans des environnements de développement et de test."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test
 
@@ -351,4 +351,4 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

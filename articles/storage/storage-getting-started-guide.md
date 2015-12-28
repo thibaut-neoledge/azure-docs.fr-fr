@@ -101,11 +101,12 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 * [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
 * [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)
 * [Utilisation du service de stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
-* [Documentation d’Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
+* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+* [Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 * [Bibliothèque cliente d’Azure Storage](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [API REST d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

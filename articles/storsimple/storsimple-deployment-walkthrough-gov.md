@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/09/2015"
    ms.author="v-sharos" />
 
 # Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal
 
-## Vue d'ensemble
+[AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
+
+## Vue d’ensemble
 
 Bienvenue dans cette série de didacticiels consacrée au déploiement d’appareils Microsoft Azure StorSimple. Ces didacticiels de déploiement s’appliquent à la gamme StorSimple série 8000 avec logiciel Update 1 dans Microsoft Azure Government Portal. Ils expliquent comment configurer votre appareil StorSimple et proposent une liste de contrôle de la configuration, ainsi que la configuration requise et des étapes de configuration détaillées.
 
@@ -45,10 +47,10 @@ Suivez ces étapes requises pour configurer votre appareil StorSimple et le conn
 | Étape 1 : Création d'un service. | Configurez le stockage et la gestion de cloud pour votre appareil StorSimple. Ignorez cette étape si vous avez un service existant pour d'autres appareils StorSimple. |
 | Étape 2 : Obtention de la clé d'inscription. | Utilisez cette clé pour inscrire et connecter votre appareil StorSimple auprès du service de gestion. |
 | Étape 3 : Configuration et inscription de l'appareil via Windows PowerShell pour StorSimple. | Connectez l'appareil à votre réseau et enregistrez-le avec Azure pour terminer l'installation à l'aide du service de gestion. |
-| Étape 4 : Fin de l’installation minimale de l’appareil</br>Facultatif : Mise à jour de votre appareil StorSimple. | Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
+| Étape 4 : Fin de l'installation minimale de l'appareil</br>Facultatif : mise à jour de votre appareil StorSimple. | Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
 | Étape 5 : Création d'un conteneur de volumes. | Créez un conteneur pour mettre en service les volumes. Un conteneur de volumes dispose de paramètres de compte de stockage, de bande passante et de chiffrement pour tous les volumes qu’il contient. |
 | Étape 6 : Création d'un volume. | Mettez en service le(s) volume(s) de stockage sur l'appareil StorSimple pour vos serveurs. |
-| Étape 7 : Montage, initialisation et formatage d’un volume.</br>Facultatif : Configuration de MPIO. | Connectez vos serveurs au stockage iSCSI fourni par l'appareil. Vous avez la possibilité de configurer la solution MPIO pour vous assurer que vos serveurs peuvent tolérer une panne de liaison, de réseau et d’interface. |
+| Étape 7 : Montage, initialisation et formatage d'un volume.</br>Facultatif : Configuration de solution MPIO | Connectez vos serveurs au stockage iSCSI fourni par l'appareil. Vous avez la possibilité de configurer la solution MPIO pour vous assurer que vos serveurs peuvent tolérer une panne de liaison, de réseau et d’interface. |
 | Étape 8 : Sauvegarde. | Configurez votre stratégie de sauvegarde pour protéger vos données. |
 | | |
 | **AUTRES PROCÉDURES** | Vous devrez peut-être faire référence à ces procédures lors du déploiement de votre solution. |
@@ -238,11 +240,11 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
 
-<!-- > [AZURE.NOTE] Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Mise à jour de votre appareil
 
-1.	Dans la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l’appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l’appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
 2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**. 
 3.	Une tâche de mise à jour est créée. Surveillez l’état de la mise à jour en accédant à **Tâches**.
 
@@ -266,7 +268,7 @@ Procédez comme suit, dans Microsoft Azure Government Portal, pour créer une s
 
 La solution MPIO (Multipath I/O) est une fonctionnalité facultative qui n’est pas installée sur Windows Server par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Pour obtenir les instructions d’installation de la solution MPIO, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Pour obtenir les instructions d’installation et de configuration de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-linux.md).
+Pour obtenir les instructions d’installation de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-linux.md).
 
 > [AZURE.NOTE]La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
 
@@ -277,4 +279,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

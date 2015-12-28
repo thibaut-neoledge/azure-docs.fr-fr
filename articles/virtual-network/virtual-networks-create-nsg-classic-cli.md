@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Création de NSG (classiques) dans l’interface de ligne de commande Azure
@@ -104,7 +104,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou--action)**. Niveau d’accès de la règle (Deny ou Allow).
 	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
-- **-r (ou --type)**. Direction de la connexion (Inbound ou Outbound).
+	- **-r (ou --type)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.
 	- **-o (ou --source-port-range)**. Port source ou plage de ports.
@@ -239,4 +239,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

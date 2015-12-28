@@ -17,7 +17,7 @@
 
 # À propos des connexions sécurisées entre locaux pour les réseaux virtuels
 
-Si vous souhaitez connecter vos sites locaux à un réseau virtuel en toute sécurité, vous disposez de trois options : [Site à site](#site-to-site-connections), [Point à site](#point-to-site-connections) et [ExpressRoute](#expressroute-connections).
+Si vous souhaitez connecter vos sites locaux à un réseau virtuel en toute sécurité, vous disposez de trois options : Site à site, Point à site et ExpressRoute.
 
 L’option que vous choisirez peut dépendre de la réponse à différentes questions, notamment :
 
@@ -64,9 +64,7 @@ Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion
 - Le périphérique VPN que vous utilisez doit être compatible avec le type de passerelle requis pour votre solution. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 - La référence SKU de passerelle aura également une incidence sur le débit agrégé. Pour plus d’informations, voir la section [SKU de passerelle](vpn-gateway-about-vpngateways.md#gateway-skus). 
 
-Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, voir l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
-
-Si vous voulez créer une connexion de passerelle VPN site à site en utilisant le service de routage et d’accès à distance (RRAS), voir l’article [Configurer un VPN de site à site à l’aide du service de routage et d’accès à distance (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
+Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, à l’aide du portail Azure Classic et d’un modèle de déploiement classique, consultez l’article [Configurer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md). Pour plus d’informations sur la configuration d’un VPN site à site avec un déploiement Resource Manager, consultez l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Connexions de point à site
@@ -87,7 +85,7 @@ Les configurations point à site et site à site peuvent coexister, mais contrai
 
 - Vous ne disposez pas d’une adresse IP IPv4 d’accès à Internet pour votre périphérique VPN.
 
-Pour plus d’informations sur la configuration d’une connexion point à site, consultez [Configuration d’une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
+Pour plus d’informations sur la configuration d’une connexion de point à site, consultez [Configuration d’une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
 
 ## Connexions ExpressRoute
 
@@ -100,6 +98,6 @@ Pour plus d’informations sur ExpressRoute, consultez [Présentation technique 
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
+Pour plus d’informations, consultez le [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et le [Forum aux questions sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

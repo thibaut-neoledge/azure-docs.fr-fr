@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # Authentification par signature d’accès partagé avec Service Bus
 
 L’authentification par [Signature d’accès partagé (SAP)](service-bus-sas-overview.md) aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton SAS que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
 
-La prise en charge de l’authentification SAP est incluse dans le kit de développement logiciel SDK Windows Azure SDK version 2.0 et ultérieure. Pour plus d’informations sur l’authentification Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).
+La prise en charge de l’authentification SAP est incluse dans le kit de développement logiciel SDK Microsoft Azure SDK version 2.0 et ultérieure. Pour plus d’informations sur l’authentification Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).
 
 ## Concepts
 
@@ -258,4 +258,4 @@ Pour plus de contexte au sujet de l’authentification Service Bus, consultez [A
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

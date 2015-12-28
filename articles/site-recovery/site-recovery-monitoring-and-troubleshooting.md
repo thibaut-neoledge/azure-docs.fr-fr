@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide de surveillance et de résolution des problèmes pour la protection de sites VMM et Hyper-V" 
+	pageTitle="Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques | Microsoft Azure" 
 	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles hébergées, sur des serveurs locaux, vers Microsoft Azure ou un centre de données secondaire. Cet article permet de surveiller et de résoudre les problèmes de protection d’un site VMM ou Hyper-V." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# Surveiller et résoudre les problèmes de protection pour les sites VMware, VMM, Hyper-V et physiques
+# Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques
 
 Ce guide de surveillance et de résolution des problèmes présente des techniques de suivi d’intégrité de réplication et de résolution des problèmes pour Azure Site Recovery.
 
@@ -199,4 +199,4 @@ Serveur de configuration, Serveur de traitement, Cible maître : [Échec de l�
 ### Résolution des problèmes après un basculement de bureau à distance
 -   Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. [Utiliser le document de résolution des problèmes pour le protocole RDP dans la machine virtuelle](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

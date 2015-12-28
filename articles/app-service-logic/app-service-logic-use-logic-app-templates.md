@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/09/2015"
 	ms.author="klam"/>
 
 # Utiliser les modèles d’application logique
@@ -44,4 +44,4 @@ Modèles simples qui s’intègrent aux services de réseaux sociaux, comme Twit
 Après avoir sélectionné l’un des modèles, finalisez le déploiement comme si vous aviez créé votre propre application logique. La procédure détaillée figure dans la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

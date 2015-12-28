@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer PHP dans Azure App Service Web Apps"
+	pageTitle="Configurer PHP dans Azure App Service Web Apps | Microsoft Azure"
 	description="Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service."
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Configurer PHP dans Azure App Service Web Apps
@@ -45,27 +45,34 @@ Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas 
 
 ### Azure PowerShell (Windows)
 
-1. Ouvrez Windows PowerShell.
-2. Saisissez `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`, puis appuyez sur Entrée.
-3. La version de PHP est maintenant définie.
+1. Ouvrez Azure PowerShell, et connectez-vous à votre compte.
 
-	![Définition de la version PHP avec Azure PowerShell][SETPHPVERPS]
-4. Vous pouvez confirmer ces paramètres en tapant `Get-AzureWebiste -Name <site-name>`, puis appuyer sur Entrée.
+        PS C:\> Login-AzureRmAccount
 
-	![Vérification de la version PHP avec Azure PowerShell][GETPHPVERPS]
+2. Configurez la version de PHP pour l’application web.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Interface en ligne de commande Azure (Linux, Mac et Windows)
 
 L’interface de ligne de commande Azure nécessite l’installation de **Node.js** sur votre ordinateur.
 
-1. Ouvrez Terminal.
-2. Saisissez `azure site set --php-version [5.4 | 5.5] [site-name]`, puis appuyez sur Entrée.
-3. La version de PHP est maintenant définie.
+1. Ouvrez Terminal et connectez-vous à votre compte.
 
-	![Définition de la version PHP avec l’Interface en ligne de commande Azure][SETPHPVERCLI]
-4. Vous pouvez confirmer ces paramètres en tapant `azure site show [site-name]`, puis appuyer sur Entrée.
+        azure login
 
-	![Vérification de la version PHP avec l’Interface en ligne de commande Azure][GETPHPVERCLI]
+2. Configurez la version de PHP pour l’application web.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
+
+        azure site show {site-name}
+
 
 ## Modification des configurations PHP intégrées
 
@@ -157,10 +164,10 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [version d’évaluation gratuite]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -182,4 +189,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

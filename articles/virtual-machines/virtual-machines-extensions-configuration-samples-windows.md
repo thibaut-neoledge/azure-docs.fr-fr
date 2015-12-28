@@ -19,6 +19,13 @@
 
 # Exemples de configuration d’extension de machine virtuelle Microsoft Azure.
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
 
@@ -26,7 +33,7 @@
 Cet article présente un exemple de configuration des extensions de machine virtuelle Azure pour les machines virtuelles Windows.
 
 
-Pour en savoir plus sur ces extensions, consultez la section [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
+Pour en savoir plus sur ces extensions, consultez la section [Présentation des extensions de machine virtuelle Azure](virtual-machines-extensions-features.md)
 
 Pour en savoir plus sur la création de modèles d’extension, consultez la section [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
 
@@ -285,7 +292,7 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
 
 ### Azure Diagnostics
 
-Pour plus d'informations sur la configuration des diagnostics, consultez la section [Extension des diagnostics Azure](virtual-machines-extensions-diagnostics-windows-template.md)
+Pour plus d’informations sur la configuration des diagnostics, consultez la section [Extension des diagnostics Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -309,4 +316,4 @@ Voici un exemple de modèle de machine virtuelle complet avec l’extension de s
 
 [Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

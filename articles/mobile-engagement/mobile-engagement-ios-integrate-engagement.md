@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Intégration d'Engagement sur iOS
 
@@ -32,7 +32,7 @@ Les étapes suivantes permettent d'activer la génération des journaux nécessa
 
 ##Incorporer le SDK Engagement à votre projet iOS
 
-Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter des fichiers à...** et choisissez le dossier `EngagementSDK`.
+Télécharger le kit de développement logiciel (SDK) iOS [ici](http://aka.ms/qk2rnj). Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter des fichiers à...** et choisissez le dossier `EngagementSDK`.
 
 Engagement nécessite des infrastructures supplémentaires pour fonctionner : dans l'Explorateur de projets, ouvrez le volet de votre projet et sélectionnez la cible appropriée. Ouvrez ensuite l'onglet **« Build phases »** et, dans le menu **« Link Binary With Libraries »**, ajoutez ces infrastructures :
 
@@ -54,7 +54,7 @@ Vous devez modifier votre délégué d'application :
 		[...]
 		#import "EngagementAgent.h"
 
--   Initialisez Engagement au sein de la méthode ’**applicationDidFinishLaunching:**’ ou ’**application:didFinishLaunchingWithOptions:**’ :
+-   Initialisez Engagement au sein de la méthode **applicationDidFinishLaunching:** ou **application:didFinishLaunchingWithOptions:** :
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -207,4 +207,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

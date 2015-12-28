@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Phase 1 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration d'Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 Au cours de cette phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure dans la gestion des services Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
 
 Azure doit être configuré avec les composants réseau de base suivants :
 
-- un réseau virtuel intersite avec un sous-réseau ;
-- trois services cloud Azure ;
-- un compte de stockage Azure pour stocker des images de disque VHD et des disques de données supplémentaires.
+- un réseau virtuel intersite avec un sous-réseau pour l'hébergement des machines virtuelles Azure ;
+- Un compte de stockage Azure pour stocker des images de disque VHD et des disques de données supplémentaires
+- Quatre groupes à haute disponibilité
 
 ## Avant de commencer
 
@@ -44,29 +44,36 @@ Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 5\. | Espace d'adressage du réseau virtuel | L'espace d'adressage (défini dans un préfixe d'adresse privé unique) pour le réseau virtuel. Consultez votre service informatique pour le déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | Premier serveur DNS final | La quatrième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Second serveur DNS final | La cinquième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | Clé IPsec partagée | Chaîne alphanumérique aléatoire de 32 caractères à utiliser pour authentifier les deux côtés de la connexion VPN de site à site. Consultez votre service informatique ou département de sécurité pour déterminer cette valeur de clé. Vous pouvez également consulter [Créer une chaîne aléatoire pour une clé IPsec prépartagée](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table V : configuration de réseaux virtuels intersite**
 
-Remplissez la Table S pour le sous-réseau de cette solution. Donnez au sous-réseau un nom convivial, un seul d'adressage IP unique en fonction de l'espace d'adressage du réseau virtuel et un but descriptif. L'espace d'adressage doit être au format de routage CIDR (Classless Interdomain Routing), également connu comme format de préfixe réseau. 10.24.64.0/20 est un exemple. Consultez votre service informatique afin de déterminer cet espace d'adressage à partir de l'espace d'adressage de réseau virtuel.
+Remplissez la Table S pour les sous-réseaux de cette solution.
 
-Élément | Nom du sous-réseau | Espace d'adressage du sous-réseau | Objectif
---- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Pour le premier sous-réseau, déterminez un espace d'adressage de 29 bits (avec une longueur de préfixe /29) pour le sous-réseau de passerelle Azure.
+- Spécifiez pour le second sous-réseau un nom convivial, une adresse IP unique en fonction de l'espace d'adressage du réseau virtuel et un but descriptif. 
+
+Consultez votre service informatique afin de déterminer ces espaces d'adressage à partir de l'espace d'adressage du réseau virtuel. Les deux espaces d'adressage doivent être au format de routage CIDR (Classless Interdomain Routing), également connu comme format de préfixe réseau. 10.24.64.0/20 est un exemple.
+
+Élément | Nom du sous-réseau | Espace d'adressage du sous-réseau | Objectif 
+--- | --- | --- | --- 
+1\. | Sous-réseau de passerelle | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Le sous-réseau utilisé par les machines virtuelles de passerelle Azure.
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table S : sous-réseaux du réseau virtuel**
 
-> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md) Azure.
+> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) Azure.
 
-Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
+Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Notez que deux entrées vierges sont répertoriées, toutefois vous pouvez en ajouter d’autres. Consultez votre service informatique pour déterminer cette liste.
 
-Élément | Nom convivial du serveur DNS | Adresse IP du serveur DNS
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Élément | Adresse IP du serveur DNS
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table D : serveurs DNS locaux**
 
-Pour router des paquets du réseau intersite vers le réseau de votre organisation par le biais de la connexion VPN de site à site, vous devez configurer le réseau virtuel avec un réseau local qui contient une liste d'espaces d'adressage (en notation CIDR) pour tous les emplacements accessibles sur le réseau local de votre organisation. La liste des espaces d'adressage qui définissent votre réseau local ne doit pas inclure ou chevaucher l'espace d'adressage utilisé pour d'autres réseaux virtuels ou d'autres réseaux locaux. En d'autres termes, les espaces d'adressage pour les réseaux virtuels configurés et les réseaux locaux doivent être uniques.
+Pour router des paquets du réseau intersite vers le réseau de votre organisation par le biais de la connexion VPN de site à site, vous devez configurer le réseau virtuel avec un réseau local qui contient une liste d'espaces d'adressage (en notation CIDR) pour tous les emplacements accessibles sur le réseau local de votre organisation. La liste des espaces d'adressage qui définissent votre réseau local doit être unique et ne doit pas chevaucher l'espace d'adressage utilisé pour d'autres réseaux virtuels ou d'autres réseaux locaux.
 
 Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L. Notez que trois entrées vides sont répertoriées, mais que vous en avez généralement besoin de plus. Consultez votre service informatique pour déterminer la liste des espaces d'adressage.
 
@@ -78,78 +85,127 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 **Table L : préfixes d'adresses pour le réseau local**
 
-Pour créer le réseau virtuel avec les paramètres des tables V, S, D et L, suivez les instructions figurant dans [Créer un réseau virtuel intersite à l'aide de tables de configuration](virtual-machines-workload-deploy-vnet-config-tables.md).
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-> [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l'utilisation d'ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d'ExpressRoute](../expressroute/expressroute-introduction.md).
+Tout d’abord, démarrez une invite Azure PowerShell et connectez-vous à votre compte.
 
-Après la création du réseau virtuel Azure, le portail Azure Classic détermine les éléments suivants :
+	Login-AzureRMAccount
 
-- l'adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel ;
-- la clé Internet Protocol security (IPsec) prépartagée pour la connexion VPN de site à site.
+Obtenez votre nom d'abonnement à l'aide de la commande suivante.
 
-Pour afficher ces éléments dans le portail Azure Classic une fois le réseau virtuel créé, cliquez sur **Réseaux**, puis sur le nom du réseau virtuel, et enfin sur l'option de menu **Tableau de bord**.
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Vous trouverez les instructions détaillées sous [Configurer une passerelle de réseau virtuel dans le portail Azure Classic](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+Définissez votre abonnement Azure. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
-Créez ensuite la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Pour en savoir plus sur les instructions, consultez la rubrique [Configurer une passerelle de réseau virtuel dans le portail Azure Classic](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Ensuite, créez un nouveau groupe de ressources pour votre batterie SharePoint intranet. Pour déterminer un nom de groupe de ressources unique, utilisez cette commande pour répertorier vos groupes de ressources existants.
+
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
+
+Créez votre nouveau groupe de ressources avec ces commandes.
+
+	$rgName="<resource group name>"
+	$locName="<an Azure location, such as West US>"
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
+
+Les machines virtuelles basées sur Resource Manager requièrent un compte de stockage basé sur Resource Manager.
+
+Élément | Nom du compte de stockage | Objectif 
+--- | --- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Le compte de stockage standard utilisé par toutes les machines virtuelles dans la charge de travail. 
+
+**Table ST : comptes de stockage**
+
+Vous aurez besoin de ce nom lors de la création des machines virtuelles au cours des phases 2, 3 et 4.
+
+Pour chaque compte de stockage, vous devez choisir un nom global unique contenant uniquement des chiffres et des lettres minuscules. Vous pouvez utiliser cette commande pour répertorier les comptes de stockage existants.
+
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
+
+Pour créer le compte de stockage, exécutez ces commandes.
+
+	$rgName="<your new resource group name>"
+	$locName="<the location of your new resource group>"
+	$saName="<Table ST – Item 1 - Storage account name column>"
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+
+Créez ensuite le réseau virtuel Azure qui hébergera votre batterie SharePoint intranet.
+
+	$rgName="<name of your new resource group>"
+	$locName="<Azure location of the new resource group>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnetAddrPrefix="<Table V – Item 5 – Value column>"
+	$spSubnetName="<Table S – Item 2 – Subnet name column>"
+	$spSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
+	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
+	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
+	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+	$spSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $spSubnetName -AddressPrefix $spSubnetPrefix
+	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$spSubnet -DNSServer $dnsServers
+
+Puis utilisez ces commandes pour créer des passerelles pour la connexion VPN de site à site.
+
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	
+	# Attach a virtual network gateway to a public IP address and the gateway subnet
+	$publicGatewayVipName="SPPublicIPAddress"
+	$vnetGatewayIpConfigName="SPPublicIPConfig"
+	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+
+	# Create the Azure gateway
+	$vnetGatewayName="SPAzureGateway"
+	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+	
+	# Create the gateway for the local network
+	$localGatewayName="SPLocalNetGateway"
+	$localGatewayIP="<Table V – Item 4 – Value column>"
+	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
+	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+	
+	# Define the Azure virtual network VPN connection
+	$vnetConnectionName="SPS2SConnection"
+	$vnetConnectionKey="<Table V – Item 8 – Value column>"
+	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+
+Et, enfin, configurez le périphérique VPN local pour qu’il se connecte à la passerelle VPN Azure. Pour plus d’informations, consultez [Configurer votre périphérique VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+
+Pour configurer votre périphérique VPN sur site, vous avez besoin des éléments suivants :
+
+- L’adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel, affichée à l’aide de la commande **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**.
+- la clé IPsec prépartagée pour la connexion VPN de site à site (Table V- Élément 8 – Colonne Valeur).
 
 Ensuite, assurez-vous que l'espace d'adressage du réseau virtuel est accessible à partir de votre réseau local. Pour cela, il vous suffit généralement d'ajouter un itinéraire correspondant à l'espace d'adressage du réseau virtuel à votre périphérique VPN, puis de transmettre cet itinéraire au reste de l'infrastructure de routage du réseau de votre organisation. Consultez votre service informatique pour déterminer la procédure à suivre.
 
-Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite de commandes Azure PowerShell.
-
-Sélectionnez tout d'abord l'abonnement Azure approprié à l'aide des commandes suivantes. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-Le nom de l'abonnement apparaît dans la propriété **SubscriptionName** du résultat de la commande **Get-AzureSubscription**.
-
-Créez ensuite les trois services cloud nécessaires pour cette batterie de serveurs SharePoint. Remplissez la table C.
-
-Élément | Objectif | Nom du service cloud
---- | --- | ---
-1\. | Contrôleurs de domaine | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | Serveurs SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | Serveurs SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-**Table C : noms de service Cloud**
-
-Vous devez choisir un nom unique pour chaque service cloud. *Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d'union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.*
-
-Par exemple, vous pouvez nommer le premier service cloud DCs-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud DCs-Tailspin.
-
-Vous pouvez tester l'unicité du nom avec la commande Azure PowerShell suivante sur votre ordinateur local.
-
-	Test-AzureName -Service <Proposed cloud service name>
-
-Si cette commande renvoie « False », le nom proposé est unique. Ensuite, créez le service cloud avec les éléments suivants.
-
-	New-AzureService -Service <Unique cloud service name> -Location "<Table V – Item 2 – Value column>"
-
-Enregistrez le nom réel de chaque service cloud nouvellement créé dans la table C.
-
-Créez ensuite un compte de stockage pour la batterie de serveurs SharePoint. *Vous devez choisir un nom unique qui contient uniquement des chiffres et des lettres en minuscules.* Vous pouvez tester l'unicité du nom avec la commande Azure PowerShell suivante.
-
-	Test-AzureName -Storage <Proposed storage account name>
-
-Si cette commande renvoie « False », le nom proposé est unique. Ensuite, créez le compte de stockage et définissez l'abonnement à utiliser avec ces commandes.
-
-	$staccount="<Unique storage account name>"
-	New-AzureStorageAccount -StorageAccountName $staccount -Location "<Table V – Item 2 – Value column>"
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-
 Définissez enfin les noms des quatre groupes à haute disponibilité. Remplissez la table A.
 
-Élément | Objectif | Nom du groupe à haute disponibilité
---- | --- | ---
+Élément | Objectif | Nom du groupe à haute disponibilité 
+--- | --- | --- 
 1\. | Contrôleurs de domaine | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | Serveurs SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | Serveurs d'applications SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-4\. | Serveurs web frontaux SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Serveurs d’applications | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Serveurs Web | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Nom du groupe à haute disponibilité**
 
 Vous aurez besoin de ces noms lors de la création des machines virtuelles au cours des phases 2, 3 et 4.
+
+Créez ces groupes à haute disponibilité grâce à ces commandes Azure PowerShell.
+
+	$rgName="<your new resource group name>"
+	$locName="<the Azure location for your new resource group>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 2 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 3 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 4 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 Vous trouverez ci-dessous la configuration résultant de l'exécution de cette phase.
 
@@ -157,20 +213,6 @@ Vous trouverez ci-dessous la configuration résultant de l'exécution de cette p
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 2 : configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md).
+- Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-## Ressources supplémentaires
-
-[Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

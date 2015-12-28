@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
@@ -111,7 +111,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 	Cela définit le jeton d’appareil de la requête.
 
-	> [AZURE.NOTE]À ce stade, il ne doit pas y avoir d’autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), vous devez placer l'appel en commentaire ou le supprimer.
+	> [AZURE.NOTE]À ce stade, il ne doit pas y avoir d’autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/), vous devez placer l'appel en commentaire ou le supprimer.
 
 10.	Dans le fichier PushToUserAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
 
@@ -237,4 +237,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

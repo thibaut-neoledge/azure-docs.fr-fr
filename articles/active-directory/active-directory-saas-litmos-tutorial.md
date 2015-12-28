@@ -109,7 +109,7 @@ Dans le cadre de la configuration, vous devez personnaliser les **Attributs du j
 
 3. Sur la page **Configurer les paramètres d’application** du portail Azure, procédez comme suit : <br><br>![Authentification unique Azure AD][8] <br>
  
-    a. Dans la zone de texte **Émetteur**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Litmos (p. ex., **https://azureapptest.litmos.com/account/Login*).
+    a. Dans la zone de texte **Identificateur**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Litmos (p. ex., **https://azureapptest.litmos.com/account/Login*).
      
     b. Dans la zone de texte **URL de réponse**, collez la valeur que vous avez copiée à partir de l’application Litmos à l’étape précédente.
 
@@ -297,4 +297,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -20,12 +20,18 @@
 # Création d’une machine virtuelle exécutant Windows dans le portail Azure
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+<br>
 
-La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure pour en créer une rapidement et utilise le fichier de clé publique `~/.ssh/id_rsa.pub` pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-create-upload-vhd.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+
+La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure pour en créer une rapidement. Il utilise le fichier de clé publique `~/.ssh/id_rsa.pub` pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]Ce didacticiel crée une machine virtuelle Azure qui est gérée par l’API de groupe de ressources Azure. Pour plus d’informations, consultez la section [Vue d’ensemble du groupe de ressources Azure](resource-group-overview.md).
 
@@ -37,7 +43,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 1. Connectez-vous au [portail en version préliminaire](https://portal.azure.com).
 
-2. Dans le menu Hub, cliquez sur **Nouveau**> **Compute**>**Ubuntu Server 14.04 LTS**.
+2. Dans le menu Hub, cliquez sur **New**> **Compute**>**Ubuntu Server 14.04 LTS**.
 
 	![choix d’une image de machine virtuelle](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
@@ -53,7 +59,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
 
-1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un ** emplacement** de centre de données Azure.
+1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
@@ -116,7 +122,7 @@ Vous pouvez maintenant exécuter la commande **ssh** dans votre machine virtuell
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]Vous pouvez également configurer un nom de domaine complet (FQDN) pour votre machine virtuelle dans le portail. En savoir plus sur le nom de domaine complet [ici](virtual-machines-create-fqdn-on-portal.md).
+> [AZURE.NOTE]Vous pouvez également configurer un nom de domaine complet (FQDN) pour votre machine virtuelle dans le portail. En savoir plus sur la [création de noms de domaine complets dans le portail](virtual-machines-create-fqdn-on-portal.md)
 
 ## Étapes suivantes
 
@@ -130,4 +136,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

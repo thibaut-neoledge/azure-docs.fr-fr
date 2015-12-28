@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sidneyh"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Prise en main avec les applets de commande Azure Data Warehouse et les API REST
 
 SQL Data Warehouse peut être géré à l’aide d’applets de commande Azure PowerShell ou d’API REST.
 
-Les commandes définies pour la **base de données Azure SQL** sont également utilisées pour **SQL Data Warehouse**. Pour consulter une liste actualisée, accédez à la section [Applets de commande Azure SQL](https://msdn.microsoft.com/library/azure/dn546726.aspx). Les applets de commande **Suspend-AzureSqlDatabase** et **Resume-AzureSqlDatabase** (ci-dessous) sont des ajouts spécialement conçus pour SQL Data Warehouse.
+Les commandes définies pour la **base de données Azure SQL** sont également utilisées pour **SQL Data Warehouse**. Pour consulter une liste actualisée, accédez à la section [Applets de commande Azure SQL](https://msdn.microsoft.com/library/mt574084.aspx). Les applets de commande **Suspend-AzureSqlDatabase** et **Resume-AzureSqlDatabase** (ci-dessous) sont des ajouts spécialement conçus pour SQL Data Warehouse.
 
 De la même manière, les API REST dédiés à la **base de données SQL Azure** peuvent également être utilisés avec les instances **SQL Data Warehouse**. Pour consulter une liste actualisée, accédez à la page [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
@@ -111,4 +111,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

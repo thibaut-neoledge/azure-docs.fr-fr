@@ -32,12 +32,9 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-##3\.2.0 (10/08/2015)
+###3\.2.1 (12/11/2015)
 
--   Activation de Bitcode dans le Kit de développement logiciel (SDK) pour qu’il fonctionne avec **Xcode 7**.
--   Correction de bogues liés aux notifications dans l’application.
--   Modification des notifications dans l’application pour qu’elles soient plus fiables en cas de batterie faible et dans d’autres cas de figure.
--   Suppression des journaux de console supplémentaires générés par la bibliothèque tierce.
+-   Fixe le délai lorsqu’une nouvelle instance de l’application est déclenchée par une notification avec des liens ciblés 
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
@@ -56,10 +53,10 @@ Si vous utilisez Reach dans votre application, vous devez ajouter la valeur `rem
 
 La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d’application.
 
-« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression de `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
+« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Assistant Publication d’application Azure"
+   pageTitle="Assistant de publication d’application Azure | Microsoft Azure"
    description="Assistant Publication d’application Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Assistant Publication d’application Azure
 
@@ -141,4 +141,4 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
 [Test des performances d'un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

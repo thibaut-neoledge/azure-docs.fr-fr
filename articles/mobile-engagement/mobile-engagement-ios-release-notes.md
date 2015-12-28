@@ -18,6 +18,10 @@
 
 #Notes de publication
 
+##3\.2.1 (12/11/2015)
+
+-   Fixe le délai lorsqu’une nouvelle instance de l’application est déclenchée par une notification avec des liens ciblés 
+
 ##3\.2.0 (10/08/2015)
 
 -   Activation de Bitcode dans le Kit de développement logiciel (SDK) pour qu’il fonctionne avec **Xcode 7**.
@@ -54,4 +58,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

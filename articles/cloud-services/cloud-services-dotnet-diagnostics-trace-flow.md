@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/15/2015"
 	ms.author="robb"/>
 
 
@@ -61,6 +61,8 @@ Notez que si vous utilisez les modèles fournis par Visual Studio, la configurat
 		</trace>
 	</system.diagnostics>
 	```
+	>[AZURE.IMPORTANT]Assurez-vous de disposer d’une référence de projet à l’assembly Microsoft.WindowsAzure.Diagnostics. Mettre à jour le numéro de version dans le document xml ci-dessus pour correspondre à la version de l’assembly Microsoft.WindowsAzure.Diagnostics référencé.
+	
 3. Enregistrez le fichier de configuration.
 
 Pour plus d’informations sur les écouteurs, consultez [Suivi des écouteurs](https://msdn.microsoft.com/library/4y5y10s7.aspx).
@@ -77,4 +79,4 @@ Une fois les opérations destinées à ajouter l’écouteur terminées, vous po
 3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajout d’instructions de suivi au code d’application](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Enregistrez le fichier source.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

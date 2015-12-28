@@ -58,12 +58,11 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)
+### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
-> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?**  
-> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?** Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
@@ -90,8 +89,7 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant plusieurs commandes BCP simultanément dans un script PowerShell.
 
-> [AZURE.NOTE]**Traitement de volumes importants de données** 
-> Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE]**Traitement de volumes importants de données** Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 L’exemple de script PowerShell ci-dessous montre comment effectuer des insertions en parallèle à l’aide de BCP :
@@ -133,7 +131,7 @@ L’exemple de script PowerShell ci-dessous montre comment effectuer des inserti
 
 ### <a name="insert-tables-bulkquery"></a>Requête SQL Bulk Insert
 
-[La requête SQL Bulk Insert](https://msdn.microsoft.com/library/ms188365) permet d’importer des données provenant de fichiers à lignes/colonnes dans la base de données (les formats pris en charge sont présentés [ici](https://msdn.microsoft.com/library/ms188609)).
+[La requête d’insertion en bloc SQL](https://msdn.microsoft.com/library/ms188365) permet d’importer des données provenant de fichiers à lignes/colonnes dans la base de données (les types pris en charge sont présentés dans la section [Préparer les donner pour l’exportation ou l’importation en bloc (SQL Server)](https://msdn.microsoft.com/library/ms188609)).
 
 Voici quelques exemples de requêtes Bulk Insert :
 
@@ -156,8 +154,7 @@ Voici quelques exemples de requêtes Bulk Insert :
 
 ### <a name="sql-builtin-utilities"></a>Utilitaires intégrés dans SQL Server
 
-Vous pouvez utiliser l’utilitaire SSIS (SQL Server Integrations Services) pour importer les données d’un fichier plat dans SQL Server VM on Azure.
-SSIS est disponible dans deux environnements Studio. Pour en savoir plus, consultez l’article [ Services d’intégration (SSIS) et environnements Studio](https://technet.microsoft.com/library/ms140028.aspx) :
+Vous pouvez utiliser l’utilitaire SSIS (SQL Server Integrations Services) pour importer les données d’un fichier plat dans SQL Server VM on Azure. SSIS est disponible dans deux environnements Studio. Pour en savoir plus, consultez l’article [ Services d’intégration (SSIS) et environnements Studio](https://technet.microsoft.com/library/ms140028.aspx) :
 
 - Pour en savoir plus sur les outils SQL Server Data Tools, consultez l’article [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx).  
 - Pour en savoir plus sur l’Assistant Importation et Exportation, consultez l’article [Assistant Importation et Exportation SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
@@ -179,7 +176,7 @@ L’**Assistant de déploiement d’une base de données SQL Server sur une mac
 
 ### <a name="export-flat-file"></a>Exporter dans un fichier plat
 
-Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données à partir d’un serveur SQL Server local et sont documentées [ici](https://msdn.microsoft.com/library/ms175937.aspx). Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
+Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données à partir d’un serveur SQL Server local et sont documentées dans la section [Importation et exportation de données en bloc (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx). Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
 
 1. Pour exporter les données de l’instance SQL Server locale vers un fichier à l’aide de l’utilitaire BCP, procédez comme suit :
 
@@ -187,7 +184,7 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 
 2. Créez la base de données et la table sur la machine virtuelle SQL Server sur Azure à l’aide de `create database` et de `create table` pour le schéma de table exporté à l’étape 1.
 
-3. Créez un fichier de format décrivant le schéma de table des données exportées ou importées. Ce fichier de format est décrit [ici](https://msdn.microsoft.com/library/ms191516.aspx).
+3. Créez un fichier de format décrivant le schéma de table des données exportées ou importées. Les détails du fichier de format sont décrits dans [créer un fichier de Format (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
 	Génération du fichier de format en cas d’exécution de BCP à partir de la machine SQL Server
 
@@ -226,4 +223,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

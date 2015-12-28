@@ -74,7 +74,7 @@ Pour créer des machines virtuelles Docker, consultez les pages :
 ## Extensions de machine virtuelle pour Linux et Windows
 L’[extension de machine virtuelle Docker pour Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est l’une des nombreuses extensions de ce type offrant un comportement spécial. D’autres sont en cours de développement. Par exemple, plusieurs fonctionnalités de l’[extension Agent de machine virtuelle Linux](virtual-machines-linux-agent-user-guide.md) vous permettent de modifier et de gérer l’image, y compris les fonctionnalités de sécurité, de noyau, de mise en réseau, etc. L'extension VMAccess, entre autres, vous permet de réinitialiser le mot de passe administrateur ou une clé SSH.
 
-Pour obtenir une liste complète, consultez la page [Extensions de machine virtuelle Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx).
+Pour obtenir une liste complète, consultez la page [Extensions de machine virtuelle Azure](virtual-machines-extensions-features.md).
 
 <!--Anchors-->
 [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -84,4 +84,4 @@ Pour obtenir une liste complète, consultez la page [Extensions de machine virtu
 [Utilisation de l’extension Docker VM avec Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensions de machine virtuelle pour Linux et Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

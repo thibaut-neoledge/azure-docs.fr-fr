@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configurer une méthode de routage du trafic basé sur les performances
@@ -39,7 +39,7 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Qu’est-ce que Traffic Manager ?](../traffic-manmager-overview.md)
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -51,4 +51,4 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

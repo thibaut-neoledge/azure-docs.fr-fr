@@ -13,23 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
-Découvrez comment utiliser les fonctionnalités de surveillance du Centre de sécurité Azure avec cette procédure pas à pas.
+Ce document a pour but de vous aider à utiliser les fonctionnalités de surveillance du Centre de sécurité Azure afin de contrôler la conformité aux stratégies.
 
 > [AZURE.NOTE]Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
+
+## Qu’est-ce que le Centre de sécurité Azure ?
+Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 ##Qu’est-ce que la surveillance de l’intégrité de la sécurité ?
 Nous pensons souvent que la surveillance consiste à veiller et à attendre qu’un événement se produise pour y répondre. Ici, la surveillance de la sécurité fait référence à une stratégie proactive qui audite vos ressources afin d’identifier les systèmes qui ne répondent pas aux normes organisationnelles ou aux meilleures pratiques.
 
-##Surveiller la conformité aux stratégies
+##Surveillance de l'intégrité de la sécurité
 Après l’activation des [stratégies de sécurité](security-center-policies.md) pour les ressources d’un l’abonnement, le Centre de sécurité Azure analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles. Contrairement aux informations sur la configuration réseau qui sont instantanément disponibles, l’affichage des informations concernant la configuration des machines virtuelles (telles que l’état des mises à jour de sécurité ou la configuration du système d’exploitation) peut prendre une heure ou plus. Vous pouvez afficher l’état de sécurité de vos ressources, ainsi que les problèmes éventuels, dans le panneau Intégrité des ressources. Vous pouvez également afficher une liste des problèmes dans le panneau Recommandations.
 
 Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md).
 
-##Intégrité des ressources
 La mosaïque **Intégrité des ressources** vous permet de surveiller l’état de sécurité de vos ressources. Vous serez amené à voir des problèmes avec un niveau de gravité élevé ou moyen qui nécessitent une attention particulière, comme indiqué ci-dessous :
 
 ![Intégrité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1.png)
@@ -92,4 +94,4 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

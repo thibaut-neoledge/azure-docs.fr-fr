@@ -14,17 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Création d’une identité professionnelle ou scolaire dans Azure Active Directory
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Si vous avez créé un compte Azure personnel ou si vous disposez d'un abonnement MSDN personnel et avez créé le compte Azure pour profiter des crédits Azure MSDN, alors vous avez utilisé une identité de *compte Microsoft* pour le créer. Pour fonctionner correctement, de nombreuses fonctionnalités d'Azure, parmi lesquelles les [modèles de groupes de ressources](../resource-group-overview.md), nécessitent un compte professionnel ou scolaire (une identité gérée par Azure Active Directory).
+Si vous avez créé un compte Azure personnel ou si vous disposez d'un abonnement MSDN personnel et avez créé le compte Azure pour profiter des crédits Azure MSDN, alors vous avez utilisé une identité de *compte Microsoft* pour le créer. Pour fonctionner correctement, de nombreuses fonctionnalités d'Azure, parmi lesquelles les [modèles de groupes de ressources](../resource-group-overview.md), nécessitent un compte professionnel ou scolaire (une identité gérée par Azure Active Directory). Vous pouvez suivre les instructions ci-dessous pour créer un compte professionnel ou scolaire car, heureusement, l’un des atouts de votre compte personnel Azure est qu'il est fourni avec un domaine Azure Active Directory par défaut que vous pouvez utiliser pour créer un nouveau compte professionnel ou scolaire à utiliser avec les fonctionnalités Azure qui le nécessitent.
 
-
-Heureusement, l’un des atouts de votre compte personnel Azure est qu'il est fourni avec un domaine Azure Active Directory par défaut que vous pouvez utiliser pour créer un nouveau compte professionnel ou scolaire à utiliser avec les fonctionnalités Azure qui le nécessitent.
+Toutefois, de récentes modifications permettent de gérer votre abonnement avec n'importe quel type de compte Azure grâce à la `azure login`méthode de connexion interactive décrite [ici](../xplat-cli-connect.md). Vous pouvez utiliser ce mécanisme ou suivre les instructions ci-dessous.
 
 > [AZURE.NOTE]Si un administrateur vous a donné un nom d’utilisateur et un mot de passe, il est probable que vous disposiez déjà d’un ID professionnel ou scolaire (parfois appelé *ID d’organisation*). Dans ce cas, vous pouvez commencer à utiliser votre compte Azure immédiatement pour accéder aux ressources Azure qui requièrent l'utilisation d'un compte. Si vous constatez que vous ne pouvez pas utiliser ces ressources, vous devrez peut-être revenir à cet article pour obtenir de l’aide. Pour plus d’informations, voir [Comptes que vous pouvez utiliser pour vous connecter](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) et [Association d’un abonnement Azure à Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
@@ -62,7 +61,7 @@ Au bas de la page, cliquez sur **+AJOUTER UN UTILISATEUR**. Dans la page qui s�
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Ajoutez d’autres détails pour Ahmet, mais veillez à sélectionner la valeur **RÔLE** appropriée. Il est facile d'utiliser la valeur **Administrateur global** pour vous assurer que tout fonctionne, mais nous vous conseillons d'utiliser un rôle inférieur. Cet exemple utilise le rôle **Utilisateur**. (Apprenez-en plus sur ces rôles [ici](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) N’activez pas l’authentification multifacteur, sauf si vous souhaitez l’utiliser pour chaque journal de l’opération. Lorsque vous avez terminé, cliquez sur la flèche Suivant.
+Ajoutez d’autres détails pour Ahmet, mais veillez à sélectionner la valeur **RÔLE** appropriée. Il est facile d'utiliser la valeur **Administrateur global** pour vous assurer que tout fonctionne, mais nous vous conseillons d'utiliser un rôle inférieur. Cet exemple utilise le rôle **Utilisateur**. (En savoir plus les [autorisations des administrateurs par rôle](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) N’activez pas l’authentification multifacteur, sauf si vous souhaitez l’utiliser pour chaque journal de l’opération. Lorsque vous avez terminé, cliquez sur la flèche Suivant.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@ Votre réussite doit ressembler à ce qui suit.
 
 ## Étapes suivantes
 
-Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Directory pour utiliser des [modèles de groupe de ressources Azure](xplat-cli-azure-resource-manager.md).
+Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Directory pour utiliser des [modèles de groupe de ressources Azure](../xplat-cli-azure-resource-manager.md).
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
@@ -144,4 +143,4 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

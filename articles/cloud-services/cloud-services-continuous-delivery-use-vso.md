@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Livraison continue avec Visual Studio Team Services dans Azure"
+	pageTitle="Livraison continue avec Visual Studio Team Services dans Azure | Microsoft Azure"
 	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services
 
@@ -22,8 +22,7 @@ Vous pouvez configurer vos projets Visual Studio Team Services afin de les gén�
 
 Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE]Vous avez besoin d’un compte en ligne Visual Studio pour suivre ce didacticiel:
-> vous pouvez [ouvrir un compte Visual Studio Online gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Vous avez besoin d’un compte Visual Studio Team Services pour suivre ce didacticiel : vous pouvez [ouvrir un compte Visual Studio Team Services gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
 
@@ -322,4 +321,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Données de profil utilisateur dans Azure RemoteApp | Microsoft Azure"
-	description="En savoir plus sur le stockage et l’accès des données utilisateur dans Azure RemoteApp"
+    pageTitle="Utilisation d’Azure RemoteApp avec des comptes d’utilisateur Office 365 | Microsoft Azure"
+	description="Découvrez comment utiliser Azure RemoteApp avec des comptes d’utilisateur Office 365"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ?
 
@@ -139,4 +137,4 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

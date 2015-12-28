@@ -70,4 +70,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 <!-- URLs. -->
 [Prise en main de Mobile Apps]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->
