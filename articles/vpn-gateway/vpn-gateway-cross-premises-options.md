@@ -31,7 +31,8 @@ L’option que vous choisirez peut dépendre de la réponse à différentes ques
 
 Le tableau ci-après peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
-| - | **Point à site** | **Site à site** | **ExpressRoute - EXP** | **ExpressRoute - NSP** |
+
+| -                            | **Point à site**                                                                             | **Site à site**                                                                                        | **ExpressRoute - EXP**                                                                                                                      |
 |------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | **Services Azure pris en charge** | Cloud Services Virtual Machines                                                           | Cloud Services Virtual Machines                                                                     | [Liste des services](../expressroute/expressroute-faqs.md#supported-azure-services)                                                        |
 | **Bandes passantes classiques**        | Débit agrégé généralement < 100 Mbits/s                                                                | Débit agrégé généralement < 100 Mbits/s                                                                           | 200 Mbits/s, 500 Mbits/s, 1 Gbits/s et 10 Gbits/s | 10 Mbits/s, 50 Mbits/s, 100 Mbits/s, 500 Mbits/s, 1 Gbits/s                                                                |
