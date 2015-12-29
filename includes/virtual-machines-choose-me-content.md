@@ -1,8 +1,8 @@
 | Options de calcul | Public ciblé |
 | ------------------ | --------   |
-| [App Service] | Applications Web évolutives, applications mobiles, applications d’API et applications logiques pour n’importe quel appareil |
-| [Cloud Services] | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
-| [Virtual Machines] | Machines virtuelles Windows et Linux personnalisées avec contrôle total du système d'exploitation |
+| [App Service] | Applications Web évolutives, applications mobiles, applications d’API et applications logiques pour n’importe quel appareil |
+| [Cloud Services] | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
+| [Virtual Machines] | Machines virtuelles Windows et Linux personnalisées avec contrôle total du système d'exploitation |
 
 <a name="tellmevm"></a>
 ## En savoir plus sur Virtual Machines
