@@ -52,4 +52,4 @@ Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulte
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
