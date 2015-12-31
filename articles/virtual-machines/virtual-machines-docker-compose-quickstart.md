@@ -21,7 +21,7 @@
 
 Cet article vous montre comment commencer à utiliser Docker et [Compose](http://github.com/docker/compose) pour définir et exécuter une application complexe sur une machine virtuelle Linux dans Azure. Avec Compose (le successeur de *Fig*), un fichier texte simple vous permet de définir une application composée de plusieurs conteneurs Docker. Faites ensuite tourner votre application dans une seule commande qui fait tout pour l’exécuter sur la machine virtuelle. À titre d’exemple, cet article vous explique comment configurer rapidement un blog WordPress avec une base de données SQL MariaDB principale, mais vous pouvez également utiliser Compose pour configurer des applications plus complexes.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modèle Resource Manager](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Si vous découvrez Docker et les conteneurs, visionnez la vidéo [Docker high level whiteboard](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -49,10 +49,7 @@ Pour tester votre installation de Compose, exécutez la commande ci-dessous.
 $ docker-compose --version
 ```
 
-Vous verrez une sortie semblable à
-```
-docker-compose 1.3.2
-```
+Vous verrez une sortie semblable à `docker-compose 1.4.1`
 
 
 ## Étape 3 : Créer un fichier de configuration docker-compose.yml
@@ -76,7 +73,7 @@ db:
 
 ```
 
-## Étape 4:Démarrer les conteneurs avec Compose
+## Étape 4: Démarrer les conteneurs avec Compose
 
 Dans le répertoire de tavail de votre machine virtuelle, exécutez simplement la commande suivante.
 
@@ -85,7 +82,7 @@ $ docker-compose up -d
 
 ```
 
-Cette action démarre les conteneurs Docker spécifiés dans `docker-compose.yml`:
+Cette action démarre les conteneurs Docker spécifiés dans `docker-compose.yml`. Le résultat doit être similaire à ceci :
 
 ```
 Creating wordpress\_db\_1...
