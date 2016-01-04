@@ -145,7 +145,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 6. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage.
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Vous pouvez utiliser des comptes de stockage distincts pour les données et la journalisation de l’application, ainsi qu’utiliser [plusieurs comptes de stockage pour les données](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Pour ce didacticiel, vous allez utiliser un seul compte de stockage. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. 
   	<pre class="prettyprint">&lt;configuration&gt;
     &lt;connectionStrings&gt;
         &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
@@ -816,4 +816,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

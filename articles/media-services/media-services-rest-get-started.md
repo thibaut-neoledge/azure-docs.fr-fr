@@ -88,12 +88,12 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 	> Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
 3. Envoi de vos appels d’API suivants vers la nouvelle URL. 
 	
-	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
+		Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+		Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtention d’un jeton d’accès
 
@@ -1210,4 +1210,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 <!-- URLs. -->
   [portail Azure Classic]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
