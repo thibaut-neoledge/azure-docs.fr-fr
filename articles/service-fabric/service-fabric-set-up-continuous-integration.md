@@ -39,6 +39,7 @@ Avant de pouvoir configurer l’ordinateur de build, vous devez créer un « pr
 
 1.	Installez Azure PowerShell.
     - Installez PowerShellGet. Pour ce faire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
+
     >[AZURE.NOTE]Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
 
 1.	Installez et mettez à jour le module AzureRM.
@@ -339,4 +340,4 @@ Les instructions précédentes créent un cluster pour chaque build et le suppri
 
 Pour en savoir plus sur l’intégration continue avec les applications Service Fabric, lisez les articles suivants. - [Documentation de build - Accueil](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

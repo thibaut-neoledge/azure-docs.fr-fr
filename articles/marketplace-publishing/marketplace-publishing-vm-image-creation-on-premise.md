@@ -42,7 +42,8 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Télécharger un disque dur virtuel
-Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail Azure](http://manage.windowsazure.com/) ou de PowerShell.
+Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail Azure](http://manage.windowsazure.com/) ou de PowerShell.  
+
 > [AZURE.NOTE]Au moment de la création de ce guide, la fonctionnalité de téléchargement d’un disque dur virtuel n’est pas encore présente dans le nouveau portail Microsoft Azure.
 
 **Télécharger le disque dur virtuel de système d’exploitation à partir du [portail Azure](http://manage.windowsazure.com/)** actuel
@@ -138,4 +139,4 @@ Avec l’[outil en ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

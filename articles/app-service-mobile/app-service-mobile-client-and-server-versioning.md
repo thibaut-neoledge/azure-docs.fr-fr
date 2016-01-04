@@ -80,9 +80,10 @@ Remarque : les SDK clients Mobile Services n'envoient *pas* de valeur d'en-têt
 
 ### SDK serveurs Mobile *Services*
 
-| Plateforme de serveur | Version | En-têtes de versions acceptés |
+| Plateforme de serveur | Version                                                                                                        | En-têtes de versions acceptés |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **** Aucun en-tête de version ** | | Node.js | (prochainement) | **Aucun en-tête de version** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ** Aucun en-tête de version ** |
+| Node.js           | (prochainement)                        | **Aucun en-tête de version** |
 
 <!-- TODO: add Node npm version -->
 
@@ -140,4 +141,4 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
