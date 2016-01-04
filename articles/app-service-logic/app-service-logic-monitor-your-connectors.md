@@ -112,14 +112,19 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 > 
 > ![][host]
 > 
-> Ces propriétés sont spécifiques du site web qui héberge votre application API. Lorsque vous utilisez une application API ou un connecteur intégré, la plupart de ces propriétés ne s’appliquent pas réellement et nous vous recommandons de ne pas les mettre à jour. Si vous avez créé votre propre application API dans Visual Studio et que vous l’avez déployée dans votre abonnement Azure, vous pouvez utiliser les panneaux Hôte et Passerelle. La page [Gérer les applications API](../app-service-api/app-service-api-manage-in-portal.md) fournit davantage d’informations concernant les opérations réalisables dans ces panneaux avec votre application API personnalisée.
+> Ces propriétés sont spécifiques du site web qui héberge votre application API. Lorsque vous utilisez une application API ou un connecteur intégré, la plupart de ces propriétés ne s’appliquent pas réellement et nous vous recommandons de ne pas les mettre à jour. Si vous avez créé votre propre application API dans Visual Studio et que vous l’avez déployée dans votre abonnement Azure, vous pouvez utiliser les panneaux Hôte et Passerelle. La page [Gérer les applications API](../app-service-api/app-service-api-manage-in-portal.md) fournit davantage d’informations concernant les opérations réalisables dans ces panneaux avec votre application API personnalisée. 
+
 
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
 
+
 ## En savoir plus
 
-[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](role-based-access-control-configure.md)<br/>[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>
+[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](role-based-access-control-configure.md)<br/>
+[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

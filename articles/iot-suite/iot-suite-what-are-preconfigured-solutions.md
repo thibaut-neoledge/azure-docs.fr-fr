@@ -36,7 +36,8 @@ Le tableau suivant montre le mappage entre ces solutions préconfigurées et des
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| Surveillance à distance | Oui | Oui | Oui | Oui | - | | Maintenance prédictive | Oui | Oui | Oui | Oui | Oui |
+| Surveillance à distance | Oui | Oui | Oui | Oui | - |
+| Maintenance prédictive | Oui | Oui | Oui | Oui | Oui |
 
 ## Présentation de la solution préconfigurée de surveillance à distance
 
