@@ -92,7 +92,9 @@ Un projet de test de charge se compose d’un ou plusieurs scénarios décrits p
 1. Dans la section **Combinaison de tests**, cliquez sur le bouton **Ajouter**, puis sélectionnez le test que vous souhaitez ajouter au test de charge. Vous pouvez utiliser la colonne **Distribution** pour spécifier le pourcentage du nombre total de tests exécutés pour chaque test.
 
 1. Dans la section **Paramètres d’exécution**, spécifiez la durée du test de charge.
+
     >[AZURE.NOTE]L’option **Itérations de tests** est disponible uniquement lorsque vous exécutez le test de charge localement à l’aide de Visual Studio.
+
 
 1. Dans la section **Emplacement** de **Paramètres d’exécution**, spécifiez l’emplacement où les requêtes de tests de charge sont générées. L’assistant peut vous inviter à vous connecter à votre compte Team Services. Connectez-vous à l’aide de votre compte Team Services, puis choisissez un emplacement géographique. Quand vous avez terminé, cliquez sur le bouton **Terminé**.
 

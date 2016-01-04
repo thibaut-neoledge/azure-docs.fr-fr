@@ -8,4 +8,4 @@ Utilisez le forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clc
 - [Plate-forme et l’API REST](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform)
 - [Streaming en VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming)
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
