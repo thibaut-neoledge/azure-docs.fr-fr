@@ -40,7 +40,7 @@ Avant de pouvoir configurer l’ordinateur de build, vous devez créer un « pr
 1.	Installez Azure PowerShell.
     - Installez PowerShellGet. Pour ce faire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
 
-    >[AZURE.NOTE]Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
+    >[AZURE.NOTE] Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
 
 1.	Installez et mettez à jour le module AzureRM.
     1.  Si vous disposez d’une version précédente d’Azure PowerShell installée, supprimez-la. Cliquez avec le bouton droit sur le bouton Démarrer, puis sélectionnez « Ajout/Suppression de programmes ». Recherchez « Azure PowerShell » et désinstallez le programme.
@@ -138,7 +138,7 @@ Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azur
     ```
 
 3.	Si NuGet.config n’existe pas, créez-le avec le contenu suivant. Remplacez `<path to service fabric SDK>` par le chemin d’accès au Kit de développement logiciel (SDK) Service Fabric sur l’ordinateur de build.
->[AZURE.NOTE]Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config :
 
