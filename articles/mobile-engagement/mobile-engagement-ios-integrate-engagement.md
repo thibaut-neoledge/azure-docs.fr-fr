@@ -32,7 +32,8 @@ Les étapes suivantes permettent d'activer la génération des journaux nécessa
 
 ##Incorporer le SDK Engagement à votre projet iOS
 
-Télécharger le kit de développement logiciel (SDK) iOS [ici](http://aka.ms/qk2rnj). Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter des fichiers à...** et choisissez le dossier `EngagementSDK`.
+Télécharger le kit de développement logiciel (SDK) iOS [ici](http://aka.ms/qk2rnj).
+Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter des fichiers à...** et choisissez le dossier `EngagementSDK`.
 
 Engagement nécessite des infrastructures supplémentaires pour fonctionner : dans l'Explorateur de projets, ouvrez le volet de votre projet et sélectionnez la cible appropriée. Ouvrez ensuite l'onglet **« Build phases »** et, dans le menu **« Link Binary With Libraries »**, ajoutez ces infrastructures :
 
@@ -43,7 +44,9 @@ Engagement nécessite des infrastructures supplémentaires pour fonctionner : d
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
+
 > [AZURE.NOTE] L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA \<ios-sdk-engagement-idfa\> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
+
 
 ##Initialiser le SDK Engagement
 
