@@ -243,11 +243,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 en utilisant le protocole d’authentification OpenID Connect.  `passport-azure-ad` a pris en charge tous les détails déplaisants de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur.  Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- Tout d’abord, ajoutons les méthodes par défaut de connexion, de compte et de déconnexion à notre fichier `app.js`:
 
 ```JavaScript
 
@@ -282,7 +282,7 @@ app.get('/logout', function(req, res){
     - Le `/logout` appelle simplement logout.ejs (et l'itinéraire) qui efface les cookies, puis renvoie l'utilisateur à index.ejs.
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- Pour la dernière partie de `app.js`, nous ajoutons la méthode EnsureAuthenticated utilisée dans `/account` ci-dessus.
 
 ```JavaScript
 
@@ -414,4 +414,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

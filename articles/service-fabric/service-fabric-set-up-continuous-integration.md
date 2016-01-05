@@ -40,7 +40,7 @@ Avant de pouvoir configurer l’ordinateur de build, vous devez créer un « pr
 1.	Installez Azure PowerShell.
     - Installez PowerShellGet. Pour ce faire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
 
-    >[AZURE.NOTE] Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
+    >[AZURE.NOTE]Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
 
 1.	Installez et mettez à jour le module AzureRM.
     1.  Si vous disposez d’une version précédente d’Azure PowerShell installée, supprimez-la. Cliquez avec le bouton droit sur le bouton Démarrer, puis sélectionnez « Ajout/Suppression de programmes ». Recherchez « Azure PowerShell » et désinstallez le programme.
@@ -138,7 +138,7 @@ Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azur
     ```
 
 3.	Si NuGet.config n’existe pas, créez-le avec le contenu suivant. Remplacez `<path to service fabric SDK>` par le chemin d’accès au Kit de développement logiciel (SDK) Service Fabric sur l’ordinateur de build.
->[AZURE.NOTE] Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE]Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config :
 
@@ -193,8 +193,8 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 ### Inscrire votre agent de build
 
 1.	Téléchargez agent.zip. Pour ce faire :
-    1.	Connectez-vous à votre projet d’équipe, par exemple ****https://[your-VSTS-account-name].visualstudio.com**.
-1.	Sélectionnez l’icône en forme d’engrenage dans l’angle supérieur droit de votre écran.
+    1.	Connectez-vous à votre projet d’équipe, par exemple **https://[your-VSTS-account-name].visualstudio.com**.
+	1.	Sélectionnez l’icône en forme d’engrenage dans l’angle supérieur droit de votre écran.
     1.	À partir du Panneau de configuration, sélectionnez l’onglet **Pools d’agents**.
     1.	Sélectionnez **Télécharger l’agent** pour télécharger le fichier agent.zip.
     1.	Copiez agent.zip sur l’ordinateur de build que vous avez créé précédemment.
@@ -340,4 +340,4 @@ Les instructions précédentes créent un cluster pour chaque build et le suppri
 
 Pour en savoir plus sur l’intégration continue avec les applications Service Fabric, lisez les articles suivants. - [Documentation de build - Accueil](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->
