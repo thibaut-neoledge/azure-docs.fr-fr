@@ -35,7 +35,7 @@ Dans le reste de cet article, nous allons expliquer comment configurer ElasticSe
 La façon la plus simple de configurer le service ElasticSearch sur Azure consiste à passer par les [**modèles Azure ARM**](../resource-group-overview.md). Un [modèle ARM de démarrage rapide pour ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) est disponible à partir du référentiel de modèles de démarrage rapide Azure. Ce modèle utilise des comptes de stockage distincts pour les unités d’échelle (groupes de nœuds) et peut approvisionner des nœuds client et serveur distincts avec des configurations différentes et divers nombres de disques de données associés.
 
 Dans cet article, nous allons utiliser un autre modèle appelé **ES-MultiNode** à partir de la [branche Microsoft Patterns & Practices ELK](https://github.com/mspnp/semantic-logging/tree/elk/). Ce modèle est un peu plus facile à utiliser ; il crée un cluster ElasticSearch protégé par défaut par l’authentification de base HTTP. Avant de continuer, veuillez télécharger le [référentiel Microsoft P&P « elk »](https://github.com/mspnp/semantic-logging/tree/elk/) dans GitHub sur votre ordinateur (soit en clonant le référentiel, soit en téléchargeant un fichier ZIP). Le modèle ES-MultiNode se trouve dans le dossier du même nom.
->[AZURE.NOTE]Le modèle ES-MultiNode et les scripts associés prennent actuellement en charge la version 1.7 d’ElasticSearch. La prise en charge d’ElasticSearch 2.0 sera ajoutée à une date ultérieure.
+>[AZURE.NOTE] Le modèle ES-MultiNode et les scripts associés prennent actuellement en charge la version 1.7 d’ElasticSearch. La prise en charge d’ElasticSearch 2.0 sera ajoutée à une date ultérieure.
 
 ### Préparation d’un ordinateur pour l’exécution des scripts d’installation d’ElasticSearch
 Le moyen le plus simple d’exploiter le modèle ES-MultiNode consiste à utiliser un script PowerShell déjà fourni, appelé `CreateElasticSearchCluster`. Pour utiliser ce script, vous devez installer les modules Azure PowerShell ainsi qu’un outil appelé openssl. Ce dernier est indispensable pour la création d’une clé SSH que vous pouvez utiliser pour administrer votre cluster ElasticSearch à distance.
@@ -246,4 +246,4 @@ On y est ! Chaque fois que le service est exécuté, il commence à envoyer des
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
