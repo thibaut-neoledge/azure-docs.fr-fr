@@ -7,11 +7,19 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="11/26/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	 ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="11/26/2015"
+	ms.author="jimpark";"aashishr"/>
 
 # Préparer votre environnement pour la sauvegarde de machines Windows
 
 Cet article vous guidera dans l’exécution des opérations de préparation à l’utilisation d’Azure Backup avec des serveurs Windows. Pour sauvegarder un serveur Windows Server ou un client Windows sur Azure, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 >[AZURE.NOTE]Auparavant, vous aviez besoin de créer ou de vous procurer un certificat X.509 v3 afin d'enregistrer votre serveur de sauvegarde. Les certificats sont toujours pris en charge, mais pour faciliter l’inscription d’un coffre Azure auprès d’un serveur, vous pouvez désormais générer un droit d’informations d’identification de coffre à partir de la page Démarrage rapide.
 
 ## Avant de commencer
@@ -34,4 +42,4 @@ Pour sauvegarder les fichiers et les données de votre serveur Windows Server ve
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 - [Forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -295,7 +295,23 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-- Exemple pour l'événement « Purchase » : <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Exemple pour l'événement « Purchase » :
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name>
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+			</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - Exemple d'envoi de 2 événements « Click » et « AddShopCart » :
 
@@ -317,7 +333,8 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** :
+Code d'état HTTP : 200
 
 ###Génération d'un modèle de recommandation
 
@@ -428,9 +445,19 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build.
 
-États de build valides : - Created : l’entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d’attente. - Building : la build est en cours d’exécution. - Success : la build a été correctement exécutée - Error : la build s’est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d’annulation.
+États de build valides :
+ - Created : l’entrée de demande de build a été créée.
+ - Queued : la demande de build a été déclenchée et mise en file d’attente.
+ - Building : la build est en cours d’exécution.
+ - Success : la build a été correctement exécutée.
+ - Error : la build s’est terminée par un échec.
+ - Cancelled : la build a été annulée.
+ - Cancelling : la build est en cours d’annulation.
 
-Valeurs valides pour le type de build : - Rang - Build de classement. (Pour en savoir plus sur les builds de classement, reportez-vous au document « Documentation sur les API Machine Learning Recommandation »). - Recommandation - Build de recommandation. -Fbt - Build fréquemment achetés ensemble.
+Valeurs valides pour le type de build :
+ - Rang - Build de classement. (Pour en savoir plus sur les builds de classement, reportez-vous au document « Documentation sur les API Machine Learning Recommandation »).
+ - Recommandation - Build de recommandation.
+ -Fbt - Build fréquemment achetés ensemble.
 
 OData XML
 
@@ -649,7 +676,8 @@ L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
 	</feed>
 
 ###Mise à jour du modèle
-Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active. *ID de build active* : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
+Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active.
+*ID de build active* : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
@@ -658,7 +686,7 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nom du paramètre |	Valeurs valides |
+|	Nom du paramètre |	Valeurs valides						|
 |:--------			|:--------								|
 | id | Identificateur unique du modèle (respecte la casse) |
 | apiVersion | 1\.0 |
@@ -681,7 +709,9 @@ OData XML
 	</feed>
 
 ##Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.
+Certains exemples sont fournis à titre indicatif uniquement et sont fictifs.
+Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

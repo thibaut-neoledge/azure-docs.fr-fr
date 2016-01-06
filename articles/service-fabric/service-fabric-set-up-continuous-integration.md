@@ -138,7 +138,9 @@ Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azur
     ```
 
 3.	Si NuGet.config n’existe pas, créez-le avec le contenu suivant. Remplacez `<path to service fabric SDK>` par le chemin d’accès au Kit de développement logiciel (SDK) Service Fabric sur l’ordinateur de build.
->[AZURE.NOTE]Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
+>[AZURE.NOTE] Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
 
     NuGet.config :
 
@@ -340,4 +342,4 @@ Les instructions précédentes créent un cluster pour chaque build et le suppri
 
 Pour en savoir plus sur l’intégration continue avec les applications Service Fabric, lisez les articles suivants. - [Documentation de build - Accueil](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!------HONumber=AcomDC_1217_2015-->
+<!-------HONumber=AcomDC_1217_2015-->

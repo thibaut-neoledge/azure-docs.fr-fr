@@ -48,7 +48,7 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## 2. Installez et configurez ADAL
-Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
+Maintenant que vous disposez d'une application enregistrée auprès de Microsoft, vous pouvez installer ADAL et écrire votre code associé aux identités. Pour permettre à ADAL de communiquer avec le point de terminaison v2.0, vous devez lui fournir des informations sur l'enregistrement de votre application.
 
 -    Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
@@ -247,4 +247,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
