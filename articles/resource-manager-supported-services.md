@@ -33,8 +33,8 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Batch | Oui | [Oui (classique uniquement)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Oui | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Oui | Non | | | |
 | Machines virtuelles (classiques) | Limité | Oui, de nombreuses options | Partiel (voir ci-dessous) | - | - |
-| Remote App | Non | - | - | - | - |
-| Service Fabric | Non | - | - | - | - |
+| Remote App | Non | Non | - | - | - |
+| Service Fabric | Non | Non | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 

@@ -669,9 +669,9 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 
   2. À l'aide de l'outil Sencha Cmd, exécutez les commandes suivantes :
 
-    * *sencha app refresh* : cette commande indique à l'outil Sencha Cmd de localiser toutes les dépendances de l'application et de télécharger tous les packages nécessaires (par exemple, [Extensions Sencha Touch pour Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
+    * *sencha app refresh* : cette commande indique à l'outil Sencha Cmd de localiser toutes les dépendances de l'application et de télécharger tous les packages nécessaires (par exemple, [Extensions Sencha Touch pour Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
-    * *sencha web start* : cette commande démarre un serveur web local pour tester notre application.
+    * *sencha web start* : cette commande démarre un serveur web local pour tester notre application.
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -724,4 +724,4 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

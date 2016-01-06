@@ -15,7 +15,10 @@ Une règle de sécurité est une ressource enfant d'un groupe de sécurité rés
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
 |**description**|Description de la règle|Autoriser le trafic entrant pour toutes les machines virtuelles dans un sous-réseau X|
-|**protocol**|Protocole à faire correspondre pour la règle|TCP, UDP ou *| |**sourcePortRange**|Plage de ports source à faire correspondre pour la règle|80, 100-200, *| |**destinationPortRange**|Plage de ports de destination à faire correspondre pour la règle|80, 100-200, *| |**sourceAddressPrefix**|Préfixe d'adresse source à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**protocol**|Protocole à faire correspondre pour la règle|TCP, UDP ou *|
+|**sourcePortRange**|Plage de ports source à faire correspondre pour la règle|80, 100-200, *|
+|**destinationPortRange**|Plage de ports de destination à faire correspondre pour la règle|80, 100-200, *|
+|**sourceAddressPrefix**|Préfixe d'adresse source à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|Préfixe d'adresse de destination à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|
 |**priority**|Priorité de la règle. Les règles sont vérifiées dans l'ordre de priorité ; une fois qu'une règle s'applique, plus aucune règle n'est testée pour la correspondance.|10, 100, 65000|
