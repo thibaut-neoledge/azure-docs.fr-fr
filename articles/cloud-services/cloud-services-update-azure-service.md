@@ -130,7 +130,7 @@ Azure offre une flexibilité dans la gestion des services pendant la mise à jou
 Le rétablissement d’une mise à jour en cours a les effets suivants sur le déploiement :
 
 -   Toutes les instances de rôle n’ayant pas encore été mises à jour ou à niveau vers la nouvelle version ne sont ni mises à jour ni mises à niveau, car les instances s’exécutent déjà sur la version cible du service.
--   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (*.cspkg) ou le fichier de configuration (*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
+-   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (\*.cspkg) ou le fichier de configuration (\*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
 
 Cette fonction est assurée par les fonctionnalités suivantes :
 
