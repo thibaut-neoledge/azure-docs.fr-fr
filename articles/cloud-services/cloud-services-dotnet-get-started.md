@@ -288,9 +288,9 @@ Les chaînes de connexion au compte de stockage Azure pour le projet de rôle w
 
 Les paramètres d'environnement de rôle configurés à l'aide de l'interface utilisateur de Visual Studio sont stockés dans les fichiers suivants du projet ContosoAdsCloudService :
 
-* *ServiceDefinition.csdef* : définit les noms des paramètres.
-* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
-* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
+* *ServiceDefinition.csdef*: définit les noms des paramètres.
+* *ServiceConfiguration.Cloud.cscfg*: fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
+* *ServiceConfiguration.Local.cscfg*: fournit des valeurs utilisées lorsque l'application s'exécute localement.
 
 Par exemple, le fichier ServiceDefinition.csdef inclut les définitions suivantes.
 
@@ -469,9 +469,9 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*.  
-	- Dans le dossier *Views\\Shared* : <em>\_Layout.cshtml</em>.
-	- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Shared*: <em>\_Layout.cshtml</em>.
+	- Dans le dossier *Views\\Home*: *Index.cshtml*.
+	- Dans le dossier *Controllers*: *AdController.cs*.
 	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
@@ -813,4 +813,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->
