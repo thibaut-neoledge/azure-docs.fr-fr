@@ -289,7 +289,7 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 
 	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous verrez ce message d’exception : <pre class="prettyprint"> 
 	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details.
-	    at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
 	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
 	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
 	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
@@ -353,4 +353,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
