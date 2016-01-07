@@ -21,7 +21,10 @@ Cet article décrit les avantages et la façon de placer des compteurs de perfor
 
 Les compteurs de performances disponibles pour Windows Server, IIS et ASP.NET peuvent être recueillis et utilisés pour déterminer l’état de vos rôles Azure web, worker et machines virtuelles. Vous pouvez également créer et utiliser des compteurs de performance personnalisés.
 
-Vous pouvez examiner les données du compteur de performances 1 directement sur l’hôte d’application avec l’outil d’analyse des performances auquel on accède à l’aide de Bureau à distance 2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure 3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.
+Vous pouvez examiner les données du compteur de performances
+1 directement sur l’hôte d’application avec l’outil d’analyse des performances auquel on accède à l’aide de Bureau à distance
+2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure 
+3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.
 
 Pour plus d’informations sur la configuration des performances de votre application dans le [portail Azure Classic](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -53,7 +56,16 @@ Azure fournit un sous-ensemble des compteurs de performances disponibles pour Wi
 |ASP.NET v4.0.30319 |Demandes rejetées |Compteurs de performances pour ASP.NET|
 |Mémoire |Nombre d’octets disponibles |Compteurs de performance mémoire|
 |Mémoire |Octets dédiés |Compteurs de performance mémoire|
-|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET| |TCPv4 |Échecs de connexion |Objet TCP| |TCPv4 |Connexions établies |Objet TCP| |TCPv4 |Réinitialisation des connexions |Objet TCP| |TCPv4 |Segments envoyés/s |Objet TCP| |Interface réseau(*) |Octets reçus/s |Objet d’interface réseau| |Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau| |Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau| |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau | |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
+|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET|
+|TCPv4 |Échecs de connexion |Objet TCP|
+|TCPv4 |Connexions établies |Objet TCP|
+|TCPv4 |Réinitialisation des connexions |Objet TCP|
+|TCPv4 |Segments envoyés/s |Objet TCP|
+|Interface réseau(*) |Octets reçus/s |Objet d’interface réseau|
+|Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau|
+|Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau|
+|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau |
+|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
 
 ## Créer et ajouter des compteurs de performance personnalisés à votre application
 
@@ -313,4 +325,4 @@ Maintenant que vous avez appris les principes de base de la collecte de compteur
 
 [Surveillance des services cloud](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

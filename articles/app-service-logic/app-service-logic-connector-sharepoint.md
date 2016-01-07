@@ -34,7 +34,8 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest* URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest*
+URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
 5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
 
@@ -51,7 +52,8 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*.
+Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
 Nom d’utilisateur | Non | Entrez un nom d'utilisateur valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
@@ -472,4 +474,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

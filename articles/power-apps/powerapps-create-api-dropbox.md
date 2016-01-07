@@ -23,19 +23,25 @@
 
 1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide d’une adresse *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
  
-2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][12]
+2. Dans la barre des tâches, sélectionnez **Parcourir** :  
+![][12]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][13]
+3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* :  
+![][13]
 
-4. Dans **PowerApps**, sélectionnez **Gérer les API** : ![Accès aux API inscrites][4]
+4. Dans **PowerApps**, sélectionnez **Gérer les API** :  
+![Accès aux API inscrites][4]
 
-5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][5]
+5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API :  
+![Add API][5]
 
 6. Tapez un **nom** descriptif pour votre API.
 	
-7. Dans **Source**, sélectionnez **API disponibles** pour voir les API prédéfinies, puis sélectionnez **Dropbox** : ![sélection d’une api dropbox][6]
+7. Dans **Source**, sélectionnez **API disponibles** pour voir les API prédéfinies, puis sélectionnez **Dropbox** :  
+![sélection d’une api dropbox][6]
 
-8. Sélectionnez **Paramètres – Configurer les paramètres requis** : ![configuration des paramètres d’une API dropbox][7]
+8. Sélectionnez **Paramètres – Configurer les paramètres requis** :  
+![configuration des paramètres d’une API dropbox][7]
 
 9. Entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Dropbox. Si vous n’avez pas de clé et de question secrète, consultez la section « Inscription d’une application Dropbox pour une utilisation avec PowerApps » dans cette rubrique pour créer les valeurs dont vous avez besoin.
 
@@ -53,9 +59,11 @@ Si vous ne disposez pas d’une application Dropbox avec sa clé et sa clé sec
 
 1. Accédez à [Dropbox][1] et connectez-vous avec votre compte.
 
-2. Accédez au site de développement Dropbox et sélectionnez **My Apps** (Mes applications) : ![Site de développement Dropbox][8]
+2. Accédez au site de développement Dropbox et sélectionnez **My Apps** (Mes applications) :  
+![Site de développement Dropbox][8]
 
-3. Sélectionnez **Create app** (Créer une application) : ![Création d’application Dropbox][9]
+3. Sélectionnez **Create app** (Créer une application) :  
+![Création d’application Dropbox][9]
 
 4. Dans **Create a new app on the Dropbox platform** (Créer une application sur la plateforme Dropbox) :
 
@@ -94,4 +102,4 @@ Vous venez de voir comment ajouter l’API Dropbox à PowersApps Enterprise. Ens
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
