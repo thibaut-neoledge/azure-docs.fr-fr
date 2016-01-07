@@ -466,7 +466,23 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 |Type|Commande|Description|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Démarrer le service iSCSI|
-||`service iscsid stop`|Arrêter le service iSCSI| ||`service iscsid restart`|Redémarrer le service iSCSI| ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Détecter les cibles disponibles sur l’adresse spécifiée| ||`iscsiadm -m node --login -T <TARGET_IQN>`|Se connecter à la cible iSCSI| ||`iscsiadm -m node --logout -p <Target_IP>`|Se déconnecter de la cible iSCSI| ||`cat /etc/iscsi/initiatorname.iscsi`|Imprimer le nom de l’initiateur iSCSI| ||`iscsiadm –m session –s <sessionid> -P 3`|Vérifier l’état de la session iSCSI et le volume détecté sur l’hôte| ||`iscsi –m session`|Affiche toutes les sessions iSCSI établies entre l’hôte et l’appareil StorSimple| | | | | |**Gestion multivoie**|`service multipathd start`|Démarrer le démon multivoie| ||`service multipathd stop`|Arrêter le démon multivoie| ||`service multipathd restart`|Redémarrer le démon multivoie| ||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Activer le démon multivoie à démarrer à l’heure de démarrage| ||`multipathd –k`|Démarrer la console interactive pour la résolution des problèmes| ||`multipath –l`|Répertorier les connexions et appareils multivoies| ||`mpathconf --enable`|Créer un fichier d’exemple mulitpath.conf dans `/etc/mulitpath.conf`| ||||
+||`service iscsid stop`|Arrêter le service iSCSI|
+||`service iscsid restart`|Redémarrer le service iSCSI|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Détecter les cibles disponibles sur l’adresse spécifiée|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|Se connecter à la cible iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Se déconnecter de la cible iSCSI|
+||`cat /etc/iscsi/initiatorname.iscsi`|Imprimer le nom de l’initiateur iSCSI|
+||`iscsiadm –m session –s <sessionid> -P 3`|Vérifier l’état de la session iSCSI et le volume détecté sur l’hôte|
+||`iscsi –m session`|Affiche toutes les sessions iSCSI établies entre l’hôte et l’appareil StorSimple|
+ | | | |
+|**Gestion multivoie**|`service multipathd start`|Démarrer le démon multivoie|
+||`service multipathd stop`|Arrêter le démon multivoie|
+||`service multipathd restart`|Redémarrer le démon multivoie|
+||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Activer le démon multivoie à démarrer à l’heure de démarrage|
+||`multipathd –k`|Démarrer la console interactive pour la résolution des problèmes|
+||`multipath –l`|Répertorier les connexions et appareils multivoies|
+||`mpathconf --enable`|Créer un fichier d’exemple mulitpath.conf dans `/etc/mulitpath.conf`|
+||||
 
 ## Étapes suivantes
 
@@ -475,4 +491,4 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 - [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -47,7 +47,8 @@ Pour comprendre les concepts RBAC, examinons quelques exemples courants de défi
 
 | Rôle | Actions autorisées |
 | ------- | ----------------- |
-| Lecteur | **/read (tout lire) | | Propriétaire | * (tout lire/écrire) |
+| Lecteur | **/read (tout lire) |
+| Propriétaire | * (tout lire/écrire) |
 
 Pour affecter le rôle **Lecteur** à l’**utilisateur A** du groupe de ressources nommé **ExampleGroup** et le rôle **Propriétaire** à l’**utilisateur B** de la totalité de l’abonnement, vous devez attribuer les éléments suivants :
 
@@ -280,4 +281,4 @@ Créez l’affectation du rôle.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

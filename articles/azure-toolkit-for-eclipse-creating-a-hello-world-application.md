@@ -44,6 +44,7 @@ Tout d’abord, nous allons commencer par créer un projet Java.
 * Cliquez sur **Terminer**.
 * Dans la vue Explorateur de projets d’Eclipse, développez **MyHelloWorld**. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New**, puis sur **JSP File**.
 * Dans la boîte de dialogue **New JSP File**, nommez le fichier **index.jsp**. Conservez **MyHelloWorld/WebContent** comme dossier parent, comme illustré ci-dessous :
+
     ![][ic659262]
 * Dans la boîte de dialogue **Sélectionner un modèle JSP**, sélectionnez **Nouveau fichier JSP (html)** pour les besoins de ce didacticiel, puis cliquez sur **Terminer**.
 * Lorsque le fichier index.jsp s’ouvre dans Eclipse, ajoutez un texte pour afficher dynamiquement **Hello World!** dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit se présenter comme suit :
@@ -70,6 +71,7 @@ Dès qu’une application web Java est prête à être testée, vous pouvez util
         1. Cliquez sur **Importer à partir du fichier PUBLISH-SETTINGS**.
         1. Dans la boîte de dialogue **Importation des informations d’abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n’êtes pas encore connecté à votre compte Azure, vous y êtes maintenant invité. Vous êtes ensuite invité à enregistrer un fichier de paramètres de publication Azure. Enregistrez-le sur votre ordinateur local.
         1. Toujours dans la boîte de dialogue **Importation des informations d’abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres de publication que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**. Votre écran doit ressembler à l’écran suivant:
+
             ![][ic644267]
         1. Cliquez sur **OK**.
     1. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser pour le déploiement.
@@ -193,4 +195,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

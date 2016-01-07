@@ -813,4 +813,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1203_2015--->

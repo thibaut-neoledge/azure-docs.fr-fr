@@ -204,7 +204,8 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Protocole de gestion|**REST sur HTTP/HTTPS**|**REST sur HTTPS**|
-|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**| |API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
+|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**|
+|API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
 |C++ natif|**Oui**|**Non**|
 |API Java|**Oui**|**Oui**|
 |API PHP|**Oui**|**Oui**|
@@ -314,4 +315,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 [portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
