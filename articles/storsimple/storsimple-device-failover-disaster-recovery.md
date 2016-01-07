@@ -77,11 +77,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
-
-	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
-
-	1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.** 1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante. 1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
 1. Une fois le basculement terminé, accédez à la page **Appareils**.
 
@@ -165,4 +161,4 @@ Après avoir effectué un basculement, vous devrez peut-être :
 Pour plus d'informations sur l'utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->
