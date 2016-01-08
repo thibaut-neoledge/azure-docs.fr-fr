@@ -30,7 +30,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 ##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
 
-1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.microsoftazure.com/pricing/free-trial/).
+1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/).
 
 2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
