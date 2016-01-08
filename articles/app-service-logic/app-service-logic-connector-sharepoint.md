@@ -34,10 +34,11 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest*
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*
 URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
+![][1]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Online.
 
@@ -59,7 +60,8 @@ Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site Sha
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][2]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
+![][2]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Server.
 
@@ -74,15 +76,20 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 
 3. Si le connecteur SharePoint est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte SharePoint à l'aide du connecteur.
 
-4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : ![][3]
+4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint :  
+![][3]
 
-5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : ![][4]
+5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations :  
+![][4]
 
-6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][5]
+6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :  
+![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][6]
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :  
+![][6]
   
-**URL relative configurée pour la bibliothèque de documents** ![][7]
+**URL relative configurée pour la bibliothèque de documents**  
+![][7]
 
 **URL relative configurée pour la liste de documents**
 
