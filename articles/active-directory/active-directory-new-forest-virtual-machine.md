@@ -25,7 +25,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 
 - Pour une vidéo qui illustre ces étapes, consultez [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 - Vous pouvez éventuellement [configurer un VPN virtuel de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
--  Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
+-  Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Schéma du scénario
 

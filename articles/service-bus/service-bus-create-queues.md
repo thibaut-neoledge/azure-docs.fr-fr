@@ -63,7 +63,7 @@ Une fois que vous avez un abonnement, vous pouvez créer un nouvel espace de nom
 
 ### Installez le package NuGet
 
-Pour utiliser l'espace de noms de service Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Vous pouvez retrouver cet assembly dans le kit de développement logiciel (SDK) Microsoft Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement (SDK) de Windows Azure](http://azure.microsoft.com/downloads/). Toutefois, le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus disponibles. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
+Pour utiliser l'espace de noms de service Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Vous pouvez retrouver cet assembly dans le kit de développement logiciel (SDK) Microsoft Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement (SDK) de Microsoft Azure](http://azure.microsoft.com/downloads/). Toutefois, le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus disponibles. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Créez la file d'attente
 

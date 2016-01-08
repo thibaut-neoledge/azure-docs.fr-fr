@@ -219,9 +219,9 @@ Pour renforcer la sécurité, les clés d’accès primaire et secondaire d’un
 
 ##Résolution des problèmes liés à l’intégration de machines virtuelles Azure
 
-Azure Automation DSC vous permet d’intégrer facilement des machines virtuelles Windows Azure à des fins de gestion de la configuration. En arrière-plan, l’extension Azure VM Desired State Configuration est utilisée pour enregistrer la machine virtuelle auprès d’Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, il peut être très important d’en suivre la progression et de résoudre ses éventuels problèmes d’exécution.
+Azure Automation DSC vous permet d’intégrer facilement des machines virtuelles Microsoft Azure à des fins de gestion de la configuration. En arrière-plan, l’extension Azure VM Desired State Configuration est utilisée pour enregistrer la machine virtuelle auprès d’Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, il peut être très important d’en suivre la progression et de résoudre ses éventuels problèmes d’exécution.
 
->[AZURE.NOTE]Quelle que soit la méthode choisie pour intégrer une machine virtuelle Windows Azure sur Azure Automation DSC, l’enregistrement du nœud dans Azure Automation peut prendre jusqu’à une heure si l’extension Azure VM Desired State Configuration est utilisée. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
+>[AZURE.NOTE]Quelle que soit la méthode choisie pour intégrer une machine virtuelle Microsoft Azure sur Azure Automation DSC, l’enregistrement du nœud dans Azure Automation peut prendre jusqu’à une heure si l’extension Azure VM Desired State Configuration est utilisée. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
 Pour résoudre les problèmes ou afficher l’extension Azure VM Desired State Configuration, rendez-vous dans le portail Azure en version préliminaire, accédez à la machine virtuelle en cours d’intégration, puis cliquez sur **Tous les paramètres** -> **Extensions** -> **DSC**. Pour plus de détails, vous pouvez cliquer sur **Afficher l’état détaillé**.
 

@@ -117,7 +117,7 @@ Décision :
 
 Tâche :
 
-- Définir les conventions d’affectation de noms en termes d’affixes, la hiérarchie, les valeurs de chaînes de caractères et d’autres stratégies pour les ressources Windows Azure.
+- Définir les conventions d’affectation de noms en termes d’affixes, la hiérarchie, les valeurs de chaînes de caractères et d’autres stratégies pour les ressources Microsoft Azure.
 
 ## 2\. Abonnements et comptes
 

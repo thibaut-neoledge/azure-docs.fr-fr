@@ -91,7 +91,7 @@ Selon les réponses à ces questions et la stratégie de votre organisation, une
 -	Disposer d'un serveur de secours en attente, appelé **mode intermédiaire**.
 -	Utiliser les machines virtuelles.
 
-Windows Azure AD sync ayant une dépendance sur une base de données SQL, vous devez consulter la section Haute disponibilité SQL si vous n’utilisez pas SQL Express, qui est fourni avec Azure AD Connect.
+Microsoft Azure AD sync ayant une dépendance sur une base de données SQL, vous devez consulter la section Haute disponibilité SQL si vous n’utilisez pas SQL Express, qui est fourni avec Azure AD Connect.
 
 ### Régénérer lorsque nécessaire
 Une stratégie viable consiste à planifier une régénération du serveur si nécessaire. Dans de nombreux cas, l’installation du moteur de synchronisation et l’exécution de l’importation et la synchronisation initiales peuvent être complétées en quelques heures. Si aucun serveur n’est libre, il est possible d’utiliser provisoirement un contrôleur de domaine pour héberger le moteur de synchronisation.

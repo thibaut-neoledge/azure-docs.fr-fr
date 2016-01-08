@@ -1,6 +1,6 @@
 <properties
   pageTitle="Stocker et afficher des données de diagnostic dans Azure Storage | Microsoft Azure"
-  description="Obtenir des données de diagnostics Windows Azure dans Azure Storage et les afficher"
+  description="Obtenir des données de diagnostics Microsoft Azure dans Azure Storage et les afficher"
   services="cloud-services"
   documentationCenter=".net"
   authors="rboucher"
@@ -32,7 +32,7 @@ Spécifiez le compte de stockage que vous souhaitez utiliser dans le fichier Ser
 
 Vous pouvez modifier cette chaîne de connexion pour fournir des informations de compte pour un compte de stockage Azure.
 
-Selon le type de données de diagnostic recueillies, Diagnostics Windows Azure utilise le service Blob ou le service de Table. Le tableau qui suit présente les sources de données permanentes et leur format.
+Selon le type de données de diagnostic recueillies, Diagnostics Microsoft Azure utilise le service Blob ou le service de Table. Le tableau qui suit présente les sources de données permanentes et leur format.
 
 |Source de données|Format de stockage|
 |---|---|
@@ -52,7 +52,7 @@ Pour le kit de développement logiciel 2.5 et versions ultérieures, la demande
 Pour le kit de développement logiciel 2.4 et versions antérieures, vous pouvez demander le transfert de données de diagnostic via le fichier de configuration et par programmation. L’approche par programmation vous permet également d’effectuer des transferts à la demande.
 
 
->[AZURE.IMPORTANT]Lorsque vous transférez des données de diagnostic vers un compte de stockage Windows Azure, vous encourez des frais pour les ressources de stockage qui utilise vos données de diagnostic.
+>[AZURE.IMPORTANT]Lorsque vous transférez des données de diagnostic vers un compte de stockage Microsoft Azure, vous encourez des frais pour les ressources de stockage qui utilise vos données de diagnostic.
 
 ## Stockez les données de diagnostic
 
@@ -83,7 +83,7 @@ Les données du journal sont stockées dans le stockage Blob ou de Table avec le
 ## Outils permettant d’afficher les données de diagnostic
 Plusieurs outils sont disponibles pour afficher les données après leur transfert vers le stockage. Par exemple :
 
-- **Explorateur de serveurs dans Visual Studio** : -si vous avez installé Windows Azure Tools pour Microsoft Visual Studio, vous pouvez utiliser le nœud de stockage Azure dans l’Explorateur de serveurs pour afficher des objets blobs en lecture seule et les données du tableau depuis vos comptes de stockage Azure. Vous pouvez afficher des données à partir de votre compte d’émulateur de stockage local et de comptes de stockage que vous avez créés pour Azure. Pour plus d’informations, voir la section [Consultation des ressources de stockage avec l’Explorateur de serveurs](https://msdn.microsoft.com/library/ff683677.aspx).
+- **Explorateur de serveurs dans Visual Studio** : -si vous avez installé Microsoft Azure Tools pour Microsoft Visual Studio, vous pouvez utiliser le nœud de stockage Azure dans l’Explorateur de serveurs pour afficher des objets blobs en lecture seule et les données du tableau depuis vos comptes de stockage Azure. Vous pouvez afficher des données à partir de votre compte d’émulateur de stockage local et de comptes de stockage que vous avez créés pour Azure. Pour plus d’informations, voir la section [Consultation des ressources de stockage avec l’Explorateur de serveurs](https://msdn.microsoft.com/library/ff683677.aspx).
 
 - **Azure Storage Explorer de Neudesic** : [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) est un outil d’interface graphique utilisateur pour examiner et modifier les données de vos projets de stockage Azure, notamment les journaux de vos applications Azure. Pour télécharger cet outil, consultez [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
 

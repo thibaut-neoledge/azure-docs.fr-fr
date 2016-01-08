@@ -17,7 +17,7 @@
 
 # Créer et utiliser des compteurs de performances dans une application Azure
 
-Cet article décrit les avantages et la façon de placer des compteurs de performance dans votre application Windows Azure. Vous pouvez les utiliser pour collecter des données, détecter les goulots d’étranglement et régler les performances système et des applications.
+Cet article décrit les avantages et la façon de placer des compteurs de performance dans votre application Microsoft Azure. Vous pouvez les utiliser pour collecter des données, détecter les goulots d’étranglement et régler les performances système et des applications.
 
 Les compteurs de performances disponibles pour Windows Server, IIS et ASP.NET peuvent être recueillis et utilisés pour déterminer l’état de vos rôles Azure web, worker et machines virtuelles. Vous pouvez également créer et utiliser des compteurs de performance personnalisés.
 
@@ -171,7 +171,7 @@ Dès lors que les chaînes de connexion sont définies, une fois déployée, vot
 
 Outre les compteurs de performances prédéfinis, vous pouvez ajouter les vôtres pour surveiller les rôles Web ou de travail. Les compteurs de performances personnalisés permettent de suivre et de surveiller le comportement propre à une application. Vous pouvez les créer ou les supprimer dans une tâche de démarrage, un rôle Web ou un rôle de travail avec des autorisations élevées.
 
-Étape 2 : L’agent de diagnostics Azure actualise la configuration du compteur de performance à partir du fichier .wadcfg une minute après le démarrage. Si vous créez des compteurs de performance personnalisés dans la méthode OnStart et vos tâches de démarrage prennent plus d’une minute pour s’exécuter, vos compteurs de performance personnalisés ne seront pas créés lorsque l’agent de Diagnostics Windows Azure tente de les charger. Dans ce scénario, vous verrez qu’Azure Diagnostics capture correctement toutes les données de diagnostic, excepté les compteurs de performance personnalisés. Pour résoudre ce problème, créez les compteurs de performance dans une tâche de démarrage ou déplacez certaines de vos tâches de démarrage vers la méthode OnStart après avoir créé les compteurs de performances.
+Étape 2 : L’agent de diagnostics Azure actualise la configuration du compteur de performance à partir du fichier .wadcfg une minute après le démarrage. Si vous créez des compteurs de performance personnalisés dans la méthode OnStart et vos tâches de démarrage prennent plus d’une minute pour s’exécuter, vos compteurs de performance personnalisés ne seront pas créés lorsque l’agent de Diagnostics Microsoft Azure tente de les charger. Dans ce scénario, vous verrez qu’Azure Diagnostics capture correctement toutes les données de diagnostic, excepté les compteurs de performance personnalisés. Pour résoudre ce problème, créez les compteurs de performance dans une tâche de démarrage ou déplacez certaines de vos tâches de démarrage vers la méthode OnStart après avoir créé les compteurs de performances.
 
 Pour créer un simple compteur de performances personnalisé nommé « \\MyCustomCounterCategory\\MyButton1Counter », procédez comme suit :
 

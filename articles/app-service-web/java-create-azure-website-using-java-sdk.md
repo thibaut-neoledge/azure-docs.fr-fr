@@ -74,7 +74,7 @@ Le code de cette procédure utilise un certificat auto-signé pour l’authentif
 - Convertir le fichier PFX au format JKS, car Java utilise ce format pour s’authentifier à l’aide de certificats
 - Écrire le code d’authentification de l’application, qui fait référence au fichier JKS local
 
-Lorsque vous effectuez cette procédure, le certificat CER réside dans votre abonnement Azure et le certificat JKS réside sur votre lecteur local. Pour plus d’informations sur les certificats de gestion, consultez la page [Créer et télécharger un certificat de gestion pour Windows Azure][].
+Lorsque vous effectuez cette procédure, le certificat CER réside dans votre abonnement Azure et le certificat JKS réside sur votre lecteur local. Pour plus d’informations sur les certificats de gestion, consultez la page [Créer et télécharger un certificat de gestion pour Microsoft Azure][].
 
 
 #### Création d’un certificat
@@ -105,7 +105,7 @@ où :
 - `<password>` correspond au mot de passe que vous choisissez pour protéger le certificat ; il doit comporter au moins 6 caractères. Vous avez la possibilité de n’entrer aucun mot de passe, même si cela n’est pas recommandé.
 - `<dname>` correspond au nom unique X.500 à associer à l’alias, et est utilisé en tant que champs de l’émetteur et du sujet dans le certificat auto-signé.
 
-Pour plus d’informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure][].
+Pour plus d’informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure][].
 
 
 #### Téléchargement du certificat
@@ -594,7 +594,7 @@ Cette procédure crée une application web App Service. La ressource vous sera f
 [boîte à outils Azure pour Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [Portail Azure Classic]: https://manage.windowsazure.com
 [Qu'est-ce qu'un annuaire Azure AD]: http://technet.microsoft.com/library/jj573650.aspx
-[Créer et télécharger un certificat de gestion pour Windows Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Créer et télécharger un certificat de gestion pour Microsoft Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
 [Outil de gestion de clés et de certificats (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 [WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html

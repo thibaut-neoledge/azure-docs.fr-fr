@@ -73,7 +73,7 @@ Les appareils joints au domaine utiliseront cet objet pour découvrir des inform
 >[AZURE.NOTE]Le nom d'utilisateur des informations d'identification entrées lorsque la fenêtre contextuelle de Get-Credential s'affiche doit être au format **user@example.com*
 
 ### Configurer les règles de revendication AD FS
-Cela permet l'inscription instantanée d'un ordinateur avec Azure DRS en permettant aux ordinateurs de procéder à l'authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteindront Azure AD de manière différée (en fonction des heures de synchronisation de Connect de Windows Azure AD).
+Cela permet l'inscription instantanée d'un ordinateur avec Azure DRS en permettant aux ordinateurs de procéder à l'authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteindront Azure AD de manière différée (en fonction des heures de synchronisation de Connect de Microsoft Azure AD).
 
 >[AZURE.NOTE]Si vous n'avez pas AD FS en tant que serveur de fédération local, suivez les instructions de votre fournisseur pour créer les règles de revendication.
 

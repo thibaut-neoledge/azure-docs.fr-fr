@@ -30,11 +30,11 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 ##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
 
-1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.microsoftazure.com/pricing/free-trial/).
 
 2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
-3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
+3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
 	![Sélection de la machine virtuelle Serveur SQL][1]
 

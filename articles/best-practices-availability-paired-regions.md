@@ -61,7 +61,7 @@ Figure 2 – Paire régionale Azure hypothétique
 ## Activités entre régions
 Conformément à la figure 2.
 
-![1Vert](./media/best-practices-availability-paired-regions/1Green.png) **Calcul Windows Azure (PaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez [Guide technique Azure Business Continuity](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+![1Vert](./media/best-practices-availability-paired-regions/1Green.png) **Calcul Microsoft Azure (PaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez [Guide technique Azure Business Continuity](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
 ![2Vert](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](../storage/storage-redundancy.md).
 

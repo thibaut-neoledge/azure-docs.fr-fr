@@ -31,7 +31,7 @@ Il n'existe aucun coût supplémentaire lors de l'envoi d'un message à, ou lors
 
 ## Activation du partitionnement
 
-Pour utiliser des rubriques et des files d'attente partitionnées avec Microsoft Azure Service Bus, utilisez le Kit de développement logiciel Windows Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
+Pour utiliser des rubriques et des files d'attente partitionnées avec Microsoft Azure Service Bus, utilisez le Kit de développement logiciel Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
 
 Vous pouvez créer des files d'attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d'attente de 5 Go, avec 16 partitions, la taille maximale de la file d'attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure Classic][].
 
