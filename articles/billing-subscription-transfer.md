@@ -65,7 +65,7 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 -   **Si je deviens titulaire d’un abonnement d’une autre organisation, cette dernière aura-t-elle toujours accès à mes ressources ?**
 
     Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Par exemple :
-    - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
     -	Clés d'accès pour les services tels que Storage. Pour plus d'informations, consultez [Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Informations d'accès à distance pour les services tels que Azure Virtual Machines
 

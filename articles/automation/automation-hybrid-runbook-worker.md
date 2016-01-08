@@ -149,15 +149,15 @@ Vous pouvez modifier un Runbook pour le Runbook Worker hybride dans Azure Automa
 
 ## Relation avec Service Management Automation
 
-[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) est un composant de Windows Azure Pack (WAP) qui vous permet d'exécuter les mêmes Runbooks que ceux pris en charge par Azure Automation dans votre centre de données local. Contrairement à Azure Automation, SMA nécessite une installation locale qui inclut le portail de gestion Windows Azure Pack et une base de données pour contenir les Runbooks et la configuration de SMA. Azure Automation fournit ces services dans le cloud. Il ne vous reste plus qu'à tenir à jour les Runbooks Workers hybrides dans votre environnement local.
+[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) est un composant de Microsoft Azure Pack (WAP) qui vous permet d'exécuter les mêmes Runbooks que ceux pris en charge par Azure Automation dans votre centre de données local. Contrairement à Azure Automation, SMA nécessite une installation locale qui inclut le portail de gestion Microsoft Azure Pack et une base de données pour contenir les Runbooks et la configuration de SMA. Azure Automation fournit ces services dans le cloud. Il ne vous reste plus qu'à tenir à jour les Runbooks Workers hybrides dans votre environnement local.
 
 Si vous êtes un utilisateur SMA existant, vous pouvez déplacer vos Runbooks vers Azure Automation pour qu'ils soient utilisés avec la fonctionnalité Runbook Worker hybride sans subir aucune modification, en supposant qu'ils effectuent leur propre authentification auprès des ressources, comme décrit dans la section [Création de Runbooks pour un Runbook Worker hybride](#creating-runbooks-for-hybrid-runbook-worker). Dans SMA, les Runbooks s'exécutent dans le contexte du compte de service sur le serveur de Workers qui peut fournir cette authentification pour les Runbooks.
 
 Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation avec la fonctionnalité Runbook Worker hybride ou Service Management Automation est plus adapté à vos besoins.
 
-- SMA requiert une installation locale de Windows Azure Pack avec des ressources plus locales et des coûts de maintenance plus élevés qu’Azure Automation, qui nécessite uniquement qu’un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operations Management Suite, ce qui favorise la réduction des coûts de maintenance.
+- SMA requiert une installation locale de Microsoft Azure Pack avec des ressources plus locales et des coûts de maintenance plus élevés qu’Azure Automation, qui nécessite uniquement qu’un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operations Management Suite, ce qui favorise la réduction des coûts de maintenance.
 - Azure Automation stocke ses Runbooks dans le cloud et les remet à des Runbooks Workers hybrides locaux. Si votre stratégie de sécurité n'autorise pas ce comportement, vous devez utiliser SMA.
-- Windows Azure Pack est un téléchargement gratuit tandis qu'Azure Automation peut entraîner des frais d'abonnement.
+- Microsoft Azure Pack est un téléchargement gratuit tandis qu'Azure Automation peut entraîner des frais d'abonnement.
 - Azure Automation avec la fonctionnalité Runbook Worker hybride vous permet de gérer les Runbooks pour les ressources cloud et les ressources locales dans un seul et même emplacement, plutôt que de gérer à la fois Azure Automation et SMA.
 - Azure Automation dispose de fonctionnalités avancées, comme la création de graphiques qui ne sont pas disponibles dans SMA.
 

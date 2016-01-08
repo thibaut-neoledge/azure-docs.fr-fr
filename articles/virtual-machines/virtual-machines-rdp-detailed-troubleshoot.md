@@ -25,7 +25,7 @@ Cet article décrit les étapes de dépannage détaillées d’erreurs du Bureau
 
 > [AZURE.IMPORTANT]Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire [le dépannage de base pour le Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) avant de continuer.
 
-## Contacter le support clientèle de Windows Azure
+## Contacter le support clientèle de Microsoft Azure
 
 Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
 

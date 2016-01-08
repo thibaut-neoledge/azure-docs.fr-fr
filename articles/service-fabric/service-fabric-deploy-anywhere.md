@@ -44,7 +44,7 @@ L'exécution de clusters Service Fabric à l'aide du service hébergé Azure fou
 
 * Portail Azure : facilite la création et la gestion de clusters.
 * Azure Resource Manager : l’utilisation d’ARM permet de faciliter la gestion de toutes les ressources utilisées par le cluster en tant qu’unité et de simplifier le suivi des coûts et la facturation. 
-* Diagnostics : dans Azure, nous proposons l’intégration de WAD (Windows Azure Diagnostics) et d’Operational Insights pour les diagnostics.
+* Diagnostics : dans Azure, nous proposons l’intégration de WAD (Microsoft Azure Diagnostics) et d’Operational Insights pour les diagnostics.
 * Mise à l’échelle automatique : nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée pour les clusters hébergés par Azure. Dans d'autres environnements utilisant la fonctionnalité de déploiement universel, vous devrez créer votre propre fonctionnalité de mise à l'échelle automatique ou vous devrez mettre à l'échelle manuellement à l'aide des API que Service Fabric expose pour la mise à l'échelle des clusters.
 
 <!---HONumber=AcomDC_1203_2015-->

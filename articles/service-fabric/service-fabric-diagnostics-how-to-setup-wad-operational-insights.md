@@ -1,6 +1,6 @@
 <properties
    pageTitle="Comment collecter des journaux avec WAD et Operational Insights | Microsoft Azure"
-   description="Cet article décrit la procédure de configuration de Windows Azure Diagnostics et d’Operational Insights pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure"
+   description="Cet article décrit la procédure de configuration de Microsoft Azure Diagnostics et d’Operational Insights pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
@@ -17,12 +17,12 @@
    ms.author="kunalds"/>
 
 
-# Collecte de journaux d’un cluster Service Fabric dans Azure à l’aide de WAD (Windows Azure Diagnostics) et d’Operational Insights
+# Collecte de journaux d’un cluster Service Fabric dans Azure à l’aide de WAD (Microsoft Azure Diagnostics) et d’Operational Insights
 
-Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux facilite l’analyse et la résolution des problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster. L’une des façons de charger et collecter les journaux consiste à utiliser l’extension WAD (Windows Azure Diagnostics), qui charge les journaux dans une table de stockage Azure. Operational Insights (composant de Microsoft Operations Management Suite) est une solution SaaS qui facilite l’analyse et la recherche de journaux. Les étapes ci-dessous vous expliquent comment configurer WAD sur les machines virtuelles du cluster afin de charger les journaux vers un référentiel central, puis comment configurer Operational Insights pour extraire les journaux et les rendre consultables depuis le portail Operational Insights. Operational Insights identifie les sources des différents types de journaux chargés à partir d’un cluster Service Fabric selon les noms des tables de stockage Azure dans lesquelles ils sont stockés. Autrement dit, vous devez configurer WAD pour qu’il charge les journaux dans les tables de stockage Azure dont les noms correspondent à ce que recherche Operational Insights. Les exemples de paramètres de configuration donnés dans ce document vous montrent à quoi devraient ressembler les noms des tables de stockage.
+Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux facilite l’analyse et la résolution des problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster. L’une des façons de charger et collecter les journaux consiste à utiliser l’extension WAD (Microsoft Azure Diagnostics), qui charge les journaux dans une table de stockage Azure. Operational Insights (composant de Microsoft Operations Management Suite) est une solution SaaS qui facilite l’analyse et la recherche de journaux. Les étapes ci-dessous vous expliquent comment configurer WAD sur les machines virtuelles du cluster afin de charger les journaux vers un référentiel central, puis comment configurer Operational Insights pour extraire les journaux et les rendre consultables depuis le portail Operational Insights. Operational Insights identifie les sources des différents types de journaux chargés à partir d’un cluster Service Fabric selon les noms des tables de stockage Azure dans lesquelles ils sont stockés. Autrement dit, vous devez configurer WAD pour qu’il charge les journaux dans les tables de stockage Azure dont les noms correspondent à ce que recherche Operational Insights. Les exemples de paramètres de configuration donnés dans ce document vous montrent à quoi devraient ressembler les noms des tables de stockage.
 
 ## Lecture recommandée
-* [Windows Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (page en lien avec les services cloud, mais qui contient des informations et des exemples pertinents)
+* [Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (page en lien avec les services cloud, mais qui contient des informations et des exemples pertinents)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 * [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
@@ -37,7 +37,7 @@ Les outils suivants sont utilisés pour exécuter certaines opérations décrite
 2. Événements d’application : ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations sur la création de journaux à partir de votre application, consultez cet [article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
-## Déploiement de WAD (Windows Azure Diagnostics) sur un cluster Service Fabric pour la collecte et le chargement de journaux
+## Déploiement de WAD (Microsoft Azure Diagnostics) sur un cluster Service Fabric pour la collecte et le chargement de journaux
 La première étape de la collecte de journaux consiste à déployer l’extension WAD sur chaque machine virtuelle du cluster Service Fabric. WAD collecte les journaux sur chaque machine virtuelle et les charge sur le compte de stockage que vous spécifiez. La procédure varie légèrement selon que vous utilisiez le portail ou ARM et que vous effectuiez le déploiement pour un nouveau cluster ou pour un cluster déjà existant. Examinons les différentes étapes pour chaque scénario.
 
 ### Déploiement de WAD dans le cadre de la création d’un cluster via le portail
@@ -164,7 +164,7 @@ Pour connaître les étapes de création d’un espace de travail Operational In
 [Intégration d’Operational Insights](https://technet.microsoft.com/library/mt484118.aspx) (en anglais)
 
 ### Configuration de l’espace de travail Operational Insights pour l’affichage des journaux du cluster
-Une fois que vous avez créé l’espace de travail Operational Insights comme décrit ci-dessus, l’étape suivante consiste à configurer cet espace de travail afin d’extraire les journaux des tables Azure du cluster à partir desquelles ils seront chargés par Windows Azure Diagnostics. Cette configuration n’est pas disponible actuellement via le portail Operational Insights et ne peut être effectuée qu’à l’aide des commandes Powershell. Exécutez ce script PS. ```powershell <# Ce script configurera un espace de travail Operations Management Suite (également appelé espace de travail Operational Insights) pour lire Windows Azure Diagnostics à partir d’un compte de stockage Azure.
+Une fois que vous avez créé l’espace de travail Operational Insights comme décrit ci-dessus, l’étape suivante consiste à configurer cet espace de travail afin d’extraire les journaux des tables Azure du cluster à partir desquelles ils seront chargés par Microsoft Azure Diagnostics. Cette configuration n’est pas disponible actuellement via le portail Operational Insights et ne peut être effectuée qu’à l’aide des commandes Powershell. Exécutez ce script PS. ```powershell <# Ce script configurera un espace de travail Operations Management Suite (également appelé espace de travail Operational Insights) pour lire Microsoft Azure Diagnostics à partir d’un compte de stockage Azure.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
@@ -270,7 +270,7 @@ Voici quelques exemples de scénarios, accompagnés des requêtes que vous pouve
     Type=ServiceFabricReliableActorEvent AND TaskName=ActorMethodThrewException
     ```
 
-## Mise à jour de Windows Azure Diagnostics pour collecter et charger des journaux depuis de nouveaux canaux EventSource
+## Mise à jour de Microsoft Azure Diagnostics pour collecter et charger des journaux depuis de nouveaux canaux EventSource
 Pour mettre à jour WAD de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, vous devez simplement exécuter les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration de WAD pour un cluster existant. Vous devrez mettre à jour la section EtwEventSourceProviderConfiguration dans le fichier WadConfigUpdate.json pour ajouter des entrées pour les nouveaux EventSources avant d’appliquer la mise à jour de la configuration via la commande ARM. La table de chargement sera la même (ETWEventTable), puisqu’il s’agit de la table qui est configurée pour lire les événements ETW depuis Operational Insights.
 
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Approvisionnement d’une machine virtuelle pour la science des données | Microsoft Azure" 
-	description="Configurez et créez une machine virtuelle pour la science des données sur Windows Azure pour vos besoins d’analyse et d’apprentissage automatique." 
+	description="Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 

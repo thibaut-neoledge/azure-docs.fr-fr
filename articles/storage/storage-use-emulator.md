@@ -80,7 +80,7 @@ Lorsque la fenêtre de ligne de commande est fermée, l'émulateur de stockage c
 
 La première fois que vous exécutez l'émulateur de stockage, l'environnement de stockage local est initialisé pour vous. Le processus d'initialisation crée une base de données dans LocalDB et réserve des ports HTTP pour chaque service de stockage local.
 
-L’émulateur de stockage est installé par défaut dans le répertoire C:\\Program Files(x86)\\Microsoft SDKs\\Windows Azure\\Storage Emulator\\.
+L’émulateur de stockage est installé par défaut dans le répertoire C:\\Program Files(x86)\\Microsoft SDKs\\Microsoft Azure\\Storage Emulator\\.
 
 ### Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL
 

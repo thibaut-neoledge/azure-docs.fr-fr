@@ -48,7 +48,7 @@ Les diagnostics Azure stockent les données dans des tables Azure Storage. Toute
 
 ### Configuration d’Application Insights comme récepteur
 
-Lorsque vous utilisez les propriétés de rôle pour définir l’option « Envoyer des données à Application Insights », le Kit de développement logiciel (SDK) Windows Azure (version 2.8 ou ultérieure) ajoute un élément `<SinksConfig>` au [fichier de configuration publique Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) du rôle.
+Lorsque vous utilisez les propriétés de rôle pour définir l’option « Envoyer des données à Application Insights », le Kit de développement logiciel (SDK) Microsoft Azure (version 2.8 ou ultérieure) ajoute un élément `<SinksConfig>` au [fichier de configuration publique Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) du rôle.
 
 `<SinksConfig>` définit le récepteur supplémentaire auquel les données des diagnostics Azure peuvent être envoyées. Voici un exemple de `SinksConfig` :
 

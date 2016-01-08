@@ -166,8 +166,8 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 	| Chemin d’accès au Registre | Clé de Registre | Valeur |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
 
 
 + Démarrez le service OBEngine en exécutant la commande ci-après dans une invite de commandes avec élévation de privilèges :

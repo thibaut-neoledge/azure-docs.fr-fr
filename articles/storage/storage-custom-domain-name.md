@@ -90,7 +90,7 @@ Le sous-domaine asverify est un sous-domaine spécial reconnu par Azure. En ajou
 
 8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
 
-9.	Cochez la case **Avancé : utilisez le sous-domaine Windows Azure ’asverify’ pour préenregistrer votre domaine personnalisé**.
+9.	Cochez la case **Avancé : utilisez le sous-domaine Microsoft Azure ’asverify’ pour préenregistrer votre domaine personnalisé**.
 
 10. Cliquez sur le bouton **Register** pour pré-enregistrer votre domaine personnalisé.
 

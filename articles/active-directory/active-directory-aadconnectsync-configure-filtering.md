@@ -262,7 +262,7 @@ Grâce aux expressions, vous disposez d’options de filtrage très puissantes. 
 
 Dans certains cas, il est nécessaire d’effectuer le filtrage uniquement lorsque les objets se sont engagés dans le métaverse. Il peut par exemple être nécessaire d’examiner l’attribut de messagerie à partir de la forêt de ressources et l’attribut userPrincipalName à partir de la forêt de comptes pour déterminer si un objet doit être synchronisé. Dans ce cas, nous allons créer le filtrage sur la règle de trafic sortant.
 
-> [AZURE.NOTE]Cette méthode exige la modification des règles de synchronisation. La modification de l’étendue d’une règle de synchronisation est prise en charge, mais les modifications ne sont pas conservées après la mise à niveau vers une version plus récente de Connect de Windows Azure AD. Si vous utilisez le filtrage sortant, prenez note des modifications à apporter et après une mise à niveau, assurez-vous que le filtre est toujours là et réappliquez si nécessaire.
+> [AZURE.NOTE]Cette méthode exige la modification des règles de synchronisation. La modification de l’étendue d’une règle de synchronisation est prise en charge, mais les modifications ne sont pas conservées après la mise à niveau vers une version plus récente de Connect de Microsoft Azure AD. Si vous utilisez le filtrage sortant, prenez note des modifications à apporter et après une mise à niveau, assurez-vous que le filtre est toujours là et réappliquez si nécessaire.
 
 
 Dans cet exemple, nous modifierons le filtrage de sorte que seuls les utilisateurs dont le message et userPrincipalName se termine par @contoso.com seront synchronisés :

@@ -59,7 +59,7 @@ Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous p
 
 ## Étapes suivantes
 Le code de suivi que vous avez ajouté à votre application ci-dessus pour les diagnostics locaux fonctionne également avec les outils que vous pouvez utiliser pour afficher ces événements lors de l'exécution de votre application sur un cluster Azure, consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les définir.
-* [Collecte de journaux d’un cluster Service Fabric dans Azure à l’aide de WAD (Windows Azure Diagnostics) et d’Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Collecte de journaux d’un cluster Service Fabric dans Azure à l’aide de WAD (Microsoft Azure Diagnostics) et d’Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
 * [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
 <!---HONumber=Nov15_HO4-->

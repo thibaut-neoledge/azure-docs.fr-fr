@@ -105,7 +105,7 @@ Par exemple :
 
 Vous pouvez utiliser l’émulateur de calcul Microsoft Azure pour diagnostiquer et résoudre les problèmes de dépendances manquantes et les erreurs du fichier web.config.
 
-Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Windows Azure, vous devez utiliser Windows Server 2008 R2 x64.
+Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Microsoft Azure, vous devez utiliser Windows Server 2008 R2 x64.
 
 1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads)
 
