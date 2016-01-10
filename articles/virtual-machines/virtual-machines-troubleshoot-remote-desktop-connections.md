@@ -119,7 +119,7 @@ La partie adresse de ce fichier RDP comprend le nom de domaine complet du servic
 
 Cause : La machine virtuelle cible n'a pas pu localiser l'autorité de sécurité dans la partie nom d'utilisateur de vos informations d'identification.
 
-Quand votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Quand votre nom d’utilisateur est au format *SecurityAuthority\UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -134,8 +134,8 @@ Cause : La machine virtuelle cible n’a pas pu valider votre nom de compte et v
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple : CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName\UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName\UserName* (par exemple : CONTOSO\\johndoe).
 
 Si vous avez promu votre machine virtuelle vers un contrôleur de domaine d’une nouvelle forêt Active Directory, le compte administrateur local auquel vous êtes connecté se transforme également en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte administrateur local est alors supprimé. Par exemple, si vous vous connectez au compte administrateur local DC1\\DCAdmin et promouvez la machine virtuelle en tant que contrôleur de domaine dans une nouvelle forêt du domaine corp.contoso.com, le compte local DC1\\DCAdmin est supprimé et un compte de domaine (CORP\\DCAdmin) est créé avec le même mot de passe.
 
@@ -169,4 +169,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -70,10 +70,10 @@ Les appareils joints au domaine utiliseront cet objet pour découvrir des inform
 
 >[AZURE.NOTE]Remplacez [*nom de compte de connecteur*] par le compte de domaine utilisé comme compte de connecteur AD.
 
->[AZURE.NOTE]Le nom d'utilisateur des informations d'identification entrées lorsque la fenêtre contextuelle de Get-Credential s'affiche doit être au format **user@example.com*
+>[AZURE.NOTE]Le nom d'utilisateur des informations d'identification entrées lorsque la fenêtre contextuelle de Get-Credential s'affiche doit être au format *user@example.com*
 
 ### Configurer les règles de revendication AD FS
-Cela permet l'inscription instantanée d'un ordinateur avec Azure DRS en permettant aux ordinateurs de procéder à l'authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteindront Azure AD de manière différée (en fonction des heures de synchronisation de Connect de Microsoft Azure AD).
+Cela permet l'inscription instantanée d'un ordinateur avec Azure DRS en permettant aux ordinateurs de procéder à l'authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteindront Azure AD de manière différée (en fonction des heures de synchronisation de Connect de Windows Azure AD).
 
 >[AZURE.NOTE]Si vous n'avez pas AD FS en tant que serveur de fédération local, suivez les instructions de votre fournisseur pour créer les règles de revendication.
 
@@ -137,4 +137,4 @@ Vous pouvez utiliser une stratégie de groupe Active Directory pour configurer v
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

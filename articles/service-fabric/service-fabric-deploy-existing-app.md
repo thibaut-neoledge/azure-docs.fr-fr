@@ -63,9 +63,9 @@ Pour déployer une application dans Service Fabric, l'application doit respecter
 
 La racine contient le fichier ApplicationManifest.xml qui définit l'application. Un sous-répertoire pour chaque service inclus dans l'application est utilisé pour contenir tous les artefacts nécessaires au service : le fichier ServiceManifest.xml et généralement 3 répertoires :
 
-- *code* : contient le code du service.
-- *config* : contient un fichier settings.xml (et d'autres fichiers si nécessaire) auquel le service peut accéder à l'exécution pour récupérer des paramètres de configuration spécifiques.
-- *data* : un répertoire supplémentaire pour stocker des données locales supplémentaires dont le service peut avoir besoin. Remarque : le répertoire Data doit être utilisé pour stocker uniquement des données éphémères ; Service Fabric ne copie/réplique pas les modifications dans le répertoire des données si le service doit être déplacé, par exemple, pendant le basculement.
+- *code*: contient le code du service.
+- *config*: contient un fichier settings.xml (et d'autres fichiers si nécessaire) auquel le service peut accéder à l'exécution pour récupérer des paramètres de configuration spécifiques.
+- *data*: un répertoire supplémentaire pour stocker des données locales supplémentaires dont le service peut avoir besoin. Remarque : le répertoire Data doit être utilisé pour stocker uniquement des données éphémères ; Service Fabric ne copie/réplique pas les modifications dans le répertoire des données si le service doit être déplacé, par exemple, pendant le basculement.
 
 Remarque : inutile de créer les répertoires `config` et `data` si vous n'en avez pas besoin.
 
@@ -278,4 +278,4 @@ Dans cet article, vous avez appris à empaqueter une application existante et la
 - Découvrez comment [déployer plusieurs applications personnalisées](service-fabric-deploy-multiple-apps.md).
 - Procédure de mise en route avec la [création de votre première application Service Fabric à l'aide de Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

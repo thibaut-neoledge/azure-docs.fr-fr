@@ -16,7 +16,7 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 		config.SetIsHosted(true);
 
-	Ce code indique au projet de service mobile local de s'exécuter comme s'il était hébergé sous Azure, en honorant les paramètres *AuthorizeLevel*. Sans ce paramètre, toutes les requêtes HTTP adressées à localhost sont autorisées sans authentification malgré la présence du paramètre *AuthorizeLevel*l. Lorsque vous activez le mode auto-hébergé, vous devez également définir une valeur pour la clé d'application locale.
+	Ce code indique au projet de service mobile local de s'exécuter comme s'il était hébergé sous Azure, en honorant les paramètres *AuthorizeLevel*. Sans ce paramètre, toutes les requêtes HTTP adressées à localhost sont autorisées sans authentification malgré la présence du paramètre *AuthorizeLevel* l. Lorsque vous activez le mode auto-hébergé, vous devez également définir une valeur pour la clé d'application locale.
 
 4. (Facultatif) Dans le fichier de projet web.config, définissez une valeur de chaîne pour le paramètre d'application `MS_ApplicationKey`.
 
@@ -24,4 +24,4 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
  
 4. Publiez à nouveau votre projet.
 
-<!---HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

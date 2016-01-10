@@ -539,7 +539,7 @@ Tous les composants sont en place, votre projet devrait maintenant ressembler à
 Si ce n'est déjà fait, [configurez votre environnement de développement](service-fabric-get-started.md).
 
 
-Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre des événements de diagnostic, vous devriez voir un message indiquant que le serveur web est ouvert sur ****http://localhost:80/webapp/api**
+Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre des événements de diagnostic, vous devriez voir un message indiquant que le serveur web est ouvert sur **http://localhost:80/webapp/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -583,4 +583,4 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

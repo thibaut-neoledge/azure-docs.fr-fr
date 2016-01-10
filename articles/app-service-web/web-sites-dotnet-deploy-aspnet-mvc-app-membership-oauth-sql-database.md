@@ -445,7 +445,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les [didacticiels Identité ASP.NET](http://www.asp.net/identity/overview/features-api) sur le site ASP.NET.
+	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé *user1@contoso.com* et ajoute *user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les [didacticiels Identité ASP.NET](http://www.asp.net/identity/overview/features-api) sur le site ASP.NET.
 
 ## Utilisation de code temporaire pour ajouter de nouveaux utilisateurs de réseaux sociaux au rôle peutModifier  ##
 
@@ -501,7 +501,7 @@ Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour af
 
 		Update-Database
 
-La commande **Update-Database** exécute la méthode **Seed**, ce qui a pour effet d’exécuter la méthode **AddUserAndRole** ajoutée précédemment. La méthode **AddUserAndRole** crée l’utilisateur **user1@contoso.com* et l’ajoute au rôle *canEdit*.
+La commande **Update-Database** exécute la méthode **Seed**, ce qui a pour effet d’exécuter la méthode **AddUserAndRole** ajoutée précédemment. La méthode **AddUserAndRole** crée l’utilisateur *user1@contoso.com* et l’ajoute au rôle *canEdit*.
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
@@ -589,9 +589,9 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur le lien Modifier de la page. Vous serez redirigé vers la page de connexion (car un nouvel utilisateur local n’est pas ajouté au rôle *canEdit*).
 
-1. Connectez-vous en tant que **user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
+1. Connectez-vous en tant que *user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
 
-	Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que **user1@contoso.com* a été ajoutée.
+	Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que *user1@contoso.com* a été ajoutée.
 
 1. Vérifiez que vous pouvez effectuer des modifications.
 
@@ -615,7 +615,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur **Publier**.
 
-1. Connectez-vous en tant que **user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
+1. Connectez-vous en tant que *user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
 
 1. Déconnectez-vous.
 
@@ -699,7 +699,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
+1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de *user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -707,7 +707,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Vérifiez que les **UserId** sont ceux de **user1@contoso.com* et du compte Google de votre inscription.
+3. Vérifiez que les **UserId** sont ceux de *user1@contoso.com* et du compte Google de votre inscription.
 
 ## Résolution de problèmes
 
@@ -798,4 +798,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

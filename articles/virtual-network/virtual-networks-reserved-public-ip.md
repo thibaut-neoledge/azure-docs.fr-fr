@@ -43,7 +43,7 @@ Avant de pouvoir utiliser une adresse IP réservée, vous devez l'ajouter à vot
 
 	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
-Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
+Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address*:
 
 	Get-AzureReservedIP
 
@@ -119,4 +119,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
