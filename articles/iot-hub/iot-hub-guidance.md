@@ -56,7 +56,7 @@ Une passerelle de champ est différente d'un appareil de routage de trafic simpl
 
 ### Types de passerelles de champ
 
-Une passerelle de champ peut être *transparente* ou *opaque* :
+Une passerelle de champ peut être *transparente* ou *opaque*:
 
 | &nbsp; | Transparente | Opaque |
 |--------|-------------|--------|
@@ -119,4 +119,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

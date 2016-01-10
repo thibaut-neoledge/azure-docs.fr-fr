@@ -467,9 +467,9 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
-	- Dans le dossier *Views\\Home* : *Index.cshtml*
+	- Dans le dossier *Controllers*: *AdController.cs*.
+	- Dans le dossier *Views\\Shared*: fichier *\_Layout.cshtml*
+	- Dans le dossier *Views\\Home*: *Index.cshtml*
 	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
@@ -816,4 +816,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->
