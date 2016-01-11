@@ -299,10 +299,13 @@ Dans ce didacticiel HBase pour HDInsight, vous avez appris à approvisionner un 
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview]. HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées.
-- [Création de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]. Avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
+- [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
+ HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées.
+- [Création de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]. 
+Avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
 - [Configuration de la géo-réplication HBase dans HDInsigtht](hdinsight-hbase-geo-replication.md) Découvrez comment configurer la réplication HBase entre deux centres de données Azure.
-- [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] Apprenez à effectuer une [analyse des sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) des données volumineuses en temps réel à l’aide de HBase dans un cluster Hadoop dans HDInsight.
+- [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment].
+ Apprenez à effectuer une [analyse des sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) des données volumineuses en temps réel à l’aide de HBase dans un cluster Hadoop dans HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

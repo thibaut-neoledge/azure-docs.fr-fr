@@ -226,9 +226,11 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 
 ## Surveiller le pipeline
  
-1.	Après la connexion au [portail Azure](http://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. ![Parcourir tout -> Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Après la connexion au [portail Azure](http://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. 
+		![Parcourir tout -> Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Dans le panneau **Fabriques de données**, cliquez sur la fabrique de données (**TutorialFactoryARM**) que vous avez créée.	
-2.	Dans le panneau **Fabrique de données** de votre fabrique de données, cliquez sur **Diagramme**. ![Vignette du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	Dans le panneau **Fabrique de données** de votre fabrique de données, cliquez sur **Diagramme**. 
+		![Vignette du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	Dans la **Vue de diagramme**, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 	
 	![Vue du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 

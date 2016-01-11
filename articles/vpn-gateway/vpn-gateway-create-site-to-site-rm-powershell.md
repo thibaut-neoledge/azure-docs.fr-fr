@@ -28,7 +28,7 @@ Cet article vous guidera dans la création d’un réseau virtuel et d’une con
 
 **À propos des modèles de déploiement Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Avant de commencer
 
@@ -46,7 +46,7 @@ Vous aurez besoin de la dernière version des applets de commande PowerShell Azu
 	
 [AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
-## 1\. Connexion à votre abonnement 
+## 1. Connexion à votre abonnement 
 
 
 Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
@@ -64,7 +64,7 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
+## 2. Créer un réseau virtuel et un sous-réseau de passerelle
 
 - Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle, vous pouvez passer d’emblée à **Étape 3 : Ajouter votre site local**. 
 - Si vous disposez déjà d’un réseau virtuel et que vous souhaitez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
@@ -99,7 +99,7 @@ Si vous disposez déjà d’un réseau virtuel existant et que vous voulez y ajo
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3\. Ajouter votre site local
+## 3. Ajouter votre site local
 
 Dans un réseau virtuel, le *site local* fait généralement référence à votre emplacement local. Vous donnez à ce site un nom qui sera utilisé par Azure pour le référencer.
 
