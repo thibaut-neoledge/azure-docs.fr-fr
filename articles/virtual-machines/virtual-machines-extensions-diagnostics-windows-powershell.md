@@ -1,4 +1,11 @@
-< properties pageTitle="Activer les diagnostics sur une machine virtuelle Azure exécutant Windows à l’aide de PowerShell | Microsoft Azure" description="Découvrez comment utiliser PowerShell pour activer les diagnostics sur une machine virtuelle Azure exécutant Windows" services="virtual-machines" documentationCenter="" authors="sbtron" manager="" editor="""/>
+<properties 
+	pageTitle="Activer les diagnostics sur une machine virtuelle Azure exécutant Windows à l’aide de PowerShell | Microsoft Azure" 
+	description="Découvrez comment utiliser PowerShell pour activer les diagnostics sur une machine virtuelle Azure exécutant Windows" 
+	services="virtual-machines" 
+	documentationCenter=""
+	authors="sbtron"
+	manager=""
+	editor="""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -193,4 +200,4 @@ La configuration doit être mise à jour pour inclure les éléments suivants :
 - Pour obtenir une aide supplémentaire sur l’utilisation des diagnostics Azure et d’autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/mt634524.aspx) explique les différentes options de configuration xml pour l’extension de diagnostics.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
