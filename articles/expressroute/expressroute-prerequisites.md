@@ -58,7 +58,7 @@ Reportez-vous à [Conditions requises de traductions d’adresses réseau Expres
 Passez en revue les ressources suivantes pour plus d’informations sur les conditions requises pour Office 365.
 
 - [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune)
-- [Gestion du trafic réseau Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Gestion du trafic réseau Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Reportez-vous à l’article [Conditions requises de qualité de service ExpressRoute](expressroute-qos.md) pour des instructions détaillées sur les conditions requises et les configurations relatives à la qualité de service. Vérifiez auprès de votre fournisseur de connectivité s’il offre plusieurs classes de services pour votre réseau VPN. 
 
 ## Étapes suivantes
@@ -71,4 +71,4 @@ Passez en revue les ressources suivantes pour plus d’informations sur les cond
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

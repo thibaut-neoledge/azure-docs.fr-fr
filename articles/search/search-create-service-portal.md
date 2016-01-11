@@ -25,7 +25,7 @@ Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'
 
 En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement Azure existant gratuitement quand vous choisissez le service partagé, ou à un tarif standard quand vous choisissez des ressources dédiées.
 
-1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
@@ -92,10 +92,7 @@ Une fois le service créé, vous pouvez revenir au Portail Azure Classic pour ob
 <a id="sub-4"></a>
 ## Test des opérations de service
 
-La dernière étape de la configuration d’Azure Search consiste à confirmer que votre service est opérationnel et accessible à partir d’une application cliente. Vous pouvez utiliser un des liens suivants pour vérifier la disponibilité du service sans entrer de code.
-
-- [Utilisation de Chrome Postman avec Azure Search](search-chrome-postman.md)
-- [Utilisation de Telerik Fiddler avec Azure Search](search-fiddler.md)
+La dernière étape de la configuration d’Azure Search consiste à confirmer que votre service est opérationnel et accessible à partir d’une application cliente. Vous pouvez utiliser [Fiddler et Azure Search](search-fiddler.md) pour vérifier la disponibilité du service.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -123,4 +120,4 @@ Les informations suivantes vous expliquent comment créer et gérer des applicat
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

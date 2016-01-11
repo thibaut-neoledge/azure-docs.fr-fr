@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="12/18/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -27,10 +27,10 @@
 
 Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) évolutif en utilisant le portail Azure. La configuration de base de données SQL avec des pools de base de données élastique simplifie l’administration et le partage des ressources entre plusieurs bases de données.
 
-> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server.md) en une seule étape.
+> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
 
 
-Avant de commencer, vous avez besoin d’une base de données sur un serveur SQL Database V12. Dans le cas contraire, consultez [Création de votre première base de données SQL Azure](sql-database-get-started.md) pour en créer une en moins de cinq minutes. Si vous disposez déjà d’un serveur de base de données SQL V11, vous pouvez [assurer la mise à niveau vers V12 dans le portail](sql-database-v12-upgrade.md), puis revenir et suivre les instructions ci-après pour créer un pool.
+Avant de commencer, vous avez besoin d’une base de données sur un serveur SQL Database V12. Dans le cas contraire, consultez [Création de votre première base de données SQL Azure](sql-database-get-started.md) pour en créer une en moins de cinq minutes. Si vous disposez déjà d’un serveur SQL Database V11, vous pouvez [assurer la mise à niveau vers V12 dans le portail](sql-database-v12-upgrade.md), puis revenir et suivre les instructions ci-après pour créer un pool.
 
 
 ## Étape 1 : ajouter un pool à un serveur
@@ -67,7 +67,7 @@ Le niveau de tarification du pool détermine les fonctionnalités disponibles po
 
 ### Recommandations sur les niveaux de tarification
 
-Le service de base de données SQL évalue l'historique d'utilisation et recommande un ou plusieurs pools élastiques de bases de données lorsqu'il est plus économique que l'utilisation de bases de données uniques.
+Le service SQL Database évalue l'historique d'utilisation et recommande un ou plusieurs pools élastiques de bases de données lorsqu'il est plus économique que l'utilisation de bases de données uniques.
 
 Les niveaux de tarification indiqués par une étoile (![étoile][10]) sont recommandés en fonction des charges de travail de vos bases de données.
 
@@ -89,7 +89,9 @@ Le service évalue les besoins en ressources et la rentabilité du déplacement 
 
 ## Étape 3 : ajouter des bases de données au pool
 
-Vous pouvez sélectionner à tout moment les bases de données spécifiques à inclure dans le pool. Lorsque vous créez un nouveau pool, Azure recommande les bases de données adaptées pour un pool en les marquant pour l'inclusion. Vous pouvez ajouter toutes les bases de données disponibles sur le serveur, ou vous pouvez sélectionner des bases de données dans la liste initiale ou en effacer selon vos besoins.
+Vous pouvez sélectionner à tout moment les bases de données spécifiques à inclure dans le pool. (Pour créer une base de données dans un pool, consultez [Ajouter et supprimer des bases de données](sql-database-elastic-pool-portal.md#add-and-remove-databases-from-the-pool) ci-dessous.)
+
+Lorsque vous créez un nouveau pool, Azure recommande les bases de données adaptées pour un pool en les marquant pour l'inclusion. Vous pouvez ajouter toutes les bases de données disponibles sur le serveur, ou vous pouvez sélectionner des bases de données dans la liste initiale ou en effacer selon vos besoins.
 
    ![Ajouter des bases de données][5]
 
@@ -99,13 +101,13 @@ Vous devez respecter les conditions suivantes lorsque vous sélectionnez une bas
 - Les fonctionnalités actuelles utilisées par la base de données doivent être disponibles dans le pool.
 
 
-## Étape 4 : ajuster les caractéristiques de performances
+## Étape 4: définition des caractéristiques de performances du pool
 
-Vous configurez les performances du pool en définissant les paramètres de performance pour le pool et les bases de données élastiques dans le pool. N’oubliez pas que les **paramètres de base de données élastique** s’appliquent à toutes les bases de données dans le pool.
+Vous configurez les performances du pool en définissant les paramètres de performance pour le pool et les bases de données élastiques dans le pool. N’oubliez pas que les **paramètres de base de données élastique** s’appliquent à toutes les bases de données du pool.
 
    ![Configurer un pool élastique][3]
 
-Il existe trois paramètres configurables qui définissent les performances pour le regroupement : le nombre d'eDTU garanti pour le pool, eDTU MIN et eDTU MAX pour les bases de données élastiques dans le pool. La table suivante décrit chaque paramètre et fournit des conseils pour leur définition. Pour découvrir les paramètres spécifiques des valeurs disponibles, voir [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
+Il existe trois paramètres configurables qui définissent les performances pour le regroupement : le nombre d'eDTU garanti pour le pool, eDTU MIN et eDTU MAX pour les bases de données élastiques dans le pool. La table suivante décrit chaque paramètre et fournit des conseils pour leur définition. Pour découvrir les paramètres spécifiques des valeurs disponibles, consultez la [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
 
 | Paramètre de performance | Description |
 | :--- | :--- |
@@ -138,9 +140,23 @@ Comme pour les recommandations en matière de niveau tarifaire de pool de base d
 
 ## Ajout et suppression de bases de données dans le pool
 
-Une fois le pool créé, vous pouvez ajouter des bases de données au pool ou en supprimer en sélectionnant ou en supprimant des bases de données sur la page **Ajouter des bases de données**.
+### Ajouter une base de données existante au pool
 
-Après la création d'un pool, vous pouvez également utiliser Transact-SQL pour créer de nouvelles bases de données élastiques dans le pool et déplacer des bases de données dans ou hors d'un pool. Pour plus d’informations, voir [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Une fois le pool créé, vous pouvez ajouter ou supprimer des bases de données existantes dans le pool, en ajoutant ou en supprimant des bases de données sur la page **Bases de données élastiques** (accédez à votre pool, puis cliquez sur le lien **Bases de données élastiques** dans **Essentials**).
+
+Après la création d'un pool, vous pouvez également utiliser Transact-SQL pour créer de nouvelles bases de données élastiques dans le pool et déplacer des bases de données dans ou hors d'un pool. Pour plus d’informations, consultez [Informations de référence sur les pools de base de données élastiques – Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
+
+### Ajouter une nouvelle base de données au pool
+
+Créez une base de données dans un pool en accédant au pool souhaité et en cliquant sur **Créer une base de données**.
+
+La base de données SQL est déjà configurée pour le serveur approprié et le pool : entrez donc un nom et sélectionnez vos options de base de données, puis cliquez sur **OK** pour créer la base de données :
+
+
+   ![créer des bases de données élastiques][13]
+
+
 
 
 ## Surveiller et gérer un pool élastique de bases de données
@@ -149,7 +165,7 @@ Après avoir créé un pool élastique de bases de données, vous pouvez surveil
 
 Après avoir créé un pool, vous pouvez :
 
-- Sélectionner **Configurer le pool** pour modifier les paramètres d’eDTU par pool et par base de données.
+- Sélectionner **Configurer le pool** pour changer l’eDTU du pool et les paramètres d’eDTU par base de données.
 - Sélectionner **Créer une tâche** et gérer les bases de données dans le pool en créant des tâches élastiques. Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 - Sélectionner **Gérer les tâches** pour gérer les travaux élastiques existants.
 
@@ -201,5 +217,6 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
+[13]: ./media/sql-database-elastic-pool-portal/create-database.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

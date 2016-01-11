@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #Créer une application Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
@@ -48,7 +48,7 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 
 ## Configurer le projet de serveur
 
-[AZURE.INCLUDE [app-service-mobile-Configure-New-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ##Télécharger et exécuter le projet client
 
@@ -74,9 +74,11 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
 ##Étapes suivantes
 
-* [Ajouter l’authentification à votre application ](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajouter l’authentification à votre application ](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+<br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajouter les notifications push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
+* [Ajouter les notifications push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+<br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -85,4 +87,4 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

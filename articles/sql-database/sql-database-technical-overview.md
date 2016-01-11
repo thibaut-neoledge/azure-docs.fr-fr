@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/22/2015"
    ms.author="shkurhek"/>
 
 # Définition de la base de données SQL Introduction à la base de données SQL, détails techniques et explication des DTU
@@ -61,4 +61,4 @@ Maintenant que vous avez lu l’introduction à la base de données SQL et répo
 
 - Commencez par [créer votre première base de données](sql-database-get-started.md). Puis, créez votre première application en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

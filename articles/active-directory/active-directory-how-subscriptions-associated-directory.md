@@ -28,13 +28,14 @@ Commençons tout d’abord par les comptes que vous pouvez utiliser pour vous co
 Le système d'identité de consommateurs exécuté par Microsoft | Le système d'identité d’entreprises exécuté par Microsoft
 Authentification des services orientés vers les consommateurs, tels que Hotmail et MSN | Authentification des services orientés vers les entreprises, tels que Office 365
 Les consommateurs créent leurs propres comptes Microsoft, par exemple lors de leur inscription au courrier électronique | Les sociétés et organisations créent et gèrent leurs propres comptes professionnels ou scolaires
-Les identités sont créées et stockées dans le système de comptes Microsoft | Les identités sont créées à l'aide d'Azure ou d’un autre service, tel que Office 365, et sont stockées dans une instance Azure AD attribuée à l’organisation
+Les identités sont créées et stockées dans le système de comptes Microsoft | Les identités sont créées via Azure ou un autre service, tel qu’Office 365, puis sont stockées dans une instance Azure AD attribuée à l’organisation
 
-Bien que Azure ait initialement autorisé l’accès aux utilisateurs de compte Microsoft uniquement, il permet désormais l'accès aux utilisateurs des *deux* systèmes. Ceci a été possible via l'approbation des propriétés Azure pour l'authentification Azure AD, l’authentification Azure AD des utilisateurs professionnels et la création d’une relation de fédération dans laquelle Azure AD approuve le système d'identité Microsoft de compte consommateur pour authentifier les utilisateurs consommateurs. Par conséquent, Azure AD est en mesure d'authentifier les comptes « invités » de Microsoft, ainsi que les comptes Azure AD « natifs ».
+Même si Azure avait initialement autorisé l’accès aux utilisateurs de compte Microsoft uniquement, il autorise désormais l’accès aux utilisateurs des *deux* systèmes. Ceci a été possible via l’approbation des propriétés Azure pour l’authentification Azure AD, l’authentification Azure AD des utilisateurs professionnels et la création d’une relation de fédération dans laquelle Azure AD approuve le système d’identité Microsoft de compte consommateur pour authentifier les utilisateurs consommateurs. Par conséquent, Azure AD est en mesure d'authentifier les comptes « invités » de Microsoft, ainsi que les comptes Azure AD « natifs ».
 
 Par exemple, un utilisateur titulaire d’un compte Microsoft se connecte au portail Azure Classic.
 
-> [AZURE.NOTE]Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
+> [AZURE.NOTE]
+> Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
 
 ![][1]
 
@@ -42,7 +43,7 @@ Du fait que cette adresse Hotmail soit un compte consommateur, la connexion est 
 
 ## Association d’un abonnement Azure à Azure AD
 
-Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les périphériques. Plusieurs abonnements peuvent approuver le même répertoire, mais un abonnement n’approuve qu’un seul répertoire. Vous pouvez découvrir quel répertoire est approuvé par votre abonnement dans l'onglet Paramètres. Vous pouvez [modifier les paramètres d'abonnement](active-directory-understanding-resource-access.md) pour modifier le répertoire qu'il approuve.
+Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même répertoire, mais un abonnement n’approuve qu’un seul répertoire. Vous pouvez découvrir quel répertoire est approuvé par votre abonnement dans l'onglet Paramètres. Vous pouvez [modifier les paramètres d'abonnement](active-directory-understanding-resource-access.md) pour modifier le répertoire qu'il approuve.
 
 Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire.
 
@@ -100,17 +101,18 @@ Il vous suffit, dans ce cas, de vous [inscrire à Azure](sign-up-organization.md
 
 ### Je dispose d’un abonnement Azure via mon compte Microsoft
 
-Si vous vous êtes abonné à Office 365 à l'aide d'un compte professionnel ou scolaire et à Azure à l'aide d'un compte Microsoft, deux répertoires sont à votre disposition : un pour votre organisation ou votre établissement scolaire et un répertoire par défaut, créé lors de votre abonnement à Azure.
+Si vous vous êtes abonné à Office 365 avec un compte professionnel ou scolaire, puis à Azure avec un compte Microsoft, vous disposez de deux répertoires : un pour votre organisation ou votre établissement scolaire, et un répertoire par défaut, créé lors de votre abonnement à Azure.
 
 Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme suit.
 
-> [AZURE.NOTE]Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Lorsque l'utilisateur est connecté à l’aide d’un compte professionnel ou scolaire, l'option **Utiliser un répertoire existant** est indisponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
+> [AZURE.NOTE]
+> Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
 
 1. Connectez-vous au portail Azure Classic à l’aide de votre compte Microsoft.
 2. Cliquez sur **Nouveau** > **Services d’application** > **Active Directory** > **Répertoire** > **Création personnalisée**.
 3. Cliquez sur **Utiliser un répertoire existant**, sur **Je suis prêt à être déconnecté**, puis sur la coche pour terminer l'action.
 4. Connectez-vous au portail Azure Classic à l’aide d’un compte disposant des droits d’administrateur général du répertoire Professionnel ou scolaire.
-5. Lorsque l’on vous invite à **Utiliser le répertoire Contoso avec Azure**, cliquez sur **Continuer**.
+5. Lorsque vous êtes invité à **Utiliser le répertoire Contoso avec Azure**, cliquez sur **Continuer**.
 6. Cliquez sur **Se déconnecter maintenant**.
 7. Reconnectez-vous au portail Azure Classic à l’aide de votre compte Microsoft. Les répertoires apparaîtront dans l'extension Active Directory.
 
@@ -124,4 +126,4 @@ Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
