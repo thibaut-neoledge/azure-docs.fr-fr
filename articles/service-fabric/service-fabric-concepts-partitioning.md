@@ -284,7 +284,9 @@ Il est également important de noter que l’URL publiée diffère légèrement 
     Voici la procédure pas à pas. Le code lit la première lettre du paramètre de chaîne de requête `lastname` sous forme de caractère. Il détermine ensuite la clé de partition pour cette lettre en soustrayant la valeur hexadécimale de `A` de la valeur hexadécimale de la première lettre des derniers noms.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     N’oubliez pas que, dans cet exemple, nous utilisons 26 partitions avec une seule clé de partition par partition. Nous obtenons ensuite la partition de service `partition` pour cette clé en utilisant la méthode `ResolveAsync` sur l'objet `servicePartitionResolver`. `servicePartitionResolver` est défini comme
@@ -322,8 +324,10 @@ Il est également important de noter que l’URL publiée diffère légèrement 
   </Parameters>
   ```
 
-16. Une fois déployé, vous pouvez vérifier le service et toutes ses partitions dans l'Explorateur de Service Fabric. ![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. Dans un navigateur, vous pouvez tester la logique de partitionnement en entrant `http://localhost:8090/?lastname=somename`. Vous verrez que chaque nom de famille commençant par la même lettre sera stocké dans la même partition. ![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Une fois déployé, vous pouvez vérifier le service et toutes ses partitions dans l'Explorateur de Service Fabric.
+![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. Dans un navigateur, vous pouvez tester la logique de partitionnement en entrant `http://localhost:8090/?lastname=somename`. Vous verrez que chaque nom de famille commençant par la même lettre sera stocké dans la même partition.
+![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 Le code source complet de cet exemple est disponible sur [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
