@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
@@ -24,15 +24,15 @@ Vous créez des définitions de stratégies qui décrivent les actions ou les re
 
 Dans cet article, nous allons expliquer la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrirons comment vous pouvez appliquer ces stratégies au niveau de différentes étendues et, enfin, nous présenterons des exemples d'application par le biais de l'API REST.
 
-La stratégie est actuellement disponible en version préliminaire.
+La stratégie est actuellement disponible en version Preview.
 
 ## Quelle est la différence avec RBAC ?
 
 Il existe quelques différences importantes entre la stratégie et le contrôle d'accès en fonction du rôle, mais la première chose à comprendre est que les stratégies et le contrôle d'accès en fonction du rôle (RBAC) fonctionnent ensemble. Pour pouvoir utiliser la stratégie, l'utilisateur doit être authentifié au moyen de RBAC. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus.
 
-Le contrôle d’accès en fonction du rôle (RBAC) se concentre sur les actions qu’un **utilisateur** peut effectuer selon différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
+Le contrôle d’accès en fonction du rôle (RBAC) porte principalement sur les actions qu’un **utilisateur** peut effectuer dans différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
 
-La stratégie se concentre sur les actions sur les **ressources** selon différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
+La stratégie porte principalement sur les actions des **ressources** dans différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
 
 ## Scénarios courants
 
@@ -50,7 +50,7 @@ Une définition de stratégie est créée à l’aide de JSON. Elle se compose d
 
 Essentiellement, une stratégie contient les éléments suivants :
 
-**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d’un ensemble d’opérateurs logiques.
+**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées via un ensemble d’opérateurs logiques.
 
 **Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un audit si quelqu’un crée une machine virtuelle de grande taille, puis passer en revue les journaux ultérieurement.
 
@@ -71,10 +71,10 @@ Les opérateurs logiques pris en charge avec la syntaxe sont répertoriés ci-ap
 | Nom de l’opérateur | Syntaxe |
 | :------------- | :------------- |
 | Not | "not" : {&lt;condition ou opérateur &gt;} |
-| Et | "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
-| Ou | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| Et | « allOf »: [ {&lt; condition ou opérateur &gt;},{&lt; condition ou opérateur &gt;}] |
+| Ou | « anyOf »: [ {&lt; condition ou opérateur &gt;},{&lt; condition ou opérateur &gt;}] |
 
-Les conditions imbriquées ne sont pas prises en charge.
+Resource Manager vous permet de spécifier une logique complexe dans votre stratégie via des opérateurs imbriqués. Par exemple, vous pouvez refuser la création de ressources à un emplacement particulier pour un type de ressource spécifié. Voici un exemple d’opérateurs imbriqués.
 
 ## Conditions
 
@@ -88,7 +88,6 @@ Une condition évalue si un **champ** ou une **source** répond à certains crit
 | Dans | "in" : [ "&lt;valeur1&gt;","&lt;valeur2&gt;" ]|
 | Contient clé | "containsKey" : "&lt;nom\_clé&gt;" |
 
-
 ## Champs et sources
 
 Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource. Une source représente les caractéristiques de la requête elle-même.
@@ -99,7 +98,7 @@ Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
 Sources : **action**.
 
-Pour obtenir plus d'informations sur les actions, consultez [RBAC : rôles intégrés](active-directory/role-based-access-built-in-roles.md).
+Pour obtenir plus d’informations sur les actions, consultez [RBAC - Rôles prédéfinis](active-directory/role-based-access-built-in-roles.md). Actuellement, la stratégie fonctionne uniquement sur les demandes PUT.
 
 ## Exemples de définition de stratégie
 
@@ -185,6 +184,30 @@ L’exemple ci-dessous illustre l’utilisation de caractères génériques, gr�
         "effect" : "deny"
       }
     }
+    
+### Spécification de balise uniquement pour les ressources de stockage
+
+L’exemple ci-dessous montre comment imbriquer des opérateurs logiques pour requérir une balise d’application seulement pour les ressources de stockage.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
 
 ## Affectation de rôle
 
@@ -252,13 +275,13 @@ Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être
 
 ### Affectation de stratégie avec l’API REST
 
-Vous pouvez appliquer la définition de stratégie en fonction l’étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
+Vous pouvez appliquer la définition de stratégie à l’étendue souhaitée via l’[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
 Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l'API, utilisez *2015-10-01-preview*.
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2015-10-01-preview*.
 
 Avec un corps de demande semblable au suivant :
 
@@ -273,7 +296,7 @@ Avec un corps de demande semblable au suivant :
       "name":"VMPolicyAssignment"
     }
 
-Pour plus d'informations et des exemples, consultez [API REST pour l'affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Pour plus d’informations et des exemples, consultez [API REST pour l’affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
 ### Affectation de stratégies à l'aide de PowerShell
 
@@ -291,4 +314,17 @@ Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'a
 
 De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
 
-<!---HONumber=Nov15_HO3-->
+##Événements d’audit de stratégie
+
+Après avoir appliqué votre stratégie, vous commencez à voir des événements liés à la stratégie. Vous pouvez accéder au portail ou utiliser PowerShell pour obtenir ces données.
+
+Pour afficher tous les événements liés au résultat « refus », vous pouvez utiliser la commande suivante.
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande suivante.
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

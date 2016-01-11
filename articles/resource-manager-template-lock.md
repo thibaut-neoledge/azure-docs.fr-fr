@@ -60,7 +60,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 Vous ajoutez cette ressource à votre modèle pour empêcher des actions spécifiées sur une ressource. Le verrou s'applique à tous les utilisateurs et groupes. En règle générale, vous appliquez un verrou pour une durée limitée, par exemple lorsqu'un processus est en cours d'exécution et que vous souhaitez vous assurer que personne dans votre organisation ne modifie ou ne supprime par mégarde une ressource.
 
-Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** bénéficient de ces actions. Pour plus d'informations sur le contrôle d'accès en fonction du rôle, consultez [Gestion de l'accès aux ressources](resource-group-rbac.md).
+Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
 Le verrou est appliqué à la ressource spécifiée et à toutes les ressources enfants. Si vous appliquez plusieurs verrous à une ressource, le verrou le plus restrictif est prioritaire. Par exemple, si vous appliquez ReadOnly au niveau du parent (par exemple le groupe de ressources) et CanNotDelete à une ressource de ce groupe, le verrou le plus restrictif (ReadOnly), provenant du parent, est prioritaire.
 
@@ -133,4 +133,4 @@ L'exemple suivant applique un verrou ReadOnly au groupe de ressources.
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour plus d'informations sur les verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

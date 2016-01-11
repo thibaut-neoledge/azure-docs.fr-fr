@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des services d'infrastructure Azure : batterie de serveurs SharePoint Intranet
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 Configurez votre première ou votre prochaine batterie de serveurs SharePoint dans Microsoft Azure, et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs pour y ajouter de nouvelles capacités ou y optimiser des fonctionnalités importantes. Beaucoup de batteries de serveurs SharePoint évoluent d’une configuration standard à haute disponibilité et à trois niveaux vers une batterie de serveurs comprenant une dizaine de serveurs ou davantage, optimisés pour les performances ou pour des rôles distincts, comme la mise en cache distribuée ou la recherche.
 
-Avec les machines virtuelles et les fonctionnalités des réseaux virtuels des services d'infrastructure Azure, vous pouvez déployer et exécuter rapidement une batterie de serveurs SharePoint connectée de façon transparente à votre réseau local. Vous pouvez configurer par exemple le réseau suivant.
+Avec les machines virtuelles et les fonctionnalités des réseaux virtuels des services d'infrastructure Azure, vous pouvez déployer et exécuter rapidement une batterie de serveurs SharePoint connectée de façon transparente à votre réseau local. Vous pouvez par exemple configurer l’élément suivant :
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
 
@@ -44,7 +44,7 @@ Vous disposez de deux manières de créer un environnement de développement/tes
 - Réseau virtuel cloud uniquement
 - Réseau virtuel entre sites locaux
 
-Vous pouvez créer ces environnements de développement/test gratuitement avec votre [abonnement MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](http://azure.microsoft.com/pricing/free-trial/).
+Vous pouvez créer ces environnements de développement / test gratuitement avec votre [abonnement Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ### Réseau virtuel cloud uniquement
 
@@ -62,7 +62,7 @@ L’étape suivante consiste à créer une batterie de serveurs SharePoint intra
 
 ## Déployer une batterie de serveurs SharePoint intranet hébergée dans Azure
 
-La configuration de base représentative pour une batterie de serveurs SharePoint intranet fonctionnelle à haute disponibilité dans Azure se présente comme dans l'exemple suivant.
+La configuration de base représentative pour une batterie de serveurs SharePoint intranet fonctionnelle à haute disponibilité se présente comme suit :
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
 
@@ -70,58 +70,19 @@ Elle est constituée de :
 
 - Une batterie SharePoint intranet avec deux serveurs aux niveaux web, application et base de données.
 - Une configuration de groupes de disponibilité SQL Server AlwaysOn avec deux serveurs SQL et un ordinateur de nœud majoritaire dans un cluster.
-- Un Azure Active Directory dans le réseau virtuel avec deux contrôleurs de domaine répliqués.
+- Deux contrôleurs de domaine de réplica d’un domaine Active Directory local.
 
 Pour voir cette configuration sous forme d’infographie, consultez [SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788).
-
-### Nomenclature
-
-Cette configuration de référence requiert l’ensemble suivant de services et de composants Azure :
-
-- Neuf machines virtuelles.
-- Quatre disques de données supplémentaires pour les contrôleurs de domaine et les serveurs SQL.
-- Trois services cloud.
-- Quatre groupes à haute disponibilité.
-- Un réseau virtuel entre sites.
-- Un compte de stockage.
-- Un abonnement Azure.
-
-Voici les machines virtuelles et leur taille par défaut pour cette configuration.
-
-Élément | Description de la machine virtuelle | Image de galerie | Taille par défaut
---- | --- | --- | ---
-1\. | Premier contrôleur de domaine | Windows Server 2012 R2 Datacenter | A2 (Medium)
-2\. | Deuxième contrôleur de domaine | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3\. | Premier serveur de base de données | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-4\. | Deuxième serveur de base de données | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-5\. | Nœud majoritaire du cluster | Windows Server 2012 R2 Datacenter | A1 (Small)
-6\. | Premier serveur d’applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-7\. | Deuxième serveur d’applications SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-8\. | Premier serveur web SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-9\. | Deuxième serveur web SharePoint | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-
-Pour calculer le coût estimé de cette configuration, consultez la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
-
-1. Dans **Modules**, cliquez sur **Compute**, puis sur **Virtual Machines**, suffisamment de fois pour créer une liste de neuf machines virtuelles.
-2. Pour chaque machine virtuelle, sélectionnez :
-	- votre région prévue
-	- le type **Windows**
-	- le niveau de tarification **Standard**
-	- la taille par défaut de la table précédente ou la **taille prévue des instances**
-
-> [AZURE.NOTE]La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
-
-### Phases de déploiement
 
 Pour déployer cette configuration, procédez comme suit :
 
 - Phase 1 : configuration d'Azure.
 
-	Utilisez le portail Azure Classic et Azure PowerShell pour créer un compte de stockage, des services cloud et un réseau virtuel entre les sites. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Utilisez Azure PowerShell pour créer un compte de stockage, des groupes à haute disponibilité et un réseau virtuel intersite. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Phase 2 : configuration de contrôleurs de domaine.
 
-	Configurez deux contrôleurs de domaine répliqués Azure Active Directory et les paramètres DNS pour le réseau virtuel. Pour les étapes de configuration détaillées, consultez [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	Configurez deux contrôleurs de domaine répliqués Active Directory et les paramètres DNS pour le réseau virtuel. Pour les étapes de configuration détaillées, consultez [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 - Phase 3 : configurer l’infrastructure SQL Server
 
@@ -137,20 +98,8 @@ Pour déployer cette configuration, procédez comme suit :
 
 Une fois la configuration terminée, vous pouvez développer cette batterie de serveurs SharePoint selon les directives données dans [Architectures Microsoft Azure pour SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
+- Découvrez un [aperçu](virtual-machines-workload-intranet-sharepoint-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-[Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Instructions d'implémentation des services d'infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

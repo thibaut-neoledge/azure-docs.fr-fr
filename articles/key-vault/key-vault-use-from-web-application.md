@@ -36,13 +36,13 @@ Ce didacticiel est conçu pour les développeurs web qui comprennent les princip
 
 
 ## <a id="packages"></a>Ajout de packages NuGet ##
-Il existe trois packages que votre application web doit avoir installés.
+Deux packages doivent être installés pour votre application web.
 
 - Bibliothèque d'authentification Active Directory : contient des méthodes pour interagir avec Azure Active Directory et gérer l'identité de l'utilisateur
 - Bibliothèque Azure Key Vault : contient des méthodes pour interagir avec Azure Key Vault
 
 
-Trois de ces packages peuvent être installés à l'aide de la Console du Gestionnaire de Package à l'aide de la commande Install-Package.
+Ces deux packages peuvent être installés à l’aide de la console du Gestionnaire de Package en utilisant la commande Install-Package.
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -133,7 +133,7 @@ Il est également possible d'authentifier une application Azure AD à l'aide d
 
 Prenez note de la date de fin et du mot de passe pour le fichier .pfx (dans cet exemple : 31/07/2016 et test123). Vous en aurez besoin ultérieurement.
 
-Pour plus d'informations sur la création d'un certificat de test, consultez [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/en-in/library/ff699202.aspx)
+Pour plus d’informations sur la création d’un certificat de test, consultez [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 
 **Associer le certificat à une application Azure AD** Maintenant que vous disposez d'un certificat, vous devez l'associer à une application Azure AD. Mais le portail de gestion Azure ne prend pas encore cela en charge. Vous devez utiliser Powershell. Voici les commandes à exécuter :
@@ -243,4 +243,4 @@ Pour les références de programmation, consultez la page [Référence de l'API 
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

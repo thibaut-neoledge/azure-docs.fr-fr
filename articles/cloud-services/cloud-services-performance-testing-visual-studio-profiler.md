@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Analyse du profil d'un service cloud local dans l'émulateur de calcul"; metakeywords" 
+	pageTitle="Profilage d’un service cloud local dans l’émulateur de calcul | Microsoft Azure" 
 	services="cloud-services"
 	description="Examen des problèmes de performances dans les services cloud à l’aide du profileur Visual Studio" 
 	documentationCenter=""
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"
+	editor=""
 	tags="" 
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/21/2015" 
 	ms.author="tarcher"/>
 
 # Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
@@ -186,4 +186,4 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

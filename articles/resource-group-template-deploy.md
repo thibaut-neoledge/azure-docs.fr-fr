@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -38,7 +38,7 @@ Vous pouvez utiliser Azure PowerShell ou l’API REST pour spécifier une mise 
 - **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
 - **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
  
-Vous spécifiez le type de déploiement par le biais de la propriété **Mode**.
+Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiqué dans les exemples ci-dessous pour PowerShell et pour l’API REST.
 
 ## Déployer avec PowerShell
 
@@ -100,9 +100,9 @@ Vous spécifiez le type de déploiement par le biais de la propriété **Mode**.
           Mode              : Incremental
           ...
 
-     Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**.
+     Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**. Notez que vous êtes invité à confirmer que vous voulez utiliser le mode complet, qui peut impliquer la suppression de ressources.
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
              }
            }
    
-3. Créez un déploiement de groupe de ressources. Fournissez votre ID abonnement, le nom du groupe de ressources à déployer, le nom du déploiement et l’emplacement de votre modèle. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file). Pour plus d’informations sur l’API REST et créer un groupe de ressources, consultez [Créer un déploiement de modèle](https://msdn.microsoft.com/library/azure/dn790564.aspx). Pour exécuter un déploiement complet, définissez le paramètre **mode** sur la valeur **Complete**.
+3. Créez un déploiement de groupe de ressources. Fournissez votre ID abonnement, le nom du groupe de ressources à déployer, le nom du déploiement et l’emplacement de votre modèle. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file). Pour plus d’informations sur l’API REST et créer un groupe de ressources, consultez [Créer un déploiement de modèle](https://msdn.microsoft.com/library/azure/dn790564.aspx). Notez que le **mode** est défini sur **Incrémentiel**. Pour exécuter un déploiement complet, définissez **mode** sur **Complet**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -230,15 +230,15 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
 Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le déployer vers Azure via l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet et ces ressources sont automatiquement ajoutées au modèle de gestionnaire de ressources. Le projet fournit également un script PowerShell pour déployer le modèle.
 
-Pour découvrir une présentation de l’utilisation de Visual Studio avec les groupes de ressources, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Déploiement avec le portail
 
-Devinez quoi ? Chaque application que vous créez par le biais du [portail](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager. En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** pour déployer une application avec Azure Resource Manager.
+Devinez quoi ? Chaque application que vous créez par le biais du [portail](https://portal.azure.com/) s’appuie sur un modèle Azure Resource Manager. En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** pour déployer une application avec Azure Resource Manager.
 
 ![Nouveau](./media/resource-group-template-deploy/new.png)
 
-Pour plus d’informations sur l’utilisation du portail avec Azure Resource Manager, voir [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
+Pour plus d’informations sur l’utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
 
 ## Fichier de paramètres
@@ -264,12 +264,12 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
 ## Étapes suivantes
-- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
-- Pour consulter un exemple détaillé de déploiement d’une application, voir [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Pour obtenir des instructions sur le déploiement de votre solution dans des environnements différents, voir [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
-- Pour plus d’informations sur les sections du modèle Azure Resource Manager, voir [Création de modèles](resource-group-authoring-templates.md).
-- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](resource-group-template-functions.md).
+- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour obtenir de l’aide sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md).
+- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions des modèles](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

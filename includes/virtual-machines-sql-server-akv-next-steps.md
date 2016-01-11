@@ -1,18 +1,18 @@
-## Next steps
-After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
+## Étapes suivantes
+Après avoir activé Azure Key Vault Integration, vous pouvez activer le chiffrement SQL Server sur votre machine virtuelle SQL. Tout d'abord, vous devez créer une clé asymétrique à l'intérieur de votre coffre de clés et une clé symétrique dans SQL Server sur votre machine virtuelle. Ensuite, vous serez en mesure d'exécuter les instructions T-SQL pour activer le chiffrement pour vos bases de données et sauvegardes.
 
-There are several forms of encryption you can take advantage of:
+Il existe plusieurs types de chiffrement que vous pouvez exploiter :
 
-- [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-- [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-- [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+- [Chiffrement transparent des données (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Sauvegardes chiffrées](https://msdn.microsoft.com/library/dn449489.aspx)
+- [Chiffrement au niveau des colonnes (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-The following Transact-SQL scripts provide examples for each of these areas.
+Les scripts Transact-SQL suivants fournissent des exemples pour chacune de ces options.
 
->[AZURE.NOTE] Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**.
+>[AZURE.NOTE]Chaque exemple est basé sur les deux conditions préalables : une clé asymétrique de votre coffre de clés appelée **CONTOSO\_KEY** et des informations d'identification créées via la fonctionnalité AKV Integration appelées **Azure\_EKM\_TDE\_cred**.
 
-### Transparent Data Encryption (TDE)
-1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+### Chiffrement transparent des données (TDE)
+1. Créez une connexion SQL Server utilisable par le moteur de base de données pour le chiffrement transparent des données, puis ajoutez-lui les informations d'identification.
 	
 		USE master;
 		-- Create a SQL Server login associated with the asymmetric key 
@@ -28,7 +28,7 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ADD CREDENTIAL Azure_EKM_TDE_cred;
 		GO
 	
-2. Create the database encryption key that will be used for TDE.
+2. Créez la clé de chiffrement de base de données qui sera utilisée pour le chiffrement transparent des données.
 	
 		USE ContosoDatabase;
 		GO
@@ -43,8 +43,8 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		SET ENCRYPTION ON;
 		GO
 
-### Encrypted backups
-1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+### Sauvegardes chiffrées
+1. Créez une connexion SQL Server utilisable par le moteur de base de données pour les sauvegardes chiffrées, puis ajoutez-lui les informations d'identification.
 	
 		USE master;
 		-- Create a SQL Server login associated with the asymmetric key 
@@ -59,7 +59,7 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ADD CREDENTIAL Azure_EKM_Backup_cred ;
 		GO
 	
-2. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+2. Sauvegardez le chiffrement spécifiant la spécification de base de données avec la clé asymétrique stockée dans le coffre de clés.
 	
 		USE master;
 		BACKUP DATABASE [DATABASE_TO_BACKUP]
@@ -68,8 +68,8 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
 		GO
 
-### Column Level Encryption (CLE)
-This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
+### Chiffrement au niveau des colonnes (CLE)
+Ce script crée une clé symétrique protégée par la clé asymétrique dans le coffre de clés et utilise ensuite la clé symétrique pour chiffrer les données dans la base de données.
 
 	CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
 	WITH ALGORITHM=AES_256
@@ -90,7 +90,9 @@ This script creates a symmetric key protected by the asymmetric key in the key v
 	--Close the symmetric key
 	CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## Additional resources
-For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+## Ressources supplémentaires
+Pour plus d'informations sur l'utilisation de ces fonctionnalités de chiffrement, consultez [Utilisation d'EKM avec les fonctionnalités de chiffrement SQL Server (en Anglais)](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Notez que cet article suppose que vous disposez déjà de SQL Server exécuté sur une machine virtuelle Azure. Dans le cas contraire, consultez[Approvisionnement d'une machine virtuelle SQL Server dans Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md) Pour d'autres conseils sur l'utilisation de SQL Server sur des machines virtuelles Azure, voir [Vue d'ensemble de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+
+<!---HONumber=AcomDC_1223_2015-->

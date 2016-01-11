@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -64,16 +64,16 @@ Pour configurer l'intégration de Capriza avec Azure AD, vous devez ajouter Cap
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Capriza**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_01.png)<br>
-7. Dans le volet des résultats, sélectionnez **Capriza**, puis cliquez sur **Terminer** pour ajouter l’application <br><br>
+7. Dans le volet de résultats, sélectionnez **Capriza**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L'objectif de cette section est de vous montrer comment configurer et tester l'authentification unique Azure AD avec Capriza avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l'authentification unique fonctionne, Azure AD doit savoir qui est l'utilisateur Capriza équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Capriza associé doit être établie.<br> Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans Capriza.
+Pour que l'authentification unique fonctionne, Azure AD doit savoir qui est l'utilisateur Capriza équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Capriza associé doit être établie.<br> Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans Capriza.
 
 Pour configurer et tester l'authentification unique Azure AD avec Capriza, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test Capriza](#creating-a-capriza-test-user)** pour avoir un équivalent de Britta Simon dans Capriza lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
@@ -87,26 +87,26 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 **Pour configurer l'authentification unique Azure AD avec Capriza, procédez comme suit :**
 
-1. Dans le portail Azure Classic, sur la page d’intégration d’application **Capriza**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’application **Capriza**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Capriza**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_03.png)<br>
 
-3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) <br>
+3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) <br>
 
 
-    a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Capriza au format suivant : **« https://nomentreprise.capriza.com/id\_client »**.
+    a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Capriza, au format suivant : **« https://nom\_entreprise.capriza.com/id\_client »**.
 
     b. Cliquez sur **Next**.
 
 
-4. Dans la page de configuration **Configurer l’authentification unique sur Capriza**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_05.png) <br>
+4. Dans la page **Configurer l’authentification unique sur Capriza**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_05.png) <br>
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
     b. Cliquez sur **Next**.
 
 
-5. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support Capriza via support@capriza.com et joignez le fichier de certificat téléchargé à votre courrier électronique. Indiquez également l’URL d’authentification unique SAML, l’URL de déconnexion et l’URL de l’émetteur dans le cadre de l’intégration de l’authentification unique.
+5. Pour configurer l’authentification unique pour votre application, contactez votre équipe du support technique Capriza via support@capriza.com et joignez le fichier de certificat téléchargé à votre courrier électronique. Indiquez également l’URL d’authentification unique SAML, l’URL de déconnexion et l’URL de l’émetteur dans le cadre de l’intégration de l’authentification unique.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
@@ -117,27 +117,27 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_09.png) <br>
+1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_09.png) <br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) <br>
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) <br>
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils située en bas, cliquez sur **Ajouter un utilisateur**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) <br>
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) <br>
 
-5. Dans la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_05.png) <br>
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
-    b. Dans la **zone de texte** Nom d'utilisateur, tapez **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) <br>
+6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) <br>
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -149,9 +149,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     e. Cliquez sur **Next**.
 
-7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) <br>
+7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) <br>
 
-8. Dans la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png) <br>
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png) <br>
 
     a. Notez la valeur du **Nouveau mot de passe**.
 
@@ -161,9 +161,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### Création d'un utilisateur test Capriza
 
-L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Capriza. Capriza prend en charge l'approvisionnement juste-à-temps, option activée par défaut. **Vérifiez que votre domaine a été correctement configuré avec Capriza pour l’approvisionnement des utilisateurs. Après cela seulement, l’approvisionnement juste-à-temps des utilisateurs fonctionne.**
+L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Capriza. Capriza prend en charge l'approvisionnement juste-à-temps, option activée par défaut. **Vérifiez que votre nom de domaine a été correctement configuré avec Capriza pour l’approvisionnement des utilisateurs. Après cela seulement, l’approvisionnement juste-à-temps des utilisateurs fonctionne.**
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d'une tentative d'accès à Capriza s'il n'existe pas déjà. [Configuration de l'authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d'une tentative d'accès à Capriza s'il n'existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 > [AZURE.NOTE]Si vous devez créer un utilisateur manuellement, contactez l'équipe de support Capriza.
 
@@ -174,15 +174,15 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Capriza, procédez comme suit :**
 
-1. Dans l’affichage des annuaires du portail Azure Classic, pour ouvrir l’affichage des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **Capriza**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_50.png) <br>
 
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
 
-1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**.
+1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -215,4 +215,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

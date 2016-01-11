@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -61,7 +61,7 @@ Une fois votre application API créée, vous pouvez utiliser l'écouteur HTTP co
 9.	Enfin, pour envoyer une réponse, ajoutez un autre écouteur HTTP et sélectionnez l'action Envoyer une réponse HTTP. Affectez à l’ID de demande la valeur RequestID obtenue de l’écouteur HTTP, puis remplissez le corps de la réponse et l’état HTTP à renvoyer : ![][9]
 
 ## Utilisation de l'action HTTP
-L'action HTTP est prise en charge de façon native par les applications logiques et ne requiert pas la création préalable d'une application API pour pouvoir être utilisée. Vous pouvez insérer une action HTTP à n'importe quel endroit dans votre application logique et choisir l'URI, les en-têtes et le corps de l'appel. L'action HTTP prend en charge plusieurs options de sécurité côté client. Pour les utiliser, consultez l’article disponible [ici](http://aka.ms/logicapphttpauth).
+L'action HTTP est prise en charge de façon native par les applications logiques et ne requiert pas la création préalable d'une application API pour pouvoir être utilisée. Vous pouvez insérer une action HTTP à n'importe quel endroit dans votre application logique et choisir l'URI, les en-têtes et le corps de l'appel. L'action HTTP prend en charge plusieurs options de sécurité côté client. Consultez les [options de sécurité côté client](../scheduler-outbound-authentication.md).
 
 La sortie de l'action HTTP correspond aux en-têtes et corps, lesquels peuvent être utilisés plus en aval dans le flux, de la même façon que la sortie des autres actions et connecteurs est consommée.
 
@@ -86,4 +86,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

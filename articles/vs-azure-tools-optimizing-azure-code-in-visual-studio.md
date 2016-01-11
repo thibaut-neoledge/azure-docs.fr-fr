@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Optimisation de votre code Azure
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Pour plus d’informations sur l’optimisation et le dépannage des applications Azure, consultez [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

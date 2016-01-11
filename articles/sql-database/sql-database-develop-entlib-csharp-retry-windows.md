@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Exemple de code : logique C&#x23; de nouvelle tentative Enterprise Library 6 pour se connecter à SQL Database
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 Cette rubrique présente un exemple de code complet illustrant la bibliothèque EntLib (Enterprise Library). EntLib facilite un grand nombre de tâches pour les programmes clients qui interagissent avec les services cloud comme Azure SQL Database. Notre exemple porte sur une tâche primordiale qui est l’ajout d’une logique de nouvelle tentative pour les erreurs temporaires.
@@ -29,10 +35,14 @@ Les classes EntLib sont conçues pour différencier deux catégories d’erreurs
 - Les erreurs qui ne peuvent pas se corriger d’elles-mêmes, par exemple un nom de serveur mal orthographié.
 - Les erreurs temporaires, par exemple quand le serveur interrompt pendant quelques secondes son acceptation de nouvelles connexions, au cours de l’équilibrage de la charge système Azure.
 
+
 Enterprise Library 6 (EntLib60) est la dernière version, disponible depuis avril 2013.
 
+- Microsoft a publié le code source pour le grand public.
+- Microsoft ne prévoit pas de maintenance supplémentaire pour le code source.
 
-## Configuration requise
+
+## Composants requis
 
 
 #### .NET Framework 4.0 ou une version ultérieure
@@ -52,9 +62,9 @@ Vous devrez peut-être enregistrer votre adresse de messagerie avec MSDN. La pro
 
 1. [Accédez à MSDN](http://msdn.microsoft.com/).
 2. Cliquez sur **Abonnements MSDN** dans la partie supérieure.
-3. Cliquez sur **Inscrivez-vous maintenant**.
+3. Cliquez sur **S’inscrire maintenant**.
 4. Renseignez le formulaire.
-5. Cliquez sur **Créer un compte** en bas.
+5. Cliquez sur **Créer un compte** en bas de la page.
 
 
 #### Enterprise Library 6 (EntLib60)
@@ -63,7 +73,7 @@ Vous devrez peut-être enregistrer votre adresse de messagerie avec MSDN. La pro
 Vous pouvez installer EntLib60 de deux manières :
 
 
-- Utilisez la fonctionnalité *NuGet* du Gestionnaire de package dans Visual Studio :
+- Utilisez la fonctionnalité *NuGet* du gestionnaire de package dans Visual Studio :
  - Dans NuGet, recherchez **enterpriselibrary**.
 
 
@@ -92,7 +102,7 @@ Vous pouvez créer des classes EntLib à partir d’autres classes EntLib. Dans 
  - Objet **RetryPolicy**.
 5. Appelez la méthode **RetryPolicy .ExecuteAction** pour établir la connexion.
 6. Appelez la méthode **ReliableSqlConnection .CreateCommand**.
- - Renvoie un objet **System.SqlClient.Data.DbCommand** (ADO.NET).
+ - Renvoie un objet **System.SqlClient.Data.DbCommand**, intégré à ADO.NET.
 7. Appelez la méthode **RetryPolicy .ExecuteAction** pour effectuer une requête.
 
 
@@ -303,10 +313,10 @@ SELECT TOP 3
 
 
 - De nombreux liens pour obtenir plus d’informations sont proposés dans la rubrique [Enterprise Library 6 – Avril 2013](http://msdn.microsoft.com/library/dn169621.aspx).
- - Si vous êtes curieux de voir le code source, cliquez sur le bouton en haut de cette rubrique pour [télécharger le code source EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898).
+ - Pour voir le code source, cliquez sur le bouton en haut de cette rubrique pour [télécharger le code source EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898).
 
 
-- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, deuxième édition](http://www.microsoft.com/download/details.aspx?id=41145).
+- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Espace de noms Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

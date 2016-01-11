@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/02/2015"
+   ms.date="12/17/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Charger des données dans SQL Data Warehouse
@@ -181,7 +181,7 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Chargement avec PolyBase]: sql-data-warehouse-load-with-polybase.md
+[Chargement avec PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 [Migration du schéma]: sql-data-warehouse-migrate-schema.md
@@ -201,4 +201,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [Documentation d’Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/
 [Documentation sur ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

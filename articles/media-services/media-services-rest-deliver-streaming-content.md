@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
    		
 	Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource. 
    4. Création d’URL vers le fichier manifeste ou les fichiers MP4. 
+   5. Notez que vous ne pouvez créer un localisateur de diffusion en continu en utilisant une stratégie d’accès qui inclut des autorisations d’écriture ou de suppression.
 
 
 ###Définition d’une stratégie d’accès.
@@ -186,4 +187,8 @@ exemple :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##Voir aussi
+
+[Configurer une stratégie de distribution d’éléments multimédias](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Inscrire une API gérée par Microsoft ou gérée par le service informatique
@@ -55,8 +55,8 @@ API | Description | Lien vers la procédure
 ![][33] | **Excel**<br/><br/> Vous pouvez obtenir, mettre à jour ou supprimer des éléments, et bien plus encore. | [**Prise en main**](powerapps-create-api-excel.md)
 ![][34] | **Google Drive**<br/><br/> Vous pouvez obtenir, mettre à jour ou supprimer des éléments, et bien plus encore. | [**Prise en main**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/> Traduit du texte, détecte les langues, et bien plus encore. | [**Prise en main**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office 365 Outlook**<br/><br/> Gère votre courrier électronique. | [**Prise en main**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office 365 Utilisateurs**<br/><br/> Accédez aux profils utilisateur, à leurs gestionnaires et à leurs collaborateurs directs, et bien plus encore. | [**Prise en main**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 Outlook**<br/><br/>Gérer votre courrier électronique. | [**Prise en main**](powerapps-create-api-office365-outlook.md)
+![][37] | **Utilisateurs Office 365**<br/><br/> Accédez aux profils utilisateur, à leurs gestionnaires et à leurs collaborateurs directs, et bien plus encore. | [**Prise en main**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> Vous pouvez obtenir, mettre à jour ou supprimer des éléments, et bien plus encore. | [**Prise en main**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> Vous pouvez obtenir, mettre à jour ou supprimer des éléments, et bien plus encore. | [**Prise en main**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> Vous pouvez obtenir, mettre à jour ou supprimer des éléments, et bien plus encore. | [**Prise en main**](powerapps-create-api-sharepointonline.md)
@@ -151,4 +151,4 @@ Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

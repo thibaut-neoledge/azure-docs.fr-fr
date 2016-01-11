@@ -44,9 +44,9 @@ Mise à jour : septembre 2015
 ## Système de gestion de base de données (SGBD) pour SAP dans Azure
 Titre : guide de déploiement de SGBD pour SAP dans Azure
 
-Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont SQL Server, SAP ASE et Oracle. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.
+Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont : SQL Server, SAP ASE, Oracle, SAP MaxDB et IBM DB2 pour Linux, Unix et Windows. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.
 
-Mise à jour : août 2015
+Mise à jour : décembre 2015
 
 [Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=397965)
 
@@ -70,4 +70,14 @@ Mise à jour : août 2015
 
 [Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_1125_2015-->
+## SAP NetWeaver sur les machines virtuelles Azure SUSE Linux
+
+Titre : Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
+
+Résumé : à ce stade, il n’existe aucune prise en charge SAP officielle pour l’exécution de SAP NetWeaver sur les machines virtuelles Linux Azure. Néanmoins, les clients peuvent effectuer des tests ou envisager d’exécuter une version de démonstration de SAP ou des systèmes d’apprentissage sur les machines virtuelles Linux Azure, tant qu’il n’est pas nécessaire de contacter le service d’assistance SAP. Cet article doit vous aider à configurer les machines virtuelles Azure SUSE Linux pour l’exécution de SAP et donne quelques conseils de base afin d’éviter les pièges potentiels courants.
+
+Mise à jour : décembre 2015
+
+[Cet article est disponible ici](virtual-machines-sap-on-linux-suse-quickstart.md)
+
+<!---HONumber=AcomDC_1223_2015-->

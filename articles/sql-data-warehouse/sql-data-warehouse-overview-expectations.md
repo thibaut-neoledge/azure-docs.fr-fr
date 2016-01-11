@@ -58,12 +58,6 @@ Les instantanés sont copiés de manière asynchrone vers une région distante M
 
 SQL Data Warehouse stocke les données sur un ou plusieurs nœuds de calcul qui, chacun, contient certaines des données utilisateur et contrôle l’exécution des requêtes sur ces données. Dans le cadre de l’architecture de traitement parallèle massif, les requêtes s’exécutent en parallèle sur les nœuds de calcul. SQL Data Warehouse détecte automatiquement les défaillances de nœud de calcul et les atténue. Toutefois, lors de la phase préliminaire, une opération (chargement de données ou requête, par exemple) peut échouer en raison d’échecs de nœud individuel. Lors de la phase préliminaire, nous apportons des améliorations continues pour terminer avec succès les opérations en dépit des défaillances de nœud.
 
-Selon les données de télémétrie, nous estimons que la fiabilité actuelle d’Azure SQL Data Warehouse est de 98 %. Cela signifie que, en moyenne, 2 requêtes sur 100 peuvent échouer en raison d’erreurs système. Ce n’est pas un contrat SLA. La probabilité d’échec d’une requête augmente avec sa durée d’exécution. Par exemple, une requête qui dure plus de 2 heures a une probabilité nettement plus élevée d’échouer qu’une requête qui dure moins de 10 minutes. Durant la phase préliminaire, nous améliorons la fiabilité afin de garantir le même niveau de fiabilité pour l’ensemble des opérations, indépendamment de leur durée d’exécution. Nous mettrons à jour la fiabilité escomptée au fur et à mesure que nous publions les améliorations. Dans le cadre de la disponibilité générale, la fiabilité bénéficie d’un contrat SLA.
-
-### Disponibilité du service
-
-Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenance par mois, dédiés à l’installation des correctifs critiques. Chaque événement peut entraîner un échec des requêtes jusqu’à 2 heures au plus. Le temps dépend du nombre de DWU alloué au service.
-
 
 ## Étapes suivantes
 
@@ -78,4 +72,4 @@ Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenan
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -4,11 +4,12 @@ Application Gateway fournit une solution d'équilibrage de la charge HTTP géré
 
 | Propriété | Description | 
 |---|---|
-|*Pool de serveurs principaux* | Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel, sinon elles doivent être une adresse IP/VIP publique ou une adresse IP privée. |
-| *Paramètres du pool de serveurs principaux* | Chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool. |
-| *Port frontal* | Ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux. |
-| *Écouteur* | L'écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). |
-| *Règle* | La règle lie l’écouteur et le pool de serveurs principaux, et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle de base est prise en charge. La règle de base est la distribution de charge par tourniquet (round robin). |
+| **backendAddressPools** | Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel, sinon elles doivent être une adresse IP/VIP publique ou une adresse IP privée. |
+| **backendHttpSettingsCollection** | Chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool. |
+| **frontendPorts** | Ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux. |
+| **httpListeners** | L'écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). |
+| **requestRoutingRules** | La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé. Travaille actuellement uniquement en tant que Round-robin |
+
 
 Exemple d'un modèle de passerelle Application Gateway Json :
 
@@ -215,8 +216,9 @@ Exemple d'un modèle de passerelle Application Gateway Json :
   	]	
 	}
 
+
 ### Ressources supplémentaires
 
 Lisez [API REST Application Gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) pour plus d'informations.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

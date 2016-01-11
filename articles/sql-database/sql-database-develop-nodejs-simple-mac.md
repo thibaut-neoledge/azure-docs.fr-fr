@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Se connecter à SQL Database à l’aide de Node.js avec Tedious sous Mac OS X
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 Cette rubrique présente un exemple de code Node.js qui s’exécute sur Mac OS X. L’exemple se connecte à Azure SQL Database en utilisant le pilote Tedious.
@@ -30,7 +33,7 @@ Cette rubrique présente un exemple de code Node.js qui s’exécute sur Mac OS 
 ## Composants requis
 
 
-Installer le **nœud**, sauf s’il est déjà installé sur votre ordinateur.
+Installez le **nœud**, sauf s’il est déjà installé sur votre ordinateur.
 
 
 Pour installer node.js sous OSX 10.10 Yosemite, vous pouvez télécharger un package binaire précompilé, ce qui permet une installation facile. [Allez sur nodejs.org](http://nodejs.org/) et cliquez sur le bouton Installer pour télécharger le dernier package.
@@ -125,7 +128,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 
 ## Étape 4 : insérer une ligne
 
-Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
 
 	var Connection = require('tedious').Connection;
@@ -170,6 +173,6 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 
 ## Étapes suivantes
 
-Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

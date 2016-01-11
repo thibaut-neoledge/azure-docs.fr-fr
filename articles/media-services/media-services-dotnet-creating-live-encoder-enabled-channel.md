@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,13 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 ##Vue d'ensemble
 
 Ce didacticiel vous guide tout au long des étapes de création d'un **canal** qui reçoit un flux continu à vitesse de transmission unique et qui l'encode en flux à vitesses de transmission multiples.
 
->[AZURE.NOTE]Pour plus d’informations sur les concepts relatifs aux canaux prenant en charge l’encodage en temps réel, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations sur les concepts relatifs aux canaux prenant en charge l’encodage en temps réel, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Scénario courant de vidéo en flux continu
@@ -39,17 +41,17 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d'app
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Cette étape peut également être effectuée après la création du canal.
+	Cette étape peut également être effectuée après la création du canal.
 
 1. Créez et démarrez un canal.
 
 1. Récupérez l’URL de réception du canal.
 
-L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
+	L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
 
 1. Récupérez l’URL d’aperçu du canal.
 
-Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
 2. Créez un élément multimédia.
 3. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
@@ -59,14 +61,14 @@ Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux d
 3. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
 1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
 
-Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+	Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-1. Supprimez le programme (et éventuellement l'élément multimédia).
+1. Supprimez le programme (et éventuellement la ressource).
 
-##Dans cette rubrique
+## Ce que vous allez apprendre
 
 Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l'aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
 
@@ -82,6 +84,18 @@ La rubrique montre comment effectuer les opérations suivantes :
 1. Nettoyer votre canal et toutes les ressources associées.
 
 
+##Configuration requise
+
+Les éléments suivants sont requis pour suivre le didacticiel.
+
+- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. 
+	
+	Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
+- Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+- Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
+- Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
+
 ##Considérations
 
 - Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
@@ -89,16 +103,8 @@ La rubrique montre comment effectuer les opérations suivantes :
 
 ##Charger l’exemple
 
-Obtenir et exécuter un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Obtenez et exécutez un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-##Composants requis
-Les éléments suivants sont requis pour suivre le didacticiel.
-
-- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
-- Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
-- Visual Studio 2010 SP1 ou version ultérieure.
-- Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
-- Une webcam et un encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 
 ##Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
 
@@ -334,6 +340,7 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 	        /// <returns></returns>
 	        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 	        {
+             	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 	            var locator = _context.Locators.CreateLocator
 	                (
 	                    LocatorType.OnDemandOrigin,
@@ -516,4 +523,4 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

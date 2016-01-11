@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Génération en ligne de commande pour Azure"
+   pageTitle="Génération en ligne de commande pour Azure | Microsoft Azure"
    description="Génération en ligne de commande pour Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Génération en ligne de commande pour Azure
@@ -62,4 +62,4 @@ Si vous souhaitez utiliser un autre répertoire pour les fichiers de configurati
 
 Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 # Utilisation du stockage de files d'attente à partir de PHP
@@ -383,4 +383,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

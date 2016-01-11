@@ -1,11 +1,11 @@
 ## Profil Traffic Manager
 
-Traffic Manager et ses ressources de point de terminaison enfant activent le routage DNS vers les points de terminaison dans Azure et en dehors d'Azure. Cette répartition du trafic est régie par des stratégies de routage. Traffic Manager permet également de surveiller l'intégrité des points de terminaison, ainsi que le trafic dévié de manière appropriée en fonction de l'intégrité d'un point de terminaison.
+Traffic Manager et ses ressources de point de terminaison enfant activent le routage DNS vers les points de terminaison dans Azure et en dehors d’Azure. Cette répartition du trafic est régie par des stratégies de routage. Traffic Manager permet également de surveiller l'intégrité des points de terminaison, ainsi que le trafic dévié de manière appropriée en fonction de l'intégrité d'un point de terminaison.
 
 | Propriété | Description |
 |---|---|
-|**Méthode de routage du trafic**| Les valeurs possibles sont *Performance*, *Weighted* et *Priority*. | 
-| **Configuration DNS** | Nom de domaine complet du profil | 
+|**trafficRoutingMethod**| Les valeurs possibles sont *Performance*, *Weighted* et *Priority*. | 
+| **dnsConfig** | Nom de domaine complet du profil | 
 | **Protocole** | Protocole de surveillance. Les valeurs possibles sont *HTTP* et *HTTPS*.|
 | **Port** | Port de surveillance |  
 | **Chemin d’accès** | Chemin d’accès de surveillance |
@@ -18,7 +18,7 @@ Un point de terminaison est une ressource enfant d'un profil Traffic Manager. Il
 | Propriété | Description | 
 |---|---| 
 | **Type** | Type du point de terminaison. Les valeurs possibles sont *Point de terminaison Azure*, *Point de terminaison externe* et *Point de terminaison imbriqué*. | 
-| **ID de ressource cible** | Adresse IP publique d'un service ou d'un point de terminaison web. Ce peut être un point de terminaison Azure ou un point de terminaison externe. | 
+| **targetResourceId** | Adresse IP publique d’un service ou d’un point de terminaison web. Ce peut être un point de terminaison Azure ou un point de terminaison externe. | 
 | **Poids** | Poids du point de terminaison utilisé dans la gestion du trafic. | 
 | **Priorité** | Priorité du point de terminaison, utilisée pour définir une action de basculement. |
 
@@ -82,6 +82,6 @@ Exemple Traffic Manager au format Json :
  
 ## Ressources supplémentaires
 
-Lisez la [documentation sur l’API REST pour Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) pour plus d'informations.
+Lisez la [documentation sur l’API REST pour Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) pour plus d’informations.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

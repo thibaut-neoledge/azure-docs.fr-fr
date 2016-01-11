@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur BizTalk Edifact dans votre application logique  
@@ -32,7 +32,7 @@ Pour utiliser le connecteur Edifact, vous devez d'abord créer une instance de l
 ## Configuration du connecteur Edifact
 Les partenaires commerciaux sont des entités impliquées dans des communications B2B (entreprise à entreprise). Lorsque deux partenaires établissent une relation, il est question d'un « accord ». L’accord défini est basé sur le type de communication dont les deux partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
 
-Les étapes de création d'un accord de partenariat commercial sont documentées [ici][2].
+Consultez les étapes à suivre pour [créer un accord de partenariat commercial][2].
 
 ## Utilisation du connecteur Edifact dans l'aire du concepteur d'applications logiques
 Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
@@ -89,4 +89,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

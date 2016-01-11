@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Utilisation du Bureau à distance avec des rôles Azure
@@ -37,7 +37,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
  
     Cela affiche une liste déroulante qui vous permet de créer ou de sélectionner un certificat afin de chiffrer les informations d'identification lors de la connexion Bureau à distance.
 
-1. Dans la liste déroulante, sélectionnez **<Create>**, ou sélectionnez un certificat existant dans la liste.
+1. Dans la liste déroulante, sélectionnez **&lt;Créer>** ou sélectionnez un certificat existant dans la liste.
 
     Si vous sélectionnez un certificat existant, ignorez les étapes suivantes.
 
@@ -47,7 +47,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
 
     1. Donnez un nom convivial au nouveau certificat, puis sélectionnez le bouton **OK**. Le nouveau certificat s'affiche dans la liste déroulante.
 
-    1. Dans la boîte de dialogue **Configuration du Bureau à distance**, entrez un nom d'utilisateur et un mot de passe.
+    1. Dans la boîte de dialogue **Configuration du Bureau à distance**, entrez un nom d’utilisateur et un mot de passe.
     
         Vous ne pouvez pas utiliser un compte existant. Ne spécifiez pas Administrateur comme nom d'utilisateur pour le nouveau compte.
 
@@ -59,20 +59,20 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
     
         Plusieurs paramètres qui activent les Services d'accès à distance sont ajoutés aux fichiers .cscfg et .csdef.
 
-1. Dans l’Assistant **Paramètres de publication Microsoft Azure**, sélectionnez le bouton **OK** lorsque vous êtes prêt à publier votre service cloud.
+1. Dans l’Assistant **Paramètres de publication Microsoft Azure**, sélectionnez le bouton **OK** quand vous êtes prêt à publier votre service cloud.
 
-    Si vous n'êtes pas prêt à le publier, sélectionnez le bouton **Annuler**. Les paramètres de configuration sont enregistrés, et vous pourrez publier votre service cloud ultérieurement.
+    Si vous n’êtes pas prêt à le publier, sélectionnez le bouton **Annuler**. Les paramètres de configuration sont enregistrés, et vous pourrez publier votre service cloud ultérieurement.
 
 ## Se connecter à un rôle Azure à l'aide du Bureau à distance
 
 Après avoir publié votre service cloud sur Azure, vous pouvez utiliser l'Explorateur de serveurs pour vous connecter aux machines virtuelles hébergées par Azure.
 
-1. Dans l'Explorateur de serveurs, développez le nœud **Azure**, puis développez le nœud d’un service cloud et d’un de ses rôles pour afficher une liste d'instances.
+1. Dans l’Explorateur de serveurs, développez le nœud **Azure**, puis développez le nœud d’un service cloud et d’un de ses rôles pour afficher une liste d’instances.
 
-1. Ouvrez le menu contextuel d’un nœud d'instance, puis sélectionnez **Connexion à l’aide du Bureau à distance**.
+1. Ouvrez le menu contextuel d’un nœud d’instance, puis sélectionnez **Connexion à l’aide de Bureau à distance**.
 
     ![Connexion Bureau à distance](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 
 1. Entrez le nom d'utilisateur et le mot de passe que vous avez créés précédemment. Vous êtes maintenant connecté à votre session à distance.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

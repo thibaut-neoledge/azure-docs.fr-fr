@@ -8,11 +8,11 @@ Dans cette section, vous allez créer une application console Windows qui crée 
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **CreateDeviceIdentity**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que l’option **Inclure la version préliminaire** est activée. Ensuite, recherchez **Appareils Microsoft Azure**, cliquez sur **Installer** et acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que l’option **Inclure la version préliminaire** est activée. Ensuite, recherchez les **Appareils Microsoft Azure**, cliquez sur **Installer** et installez le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation.
 
 	![][11]
 
-4. Cette opération lance le téléchargement, l’installation et ajoute une référence au package NuGet de [kit de développement logiciel Microsoft Azure Devices][lnk-nuget-device-sdk].
+4. Cette opération lance le téléchargement, l’installation et ajoute une référence au package NuGet [kit de développement logiciel (SDK) de service Microsoft Azure IoT][lnk-nuget-service-sdk].
 
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
@@ -57,7 +57,7 @@ Dans cette section, vous allez créer une application console Windows qui crée 
 
 ## Recevoir des messages des appareils vers le cloud
 
-Dans cette section, vous allez créer une application console Windows qui lit les messages Appareil vers cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traitement de messages de type « Appareil vers cloud »][lnk-processd2c-tutorial] vous montre comment traiter les messages Appareil vers cloud à grande échelle, tandis que le didacticiel [Prise en main d’Event Hubs][lnk-eventhubs-tutorial] fournit des informations complémentaires sur la façon de traiter les messages à partir d’Event Hubs.
+Dans cette section, vous allez créer une application console Windows qui lit les messages Appareil vers cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traitement des messages de type « Appareil vers cloud »][lnk-processd2c-tutorial] vous montre comment traiter les messages Appareil vers cloud à l’échelle, tandis que le didacticiel [Prise en main d’Event Hubs][lnk-eventhubs-tutorial] fournit des informations complémentaires sur le traitement des messages à partir d’Event Hubs.
 
 1. Dans Visual Studio, ajoutez un nouveau projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console**. Nommez le projet **ReadDeviceToCloudMessages**.
 
@@ -65,7 +65,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ReadDeviceToCloudMessages**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que l’option **Inclure la version préliminaire** est activée. Recherchez ensuite **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que la case **Inclure la version préliminaire** est cochée. Recherchez ensuite **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
     Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus][lnk-servicebus-nuget] avec toutes ses dépendances.
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
 
-[lnk-nuget-device-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
@@ -125,4 +125,4 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

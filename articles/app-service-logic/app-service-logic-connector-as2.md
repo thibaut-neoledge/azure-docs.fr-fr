@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur AS2 dans votre application logique
@@ -59,7 +59,7 @@ Nom de l'instance TPM | Entrez le nom de l’application API **Gestion des parte
 
 Les partenaires commerciaux sont des entités impliquées dans des communications B2B (entreprise à entreprise). Lorsque deux partenaires établissent une relation, il est question d'un « accord ». L’accord défini est basé sur le type de communication dont les deux partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
 
-Les étapes de création d’un accord de partenariat commercial sont documentées [ici][2].
+Consultez les étapes à suivre pour [créer un accord de partenariat commercial][2].
 
 ## Utiliser le connecteur comme un déclencheur
 
@@ -117,4 +117,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -475,7 +475,7 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | -------- | ------------- |
 | Opérations de registre d’identité (création, récupération, création de listes, mise à jour, suppression), importation/exportation en bloc ou individuelle | 100/min/unité, jusqu’à 5 000/min |
 | Connexions d’appareils | 100/s/unité |
-| Envois Appareil vers cloud | 2 000/min/unité (pour S2), 60/min/unité (pour S1). Minimum de 100/s. |
+| Envois Appareil vers cloud | 120/sec/unité (pour S2), 12/sec/unité (pour S1). Minimum de 100/s. |
 | Opérations Cloud vers appareil (envois, réceptions, commentaires) | 100/min/unité |
 
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un concentrateur IoT Hub.
@@ -532,4 +532,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

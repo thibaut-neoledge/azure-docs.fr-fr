@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# Utiliser le service StorSimple Manager pour gérer les volumes
+# Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
@@ -168,7 +168,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
     > [AZURE.NOTE]Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
 
-6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
+6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure affiche un message de mise à jour du volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
 
@@ -291,4 +291,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

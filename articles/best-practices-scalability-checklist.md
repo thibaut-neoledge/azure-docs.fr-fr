@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/16/2015"
    ms.author="masashin"/>
 
 # Liste de contrôle de l’extensibilité
@@ -66,4 +66,4 @@
 - **Envisagez de réduire le nombre de comptes de service**. Par exemple, utilisez un compte spécifique pour accéder aux ressources ou services qui imposent un nombre limite de connexions ou offrent de meilleures performances avec un nombre réduit de connexions simultanées. Cette approche est courante pour les services tels que les bases de données, mais elle peut affecter la capacité à vérifier avec précision les opérations en raison de l’emprunt d’identité de l’utilisateur d’origine.
 - **Procédez au profilage des performances et au test de charge** pendant le développement, dans le cadre des routines de test et avant la publication de la version finale pour vous assurer que l’application fonctionne et est mise à l’échelle en fonction des besoins. Ce test doit être exécuté sur le même type de matériel que la plateforme de production et avec les mêmes types et quantités de données et de charge utilisateur que l’application rencontrera en production. Pour plus d’informations, consultez la page [Test des performances d’un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx) du site web de Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

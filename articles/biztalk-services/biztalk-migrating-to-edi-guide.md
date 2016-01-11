@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ L’opération de mappage avec l’expression **If-Then-Else** est un autre exem
 
 ### Migration des mappages BizTalk Server
 
-Microsoft Azure BizTalk Services fournit un outil de migration des mappages BizTalk Server vers les transformations BizTalk Services. Le **BTMMigrationTool** est disponible en tant que partie du package d’**outils** fourni avec le Kit de développement logiciel (SDK) BizTalk Services et peut être téléchargé [ici](http://go.microsoft.com/fwlink/p/?LinkId=235057). Pour plus d'informations sur cet outil, consultez [Conversion d'un mappage BizTalk en transformation BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services fournit un outil de migration des mappages BizTalk Server vers les transformations BizTalk Services. **BTMMigrationTool** est disponible dans le package **Outils** fourni avec le [téléchargement du Kit de développement logiciel (SDK) BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkId=235057). Pour plus d'informations sur cet outil, consultez [Conversion d'un mappage BizTalk en transformation BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-Vous pouvez également consulter un exemple de Sandro Pereira, MVP BizTalk, sur la migration des mappages BizTalk Server vers les transformations BizTalk Services. L'exemple est disponible [ici](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+Vous pouvez également consulter un exemple de Sandro Pereira, BizTalk MVP, sur la façon de [migrer des mappages BizTalk Server vers les transformations BizTalk Services](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## Orchestrations
 
 Si vous avez besoin de migrer le traitement d'orchestration BizTalk Server vers Microsoft Azure, les orchestrations doivent être réécrites, car Microsoft Azure ne prend pas en charge les orchestrations BizTalk Server. Vous pouvez réécrire la fonctionnalité d'orchestration dans un service Windows Workflow Foundation 4.0 (WF4). C’est une réécriture complète, car il n'existe actuellement aucune migration des orchestrations BizTalk Server vers WF4. Voici quelques ressources pour Windows Workflow :
 
-- *Intégration d'un service de workflow WCF aux files d'attente et aux rubriques Service Bus* par Paolo Salvatori. Voir [ici](https://msdn.microsoft.com/library/azure/hh709041.aspx).
+- [*Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus*](https://msdn.microsoft.com/library/azure/hh709041.aspx) par Paolo Salvatori. 
 
-- Session *Building apps with Windows Workflow Foundation and Azure* de la conférence Build 2011. Voir [ici](http://go.microsoft.com/fwlink/p/?LinkId=237314).
+- [Session *Building apps with Windows Workflow Foundation and Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) de la conférence Build 2011.
 
-- *Centre de développement Windows Workflow Foundation sur MSDN*. Voir [ici](http://go.microsoft.com/fwlink/p/?LinkId=237315).
+- [*Centre de développement Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) sur MSDN.
 
-- *Documentation de Windows Workflow Foundation 4 (WF4) sur MSDN*. Voir [ici] (https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).
+- [*Documentation de Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) sur MSDN.
 
 ## Autres considérations
 
@@ -126,7 +126,7 @@ Voici quelques éléments à prendre en compte lors de l'utilisation de BizTalk�
 
 ### Accords de secours
 
-Le traitement EDI BizTalk Server comprend le concept d’« accords de secours ». BizTalk Services ne dispose **pas** d'accord de secours pour l’instant. Consultez les rubriques de la documentation BizTalk [Rôle des accords dans le traitement EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) et [Configuration des propriétés d'un accord global ou de secours](https://msdn.microsoft.com/library/bb245981.aspx) pour plus d'informations sur l'utilisation des accords de secours dans BizTalk Server.
+Le traitement EDI BizTalk Server comprend le concept d’« accords de secours ». BizTalk Services ne dispose **pas** d’accord de secours pour l’instant. Pour plus d’informations sur l’utilisation des accords de secours dans BizTalk Server, consultez les rubriques de la documentation BizTalk [Rôle des accords dans le traitement EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) et [Configuration des propriétés d’un accord global ou de secours](https://msdn.microsoft.com/library/bb245981.aspx).
 
 ### Acheminement vers plusieurs destinations
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk Services est mis à jour régulièrement afin d'ajoute
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

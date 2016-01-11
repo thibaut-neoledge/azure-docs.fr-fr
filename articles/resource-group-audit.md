@@ -158,8 +158,8 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la configuration des stratégies de sécurité, consultez [Gestion de l'accès aux ressources](resource-group-rbac.md).
+- Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 - Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -59,7 +59,7 @@ Vous êtes maintenant prêt à envoyer des notifications à l’aide de ce **nom
 
 ![][4]
 
-> [AZURE.NOTE]Les utilisateurs pour lesquels les informations sur l’application nom\_utilisateur ne sont pas définies ne recevront pas de notification.
+> [AZURE.NOTE]Les utilisateurs pour lesquels les informations sur l’application nom\_utilisateur ne sont pas définies ne recevront pas de notification. Si vous exécutez la campagne de notification en mode test et si les informations d’application ne sont pas définies, nous allons envoyer le caractère « ? » pour remplacer l’espace réservé.
 
 2) Lorsque Mobile Engagement sélectionnera un appareil pour envoyer cette notification, il consultera ces informations sur l’application et remplacera la valeur de l’espace réservé. Par exemple, si nous avons défini `str = "Scott"` pour un utilisateur, l’enregistrement de l’appareil sera associé aux informations sur l’application de **nom\_utilisateur = SCOTT** pour cet utilisateur. En outre, cet utilisateur verra une notification push en dehors de l’application au format suivant.
 
@@ -72,4 +72,4 @@ Vous êtes maintenant prêt à envoyer des notifications à l’aide de ce **nom
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

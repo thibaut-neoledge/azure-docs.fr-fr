@@ -18,9 +18,7 @@
 
 # Ajout de notifications Push à votre application Windows Runtime 8.1 universelle
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -103,9 +101,11 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 	
 	Ce code indique au hub de notification d'envoyer une notification Push après l'insertion d’un nouvel élément.
 
+4. Publier à nouveau le projet de serveur
+
 ### <a name="nodejs"></a>Projet de serveur principal Node.js
 
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne dans le portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
 2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
 
@@ -153,10 +153,6 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 
 2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
-## <a name="publish-the-service"></a>Publication du serveur principal mobile sur Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ##<a id="update-service"></a>Ajout de notifications Push à votre application
 
 1. Ouvrez le fichier projet partagé **App.xaml.cs** et ajoutez les instructions `using` suivantes :
@@ -197,15 +193,15 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 
 Votre application est maintenant prête à recevoir des notifications toast.
 
-##<a id="test"></a>Tester les notifications push dans votre application
+##<a id="test"></a>Test des notifications Push dans votre application
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
 ##<a id="more"></a>En savoir plus
 
-* Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) vous montre comment inscrire des modèles.
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) vous montre comment ajouter des balises à l’installation d’un appareil.
+* Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. La rubrique [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) vous montre comment inscrire des modèles.
+* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) vous montre comment ajouter des balises à l’installation d’un appareil.
 
 <!-- Anchors. -->
 
@@ -214,4 +210,4 @@ Votre application est maintenant prête à recevoir des notifications toast.
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

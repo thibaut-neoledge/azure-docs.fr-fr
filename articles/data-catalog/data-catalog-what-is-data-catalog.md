@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # Qu’est-ce qu’Azure Data Catalog ?
@@ -80,26 +80,30 @@ Le processus d’inscription comporte trois étapes de base :
 - Fichier HDFS
 - Répertoire HDFS
 - Table Hive
+- Fichier Azure Data Lake Store
+- Répertoire Azure Data Lake Store
+- Table MySQL
+- Vue MySQL
 
-Des sources de données et des types de ressources supplémentaires seront inclus dans la version préliminaire d’**Azure Data Catalog**.
+Des sources de données et des types de ressources supplémentaires seront ajoutés à la version préliminaire d’**Azure Data Catalog**.
 
-> [AZURE.IMPORTANT]L’inscription d’une source de données dans **Azure Data Catalog** ne copie pas les données à partir de la source de données, sauf si vous sélectionnez « Inclure une version préliminaire » dans l’outil d’inscription des sources de données. L’inscription copie les métadonnées des sources de données, et non les données. Exemples de métadonnées : les noms de tables et autres objets de sources de données, les noms et les types des données, les noms de colonnes et d'autres attributs de sources de données. Les métadonnées incluent également l’emplacement de la source de données, pour que les utilisateurs qui découvrent les données source à l’aide d’**Azure Data Catalog** puissent se connecter à la source de données. Si vous sélectionnez « Inclure une version préliminaire », l’outil d’inscription des sources de données copiera sur **Azure Data Catalog** un petit jeu d’enregistrements qui sera affiché, pour les utilisateurs qui découvrent la source de données, dans le portail **Azure Data Catalog**.
+> [AZURE.IMPORTANT]L’inscription d’une source de données dans **Azure Data Catalog** ne copie pas les données de la source de données, sauf si vous sélectionnez « Inclure l’aperçu » dans l’outil d’inscription des sources de données. L’inscription copie les métadonnées des sources de données, et non les données. Exemples de métadonnées : les noms de tables et autres objets de sources de données, les noms et les types des données, les noms de colonnes et d'autres attributs de sources de données. Les métadonnées incluent également l’emplacement de la source de données pour que les utilisateurs qui découvrent la source de données à l’aide d’**Azure Data Catalog** puissent se connecter à la source de données. Si vous sélectionnez « Inclure l’aperçu », l’outil d’inscription des sources de données copie dans sur **Azure Data Catalog** un petit jeu d’enregistrements, qui sera affiché aux utilisateurs qui découvrent la source de données dans le portail **Azure Data Catalog**.
 
 ## Enrichissement des métadonnées de sources de données
 
-Une fois l’inscription terminée, les sources de données peuvent être découvertes et consommées, mais la valeur true d’**Azure Data Catalog** provient du fait que les métadonnées descriptives se trouvent dans la même expérience que les métadonnées structurelles extraites de la source de données. Ces métadonnées supplémentaires offrent trois avantages importants :
+Une fois l’inscription terminée, les sources de données peuvent être découvertes et consommées, mais la vraie valeur d’**Azure Data Catalog** provient du fait que les métadonnées descriptives aussi bien que les métadonnées structurelles sont extraites de la source de données. Ces métadonnées supplémentaires offrent trois avantages importants :
 
 -	Les sources de données inscrites sont plus facilement détectables. Les métadonnées fournies par l’utilisateur sont ajoutées à l’index de recherche d’**Azure Data Catalog**. Ceci permet aux utilisateurs de détecter les données à l'aide de termes et de concepts qui ne se trouvent peut-être pas dans la source de données d'origine. Le fait d’attribuer, par exemple, un nom convivial « client » à une table de base de données contenant des données client, nommée « tbl\_c45 », permettra aux utilisateurs qui recherchent des données client de la détecter plus facilement. Le fait de fournir une description qui inclut les noms de rapports, les tableaux de bord ou les procédés qui utilisent les données, permettra également aux utilisateurs qui utilisent ces artefacts en aval comme termes de recherche, de détecter plus facilement la source de données.
--	Les sources de données inscrites sont plus facilement compréhensibles une fois détectées. Les métadonnées fournies par l’utilisateur sont présentées aux utilisateurs d’**Azure Data Catalog** qui affichent la source de données annotée, qui leur permet de fournir un contexte et des informations supplémentaires. En règle générale, les sources de données ne fournissent aucune description ou documentation significative, et celles qui en fournissent sont généralement destinées aux administrateurs ou développeurs de base de données. En enrichissant les sources de données d’**Azure Data Catalog** avec des balises et des descriptions appropriées aux audiences, les utilisateurs peuvent s’assurer que ceux qui découvrent les données peuvent comprendre leurs descriptions et leurs utilisations prévues.
+-	Les sources de données inscrites sont plus facilement compréhensibles une fois détectées. Les métadonnées fournies par l’utilisateur sont présentées aux utilisateurs d’**Azure Data Catalog** qui affichent la source de données annotée, ce qui permet de fournir un contexte et des informations supplémentaires. En règle générale, les sources de données ne fournissent aucune description ou documentation significative, et celles qui en fournissent sont généralement destinées aux administrateurs ou développeurs de base de données. En enrichissant les sources de données d’**Azure Data Catalog** avec des balises et des descriptions appropriées aux audiences, les utilisateurs peuvent s’assurer que ceux qui découvrent les données peuvent comprendre leurs détails et l’utilisation qui en est prévue.
 -  Chaque source de données inscrite peut inclure des informations d'accès de requête, pour que les utilisateurs puissent facilement comprendre et suivre les processus existants pour demander l'accès à la source de données et ses données.
 
-> [AZURE.NOTE]Chaque utilisateur d’**Azure Data Catalog** peut ajouter ses propres balises et descriptions de ressources de données et d’attributs. **Azure Data Catalog** suivra la valeur et la source de chaque annotation et affichera l’utilisateur qui l’a ajoutée. Cette approche de crowdsourcing portant sur les métadonnées permet de s’assurer que chaque utilisateur ayant un point de vue sur les données et leurs utilisations peut l’exprimer et partager ses ressources avec l’ensemble des utilisateurs.
+> [AZURE.NOTE]Chaque utilisateur d’**Azure Data Catalog** peut ajouter ses propres balises et descriptions pour les ressources et les attributs des données. **Azure Data Catalog** conserve la valeur et la source de chaque annotation, et affiche l’utilisateur qui l’a ajoutée. Cette approche de crowdsourcing portant sur les métadonnées permet de s’assurer que chaque utilisateur ayant un point de vue sur les données et leurs utilisations peut l’exprimer et partager ses ressources avec l’ensemble des utilisateurs.
 
 ## Exploration, détection et compréhension
 
 L’objectif de l’inscription et de l’enrichissement des sources de données dans **Azure Data Catalog** est de faire en sorte que ces données puissent être découvertes, comprises et utilisées par les utilisateurs au sein de l’entreprise. Le portail **Azure Data Catalog** est l’outil principal de ce processus.
 
-Le portail **Azure Data Catalog** fournit deux mécanismes principaux d’exploration et de découverte de données : la recherche et le filtrage.
+Le portail **Azure Data Catalog** fournit deux mécanismes principaux d’exploration et de découverte des données : la recherche et le filtrage.
 
 Pour rechercher des sources de données dans **Azure Data Catalog**, entrez simplement un terme de recherche dans la zone de recherche du portail **Azure Data Catalog**. Le portail affichera une vignette pour chaque source de données inscrite qui correspond au terme de recherche ; les vignettes contiendront le nom, la description et les balises attribués à la source de données, ainsi que d'autres informations générales.
 
@@ -110,23 +114,23 @@ Pour afficher des informations plus détaillées sur une source de données et d
 Des boutons supplémentaires apparaîtront en haut du volet Propriétés :
 
 1.	Version préliminaire : cliquer sur ce bouton fera apparaître le jeu statique d'enregistrements de la version préliminaire à partir de la source de données si la version préliminaire a été sélectionnée lors de l’inscription de la source de données.
-2.	Schéma : cliquer sur ce bouton fera apparaître le schéma de la source de données, y compris les noms de colonnes, les types de données et les métadonnées figurant dans les colonnes d’**Azure Data Catalog**.
+2.	Schéma : cliquer sur ce bouton fait apparaître le schéma de la source de données, y compris les noms de colonnes, les types de données et les métadonnées de niveau colonne d’**Azure Data Catalog**.
 
-> [AZURE.NOTE]N’oubliez pas que l’expérience de **découverte** peut être un point d’entrée dans l’expérience d’**enrichissement** et non seulement dans l’expérience de **consommation**. L’approche de crowdsourcing qu’apporte **Azure Data Catalog** signifie que tous les utilisateurs qui découvrent des sources de données inscrites peuvent partager leur avis sur les données, en plus de les utiliser.
+> [AZURE.NOTE]N’oubliez pas que l’expérience de **découverte** peut être un point d’entrée dans l’expérience d’**enrichissement**, et non pas seulement dans l’expérience de **consommation**. L’approche de crowdsourcing qu’apporte **Azure Data Catalog** signifie que tous les utilisateurs qui découvrent des sources de données inscrites peuvent partager leur avis sur les données, en plus d’utiliser celles qu’ils ont découvertes.
 
 ## Suppression des métadonnées de sources de données
 
-Une fois la source de données inscrite, il est parfois nécessaire de supprimer la référence de la source de données à partir d’**Azure Data Catalog**. Ceci peut être dû à l'évolution des besoins de l'entreprise ou du système source qui a été supprimé. Quelle que soit la raison, **Azure Data Catalog** permet de supprimer plus facilement des sources de données en choisissant simplement de les supprimer de manière à ce qu’elles ne puissent plus être découvertes et utilisées.
+Une fois la source de données inscrite, il est parfois nécessaire de supprimer la référence de la source de données dans **Azure Data Catalog**. Ceci peut être dû à l'évolution des besoins de l'entreprise ou du système source qui a été supprimé. Quelle que soit la raison, **Azure Data Catalog** permet de supprimer facilement des sources de données en choisissant simplement de les supprimer, de manière à ce qu’elles ne puissent plus être découvertes et utilisées.
 
-> [AZURE.IMPORTANT]Lorsque vous supprimez une source de données à partir d’**Azure Data Catalog**, vous ne supprimez en réalité que les métadonnées qui sont stockées dans le service **Azure Data Catalog**. Cela n’affecte encore aucun cas la source de données d'origine.
+> [AZURE.IMPORTANT]Quand vous supprimez une source de données dans **Azure Data Catalog**, vous ne supprimez que les métadonnées stockées dans le service **Azure Data Catalog**. Cela n’affecte encore aucun cas la source de données d'origine.
 
 ## Utilisation des sources de données
 
 L'objectif ultime de la détection de données est de rechercher les données dont vous avez besoin et de les utiliser dans l'outil de données de votre choix. L'expérience de consommation de données dans Azure Data Catalog active cette fonctionnalité de deux manières.
 
-1.	Pour les applications clientes qui sont directement prises en charge par **Azure Data Catalog**, les utilisateurs peuvent cliquer sur le menu **Ouvrir dans** de la mosaïque de la source de données se trouvant dans le portail. L’application cliente se lancera alors en se connectant à la source de données sélectionnée.
+1.	Pour les applications clientes qui sont directement prises en charge par **Azure Data Catalog**, les utilisateurs peuvent cliquer sur le menu **Ouvrir dans** de la vignette de la source de données dans le portail. L’application cliente se lancera alors en se connectant à la source de données sélectionnée.
 2.	Pour toutes les applications clientes, les utilisateurs peuvent utiliser les informations de connexion affichées dans le volet Propriétés pour une source de données sélectionnée. Cette information inclut tous les détails (tels que le nom du serveur, le nom de la base de données et le nom de l'objet) requis pour se connecter aux données et peut être copiée dans l'expérience de connexion de l'outil client. Si les détails d'accès de requête ont été fournis pour une source de données, cette information s'affichera à côté des détails de connexion.
 
-> [AZURE.NOTE]Dans la version préliminaire d’Azure Data Catalog, seuls Microsoft Excel et SQL Server Reporting Services Report Manager seront directement pris en charge et disponibles dans le menu **Ouvrir dans**.
+> [AZURE.NOTE]Dans la version Preview d’Azure Data Catalog, seuls Microsoft Excel et SQL Server Reporting Services Report Manager sont directement pris en charge et disponibles dans le menu **Ouvrir dans**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

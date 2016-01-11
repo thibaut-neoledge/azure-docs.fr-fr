@@ -16,29 +16,29 @@
    ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Débogage de votre application Service Fabric à l'aide de Visual Studio
+# Débogage de votre application Service Fabric à l’aide de Visual Studio
 
-Vous pouvez économiser du temps et de l'argent en déployant et déboguant votre application Service Fabric dans un cluster de développement d'ordinateur local. Visual Studio peut déployer l'application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application.
+Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio peut déployer l'application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application.
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 
-2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**
+2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
 
     ![Démarrer le débogage d'une application][startdebugging]
 
-3. Définissez des points d'arrêt dans votre code et parcourez l'application en cliquant sur les commandes du menu **Déboguer**.
+3. Définissez des points d’arrêt dans votre code et parcourez l’application en cliquant sur les commandes du menu **Déboguer**.
 
-    > [AZURE.NOTE]Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d'arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver le ou les points d’arrêt une fois qu’ils ont été atteints : définissez le point d’arrêt comme étant conditionnel sur l’ID de thread ou utilisant Événements de diagnostic.
+    > [AZURE.NOTE]Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d’arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver les points d’arrêt une fois qu’ils ont été atteints en définissant le point d’arrêt comme étant conditionnel sur l’ID de thread ou en utilisant les événements de diagnostic.
 
-4. La fenêtre **Événements de diagnostic** s'ouvre automatiquement pour afficher les événements de diagnostic en temps réel.
+4. La fenêtre **Événements de diagnostic** s’ouvre automatiquement et affiche les événements de diagnostic en temps réel.
 
     ![Afficher les événements de diagnostic en temps réel][diagnosticevents]
 
-5. Vous pouvez également ouvrir la fenêtre **Événements de diagnostic** dans l'Explorateur de serveurs. Sous **Azure**, cliquez avec le bouton droit sur **Cluster Service Fabric** > **Afficher les événements de diagnostic...**
+5. Vous pouvez également ouvrir la fenêtre **Événements de diagnostic** dans l’Explorateur de serveurs. Sous **Azure**, cliquez avec le bouton droit sur **Cluster Service Fabric** > **Afficher les événements de diagnostic**.
 
     ![Ouvrir la fenêtre des événements de diagnostic][viewdiagnosticevents]
 
-6. Les événements de diagnostics peuvent être consultés dans le fichier **ServiceEventSource.cs**, généré automatiquement, et sont appelés à partir du code d'application.
+6. Les événements de diagnostics peuvent être consultés dans le fichier **ServiceEventSource.cs**, généré automatiquement, et sont appelés à partir du code d’application.
 
     ```csharp
     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
@@ -48,7 +48,7 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 
     ![Filtrer, suspendre et reprendre ou examiner des événements en temps réel][diagnosticeventsactions]
 
-8. Les services de débogage ont la même fonction que le débogage de toute autre application. Les points d'arrêt peuvent être définis normalement via Visual Studio pour faciliter le débogage. Bien que les collections fiables soient répliquées sur plusieurs nœuds, elles implémentent toujours IEnumerable, ce qui signifie que vous pouvez utiliser l'affichage des résultats dans Visual Studio pendant le débogage pour voir ce que vous avez stocké à l'intérieur. Définissez simplement un point d'arrêt n'importe où dans votre code.
+8. Les services de débogage ont la même fonction que le débogage de toute autre application. Les points d'arrêt peuvent être définis normalement via Visual Studio pour faciliter le débogage. Bien que les Collections fiables sont répliquées sur plusieurs nœuds, elles implémentent toujours IEnumerable. Cela signifie que vous pouvez utiliser l’affichage des résultats dans Visual Studio pendant le débogage pour voir ce que vous avez stocké à l’intérieur. Définissez simplement un point d’arrêt n’importe où dans votre code.
 
     ![Démarrer le débogage d'une application][breakpoint]
 
@@ -56,7 +56,7 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 ## Étapes suivantes
 
 - [Tester un service Service Fabric](service-fabric-testability-overview.md).
-- [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Gérer vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
@@ -65,4 +65,4 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

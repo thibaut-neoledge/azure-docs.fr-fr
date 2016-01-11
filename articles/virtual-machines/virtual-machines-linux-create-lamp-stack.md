@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Création d'une pile LAMP avec Microsoft Azure
@@ -36,7 +36,7 @@ Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si 
 
 Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, voir [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d’une durée de 10 minutes, offre une introduction au déploiement d’images LAMP prédéfinies à partir d’Azure Marketplace : (pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d’une durée de 10 minutes, présente le déploiement d’images LAMP prédéfinies à partir d’Azure Marketplace : [pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Phase 1 : Création d’une image
 Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.
@@ -46,11 +46,11 @@ SSH est un outil important pour les administrateurs système. Toutefois, s'appuy
 
 Pour générer la clé d'authentification SSH, procédez comme suit.
 
--	Téléchargez et installez puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Téléchargez et installez Puttygen via [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
--	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
--	Sélectionnez et copiez la clé publique dans **Key**, et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
+-	Après le processus de génération, puttygen.exe affiche votre clé générée. Par exemple : ![][2]
+-	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
 ###Étape 2 : Créer l’image dans le portail Azure.
@@ -58,7 +58,7 @@ Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans
 
 ![][3]
 
-Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple LAMPDemo, et Azure génère l'URL comme Lampdemo.cloudapp.net.
+Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple LAMPDemo, pour qu’Azure génère l’URL comme suit : *Lampdemo.cloudapp.net*.
 
 Pour **Nom d’utilisateur**, choisissez un nom que vous utiliserez ultérieurement pour vous connecter à la machine virtuelle.
 
@@ -88,7 +88,7 @@ Cliquez sur **Add**. Quand vous approvisionnez une nouvelle machine virtuelle, v
 
 Configurez le point de terminaison :
 
-1.	Tapez un nom pour le point de terminaison dans **Point de terminaison**.
+1.	Entrez un nom pour le point de terminaison dans **Point de terminaison**.
 2.	Tapez 80 dans **Port public**. Si vous avez modifié le port d'écoute par défaut d'Apache, vous devez mettre à jour Port privé pour qu'il s'agisse du même que le port d'écoute Apache.
 3.	Tapez 80 dans **Port public**. Par défaut, le trafic HTTP utilise le port 80. Si vous affectez le port 80, vous n'avez pas besoin d'inclure le numéro de port dans l'URL qui vous permet d'accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net. Si vous affectez une autre valeur pour le port d'écoute Apache, par exemple 81, vous devez ajouter le numéro de port à l'URL pour accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net:81/.
 
@@ -102,7 +102,7 @@ Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuel
 ###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n'importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. Cliquez sur **Parcourir -> Machines virtuelles->** nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
+Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. Cliquez sur **Parcourir -> Machines virtuelles**-> nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple.
 
@@ -147,7 +147,7 @@ Une fois l'installation terminé, démarrez Apache avec cette commande :
 	sudo service httpd start
 
 ####Tester Apache
-Pour vérifier si Apache est correctement installé, recherchez le nom DNS de votre serveur Apache (pour l’exemple d’URL dans cet article, http://lampdemo.cloudapp.net/)). La page doit afficher les mots « It works! » ![][14]
+Pour vérifier si Apache est correctement installé, recherchez le nom DNS de votre serveur Apache (pour l’exemple de cet article, http://lampdemo.cloudapp.net/)). La page doit afficher les mots « It works! » ![][14]
 
 ####Résolution de problèmes
 Si Apache est en cours d'exécution mais que vous ne voyez pas la page Apache par défaut ci-dessus, vérifiez ce qui suit :
@@ -268,7 +268,7 @@ Cela a été testé sur Ubuntu 14.04.
 
 Ubuntu est basé sur Debian. Vous pouvez installer la pile LAMP de la même manière que la série Red Hat. Pour simplifier les étapes, utilisez l'outil Tasksel.
 
-Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, voir [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
+Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, consultez [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
 
 Utilisez tasksel pour installer les logiciels requis pour la pile LAMP.
 
@@ -308,7 +308,7 @@ Si le système d'exploitation de votre machine virtuelle est Ubuntu, exécutez l
 
 	sudo service apache2 restart  
 
-Terminez en accédant à votre page d’informations php (pour l’exemple de serveur web dans cette rubrique, l’URL serait http://lampdemo.cloudapp.net/info.php)).
+Terminez en accédant à votre page d’informations php (pour l’exemple de serveur web dans cette rubrique, l’URL sera http://lampdemo.cloudapp.net/info.php)).
 
 Votre fenêtre de navigateur doit ressembler à ceci :
 
@@ -456,4 +456,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

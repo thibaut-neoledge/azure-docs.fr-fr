@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -118,24 +118,25 @@ Cliquez sur **OK** pour enregistrer la configuration de la persistance.
 
 >[AZURE.IMPORTANT]La persistance des données Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md).
 
+<a name="cluster-size"></a>
 ## Taille du cluster Redis
 
-Cliquez sur **Taille du cluster Redis (version préliminaire)** pour ajouter ou supprimer des partitions d’un cache de niveau Premium en cours d’exécution avec clustering activé.
+Cliquez sur **Taille du cluster Redis (PREVIEW)** pour changer la taille du cluster pour un cache de niveau Premium en cours d’exécution avec le clustering activé.
 
 >[AZURE.NOTE]Notez que si le niveau Premium du cache Redis Azure a été publié en disponibilité générale, la fonctionnalité Taille du cluster Redis est actuellement en version préliminaire.
 
 ![Taille du cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-Pour modifier le nombre de partitions, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**, puis cliquez sur **OK** pour enregistrer.
+Pour changer la taille du cluster, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**, puis cliquez sur **OK** pour enregistrer.
 
->[AZURE.IMPORTANT]Le clustering Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer le clustering Redis pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md).
+>[AZURE.IMPORTANT]Le clustering Redis est disponible uniquement pour les caches de niveau Premium. Pour plus d’informations, consultez [Comment configurer le clustering pour un cache Redis Azure Premium](cache-how-to-premium-clustering.md).
 
 
 ## Utilisateurs et balises
 
 ![Utilisateurs et balises de Cache Redis](./media/cache-configure/IC808320.png)
 
-La section **Utilisateurs** fournit une prise en charge pour le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure pour aider les entreprises à répondre aux exigences de gestion des accès de façon simple et précise. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
+La section **Utilisateurs** fournit une prise en charge pour le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure, pour aider les entreprises à répondre aux exigences de gestion des accès de façon simple et précise. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
 La section **Balises** vous aide à organiser vos ressources. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
@@ -147,19 +148,19 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Toutes les valeurs configurables, telles que **max-memory-policy**, peuvent être modifiées par le biais du portail Azure.
+>Toutes les valeurs configurables, comme **max-memory-policy**, peuvent être modifiées via la portail Azure ou via des outils de gestion en ligne de commande, comme Azure CLI ou PowerShell.
 
 |Paramètre|Valeur par défaut|Description|
 |---|---|---|
 |bases de données|16|La base de données par défaut est DB 0 ; vous pouvez en sélectionner une autre pour chaque connexion à l’aide de connection.GetDataBase(dbid), où dbid est un nombre compris entre 0 et 15.|
-|maxclients|Dépend du niveau de tarification<sup>1</sup>|Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ».|
-|maxmemory-policy|volatile-lru|La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque la mémoire maximale (la taille du cache que vous avez sélectionné lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est volatile-lru, qui supprime les clés avec une expiration définie à l’aide d’un algorithme dernier récemment utilisé (LRU). Ce paramètre peut être configuré dans le portail Azure. Pour plus d’informations, voir [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxclients|Dépend du niveau tarifaire<sup>1</sup>|Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ».|
+|maxmemory-policy|volatile-lru|La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque la mémoire maximale (la taille du cache que vous avez sélectionné lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est volatile-lru, qui supprime les clés avec une expiration définie à l’aide d’un algorithme dernier récemment utilisé (LRU). Ce paramètre peut être configuré dans le portail Azure. Pour plus d’informations, consultez [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Les algorithmes LRU et TTL ne sont pas précis mais estimés (afin d’économiser de la mémoire), vous pouvez donc sélectionner également la taille d’échantillon à vérifier. Par exemple, Redis vérifie par défaut trois clés et choisit celle qui a été utilisée il y a le plus longtemps.|
 |lua-time-limit|5 000|Temps d’exécution maximal d’un script Lua en millisecondes. Si la durée d’exécution maximale est atteinte, Redis enregistre qu’un script est toujours en cours d’exécution après la durée maximale autorisée et commence à répondre aux requêtes avec une erreur.|
 |lua-event-limit|500|Il s’agit de la taille maximale de la file d’attente des événements de script.|
-|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, voir [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-<sup>1</sup>`maxclients` est différent pour chaque niveau de tarification du Cache Redis Azure.
+<sup>1</sup>`maxclients` est différent pour chaque niveau tarifaire du cache Redis Azure.
 
 -	Caches De base et Standard
 	-	Cache C0 (250 Mo) : jusqu’à 256 connexions
@@ -177,7 +178,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 
 ## Commandes Redis non prises en charge dans le Cache Redis Azure
 
->[AZURE.IMPORTANT]Étant donné que la configuration et la gestion des instances de Cache Redis Azure s’effectuent à l’aide du portail Azure, les commandes suivantes sont désactivées. Si vous essayez de les utiliser, vous recevez un message d’erreur semblable à `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Étant donné que la configuration et la gestion des instances de cache Redis Azure sont gérées par Microsoft, les commandes suivantes sont désactivées. Si vous essayez de les utiliser, vous recevez un message d’erreur similaire à `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -188,16 +189,16 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 >-	SHUTDOWN
 >-	SLAVEOF
 
-Pour plus d’informations sur les commandes Redis, voir [http://redis.io/commands](http://redis.io/commands).
+Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 
 ## Console Redis
 
-Vous pouvez adresser en toute sécurité des commandes aux instances de Cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium.
+Vous pouvez adresser en toute sécurité des commandes aux instances de cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium.
 
 >[AZURE.IMPORTANT]La Console Redis ne fonctionne pas avec le réseau virtuel ou le clustering.
 >
->-	[Réseau virtuel](cache-how-to-premium-vnet.md) : lorsque votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
->-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base lorsqu’il est démarré avec le commutateur `-c`. Pour plus d'informations, consultez [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel de cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	[Réseau virtuel](cache-how-to-premium-vnet.md) : quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli de la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base quand il est démarré avec le commutateur `-c`. Pour plus d’informations, consultez [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel de cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
 
@@ -207,9 +208,9 @@ Pour exécuter des commandes sur votre instance de cache, tapez simplement la co
 
 ![Console Redis](./media/cache-configure/redis-console.png)
 
-Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azure, voir la section précédente intitulée [Commandes Redis non prises en charge dans le Cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache). Pour plus d’informations sur les commandes Redis, voir [http://redis.io/commands](http://redis.io/commands).
+Pour obtenir la liste des commandes Redis désactivées pour le cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache). Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 
 ## Étapes suivantes
--	Pour plus d’informations sur l’utilisation des commandes Redis, voir [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands).
+-	Pour plus d’informations sur l’utilisation des commandes Redis, consultez [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="Décrit le fonctionnement du script PowerShell dans le projet de déploiement du groupe de ressources Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
 
@@ -264,4 +264,4 @@ En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

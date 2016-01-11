@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="12/17/2015" 
 	ms.author="josephd"/>
 
 # Déployer une application métier à haute disponibilité dans Azure
@@ -33,6 +33,41 @@ Il s'agit de la configuration avec des noms d'espace réservé pour chaque serve
 ![](./media/virtual-machines-workload-high-availability-LOB-application-overview/workload-lobapp-phase4.png)
  
 Au moins deux ordinateurs pour chaque rôle assurent une haute disponibilité. Toutes les machines virtuelles sont dans un seul emplacement Azure (également appelé région). Chaque groupe de machines virtuelles pour un rôle spécifique dans leur propre groupe à haute disponibilité.
+
+## Nomenclature
+
+Cette configuration de référence requiert l’ensemble suivant de services et de composants Azure :
+
+- Sept machines virtuelles
+- Quatre disques de données supplémentaires pour les contrôleurs de domaine et les machines virtuelles exécutant SQL Server
+- Trois groupes à haute disponibilité
+- Un réseau virtuel entre sites locaux
+- deux comptes de stockage ;
+
+Voici les machines virtuelles et leur taille par défaut pour cette configuration.
+
+Élément | Description de la machine virtuelle | Image de galerie | Taille par défaut 
+--- | --- | --- | --- 
+1\. | Premier contrôleur de domaine | Windows Server 2012 R2 Datacenter | D1
+2\. | Deuxième contrôleur de domaine | Windows Server 2012 R2 Datacenter | D1
+3\. | Serveur de base de données primaire | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+4\. | Serveur de base de données secondaire | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+5\. | Nœud majoritaire du cluster | Windows Server 2012 R2 Datacenter | D1
+6\. | Premier serveur web | Windows Server 2012 R2 Datacenter | D3
+7\. | Deuxième serveur web | Windows Server 2012 R2 Datacenter | D3
+
+Pour calculer le coût estimé de cette configuration, consultez la [Calculatrice de tarification Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. Dans **Modules**, cliquez sur **Compute**, puis sur **Virtual Machines**, suffisamment de fois pour créer une liste de sept machines virtuelles.
+2. Pour chaque machine virtuelle, sélectionnez :
+	- votre région prévue
+	- le type **Windows**
+	- le niveau tarifaire **Standard**
+	- la taille par défaut de la table précédente ou la **taille prévue des instances**
+
+> [AZURE.NOTE]La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
+## Phases du déploiement
 
 Vous déployez cette configuration dans les phases suivantes :
 
@@ -58,14 +93,4 @@ Pour plus d’informations sur la conception des charges de travail informatique
 
 Pour démarrer la configuration de cette charge de travail, passez à la [Phase 1 : configuration d'Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-## Ressources supplémentaires
-
-[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Inscription d’une API à partir de la définition d’API Swagger 2.0  
@@ -37,10 +37,10 @@ Cette inscription est très facile. Procédez comme suit :
 
 1. Créez la définition d’API [Swagger 2.0](http://swagger.io) de votre API existante. PowerApps utilise Swagger 2.0 en tant que format de définition d’API. Vous pouvez utiliser les outils référencés dans les [sites Web de Swagger 2.0](http://swagger.io) pour créer facilement une définition d’API Swagger 2.0. Quelques points à noter :  
 
-	- La propriété ``host`` doit pointer vers le point de terminaison de votre API existante. N’utilisez pas de schéma ou de sous-chemins. Par exemple, saisissez ``api.contoso.com``. <br/><br/>
+	- La propriété ``host`` doit pointer vers le point de terminaison de votre API existante. N’utilisez pas de schéma ou de sous-chemins. Par exemple, entrez ``api.contoso.com``. <br/><br/>
 	- La propriété ``basePath`` doit répertorier les sous-chemins d’accès de votre point de terminaison API existant, le cas échéant. Démarrez avec une barre oblique ``/``. Par exemple, entrez : ``/purchaseorderapi``.
 
-2. Assurez-vous que votre API existante est accessible en toute sécurité par votre environnement App Service : <br/><br/> a) si vous savez comment rendre votre API accessible via Internet, vous pouvez configurer l’authentification de base HTTP entre votre environnement App Service et votre API existante. Découvrez la procédure [ici](powerapps-configure-apis.md). <br/><br/> b) si vous souhaitez conserver votre API au sein du réseau de votre organisation, vous pouvez configurer un réseau virtuel dans l’environnement App Service pour accéder au réseau de votre entreprise en toute sécurité. Découvrez la procédure [ici](../app-service-app-service-environment-intro.md).
+2. Assurez-vous que votre API existante est accessible en toute sécurité par votre environnement App Service : <br/><br/> a) si vous savez comment rendre votre API accessible via Internet, vous pouvez configurer l’authentification de base HTTP entre votre environnement App Service et votre API existante. [Mettez à jour une API existante](powerapps-configure-apis.md) pour voir comment. <br/><br/> b) si vous voulez conserver votre API au sein du réseau de votre organisation, vous pouvez configurer un réseau virtuel dans l’environnement App Service pour accéder au réseau de votre entreprise de façon sécurisée. En savoir plus sur les [environnements App Service](../app-service-app-service-environment-intro.md).
 
 3. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **PowerApps**, puis **Manage APIs (Gérer les API)** : ![][11]
 4. Dans Gérer les API, sélectionnez **Add (Ajouter)** : ![][12]
@@ -67,4 +67,4 @@ Dans cette rubrique, vous avez vu comment inscrire une API à partir de la défi
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

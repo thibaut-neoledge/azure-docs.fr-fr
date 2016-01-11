@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="wesmc"/>
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -55,17 +53,15 @@ Pour configurer l'envoi de notifications depuis votre application, créez un Hub
 
 2. Dans le panneau Créer un concentrateur de notification, cliquez sur **Créer**.
 
-3. Cliquez sur **Push** > **Apple (APNS)** > **Télécharger le certificat**. Chargez le fichier de certificat push .p12 exporté précédemment. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS !
+3. Cliquez sur **Push** > **Apple (APNS)** > **Télécharger le certificat**. Chargez le fichier de certificat push .p12 exporté précédemment. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
-##Mettre à jour le projet de serveur pour l'envoi de notification Push
+Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
+
+##Mettre à jour le projet de serveur pour l'envoi de notifications Push
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##Déployer le projet de serveur dans Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Configurer votre projet Xamarin.iOS
 
@@ -110,7 +106,7 @@ Pour configurer l'envoi de notifications depuis votre application, créez un Hub
 
 3. Dans le même fichier, remplacez l’événement **RegisteredForRemoteNotifications**. Dans ce code, vous inscrivez une notification de modèle simple qui sera envoyée sur toutes les plateformes prises en charge par le serveur.
  
-	Pour plus d’informations sur l’utilisation de modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates.md).
+	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -151,13 +147,13 @@ Pour configurer l'envoi de notifications depuis votre application, créez un Hub
 
 L’application est mise à jour et prend en charge les notifications Push.
 
-## <a name="test"></a>Tester les notifications push dans votre application
+## <a name="test"></a>Test des notifications Push dans votre application
 
 1. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-2. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
+2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -176,4 +172,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

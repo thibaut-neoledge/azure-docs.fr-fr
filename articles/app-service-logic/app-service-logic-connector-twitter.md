@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="sameerch"/>
 
 
@@ -53,7 +53,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 5. Entrez les autres paramètres requis : nom du connecteur, App Service et groupe de ressources.
 6.	Cliquez sur **Create**.
 
-> [AZURE.NOTE]Si vous souhaitez renforcer la sécurité de votre API Twitter avec l'URL de redirection, vous pouvez consultez la procédure [ici](app-service-logic-oauth-security.md)
+> [AZURE.NOTE]Si vous souhaitez renforcer la sécurité de votre API Twitter avec l’URL de redirection, vous pouvez utiliser la [sécurité OAUTH](app-service-logic-oauth-security.md).
 
 
 ## Utilisation du connecteur Twitter dans votre application logique
@@ -90,4 +90,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
