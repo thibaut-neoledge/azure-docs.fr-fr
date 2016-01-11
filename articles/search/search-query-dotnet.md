@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Générer des requêtes dans Azure Search à l’aide de .NET | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Générer une requête de recherche dans Azure Search et utiliser les paramètres de recherche pour filtrer, trier et modeler les résultats de recherche à l’aide de la bibliothèque ou du kit de développement logiciel .NET."
+	pageTitle="Créer des requêtes dans Azure Search en utilisant .NET | Microsoft Azure | Service de recherche cloud hébergé"
+	description="Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer, trier et formater les résultats de la recherche en utilisant la bibliothèque ou le kit de développement logiciel (SDK) .NET."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,15 +17,14 @@
 	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
-#Générer des requêtes dans Azure Search à l’aide de .NET
+#Générer des requêtes dans Azure Search en utilisant .NET
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Cet article explique comment construire une requête à l’aide du [kit de développement logiciel .NET d’Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Le contenu ci-dessous est un sous-ensemble de la documentation [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md). Consultez l’article parent pour obtenir la procédure détaillée.
+Cet article explique comment construire une requête à l’aide du [kit de développement logiciel (SDK) .NET d’Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Le contenu ci-dessous est un sous-ensemble de la documentation [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md). Consultez l’article parent pour obtenir la procédure détaillée.
 
 Avant de créer une requête, vous devez avoir établi une connexion à votre service de recherche, généralement via un objet `SearchServiceClient`.
 
@@ -59,8 +58,8 @@ Examinons comment cette méthode est appelée :
 	SearchDocuments(indexClient, searchText: "fancy wifi");
 	SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « * », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, consultez [Syntaxe de requête simple dans Azure Search](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « * », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, consultez [Syntaxe des requêtes simples dans Azure Search](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
-Le deuxième appel utilise une expression OData $filter, équivalant à la catégorie « Luxury ». Celle-ci limite la recherche pour ne renvoyer que les documents dont le champ de catégorie correspond exactement à la chaîne « Luxury ». Pour en savoir plus sur la syntaxe OData, consultez [Syntaxe d’expression OData pour Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+Le deuxième appel utilise une expression OData $filter, équivalant à la catégorie « Luxury ». Celle-ci limite la recherche pour ne renvoyer que les documents dont le champ de catégorie correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData, consultez [Syntaxe des expressions OData pour Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

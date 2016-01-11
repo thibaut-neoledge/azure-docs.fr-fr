@@ -1,3 +1,3 @@
 Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Vous devez savoir dans quel modèle vous souhaitez travailler. Toutes les fonctionnalités de mise en réseau ne sont pas encore prises en charge pour les deux modèles. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

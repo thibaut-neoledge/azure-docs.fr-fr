@@ -65,7 +65,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 ## Créez un compte de stockage.
 
-1. Connectez-vous au [portail Azure](portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans le menu Hub, sélectionnez **Nouveau** -> **Données et stockage** -> **Compte de stockage**.
 
@@ -103,7 +103,7 @@ Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de
 
 ### Afficher et copier les clés d’accès de stockage
 
-Dans le [portail Azure](portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour afficher, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
+Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour afficher, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
 
 ### Régénération des clés d'accès de stockage
 
@@ -129,7 +129,7 @@ Voici le processus de rotation de vos clés d’accès de stockage :
 
 ## Suppression d'un compte de stockage
 
-Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
+Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
 
 > [AZURE.WARNING]Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
 
@@ -139,4 +139,4 @@ Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au com
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -67,4 +66,4 @@ Rechercher la totalité de l’index et ordonner en fonction d’un champ spéci
 
 Une demande de requête réussie entraîne un Code d’état « 200 OK » et les résultats de recherche se trouvent au format JSON dans le corps de réponse. Pour plus d’informations, consultez la section « Réponse » de [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -61,7 +61,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Tokyo, Washington DC |
 |**China Telecom Global** | Pris en charge | Non pris en charge | Hong Kong |
 |**Cologix** | Bientôt disponible | Non pris en charge | Montréal+, Toronto+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Londres |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin +, Londres |
 | **Comcast** | Pris en charge | Non pris en charge | Silicon Valley, Washington DC |
 | **CoreSite** | Pris en charge | Pris en charge | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto+, Washington DC |
@@ -74,7 +74,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **NTT Communications** | Pris en charge | Non pris en charge | Londres +, Tokyo |
-| **[Orange](http://www.orange-business.com/)** | Pris en charge | Non pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
+| **[Orange](http://www.orange-business.com/)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
 | **PCCW Global Limited** | Pris en charge | Non pris en charge | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Non pris en charge | Singapour |
 | **Softbank** | Bientôt disponible | Non pris en charge | Osaka, Tokyo | 
@@ -139,4 +139,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

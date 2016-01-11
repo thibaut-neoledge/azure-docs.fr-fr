@@ -55,7 +55,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 	- **Groupe de ressources** : créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md).
 	- **Informations d’identification** : pour les clusters basés sur Windows, vous pouvez créer un utilisateur de cluster (utilisateur HTTP, utilisateur de service web HTTP) et un utilisateur du Bureau à distance. Cliquez sur **Activer le Bureau à distance** pour ajouter les informations d’identification de l’utilisateur du Bureau à distance. La section suivante requiert RDP.
 	- **Source de données** : créez un nouveau compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster. L’emplacement du compte de stockage par défaut détermine l’emplacement du cluster. Le compte de stockage par défaut et le cluster doivent se situer dans le même datacenter.
-	- **Niveaux de tarification de nœud** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
+	- **Niveaux tarifaires des nœuds** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
 
 		> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
@@ -331,4 +331,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

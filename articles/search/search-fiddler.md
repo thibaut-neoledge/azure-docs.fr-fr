@@ -13,18 +13,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Fiddler pour évaluer et tester les API REST Azure Search
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Cet article explique comment utiliser Fiddler, disponible en tant que [téléchargement gratuit de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP vers et afficher les réponses à l'aide de l'API REST Azure Search, sans avoir à écrire de code. Azure Search est un service de recherche hébergé sur le cloud entièrement géré, disponible sur Microsoft Azure et facilement programmable via les API .NET et REST. Les API REST du service Azure Search sont documentées dans [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Cet article explique comment utiliser Fiddler, disponible en [téléchargement gratuit auprès de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP et afficher les réponses à l’aide de l’API REST Azure Search, sans avoir à écrire de code. Azure Search est un service de recherche hébergé sur le cloud entièrement géré, disponible sur Microsoft Azure et facilement programmable via les API .NET et REST. Les API REST du service Azure Search sont documentées sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Dans les opérations qui suivent, vous allez créer un index, télécharger des documents, interroger l’index, puis interroger le système pour obtenir des informations de service.
 
@@ -34,7 +33,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
 
 1. Démarrez Fiddler. Dans le menu **Fichier**, désactivez **Capturer le trafic** pour masquer l’activité HTTP externe sans rapport avec la tâche actuelle.
 
-3. Sous l’onglet **Compositeur** , formulez une demande comparable à la capture d’écran qui suit :
+3. Sous l’onglet **Compositeur** , formulez une demande comparable à la capture d’écran suivante.
 
   	![][1]
 
@@ -43,7 +42,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
 3. Saisissez une URL qui spécifie l’URL de service, les attributs de la demande et la version de l’API. Voici quelques points à garder à l'esprit :
    + Utilisez le préfixe HTTPS.
    + L'attribut de demande est « /indexes/hotels ». Cela indique à Search de créer un index intitulé « hotels ».
-   + La version d’API est en minuscules et elle est spécifiée comme suit : « ?api-version=2015-02-28 ». Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
+   + La version d’API est en minuscules et elle est spécifiée comme suit : « ?api-version=2015-02-28 ». Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. Pour cette raison, Azure Search requiert une version d’api à chaque demande, pour vous donner le contrôle total quant à celle qui est utilisée.
 
     L’URL complète doit être semblable à celle figurant dans l’exemple suivant :
 
@@ -63,7 +62,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -169,7 +168,7 @@ Après quelques secondes, la réponse HTTP 200 apparaît dans la liste de sessi
 
 ## Interrogation de l'index
 
-Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant. Sous l’onglet **Compositeur**, une commande **GET** qui interroge votre service se présentera comme la capture d’écran qui suit :
+Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant. Sous l’onglet **Compositeur**, une commande **GET** qui interroge votre service se présentera comme dans la capture d’écran qui suit :
 
    ![][3]
 
@@ -204,7 +203,7 @@ L'exemple de requête suivant provient de la page [Opération d'index de recherc
 
 ## Interrogation du système
 
-Vous pouvez également interroger le système pour connaître le nombre de documents et l'espace de stockage utilisé. Sous l’onglet **Compositeur**, votre demande se présentera comme suit et la réponse renverra un nombre correspondant au nombre de documents et à l’espace utilisé.
+Vous pouvez également interroger le système pour connaître le nombre de documents et l'espace de stockage utilisé. Sous l’onglet **Compositeur**, votre demande se présentera comme suit et la réponse renverra un comptage du nombre de documents et de l’espace utilisé.
 
  ![][5]
 
@@ -229,10 +228,8 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 ## Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires pour une approche sans code de la gestion et de l'utilisation d'Azure Search.
+Consultez [Gérer votre service Search sur Azure](search-manage.md) pour une approche sans code de la gestion et de l’utilisation d’Azure Search.
 
--  [Gestion de votre service de recherche dans Azure](search-manage.md)
--  [Utilisation de Chrome Postman avec Azure Search](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@ Les liens suivants fournissent des informations supplémentaires pour une approc
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->
