@@ -17,7 +17,7 @@
 
 # Publication d’un service cloud à l’aide des outils Azure
 
-Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre application Windows Azure directement depuis Visual Studio. Visual Studio prend en charge la publication intégrée dans l'environnement intermédiaire ou l'environnement de production d'un service cloud.
+Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre application Microsoft Azure directement depuis Visual Studio. Visual Studio prend en charge la publication intégrée dans l'environnement intermédiaire ou l'environnement de production d'un service cloud.
 
 Avant de pouvoir publier une application Azure, vous devez disposer d'un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
@@ -173,4 +173,4 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

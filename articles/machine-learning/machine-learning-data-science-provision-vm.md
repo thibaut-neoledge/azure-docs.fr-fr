@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Approvisionnement d’une machine virtuelle pour la science des données | Microsoft Azure" 
-	description="Configurez et créez une machine virtuelle pour la science des données sur Windows Azure pour vos besoins d’analyse et d’apprentissage automatique." 
+	description="Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -136,4 +136,4 @@ Remarque : vous devez disposer d’un compte Office 365 pour accéder à Power
 ## Autres outils de développement Microsoft
 Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) vous permet de découvrir et de télécharger d’autres outils de développement Microsoft. Il existe également un raccourci vers l’outil fourni sur le bureau de la machine virtuelle pour la science des données.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

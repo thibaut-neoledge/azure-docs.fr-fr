@@ -39,7 +39,7 @@ Voici une liste des points importants à prendre en compte avant ou pendant l'ut
 
 - Premium Storage est disponible dans le [portail Azure](portal.azure.com) et accessible grâce aux bibliothèques suivantes du Kit de développement logiciel (SDK) : [API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or ultérieure ; [API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure ; et [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 ou ultérieure.
 
-- Pour obtenir la liste des régions qui prennent actuellement en charge Premium Storage, consultez [Services Azure par région](http://azure.microsoft.com/regions/#services).
+- Pour obtenir la liste des régions qui prennent actuellement en charge le stockage Premium, consultez [Services Azure par région](http://azure.microsoft.com/regions/#services).
 
 - Le stockage Premium prend uniquement en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Pour plus d'informations sur les objets blob de page Azure, consultez [Présentation des objets blob de blocs, des objets blob d'ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx). Le stockage Premium ne prend pas en charge les objets blob de blocs Azure, les fichiers Azure, les tables Azure ou les files d'attente Azure.
 
@@ -73,7 +73,7 @@ Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de
 
 	Notez que ces limites ne valent que pour le trafic de disques, pas pour les présences dans le cache ou le trafic réseau. Une bande passante distincte est disponible pour le trafic réseau des machines virtuelles. Il ne s’agit pas de la bande passante dédiée aux disques de stockage Premium.
 	
-	Pour obtenir les informations les plus récentes sur le nombre maximal d’opérations d’E/S par seconde et le débit (bande passante) maximal pour les machines virtuelles de série DS et GS, consultez [Tailles des machines virtuelles et des services cloud pour Azure](../virtual-machines/virtual-machines-size-specs.md). Pour en savoir plus sur les disques Premium Storage et leurs limites d’E/S par seconde et de débit, consultez le tableau de la section [Objectifs de performances et d’évolutivité lors de l’utilisation de Premium Storage](#scalability-and-performance-targets-whfr-FRing-premium-storage) dans cet article.
+	Pour obtenir les informations les plus récentes sur le nombre maximal d’opérations d’E/S par seconde et le débit (bande passante) maximal pour les machines virtuelles de série DS et GS, consultez [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les disques de stockage Premium et leurs limites d’E/S par seconde et de débit, consultez le tableau de la section [Objectifs de performances et d’évolutivité lors de l’utilisation du stockage Premium](#scalability-and-performance-targets-whfr-FRing-premium-storage) dans cet article.
 
 > [AZURE.NOTE]Les présences dans le cache ne sont pas limitées par l’IOPS et le débit du disque. Autrement dit, quand vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle de série DS ou GS, les lectures effectuées dans le cache ne sont pas soumises aux limites des disques de stockage Premium. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local.
 
@@ -331,10 +331,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
 - [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Tailles de machines virtuelles et services cloud pour Windows Azure](../virtual-machines/virtual-machines-size-specs.md)
+- [Tailles de machines virtuelles et services cloud pour Microsoft Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

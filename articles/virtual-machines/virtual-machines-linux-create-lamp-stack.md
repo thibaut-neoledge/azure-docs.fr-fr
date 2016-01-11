@@ -49,7 +49,7 @@ Pour générer la clé d'authentification SSH, procédez comme suit.
 -	Téléchargez et installez Puttygen via [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
--	Après le processus de génération, puttygen.exe affiche votre clé générée. Par exemple : ![][2]
+-	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
 -	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
