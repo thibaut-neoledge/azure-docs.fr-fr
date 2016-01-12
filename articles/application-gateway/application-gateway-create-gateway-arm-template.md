@@ -33,11 +33,6 @@ Vous découvrirez comment télécharger et modifier un modèle ARM existant à p
 Si vous déployez simplement le modèle ARM directement à partir de GitHub, sans rien modifier, passez à la section Déployer un modèle à partir de github.
 
 
->[AZURE.IMPORTANT]Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Ce document décrit la création d’une passerelle Application Gateway à l’aide d’Azure Resource Manager. Pour utiliser la version classique, accédez à [Créer un déploiement classique de passerelle Application Gateway à l’aide de PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Scénario
 
 Dans ce scénario, vous allez créer :
@@ -121,20 +116,36 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
  
 ## Déployer le modèle ARM à l’aide de PowerShell
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
-2. À partir d’une invite de commandes Azure PowerShell, exécutez l’applet de commande **Switch-AzureMode** pour passer en mode Resource Manager, comme illustré ci-dessous.
+1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
-		Switch-AzureMode AzureResourceManager
+### Étape 1 :
+
+		Login-AzureRmAccount
+
+
+
+### Étape 2 :
+
+Vérifiez les abonnements associés au compte
+
+		get-AzureRmSubscription 
+
+Vous devez indiquer vos informations d’identification.<BR>
+
+### Étape 3 
+
+Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### Étape 4
+
 	
-Sortie attendue :
+Si nécessaire, créez un groupe de ressources à l’aide de l’applet de commande `New-AzureResourceGroup`. Dans l’exemple ci-dessous, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’Est des États-Unis :
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]L’applet de commande Switch-AzureMode sera bientôt obsolète. Lorsque ce sera le cas, toutes les applets de commande Resource Manager seront renommées.
-	
-3. Si nécessaire, créez un groupe de ressources à l’aide de l’applet de commande `New-AzureResourceGroup`. Dans l’exemple ci-dessous, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’Est des États-Unis :
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@ Sortie attendue :
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. Exécutez l’applet de commande New-AzureResourceGroupDeployment pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut.
+4. Exécutez l’applet de commande New-AzureRmResourceGroupDeployment pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 La sortie générée par la ligne de commande est la suivante :
@@ -180,7 +191,7 @@ La sortie générée par la ligne de commande est la suivante :
 
 Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installer et configurer l'interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu'à l'étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -264,7 +275,7 @@ Dans le volet « Déploiement personnalisé », cliquez sur « Créer ».
  
 ## Étapes suivantes
 
-Si vous souhaitez configurer le déchargement SSL, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
+Si vous souhaitez configurer le déchargement SSL, consultez [Configuration de la passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
 Si vous souhaitez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
@@ -273,4 +284,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

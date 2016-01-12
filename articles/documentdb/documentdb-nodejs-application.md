@@ -48,7 +48,7 @@ Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
+- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] version v0.10.29 ou supérieure.
 - [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 - [Git][].
@@ -544,7 +544,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 ## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](../web-sites-publish-source-control-git.md#step4).
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la procédure à suivre dans la rubrique [Déploiement continu à l’aide de GIT dans Azure App Service](../app-service-web/web-sites-publish-source-control.md).
 
 2. Ajoutez votre site web Azure en tant que git distant.
 
@@ -562,11 +562,11 @@ Félicitations ! Vous venez de créer votre première application web Express N
 
 Vous pouvez télécharger le code source de l’application de référence complète sur [GitHub][].
 
-Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

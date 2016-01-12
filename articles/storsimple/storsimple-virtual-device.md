@@ -17,7 +17,10 @@
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Vue d’ensemble
 
@@ -388,4 +391,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Pour administrer votre appareil virtuel, reportez-vous à la liste détaillée des flux de travail de la section [Administrer l’appareil StorSimple à l’aide du service StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

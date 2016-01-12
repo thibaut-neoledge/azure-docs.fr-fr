@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -144,7 +144,7 @@ La chaîne de connexion nécessaire à la connexion à la base de données SQL A
 ### Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 
 
-Si votre programme client se connecte à la base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.5.1 ou une version ultérieure afin de tirer parti de sa fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
+Si votre programme client se connecte à la base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure afin de tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -223,24 +223,24 @@ Par exemple, lorsque votre programme client est hébergé sur un ordinateur Wind
 Si votre programme client est hébergé sur une machine virtuelle Azure, consultez <br/>[Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-Pour obtenir des informations générales sur la configuration des ports et l’adresse IP, consultez [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md)
+Pour obtenir des informations générales sur la configuration des ports et l’adresse IP, voir [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Connexion : ADO.NET 4.5
+## Connexion : ADO.NET 4.6.1
 
 
-Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à la base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.5 ou ultérieure.
+Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à la base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
 
 
-ADO.NET 4.5 : ajoute la prise en charge du protocole TDS 7.4. Cela inclut des améliorations de connexion au-delà de ceux dans 4.0. Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
+ADO.NET 4.6.1 : ajoute la prise en charge du protocole TDS 7.4. Cela inclut des améliorations de connexion au-delà de ceux dans 4.0. Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
 
 
 Lorsque vous utilisez un objet de connexion à partir d’un pool de connexions, nous conseillons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. La réouverture d’une connexion n’est pas aussi coûteuse que la création d’une nouvelle connexion.
 
 
-Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis juillet 2015, vous pouvez [télécharger ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis novembre 2015, vous pouvez [télécharger ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -393,7 +393,7 @@ Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de 
 - Classe **ExponentialBackoff**
 
 
-- Classe **SqlDatabaseTransientErrorDetectionStrategy**
+- Classe **SqlDatabaseTransientErrorDetectionStrategy**.
 
 
 - Classe **ReliableSqlConnection**
@@ -512,6 +512,6 @@ public bool IsTransient(Exception ex)
 - [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
+- [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

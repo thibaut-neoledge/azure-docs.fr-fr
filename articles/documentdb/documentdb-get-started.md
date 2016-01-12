@@ -471,13 +471,11 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 -   Vous voulez un exemple de didacticiel NoSQL ASP.NET MVC plus complexe ? Consultez [Création d'une application web avec ASP.NET MVC et DocumentDB](documentdb-dotnet-application.md).
 -	Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
 -	Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
--	Consultez la section Développement de la [page de documentation DocumentDB](../../services/documentdb/) pour découvrir plus en détail le modèle de programmation.
+-	Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/) pour découvrir plus en détail le modèle de programmation.
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

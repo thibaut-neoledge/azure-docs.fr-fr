@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Créer un entrepôt SQL Data Warehouse avec TSQL | Microsoft Azure"
-	description="Découvrez comment créer un entrepôt Azure SQL Data Warehouse avec TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Créer un entrepôt SQL Data Warehouse avec TSQL | Microsoft Azure"
+   description="Découvrez comment créer un entrepôt Azure SQL Data Warehouse avec TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL).
@@ -61,4 +61,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [page de tarification]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

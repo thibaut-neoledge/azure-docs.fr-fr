@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Ajout de votre propre domaine à Azure Active Directory
@@ -212,4 +212,4 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

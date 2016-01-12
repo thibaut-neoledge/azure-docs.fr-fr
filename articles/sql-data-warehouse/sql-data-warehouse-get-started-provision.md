@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Créer une base de données SQL Data Warehouse dans le portail Azure | Microsoft Azure"
-	description="Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Créer une base de données SQL Data Warehouse dans le portail Azure | Microsoft Azure"
+   description="Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Créer un entrepôt de données SQL
@@ -53,12 +54,7 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
-  >
-  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*.
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
-  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pour cette raison que nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 
@@ -134,4 +130,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Téléchargement de données avec Azure Data Factory
@@ -206,4 +206,4 @@ Dans la section « Créer et déployer », cliquez sur « Autres commandes �
 	}
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

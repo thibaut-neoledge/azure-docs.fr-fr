@@ -1,25 +1,25 @@
 <properties
-    pageTitle="Visualiser les données SQL Data Warehouse avec Power BI | Microsoft Azure"
-    description="Visualiser les données SQL Data Warehouse avec Power BI"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Visualiser les données SQL Data Warehouse avec Power BI"
+   description="Visualiser les données SQL Data Warehouse avec Power BI"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor="" />
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="lodipalm" />
 
 # Visualiser des données avec Power BI
 
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'une base de données SQL Data Warehouse préchargée avec l’exemple de base de données AdventureWorksDW. La section [Création d’une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) montre comment en créer une.
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'une base de données SQL Data Warehouse préchargée avec l’exemple de base de données AdventureWorksDW. La section [Création d’une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) vous montre comment en créer une.
 > 
 > Si vous disposez déjà d’une base de données SQL Data Warehouse, mais n’avez pas d’exemple de données, vous pouvez [charger manuellement des exemples de données][].
 
@@ -111,4 +111,4 @@ Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez 
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
