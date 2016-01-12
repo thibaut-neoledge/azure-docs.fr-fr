@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #Utilisation de SSH avec Linux et Mac sur Azure
@@ -86,7 +86,7 @@ Une fois que vous avez créé les fichiers nécessaires, il existe de nombreuses
 
 ### Exemple : Création d'une machine virtuelle avec le fichier id\_rsa.pub
 
-L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa`) à la commande `azure vm create`. (Les autres arguments ont été précédemment créés).
+L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa.pub`) à la commande `azure vm create`. (Les autres arguments ont été précédemment créés).
 
 	azure vm create \
 	--nic-name testnic \
@@ -96,7 +96,7 @@ L'utilisation la plus courante concerne la création impérative d'une machine v
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 L'exemple suivant montre comment utiliser le format **ssh-rsa** avec un modèle de gestionnaire de ressources et l'interface de ligne de commande Azure pour créer une machine virtuelle Ubuntu sécurisée par un nom d'utilisateur et le contenu de `~/.ssh/id_rsa.pub` sous forme de chaîne. (Dans ce cas, la chaîne de clé publique est raccourcie pour être plus lisible).
@@ -264,7 +264,7 @@ Si vous avez créé une machine virtuelle à l'aide d'un fichier .pem créé à 
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
 	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +298,4 @@ Vous pouvez lire les suggestions de la rubrique [Dépannage SSH connexions](virt
  
 Maintenant que vous êtes connecté à votre machine virtuelle, veillez à mettre à jour la distribution que vous avez choisie avant de continuer à l'utiliser.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

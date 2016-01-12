@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/18/2015" 
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search
@@ -78,7 +78,7 @@ La configuration de ressources dédiées peut prendre du temps (15 minutes ou p
 
 **Étape 1 : créer un service avec un niveau de tarification défini sur Standard**
 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de votre abonnement existant. 
 
 2. Cliquez sur **Nouveau** en bas de la page.
 
@@ -310,7 +310,7 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 Si vous ne savez plus où se trouvent les pages de configuration, procédez comme suit pour trouver le tableau de bord des services.
 
-1.	Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. 
+1.	Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement existant. 
 2.	Cliquez sur **Accueil**, puis sur la vignette du service Search.
 
  	![][22]
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -109,4 +109,8 @@ Des propriétés telles que le nom, la description, les tables d’entrée et de
 
 Pour l'activité de copie, la section **typeProperties** varie selon le type de source et de récepteur. Chaque page spécifique du magasin de données répertoriée ci-dessus décrit les propriétés spécifiques au type de magasin de données.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+### Performances et optimisation de l’activité de copie 
+Consultez l’article [Guide des performances et de l’optimisation de l’activité de copie](data-factory-copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes façons d’optimiser les performances de l’activité de copie.
+
+<!---HONumber=AcomDC_1223_2015-->

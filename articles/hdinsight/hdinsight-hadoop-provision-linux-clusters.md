@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Créer des clusters Hadoop, HBase ou Storm sur Linux dans HDInsight | Microsoft Azure"
-   	description="Découvrez comment créer des clusters Hadoop, HBase ou Storm sur Linux pour HDInsight en utilisant un navigateur, l’interface de ligne de commande Azure, Azure PowerShell, REST ou via un kit de développement logiciel."
+   	pageTitle="Créer des clusters Hadoop, HBase, Storm ou Spark sur Linux dans HDInsight | Microsoft Azure"
+   	description="Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight en utilisant un navigateur, le CLI Azure, Azure PowerShell, REST ou via un kit de développement logiciel (SDK)."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
@@ -39,9 +39,9 @@ Plusieurs types d’HDInsight sont disponibles :
 | Hadoop | requête et analyse (tâches de traitement par lots) |
 | HBase | Stockage des données NoSQL |
 | Storm | Traitement d’événements en temps réel |
-| Spark (Aperçu Windows uniquement) | Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
+| Spark (version préliminaire) | Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
 
-Lors de la configuration, vous allez sélectionner un de ces types pour le cluster. Vous pouvez ajouter d’autres technologies telles que Hue, Spark ou R à ces types de base en utilisant les [Actions de Script](#scriptaction).
+Lors de la configuration, vous allez sélectionner un de ces types pour le cluster. Vous pouvez ajouter d’autres technologies telles que Hue ou R à ces types de base en utilisant des [Actions de script](#scriptaction).
 
 Chaque type de cluster possède sa propre terminologie pour les nœuds appartenant au cluster, ainsi que le nombre de nœuds et la taille de machine virtuelle par défaut pour chaque type de nœud :
 
@@ -93,9 +93,9 @@ Le type de cluster vous permet de sélectionner des configurations spéciales po
 | Hadoop | requête et analyse (tâches de traitement par lots) |
 | HBase | Stockage des données NoSQL |
 | Storm | Traitement d’événements en temps réel |
-| Spark (Aperçu Windows uniquement) | Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
+| Spark (version préliminaire) | Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
 
-Vous pouvez ajouter d’autres technologies telles que Hue, Spark ou R à ces types de base en utilisant des [actions de script](#scriptaction).
+Vous pouvez ajouter d’autres technologies telles que Hue ou R à ces types de base en utilisant des [Actions de script](#scriptaction).
 
 ###Système d’exploitation du cluster
 
@@ -158,7 +158,7 @@ Différents types de cluster ont des types de nœuds, des nombres de nœuds et d
 
 > [AZURE.IMPORTANT]Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
-Quand vous utilisez le portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
+Quand vous utilisez la version préliminaire du portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
 
 > [AZURE.IMPORTANT]La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -197,7 +197,7 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 >
 > À la date de la rédaction de cet article (8/25/2015), vous ne pouvez qu’un cluster basé sur Linux dans Azure Virtual Network.
 >
-> Vous ne pouvez pas utiliser de réseau virtuel Azure v1 (classique) avec un cluster HDInsight Linux. Le réseau virtuel doit être v2 (Azure Resource Manager), pour être affiché en tant qu’option pendant le processus de création du cluster HDInsight dans le portail Azure, ou pour être utilisable pendant la création d’un cluster à partir de l’interface de ligne de commande Azure ou d’Azure PowerShell.
+> Vous ne pouvez pas utiliser de réseau virtuel Azure v1 (classique) avec un cluster HDInsight Linux. Le réseau virtuel doit être v2 (Azure Resource Manager), pour être affiché en tant qu’option pendant le processus de création du cluster HDInsight dans le portail Azure en version préliminaire, ou pour être utilisable pendant la création d’un cluster à partir de l’interface de ligne de commande Azure ou d’Azure PowerShell.
 >
 > Si vous disposez de ressources sur un réseau v1 et que vous souhaitez rendre HDInsight directement accessible à ces ressources via un réseau virtuel, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md) pour plus d’informations sur la connexion d’un réseau virtuel v2 à un réseau virtuel v1. Une fois cette connexion établie, vous pouvez créer le cluster HDInsight dans le réseau virtuel v2.
 
@@ -227,7 +227,7 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 
 | En utilisant cette méthode pour créer un cluster... | En utilisant un navigateur web... | En utilisant une ligne de commande | En utilisant REST API | En utilisant un kit de développement logiciel | À partir de Linux, Mac OS X ou Unix | À partir de Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [Portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Portail Azure en version préliminaire](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Interface de ligne de commande Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
@@ -280,6 +280,6 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/25/2015" 
+	ms.date="12/19/2015" 
 	ms.author="wesmc"/>
 
 # Ajout de notifications Push à votre application Xamarin.Forms
@@ -59,10 +59,6 @@ Cette procédure vous amène à créer un Notification Hub. Si vous en avez déj
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##Déployer le projet de serveur mis à jour dans Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 
 ##(Facultatif) Configurer et exécuter le projet Android
 
@@ -77,7 +73,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 ####Configurer le Notification Hub pour GCM
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Applications mobiles** > votre application mobile > **Paramètres** > **Notifications Push** > **Google (GCM)**. Collez la clé d’API serveur créée précédemment, puis cliquez sur **Enregistrer**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur Android.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Applications mobiles** > votre application mobile > **Paramètres** > **Notifications Push** > **Google (GCM)**. Collez la clé d’API serveur créée précédemment, puis cliquez sur **Enregistrer**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -169,7 +165,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-10. Ajoutez la définition de classe suivante à l’espace de noms. Remplacez **<PROJECT_NUMBER>** par le numéro de projet noté plus tôt.
+10. Ajoutez la définition de classe suivante à l’espace de noms. Remplacez **<PROJECT_NUMBER>** par le numéro de projet noté précédemment.
 
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -194,7 +190,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 12. Ajoutez le code suivant à la classe GcmService qui remplace le gestionnaire d’événements OnRegistered et implémente une méthode `Register`.
 
-	Ce code inscrira un corps de modèle pour recevoir les notifications de modèle à l’aide du paramètre `messageParam`. Les notifications de modèle vous permettent d’envoyer des notifications multiplateformes. Pour plus d’informations, voir [Modèles](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+	Ce code inscrira un corps de modèle pour recevoir les notifications de modèle à l’aide du paramètre `messageParam`. Les notifications de modèle vous permettent d’envoyer des notifications multiplateformes. Pour plus d’informations, consultez [Modèles](https://msdn.microsoft.com/library/azure/dn530748.aspx).
 		
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -313,7 +309,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-2. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
+2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -330,7 +326,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 
 ####Configurer le Notification Hub pour APNS
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Applications mobiles** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). Cliquez sur **Parcourir** > **Mobile Apps** > votre application mobile > **Paramètres** > **Notifications Push** > **Apple (APNS)** > **Télécharger un certificat**. Chargez le fichier de certificat Push p12 exporté plus tôt. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat Push de développement pour le développement et le test. Sinon, choisissez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -348,7 +344,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
 		using Newtonsoft.Json.Linq;
 
 
-2. Dans le projet iOS, ouvrez AppDelegate.cs et mise à jour`FinishedLaunching` pour prendre en charge des notifications à distance comme suit.
+2. Dans le projet iOS, ouvrez AppDelegate.cs et mettez à jour`FinishedLaunching` pour prendre en charge des notifications à distance comme suit.
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -417,11 +413,11 @@ L’application est mise à jour et prend en charge les notifications Push.
 
 1. Cliquez avec le bouton droit sur le projet iOS, puis cliquez sur **Définir comme projet de démarrage**.
 
-2. Cliquez sur le bouton **Exécuter** ou sur **F5** dans Visual Studio afin de développer le projet et de démarrer l’application dans un appareil compatible iOS, puis cliquez sur **OK** afin d’accepter les notifications Push.
+2. Cliquez sur le bouton **Exécuter** ou sur **F5** dans Visual Studio afin de générer le projet et de démarrer l’application dans un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-3. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
+3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -512,7 +508,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
             await InitNotificationsAsync();
         }
 
-4. Dans l’Explorateur de solutions pour Visual Studio, ouvrez le fichier **Package.appxmanifest**, puis définissez **Compatible toast** sur **Oui** dans **Notifications**.
+4. Dans l’Explorateur de solutions pour Visual Studio, ouvrez le fichier **Package.appxmanifest**, puis définissez **Compatible toast** sur **Oui** sous **Notifications**.
 
 5. Générez l’application et vérifiez l’absence d’erreurs. Votre application cliente doit désormais s’inscrire pour les notifications de modèle du serveur principal d’application mobile.
 
@@ -526,7 +522,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-3. Dans l’application, saisissez une tâche, puis cliquez sur l’icône plus (**+**).
+3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -541,4 +537,4 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

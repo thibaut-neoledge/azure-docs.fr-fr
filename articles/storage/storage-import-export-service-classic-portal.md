@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Utilisation du service Import/Export pour transférer des données vers le stockage d’objets blob | Microsoft Azure" 
-	description="Découvrez comment créer des tâches d’importation et d’exportation dans le portail de gestion Azure pour transférer des données vers le stockage d’objets blob." 
+	description="Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure Classic pour transférer des données vers Blob Storage." 
 	authors="robinsh" 
 	manager="carmonm" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="12/22/2015" 
 	ms.author="robinsh"/>
 
 
@@ -27,12 +27,12 @@ Vous pouvez utiliser le service Microsoft Azure Import/Export pour transférer d
 
 Pour transférer un jeu de données de fichiers volumineux vers le stockage d'objets blob, vous pouvez envoyer le ou les disques durs contenant ces données à un centre de données Azure, qui téléchargera vos données vers votre compte de stockage. De la même manière, pour exporter des données à partir d'un stockage d'objets blob, vous pouvez envoyer des disques durs vides à un centre de données Azure, qui se chargera de copier les données BLOB de votre compte de stockage sur vos disques durs avant de vous les renvoyer. Avant d'envoyer un lecteur, vous devez chiffrer les données qu'il contient ; le service Import/Export en fait de même avant de vous renvoyer vos données exportées.
 
-Vous pouvez créer et gérer des tâches d'importation et d'exportation de l'une des deux façons suivantes :
+Vous pouvez créer et gérer des tâches d’importation et d’exportation de l’une des deux façons suivantes :
 
-- en utilisant le portail de gestion Azure ;
+- En utilisant le portail Azure Classic.
 - en utilisant une interface REST communiquant avec le service.
 
-Cet article offre une vue d'ensemble du service Import/Export et explique comment l'utiliser via le portail de gestion. Pour plus d'informations sur l'API REST, consultez la page [Référence de l'API REST du service d'importation/exportation Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
+Cet article offre une vue d’ensemble du service Import/Export et explique comment l’utiliser avec le portail Classic. Pour plus d'informations sur l'API REST, consultez la page [Référence de l'API REST du service d'importation/exportation Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Présentation du service Import/Export ##
 
@@ -58,11 +58,11 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 5.	**Nombre de tâches :** un client peut avoir au maximum 20 tâches actives par compte de stockage.
 6.	**Taille maximale des tâches :** la taille d'une tâche dépend de la capacité des disques durs utilisés et de la quantité maximale de données qu'un compte de stockage peut accueillir. Chaque tâche peut contenir au maximum 10 disques durs.
 
-  >[AZURE.IMPORTANT]Les disques durs externes équipés d’un adaptateur USB ne sont pas pris en charge par ce service. Ne préparez pas de lecteur de disque dur. Le disque dans le boîtier externe ne peut pas non plus être utilisé pour l’importation de données. Utilisez un lecteur de disque dur **interne** SATA II/III de 3,5 pouces. Si vous ne pouvez pas connecter le disque SATA directement à votre ordinateur, utilisez un adaptateur SATA/USB externe. Consultez la liste des adaptateurs recommandés dans la section Forum aux questions.
+  >[AZURE.IMPORTANT]Les disques durs externes équipés d’un adaptateur USB ne sont pas pris en charge par ce service. Ne préparez pas de lecteur de disque dur. Le disque dans le boîtier externe ne peut pas non plus être utilisé pour l’importation de données. Utilisez un lecteur de disque dur **interne** SATA II/III de 3,5 pouces. Si vous ne pouvez pas connecter le disque SATA directement à votre ordinateur, utilisez un adaptateur SATA/USB externe. Voir la liste des adaptateurs recommandés dans la section Forum aux questions.
 
-## Création d'une tâche d'importation dans le portail de gestion##
+## Créer une tâche d’importation dans le portail Classic##
 
-Créez une tâche d'importation pour avertir le service Import/Export que vous allez expédier au centre de données un ou plusieurs lecteurs contenant des données à importer dans votre compte de stockage.
+Créez une tâche d’importation pour avertir le service Import/Export que vous allez expédier au centre de données un ou plusieurs lecteurs contenant des données à importer dans votre compte de stockage.
 
 ### Préparation des lecteurs
 
@@ -76,9 +76,9 @@ Pour préparer vos lecteurs, effectuez les trois étapes suivantes :
 
 L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* lors de la préparation de chaque lecteur. Le fichier journal de lecteur est stocké sur votre ordinateur local, et non sur le lecteur lui-même. Vous serez amené à télécharger le fichier journal lors de la phase de création de la tâche d'importation. Le fichier journal d'un lecteur contient son ID, la clé BitLocker, ainsi que d'autres informations sur le lecteur.
 
-### Création de la tâche d'importation
+### Création de la tâche d’importation
 
-1.	Après avoir préparé votre lecteur, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. 
+1.	Après avoir préparé votre lecteur, accédez à votre compte de stockage dans le portail Classic, puis affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. 
  
 2.	À l'étape 1 de l'Assistant, précisez que vous avez préparé votre lecteur et que le fichier journal du lecteur est disponible.
  
@@ -98,17 +98,17 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d’expédition pour ce travail d’importation après envoi de mon colis**, puis terminez le processus d'importation.
 
-7. Pour entrer le numéro de suivi après avoir expédié votre colis, revenez à la page **Importer/Exporter** de votre compte de stockage dans le portail de gestion, sélectionnez votre tâche dans la liste, puis choisissez **Informations d'expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
+7. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 	
 	Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
 
 	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l’étape 2 de l’Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
 
-## Création d'une tâche d'exportation dans le portail de gestion##
+## Créer une tâche d’exportation dans le portail Classic##
 
-Créez une tâche d'exportation pour avertir le service Import/Export que vous allez expédier un ou plusieurs lecteurs vides au centre de données, de sorte que les données puissent être exportées de votre compte de stockage vers les lecteurs, qui vous seront ensuite renvoyés.
+Créez une tâche d’exportation pour avertir le service Import/Export que vous allez expédier un ou plusieurs lecteurs vides au centre de données, de sorte que les données puissent être exportées de votre compte de stockage vers les lecteurs, qui vous seront ensuite renvoyés.
 
-1. 	Pour créer une tâche d'exportation, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d'exportation**, puis parcourez les étapes de l'Assistant.
+1. 	Pour créer une tâche d’exportation, accédez à votre compte de stockage dans le portail Classic, puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d'exportation**, puis parcourez les étapes de l'Assistant.
 
 2. 	À l'étape 2, fournissez les coordonnées de la personne responsable de cette tâche d'exportation. Pour enregistrer des données de journal détaillées pour la tâche d'exportation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
 
@@ -142,17 +142,17 @@ Créez une tâche d'exportation pour avertir le service Import/Export que vous a
 
 	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'exportation après envoi de mon colis**, puis terminez le processus d'exportation.
 
-6. Pour entrer le numéro de suivi après avoir expédié votre colis, revenez à la page **Importer/Exporter** de votre compte de stockage dans le portail de gestion, sélectionnez votre tâche dans la liste, puis choisissez **Informations d'expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
+6. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 	
 	Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
 
 	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l’étape 2 de l’Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
 
-> [AZURE.NOTE]Si l'objet blob à exporter est en cours d'utilisation au moment de la copie sur le disque dur, le service d'importation/exportation Azure prend un instantané de l'objet blob et copie la capture instantanée.
+> [AZURE.NOTE]Si l’objet blob à exporter est en cours d’utilisation au moment de la copie sur le disque dur, le service d’importation/exportation Azure prend un instantané de l’objet blob et copie la capture instantanée.
 
-## Suivi du statut des tâches dans le portail de gestion##
+## Suivre l’état de la tâche dans le portail Classic##
 
-Vous pouvez suivre le statut de vos tâches d'importation ou d'exportation dans le portail de gestion. Accédez à votre compte de stockage dans le portail de gestion, puis cliquez sur l'onglet **Import/Export**. La liste de vos tâches s'affiche sur la page. Vous pouvez filtrer la liste en fonction du statut des tâches, de leur nom, de leur type ou du numéro de suivi.
+Vous pouvez suivre l’état de vos tâches d’importation ou d’exportation dans le portail Classic. Accédez à votre compte de stockage dans le portail Classic, puis cliquez sur l’onglet **Import/Export**. La liste de vos tâches s’affiche sur la page. Vous pouvez filtrer la liste en fonction du statut des tâches, de leur nom, de leur type ou du numéro de suivi.
 
 Le tableau ci-dessous indique la signification de chaque désignation de statut de tâche :
 
@@ -167,7 +167,7 @@ Complete|Votre disque dur vous a été renvoyé.
 
 ## Affichage des clés BitLocker pour une tâche d'exportation ##
 
-Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés BitLocker que le service a générées pour vos lecteurs. Celles-ci vous permettent de déchiffrer vos données exportées une fois que vous avez reçu les lecteurs en provenance du centre de données Azure. Accédez à votre compte de stockage dans le portail de gestion, puis cliquez sur l'onglet **Import/Export**. Sélectionnez votre tâche d'exportation dans la liste, puis cliquez sur le bouton **View Keys**. Les clés BitLocker s’affichent comme illustré ci-dessous :
+Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clés BitLocker que le service a générées pour vos lecteurs. Celles-ci vous permettent de déchiffrer vos données exportées une fois que vous avez reçu les lecteurs en provenance du centre de données Azure. Accédez à votre compte de stockage dans le portail Classic, puis cliquez sur l’onglet **Import/Export**. Sélectionnez votre tâche d'exportation dans la liste, puis cliquez sur le bouton **View Keys**. Les clés BitLocker s’affichent comme illustré ci-dessous :
 
 ![Afficher les clés BitLocker pour une tâche d'exportation][export-job-bitlocker-keys]
 
@@ -212,7 +212,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 - Vous pouvez annuler une tâche dont le statut est Creating ou Shipping.
 
-**Pendant combien de temps le statut des tâches terminées est-il consultable dans le portail de gestion ?**
+**Pendant combien de temps l’état des tâches terminées est-il consultable dans le portail Classic ?**
 
 - Le statut des tâches terminées est visible pendant 90 jours. Au-delà de ce délai, toutes les tâches terminées sont supprimées.
 
@@ -279,4 +279,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

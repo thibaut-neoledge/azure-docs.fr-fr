@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Expressions de modèle Azure Resource Manager
@@ -167,13 +167,14 @@ Resource Manager vous offre les expressions ci-après pour travailler avec des c
 - [replace](#replace)
 - [split](#split)
 - [string](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [découper](#trim)
 - [uniqueString](#uniquestring)
 - [URI](#uri)
 
-Pour obtenir le nombre de caractères d’une chaîne ou d’un tableau, voir l’expression [length](#length).
+Pour obtenir le nombre de caractères d’une chaîne ou d’un tableau, consultez [length](#length).
 
 <a id="base64" />
 ### base64
@@ -294,6 +295,28 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
         "stringValue": "[string(parameters('appId'))]"
     }
 
+<a id="substring" />
+### substring
+
+**substring(chaîne\_à\_analyser, index\_début, longueur)**
+
+Retourne une sous-chaîne qui commence à la position de caractère spécifiée et qui contient le nombre de caractères spécifié.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne\_à\_analyser | Oui | La chaîne d’origine de laquelle la sous-chaîne est extraite.
+| index\_début | Non | La position de caractère (commençant à zéro) de la sous-chaîne.
+| longueur | Non | Le nombre de caractères de la sous-chaîne.
+
+L’exemple suivant extrait les trois premiers caractères d’un paramètre.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -401,7 +424,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin d’accès de base est utilisé lors de la construction de l’URI. Par exemple, si vous transmettez ****http://contoso.com/resources/azuredeploy.json** en tant que paramètre baseUri, l’URI de base résultante sera ****http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez ****http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est ****http://contoso.com/resources/**.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
@@ -417,7 +440,7 @@ Resource Manager offre les expressions ci-après pour l’obtention de valeurs �
 - [parameters](#parameters)
 - [variables](#variables)
 
-Pour obtenir les valeurs de ressources, de groupes de ressources ou d’abonnements, voir la section [Expressions de ressource](#resource-expressions).
+Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Expressions de ressource](#resource-expressions).
 
 <a id="deployment" />
 ### deployment
@@ -426,7 +449,7 @@ Pour obtenir les valeurs de ressources, de groupes de ressources ou d’abonneme
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
-Cette expression retourne l’objet passé au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est transmis en ligne, par exemple en cas d’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet renvoyé présente le format suivant :
+Cette expression retourne l’objet passé au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
 
     {
         "name": "",
@@ -444,7 +467,7 @@ Cette expression retourne l’objet passé au cours du déploiement. Les propri�
         }
     }
 
-Lorsque l’objet est transmis en tant que lien, par exemple en cas d’utilisation du paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est renvoyé au format ci-après.
+Quand l’objet est passé comme lien, par exemple lors de l’utilisation du paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est retourné dans le format suivant.
 
     {
         "name": "",
@@ -516,7 +539,7 @@ Resource Manager offre les expressions ci-après pour l’obtention des valeurs 
 - [resourceId](#resourceid)
 - [subscription](#subscription)
 
-Pour obtenir les valeurs de paramètres, de variables ou du déploiement actuel, voir la section [Expressions de valeur de déploiement](#deployment-value-expressions).
+Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel, consultez [Expressions de valeur de déploiement](#deployment-value-expressions).
 
 <a id="listkeys" />
 ### listKeys
@@ -611,7 +634,7 @@ Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, 
 		}
 	}
 
-Si vous souhaitez à présent spécifier directement la version d’API dans votre modèle, vous pouvez utiliser l’expression **providers** et récupérer l’une des valeurs, telles que la version la plus récente comme indiqué ci-dessous.
+Si vous voulez maintenant spécifier directement la version d’API dans votre modèle, vous pouvez utiliser l’expression **providers** et récupérer une des valeurs, comme la version la plus récente, comme indiqué ci-dessous.
 
     "outputs": {
 		"BlobUri": {
@@ -741,9 +764,9 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 
 
 ## Étapes suivantes
-- Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour fusionner plusieurs modèles, voir [Utilisation de modèles liés à Azure Resource Manager](resource-group-linked-templates.md).
-- Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour découvrir comment déployer le modèle que vous avez créé, voir [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+- Pour boucler un nombre de fois spécifié lors de la création d’un type de ressource, consultez [Créer plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -99,6 +99,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
@@ -125,7 +126,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VimpelCom (OJSC)
 - VisualOn, Inc.
-- WOOJEON & HANDAN Co., Ltd
 - ZTE Corporation
 
 ##Titulaires de licence d’accord de produit final de client de diffusion lisse Microsoft
@@ -150,6 +150,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -181,7 +182,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations limitée
 - ZTE Corporation
 
@@ -193,4 +193,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

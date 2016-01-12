@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos" />
 
-# Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
+# Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
@@ -115,4 +115,4 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration-u2.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

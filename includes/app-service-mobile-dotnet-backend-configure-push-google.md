@@ -50,9 +50,11 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-### <a name="nodejs"></a>Projet de serveur principal Node.js
+4. Publier à nouveau le projet de serveur
 
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne dans le portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="nodejs"></a>Projet de back-end Node.js
+
+1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
  
 1. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
 
@@ -103,4 +105,4 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 
 2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

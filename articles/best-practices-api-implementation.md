@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Recommandations relatives à l’implémentation de l’API
@@ -155,7 +155,7 @@ Une fois qu’une requête d’une application cliente a été routée vers une 
 
 - **Les actions GET, PUT, DELETE, HEAD et PATCH doivent être idempotentes**.
 
-	Le code qui implémente ces requêtes ne doit entraîner aucun effet collatéral. Une requête réitérée sur la même ressource doit présenter un état identique. Par exemple, plusieurs requêtes DELETE dirigées vers la même URI doivent présenter le même effet, même si le code de statut HTTP des messages de réponse peut être différent (la première requête DELETE peut renvoyer le code de statut 204 (Aucun contenu), tandis qu’une requête DELETE ultérieure peut renvoyer le code de statut 204 (Non trouvé)).
+	Le code qui implémente ces requêtes ne doit entraîner aucun effet collatéral. Une requête réitérée sur la même ressource doit présenter un état identique. Par exemple, plusieurs requêtes DELETE dirigées vers la même URI doivent présenter le même effet, même si le code de statut HTTP des messages de réponse peut être différent (la première requête DELETE peut renvoyer le code de statut 204 (Aucun contenu), tandis qu’une requête DELETE ultérieure peut renvoyer le code de statut 404 (Non trouvé)).
 
 > [AZURE.NOTE]L’article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) (Modèles d’idempotence) du blog de Jonathan Oliver propose un aperçu de l’idempotence, et lie ce concept aux opérations de gestion de données.
 
@@ -247,26 +247,26 @@ Une fois qu’une requête d’une application cliente a été routée vers une 
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ Une fois qu’une requête d’une application cliente a été routée vers une 
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ Une fois qu’une requête d’une application cliente a été routée vers une 
 
 	- La relation entre l’objet renvoyé et l’objet décrit par le lien. Ici, « self » indique que le lien est une référence à l’objet (similaire à un pointeur `this` dans de nombreux langages orientés objets), et « orders » est le nom d’une collection contenant les informations sur la commande associée.
 
-	- Le lien hypertexte (`HRef`) associé à l’objet décrit par le lien, sous la forme d’une URI.
+	- Le lien hypertexte (`Href`) associé à l’objet décrit par le lien, sous la forme d’une URI.
 
 	- Le type de requête HTTP (`Action`) qui peut être envoyée à cette URI.
 
-	- Le format des données (`LinkedResourceMIMETypes`) qui doit être fourni dans la requête HTTP ou qui peut être renvoyé dans la réponse, en fonction du type de la requête.
+	- Le format des données (`Types`) qui doit être fourni dans la requête HTTP ou qui peut être renvoyé dans la réponse, en fonction du type de la requête.
 
 	Les liens HATEOAS représentés dans l’exemple de réponse HTTP indiquent qu’une application cliente peut exécuter les opérations suivantes :
 
@@ -406,7 +406,7 @@ Au sein d’un environnement distribué, comme ceux comportant un serveur Web e
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	Dans cet exemple, l’en-tête Cache-Control indique que les données renvoyées doivent expirer après 600 secondes, conviennent à un client unique et ne doivent pas être stockées dans un cache partagé utilisé par d’autres clients (elles sont _privées_). L’en-tête Cache-Control peut spécifier la valeur _public_ plutôt que _private_, auquel cas les données sont stockées dans un cache partagé. S’il comporte la valeur _no-store_, les données ne doivent **pas** être mises en cache par le client. L’exemple de code suivant représente l’élaboration d’un en-tête Cache-Control dans un message de réponse :
@@ -514,7 +514,7 @@ Au sein d’un environnement distribué, comme ceux comportant un serveur Web e
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]Pour des raisons de sécurité, n’autorisez pas la mise en cache des données sensibles ou des données renvoyées via une connexion authentifiée (HTTPS).
@@ -646,7 +646,7 @@ Au sein d’un environnement distribué, comme ceux comportant un serveur Web e
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- L’opération PUT de l’API Web récupère l’élément ETag actuel pour les données demandées (order 1 dans l’exemple ci-dessus) et le compare à la valeur de l’en-tête If-Match.
@@ -889,7 +889,7 @@ Il peut arriver qu’une application cliente doive émettre des requêtes qui en
 
 	Une application cliente sur le point d’envoyer un volume important de données au serveur peut déterminer dans un premier temps si le serveur va accepter la requête. Avant d’envoyer les données, l’application cliente peut soumettre une requête HTTP présentant un en-tête Expect: 100-Continue, un en-tête Content-Length qui indique la taille des données, mais également un corps de message vide. Si le serveur est prêt à traiter la requête, il doit répondre par un message spécifiant le statut HTTP 100 (Continuer). L’application cliente peut alors poursuivre le processus et envoyer la requête complète comportant les données dans le corps du message.
 
-	Si vous hébergez un service à l’aide d’ISS, le pilote HTTP.sys détecte et traite automatiquement les en-têtes Expect: 100-Continue avant de transmettre les requêtes à votre application Web. Cela signifie que vous avez peu de chances de voir ces en-têtes s’afficher dans le code de votre application, et vous pouvez partir du principe qu’IIS a déjà filtré les messages inappropriés ou dont la taille est jugée trop importante.
+	Si vous hébergez un service à l’aide d’IIS, le pilote HTTP.sys détecte et traite automatiquement les en-têtes Expect: 100-Continue avant de transmettre les requêtes à votre application Web. Cela signifie que vous avez peu de chances de voir ces en-têtes s’afficher dans le code de votre application, et vous pouvez partir du principe qu’IIS a déjà filtré les messages inappropriés ou dont la taille est jugée trop importante.
 
 	Si vous concevez des applications clientes à l’aide de Microsoft .NET Framework, l’ensemble des messages POST et PUT commenceront par envoyer des messages présentant par défaut l’en-tête Expect: 100-Continue. Du côté du serveur, le processus est géré de manière transparente par Microsoft .NET Framework. Néanmoins, ce processus entraîne 2 allers-retours vers le serveur pour chaque requête POST et PUT, même les plus modestes d’entre elles. Si votre application n’envoie pas de requêtes comportant de gros volumes de données, vous pouvez désactiver cette fonction en utilisant la classe `ServicePointManager` pour créer des objets `ServicePoint` dans l’application cliente. Un objet `ServicePoint` traite les connexions effectuées par le client sur le serveur en fonction des fragments de schéma et d’hôte des URI identifiant les ressources sur le serveur. Vous pouvez définir la propriété `Expect100Continue` de l’objet `ServicePoint` sur false. L’ensemble des requêtes POST et PUT suivantes émises par le client via une URI correspondant aux fragments de schéma et d’hôte de l’objet `ServicePoint` seront envoyées sans l’en-tête Expect: 100-Continue. Le code suivant montre comment configurer un objet `ServicePoint` qui configure l’ensemble des requêtes envoyées aux URI avec un schéma de `http` et un hôte de `www.contoso.com`.
 
@@ -1019,7 +1019,7 @@ Chaque API Web doit faire l’objet de contrôles spécifiques de vérification
 - Vérifiez que les requêtes et les messages de réponse sont correctement composés. Par exemple, si une requête HTTP POST contient les données associées à une nouvelle ressource sous le format x-www-form-urlencoded, assurez-vous que l’opération correspondante analyse correctement les données, crée les ressources et renvoie une réponse comportant les détails de la nouvelle ressource, notamment l’en-tête Location adéquat.
 - Vérifiez l’ensemble des liens et des URI des messages de réponse. Par exemple, un message HTTP POST doit renvoyer l’URI de la ressource nouvellement créée. Tous les liens HATEOAS doivent être valides.
 
-	> [AZURE.IMPORTANT]Si vous publiez l’API Web via un service de gestion des API, ces URI doivent correspondre à l’URl du service de gestion, non celle du serveur hébergeant l’API Web.
+	> [AZURE.IMPORTANT]Si vous publiez l’API Web via un service de gestion des API, ces URI doivent correspondre à l’URL du service de gestion, non celle du serveur hébergeant l’API Web.
 
 - Assurez-vous que chaque opération renvoie les codes de statut appropriés pour différentes combinaisons d’entrée. Par exemple :
 	- Si une requête est réussie, elle doit renvoyer le code de statut 200 (OK).
@@ -1027,7 +1027,7 @@ Chaque API Web doit faire l’objet de contrôles spécifiques de vérification
 	- Si le client transmet une requête qui supprime une ressource, le code de statut 204 doit être renvoyé (Aucun contenu).
 	- Si le client transmet une requête qui crée une ressource, le code de statut 201 doit être renvoyé (Créé).
 
-Méfiez-vous des codes de statut de réponse inattendus, situés dans la plage 5xx. Ces messages sont généralement signalés par le serveur hôte, qui indique le cas échéant qu’il n’a pas été en mesure de répondre à une requête valide.
+Méfiez-vous des codes de statut de réponse inattendus, situés dans la plage 5xx. Ces messages sont généralement signalés par le serveur hôte pour indiquer qu’il n’a pas été en mesure de répondre à une requête valide.
 
 - Testez les différentes combinaisons d’en-têtes de requêtes pouvant être définies par une application cliente et vérifiez que l’API Web renvoie les informations appropriées dans les messages de réponses transmis.
 
@@ -1141,7 +1141,7 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Introduction de la prise en charge de lots dans l’API Web et l’API Web OData](http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx) du site Web Microsoft décrit comment implémenter les opérations par lot dans une API Web à l’aide d’OData.
 - L’article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) (Modèles d’idempotence) du blog de Jonathan Oliver propose un aperçu de l’idempotence, et lie ce concept aux opérations de gestion de données.
 - Vous pouvez consulter la liste exhaustive des codes de statut HTTP et leur description sur la page [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) du site Web de l’organisme W3C.
-- Pour en savoir plus sur le traitement des exceptions avec l’API Web ASP.NET, consultez la page [Gestion des exceptions dans l’API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling) du site Web Microsoft.
+- Pour en savoir plus sur le traitement des exceptions HTTP avec l’API Web ASP.NET, consultez la page [Gestion des exceptions dans l’API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling) du site Web Microsoft.
 - L’article [Traitement des erreurs globales de l’API Web](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) du site Web Microsoft décrit comment implémenter une stratégie globale de traitement et de consignation des erreurs associées à l’API Web.
 - La page [Exécuter des tâches en arrière-plan avec les tâches Web](web-sites-create-web-jobs.md) du site Web Microsoft fournit des informations et des exemples sur l’utilisation des tâches Web pour effectuer des opérations d’arrière-plan sur un site Web Microsoft Azure.
 - La page [Notification des utilisateurs via Azure Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) du site Web Microsoft vous indique comment utiliser une unité Microsoft Azure Notification Hub pour transmettre des réponses asynchrones aux applications clientes.
@@ -1152,4 +1152,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

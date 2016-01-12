@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,7 +36,7 @@ Les actions suivantes sont prises en charge :
 - Envoi d'IDoc
 
 ## Configuration requise
-Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinateur client où l'écouteur hybride est installé et en cours d'exécution. Les détails précis sont indiqués [ici][9] dans la section intitulée **Pour l’adaptateur SAP**.
+Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinateur client où l'écouteur hybride est installé et en cours d'exécution. Les détails précis sont indiqués dans la section intitulée **Pour l’adaptateur SAP** du [Guide d’installation du Pack adaptateurs BizTalk][9].
 
 
 ## Créer un connecteur SAP
@@ -119,6 +119,6 @@ Pour l'action sélectionnée, les paramètres d'entrée et de sortie sont affich
 [6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
-[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+[9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

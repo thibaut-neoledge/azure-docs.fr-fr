@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/18/2015"
    ms.author="masashin"/>
 
 # Guide relatif aux travaux en arrière-plan
@@ -26,7 +26,7 @@
 
 Plusieurs types d’applications requièrent des tâches en arrière-plan, qui s’exécutent indépendamment de l’interface utilisateur. Les exemples incluent des traitements par lots, des tâches de traitement intensif et des processus exécutés sur le long terme, comme les workflows. Les travaux en arrière-plan peuvent être exécutés sans nécessiter l’intervention de l’utilisateur ; l’application peut démarrer la tâche et continuer à traiter les demandes interactives des utilisateurs. Ce processus peut favoriser la réduction de la charge sur l’interface utilisateur de l’application, ce qui peut améliorer la disponibilité et limiter les temps de réponse interactifs.
 
-Par exemple, si une application doit générer des miniatures d’images téléchargées par les utilisateurs, elle peut effectuer ce travail en arrière-plan et enregistrer ces miniatures dans le stockage une fois la tâche terminée sans que l’utilisateur ait besoin d’attendre la fin de cette exécution. De même, un utilisateur qui initie une commande peut lancer un workflow en arrière-plan pour traiter cette dernière, tandis que l’interface utilisateur permet à l’utilisateur de continuer à parcourir le site. Une fois le travail en arrière-plan terminé, le système peut mettre à jour les commandes stockées et envoyer un e-mail à l’utilisateur, afin de confirmer la commande.
+Par exemple, si une application doit générer des miniatures d’images téléchargées par les utilisateurs, elle peut effectuer ce travail en arrière-plan et enregistrer ces miniatures dans le stockage une fois la tâche terminée sans que l’utilisateur ait besoin d’attendre la fin de cette exécution. De même, un utilisateur qui initie une commande peut lancer un flux de travail en arrière-plan pour traiter cette dernière, tandis que l’interface utilisateur permet à l’utilisateur de continuer à parcourir l’application web. Une fois le travail en arrière-plan terminé, le système peut mettre à jour les commandes stockées et envoyer un e-mail à l’utilisateur, afin de confirmer la commande.
 
 Lorsque vous envisagez d’implémenter une tâche en tant que travail en arrière-plan, vous devez en premier lieu savoir si cette opération peut s’exécuter sans interaction utilisateur et sans que l’interface utilisateur doive attendre qu’elle se termine. Ainsi, il peut être malavisé d’exécuter en arrière-plan un travail obligeant l’interface à attendre la fin de son exécution.
 
@@ -38,7 +38,7 @@ Les travaux en arrière-plan présentent généralement une ou plusieurs des car
 - Il peut s’agir de tâches utilisant un grand nombre d’E/S, comme une suite de transactions de stockage ou des opérations d’indexation des fichiers.
 - Il peut s’agir de tâches de traitement par lots, comme les opérations de traitement planifiées et les mises à jour de données exécutées la nuit.
 - Il peut s’agir de workflows exécutés sur le long terme, comme les flux d’exécution de commandes ou de déploiement des services et des systèmes.
-- Il peut s’agir d’actions de traitement des données sensibles, cette tâche étant déplacée vers un emplacement plus sécurisé à des fins de traitement. Par exemple, peut-être voulez-vous éviter de traiter des données sensibles via un rôle web et préférez utiliser un modèle de type [opérateur de contrôle d’appels](http://msdn.microsoft.com/library/dn589793.aspx) pour transférer les données à un rôle en arrière-plan isolé, qui peut accéder au stockage protégé.
+- Il peut s’agir d’actions de traitement des données sensibles, cette tâche étant déplacée vers un emplacement plus sécurisé à des fins de traitement. Par exemple, peut-être voulez-vous éviter de traiter des données sensibles par le biais d’une application web et préférez-vous utiliser un modèle de type [opérateur de contrôle d’appels](http://msdn.microsoft.com/library/dn589793.aspx) pour transférer les données à un processus en arrière-plan isolé, qui peut accéder au stockage protégé.
 
 ## Déclencheurs
 
@@ -85,15 +85,15 @@ Les travaux en arrière-plan s’exécutent de façon asynchrone dans le cadre d
 
 Vous pouvez héberger des tâches en arrière-plan à l’aide de différents services de plateforme Microsoft Azure :
 
-- [**Sites web Microsoft Azure**](#azure-web-sites-and-webjobs). Vous pouvez utiliser les tâches web pour exécuter des tâches personnalisées basées sur différents types de scripts ou de programmes exécutables dans le contexte du site web.
+- [**Azure Web Apps et WebJobs**](#azure-web-apps-and-webjobs). Vous pouvez utiliser WebJobs pour exécuter des tâches personnalisées basées sur différents types de scripts ou de programmes exécutables dans le contexte de l’application web.
 - [**Rôles de travail et web Microsoft Azure Cloud Services**](#azure-cloud-services-web-and-worker-roles). Vous pouvez écrire du code dans un rôle qui s’exécute en tant que tâche en arrière-plan.
 - [**Azure Virtual Machines**](#azure-virtual-machines). Si vous disposez d’un service Windows ou que vous souhaitez utiliser le Planificateur de tâches de Windows, une pratique courante consiste à héberger les tâches en arrière-plan dans une machine virtuelle dédiée.
 
 Les sections suivantes décrivent chacune de ces options plus en détail, en ajoutant des informations qui vous permettront de choisir l’action la plus appropriée.
 
-### Tâches web et sites web Microsoft Azure
+### Azure Web Apps et WebJobs
 
-Vous pouvez utiliser les tâches web Microsoft Azure pour exécuter des tâches personnalisées en tant que tâches en arrière-plan dans une application hébergée par un site web Microsoft Azure. Les tâches web peuvent exécuter des scripts ou des programmes exécutables dans le contexte de votre site web, en tant que processus continus ou en réponse à un événement déclencheur de Microsoft Azure Scheduler ou à des facteurs externes, tels que les modifications apportées aux objets blob de stockage et aux files d’attente. Les travaux peuvent être démarrés et arrêtés à la demande, et arrêtés normalement. Si une tâche web exécutée en continu échoue, elle est redémarrée automatiquement. Les actions liées aux nouvelles tentatives et aux erreurs sont configurables.
+Vous pouvez utiliser Azure WebJobs pour exécuter des tâches personnalisées en tant que tâches en arrière-plan dans une application web Azure. WebJobs permet une exécution dans le contexte de votre application web en tant que processus continu ou en réponse à un événement déclencheur d’Azure Scheduler ou à des facteurs externes, tels que les modifications apportées aux objets blob de stockage et aux files d’attente de messages. Les travaux peuvent être démarrés et arrêtés à la demande, et arrêtés normalement. Si une tâche web exécutée en continu échoue, elle est redémarrée automatiquement. Les actions liées aux nouvelles tentatives et aux erreurs sont configurables.
 
 Lorsque vous configurez une tâche web, tenez compte de ce qui suit :
 
@@ -101,11 +101,11 @@ Lorsque vous configurez une tâche web, tenez compte de ce qui suit :
 - Si vous souhaitez que le travail réponde à un déclencheur piloté par une planification, affectez-lui la valeur **Exécuter selon une planification**. Le script ou programme est stocké dans le dossier nommé site/wwwroot/app\_data/jobs/triggered.
 - Si vous choisissez l’option **Exécuter à la demande** lorsque vous configurez un travail, ce dernier exécute le même code qu’avec l’option **Exécuter selon une planification**.
 
-Les tâches web Azure s’exécutent dans le bac à sable (sandbox) du site web, ce qui signifie qu’elles peuvent accéder aux variables d’environnement et partager des informations telles que les chaînes de connexion avec le site web. Le travail peut accéder à l’identificateur unique de l’ordinateur qui exécute le travail. La chaîne de connexion **AzureJobsStorage** fournit l’accès aux files d’attente de stockage Microsoft Azure, aux objets blob et aux tables de données des applications, ainsi qu’au bus des services pour la messagerie et les communications. La chaîne de connexion **AzureJobsDashboard** fournit l’accès aux fichiers journaux d’actions des travaux.
+Azure WebJobs s’exécute dans le bac à sable (sandbox) de l’application web, ce qui signifie qu’il peut accéder aux variables d’environnement et partager des informations telles que les chaînes de connexion avec l’application web. Le travail peut accéder à l’identificateur unique de l’ordinateur qui exécute le travail. La chaîne de connexion **AzureWebJobsStorage** fournit l’accès aux files d’attente de stockage Azure, aux objets blob et aux tables de données des applications, ainsi qu’à Service Bus pour la messagerie et les communications. La chaîne de connexion **AzureWebJobsDashboard** fournit l’accès aux fichiers journaux d’actions des tâches.
 
 Les tâches web Azure présentent les caractéristiques suivantes :
 
-- **Sécurité** : les tâches web sont protégées par les informations d’identification sur le déploiement du site web.
+- **Sécurité** : les tâches web sont protégées par les informations d’identification sur le déploiement de l’application web.
 - **Types de fichiers pris en charge** : les tâches web peuvent être définies au moyen de scripts de commande (.cmd), de fichiers de commandes (.bat), de scripts PowerShell (.ps1), de scripts Shell bash (.sh), de scripts PHP (.php), de scripts Python (.py), de code JavaScript (.js) et de programmes exécutables (.exe, .jar, etc.).
 - **Déploiement** : les scripts et exécutables peuvent être déployés à l’aide du portail Microsoft Azure, créés et déployés à l’aide du complément [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) pour Visual Studio, ou [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), via le [Kit de développement logiciel (SDK) des tâches web Microsoft Azure](websites-dotnet-webjobs-sdk-get-started.md), ou via une opération de copie directe aux emplacements suivants :
   - Pour une exécution déclenchée : site/wwwroot/app\_data/jobs/triggered/{nom\_travail}
@@ -119,12 +119,12 @@ Les tâches web Azure présentent les caractéristiques suivantes :
 
 ### Considérations
 
-- Par défaut, les tâches web ne sont pas mises à l’échelle par rapport au site web. Toutefois, vous pouvez configurer les travaux afin qu’ils s’exécutent sur une instance unique, en définissant la propriété de configuration **is\_singleton** sur la valeur true. Les tâches web d’une instance unique sont utiles pour les tâches que vous ne voulez pas mettre à l’échelle ou exécuter en tant qu’instances multiples simultanées (réindexation, analyse des données et tâches similaires).
-- Pour réduire l’impact des travaux sur les performances du site web, envisagez la création d’une instance de site web Microsoft Azure vide dans un nouveau plan de service d’application, afin d’héberger les tâches web qui s’exécutent depuis longtemps ou utilisent un grand nombre de ressources.
+- Par défaut, WebJobs est mis à l’échelle par rapport à l’application web. Toutefois, vous pouvez configurer les travaux afin qu’ils s’exécutent sur une instance unique, en définissant la propriété de configuration **is\_singleton** sur la valeur true. Les tâches web d’une instance unique sont utiles pour les tâches que vous ne voulez pas mettre à l’échelle ou exécuter en tant qu’instances multiples simultanées (réindexation, analyse des données et tâches similaires).
+- Pour réduire l’impact des tâches sur les performances de l’application web, envisagez la création d’une instance de l’application web Azure vide dans un nouveau plan de service d’application, afin d’héberger les tâches web qui s’exécutent depuis longtemps ou utilisent un grand nombre de ressources.
 
 ### Plus d’informations
 
-- La section [Ressources Azure WebJobs](websites-webjobs-resources/) répertorie de nombreuses ressources, éléments à télécharger et exemples utiles pour les tâches web.
+- La section [Ressources Azure WebJobs](websites-webjobs-resources.md) répertorie de nombreuses ressources, éléments à télécharger et exemples utiles pour les tâches web.
 
 ## Rôles de travail et web Microsoft Azure Cloud Services
 
@@ -132,10 +132,10 @@ Les tâches en arrière-plan peuvent être exécutées dans un rôle web ou dan
 
 Vous pouvez implémenter des tâches en arrière-plan dans un rôle Cloud Services de différentes manières :
 
-- Créez une implémentation de la classe **RoleEntryPoint** dans le rôle et utilisez ses méthodes pour exécuter des tâches en arrière-plan. Les tâches s’exécutent dans le contexte du fichier WaIISHost.exe. Elles peuvent utiliser la méthode **GetSetting** de la classe **CloudConfigurationManager** pour charger les paramètres de configuration. Pour en savoir plus, voir [Cycle de vie (Cloud Services)](#lifecycle-cloud-services-).
-- Utilisez les tâches de démarrage pour exécuter des tâches en arrière-plan lorsque l’application démarre. Pour forcer les tâches à poursuivre leur exécution en arrière-plan, définissez la propriété **taskType** sur **background** (si vous ne le faites pas, le processus de démarrage de l’application s’arrête et attendra la fin de la tâche). Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Créez une implémentation de la classe **RoleEntryPoint** dans le rôle et utilisez ses méthodes pour exécuter des tâches en arrière-plan. Les tâches s’exécutent dans le contexte du fichier WaIISHost.exe. Elles peuvent utiliser la méthode **GetSetting** de la classe **CloudConfigurationManager** pour charger les paramètres de configuration. Pour en savoir plus, voir [Cycle de vie (Cloud Services)](#lifecycle-cloud-services).
+- Utilisez les tâches de démarrage pour exécuter des tâches en arrière-plan lorsque l’application démarre. Pour forcer les tâches à poursuivre leur exécution en arrière-plan, définissez la propriété **taskType** sur **background** (si vous ne le faites pas, le processus de démarrage de l’application s’arrête et attendra la fin de la tâche). Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](cloud-services-startup-tasks.md).
 - Utilisez le Kit de développement logiciel (SDK) des tâches web pour implémenter des tâches en arrière-plan en tant que tâches web, initiées sous la forme d’une tâche de démarrage. Pour en savoir plus, voir [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs](websites-dotnet-webjobs-sdk-get-started.md).
-- Utilisez une tâche de démarrage pour installer un service Windows qui exécute une ou plusieurs tâches en arrière-plan. Vous devez définir la propriété **taskType** sur **background**, afin que le service s’exécute en arrière-plan. Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Utilisez une tâche de démarrage pour installer un service Windows qui exécute une ou plusieurs tâches en arrière-plan. Vous devez définir la propriété **taskType** sur **background**, afin que le service s’exécute en arrière-plan. Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](cloud-services-startup-tasks.md).
 
 ### Exécution de tâches en arrière-plan dans le rôle web
 
@@ -165,13 +165,13 @@ Tenez compte des points suivants lorsque vous choisissez la méthode et l’empl
 ### Plus d’informations
 
 - [Modèle de consolidation des ressources de calcul](http://msdn.microsoft.com/library/dn589778.aspx)
-- [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started/)
+- [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started.md)
 
 ## Azure Virtual Machines
 
-Vous pouvez implémenter les tâches en arrière-plan de manière à empêcher leur déploiement sur des sites web Azure ou sur Cloud Services, sauf si ce n’est pas pertinent. Voici quelques exemples typiques : services Windows et utilitaires et programmes exécutables tiers. Il est également possible d’inclure des programmes écrits pour un environnement d’exécution différent de celui qui héberge l’application, par exemple un programme Unix ou Linux que vous souhaitez exécuter à partir d’une application Windows ou .NET. Vous avez le choix entre plusieurs systèmes d’exploitation pour une machine virtuelle Azure. Vous pouvez ensuite exécuter votre service ou programme exécutable sur cette machine virtuelle.
+Vous pouvez implémenter les tâches en arrière-plan de manière à empêcher leur déploiement sur Azure Web Apps ou Cloud Services, sauf si ce n’est pas pertinent. Voici quelques exemples typiques : services Windows et utilitaires et programmes exécutables tiers. Il est également possible d’inclure des programmes écrits pour un environnement d’exécution différent de celui qui héberge l’application, par exemple un programme Unix ou Linux que vous souhaitez exécuter à partir d’une application Windows ou .NET. Vous avez le choix entre plusieurs systèmes d’exploitation pour une machine virtuelle Azure. Vous pouvez ensuite exécuter votre service ou programme exécutable sur cette machine virtuelle.
 
-Pour savoir comment utiliser les machines virtuelles, voir [Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines](choose-web-site-cloud-service-vm.md). Pour en savoir plus sur les options des machines virtuelles, voir [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les systèmes d’exploitation et images préconstruites disponibles pour les machines virtuelles, consultez la [galerie dédiée à Azure Virtual Machines](http://azure.microsoft.com/gallery/virtual-machines/).
+Pour savoir quand utiliser Virtual Machines, consultez [Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines](choose-web-site-cloud-service-vm.md). Pour en savoir plus sur les options des machines virtuelles, voir [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les systèmes d’exploitation et images préconstruites disponibles pour les machines virtuelles, consultez la [galerie dédiée à Azure Virtual Machines](http://azure.microsoft.com/gallery/virtual-machines/).
 
 Pour lancer la tâche en arrière-plan dans un ordinateur virtuel distinct, vous disposez d’un éventail d’options :
 
@@ -191,8 +191,8 @@ Lorsque vous envisagez de déployer des tâches en arrière-plan sur une machine
 
 ### Plus d’informations
 
-- [Machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) sur le site web Azure
-- [FAQ sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) sur Azure
+- [FAQ sur les machines virtuelles Azure](virtual-machines-questions.md)
 
 ## Remarques relatives à la conception
 
@@ -200,7 +200,7 @@ Certains facteurs essentiels doivent être pris en compte lors de la conception 
 
 ## Partitionnement
 
-Si vous décidez d’inclure des tâches en arrière-plan dans une instance de calcul existante (par exemple, un site web, un rôle web existant ou une machine virtuelle), vous devez déterminer l’effet de cette opération sur les attributs de qualité de l’instance de calcul et de la tâche en arrière-plan elle-même. Ces facteurs vous aideront à décider s’il faut colocaliser les tâches avec l’instance de calcul existante, ou les séparer dans une instance de calcul distincte :
+Si vous décidez d’inclure des tâches en arrière-plan dans une instance de calcul existante (par exemple, une application web, un rôle web, un rôle de travail existant ou une machine virtuelle), vous devez déterminer l’effet de cette opération sur les attributs de qualité de l’instance de calcul et de la tâche en arrière-plan elle-même. Ces facteurs vous aideront à décider s’il faut colocaliser les tâches avec l’instance de calcul existante, ou les séparer dans une instance de calcul distincte :
 
 - **Disponibilité** : il se peut que les tâches en arrière-plan ne doivent pas nécessairement présenter le même niveau de disponibilité que d’autres parties de l’application, notamment l’interface utilisateur et d’autres parties directement impliquées par l’interaction de l’utilisateur. Par ailleurs, les tâches en arrière-plan seront peut-être plus tolérantes envers l’échec d’une nouvelle tentative de connexion ou un problème de latence, voire d’autres facteurs affectant la disponibilité, car les opérations peuvent être mises en file d’attente. Toutefois, la capacité doit être suffisante pour empêcher la sauvegarde de demandes susceptibles de bloquer les files d’attente et d’affecter l’application dans son ensemble.
 - **Évolutivité** : les tâches en arrière-plan sont susceptibles de présenter des exigences différentes en termes d’évolutivité par rapport à l’interface utilisateur et aux éléments interactifs de l’application. Il peut être nécessaire de mettre l’interface utilisateur à l’échelle, afin qu’elle puisse gérer les pics de demande ; l’exécution de tâches en arrière-plan en attente pourrait alors être effectuée pendant les périodes moins actives et ce, par un nombre moins important d’instances de calcul.
@@ -252,7 +252,7 @@ Lorsque vous planifiez la façon dont vous allez exécuter les tâches en arriè
 - Si une tâche en arrière-plan lève une exception non gérée, cette tâche doit être recyclée alors que toutes les autres tâches en arrière-plan du rôle doivent être autorisées à se poursuivre. Toutefois, si l’exception est provoquée par l’altération d’objets en dehors de la tâche, tels que le stockage partagé, cette exception doit être gérée par votre classe **RoleEntryPoint**, toutes les tâches doivent être annulées et la méthode **Run** doit être autorisée à se terminer. Ensuite, Microsoft Azure redémarre le rôle.
 - Utilisez la méthode **OnStop** pour suspendre ou arrêter les tâches en arrière-plan et nettoyer les ressources. Cela peut impliquer l’arrêt des tâches de longue durée ou à plusieurs étapes ; il est essentiel de savoir comment y parvenir sans entraîner d’incohérence des données. Si une instance de rôle s’arrête pour une raison quelconque (autre qu’un arrêt initié par l’utilisateur), le code exécutant la méthode **OnStop** doit se terminer dans les cinq minutes. Le cas échéant, son arrêt sera forcé. Vérifiez que votre code peut s’exécuter dans les temps ou peut accepter d’être arrêté avant la fin de son exécution.  
 - L’équilibreur de charge de Microsoft Azure commence à diriger le trafic vers l’instance de rôle lorsque la méthode **RoleEntryPoint.OnStart** renvoie la valeur true. Par conséquent, vous pouvez envisager de placer l’ensemble de votre code d’initialisation dans la méthode **OnStart**, afin que les instances de rôle qui ne s’initialisent pas correctement ne reçoivent aucun trafic.
-- Vous pouvez utiliser des tâches de démarrage en plus des méthodes de la classe **RoleEntryPoint**. Vous devez utiliser des tâches de démarrage pour initialiser les paramètres que vous devez modifier dans l’équilibreur de charge Microsoft Azure, car ces tâches seront exécutées avant que le rôle ne reçoive une demande. Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Vous pouvez utiliser des tâches de démarrage en plus des méthodes de la classe **RoleEntryPoint**. Vous devez utiliser des tâches de démarrage pour initialiser les paramètres que vous devez modifier dans l’équilibreur de charge Microsoft Azure, car ces tâches seront exécutées avant que le rôle ne reçoive une demande. Pour en savoir plus, voir [Exécuter des tâches de démarrage dans Azure](cloud-services-startup-tasks.md).
 - Si une tâche de démarrage inclut une erreur, cela peut obliger le rôle à redémarrer continuellement. Ainsi, il se peut que vous ne puissiez pas effectuer un échange d’adresses IP virtuelles vers une version intermédiaire, car l’échange nécessite un accès exclusif au rôle, ce qui est impossible lorsque ce dernier redémarre. Pour résoudre ce problème :
 	-  Ajoutez le code suivant au début des méthodes **OnStart** et **Run**, dans votre rôle :
 
@@ -286,11 +286,11 @@ Les tâches en arrière-plan doivent être assez résilientes pour pouvoir fourn
 
 Les tâches en arrière-plan doivent offrir des performances suffisantes pour éviter de bloquer l’application ou entraîner des incohérences, suite à une opération en retard lorsque le système est soumis à une charge. En général, vous améliorez les performances lorsque vous mettez à l’échelle les instances de calcul qui hébergent les tâches en arrière-plan. Lors de la planification et de la conception de tâches en arrière-plan, tenez compte des points suivants en matière de performances et d’évolutivité :
 
-- Azure prend en charge la mise à l’échelle automatique (montée en charge et descente en puissance) en fonction de la demande et de la charge actuelles, ou selon une planification définie au préalable, aussi bien pour les sites web, les rôles de travail et web de Cloud Services et les déploiements hébergés par les machines virtuelles. Cette fonctionnalité permet de garantir que l’application dans son ensemble dispose de fonctionnalités suffisamment performantes, tout en réduisant les coûts d’exécution.
+- Azure prend en charge la mise à l’échelle automatique (montée en charge et descente en puissance) en fonction de la demande et de la charge actuelles, ou selon une planification définie au préalable, aussi bien pour Web Apps, les rôles de travail et web Cloud Services et les déploiements hébergés par les machines virtuelles. Cette fonctionnalité permet de garantir que l’application dans son ensemble dispose de fonctionnalités suffisamment performantes, tout en réduisant les coûts d’exécution.
 - Si les tâches en arrière-plan présentent des performances différentes de celles d’autres éléments de l’application Cloud Services (par exemple, l’interface utilisateur ou des composants comme la couche d’accès aux données), l’hébergement des tâches en arrière-plan dans un rôle de travail distinct permet aux rôles des tâches en arrière-plan et de l’interface utilisateur d’être mis à l’échelle de manière indépendante, afin de gérer la charge. Si plusieurs tâches en arrière-plan présentent des performances entièrement différentes les unes des autres, vous pouvez envisager de les répartir dans des rôles de travail distincts et de mettre chaque type de rôle à l’échelle de manière indépendante. Notez toutefois que cette opération peut s’avérer plus coûteuse que la combinaison de l’ensemble des tâches dans un nombre moins important de rôles.
 - Une simple mise à l’échelle des rôles peut s’avérer insuffisante pour empêcher une baisse des performances en cas de charge élevée. Peut-être devrez-vous également mettre les files d’attente de stockage et d’autres ressources à l’échelle, afin de vous assurer qu’un point unique de la chaîne de traitement dans son ensemble ne deviendra pas un goulot d’étranglement. Tenez également compte d’autres limitations comme le débit maximal du stockage et d’autres services sur lesquels reposent l’application et les tâches en arrière-plan.
 - La conception des tâches en arrière-plan doit prévoir une mise à l’échelle. Ainsi, elles doivent être en mesure de détecter, de manière dynamique, le nombre de files d’attente de stockage utilisées, afin de pouvoir écouter ou envoyer les messages à la file d’attente appropriée.
-- Par défaut, les tâches web sont mises à l’échelle en fonction de l’instance de site web Azure associée. Cependant, si vous souhaitez qu’une tâche web s’exécute uniquement en tant qu’instance unique, vous pouvez créer un fichier Settings.job contenant les données JSON : **{ "is\_singleton": true }**. Cela oblige Microsoft Azure à exécuter une seule instance de la tâche web, même s’il existe plusieurs instances du site web associé. Cela peut être utile pour les travaux planifiés qui doivent s’exécuter en tant qu’instances uniques.
+- Par défaut, les tâches web sont mises à l’échelle en fonction de l’instance d’application web Azure associée. Cependant, si vous souhaitez qu’une tâche web s’exécute uniquement en tant qu’instance unique, vous pouvez créer un fichier Settings.job contenant les données JSON : **{ "is\_singleton": true }**. Cela oblige Azure à exécuter une seule instance de la tâche web, même s’il existe plusieurs instances de l’application web associée. Cela peut être utile pour les tâches planifiées qui doivent s’exécuter en tant qu’instances uniques.
 
 ## Modèles associés
 
@@ -313,8 +313,8 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Exécution de tâches en arrière-plan](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (billet de blog)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vidéo)
-- [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started/)
-- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/hh767287.aspx)
-- [Procédure : activer les diagnostics dans un service cloud](http://msdn.microsoft.com/library/dn482131.aspx)
+- [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started.md)
+- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Procédure : activer les diagnostics dans un service cloud](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

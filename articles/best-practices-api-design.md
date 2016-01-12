@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Guide de conception d’API
@@ -51,14 +51,14 @@ GET http://adventure-works.com/orders HTTP/1.1
 ...
 ```
 
-La réponse ci-dessous encode les commandes sous la forme d’une structure de liste XML. La liste contient 7 commandes :
+La réponse ci-dessous encode les commandes sous la forme d’une structure de liste JSON :
 
 ```HTTP
 HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<OrderList xmlns:i="..." xmlns="..."><Order><OrderID>1</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order><Order><OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order><Order><OrderID>3</OrderID><OrderValue>16.60</OrderValue><ProductID>2</ProductID><Quantity>4</Quantity></Order><Order><OrderID>4</OrderID><OrderValue>25.90</OrderValue><ProductID>3</ProductID><Quantity>1</Quantity></Order><Order><OrderID>7</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order></OrderList>
+[{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
 ```
 L’extraction d’une commande individuelle nécessite de spécifier l’identificateur de la commande à partir de la ressource _orders_, par exemple _/orders/2_ :
 
@@ -72,11 +72,10 @@ HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<Order xmlns:i="..." xmlns="...">
-<OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order>
+{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE]Par souci de simplicité, ces exemples illustrent les informations dans des réponses renvoyées sous forme de données de texte XML. Toutefois, des ressources peuvent contenir d’autres types de données pris en charge par HTTP, par exemple des informations binaires ou chiffrées. L’en-tête Content-Type de la réponse HTTP doit spécifier le type. En outre, un modèle REST peut renvoyer les mêmes données dans différents formats, tels que XML ou JSON. Dans ce cas, le service web doit être en mesure d’effectuer la négociation de contenu avec le client qui effectue la requête. La requête peut inclure un en-tête _Accept_ qui spécifie le format de réception privilégié par le client. Dans la mesure du possible, le service web doit alors tenter de respecter ce format.
+> [AZURE.NOTE]Par souci de simplicité, ces exemples illustrent les informations dans des réponses renvoyées sous forme de données de texte JSON. Toutefois, des ressources peuvent contenir d’autres types de données pris en charge par HTTP, par exemple des informations binaires ou chiffrées. L’en-tête Content-Type de la réponse HTTP doit spécifier le type. En outre, un modèle REST peut renvoyer les mêmes données dans différents formats, tels que XML ou JSON. Dans ce cas, le service web doit être en mesure d’effectuer la négociation de contenu avec le client qui effectue la requête. La requête peut inclure un en-tête _Accept_ qui spécifie le format de réception privilégié par le client. Dans la mesure du possible, le service web doit alors tenter de respecter ce format.
 
 Notez que la réponse liée à une requête REST utilise les codes d’état HTTP standard. Par exemple, une requête qui renvoie des données valides doit inclure le code de réponse HTTP 200 (OK), alors qu’une requête qui ne parvient pas à trouver ou supprimer une ressource spécifique doit renvoyer une réponse qui inclut le code d’état HTTP 404 (Introuvable).
 
@@ -166,10 +165,10 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 ```
 
-Si le serveur web ne prend pas en charge le type de média demandé, il peut envoyer les données dans un format différent. Dans tous les cas, il doit spécifier le type de média (par exemple, _texte/xml_) dans l’en-tête Content-Type. Il incombe à l’application cliente d’analyser le message de réponse et d’interpréter les résultats dans le corps du message de manière appropriée.
+Si le serveur web ne prend pas en charge le type de média demandé, il peut envoyer les données dans un format différent. Dans tous les cas, il doit spécifier le type de média (par exemple, _application/json_) dans l’en-tête Content-Type. Il incombe à l’application cliente d’analyser le message de réponse et d’interpréter les résultats dans le corps du message de manière appropriée.
 
 Notez que dans cet exemple, le serveur web récupère correctement les données demandées et indique la réussite en repassant un code d’état 200 dans l’en-tête de la réponse. Si aucune donnée correspondante n’est trouvée, il doit renvoyer un code d’état 404 (Introuvable), et le corps du message de réponse peut contenir des informations supplémentaires. Le format de ces informations est spécifié par l’en-tête Content-Type, comme illustré dans l’exemple suivant :
 
@@ -189,7 +188,7 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"Message":"No such order"}
+{"message":"No such order"}
 ```
 
 Lorsqu’une application envoie une requête HTTP PUT pour mettre à jour une ressource, elle spécifie l’URI de la ressource et fournit les données à modifier dans le corps du message de requête. Elle doit également spécifier le format de ces données à l’aide de l’en-tête Content-Type. Le format _application/x-www-form-urlencoded_ est souvent utilisé pour les informations textuelles. Il comprend un ensemble de paires nom/valeur séparées par le caractère &. L’exemple suivant illustre une requête HTTP PUT qui modifie les informations de la commande 1 :
@@ -229,7 +228,7 @@ Content-Type: application/x-www-form-urlencoded
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-ProductID=5&Quantity=15&OrderValue=400
+productID=5&quantity=15&orderValue=400
 ```
 
 Si la requête réussit, le serveur web doit répondre avec un message possédant le code d’état HTTP 201 (Créé). L’en-tête Location doit contenir l’URI de la ressource nouvellement créée, et le corps de la réponse doit contenir une copie de la nouvelle ressource. L’en-tête Content-Type spécifie le format de ces données :
@@ -242,7 +241,7 @@ Location: http://adventure-works.com/orders/99
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":99,"ProductID":5,"Quantity":15,"OrderValue":400}
+{"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
 > [AZURE.TIP]Si les données fournies par une requête PUT ou POST ne sont pas valides, le serveur web doit répondre avec un message possédant le code d’état HTTP 400 (Requête incorrecte). Le corps de ce message peut contenir des informations supplémentaires sur le problème avec la requête et les formats attendus ou un lien vers une URL qui fournit plus de détails.
@@ -289,7 +288,7 @@ Vous pouvez étendre cette approche pour limiter (projeter) les champs renvoyés
 Une ressource unique peut contenir des champs binaires volumineux, tels que des fichiers ou des images. Pour remédier aux problèmes de transmission provoqués par des connexions non fiables et intermittentes et pour améliorer les temps de réponse, envisagez de fournir des opérations qui permettent la récupération de ces ressources en blocs par l’application cliente. Pour ce faire, l’API web doit prendre en charge l’en-tête Accept-Ranges pour les requêtes GET en présence de ressources volumineuses et, dans l’idéal, implémenter les requêtes HTTP HEAD pour ces ressources. L’en-tête Accept-Ranges indique que l’opération GET prend en charge les résultats partiels et qu’une application cliente peut envoyer des requêtes GET qui renvoient un sous-ensemble d’une ressource spécifiée sous forme de plage d’octets. Une requête HEAD est similaire à une requête GET à ceci près qu’elle renvoie uniquement un en-tête qui décrit la ressource et un corps de message vide. Une application cliente peut émettre une requête HEAD pour déterminer s’il faut extraire une ressource à l’aide de requêtes GET partielles. L’exemple suivant illustre une requête HEAD qui obtient des informations sur une image de produit :
 
 ```HTTP
-HEAD http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+HEAD http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 ...
 ```
 
@@ -307,7 +306,7 @@ Content-Length: 4580
 L’application cliente peut utiliser ces informations pour construire une série d’opérations GET afin de récupérer l’image en blocs plus petits. La première requête extrait les 2500 premiers octets à l’aide de l’en-tête Range :
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=0-2499
 ...
 ```
@@ -328,7 +327,7 @@ _{binary data not shown}_
 Une demande ultérieure de l’application cliente peut extraire le reste de la ressource à l’aide d’un en-tête Range approprié :
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=2500-
 ...
 ```
@@ -359,7 +358,7 @@ Accept: application/json
 ...
 ```
 
-Le corps du message de réponse contient un tableau `Links` (mis en évidence dans l’exemple de code) qui spécifie la nature de la relation (_Customer_), l’URI du client (\__http://adventure-works.com/customers/3_), le mode de récupération des détails de ce client (_GET_) et les types MIME que le serveur Web prend en charge pour la récupération de ces informations (_text/xml_ et _application/json_). Il s’agit de toutes les informations nécessaires à une application cliente pour être en mesure d’extraire les détails du client. En outre, le tableau Links inclut également des liens pour les autres opérations qui peuvent être effectuées, telles que PUT (pour modifier le client, ainsi que le format que le serveur web attend du client) et DELETE.
+Le corps du message de réponse contient un tableau `links` (mis en évidence dans l’exemple de code) qui spécifie la nature de la relation (_Customer_), l’URI du client (\__http://adventure-works.com/customers/3_), le mode de récupération des détails de ce client (_GET_) et les types MIME que le serveur web prend en charge pour la récupération de ces informations (_text/xml_ et _application/json_). Il s’agit de toutes les informations nécessaires à une application cliente pour être en mesure d’extraire les détails du client. En outre, le tableau Links inclut également des liens pour les autres opérations qui peuvent être effectuées, telles que PUT (pour modifier le client, ainsi que le format que le serveur web attend du client) et DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -367,8 +366,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[(some links omitted){"Relationship":"customer","HRef":" http://adventure-works.com/customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":"
-customer","HRef":" http://adventure-works.com /customers/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"customer","HRef":" http://adventure-works.com /customers/3","Action":"DELETE","LinkedResourceMIMETypes":[]}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[(some links omitted){"rel":"customer","href":" http://adventure-works.com/customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":"
+customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
 ```
 
 Pour être complet, le tableau Links doit également inclure des informations d’auto-référencement se rapportant à la ressource récupérée. Ces liens ont été omis dans l’exemple précédent, mais sont mis en évidence dans le code suivant. Notez que dans ces liens, la relation _self_ a été utilisée pour indiquer qu’il s’agit d’une référence à la ressource renvoyée par l’opération :
@@ -379,8 +378,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[{"Relationship":"self","HRef":" http://adventure-works.com/orders/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" self","HRef":" http://adventure-works.com /orders/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"self","HRef":" http://adventure-works.com /orders/3", "Action":"DELETE","LinkedResourceMIMETypes":[]},{"Relationship":"customer",
-"HRef":" http://adventure-works.com /customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" customer" (customer links omitted)}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[{"rel":"self","href":" http://adventure-works.com/orders/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" self","href":" http://adventure-works.com /orders/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"self","href":" http://adventure-works.com /orders/3", "action":"DELETE","types":[]},{"rel":"customer",
+"href":" http://adventure-works.com /customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" customer" (customer links omitted)}]}
 ```
 
 Pour que cette approche soit efficace, les applications clientes doivent être préparées pour récupérer et analyser ces informations supplémentaires.
@@ -395,7 +394,7 @@ Le contrôle de version permet à une API web d’indiquer les fonctionnalités 
 
 Il s’agit de l’approche la plus simple. Elle peut être acceptable pour certaines API internes. De nouvelles ressources ou de nouveaux liens peuvent représenter des changements importants. L’ajout de contenu à des ressources existantes ne représente pas nécessairement une modification avec rupture, dans la mesure où les applications clientes qui n’attendent pas ce contenu l’ignoreront simplement.
 
-Par exemple, une requête à l’URI \__http://adventure-works.com/customers/3_ doit renvoyer les détails d’un client unique contenant les champs `Id`, `Name` et `Address` attendus par l’application cliente :
+Par exemple, une requête à l’URI \__http://adventure-works.com/customers/3_ doit renvoyer les détails d’un client unique contenant les champs `id`, `name` et `address` attendus par l’application cliente :
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -403,7 +402,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 > [AZURE.NOTE]À des fins de simplicité et de clarté, les exemples de réponses présentés dans cette section n’incluent pas les liens HATEOAS.
@@ -416,7 +415,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Les applications clientes existantes peuvent continuer à fonctionner correctement si elles peuvent ignorer les champs non reconnus. Les nouvelles applications clientes peuvent être conçues pour gérer ce nouveau champ. Cependant, des modifications plus importantes affectant le schéma des ressources (par exemple, la suppression ou la modification de nom de champs), ou un changement des relations entre les ressources peuvent constituer des modifications avec rupture empêchant les applications clientes existantes de fonctionner correctement. Dans ces situations, vous devez envisager l’une des approches suivantes.
@@ -425,7 +424,7 @@ Les applications clientes existantes peuvent continuer à fonctionner correcteme
 
 Dès lors que vous modifiez l’API web ou le schéma des ressources, vous ajoutez un numéro de version à l’URI pour chaque ressource. Les URI existants doivent continuer à fonctionner comme avant et à renvoyer les ressources conformes à leur schéma d’origine.
 
-Si l’on étend l’exemple précédent, si le champ `Address` est restructuré dans des sous-champs contenant chaque partie de l’adresse (par exemple, `StreetAddress`, `City`, `State` et `ZipCode`), cette version de la ressource peut être exposée par le biais d’un URI qui contient un numéro de version, tel que http://adventure-works.com/v2/customers/3 :
+Si l’on étend l’exemple précédent, si le champ `address` est restructuré dans des sous-champs contenant chaque partie de l’adresse (par exemple, `streetAddress`, `city`, `state` et `zipCode`), cette version de la ressource peut être exposée par le biais d’un URI qui contient un numéro de version, tel que http://adventure-works.com/v2/customers/3 :
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -433,7 +432,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 Ce mécanisme de contrôle de version est très simple, mais dépend du routage de la requête par le serveur au point de terminaison approprié. Toutefois, il peut devenir complexe à mesure que l’API web arrive à maturité par le biais de plusieurs itérations et que le nombre de versions différentes prises en charge par le serveur évolue. En outre, d’un point de vue puriste, les applications clientes extraient les mêmes données (client 3) dans tous les cas. L’URI ne devrait donc pas être différent selon la version. Ce modèle complique également l’implémentation de HATEOAS, dans la mesure où tous les liens devront inclure le numéro de version dans leurs URI.
@@ -465,7 +464,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Version 2 :
@@ -483,7 +482,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 Notez que, comme avec les deux approches précédentes, l’implémentation de HATEOAS nécessite l’inclusion de l’en-tête personnalisé approprié dans tous les liens.
@@ -507,7 +506,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Si l’en-tête Accept ne spécifie aucun type de média connu, le serveur web peut générer un message de réponse HTTP 406 (Non acceptable) ou renvoyer un message avec un type de média par défaut.
@@ -518,9 +517,9 @@ Cette approche représente sans doute le mécanisme de contrôle de version le p
 
 > Les mécanismes de contrôle de version d’en-tête et de type de média requièrent généralement une logique supplémentaire pour examiner les valeurs dans l’en-tête personnalisé ou l’en-tête Accept. Dans un environnement à grande échelle, l’utilisation de différentes versions d’une API web par de nombreux clients peut entraîner une quantité importante de données dupliquées dans un cache côté serveur. Ce problème peut s’aggraver si une application cliente communique avec un serveur web par l’intermédiaire d’un proxy qui implémente la mise en cache et qui transmet une requête au serveur web uniquement s’il ne contient pas une copie des données demandées dans son cache.
 
-## Plus d'informations
+## Plus d’informations
 
 - Le site [RESTful Cookbook](http://restcookbook.com/) (en anglais) offre une introduction à la création d’API RESTful.
 - Le site [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) (en anglais) présente une liste d’éléments à prendre en compte lors de la conception et de l’implémentation d’une API web.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

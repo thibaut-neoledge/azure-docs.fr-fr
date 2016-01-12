@@ -3,7 +3,7 @@
 	description="Découvrez comment facilement mettre à niveau votre application Mobile Services vers App Service Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -42,13 +42,13 @@ La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile A
 
 - Conçu pour le développement multiplateforme et local, le Kit de développement logiciel (SDK) Mobile Apps peut être développé et exécuté localement sur les plateformes Windows, Linux et OSX. Il est désormais facile d’utiliser des techniques de développement Node courantes comme l’exécution de tests [Mocha](https://mochajs.org/) avant le déploiement.
 
-- Vous pouvez utiliser Redis avec les modules natifs comme [hiredis](https://www.npmjs.com/package/hiredis) et dans la mesure où App Service installe vos packages npm, il est inutile d’inclure lors du déploiement des fichiers binaires dans votre package.
+- Vous pouvez utiliser Redis avec les modules natifs comme [hiredis](https://www.npmjs.com/package/hiredis). Dans la mesure où App Service installe vos packages npm, il est inutile d’inclure lors du déploiement des fichiers binaires dans votre package.
 
 ## <a name="overview"></a>Présentation de la mise à niveau de base
 
 Contrairement au Kit de développement logiciel (SDK) .NET Mobile Apps, la mise à niveau d’un serveur principal Node de Mobile Services vers Mobile Apps n’est pas aussi simple que l’échange de packages. Vous possédez maintenant votre pile de l’application dans son intégralité (elle n’est plus contrôlée par Azure) et vous devez donc créer une application Express de base pour héberger votre serveur principal mobile. En ce qui concerne la table et les contrôleurs d’API, les concepts sont similaires, mais vous devez dorénavant exporter les objets de table et les API de fonction ont été légèrement modifiées. Cet article détaille les stratégies de mise à niveau de base, mais avant de procéder à la migration, consultez la rubrique [Serveur principal Node : procédure](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
->[AZURE.TIP]Il est conseillé de lire et de comprendre entièrement le reste de cette rubrique avant de commencer une mise à niveau. Prenez note de toutes les fonctionnalités répertoriées ci-dessous que vous utilisez.
+>[AZURE.TIP]Consultez le reste de cette rubrique avant de commencer une mise à niveau. Prenez note de toutes les fonctionnalités répertoriées ci-dessous que vous utilisez.
 
 Les Kits de développement logiciel (SDK) clients Mobile Services ne sont **pas** compatibles avec le nouveau Kit de développement logiciel (SDK) serveur Mobile Apps. Afin d’assurer la continuité du service pour votre application, vous ne devez pas publier des modifications apportées à un site en train de desservir des clients publiés. Vous devez plutôt créer une application mobile qui sert de doublon. Vous pouvez placer cette application sur le même plan App Service pour éviter d’encourir des frais supplémentaires.
 
@@ -56,20 +56,23 @@ Vous avez alors deux versions de l’application : l’une qui reste la même e
 
 Le processus de mise à niveau est le suivant :
 
-1. Créer une application Mobile App
-2. Mettre à jour le projet pour utiliser les nouveaux Kits de développement logiciel (SDK) serveur
-3. Publier une nouvelle version de votre application cliente
-4. (Facultatif) Supprimer l’application originale du service mobile qui a migré
+1. Créez une application mobile.
+2. Mettez à jour le projet pour utiliser les nouveaux Kits de développement logiciel (SDK) serveur.
+3. Publiez votre projet sur la nouvelle application mobile.
+4. Publier une nouvelle version de votre application cliente qui utilise la nouvelle application mobile
+5. (Facultatif) Supprimez l’application de service mobile d’origine migrée.
+
+La suppression peut se produire lorsque vous ne voyez pas de trafic sur votre application de service mobile d’origine migrée.
 
 ## <a name="mobile-app-version"></a> Démarrage de la mise à niveau
-La première étape de la mise à niveau consiste à créer la ressource Mobile Apps qui hébergera la nouvelle version de votre application. Si vous avez déjà migré un service mobile existant, vous voulez créer cette version sur le même plan d’hébergement. Ouvrez le [portail Azure] et accédez à votre application qui a migré. Notez le plan App Service sur lequel elle s’exécute.
+La première étape de la mise à niveau consiste à créer la ressource Mobile Apps qui hébergera la nouvelle version de votre application. Si vous avez déjà migré un service mobile existant, vous voulez créer cette version sur le même plan d’hébergement. Ouvrez le [portail Azure] et accédez à votre application migrée. Notez le plan App Service sur lequel elle s’exécute.
 
 ### Création d’une seconde instance d’application
 Ensuite, créez la seconde instance d’application. Quand vous êtes invité à sélectionner votre plan App Service ou « plan d’hébergement », choisissez celui de votre application qui a migré.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Vous souhaiterez probablement utiliser les mêmes base de données et hub de notifications que dans Mobile Services. Vous pouvez copier ces valeurs en ouvrant le [portail Azure] et en accédant à l’application originale, puis cliquez sur **Paramètres** > **Paramètres d’application**. Sous **Chaînes de connexion**, copiez `MS_NotificationHubConnectionString` et `MS_TableConnectionString`. Accédez à votre nouveau site de mise à niveau et collez-les en remplaçant les valeurs existantes. Répétez ce processus pour tous les autres paramètres d’application dont votre application a besoin. Si vous n’utilisez pas un service qui a migré, vous pouvez lire des chaînes de connexion et des paramètres d’application sous l’onglet **Configurer** de la section Mobile Services du [portail Azure].
+Vous souhaiterez probablement utiliser les mêmes base de données et hub de notifications que dans Mobile Services. Copiez ces valeurs en ouvrant le [portail Azure] et en accédant à l’application d’origine, puis cliquez sur **Paramètres** > **Paramètres d’application**. Sous **Chaînes de connexion**, copiez `MS_NotificationHubConnectionString` et `MS_TableConnectionString`. Accédez à votre nouveau site de mise à niveau et collez-les en remplaçant les valeurs existantes. Répétez ce processus pour tous les autres paramètres d’application dont votre application a besoin. Si vous n’utilisez pas un service qui a migré, vous pouvez lire des chaînes de connexion et des paramètres d’application sous l’onglet **Configurer** de la section Mobile Services du [portail Azure].
 
 ### Créer un serveur principal Mobile App de base avec Node
 
@@ -110,18 +113,21 @@ Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant 
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+Pour plus d’exemples, reportez-vous à notre [référentiel GitHub](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples).
 
 ## Mise à jour du projet serveur
 
-Mobile Apps fournit un nouveau [Kit de développement logiciel (SDK) de serveur Mobile App] offrant la plupart des mêmes fonctionnalités que le runtime Mobile Services. Vous êtes désormais propriétaire du runtime complet et Mobile Apps ne vous impose aucune version Node ou aucune mise à jour de code. Si vous avez suivi les étapes ci-dessus, vous disposez d’une version de base du runtime mobile Node disponible. Vous pouvez maintenant commencer le déplacement des tables et de la logique de l’API de votre Mobile Service vers votre application Mobile App, la personnalisation de la configuration de votre serveur, l’activation des notifications Push, la configuration de l’authentification, etc.
+Mobile Apps fournit un nouveau [Kit de développement logiciel (SDK) de serveur Mobile App] offrant la plupart des fonctionnalités du runtime Mobile Services. Vous êtes désormais propriétaire du runtime complet et Mobile Apps ne vous impose aucune version Node ou aucune mise à jour de code. Si vous avez suivi les étapes ci-dessus, vous disposez d’une version de base du runtime mobile Node disponible. Vous pouvez maintenant commencer le déplacement des tables et de la logique de l’API de votre Mobile Service vers votre application Mobile App, la personnalisation de la configuration de votre serveur, l’activation des notifications Push, la configuration de l’authentification, etc.
 
 ### Configuration de base
 
-Le serveur comporte un grand nombre de paramètres de configuration, mais la variété de valeurs par défaut facilite la prise en main. La plupart des paramètres sont déjà configurés dans le [portail Azure] via les menus **Données**, **Authentification/autorisation** et **Notifications Push** Pour un développement local, si vous souhaitez utiliser des données, l’authentification et les notifications Push, vous devrez peut-être configurer votre environnement de développement local.
+Le serveur comporte un grand nombre de paramètres de configuration, mais la variété de valeurs par défaut facilite la prise en main. La plupart des paramètres sont déjà configurés dans le [portail Azure] au moyen des menus **Données**, **Authentification/autorisation** et **Notifications Push** Pour un développement local, si vous souhaitez utiliser des données, l’authentification et les notifications Push, vous devrez peut-être configurer votre environnement de développement local.
 
 Vous pouvez définir votre configuration du serveur à l’aide de variables d’environnement qui peuvent être établies via les paramètres de l’application dans votre serveur principal Mobile App.
 
@@ -131,7 +137,7 @@ Vous pouvez personnaliser davantage le Kit de développement logiciel (SDK) Mobi
 
 Le Kit de développement logiciel (SDK) est fourni avec un fournisseur de données en mémoire pour permettre une mise en route rapide et facile. Vous devez utiliser une base de données SQL dès le départ pour éviter que le fournisseur en mémoire ne perde toutes les données lors du redémarrage et ne reste pas cohérent sur plusieurs instances.
 
-Pour déplacer votre logique métier de Mobile Service vers les applications Mobile Apps, vous devrez tout d’abord créer un fichier avec le nom de votre table (suivi de « .js ») dans le répertoire `./tables`. Vous pouvez voir un exemple complet de table Mobile App sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/todo/tables/TodoItem.js). La version la plus simple est la suivante :
+Pour déplacer votre logique métier de Mobile Services vers Mobile Apps, vous devez tout d’abord créer un fichier avec le nom de votre table (suivi de « .js ») dans le répertoire `./tables`. Vous pouvez voir un exemple complet de table Mobile App sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/todo/tables/TodoItem.js). La version la plus simple est la suivante :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -140,11 +146,14 @@ Pour déplacer votre logique métier de Mobile Service vers les applications Mob
 
     module.exports = table;
 
-Pour démarrer le portage d’une partie de votre logique, pour chacune de vos `<tablename>.<operation>.js`, vous aurez besoin d’une fonction pour votre table. Nous allons ajouter une fonction de lecture par exemple.
+Pour démarrer le portage d’une partie de votre logique, pour chacune de vos `<tablename>.<operation>.js`, vous avez besoin d’une fonction pour votre table. Nous allons ajouter une fonction de lecture par exemple.
 
 Dans un Mobile Service avec une table TodoItem et une opération de lecture qui filtre les éléments en fonction de l’ID utilisateur, comme suit :
 
-  function(query, user, request) { query.where({ userId: user.userId}); request.execute(); }
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 La fonction que nous ajoutons à la table Azure Mobile Apps ressemblerait à ceci :
 
@@ -153,17 +162,32 @@ La fonction que nous ajoutons à la table Azure Mobile Apps ressemblerait à cec
         return context.execute();
     });
 
-En regardant le code de plus près, vous verrez que la plupart des paramètres de fonction
+La requête, l’utilisateur et la demande sont combinés dans un contexte. Les champs suivants sont disponibles dans l’objet de contexte :
+
+| Champ | Type | Description |
+| :------ | :--------------------- | :---------- |
+| query | queryjs/Query | Requête OData analysée |
+| id | chaîne ou nombre | ID associé à la demande |
+| item | objet | Élément inséré ou supprimé |
+| req | express.Request | Objet de demande rapide en cours |
+| res | express.Response | Objet de réponse rapide en cours |
+| données | données | Fournisseur de données configuré |
+| tables | function | Fonction qui accepte un nom de table au format chaîne et renvoie un objet d’accès à la table |
+| user | auth/user | Objet utilisateur authentifié |
+| results | objet | Résultats de l’exécution |
+| push | NotificationHubService | Service Notification Hubs, si celui-ci est configuré |
+
+Pour plus d’informations, consultez la documentation actuelle de l’[API](http://azure.github.io/azure-mobile-apps-node).
 
 ### CORS
 
-CORS peuvent être activés via un [paramètre de configuration CORS](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) dans le Kit de développement logiciel (SDK).
+CORS peut être activé au moyen d’un [paramètre de configuration CORS](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) dans le Kit de développement logiciel (SDK).
 
 Les principales sources de préoccupation en cas d’utilisation de CORS concernent les en-têtes `eTag` et `Location` qui doivent être autorisés pour que les Kits de développement logiciel (SDK) clients puissent fonctionner correctement.
 
 ### Notifications Push
 
-Le Kit de développement logiciel (SDK) Azure Notification Hubs ayant bénéficié de mises à jour importantes depuis Mobile Services, certaines signatures de fonction Notification Hubs peuvent donc être différentes. Dans le cas contraire, la fonctionnalité est semblable à Mobile Services ; le Kit de développement logiciel (SDK) Mobile Azure configure une instance Notifications Hubs si le paramètre d’application pour Notifications Hubs existe et l’expose sur `context.push`. Vous trouverez un exemple sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), avec la section appropriée indiquée ci-dessous :
+Le Kit de développement logiciel (SDK) Azure Notification Hubs ayant bénéficié de mises à jour importantes depuis Mobile Services, certaines signatures de fonction Notification Hubs peuvent donc être différentes. Dans le cas contraire, la fonctionnalité est semblable à Mobile Services ; le Kit de développement logiciel (SDK) Azure Mobile configure une instance Notifications Hubs si le paramètre d’application pour Notifications Hubs existe et l’expose sur `context.push`. Un exemple est disponible sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), avec la section appropriée indiquée ci-dessous :
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -209,7 +233,7 @@ Pour certains fournisseurs, comme AAD, Facebook et Google, vous devez être en m
 
 Pour limiter l’accès à votre table, vous pouvez le définir au niveau de la table avec `table.access = 'authenticated';`. Vous pouvez voir un exemple complet sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/authentication/tables/TodoItem.js).
 
-Vous pouvez accéder aux informations d’identité de l’utilisateur via la méthode `user.getIdentity` décrite [ici](http://azure.github.io/azure-mobile-apps-node/module-azure-mobile-apps_auth_user.html#~getIdentity).
+Vous pouvez accéder aux informations d’identité de l’utilisateur par le biais de la méthode `user.getIdentity` décrite [ici](http://azure.github.io/azure-mobile-apps-node/module-azure-mobile-apps_auth_user.html#~getIdentity).
 
 ## <a name="updating-clients"></a>Mise à jour des clients
 Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des Kits de développement logiciel (SDK) clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux Kits de développement logiciel (SDK) Mobile Services avant d’installer les versions Mobile Apps.
@@ -264,4 +288,4 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

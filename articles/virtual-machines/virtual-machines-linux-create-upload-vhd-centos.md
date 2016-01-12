@@ -322,11 +322,21 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 12.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
 
-13. Installez l'agent linux Azure en exécutant la commande suivante :
+13.	**Uniquement si la génération de l'image se fait à partir de VMWare, VirtualBox ou KVM :** ajouter les modules Hyper-V dans initramfs :
+
+    Modifiez `/etc/dracut.conf`, ajoutez le contenu :
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Générez de nouveau initramfs :
+
+        # dracut –f -v
+
+14. Installez l'agent linux Azure en exécutant la commande suivante :
 
 		# sudo yum install WALinuxAgent
 
-14.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
+15.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
 	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
@@ -336,12 +346,12 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+16.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+17. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

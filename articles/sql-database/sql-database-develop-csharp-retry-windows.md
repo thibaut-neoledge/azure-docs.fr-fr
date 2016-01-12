@@ -12,19 +12,24 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Exemple de code : Logique de nouvelle tentative C# pour la connexion à une base de données SQL
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-Cette rubrique fournit un exemple de code C# qui illustre la logique de nouvelle tentative personnalisée. La logique de nouvelle tentative est conçue pour traiter de manière appropriée les erreurs *temporaires* qui tendent à disparaître si le programme attend quelques secondes et effectue de nouvelles tentatives.
+
+Cette rubrique fournit un exemple de code C# qui illustre la logique de nouvelle tentative personnalisée. La logique de nouvelle tentative est conçue pour traiter de manière appropriée les erreurs temporaires ou défaillances *transitoires* qui tendent à disparaître si le programme attend quelques secondes et effectue de nouvelles tentatives.
 
 
 Les classes ADO.NET que vous utilisez pour vous connecter à un serveur Microsoft SQL local peuvent également se connecter à une base de données SQL Azure. Toutefois, par elles-mêmes, les classes ADO.NET classes ne peuvent pas fournir toute la robustesse et la fiabilité nécessaires à la production. Votre programme client peut rencontrer des erreurs temporaires qu’il devrait normalement résoudre de manière silencieuse et appropriée.
@@ -267,7 +272,7 @@ Une alternative consiste à ajouter une logique à votre programme pour reconna�
 
 1. Il ajouterait temporairement des lettres indésirables pour mal orthographier le nom du serveur de bases de données SQL.
 
-2. Il ajouterait temporairement **40615** à la liste des erreurs temporaires.
+2. Ajoutez temporairement **40615** à la liste des erreurs temporaires.
 
 3. Au début de sa deuxième boucle, ce qui signifie sa première boucle de nouvelle tentative, le programme effectuerait les opérations suivantes :
  - Il annulerait la faute d’orthographe dans le nom de serveur.
@@ -282,4 +287,6 @@ Il exécuterait le programme avec le paramètre « test » et vérifierait que
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

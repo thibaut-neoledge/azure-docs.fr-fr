@@ -1,6 +1,6 @@
 <properties
-   pageTitle="API REST du service Azure Search, version 2015-02-28-Preview | Microsoft Azure | Service de recherche cloud hébergé"
-   description="L’API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que la syntaxe de requête Lucene et des recherches moreLikeThis."
+   pageTitle="API REST du service Azure Search : version 2015-02-28-Preview | Microsoft Azure"
+   description="L’API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que la syntaxe de requête Lucene et les analyseurs personnalisés."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="11/04/2015"
+   ms.date="12/21/2015"
    ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
 
-Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
+Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
 
-- La [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) est une implémentation de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) que vous pouvez spécifier à l’aide du paramètre queryType dans les [opérations de recherche](#SearchDocs).
+- La [syntaxe de requête Lucene](https://msdn.microsoft.com/library/mt589323.aspx) peut maintenant être utilisée pour les requêtes dans Azure Search. Pour utiliser l’analyseur de requêtes Lucene, spécifiez `queryType` dans les opérations de recherche.
+- Les [analyseurs personnalisés](https://msdn.microsoft.com/library/azure/mt605304.aspx) vous permettent de contrôler le processus de conversion de texte en jetons d’indexation/de recherche.
 - `moreLikeThis` est un paramètre de requête utilisé dans les [opérations de recherche](#SearchDocs) qui trouve des documents en rapport avec un autre document spécifique.
-
-Quelques fonctionnalités supplémentaires de `2015-02-28-Preview` sont documentées séparément. Vous avez notamment vu les points suivants :
-
-- [Profils de calcul de score](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexeurs](search-api-indexers-2015-02-28-preview.md)
 
 Le service Azure Search est disponible dans plusieurs versions. Pour plus d'informations, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 ##API dans ce document
-
-L’API du service Azure Search prend en charge deux syntaxes d’URL pour les opérations d’API : simple et OData. Pour plus d’informations, consultez [Prise en charge d’OData (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx). La liste suivante présente la syntaxe simple.
 
 [Création d'index](#CreateIndex)
 
@@ -143,7 +137,7 @@ Le protocole HTTPS est requis pour toutes les requêtes de service. La requête 
 
 Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
-Le paramètre `api-version` est obligatoire. Pour obtenir la liste des versions disponibles, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+Le paramètre `api-version` est obligatoire. Pour obtenir la liste des versions disponibles, consultez [Contrôle de version du service Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
@@ -153,7 +147,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour
 - authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini sur votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Syntaxe du corps de la requête**
 
@@ -185,8 +179,10 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false,		      
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -249,7 +245,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `searchable` : indique que le champ peut faire l'objet d'une recherche en texte intégral. Cela signifie qu'il fera l'objet d'une analyse, par exemple lexicale, lors de l'indexation. Si vous définissez un champ `searchable` avec une valeur telle que « journée ensoleillée », cette valeur est fractionnée au niveau interne en jetons individuels « journée » et « ensoleillée ». Cela permet d'effectuer des recherches en texte intégral de ces termes. Les champs de type `Edm.String` ou `Collection(Edm.String)` sont `searchable` par défaut. Les autres types de champs ne peuvent pas être `searchable`.
 
-  - **Remarque** : les champs `searchable` consomment davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
+  - **Remarque** : les champs `searchable` nécessitent davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
 
 `filterable` : permet au champ d'être référencé dans les requêtes `$filter`. `filterable` diffère de `searchable` dans la manière dont sont gérées les chaînes. Les champs de type `Edm.String` ou `Collection(Edm.String)` qui sont `filterable` ne font pas l'objet d'une analyse lexicale, les comparaisons ne concernent donc que les correspondances exactes. Par exemple, si vous définissez un champ de type `f` avec la valeur « journée ensoleillée », `$filter=f eq 'sunny'` ne trouvera aucune correspondance, contrairement à `$filter=f eq 'sunny day'`. Tous les champs sont `filterable` par défaut.
 
@@ -265,9 +261,13 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `key` : indique que le champ contient des identificateurs uniques pour les documents de l'index. Un seul champ doit être choisi comme champ `key` et il doit être de type `Edm.String`. Les champs de clés peuvent servir à rechercher des documents directement via l'[API de recherche](#LookupAPI).
 
-`retrievable` : définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ (par exemple, la marge) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu'il soit visible par l'utilisateur final. Cet attribut doit avoir la valeur `true` pour les champs `key`.
+`retrievable` : définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ (par exemple, la marge) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu'il soit visible par l'utilisateur final. Il doit être `true` pour les champs `key`.
 
-`analyzer` : définit le nom de l'analyseur de texte à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, consultez la rubrique [Support multilingue](#LanguageSupport). Cette option peut être utilisée uniquement avec les champs `searchable`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
+`analyzer` : définit le nom de l’analyseur à utiliser pour le champ au moment de la recherche et de l’indexation. Pour connaître l’ensemble des valeurs autorisées, consultez la rubrique [Analyseurs](https://msdn.microsoft.com/library/mt605304.aspx). Cette option ne peut être utilisée qu’avec les champs `searchable` et ne peut être associée à `searchAnalyzer` ou `indexAnalyzer`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
+
+`searchAnalyzer` : définit le nom de l’analyseur utilisé pour le champ au moment de la recherche. Pour connaître l’ensemble des valeurs autorisées, consultez la rubrique [Analyseurs](https://msdn.microsoft.com/library/mt605304.aspx). Cette option peut être utilisée uniquement avec les champs `searchable`. Elle doit être associée à `indexAnalyzer` et ne peut pas être associée à l’option `analyzer`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
+
+`indexAnalyzer` : définit le nom de l’analyseur utilisé pour le champ au moment de l’indexation. Pour connaître l’ensemble des valeurs autorisées, consultez la rubrique [Analyseurs](https://msdn.microsoft.com/library/mt605304.aspx). Cette option peut être utilisée uniquement avec les champs `searchable`. Elle doit être associée à `searchAnalyzer` et ne peut pas être associée à l’option `analyzer`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
 
 `suggesters` : définit le mode de recherche et les champs constituant la source du contenu pour obtenir des suggestions. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
@@ -455,7 +455,7 @@ Voici la liste des langues prises en charge avec les noms d’analyseur Lucene e
 	</tr>
     <tr>
 		<td>Coréen</td>
-		<td></td>
+		<td>ko.microsoft</td>
 		<td>ko.lucene</td>
 	</tr>
     <tr>
@@ -610,7 +610,7 @@ Un `suggester` définit les champs d’un index qui sont utilisés pour prendre 
 
 **Profils de score**
 
-Un `scoringProfile` définit les comportements de score personnalisés qui vous permettent de apparaître certains éléments plus haut dans les résultats de recherche. Les profils de calcul de score sont constitués de pondérations et de fonctions de champ. Pour les utiliser, vous spécifiez un profil par nom dans la chaîne de requête.
+Un `scoringProfile` définit les comportements de score personnalisés qui vous permettent de faire apparaître certains éléments plus haut dans les résultats de recherche. Les profils de calcul de score sont constitués de pondérations et de fonctions de champ. Pour les utiliser, vous spécifiez un profil par nom dans la chaîne de requête.
 
 Un profil de score par défaut fonctionne en arrière-plan pour calculer un score de recherche pour chaque élément d’un jeu de résultats. Vous pouvez utiliser le profil de score interne et sans nom. Vous pouvez aussi définir `defaultScoringProfile` pour utiliser un profil personnalisé par défaut, appelé chaque fois qu’un profil personnalisé n’est pas spécifié dans la chaîne de requête.
 
@@ -655,7 +655,7 @@ Le code Javascript côté client ne peut pas appeler les API par défaut, car le
 
 Pour une requête correcte : « 201 Créé ».
 
-Par défaut, le corps de la réponse contient le code JSON de la définition d'index qui a été créée. Si l'en-tête de la requête `Prefer` est défini avec la valeur `return=minimal`, le corps de la réponse est vide et le code d'état de réussite est « 204 Pas de contenu » au lieu de « 201 Créé ». Cela est vrai quelle que soit la méthode utilisée (PUT ou POST) pour créer l'index.
+Par défaut, le corps de la réponse contient le code JSON de la définition d'index qui a été créée. Si l'en-tête de la requête `Prefer` est défini avec la valeur `return=minimal`, le corps de la réponse est vide et le code d'état de réussite est « 204 Pas de contenu » au lieu de « 201 Créé ». Cela est vrai, quelle que soit la méthode utilisée (PUT ou POST) pour créer l'index.
 
 **Notes**
 
@@ -703,7 +703,7 @@ Un générateur de suggestions fait partie de l’index. Un seul générateur de
 		  ]
 		}
 
-> [AZURE.NOTE]Si vous avez utilisé la version préliminaire publique d’Azure Search, `suggesters` remplace une propriété booléenne (`"suggestions": false`) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes (de 3 à 25 caractères). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. À partir de la version disponible sur le marché, il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` plus ancienne introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n'est pas opérationnelle dans la version `2015-02-28` ou les version ultérieures d'Azure Search.
+> [AZURE.NOTE]Si vous avez utilisé la version préliminaire publique d’Azure Search, `suggesters` remplace une propriété booléenne (`"suggestions": false`) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes (de 3 à 25 caractères). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. À partir de la version disponible sur le marché, il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` plus ancienne introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n’est pas opérationnelle dans la version `2015-02-28` ou les versions ultérieures d’Azure Search.
 
 <a name="UpdateIndex"></a>
 ## Mise à jour d'index
@@ -733,7 +733,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Syntaxe du corps de la requête**
 
@@ -752,8 +752,10 @@ La syntaxe de schéma utilisée pour créer un index est reproduite ici par comm
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false, 
+		  "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -833,7 +835,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **List Indexes** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -900,7 +902,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -915,7 +917,7 @@ Consultez l'exemple de document JSON dans [Création et mise à jour d'un index]
 <a name="DeleteIndex"></a>
 ## Suppression d'index
 
-L'opération **Delete Index** supprime de votre service Azure Search un index et les documents associés. Vous pouvez obtenir le nom de l’index à partir du tableau de bord de service dans le portail Azure Classic ou à partir de l’API. Consultez la section [List Indexes](#ListIndexes) pour plus d'informations.
+L'opération **Delete Index** supprime de votre service Azure Search un index et les documents associés. Vous pouvez obtenir le nom de l'index à partir du tableau de bord de service dans le portail Azure ou à partir de l'API. Consultez la section [List Indexes](#ListIndexes) pour plus d'informations.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
@@ -934,7 +936,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Delete Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -967,7 +969,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index Statistics** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -990,7 +992,7 @@ ________________________________________
 
 Dans Azure Search, un index est stocké dans le cloud et rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
 
-Votre code d'application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
+Votre code d’application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
 
 Vous devez prévoir un document pour chaque élément dans lequel vous voulez effectuer la recherche. Une application de location de films peut avoir un document par film, une application vitrine peut avoir un document par référence, une application de formation en ligne peut avoir un document par cours, un cabinet de recherche peut avoir un document pour chaque document académique de son référentiel, etc.
 
@@ -1011,7 +1013,7 @@ Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer de
 
 Le protocole HTTPS est requis pour toutes les requêtes de service. Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST.
 
-L’URI de la requête inclut le[nom d’index], qui spécifie l’index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
+L’URI de la requête inclut le [nom d’index], qui spécifie l’index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1022,7 +1024,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](.search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](.search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1141,15 +1143,15 @@ Une opération **Search** est émise en tant que requête GET ou POST et spécif
 
 **Utilisation de POST au lieu de GET**
 
-Lorsque vous utilisez HTTP GET pour appeler l'API de **recherche**, vous devez savoir que la longueur de l'URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
+Lorsque vous utilisez HTTP GET pour appeler l’API de **recherche**, vous devez savoir que la longueur de l’URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Search** peut être construite à l'aide des méthodes GET ou POST.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Search** peut être construite à l’aide des méthodes GET ou POST.
 
 L'URI de la requête spécifie l'index à interroger, pour tous les documents qui correspondent aux paramètres. Les paramètres sont spécifiés dans la chaîne de requête pour les requêtes GET et dans le corps de la requête pour les requêtes POST.
 
-Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l'appel direct de l'API REST. Pour les opérations de **recherche**, cela inclut :
+Pendant la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques pour appeler l’API REST directement. Pour les opérations de **recherche**, cela inclut :
 
 - `$filter`
 - `facet`
@@ -1160,13 +1162,13 @@ Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](ht
 
 L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
-En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n'est nécessaire lors de l'appel de **Search** à l'aide de POST ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l'encodage des URL pour vous.
+En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire lors de l’appel de **Search** à l’aide de POST ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
 
-<a name="SearchQueryParameters"></a> **Paramètres de requête**
+<a name="SearchQueryParameters"></a>**Paramètres de requête**
 
 La requête **Search** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL pendant l’appel de **Search** via GET et en tant que propriétés JSON dans le corps de la requête pendant l’appel de **Search** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
 
-`search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
+`search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (ce qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
   - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
 
@@ -1174,7 +1176,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `searchFields=[string]` (facultatif) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être marqués comme `searchable`.
 
-`queryType=simple|full` (facultatif, la valeur par défaut est `simple`) : lorsqu’il est défini sur « simple », le texte recherché est interprété à l’aide d’un langage de requête simple qui autorise des symboles tels que +, * et "". Les requêtes sont évaluées pour tous les champs pouvant faire l’objet d’une recherche (ou les champs indiqués dans `searchFields`) dans chaque document par défaut. Lorsque le type de requête a la valeur `full`, le texte recherché est interprété à l’aide du langage de requête Lucene qui autorise des recherches spécifiques aux champs et pondérées. Pour obtenir des détails sur les syntaxes de recherche, consultez les sections [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx) et [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+`queryType=simple|full` (facultatif, la valeur par défaut est `simple`) : lorsqu’il est défini sur « simple », le texte recherché est interprété à l’aide d’un langage de requête simple qui autorise des symboles tels que +, * et "". Les requêtes sont évaluées pour tous les champs pouvant faire l’objet d’une recherche (ou les champs indiqués dans `searchFields`) dans chaque document par défaut. Lorsque le type de requête a la valeur `full`, le texte recherché est interprété à l’aide du langage de requête Lucene qui autorise des recherches spécifiques aux champs et pondérées. Pour obtenir des détails sur les syntaxes de recherche, consultez les sections [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx) et [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/mt589323.aspx).
  
 > [AZURE.NOTE]La recherche de plages dans le langage de requête Lucene n’est pas prise en charge au profit de $filter qui offre des fonctionnalités similaires.
 
@@ -1186,11 +1188,9 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `$top=#` (facultatif) : nombre de résultats de recherche à récupérer. Ceci peut être utilisé conjointement avec `$skip` pour implémenter la pagination côté client des résultats de la recherche.
 
-> [AZURE.NOTE]Azure Search utilise la ***pagination côté serveur*** pour empêcher les requêtes de récupérer trop de documents à la fois. La taille de page par défaut est 50, tandis que la taille de page maximale est 1 000. Cela signifie que, par défaut, **Search** retourne 50 résultats maximum si vous ne spécifiez pas `$top`. S’il existe plus de 50 résultats, la réponse inclut des informations pour récupérer la page suivante de 50 résultats maximum (voir `@odata.nextLink` et `@search.nextPageParameters` dans l’[exemple ci-dessous](#SearchResponse)). De même, si vous spécifiez une valeur supérieure à 1 000 pour `$top` et qu’il existe plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi que des informations pour récupérer la page suivante de 1 000 résultats maximum.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
 
-> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
-
-`$count=true|false` (facultatif, la valeur par défaut est `false`) : indique s'il faut extraire le nombre total de résultats. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
+`$count=true|false` (facultatif, la valeur par défaut est `false`) : indique s'il faut extraire le nombre total de résultats. Ceci est le nombre de tous les documents qui correspondent aux paramètres `search` et `$filter` en faisant abstraction de `$top` et `$skip`. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
 
 > [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `count` au lieu de `$count`.
 
@@ -1232,7 +1232,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `highlightPostTag=[string]` (facultatif, la valeur par défaut est `</em>`) : balise de chaîne qui ajoute un élément aux mises en surbrillance des correspondances. Doit être défini avec `highlightPreTag`.
 
-> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `scoringProfile=[string]` (facultatif) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
 
@@ -1254,7 +1254,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Search** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1282,6 +1282,12 @@ Pour POST :
       "top": #
     }
 
+**Continuation des réponses de recherche partielle**
+
+Parfois, Azure Search ne peut pas rendre tous les résultats requis dans une seule réponse de recherche. Cela peut se produire pour différentes raisons, par exemple lorsque la requête nécessite un trop grand nombre de documents en ne spécifiant pas `$top` ou en spécifiant une valeur pour `$top` qui est trop grande. Dans ce cas, Azure Search inclura l’annotation `@odata.nextLink` dans le corps de réponse, ainsi que `@search.nextPageParameters` s’il s’agissait d’une demande POST. Vous pouvez utiliser les valeurs de ces annotations pour formuler une autre demande de recherche afin d’obtenir la partie suivante de la réponse de recherche. Il s’agit une ***continuation*** de la demande de recherche d’origine et les annotations sont généralement appelées ***jetons de continuation***. Consultez [l’exemple ci-dessous](#SearchResponse) pour plus d’informations sur la syntaxe de ces annotations et où elles apparaissent dans le corps de réponse.
+
+Les raisons pour lesquelles Azure Search peut rendre des jetons de continuation sont liées à l’implémentation et susceptibles d’être modifiées. Les clients puissants doivent toujours être prêts à traiter des cas où des documents plus moins nombreux que prévu sont renvoyés et un jeton de continuation est inclus pour poursuivre la récupération des documents. Notez également que vous devez utiliser la même méthode HTTP que pour la demande d’origine pour pouvoir poursuivre. Par exemple, si vous avez envoyé une demande GET, toutes les demandes de continuation que vous envoyez doivent également utiliser GET (y compris pour POST).
+
 <a name="SearchResponse"></a> **Réponse**
 
 Code d'état : 200 OK est retourné pour une réponse correcte.
@@ -1300,7 +1306,7 @@ Code d'état : 200 OK est retourné pour une réponse correcte.
         ],
         ...
       },
-      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+      "@search.nextPageParameters": { (request body to fetch the next page of results if not all results could be returned in this response and Search was called with POST)
         "count": ... (value from request body if present),
         "facets": ... (value from request body if present),
         "filter": ... (value from request body if present),
@@ -1332,7 +1338,7 @@ Code d'état : 200 OK est retourné pour une réponse correcte.
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
+      "@odata.nextLink": (URL to fetch the next page of results if not all results could be returned in this response; Applies to both GET and POST)
     }
 
 **Exemples :**
@@ -1349,7 +1355,7 @@ Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour A
       "orderby": [ "lastRenovationDate desc" ]
     }
 
-2) Dans une recherche à facettes, interroger l'index et récupérer des facettes pour des catégories, des classements, des balises, ainsi que des éléments avec une valeur de baseRate comprise dans des plages spécifiques :
+2) Dans une recherche à facettes, interroger l'index et récupérer des facettes pour des catégories, des classements, des balises, ainsi que des éléments avec une valeur baseRate comprise dans des plages spécifiques :
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
@@ -1402,7 +1408,7 @@ Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour A
 
 Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas plusieurs index pour chaque langue, sauf si vous prévoyez d'interroger un seul index à la fois.
 
-7) Pagination : obtenir la 1ère page d'éléments (la taille de la page est 10) :
+7) Pagination : obtenir la 1re page d'éléments (la taille de la page est 10) :
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
@@ -1413,7 +1419,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
       "top": 10
     }
 
-8) Pagination : obtenir la 2ème page d'éléments (la taille de la page est 10) :
+8) Pagination : obtenir la 2e page d'éléments (la taille de la page est 10) :
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1486,7 +1492,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
 
 Notez l'utilisation de `searchMode=all` ci-dessus. L'ajout de ce paramètre remplace la valeur par défaut `searchMode=any`, ce qui garantit que `-motel` signifie « ET PAS » au lieu de « OU PAS ». Sans `searchMode=all`, vous obtenez « OU PAS » qui étend au lieu de limiter les résultats de recherche, et cela peut être contraire à l'intuition pour certains utilisateurs.
 
-15) Rechercher des documents dans l’index à l’aide d’une [syntaxe de requête Lucene](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). Cette requête renvoie les hôtels où le champ de catégorie contient le terme « budget » et tous les champs pouvant faire l’objet d’une recherche contenant l’expression « récemment rénové ». Les documents contenant l’expression « récemment rénové » sont mieux classés en raison de la valeur de renforcement du terme (3)
+15) Rechercher des documents dans l’index à l’aide d’une [syntaxe de requête Lucene](https://msdn.microsoft.com/library/mt589323.aspx). Cette requête renvoie les hôtels où le champ de catégorie contient le terme « budget » et tous les champs pouvant faire l’objet d’une recherche contenant l’expression « récemment rénové ». Les documents contenant l’expression « récemment rénové » sont mieux classés en raison de la valeur de renforcement du terme (3)
 
     GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
 
@@ -1531,7 +1537,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Lookup Document** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1579,7 +1585,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Accept` : cette valeur doit être définie sur `text/plain`.
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Count Documents** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1644,7 +1650,7 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 `suggesterName=[string]` : nom du générateur de suggestions, comme spécifié dans la collection `suggesters` qui fait partie de la définition d'index. Un `suggester` détermine les champs qui sont analysés pour les termes de requête suggérés. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
-`fuzzy=[boolean]` (facultatif, valeur par défaut = false) : quand elle est définie avec la valeur true, cette API trouve des suggestions même si un caractère est remplacé ou manquant dans le texte de recherche. Bien qu'il en résulte une meilleure expérience, dans certains cas cela a un impact négatif sur les performances, car les recherches de suggestions approximatives sont plus lentes et consomment davantage de ressources.
+`fuzzy=[boolean]` (facultatif, valeur par défaut = false) : quand elle est définie avec la valeur true, cette API trouve des suggestions, même si un caractère est remplacé ou manquant dans le texte de recherche. Bien qu'il en résulte une meilleure expérience, dans certains cas cela a un impact négatif sur les performances, car les recherches de suggestions approximatives sont plus lentes et consomment davantage de ressources.
 
 `searchFields=[string]` (facultatif) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être activés pour les suggestions.
 
@@ -1660,13 +1666,13 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 > [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
 
-`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n’est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n’est spécifiée, seuls la clé du document et le texte de suggestion sont retournés. Vous pouvez demander explicitement tous les champs en définissant ce paramètre avec la valeur `*`.
 
 > [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
 
 `minimumCoverage` (facultatif, valeur par défaut 80) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de suggestions afin que la requête soit déclarée comme un succès. Par défaut, au moins 80 % de l’index doit être disponible ou `Suggest` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Suggest` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
-> [AZURE.NOTE]La définition de ce paramètre à une valeur inférieure à 100 peut être utile pour garantir la disponibilité de la recherche même pour les services ayant un seul réplica. Cependant, il n’y a pas de garantie que toutes les suggestions correspondantes seront présentes dans les résultats. Si le rappel est plus important pour votre application que la disponibilité, il est préférable de ne pas baisser `minimumCoverage` en-dessous de sa valeur par défaut 80.
+> [AZURE.NOTE]La définition de ce paramètre à une valeur inférieure à 100 peut être utile pour garantir la disponibilité de la recherche même pour les services ayant un seul réplica. Cependant, il n’y a pas de garantie que toutes les suggestions correspondantes seront présentes dans les résultats. Si le rappel est plus important pour votre application que la disponibilité, il est préférable de ne pas baisser `minimumCoverage` en dessous de sa valeur par défaut 80.
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1678,7 +1684,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Suggestions** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l’en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure Classic. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1742,4 +1748,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

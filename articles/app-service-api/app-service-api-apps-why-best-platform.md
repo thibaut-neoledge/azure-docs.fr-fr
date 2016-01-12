@@ -42,7 +42,7 @@ En outre, les fonctionnalités proposées par API Apps, Web Apps et Mobile Apps 
 
 >[AZURE.NOTE]Vous pouvez utiliser la [gestion des API Azure](../api-management/api-management-key-concepts.md) pour contrôler l’accès des clients à des API hébergées par App Service API Apps. Alors qu'API Apps fournit des services d'authentification, il existe d'autres fonctionnalités de gestion de l'accès proposées par API Management (et non par API Apps), telles que la consolidation du point de terminaison et la limitation.
 
-## Concepts liés aux applications API ##
+## <a id="concepts"></a> Concepts liés à API Apps
 
 - **Swagger** : infrastructure de documentation et de détection d’API RESTful, utilisée par défaut dans API Apps. Pour plus d’informations, consultez la page [http://swagger.io/](http://swagger.io/).
 - **Cross Origin Resource Sharing (CORS)** : mécanisme permettant à une instance de JavaScript exécutée dans un navigateur d’appeler une API hébergée sur un autre domaine que celui à partir duquel la page web a été chargée. Pour plus d’informations, consultez [Consommer une application API à partir de JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). 
@@ -53,8 +53,8 @@ En outre, les fonctionnalités proposées par API Apps, Web Apps et Mobile Apps 
 
 Pour prendre en main les applications API, suivez le didacticiel [Prise en main d’API Apps](app-service-api-dotnet-get-started.md).
 
-Pour afficher une liste des problèmes connus liés à API Apps, consultez le [billet de forum sur les problèmes connus d’API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Pour afficher la liste des problèmes connus liés à API Apps, consultez le [billet relatif aux problèmes connus d’API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Création d'un projet Azure avec Visual Studio"
+   pageTitle="Création d’un projet Azure avec Visual Studio | Microsoft Azure"
    description="Création d'un projet Azure avec Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Création d'un projet Azure avec Visual Studio
@@ -62,4 +62,4 @@ Une solution de service cloud Azure contient les types de projets suivants :
 
 1. Pour renommer un rôle que vous avez ajouté à votre projet, passez la souris sur le rôle dans la boîte de dialogue **Nouveau projet Azure** et sélectionnez l’icône **Renommer** à droite du rôle. Vous pouvez également renommer un rôle dans votre solution une fois qu’il a été ajouté.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

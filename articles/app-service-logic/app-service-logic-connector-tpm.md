@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Prise en main du service de gestion des partenaires commerciaux BizTalk et ajout de celui-ci à votre application logique
@@ -25,7 +25,7 @@ L'application API TPM (Gestion des partenaires commerciaux) est la configuration
 - Base de données SQL Azure vide : vous devez créer une base de données SQL Azure vide avant de créer une application d'API TPM.
 
 ## Compréhension des partenaires, accords et profils
-Pour en savoir plus sur l'accord de partenariat commercial, cliquez [ici][1]
+En savoir plus sur la [création d’un accord de partenariat commercial][1].
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
@@ -39,4 +39,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

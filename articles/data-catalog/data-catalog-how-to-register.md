@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 
@@ -41,6 +41,8 @@ Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l
 * Fichiers et répertoires HDFS
 * Tables Apache Hive
 * Vues et tables Teradata
+* Fichiers et répertoires d’Azure Data Lake Store
+* Tables et vues MySQL
 
 > [AZURE.NOTE]La prise en charge de SQL Server inclut également la base de données SQL Microsoft Azure et Microsoft Azure SQL Data Warehouse
 
@@ -65,7 +67,7 @@ En plus des métadonnées descriptives extraites de la source de données, les u
 
 Par défaut, seules les métadonnées sont extraites des sources de données et copiées dans le service **Azure Data Catalog**. Toutefois, pour comprendre plus facilement une source de données, il suffit généralement de voir un exemple des données qu’elle contient.
 
-L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données dans l’ensemble des tables et affichages inscrits. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
+L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données dans chaque table et chaque vue où elle est inscrite. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
 
 
 > [AZURE.NOTE]Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
@@ -73,9 +75,9 @@ L’outil d’inscription des sources de données d’**Azure Data Catalog** per
 
 ## Inclusion de profils de données
 
-Tout comme l’inclusion d’aperçus peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut faciliter la compréhension des sources de données détectées.
+Tout comme l’inclusion d’aperçus peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut aussi faciliter la compréhension des sources de données découvertes.
 
-L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un profil de données pour l’ensemble des tables et affichages inscrits. Si l’utilisateur choisit d’inclure un profil de données pendant l’inscription, l’outil d’inscription inclut des statistiques agrégées sur les données de chaque table et vue, à savoir :
+L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un profil de données pour chaque table et chaque vue qui est inscrite. Si l’utilisateur choisit d’inclure un profil de données pendant l’inscription, l’outil d’inscription inclut des statistiques agrégées sur les données de chaque table et vue, à savoir :
 
 * le nombre de lignes et la taille des données dans l’objet ;
 * la date de la dernière mise à jour des données et le schéma de l’objet ;
@@ -86,14 +88,13 @@ Ces statistiques sont ensuite copiées dans le catalogue avec les métadonnées 
 
 > [AZURE.NOTE]Les colonnes de texte et de date n’incluent pas de statistiques de valeurs moyennes ou d’écart type dans leur profil de données.
 
-
 ## Mise à jour des inscriptions
 
-L’inscription d’une source de données rend celle-ci détectable dans **Azure Data Catalog** à l’aide des métadonnées et de l’aperçu facultatif extraits lors de l’inscription. Si la source de données doit être mise à jour dans le catalogue (par exemple, si le schéma d'un objet a changé, ou si les tables initialement exclues doivent être incluses, ou si un utilisateur souhaite mettre à jour les données incluses dans les aperçus), l'outil d'inscription des sources de données peut être réexécuté.
+L’inscription d’une source de données permet sa découverte dans **Azure Data Catalog** à l’aide des métadonnées et de l’aperçu facultatif extraits lors de l’inscription. Si la source de données doit être mise à jour dans le catalogue (par exemple, si le schéma d'un objet a changé, ou si les tables initialement exclues doivent être incluses, ou si un utilisateur souhaite mettre à jour les données incluses dans les aperçus), l'outil d'inscription des sources de données peut être réexécuté.
 
 La réinscription d’une source de données déjà inscrite aboutit à une opération de fusion de type « upsert » : les objets existants sont actualisés, tandis que les nouveaux objets sont créés de toute pièce. Toutes les métadonnées fournies par les utilisateurs via le portail **Azure Data Catalog** sont conservées.
 
 ## Résumé
-L’inscription d’une source de données auprès d’**Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
+L’inscription d’une source de données auprès d’**Azure Data Catalog** facilite la découverte et la compréhension, et consiste à copier les métadonnées descriptives et structurelles de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et découverte à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

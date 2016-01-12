@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur BizTalk Edifact dans votre application logique  
@@ -32,24 +32,32 @@ Pour utiliser le connecteur Edifact, vous devez d'abord créer une instance de l
 ## Configuration du connecteur Edifact
 Les partenaires commerciaux sont des entités impliquées dans des communications B2B (entreprise à entreprise). Lorsque deux partenaires établissent une relation, il est question d'un « accord ». L’accord défini est basé sur le type de communication dont les deux partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
 
-Les étapes de création d'un accord de partenariat commercial sont documentées [ici][2].
+Consultez les étapes à suivre pour [créer un accord de partenariat commercial][2].
 
 ## Utilisation du connecteur Edifact dans l'aire du concepteur d'applications logiques
 Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
 
 ### Déclencheur
 - Lancez le concepteur de flux des applications logiques Azure
-- Cliquez sur le connecteur Edifact dans le panneau de droite : ![Paramètres du déclencheur][3]
-- Cliquez sur -> : ![Options du déclencheur][4]
-- Le connecteur EDIFACT expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur -> : ![Option Publier lot configurée][6]
+- Cliquez sur le connecteur Edifact dans le panneau de droite :  
+![Paramètres du déclencheur][3]
+- Cliquez sur -> :  
+![Options du déclencheur][4]
+- Le connecteur EDIFACT expose un seul déclencheur. Sélectionnez *Publier lot* :  
+![Entrée Publier lot][5]
+- Ce déclencheur ne possède aucune entrée. Cliquez sur -> :  
+![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile Edifact, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
 ### Action
-- Cliquez sur le connecteur Edifact dans le panneau de droite : ![Paramètres d'action][7]
-- Cliquez sur -> : ![Liste d'actions][8]
-- Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
-- Indiquez les entrées de l’action et configurez celle-ci : ![Codage configuré][10]
+- Cliquez sur le connecteur Edifact dans le panneau de droite :  
+![Paramètres d'action][7]
+- Cliquez sur -> :  
+![Liste d'actions][8]
+- Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* :  
+![Codage d'entrée][9]
+- Indiquez les entrées de l’action et configurez celle-ci :  
+![Codage configuré][10]
 
 	Paramètre|Type|Description du paramètre
 ---|---|---
@@ -89,4 +97,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

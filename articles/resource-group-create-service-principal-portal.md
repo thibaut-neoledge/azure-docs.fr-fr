@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/17/2015"
    ms.author="tomfitz"/>
 
 # Création de l'application Active Directory et du principal du service à l'aide du portail
 
 ## Vue d'ensemble
-Lorsque vous avez un processus automatisé ou une application qui doit accéder ou modifier une ressource dans votre abonnement, vous pouvez utiliser le portail pour créer une application Active Directory et l'assigner à un rôle avec les autorisations correctes. Lorsque vous créez une application Active Directory par le biais du portail, celui-ci crée l'application et un principal du service. Vous utilisez le principal du service lors de la définition des autorisations.
+Lorsqu’un processus automatisé ou une application doit accéder à (ou modifier) une ressource de votre abonnement, vous pouvez utiliser le portail Azure Classic pour créer une application Active Directory et l’assigner à un rôle avec les autorisations correctes. Lorsque vous créez une application Active Directory par le biais du portail Azure Classic, celui-ci crée l’application et un principal du service. Vous utilisez le principal du service lors de la définition des autorisations.
 
-Cette rubrique montre comment créer une application et un principal du service à l'aide du portail Azure. Actuellement, vous devez utiliser le portail Microsoft Azure pour créer une application Active Directory. Cette possibilité sera ajoutée à la version préliminaire du portail Azure dans une version ultérieure. Vous pouvez utiliser le portail en version préliminaire pour assigner l'application à un rôle. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour en savoir plus, consultez la rubrique [Authentification d'un principal du service à l'aide d'Azure Resource Manager](resource-group-authenticate-service-principal.md).
+Cette rubrique montre comment créer une application et un principal du service à l’aide du portail Azure Classic. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory. Cette possibilité sera ajoutée au portail Azure dans une version ultérieure. Vous pouvez utiliser le portail pour assigner l’application à un rôle. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de PowerShell ou de l’interface de ligne de commande avec le principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
 1. Azure Active Directory (AAD) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
@@ -33,7 +33,7 @@ Pour obtenir une explication plus détaillée des applications et des principaux
 
 ## Création des objets principal du service et application
 
-1. Connectez-vous à votre compte Azure par le biais du [portail](https://manage.windowsazure.com/).
+1. Connectez-vous à votre compte Azure via le [portail classique](https://manage.windowsazure.com/).
 
 2. Sélectionnez **Active Directory** dans le volet gauche.
 
@@ -101,17 +101,33 @@ Votre application est maintenant prête et le principal du service est créé su
 
 ## Affectation de l'application à un rôle
 
-Vous devez affecter l'application à un rôle pour lui accorder des autorisations lui permettant de réaliser des opérations. Vous pouvez utiliser le [portail en version préliminaire](https://portal.azure.com) pour affecter l'application Active Directory à un rôle avec des autorisations appropriées.
+Vous devez affecter l'application à un rôle pour lui accorder des autorisations lui permettant de réaliser des opérations. Pour affecter l’application à un rôle, passez du portail Azure Classic au [portail Azure](https://portal.azure.com). Vous devez décider quel rôle ajouter à l’application et avec quelle étendue. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md). Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
-Pour vous familiariser avec le contrôle d'accès dans la version préliminaire du portail, sélectionnez l’icône **Accès**.
+1. Dans le portail, accédez au niveau d’étendue que vous souhaitez affecter à l’application. Dans le cadre de cette rubrique, accédez à un groupe de ressources, puis dans le panneau du groupe de ressources, sélectionnez l’icône **Accès**.
 
-![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/select-users.png)
 
-Sélectionnez le rôle auquel vous souhaitez affecter l'application et recherchez l'application.
+2. Sélectionnez **Ajouter**.
 
-![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![sélectionner ajouter](./media/resource-group-create-service-principal-portal/select-add.png)
 
-Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles via le portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+3. Sélectionnez le rôle **Lecteur** (ou un rôle auquel vous souhaitez affecter l’application).
+
+     ![sélectionner un rôle](./media/resource-group-create-service-principal-portal/select-role.png)
+
+4. Lorsque vous voyez pour la première fois la liste des utilisateurs que vous pouvez ajouter au rôle, aucune application n’est indiquée. Vous voyez uniquement des utilisateurs et un groupe.
+
+     ![afficher les utilisateurs](./media/resource-group-create-service-principal-portal/show-users.png)
+
+5. Pour trouver votre application, vous devez la rechercher. Commencez à taper le nom de votre application. La liste des options disponibles change. Sélectionnez votre application dans la liste.
+
+     ![affecter au rôle](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+6. Sélectionnez **OK** pour finaliser l’affectation du rôle. Vous devez maintenant voir votre application dans la liste des utilisateurs affectés à un rôle pour le groupe de ressources.
+
+     ![afficher](./media/resource-group-create-service-principal-portal/show-app.png)
+
+Pour plus d’informations sur l’attribution des utilisateurs, des applications et des rôles au moyen du portail, consultez la rubrique [Gérer l’accès à l’aide du portail de gestion Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obtention d'un jeton d'accès dans le code
 
@@ -141,10 +157,10 @@ Dans votre application, ajoutez une méthode comme suit pour récupérer le jeto
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Gestion et audit d'accès aux ressources](resource-group-rbac.md).  
-- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d'une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Pour en savoir plus sur l'utilisation d'Azure PowerShell ou l’interface de ligne de commande Azure pour utiliser les applications et les principaux du service Active Directory, notamment l'utilisation d'un certificat pour l'authentification, consultez la rubrique [Authentification d'un principal du service à l'aide d'Azure Resource Manager](./resource-group-authenticate-service-principal.md).
-- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).  
+- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Pour en savoir plus sur l’utilisation d’Azure PowerShell ou de l’interface de ligne de commande Azure pour utiliser les applications et les principaux du service Active Directory, notamment l’utilisation d’un certificat pour l’authentification, consultez la rubrique [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md).
+- Pour obtenir des instructions sur l’implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
@@ -162,4 +178,4 @@ Dans votre application, ajoutez une méthode comme suit pour récupérer le jeto
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

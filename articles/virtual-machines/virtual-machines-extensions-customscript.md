@@ -34,7 +34,7 @@ L’extension de script personnalisé pour Windows vous permet d’exécuter des
 ### Conditions préalables pour exécuter l’extension de script personnalisé
 
 1. Installez les applets de commande Microsoft Azure PowerShell version 0.8.0 ou ultérieure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
-2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un.
+2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un. (Si vous configurez la machine virtuelle à partir de la galerie Azure alors agents de machine virtuelle sont activés par défaut, vous n'êtes pas obligé de les activer)
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d’un seul ou de plusieurs conteneurs de stockage.
 4. Le script doit être conçu de manière à ce que le script d’entrée lancé par l’extension lance à son tour les autres scripts.
 
@@ -87,10 +87,9 @@ L’extension de script personnalisé peut être désinstallée de la machine vi
 
 ### Utilisation de l’extension de script personnalisé avec des modèles
 
-Pour en savoir plus sur l’utilisation de l’extension de script personnalisé avec les modèles, voir la documentation [ici](virtual-machines-extensions-customscript -with template.md).
+Pour apprendre comment utiliser l’extension de script personnalisé avec les modèles Azure Resource Manager, consultez les documents [ici](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1223_2015-->

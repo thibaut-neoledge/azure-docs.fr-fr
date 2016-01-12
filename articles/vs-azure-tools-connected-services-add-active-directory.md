@@ -5,8 +5,15 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="tarcher" />
+   editor="" />
+<tags 
+   ms.service="visual-studio-online"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="visual-studio-online"
+   ms.date="12/16/2015"
+   ms.author="tarcher" />
 
 # Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio 
 
@@ -24,10 +31,10 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ### Se connecter à Azure AD à l’aide de la boîte de dialogue Services connectés
 
-1. Assurez-vous que vous disposez d’un compte Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir un [essai gratuit](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour une [évaluation gratuite](http://go.microsoft.com/fwlink/?LinkId=518146).
 
-1. Dans Visual Studio, ouvrez le menu contextuel du nœud **Références** dans votre projet et choisissez **Ajouter des services connectés**.
-1. Sélectionnez **Authentification Azure AD**, puis choisissez **configurer**.
+1. Dans Visual Studio, ouvrez le menu contextuel du nœud **Références** de votre projet et choisissez **Ajouter des services connectés**.
+1. Sélectionnez **Authentification Azure AD**, puis choisissez **Configurer**.
 
     ![Choisir Authentification Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
 
@@ -42,7 +49,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
 
-1. Dans la troisième page de l’Assistant, assurez-vous que l’option **Accès en lecture aux données d’annuaire** est cochée. L’Assistant renseigne le champ **Clé secrète du client**.
+1. Dans la troisième page de l’Assistant, assurez-vous que l’option **Lire des données d’annuaire** est cochée. L’Assistant renseigne le champ **Clé secrète client**.
 
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
@@ -60,7 +67,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ## Modifications apportées à votre projet
 
-Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Étapes suivantes
 
@@ -72,4 +79,4 @@ Posez des questions et obtenez de l’aide.
 
  - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

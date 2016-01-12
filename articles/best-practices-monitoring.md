@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Guide de surveillance et de diagnostic
@@ -32,7 +32,7 @@ La surveillance vous permet d’avoir un aperçu de la manière selon laquelle u
 - Maintenir les performances pour s’assurer que le débit du système ne se dégrade pas inopinément à mesure que le volume de travail augmente.
 - Garantir que le système respecte les SLA conclus avec les clients.
 - Protéger la confidentialité et la sécurité du système, des utilisateurs et de leurs données.
-- Suivre les opérations qui sont effectuées lors d’audit ou à des fins de réglementation.
+- Suivre les opérations qui sont effectuées à des fins d’audit ou de réglementation.
 - Surveiller l’utilisation quotidienne du système et identifier les tendances qui pourraient entraîner des problèmes si elles ne sont pas traitées.
 - Suivre les problèmes qui surviennent, à partir d’un rapport initial via l’analyse des causes possibles, de la rectification, des mises à jour logicielles consécutives et du déploiement.
 - Suivre les opérations et les versions de débogage.
@@ -92,7 +92,7 @@ Les données d’instrumentation doivent être agrégées et corrélées pour pr
 
 - La disponibilité immédiate du système et des sous-systèmes.
 - Les taux d’échec de la disponibilité du système et des sous-systèmes. Dans l’idéal, un opérateur doit être en mesure de mettre en corrélation les défaillances avec des activités spécifiques ; que s’est-il passé lorsque le système a échoué ?
-- Une vue historique des taux de défaillance du système ou des sous-systèmes sur une période spécifiée et le chargement sur le système (nombre de demandes utilisateur par exemple) lorsqu’une erreur s’est produite.
+- Une vue historique des taux de défaillance du système ou des sous-systèmes sur une période spécifiée et la charge sur le système (nombre de demandes utilisateur par exemple) lorsqu’une erreur s’est produite.
 - Les raisons de l’indisponibilité du système ou des sous-systèmes. Par exemple, service n’étant pas en cours d’exécution, perte de connectivité, connecté mais arrivant à expiration et connecté mais renvoyant des erreurs.
 
 Vous pouvez calculer le pourcentage de disponibilité d’un service sur une période de temps à l’aide de la formule suivante :
@@ -101,7 +101,7 @@ Vous pouvez calculer le pourcentage de disponibilité d’un service sur une pé
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Ce calcul est utile dans le cadre des SLA (La [Surveillance des SLA](#SLA-monitoring) est décrite en détail plus loin dans ce guide). La définition de _temps mort_ dépend du service. Par exemple, Visual Studio Team Services définit les temps morts en tant que période pendant laquelle les tentatives du client pour accéder au service prennent plus de 120 secondes et toutes les opérations de lecture et d’écriture de base échouent une fois la connexion établie dans ce délai.
+Ce calcul est utile dans le cadre des SLA (La [Surveillance des SLA](#SLA-monitoring) est décrite en détail plus loin dans ce guide). La définition de _temps mort_ dépend du service. Par exemple, le service de build de Visual Studio Team Services définit les temps d’arrêt comme la période (total des minutes cumulées) pendant laquelle le service de Build n’est pas disponible. Une minute est considérée comme indisponible si l’ensemble des requêtes HTTP continues auprès du service de build pour exécuter des opérations demandées par le client dans la minute entraînent un code d’erreur ou ne renvoient aucune réponse.
 
 ## Analyse des performances
 Comme le système est placé sous contrainte croissante à mesure que le volume d’utilisateurs augmente, ainsi que la taille des jeux de données auxquels ces utilisateurs accèdent, la défaillance d’un ou plusieurs composants devient de plus en plus probable. Fréquemment, la défaillance d’un composant est précédée par une baisse des performances. Si vous êtes en mesure de détecter cette baisse, vous pouvez prendre des mesures proactives pour y remédier.
@@ -283,14 +283,14 @@ Pour examiner l’utilisation du système, un opérateur devra généralement co
 - Le volume de stockage de données occupé par chaque utilisateur.
 - Les ressources auxquelles chaque utilisateur a eu accès.
 
-Un opérateur doit également être capable de générer des graphiques, par exemple, affichant les utilisateurs les plus gourmands en ressources ou les ressources les plus fréquemment sollicitées.
+Un opérateur doit également être capable de générer des graphiques affichant, par exemple, les utilisateurs les plus gourmands en ressources ou bien les ressources ou fonctionnalités système les plus fréquemment sollicitées.
 
 ### Sources de données, instrumentation et conditions de collecte de données
 Le suivi de l’utilisation peut être effectué à un niveau relativement élevé, notant l’heure de début et de fin de chaque demande, ainsi que la nature de la demande (lecture, écriture, etc., en fonction de la ressource en question). Vous pouvez obtenir ces informations en effectuant :
 
 - Le suivi des activités des utilisateurs.
 - La capture des compteurs de performances mesurant le taux d’utilisation pour chaque ressource.
-- La surveillance de l’utilisation du processeur et des E/S des opérations effectuées par chaque utilisateur.
+- La surveillance de la consommation des ressources par chaque utilisateur.
 
 Pour des raisons de mesure, vous devez également être en mesure de mettre en corrélation les utilisateurs et les opérations qu’ils réalisent, et d’identifier les ressources utilisées par ces opérations. Les informations collectées doivent être suffisamment détaillées pour permettre une facturation précise.
 
@@ -324,7 +324,7 @@ Pour le suivi d’événements inattendus et d’autres problèmes, il est essen
 ### Sources de données, instrumentation et conditions de collecte de données
 La résolution des problèmes peut entraîner le suivi de toutes les méthodes (et de leurs paramètres) appelées dans le cadre d’une opération de création d’une arborescence illustrant le flux logique à travers le système quand un client effectue une demande spécifique. Les exceptions et les avertissements générés par le système en raison de ce flux doivent être capturés et enregistrés.
 
-Pour prendre en charge le débogage, le système peut fournir des hooks qui permettent à un opérateur de capturer les informations d’état à des moments cruciaux dans le système, ou de fournir des informations étape par étape à mesure que les opérations sélectionnées progressent. La capture des données à ce niveau de détail peut imposer une charge supplémentaire sur le système et doit rester un processus temporaire, principalement utilisé lors d’une série d’événements très rares et difficiles à répliquer, ou lorsqu’une nouvelle version d’un ou de plusieurs éléments d’un système requiert une analyse minutieuse pour s’assurer qu’ils fonctionnent comme prévu.
+Pour prendre en charge le débogage, le système peut fournir des hooks qui permettent à un opérateur de capturer les informations d’état à des moments cruciaux dans le système, ou de fournir des informations étape par étape à mesure que les opérations sélectionnées progressent. La capture des données à ce niveau de détail peut imposer une charge supplémentaire sur le système et doit rester un processus temporaire, principalement utilisé lors d’une série d’événements très rares et difficiles à répliquer, ou lorsqu’une nouvelle version d’un ou de plusieurs éléments d’un système nécessite une analyse minutieuse pour s’assurer qu’ils fonctionnent comme prévu.
 
 ## Pipeline de surveillance et de diagnostic
 La surveillance d’un système distribué à grande échelle pose un défi et chacun des scénarios décrits dans la section précédente ne doit pas nécessairement être considéré de manière isolée. Il existera vraisemblablement un chevauchement significatif des données de surveillance et de diagnostic requises pour chaque situation, bien que ces données puissent devoir être traitées et présentées de différentes manières. Pour ces raisons, vous devez adopter une approche holistique de la surveillance et du diagnostic.
@@ -335,7 +335,7 @@ Vous pouvez envisager l’ensemble du processus de surveillance et de diagnostic
 
 _Figure 1. Les étapes du pipeline de surveillance et de diagnostic_
 
-La figure 1 montre comment les données de surveillance et de diagnostic peuvent provenir de diverses sources de données. L’étape Instrumentation/Collecte concerne l’instrumentation ; déterminer les données à capturer, comment capturer et mettre en forme ces données afin de pouvoir les examiner facilement. La phase Analyse/Diagnostic prend les données brutes et les utilise pour générer des informations significatives qui peuvent être utilisées pour déterminer l’état du système. Ces informations peuvent être utilisées pour prendre des décisions concernant les actions possibles à prendre et les résultats peuvent être réinjectés dans la phase Instrumentation/Collecte. La phase Visualisation/Alerte présente une vue utilisable de l’état du système ; elle peut afficher des informations quasiment en temps réel grâce à une série de tableaux de bord et peut générer des rapports, des diagrammes et des graphiques pour fournir une vue historique des données pouvant permettre d’identifier les tendances à long terme. Si les informations montrent qu’un indicateur clé de performance est susceptible de dépasser les limites acceptables, cette étape peut également déclencher une alerte destinée à un opérateur. Dans certains cas, une alerte peut également servir à déclencher un processus automatisé qui tente de prendre des mesures correctives, telles que la mise à l’échelle automatique.
+La figure 1 montre comment les données de surveillance et de diagnostic peuvent provenir de diverses sources de données. L’étape Instrumentation/Collecte concerne l’instrumentation ; déterminer les données à capturer, comment capturer et mettre en forme ces données afin de pouvoir les examiner facilement. La phase Analyse/Diagnostic prend les données brutes et les utilise pour générer des informations significatives qui peuvent être utilisées pour déterminer l’état du système. Ces informations peuvent être utilisées pour prendre des décisions concernant les actions possibles à prendre et les résultats peuvent être réinjectés dans la phase Instrumentation/Collecte. La phase Visualisation/Alerte présente une vue utilisable de l’état du système ; elle peut afficher des informations quasiment en temps réel grâce à une série de tableaux de bord et peut générer des rapports, des diagrammes et des graphiques pour fournir une vue historique des données permettant d’identifier les tendances à long terme. Si les informations montrent qu’un indicateur clé de performance est susceptible de dépasser les limites acceptables, cette étape peut également déclencher une alerte destinée à un opérateur. Dans certains cas, une alerte peut également servir à déclencher un processus automatisé qui tente de prendre des mesures correctives, telles que la mise à l’échelle automatique.
 
 Notez que ces étapes constituent un processus de flux continu dans lequel les étapes s’effectuent en parallèle. Dans l’idéal, toutes les phases doivent être configurables de manière dynamique. À certains moments, surtout lorsqu’un système a été récemment déployé ou rencontre des problèmes, il peut être nécessaire de rassembler des données étendues plus fréquemment. À d’autres moments, il doit être possible de revenir à la capture d’un niveau de base d’informations essentielles pour vérifier que le système fonctionne correctement.
 
@@ -446,14 +446,15 @@ Notez qu’il s’agit d’une vue simplifiée. Le service n’est pas nécessai
 
 Pour les applications et services Azure, Azure Diagnostics (WAD) fournit une solution possible de capture des données. WAD rassemble des données à partir des sources suivantes pour chaque nœud de calcul, les agrège, puis les télécharge vers le stockage Azure :
 
-- Journaux Azure
 - Journaux IIS
 - Journaux d’échecs de demande IIS
 - Journaux d’événements Windows
 - Compteurs de performances
 - Vidages sur incident
 - Journaux d’infrastructure Azure Diagnostic  
-- Journaux d’erreurs personnalisés
+- Journaux d'erreurs personnalisés
+- .NET EventSource
+- ETW basé sur les manifestes
 
 Pour plus d’informations, consultez l’article [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) sur le site web Microsoft.
 
@@ -465,7 +466,7 @@ Pour optimiser l’utilisation de la bande passante, vous pouvez choisir de tran
 #### _Extraction et transmission des données d’instrumentation_
 Le sous-système de collecte des données d’instrumentation peut récupérer activement les données d’instrumentation à partir de divers journaux et d’autres sources pour chaque instance de l’application (le _modèle d’extraction_) ou il peut agir comme un récepteur passif qui attend que les données soient envoyées à partir des composants qui constituent chaque instance de l’application (le _modèle de transmission_).
 
-Une approche de l’implémentation du modèle d’extraction consiste à utiliser des agents de surveillance fonctionnant localement avec chaque instance de l’application. Un agent de surveillance est un processus distinct qui extrait régulièrement les données de télémétrie collectées au niveau du nœud local et écrit ces informations directement dans le stockage centralisé qui est partagé par toutes les instances de l’application. C’est le mécanisme implémenté par Microsoft Azure Diagnostic. Chaque instance d’un rôle web ou d’un rôle de travail Azure peut être configurée pour capturer le diagnostic et d’autres informations de suivi stockées localement. L’agent de surveillance qui s’exécute en même temps copie les données spécifiées dans le stockage Azure. La page [Configuration des diagnostics pour Azure Cloud Services et Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn186185.aspx) sur le site web de Microsoft fournit plus d’informations sur ce processus. Certains éléments, tels que les journaux IIS, les vidages sur incident et les journaux d’erreurs personnalisés, sont écrits dans le stockage d’objets blob, alors que les données à partir du journal des événements Windows, les événements ETW et les compteurs de performance sont enregistrés dans le stockage de table. La figure 3 illustre ce mécanisme :
+Une approche de l’implémentation du modèle d’extraction consiste à utiliser des agents de surveillance fonctionnant localement avec chaque instance de l’application. Un agent de surveillance est un processus distinct qui extrait régulièrement les données de télémétrie collectées au niveau du nœud local et écrit ces informations directement dans le stockage centralisé qui est partagé par toutes les instances de l’application. C’est le mécanisme implémenté par Microsoft Azure Diagnostic. Chaque instance d’un rôle web ou d’un rôle de travail Azure peut être configurée pour capturer le diagnostic et d’autres informations de suivi stockées localement. L’agent de surveillance qui s’exécute en même temps copie les données spécifiées dans le stockage Azure. La page [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services-dotnet-diagnostics.md) sur le site web de Microsoft fournit plus d’informations sur ce processus. Certains éléments, tels que les journaux IIS, les vidages sur incident et les journaux d’erreurs personnalisés, sont écrits dans le stockage d’objets blob, alors que les données à partir du journal des événements Windows, les événements ETW et les compteurs de performance sont enregistrés dans le stockage de table. La figure 3 illustre ce mécanisme :
 
 ![](media/best-practices-monitoring/PullModel.png)
 
@@ -473,9 +474,8 @@ _Figure 3. Utilisation d’un agent de surveillance pour extraire des informati
 
 > [AZURE.NOTE]L’utilisation d’un agent de surveillance est parfaitement adaptée à la capture des données d’instrumentation naturellement extraites d’une source de données, telles que des informations à partir des vues de gestion SQL Server ou la longueur d’une file d’attente de Service Bus Azure.
 
-Pour plus d’informations sur la configuration et l’utilisation des diagnostics Azure, visitez la page [Recueillir des données de journaux à l’aide des diagnostics Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) du site web Microsoft.
 
-Les données de télémétrie pour une application à petite échelle qui s’exécute sur un nombre limité de nœuds peuvent facilement être stockées dans un emplacement unique à l’aide de l’approche que nous venons de décrire. Toutefois, une application dans le cloud, globale, hautement évolutive et complexe peut générer facilement d’énormes volumes de données provenant de centaines de rôles web et de rôles de travail, de partitions de base de données et d’autres services. Ce flux de données peut très facilement surcharger la bande passante d’E/S disponible avec un emplacement central unique. Par conséquent, votre solution de télémétrie doit être évolutive pour l’empêcher de se comporter comme un goulot d’étranglement à mesure que le système se développe et incorporer, dans l’idéal, un degré de redondance pour réduire les risques de perte des informations de surveillance importantes (telles que les données d’audit ou de facturation) en cas de panne d’une partie du système.
+Les données de télémétrie pour une application à petite échelle qui s’exécute sur un nombre limité de nœuds peuvent facilement être stockées dans un emplacement unique à l’aide de l’approche que nous venons de décrire. Toutefois, une application dans le cloud, globale, hautement évolutive et complexe peut générer facilement d’énormes volumes de données provenant de centaines de rôles web et de rôles de travail, de partitions de base de données et d’autres services. Ce flux de données peut très facilement surcharger la bande passante d’E/S disponible avec un emplacement central unique. Par conséquent, votre solution de télémétrie doit être évolutive pour l’empêcher de se comporter comme un goulot d’étranglement à mesure que le système se développe et, dans l’idéal, incorporer un degré de redondance pour réduire les risques de perte des informations de surveillance importantes (telles que les données d’audit ou de facturation) en cas de panne d’une partie du système.
 
 Pour résoudre ces problèmes, vous pouvez implémenter un mécanisme de mise en file d’attente. La figure 4 illustre cette structure. Dans cette architecture, l’agent de surveillance local (s’il peut être configuré de manière appropriée) ou le service de collecte de données personnalisé (dans le cas contraire) envoie les données vers une file d’attente et un processus distinct fonctionnant de façon asynchrone (le Service d’écriture dans le stockage à la figure 4) prend les données dans cette file d’attente et les écrit dans le stockage partagé. Une file d’attente de message est adaptée à ce scénario, car elle fournit au moins une fois la sémantique assurant qu’une fois publiées, les données mises en file d’attente ne seront pas perdues. Le Service d’écriture dans le stockage peut être implémenté en utilisant un rôle de travail distinct.
 
@@ -533,7 +533,7 @@ L’analyse et le reformatage des données à des fins de visualisation, de repo
 
 D’autres formes d’analyse sont moins prioritaires et peuvent nécessiter des opérations de calcul et d’agrégation une fois les données brutes reçues. C’est ce qu’on appelle _l’analyse modérée_. L’analyse des performances fait souvent partie de cette catégorie. Dans ce cas, il est peu probable qu’un événement de performances unique et isolé soit statistiquement significatif (il peut être provoqué par un pic ou un problème soudain), alors que les données à partir d’une série d’événements devraient fournir une image plus fiable des performances du système. L’analyse modérée permet également de diagnostiquer les problèmes d’intégrité. Un événement d’intégrité est généralement traité en réalisant une analyse à chaud et peut déclencher une alerte immédiatement. Un opérateur doit être en mesure d’explorer les raisons de l’événement d’intégrité en examinant les données du chemin d’accès encore chaud. Ces données doivent contenir des informations sur les événements entraînant le problème qui a provoqué l’événement d’intégrité.
 
-Certains types de surveillance génèrent des données à long terme et l’analyse peut être effectuée à une date ultérieure, éventuellement selon une planification prédéfinie. Dans certains cas, l’analyse peut devoir effectuer un filtrage complexe d’importants volumes de données capturées sur une période donnée. C’est ce qu’on appelle _l’analyse à froid_. La condition principale est de stocker en toute sécurité les données une fois qu’elles ont été capturées. Par exemple la surveillance et l’audit de l’utilisation nécessitent une image précise de l’état du système à des points réguliers dans le temps, mais ces informations d’état n’ont pas besoin d’être disponibles immédiatement après leur collecte pour être soumises au traitement. L’analyse à froid peut être également utilisée pour fournir des données pour l’analyse prédictive d’intégrité. Les informations historiques collectées sur une période de temps spécifiée peuvent être utilisées conjointement avec les données d’intégrité actuelles (récupérées à partir du chemin d’accès chaud) pour identifier les tendances qui peuvent provoquer rapidement des problèmes d’intégrité. Dans ces cas, il peut être nécessaire de déclencher une alerte pour permettre de prendre des mesures correctives.
+Certains types de surveillance génèrent des données à long terme et l’analyse peut être effectuée à une date ultérieure, éventuellement selon une planification prédéfinie. Dans certains cas, l’analyse peut devoir effectuer un filtrage complexe d’importants volumes de données capturées sur une période donnée. C’est ce qu’on appelle _l’analyse à froid_. La condition principale est de stocker en toute sécurité les données une fois qu’elles ont été capturées. Par exemple, la surveillance et l’audit de l’utilisation nécessitent une image précise de l’état du système à des moments réguliers dans le temps, mais ces informations d’état n’ont pas besoin d’être disponibles immédiatement après leur collecte pour être soumises au traitement. L’analyse à froid peut être également utilisée pour fournir des données pour l’analyse prédictive d’intégrité. Les informations historiques collectées sur une période de temps spécifiée peuvent être utilisées conjointement avec les données d’intégrité actuelles (récupérées à partir du chemin d’accès chaud) pour identifier les tendances qui peuvent provoquer rapidement des problèmes d’intégrité. Dans ces cas, il peut être nécessaire de déclencher une alerte pour permettre de prendre des mesures correctives.
 
 ### Corrélation des données
 Les données capturées par l’instrumentation peuvent fournir un instantané de l’état du système, mais l’objectif de l’analyse est de rendre ces données exploitables. Par exemple, quelle est la cause d’un chargement E/S intense au niveau du système à un moment spécifique ? Est-il le résultat d’un grand nombre d’opérations de base de données ? A-t-il une influence sur les temps de réponse de la base de données, le nombre de transactions par seconde et les temps de réponse de l’application au même point de jonction ? Dans ce cas, une mesure corrective pouvant réduire la charge peut consister à partitionner les données sur plusieurs serveurs. En outre, des exceptions peuvent se produire suite à une erreur à n’importe quel niveau du système et souvent une exception à un niveau déclenche une autre erreur au niveau supérieur. Pour ces raisons, vous devez être en mesure d’établir une corrélation entre les différents types de données de surveillance à chaque niveau afin de produire une vue d’ensemble de l’état du système et des applications qui s’exécutent sur ce système. Vous pouvez ensuite utiliser ces informations pour décider si le système fonctionne de manière satisfaisante ou non, et déterminer ce qui peut être fait pour améliorer la qualité du système.
@@ -604,12 +604,11 @@ Dans de nombreux cas, les rapports peuvent être générés par les processus de
 ## Plus d’informations
 - L’article [Monitor, Diagnose, and Troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md) sur le site web Microsoft.
 - L’article [Microsoft Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) sur le site web Microsoft.
-- La page [Recueillir des données de journaux à l’aide des diagnostics Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) sur le site web Microsoft.
-- La page [Configuration des diagnostics pour Azure Cloud Services et Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn186185.aspx) sur le site web Microsoft.
+- La page [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services-dotnet-diagnostics.md) sur le site web Microsoft.
 - Les pages [Cache Redis Microsoft Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) et [HDInsight](http://azure.microsoft.com/services/hdinsight/) sur le site web Microsoft.
-- La page [Utilisation des files d’attente](http://azure.microsoft.com/) sur le site web Microsoft.
+- La page [Utilisation des files d’attente](service-bus-dotnet-how-to-use-queues.md) sur le site web Microsoft.
 - L’article [Business Intelligence de SQL Server dans les machines virtuelles Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) sur le site web Microsoft.
-- La page [Présentation de la surveillance des alertes et des notifications dans Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) sur le site web Microsoft.
-- La page [Application Insights](app-insights-get-started/) sur le site web Microsoft.
+- Les pages [Réception de notifications d’alerte](insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](insights-service-health.md) sur le site web de Microsoft.
+- La page [Application Insights](app-insights-get-started.md) sur le site web Microsoft.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015--->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecter plusieurs sites locaux à un réseau virtuel"
-   description="Cet article vous guidera pour la connexion de plusieurs sites locaux à un réseau virtuel."
+   pageTitle="Connecter plusieurs sites locaux à un réseau virtuel à l’aide d’une passerelle VPN"
+   description="Cet article vous guidera pour la connexion de plusieurs sites locaux à un réseau virtuel à l’aide d’une passerelle VPN pour le modèle de déploiement classique."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,18 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="12/17/2015"
    ms.author="cherylmc" />
 
 # Connecter plusieurs sites locaux à un réseau virtuel
 
->[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, voir [Modèles de déploiement Azure](../azure-classic-rm.md).
+Cet article s’applique à la connexion de sites locaux à un réseau virtuel créé à l’aide du modèle de déploiement classique (également appelé Gestion des services).
 
-Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique (gestion des services).
+**À propos des modèles de déploiement Azure**
 
-Vous pouvez connecter plusieurs sites locaux à un même réseau virtuel. Cela est particulièrement intéressant pour la création de solutions de cloud hybrides. La création d’une connexion sur plusieurs sites à votre passerelle de réseau virtuel Azure est très similaire à la création d’autres connexions de site à site. En fait, vous pouvez utiliser une passerelle VPN Azure existante, dans la mesure où vous disposez d’une passerelle VPN basée sur un itinéraire (ou routage dynamique) configurée pour votre réseau virtuel.
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]Lorsque nous disposerons d’un article de création de réseaux virtuels à l’aide du modèle Gestionnaire de ressources, il sera accessible à partir de cette page.
 
-Si votre passerelle est basée sur une stratégie (ou le routage statique), vous pouvez toujours modifier le type de passerelle sans avoir à régénérer le réseau virtuel pour prendre en charge plusieurs sites. Toutefois, vous devrez vérifier que votre passerelle VPN locale prend en charge les configurations VPN basées sur un itinéraire. Vous pouvez alors ajouter les paramètres de configuration au fichier de configuration du réseau et créer plusieurs connexions VPN à partir de votre réseau virtuel pour les sites supplémentaires.
+## À propos de la connexion
+
+Vous pouvez connecter plusieurs sites locaux à un même réseau virtuel. Cela est particulièrement intéressant pour la création de solutions de cloud hybrides. La création d’une connexion sur plusieurs sites à votre passerelle de réseau virtuel Azure est très similaire à la création d’autres connexions de site à site. En fait, vous pouvez utiliser une passerelle VPN Azure existante tant que la passerelle est dynamique (basée sur un itinéraire).
+
+Si vous disposez déjà d’une passerelle statique connectée à votre réseau virtuel, vous pouvez modifier le type de passerelle sur dynamique sans avoir à régénérer le réseau virtuel pour prendre en charge plusieurs sites. Dans ce cas, assurez-vous que votre passerelle VPN locale prend en charge les configurations VPN basées sur un itinéraire.
 
 ![VPN multisite](./media/vpn-gateway-multi-site/IC727363.png)
 
@@ -43,7 +47,7 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 - Une adresse IP IPv4 publique exposée en externe pour chaque périphérique VPN. L’adresse IP ne peut pas se trouver derrière un NAT. Cela est obligatoire.
 
--   La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la page [Téléchargements](http://azure.microsoft.com/downloads/).
+- La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la page [Téléchargements](http://azure.microsoft.com/downloads/).
 
 - Un expert en configuration du matériel VPN. Vous ne pouvez pas utiliser les scripts VPN générés automatiquement à partir du portail Azure Classic pour configurer vos périphériques VPN. Cela signifie que vous devez avoir une bonne maîtrise de la façon de configurer votre périphérique VPN ou collaborer avec quelqu’un disposant des connaissances nécessaires.
 
@@ -53,17 +57,15 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 ## Créer votre réseau virtuel et votre passerelle
 
-1. **Créez un VPN de site à site avec une passerelle de routage dynamique.** Si vous en avez déjà un, très bien ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Sinon, procédez ainsi :
+1. **Créez un VPN de site à site avec une passerelle de routage dynamique (basée sur un itinéraire).** Si vous en avez déjà un, très bien ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Sinon, procédez ainsi :
 
-	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :** **1.** Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, voir [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configuration d’une passerelle VPN dans le portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md).
-	
-	**Si vous n’avez pas de réseau virtuel de site à site :** **1.** Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md). **2.** Configurez une passerelle de routage dynamique en suivant la procédure décrite dans [Configuration d’une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
+	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :** Étape 1 : Sélectionner le routage dynamique pour votre passerelle. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, voir [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). Étape 2 : Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configuration d’une passerelle VPN dans le portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md). Sélectionnez tout d’abord le routage dynamique pour votre passerelle.
 
+	**Si vous ne disposez pas d’un réseau virtuel site à site :** Étape 1 : Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md). Étape 2 : Configurez une passerelle de routage dynamique en suivant la procédure décrite dans [Configuration d’une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
+2. **<a name="export"></a>Exporter les paramètres de configuration de réseau virtuel.** Pour exporter le fichier de configuration de votre réseau, consultez [Pour exporter vos paramètres réseau](../virtual-network/virtual-networks-using-network-configuration-file.md). Le fichier que vous exportez permet de configurer vos nouveaux paramètres multisites.
 
-1. **<a name="export"></a>Exporter les paramètres de configuration de réseau virtuel.** Pour exporter le fichier de configuration de votre réseau, consultez [Pour exporter vos paramètres réseau](../virtual-network/virtual-networks-using-network-configuration-file.md). Le fichier que vous exportez permet de configurer vos nouveaux paramètres multisites.
-
-1. **Ouvrir le fichier de configuration réseau.** Ouvrez le fichier de configuration réseau que vous avez téléchargé à l’étape précédente. Utilisez l’éditeur xml de votre choix. Le fichier doit se présenter ainsi :
+3. **Ouvrir le fichier de configuration réseau.** Ouvrez le fichier de configuration réseau que vous avez téléchargé à l’étape précédente. Utilisez l’éditeur xml de votre choix. Le fichier doit se présenter ainsi :
 
 		<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
 		  <VirtualNetworkConfiguration>
@@ -112,7 +114,7 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-1. Ajoutez plusieurs références de sites dans le fichier de configuration réseau. Lorsque vous ajoutez ou supprimez les informations de référence de site, des modifications de configuration sont apportées à ConnectionsToLocalNetwork/LocalNetworkSiteRef. À l’ajout d’une nouvelle référence de site local, Azure crée un nouveau tunnel. Dans l’exemple ci-dessous, la configuration du réseau correspond à une connexion de site unique.
+4. **Ajoutez plusieurs références de sites dans le fichier de configuration réseau**. Lorsque vous ajoutez ou supprimez les informations de référence de site, des modifications de configuration sont apportées à ConnectionsToLocalNetwork/LocalNetworkSiteRef. À l’ajout d’une nouvelle référence de site local, Azure crée un nouveau tunnel. Dans l’exemple ci-dessous, la configuration du réseau correspond à une connexion de site unique.
 
 		<Gateway>
           <ConnectionsToLocalNetwork>
@@ -129,17 +131,15 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-1. **Enregistrez le fichier de configuration réseau et importez-le.** Pour importer le fichier de configuration réseau, voir [Pour importer vos paramètres réseau](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment.
+5. **Enregistrez le fichier de configuration réseau et importez-le.** Pour importer le fichier de configuration réseau, voir [Pour importer vos paramètres réseau](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment.
 
-
-
-1. **Téléchargez les clés prépartagées pour les tunnels VPN.** Une fois les nouveaux tunnels ajoutés, utilisez l’applet de commande PowerShell Get-AzureVNetGatewayKey pour obtenir les clés prépartagées IPsec/IKE pour chaque tunnel.
+6. **Téléchargez les clés prépartagées pour les tunnels VPN.** Une fois les nouveaux tunnels ajoutés, utilisez l’applet de commande PowerShell Get-AzureVNetGatewayKey pour obtenir les clés prépartagées IPsec/IKE pour chaque tunnel.
 
 	Par exemple :
 
-		PS C:\> Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
+		Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
 
-		PS C:\> Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
+		Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 
 	Si vous préférez, vous pouvez également utiliser l’API REST *Obtenir la clé partagée de la passerelle de réseau virtuel* pour obtenir les clés prépartagées.
 
@@ -147,7 +147,7 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 **Vérifiez l’état de tunnel multisite.** Après avoir téléchargé les clés de chaque tunnel, vérifiez les connexions. Utilisez *Get-AzureVnetConnection* pour obtenir une liste des tunnels de réseau virtuel, comme indiqué dans l’exemple ci-dessous. VNet1 est le nom du réseau virtuel.
 
-		PS C:\Users\yushwang\Azure> Get-AzureVnetConnection -VNetName VNET1
+		Get-AzureVnetConnection -VNetName VNET1
 		
 		ConnectivityState         : Connected
 		EgressBytesTransferred    : 661530
@@ -175,6 +175,6 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les passerelles VPN, voir [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ? |Microsoft Azure "
-	description="Décrit ce qui arrive à votre projet WebApi MVC quand vous vous connectez à Azure AD à l’aide de services Visual Studio="active-directory"
-    services="active-directory"
+	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure"
+	description="Décrit ce qui se passe dans votre projet WebApi que vous connectez à Azure AD en utilisant Visual Studio"
+  services="active-directory"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ?
@@ -116,4 +116,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l’a
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

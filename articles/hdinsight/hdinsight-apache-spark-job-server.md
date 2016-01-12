@@ -14,17 +14,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Spark Job Server sur clusters Azure HDInsight
+# Spark Job Server sur des clusters Azure HDInsight (Windows)
+
+> [AZURE.NOTE]HDInsight fournit désormais des clusters Spark sur Linux, qui utilise Livy à soumettre des tâches à distance à un cluster Spark. Pour plus d’informations sur l’utilisation de Livy avec des clusters HDInsight Spark sur Linux, consultez [Soumettre des tâches Spark à distance en utilisant Livy avec des clusters Spark sur HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
 Le cluster Apache Spark sur Azure HDInsight package le serveur Spark Job Server dans le cadre du déploiement du cluster. Spark Job Server fournit des API REST pour créer un contexte Spark, soumettre l’application Spark au contexte, vérifiez l’état du travail, supprimer le contexte, etc. Cet article fournit quelques exemples sur l’utilisation de Curl pour effectuer certaines tâches courantes sur un cluster Spark à l’aide d’un serveur de travaux.
 
->[AZURE.NOTE]Pour obtenir la documentation complète de Spark Job Server, reportez-vous à [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
+>[AZURE.NOTE]Pour obtenir la documentation complète de Spark Job Server, consultez [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
 
-## <a name="uploadjar"></a>Charger un fichier jar vers un cluster Spark
+## <a name="uploadjar"></a>Charger un fichier jar sur un cluster Spark
 
 	curl.exe -k -u "<hdinsight user>:<user password>" --data-binary @<location of jar on the computer> https://<cluster name>.azurehdinsight.net/sparkjobserver/jars/<application name>
 
@@ -33,7 +35,7 @@ Exemple :
 	curl.exe -k -u "myuser:myPass@word1" --data-binary @C:\mylocation\eventhubs-examples\target\spark-streaming-eventhubs-example-0.1.0-jar-with-dependencies.jar https://mysparkcluster.azurehdinsight.net/sparkjobserver/jars/streamingjar
 
 
-##<a name="createcontext"></a>Créer un contexte persistant sur le serveur de travaux
+##<a name="createcontext"></a>Créer un contexte persistant dans le serveur de tâches
 
 	curl.exe -k -u "<hdinsight user>:<user password>" -d "" "https://<cluster name>.azurehdinsight.net/sparkjobserver/contexts/<context name>?num-cpu-cores=<value>&memory-per-node=<value>"
 
@@ -53,7 +55,7 @@ Exemple :
 où mypostdata.txt définit votre application.
 
 
-##<a name="submitapp"></a>Supprimer un travail
+##<a name="submitapp"></a>Supprimer une tâche
 
 	curl.exe -X DELETE -k -u "<hdinsight user>:<user password>" "https://<cluster name>.azurehdinsight.net/sparkjobserver/contexts/<context>"
 
@@ -64,10 +66,10 @@ Exemple :
 
 ##<a name="seealso"></a>Voir aussi
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Approvisionner un cluster Spark sur HDInsight](hdinsight-apache-spark-provision-clusters.md)
-* [Effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
-* [Utiliser Spark sur HDInsight pour créer des applications d’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
+* [Créer un cluster Spark sur HDInsight](hdinsight-apache-spark-provision-clusters.md)
+* [Effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Utiliser Spark sur HDInsight pour créer des applications d’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Utiliser Spark sur HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
@@ -82,4 +84,4 @@ Exemple :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

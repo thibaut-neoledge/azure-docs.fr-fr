@@ -1,6 +1,6 @@
 <properties
  pageTitle="Présentation d’Azure IoT Hub | Microsoft Azure"
- description="Une vue d’ensemble du service Azure IoT Hub, et notamment de la connectivité de l’appareil, des schémas de communication et du schéma de communication de service assistée."
+ description="Vue d’ensemble du service Azure IoT Hub, et notamment de la connectivité de l’appareil, des schémas de communication et du schéma de communication de service assistée"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -40,51 +40,51 @@ IoT Hub et les bibliothèques d'appareils vous aident à relever les défis en m
 - peuvent nécessiter l’utilisation des protocoles d’application personnalisés, propriétaires ou spécifiques à un secteur.
 - peuvent être créés à l’aide d’un large éventail de plateformes matérielles et logicielles populaires.
 
-Outre les exigences ci-dessus, n’importe quelle solution IoT doit également offrir des possibilités d’évolution, la sécurité et la fiabilité. Il en résulte un ensemble d’exigences de connectivité complexe, long à mettre en place avec des technologies traditionnelles telles que des conteneurs web et des courtiers de messagerie.
+Outre les exigences ci-dessus, n’importe quelle solution IoT doit également offrir des possibilités d’évolution, la sécurité et la fiabilité. Il en résulte un ensemble d’exigences de connectivité complexe, long à mettre en place lorsque vous utilisez des technologies traditionnelles telles que des conteneurs web et des courtiers de messagerie.
 
 ## Pourquoi utiliser Azure IoT Hub ?
 
 Azure IoT Hub répond aux défis liés à la connectivité de l’appareil comme suit :
 
--   **Authentification par appareil et connectivité sécurisée**. Vous pouvez configurer chaque périphérique avec sa propre clé de sécurité pour lui permettre de se connecter à l'IoT Hub. Le [Registre d’identité IoT Hub][lnk-devguide-identityregistry] stocke les clés et les identités des appareils dans une solution. Un serveur principal de la solution peut intégrer des appareils individuels à une liste blanche ou noire, permettant ainsi un contrôle de l'accès à l'appareil.
+-   **Authentification par appareil et connectivité sécurisée**. Vous pouvez configurer chaque périphérique avec sa propre clé de sécurité pour lui permettre de se connecter à l'IoT Hub. Le [Registre d’identité IoT Hub][lnk-devguide-identityregistry] stocke les clés et les identités des appareils dans une solution. Un serveur principal de la solution peut intégrer des appareils individuels à une liste blanche ou noire, permettant ainsi un contrôle de l’accès à l’appareil.
 
--   **Un ensemble complet de bibliothèques d’appareils**. Les kits de développement logiciel (SDK) d’appareil Azure IoT sont disponibles et pris en charge pour différents langages et plateformes : C pour les distributions Linux, Windows et RTO. Les kits de développement logiciel (SDK) d’appareil Azure IoT prennent également en charge les langages gérés tels que C#, Java et JavaScript.
+-   **Un ensemble complet de bibliothèques d’appareils**. Les Kits de développement logiciel (SDK) d’appareil Azure IoT sont disponibles et pris en charge pour différents langages et plateformes : C pour les distributions Linux, Windows et les systèmes d’exploitation en temps réel. Les Kits de développement logiciel (SDK) d’appareil Azure IoT prennent également en charge les langages gérés tels que C#, Java et JavaScript.
 
--   **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques du périphérique, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles HTTP 1.1 et AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge de MQTT v3.1.1 avec le composant open source [Azure IoT Protocol Gateway][protocol-gateway]. Vous pouvez exécuter la passerelle de protocole Azure IoT (Azure IoT Protocol Gateway) localement ou dans le cloud et l’étendre pour prendre en charge des protocoles personnalisés.
+-   **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques du périphérique, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles HTTP 1.1 et AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge de MQTT v3.1.1 avec le composant open source [Azure IoT Protocol Gateway][protocol-gateway]. Vous pouvez exécuter la passerelle de protocole Azure IoT (Azure IoT Protocol Gateway) localement ou dans le cloud. Vous pouvez également l’étendre pour prendre en charge des protocoles personnalisés.
 
 -   **Mise à l’échelle** Azure IoT Hub peut supporter des millions d’appareils connectés simultanément et des millions d’événements par seconde.
 
 Ces avantages sont exploitables par de nombreux modèles de communication. IoT Hub vous permet actuellement de mettre en œuvre les modèles de communication spécifiques suivants :
 
--   **Ingestion appareil vers cloud basée sur un événement.** IoT Hub peut recevoir en toute fiabilité des millions d'événements par seconde de vos appareils et les traiter sur votre chemin réactif à l'aide d'un moteur de traitement d'événements ou les stocker sur votre chemin à froid pour analyse. IoT Hub conserve les données d’événement jusqu’à 7 jours afin de garantir un traitement fiable et d’absorber les pics de charge.
+-   **Ingestion appareil vers cloud basée sur un événement.** IoT Hub permet de recevoir de manière fiable des millions d’événements par seconde à partir de vos appareils. Il peut ensuite les traiter sur votre chemin réactif à l’aide d’un moteur de processeur d’événements. Il peut également les stocker sur votre chemin à froid pour l’analyse. IoT Hub conserve les données d’événement jusqu’à 7 jours afin de garantir un traitement fiable et d’absorber les pics de charge.
 
--   **Messagerie Cloud à appareil fiable (ou *commandes*).** Le serveur principal de la solution peut utiliser IoT Hub pour envoyer des messages avec la garantie d’au moins une livraison vers des appareils individuels. Chaque message bénéficie d’une durée de vie propre, et le serveur principal peut demander des accusés de réception et d’expiration afin de garantir une visibilité totale du cycle de vie d’un message de type « cloud vers appareil ». Cela vous permet de mettre en œuvre une logique métier qui inclut des opérations s'exécutant sur des appareils.
+-   **Messagerie Cloud à appareil fiable (ou *commandes*).** Le serveur principal de la solution peut utiliser IoT Hub pour envoyer des messages avec la garantie d’au moins une livraison vers des appareils individuels. Chaque message bénéficie d’une durée de vie propre, et le serveur principal peut demander des accusés de réception et d’expiration. Cela permet de garantir une visibilité totale du cycle de vie d’un message entre le cloud et un appareil. Vous pouvez ensuite mettre en œuvre une logique métier qui inclut des opérations s’exécutant sur des appareils.
 
-Vous pouvez également mettre en œuvre d’autres modèles populaires tels que le chargement ou le téléchargement de fichiers en tirant parti de fonctionnalités spécifiques dans IoT Hub, par exemple la gestion d’identité d’appareil cohérente, la surveillance de connectivité et la mise à l’échelle.
+Vous pouvez également implémenter d’autres modèles populaires tels que le chargement ou le téléchargement de fichiers en tirant parti de fonctionnalités spécifiques dans IoT Hub, par exemple la gestion d’identité d’appareil cohérente, la surveillance de la connectivité et la mise à l’échelle.
 
 L’article [Comparaison entre IoT Hub et Event Hubs][lnk-compare] décrit les différences principales entre ces deux services et présente les avantages liés à l’utilisation d’IoT Hub dans vos solutions IoT.
 
 ## Passerelles
 
-Une passerelle dans une solution IoT est généralement une [passerelle de protocole][lnk-gateway] déployée dans le cloud ou une [passerelle de champ][lnk-field-gateway] déployée localement avec vos appareils. Une passerelle de protocole effectue la traduction de protocole, par exemple MQTT à AMQP. Une passerelle de champ fournit des services de gestion locale pour vos appareils et peut être un appareil ou logiciel spécialisé exécuté sur un matériel existant. Les deux types de passerelle agissent comme intermédiaire entre vos appareils et votre IoT Hub.
+Une passerelle dans une solution IoT est généralement une [passerelle de protocole][lnk-gateway] déployée dans le cloud ou une [passerelle de champ][lnk-field-gateway] déployée localement avec vos appareils. Une passerelle de protocole effectue la traduction de protocole, par exemple MQTT à AMQP. Une passerelle de champ fournit des services de gestion locale de vos appareils. Il peut s’agir d’un appareil ou logiciel autonome spécialisé qui s’exécute sur du matériel existant. Les deux types de passerelle agissent comme intermédiaire entre vos appareils et votre IoT Hub.
 
-Une passerelle de champ est différente d’un appareil de routage de trafic simple (par exemple un pare-feu ou un appareil NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution.
+Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution.
 
 Une solution peut inclure des passerelles de protocole et de champ.
 
 ## Comment IoT Hub fonctionne-t-il ?
 
-Azure IoT Hub met en œuvre le modèle de [communications assistées par service][lnk-service-assisted-pattern] pour gérer les interactions entre vos appareils et votre serveur principal de service. L’objectif de la communication assistée par service consiste à établir des itinéraires de communication bidirectionnels fiables entre un système de contrôle tel qu’IoT Hub et les appareils à usage spécifique déployés dans des espaces physiques non approuvés. Le modèle établit les principes suivants :
+Azure IoT Hub met en œuvre le modèle de [communications assistées par service][lnk-service-assisted-pattern] pour gérer les interactions entre vos appareils et votre serveur principal de service. L’objectif de la communication de service assistée consiste à établir des itinéraires de communication bidirectionnels fiables entre un système de contrôle (comme IoT Hub) et les appareils à usage spécifique déployés dans des espaces physiques non approuvés. Le modèle établit les principes suivants :
 
 - La sécurité est prioritaire sur toutes les autres fonctionnalités.
 - Les appareils n’acceptent pas les informations réseau non sollicitées. Un appareil établit tous les itinéraires et connexions pour le trafic sortant uniquement. Pour qu’un appareil reçoive une commande de la part d’un serveur principal, il doit régulièrement établir une connexion pour vérifier toutes les commandes en attente de traitement.
 - Les appareils doivent uniquement connecter ou établir des itinéraires vers des services bien connus auxquels ils sont couplés, par exemple un IoT Hub.
-- L’itinéraire de communication entre l’appareil ou le service et la passerelle est sécurisé au niveau du protocole d’application.
-- L’autorisation et l’authentification au niveau du système doivent être basées sur des identités par appareil, et les informations d’identification et les autorisations doivent être révocables quasi instantanément.
-- La communication bidirectionnelle des appareils connectés de façon sporadique en raison de problèmes d’alimentation ou de connectivité peut être facilitée via la mise en attente de commandes et de notifications aux appareils jusqu’à ce que qu’un appareil soit connecté pour les recevoir. IoT Hub gère des files d’attente spécifiques aux commandes qu’il envoie.
+- L’itinéraire de communication entre l’appareil et le service ou entre l’appareil et la passerelle est sécurisé au niveau du protocole d’application.
+- L’authentification et l’autorisation au niveau du système sont basées sur les identités par appareil. Les autorisations et informations d’identification sont ainsi révocables presque instantanément.
+- La communication bidirectionnelle des appareils connectés de façon sporadique en raison de problèmes d’alimentation ou de connectivité peut être facilitée par la mise en attente de commandes et de notifications aux appareils jusqu’à ce que qu’un appareil soit connecté pour les recevoir. IoT Hub gère des files d’attente spécifiques aux commandes qu’il envoie.
 - Les données de charge utile d’application sont sécurisées séparément dans le cadre d’un transit protégé via des passerelles vers un service particulier.
 
-L’industrie mobile utilise le schéma de communication assistée par service à grande échelle afin de mettre en œuvre des services de notification Push tels que le [Service de notification Windows][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] et [Apple Push Notification Service][lnk-apple-push].
+L’industrie mobile utilise le schéma de communication assistée par service à grande échelle afin de mettre en œuvre des services de notification Push tels que le [Service de notification Push Windows][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] et [Apple Push Notification Service][lnk-apple-push].
 
 ## Étapes suivantes
 
@@ -109,4 +109,4 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

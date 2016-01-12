@@ -28,7 +28,7 @@ Vos objets blob peuvent exister dans un compte de stockage associé à un compte
 
 Obtenez et exécutez un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
-##Configuration requise
+##Composants requis
 
 - Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
 - Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
@@ -227,6 +227,7 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 		            Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).First();
 		
 		        // Create a 30-day readonly access policy. 
+            // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		        IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		            TimeSpan.FromDays(30),
 		            AccessPermissions.Read);
@@ -315,4 +316,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

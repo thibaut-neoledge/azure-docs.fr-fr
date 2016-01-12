@@ -14,19 +14,19 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="betorres"
 />
 
 
-# Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic #
+# Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic
 
 La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. Lorsque vous activez cette fonctionnalité, vos données de service de recherche sont copiées vers le compte de stockage de votre choix. Ces données incluent vos journaux du service de recherche et les mesures opérationnelles agrégées. Une fois vos données d’utilisation disponibles, vous pouvez les traiter et les manipuler à votre guise.
 
 
-## Activation de la fonctionnalité Rechercher l’analyse du trafic ##
+## Activation de la fonctionnalité Rechercher l’analyse du trafic
 
-### 1\. Utiliser le portail ###
+### 1\. Utiliser le portail
 Ouvrez votre service Azure Search dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
 
 ![][1]
@@ -40,7 +40,7 @@ Sélectionnez-la pour ouvrir un nouveau panneau. Définissez l’état sur **Act
 > 
 > Des frais standard s’appliquent à ce compte de stockage.
 
-### 2\. Utiliser PowerShell ###
+### 2\. Utiliser PowerShell
 
 Vous pouvez également activer cette fonctionnalité en exécutant les applets de commande PowerShell suivantes.
 
@@ -68,7 +68,7 @@ Une fois activé, les données commencent à circuler vers votre compte de stock
     insights-metrics-pt1m: aggregated metrics
 
 
-## Vue d’ensemble des données ##
+## Vue d’ensemble des données
 
 Les données sont stockées dans des objets blob Azure Storage au format JSON.
 
@@ -76,13 +76,13 @@ Il y a un seul objet blob par heure et par conteneur.
   
 Exemple de chemin d’accès : `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### Journaux ###
+### Journaux
 
 Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche.
 
 Chaque objet blob a un objet racine appelé **records** qui contient un tableau d’objets du journal
 
-####Schéma du journal####
+####Schéma du journal
 
 Nom |Type |Exemple |Remarques 
 ------|-----|----|-----
@@ -96,7 +96,7 @@ resultSignature |int |200 |Code de résultat HTTP
 durationMS |int |50 |Durée de l’opération en millisecondes 
 properties |objet |voir ci-dessous |Objet contenant des données propres à l’opération
 
-####Schéma de propriétés####
+####Schéma de propriétés
 
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
@@ -105,7 +105,7 @@ properties |objet |voir ci-dessous |Objet contenant des données propres à l’
 |Documents |int |42 |Nombre de documents traités|
 |IndexName |string |« testindex »|Nom de l’index associé à l’opération |
 
-### Mesures ###
+### Mesures
 
 Les objets blob de mesures contiennent des valeurs agrégées pour votre service de recherche. Chaque fichier a un seul objet racine appelé **records** qui contient un tableau d’objets de mesure
 
@@ -113,7 +113,7 @@ Mesures disponibles :
 
 - Latence
 
-####Schéma de mesures####
+####Schéma de mesures
 
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
@@ -127,7 +127,7 @@ Mesures disponibles :
 |count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
 |timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601|
 
-## Analyse de vos données ##
+## Analyse de vos données
 
 Les données sont situées dans votre propre compte de stockage et nous vous encourageons à les explorer de la manière qui vous convient le mieux.
 
@@ -135,7 +135,7 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI Desktop](h
 
 Consultez l’exemple de requête suivant qui permet de créer vos propres rapports dans Power BI Desktop.
 
-### Instructions ###
+### Instructions
 
 1. Ouvrez un nouveau rapport Power BI Desktop.
 2. Sélectionnez Obtention des données -> Plus...
@@ -147,8 +147,8 @@ Consultez l’exemple de requête suivant qui permet de créer vos propres rappo
 	![][4]
 
 4. Entrez le nom et la clé de votre compte de stockage.
-5. Cliquez avec le bouton droit sur insight-logs-operationlogs et sélectionnez Charger.
-6. L’éditeur de requête s’ouvre. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé
+5. Sélectionnez « insight-journaux-operationlogs » et « insights-metrics-pt1m », puis cliquez sur Modifier
+6. L’éditeur de requête s’ouvre, vérifiez que « insight-logs-operationlogs » est sélectionnée sur la gauche. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé
 
 	![][5]
 
@@ -156,7 +156,7 @@ Consultez l’exemple de requête suivant qui permet de créer vos propres rappo
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",288),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
 	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
@@ -181,15 +181,37 @@ Consultez l’exemple de requête suivant qui permet de créer vos propres rappo
 	>     in
 	>     #"Changed Type2"
 
-8. Cliquez sur Terminé, puis sélectionnez Fermer & appliquer dans l’onglet Accueil.
+8. Cliquez sur Terminé.
 
-9. Vos données sont maintenant prêtes à être utilisées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
+9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
 
-## Étapes suivantes ##
+	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+	>     in
+    	#"Inserted Date"
+
+10. Cliquez sur Terminé, puis sélectionnez Fermer et appliquer dans l’onglet Accueil.
+
+11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
+
+## Étapes suivantes
 
 Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Pour plus d’informations, consultez la rubrique [Recherche de documents (API REST Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, consultez la rubrique [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/).
+En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, consultez la rubrique [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 
@@ -199,4 +221,4 @@ En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, 
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
