@@ -61,7 +61,8 @@ Commençons par créer un compte DocumentDB. Si vous avez déjà un compte, vous
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Voyons à présent comment créer une application web Python Flask de A à Z.
+<br/> 
+Voyons à présent comment créer une application web Python Flask de A à Z.
 
 ## Étape 2 : Création d’une application web Python Flask
 

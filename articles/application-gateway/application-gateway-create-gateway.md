@@ -60,7 +60,7 @@ Vous devez suivre un ordre d’étapes spécifique pour créer une passerelle Ap
 2. Créer le fichier XML de configuration ou l’objet de configuration
 3. Valider la configuration de la ressource Application Gateway nouvellement créée.
 
->[AZURE.NOTE]Si vous devez configurer une sonde personnalisée pour la passerelle d’application, accédez à l’article [Création d’une passerelle d’application avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-classic-ps.md). Consultez [sondes personnalisées et contrôle d’intégrité](application-gateway-probe-overview.md) pour plus d’informations.
+>[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour la passerelle d’application, accédez à l’article [Création d’une passerelle d’application avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-classic-ps.md). Consultez [sondes personnalisées et contrôle d’intégrité](application-gateway-probe-overview.md) pour plus d’informations.
 
 
 ### Créer une ressource de passerelle Application Gateway
@@ -160,7 +160,7 @@ Copiez le texte suivant dans le Bloc-notes.
 
 Modifiez les valeurs entre parenthèses pour les éléments de configuration. Enregistrez le fichier avec l’extension .xml.
 
->[AZURE.IMPORTANT]L’élément de protocole Http ou Https respecte la casse.
+>[AZURE.IMPORTANT] L’élément de protocole Http ou Https respecte la casse.
 
 L’exemple suivant montre comment utiliser un fichier de configuration pour configurer une passerelle Application Gateway pour équilibrer la charge du trafic Http sur le port public 80 et envoyer le trafic réseau au port 80 principal entre deux adresses IP.
 
@@ -331,7 +331,7 @@ Validez l’objet de configuration dans la ressource Application Gateway à l’
 Une fois la passerelle configurée, utilisez l’applet de commande `Start-AzureApplicationGateway` pour la démarrer. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-> [AZURE.NOTE]L’exécution de l’applet de commande `Start-AzureApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
+> [AZURE.NOTE] L’exécution de l’applet de commande `Start-AzureApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
 
 
 

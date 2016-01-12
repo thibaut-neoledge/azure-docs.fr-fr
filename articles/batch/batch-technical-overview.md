@@ -22,7 +22,7 @@ Azure Batch vous permet d'exécuter des applications de calculs complexes paral
 
 ## Cas d'utilisation
 
-Batch est un service géré pour le *traitement par lots* ou le *Batch Computing* et l’exécution d’un grand nombre de tâches similaires afin d’obtenir les résultats souhaités. Batch Computing est un modèle courant pour les organisations qui traitent, transforment et analysent de grandes quantités de données, de manière planifiée ou à la demande, dans des domaines tels que les services financiers et l’ingénierie.
+Batch est un service géré pour le *traitement par lots* ou le *Batch Computing* et l’exécution d’un grand nombre de tâches similaires afin d’obtenir les résultats souhaités. Batch Computing est un modèle courant pour les organisations qui traitent, transforment et analysent de grandes quantités de données, de manière planifiée ou à la demande, dans des domaines tels que les services financiers et l’ingénierie.
 
 Le service Batch fonctionne bien avec des applications ou charges de travail intrinsèquement parallèles, qui se prêtent à l’exécution de tâches en parallèle sur plusieurs ordinateurs. Voir la Figure 1.
 

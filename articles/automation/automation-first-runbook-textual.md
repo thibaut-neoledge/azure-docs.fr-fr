@@ -39,7 +39,8 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
-1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation. La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
+1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation.
+La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks.<br> ![Contrôle des Runbooks](media/automation-first-runbook-textual/runbooks-control.png)
 2. Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook**.
 3. Nommez le runbook *MyFirstRunbook-Workflow*.

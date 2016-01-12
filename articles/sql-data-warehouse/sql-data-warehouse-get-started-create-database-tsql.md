@@ -48,7 +48,7 @@ Vous pouvez également créer un entrepôt de données SQL en ouvrant la ligne d
 
 Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et SERVICE\_OBJECTIVE. Ils serviront à définir le volume de stockage et les ressources de calcul alloués à l’instance d’entrepôt de données. MAXSIZE acceptera les tailles suivantes et nous vous suggérons de choisir une grande taille pour laisser de la place en vue d’un éventuel développement : 250 Go, 500 Go, 750 Go, 1 024 Go, 5120 Go, 10240 Go, 20480 Go, 30720 Go, 40960 Go, 51200 Go.
 
-SERVICE\_OBJECTIVE indique le nombre de DWU avec lequel votre instance démarre et accepte les valeurs suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000. Pour plus d’informations sur l’impact de ces paramètres sur la facturation, consultez notre [page de tarification][].
+SERVICE_OBJECTIVE indique le nombre de DWU avec lequel votre instance démarre et accepte les valeurs suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000. Pour plus d’informations sur l’impact de ces paramètres sur la facturation, consultez notre [page de tarification][].
 
 ## Étapes suivantes
 Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][] les données.

@@ -34,7 +34,8 @@ Même si Azure avait initialement autorisé l’accès aux utilisateurs de compt
 
 Par exemple, un utilisateur titulaire d’un compte Microsoft se connecte au portail Azure Classic.
 
-> [AZURE.NOTE]Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
+> [AZURE.NOTE]
+> Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
 
 ![][1]
 
@@ -104,7 +105,8 @@ Si vous vous êtes abonné à Office 365 avec un compte professionnel ou scolai
 
 Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme suit.
 
-> [AZURE.NOTE]Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
+> [AZURE.NOTE]
+> Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
 
 1. Connectez-vous au portail Azure Classic à l’aide de votre compte Microsoft.
 2. Cliquez sur **Nouveau** > **Services d’application** > **Active Directory** > **Répertoire** > **Création personnalisée**.

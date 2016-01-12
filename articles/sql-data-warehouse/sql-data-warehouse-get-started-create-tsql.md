@@ -51,7 +51,7 @@ Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et S
 + 40960 Go
 + 51200 Go
 
-SERVICE\_OBJECTIVE indique le nombre de DWU avec laquelle votre instance démarre avec et acceptera les valeurs suivantes :
+SERVICE_OBJECTIVE indique le nombre de DWU avec laquelle votre instance démarre avec et acceptera les valeurs suivantes :
 
 + DW100
 + DW200
