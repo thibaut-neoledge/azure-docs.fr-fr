@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Concepts de base d’Azure Batch Service | Microsoft Azure"
-	description="Découvrez les concepts, les flux de travail et les scénarios du service Azure Batch pour les charges de travail HPC et parallèle à grande échelle"
+	description="Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -38,9 +38,9 @@ Voici quelques exemples :
 * Analyse de séquence génétique
 * Test de logiciels
 
-Batch permet également d’effectuer des calculs parallèles avec une étape de réduction à la fin et d’autres charges de travail parallèles plus compliquées.
+Batch peut également effectuer des calculs parallèles avec une opération de réduction à la fin, et des charges de travail HPC plus complexes telles que les applications MPI (Interface de transfert de message).
 
->[AZURE.NOTE] À ce stade, Batch prend uniquement en charge les charges de travail qui s’exécutent sur des machines virtuelles Windows Server. De plus, Batch ne prend pas actuellement en charge les applications MPI (Message Passing Interface).
+>[AZURE.NOTE]À ce stade, Batch prend uniquement en charge les charges de travail qui s’exécutent sur des machines virtuelles Windows Server.
 
 Pour une comparaison de Batch avec d’autres solutions HPC dans Azure, consultez la page [Solutions Batch et HPC](batch-hpc-solutions.md).
 
@@ -103,4 +103,4 @@ La figure 2 illustre un flux de travail qui utilise une application cliente .NE
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

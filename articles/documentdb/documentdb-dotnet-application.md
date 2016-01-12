@@ -38,7 +38,7 @@ Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
+- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 ou version ultérieure.
 - Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 ou version ultérieure, disponible via [Microsoft Web Platform Installer][].
 
@@ -52,7 +52,8 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>Voyons à présent comment créer une application ASP.NET MVC de A à Z.
+<br/>
+Voyons à présent comment créer une application ASP.NET MVC de A à Z.
 
 ## <a name="_Toc395637762"></a>Étape 2 : création d'une application ASP.NET MVC
 
@@ -83,7 +84,7 @@ Maintenant que vous avez un compte, nous allons créer notre nouveau projet ASP.
 
   	Je n’ai pas choisi de « Serveur de base de données », car nous n’allons pas utiliser de serveur de base de données SQL Azure. Nous allons créer un compte Azure DocumentDB ultérieurement, dans le portail Azure.
 
-	Pour plus d’informations sur le choix d’un **Plan de service d’application** et d’un **Groupe de ressources**, consultez la rubrique [Présentation détaillée des plans d’Azure App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Pour plus d’informations sur le choix d’un **Plan de service d’application** et d’un **Groupe de ressources**, consultez la rubrique [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Capture d'écran de la boîte de dialogue Configurer un site web Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -633,4 +634,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

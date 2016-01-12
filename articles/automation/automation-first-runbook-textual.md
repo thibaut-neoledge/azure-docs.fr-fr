@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Mon premier runbook PowerShell Workflow dans Azure Automation | Microsoft Azure"
-	description="Ce didacticiel présente les procédures de création, de test et de publication d’un runbook textuel simple à l’aide de PowerShell Workflow. Plusieurs concepts y sont abordés, notamment l’authentification auprès de ressources Azure et les paramètres d’entrée."
+	description="Ce didacticiel présente les procédures de création, de test et de publication d’un runbook textuel simple à l’aide de PowerShell Workflow."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automation-runbook-types.md#powerShell-workflow-runbooks) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, nous renforcerons le Runbook en ajoutant des paramètres de Runbook.
 
@@ -38,7 +39,8 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
-1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation. La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
+1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation.
+La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks.<br> ![Contrôle des Runbooks](media/automation-first-runbook-textual/runbooks-control.png)
 2. Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook**.
 3. Nommez le runbook *MyFirstRunbook-Workflow*.
@@ -91,7 +93,7 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 4.  Cliquez avec le bouton droit sur vos informations d’identification, puis cliquez sur **Ajouter au canevas**. Cette opération ajoute une activité **Get-AutomationPSCredential** pour vos informations d’identification.
 5.  Devant la chaîne **Get-AutomationPSCredential**, tapez *$Credential =* pour affecter les informations d’identification à une variable. 
 3.  Dans la ligne suivante, tapez *Add-AzureAccount -Credential $Credential*. <br> ![Authentifier](media/automation-first-runbook-textual/authentication.png) 
-3. Cliquez sur **Volet de test** afin de tester le runbook.
+3. Cliquez sur **Volet de test** afin de tester le Runbook.
 10. Cliquez sur **Démarrer** pour démarrer le test. Une fois le test terminé, vous devriez obtenir une sortie semblable à celle illustrée ci-dessous et renvoyant les informations de l’utilisateur dans les informations d’identification. Cette sortie confirme la validité des informations d’identification.<br>![Authentifier](media/automation-first-runbook-textual/authentication-test.png) 
 
 ## Étape 6 - Ajouter du code pour démarrer une machine virtuelle
@@ -108,12 +110,12 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 
 Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons codée en dur dans le Runbook, mais ce dernier serait plus utile si nous pouvions spécifier la machine virtuelle lorsque le Runbook est démarré. Nous allons à présent ajouter des paramètres d’entrée au Runbook pour fournir cette fonctionnalité.
 
-1. Ajoutez des paramètres au runbook pour *VMName* et *VMServiceName*, et utilisez ces variables avec l’applet de commande **Start-AzureVM** comme illustré dans l’image suivante. <br> ![Authentifier](media/automation-first-runbook-textual/params.png) 
+1. Ajoutez des paramètres au Runbook pour *VMName* et *VMServiceName* et utilisez ces variables avec l’applet de commande **Start-AzureVM** comme illustré dans l’image suivante. <br> ![Authentifier](media/automation-first-runbook-textual/params.png) 
 9. Enregistrez le Runbook et ouvrez le volet de test. Notez que vous pouvez désormais fournir des valeurs pour les deux variables d'entrée qui seront utilisées dans le test. 
 11.  Fermez le volet de test.
-12.  Cliquez sur **Publier** pour publier la nouvelle version du runbook.
+12.  Cliquez sur **Publier** pour publier la nouvelle version du Runbook.
 13.  Arrêtez la machine virtuelle que vous avez démarrée à l'étape précédente.
-13.  Cliquez sur **Démarrer** pour démarrer le runbook. Entrez les valeurs **VMName** et **VMServiceName** pour la machine virtuelle que vous allez démarrer.<br> ![Démarrage du runbook](media/automation-first-runbook-textual/start-runbook-input-params.png) 
+13.  Cliquez sur **Démarrer** pour démarrer le Runbook. Entrez les valeurs **VMName** et **VMServiceName** pour la machine virtuelle que vous allez démarrer.<br> ![Démarrage du runbook](media/automation-first-runbook-textual/start-runbook-input-params.png) 
 
 14.  Une fois le Runbook terminé, vérifiez que la machine virtuelle a démarré.
 
@@ -121,5 +123,6 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 ## Articles connexes
 
 - [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
+- [Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

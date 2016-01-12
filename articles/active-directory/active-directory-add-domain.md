@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Ajout de votre propre domaine à Azure Active Directory
@@ -49,7 +49,8 @@ Vous pouvez ajouter plusieurs domaines à votre annuaire. Toutefois, vous ne pou
 
 Pour utiliser l’authentification unique avec le service cloud, nous vous recommandons de commencer à préparer votre environnement Active Directory en exécutant l’outil de préparation au déploiement Microsoft. Cet outil inspecte votre environnement Active Directory et fournit un rapport indiquant si vous êtes prêt à configurer l’authentification unique. Sinon, il répertorie les modifications à apporter pour préparer l’authentification unique. Par exemple, il examine si vos utilisateurs possèdent un nom d’utilisateur principal (UPN) et si cet UPN est au bon format. Pour télécharger cet outil, consultez [Outil de préparation au déploiement Microsoft](http://go.microsoft.com/fwlink/?linkid=235650).
 
-> [AZURE.NOTE]Vous utilisez Office 365 ? Une fois que vous avez configuré votre domaine, vous pouvez commencer à créer des adresses de messagerie, des comptes Lync Online et des groupes de distribution qui utilisent le nom de votre domaine personnalisé. Vous pouvez également utiliser votre nom de domaine pour un site web public hébergé sur SharePoint Online.
+> [AZURE.NOTE]
+> Vous utilisez Office 365 ? Une fois que vous avez configuré votre domaine, vous pouvez commencer à créer des adresses de messagerie, des comptes Lync Online et des groupes de distribution qui utilisent le nom de votre domaine personnalisé. Vous pouvez également utiliser votre nom de domaine pour un site web public hébergé sur SharePoint Online.
 
 - [Ajouter et vérifier un domaine à l’aide du portail Azure Classic](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Modifier des enregistrements DNS pour vos services cloud](#edit-dns-records-for-your-cloud-services)
@@ -69,11 +70,13 @@ Pour utiliser l’authentification unique avec le service cloud, nous vous recom
         1. Sélectionnez la case **Je prévois de configurer ce domaine pour la connexion unique à mon répertoire Active Directory local**, puis cliquez sur le bouton **Ajouter**.
         2. Une fois votre domaine correctement ajouté à Azure AD, cliquez sur la flèche pour passer à la page suivante, puis suivez les instructions pour configurer le domaine que vous avez ajouté pour l’authentification unique.
 
-> [AZURE.NOTE]Une fois votre nom de domaine ajouté à Azure AD, vous pouvez modifier le nom de domaine par défaut pour les nouvelles adresses de messagerie. Pour plus d’informations, consultez [Comment puis-je modifier le nom de domaine principal pour les utilisateurs ?](#how-can-i-change-the-primary-domain-name-for-users?) Vous pouvez également modifier le profil d’un compte d’utilisateur existant pour mettre à jour l’adresse de messagerie (qui est également votre ID d’utilisateur) afin d’utiliser votre nom de domaine personnalisé à la place du domaine onmicrosoft.com.
+> [AZURE.NOTE]
+> Une fois votre nom de domaine ajouté à Azure AD, vous pouvez modifier le nom de domaine par défaut pour les nouvelles adresses de messagerie. Pour plus d’informations, consultez [Comment puis-je modifier le nom de domaine principal pour les utilisateurs ?](#how-can-i-change-the-primary-domain-name-for-users?) Vous pouvez également modifier le profil d’un compte d’utilisateur existant pour mettre à jour l’adresse de messagerie (qui est également votre ID d’utilisateur) afin d’utiliser votre nom de domaine personnalisé à la place du domaine onmicrosoft.com.
 
 ### Modifier des enregistrements DNS pour vos services cloud
 
-> [AZURE.NOTE]À l’aide de Microsoft Intune ? Vous n’avez pas besoin de modifier des enregistrements DNS pour le service cloud Microsoft Intune.
+> [AZURE.NOTE]
+> À l’aide de Microsoft Intune ? Vous n’avez pas besoin de modifier des enregistrements DNS pour le service cloud Microsoft Intune.
 
 Après avoir ajouté et vérifié votre nom de domaine personnalisé, l’étape suivante consiste à modifier les enregistrements DNS auprès de votre bureau d’enregistrement de domaines ou d’un fournisseur d’hébergement DNS qui dirigent le trafic vers votre service cloud. Azure AD fournit les informations DNS dont vous avez besoin.
 
@@ -212,4 +215,4 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

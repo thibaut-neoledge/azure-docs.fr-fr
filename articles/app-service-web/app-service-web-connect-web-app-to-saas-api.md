@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="09/15/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Connexion d’une application web à une application API dans Azure App Service
 
-Ce didacticiel montre comment utiliser une application API depuis une application web ASP.NET hébergée dans [App Service](../app-service.md).
+Ce didacticiel montre comment utiliser une application API depuis une application web ASP.NET hébergée dans [App Service](https://azure.microsoft.com/services/app-service/).
 
 ## Configuration requise
 
@@ -28,11 +28,6 @@ Ce didacticiel s'appuie sur la série de didacticiels sur les applications API 
 3. [Déployer une application API Azure](../app-service-dotnet-deploy-api-app)
 4. [Déboguer une application API Azure](../app-service-dotnet-remotely-debug-api-app)
 
-## Rendre l'application API accessible au public
-
-Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), sélectionnez l’application API. Cliquez sur le bouton **Paramètres** dans la barre de commandes. Dans le panneau **Paramètres de l’application**, définissez **Niveau d’accès** sur **Public (anonyme)**.
-
-![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Créer une application ASP.NET MVC dans Visual Studio
 
@@ -44,11 +39,11 @@ Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), sélecti
 
 	![Nouvelle application ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. Dans l’Explorateur de solutions, cliquez sur le projet d’application web que vous venez de créer, puis sélectionnez **Ajouter une référence d’application Azure**.
+1. Dans l’Explorateur de solutions, cliquez sur le projet d’application web que vous venez de créer, puis sélectionnez **Ajouter** > **Client REST API...**
 
 	![Ajouter une référence d’application API Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. Dans la liste déroulante **Applications API existantes**, sélectionnez l’application API à laquelle vous voulez vous connecter.
+1. Dans **Ajouter client REST API**; sélectionnez Télécharger à partir de l’application API Microsoft Azure et cliquez sur Parcourir. Sélectionnez l’application API à laquelle vous souhaitez vous connecter.
 
 	![Sélectionner une application API existante](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -57,33 +52,31 @@ Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), sélecti
 1. Pour utiliser le code d’API généré, ouvrez le fichier HomeController.cs, puis remplacez l’action `Contact` par les éléments suivants :
 
 	    public async Task<ActionResult> Contact()
-	    {
-	        ViewBag.Message = "Your contact page.";
-	
-	        var contacts = new ContactsList();
-	        var response = await contacts.Contacts.GetAsync();
-	        var contactList = response.Body;
-	
-	        return View(contactList);
-	    }
+        {
+            ViewBag.Message = "Your contact page.";
+
+            var contacts = new ContactsList12242015();
+            var contactList = await contacts.Contacts.GetAsync();
+            
+            return View(contactList);
+        }
 
 	![Mises à jour du code HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. Mettez à jour la vue `Contact` pour refléter la liste dynamique de contacts à l'aide du code suivant :
 	<pre>// Add to the very top of the view file
 	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following
+
+// Replace the default email addresses with the following
     &lt;h3&gt;Public Contacts&lt;/h3&gt;
     &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
+    @foreach (var contact in Model)
+    {
             &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
+    }
     &lt;/ul&gt; 
 	</pre>
-
-	![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Déployer l'application web vers Web Apps dans App Service
 
@@ -95,4 +88,4 @@ Suivez les instructions fournies dans [Comment déployer une application web Azu
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

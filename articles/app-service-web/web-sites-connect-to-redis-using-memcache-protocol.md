@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Connecter une application web dans Azure App Service à Cache Redis via le protocole Memcache
@@ -30,8 +30,8 @@ Le shim Web Apps Memcache peut être utilisé avec n’importe quelle applicatio
 
 Appliquez les procédures décrites dans les articles suivants :
 
-* [Configurer une instance du service Cache Redis Azure][1]
-* [Déployer un site WordPress évolutif dans Azure][0]
+* [Configurer une instance du service Cache Redis Azure][0]
+* [Déployer un site WordPress évolutif dans Azure][1]
 
 Dès lors que le site WordPress évolutif est déployé et qu’une instance de Cache Redis est configurée, vous pouvez procéder à l’activation du shim Memcache dans Azure App Service Web Apps.
 
@@ -41,17 +41,17 @@ Pour configurer le shim Memcache, vous devez créer trois paramètres d’applic
 
 ![Panneau Paramètres de Cache Redis Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Ajouter le paramètre d’application REDIS\_HOST
+### Ajouter le paramètre d’application REDIS_HOST
 
-**REDIS\\_HOST** est le premier paramètre d’application que vous devez créer. Il définit la destination vers laquelle le shim transfère les informations du cache. La valeur requise pour le paramètre d’application REDIS\_HOST peut être récupérée à partir du panneau **Propriétés** de votre instance de Cache Redis.
+**REDIS\_HOST** est le premier paramètre d’application que vous devez créer. Il définit la destination vers laquelle le shim transfère les informations du cache. La valeur requise pour le paramètre d’application REDIS\_HOST peut être récupérée à partir du panneau **Propriétés** de votre instance de Cache Redis.
 
 ![Nom d’hôte du Cache Redis Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Définissez la clé du paramètre d’application sur **REDIS\\_HOST** et la valeur du paramètre d’application selon le **nom d’hôte** de l’instance de Cache Redis.
+Définissez la clé du paramètre d’application sur **REDIS\_HOST** et la valeur du paramètre d’application selon le **nom d’hôte** de l’instance de Cache Redis.
 
-![Paramètre d’application Web App REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Paramètre d’application Web App REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Ajouter un paramètre d’application REDIS\_KEY
+### Ajouter un paramètre d’application REDIS_KEY
 
 **REDIS\\_KEY** est le deuxième paramètre d’application que vous devez créer. Il fournit le jeton d’authentification requis pour accéder à l’instance de Cache Redis de façon sécurisée. Vous pouvez récupérer la valeur requise pour le paramètre d’application REDIS\_KEY à partir du panneau **Touches d’accès rapides** de l’instance de Cache Redis.
 
@@ -75,7 +75,7 @@ Pour permettre à l’application de communiquer à l’aide du protocole Memcac
 
 ### Télécharger l’extension php\_memcache
 
-Accédez à [PECL][6]. Sous la catégorie caching, cliquez sur [memcache][7]. Sous la colonne des téléchargements, cliquez sur le lien DLL.
+Accédez à [PECL][6]. Sous la catégorie de mise en cache, puis cliquez sur [memcache][7]. Sous la colonne des téléchargements, cliquez sur le lien DLL.
 
 ![Site web PECL PHP](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -83,7 +83,7 @@ Téléchargez le lien Non-Thread Safe (NTS) x86 pour la version de PHP activée 
 
 ![Package Memcache de site web PECL PHP](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Activer l’extension php\_memcache
+### Activer l’extension php_memcache
 
 Après avoir téléchargé le fichier, décompressez-le et chargez le fichier **php\\_memcache.dll** dans le répertoire **d:\\\home\\\site\\\wwwroot\\\bin\\\ext\\**. Une fois le fichier php\_memcache.dll chargé dans l’application web, vous devez activer l’extension au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\_EXTENSIONS** et la valeur **bin\\\ext\\\php\_memcache.dll**.
 
@@ -96,7 +96,7 @@ Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
 ## Installer le plug-in Memcache WordPress
 
-> [AZURE.NOTE]Vous pouvez aussi télécharger le [plug-in Memcached Object Cache](https://wordpress.org/plugins/memcached/) à partir de WordPress.org.
+> [AZURE.NOTE]Vous pouvez également télécharger le [plug-in Memcached Object Cache](https://wordpress.org/plugins/memcached/) à partir de WordPress.org.
 
 Dans la page des plug-ins WordPress, cliquez sur **Add New**.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 Une fois ce code collé, monaco enregistre automatiquement le document.
 
-L’étape suivante consiste à activer le plug-in de cache d’objets. Pour cela, glissez-déplacez le fichier **object-cache.php** du dossier **wp-content/memcached** vers le dossier **wp-content** pour activer la fonctionnalité de cache d’objets Memcache.
+L’étape suivante consiste à activer le plug-in de cache d’objets. Pour cela, glissez-déplacez le fichier **object-cache.php** du dossier **wp-content/plugins/memcached** vers le dossier **wp-content** pour activer la fonctionnalité de cache d’objets Memcache.
 
 ![Localiser le plug-in memcache object-cache.php](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ Ouvrez la console de ligne de commande de votre choix et tapez la commande suiva
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-Remplacez **<hostname-for-redis-cache>** par le nom d’hôte xxxxx.redis.cache.windows.net réel et **<primary-key-for-redis-cache>** par la clé d’accès pour le cache, puis appuyez sur **Entrée**. Une fois que l’interface de ligne de commande est connectée à l’instance de Cache Redis, lancez une commande Redis quelconque. Ce sont les clés qui sont répertoriées dans la capture d’écran ci-dessous.
+Remplacez **&lt;hostname-for-redis-cache&gt;** par le nom d’hôte réel xxxxx.redis.cache.windows.net et **&lt;primary-key-for-redis-cache&gt;** par la clé d’accès du cache, puis appuyez sur **Entrée**. Une fois que l’interface de ligne de commande est connectée à l’instance de Cache Redis, lancez une commande Redis quelconque. Ce sont les clés qui sont répertoriées dans la capture d’écran ci-dessous.
 
 ![Se connecter au Cache Redis Azure à partir de l’interface de ligne de commande Redis dans le terminal](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -176,13 +176,13 @@ L’appel visant à répertorier les clés doit retourner une valeur. Si ce n’
 
 Félicitations ! L’application WordPress dispose maintenant d’un cache en mémoire centralisé, qui favorise l’augmentation du débit. Rappelez-vous que le shim Web Apps Memcache peut être utilisé avec n’importe quel client Memcache, quels que soient le langage de programmation et l’infrastructure d’application. Pour fournir des commentaires ou poser des questions sur le shim Web Apps Memcache, publiez un message sur les [forums MSDN][10] ou sur [Stackoverflow][11].
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

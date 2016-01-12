@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/05/2015"
    ms.author="larryfr"/>
 
 
@@ -51,6 +51,8 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	![Nom du cluster, type de cluster et type de système d’exploitation](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
 
 	Sélectionnez __Ubuntu__ pour créer un cluster HDInsight Linux.
+    
+    > [AZURE.NOTE]Laissez le champ __Version__ à sa valeur par défaut pour exécuter les opérations décrites dans ce document.
 	
 4. Si vous avez plusieurs abonnements, sélectionnez l’entrée __Abonnement__ pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
 
@@ -58,7 +60,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	> [AZURE.NOTE]Cette entrée ira par défaut dans l’un des groupes de ressources existants, si l’un d’eux est disponible.
 
-6. Sélectionnez __Informations d’identification__, puis saisissez une valeur dans le champ __Mot de passe de connexion au cluster__ et dans le champ __Nom d’utilisateur de connexion au cluster__. Vous devez également saisir un __nom d’utilisateur SSH__ et un __MOT DE PASSE__ ou une __CLÉ PUBLIQUE__, qui seront utilisés pour authentifier l’utilisateur SSH. Enfin, utilisez le bouton __Sélectionner__ pour définir les informations d’identification.
+6. Sélectionnez __Informations d’identification__, puis saisissez une valeur dans le champ __Mot de passe de connexion au cluster__ et dans le champ __Nom d’utilisateur de connexion au cluster__. Vous devez également saisir un __nom d’utilisateur SSH__ et un __MOT DE PASSE__ ou __CLÉ PUBLIQUE__, qui seront utilisés pour authentifier l’utilisateur SSH. Enfin, utilisez le bouton __Sélectionner__ pour définir les informations d’identification.
 
 	![Panneau Informations d’identification du cluster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
@@ -72,17 +74,23 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	![Panneau Source de données](./media/hdinsight-apache-storm-tutorial-get-started-linux/datasource.png)
 	
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau __Source de données__.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Utilisez ce qui suit pour comprendre les saisies du panneau __Source de données__.
 	
 	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __nom de stockage__ et la __clé d’accès__ d’un compte de stockage existant.
+    
+    - __Sélectionnez le compte de stockage__ : si votre abonnement est déjà associé à un compte de stockage, utilisez cette option pour sélectionner le compte à utiliser pour le cluster.
 	
-	- __Créer un compte__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- __Créer un nouveau__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 	
 	- __Choisir le conteneur par défaut__ : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 	
 	- __Emplacement__ : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 	
-		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
+		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
+    
+    - __Identité de cluster AAD__ : permet de sélectionner une identité Azure Active Directory que le cluster utilisera pour accéder au magasin Azure Data Lake Store.
+    
+        > [AZURE.NOTE]Cette option n’est pas utilisée dans ce document, et vous pouvez laisser la valeur par défaut. Pour plus d’informations sur l’utilisation de cette entrée et du magasin Azure Data Lake Store, avec HDInsight, consultez la section [Créer un cluster HDInsight utilisant Azure Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
 	- __Sélectionner__ : utilisez cette option pour enregistrer la configuration de la source de données.
 	
@@ -90,11 +98,15 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
+    Vous pouvez sélectionner chaque type de nœud pour modifier le type de machine virtuelle utilisé pour ces nœuds dans votre cluster. Conservez les paramètres par défaut pour exécuter les opérations dans ce document.
+    
 	Utilisez le bouton __Sélectionner__ pour enregistrer les informations de __Niveaux de tarification de nœud__.
 
-8. Sélectionnez __Configuration facultative__. Ce panneau vous permet de sélectionner la version de cluster et de configurer d’autres paramètres facultatifs (par exemple, connexion à un __Réseau virtuel__ ou configuration d’un __Metastore externe__ pour conserver les données Hive et Oozie).
+8. Sélectionnez __Configuration facultative__. Ce panneau vous permet d’associer le cluster à un __réseau virtuel__, d’utiliser __Actions de script__ pour personnaliser le cluster, ou un __Metastore personnalisé__ pour conserver les données correspondant à Hive et Oozie.
 
 	![Panneau Configuration facultative](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
+    
+    Laissez ces paramètres __Non configuré__ pour les étapes décrites dans ce document.
 
 9. Vérifiez que l’option __Épingler au tableau d’accueil__ est sélectionnée, puis sélectionnez __Créer__. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L'icône indique que le cluster est en cours de configuration et sera modifiée pour représenter l'icône HDInsight une fois la configuration terminée.
 
@@ -102,7 +114,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le tableau d’accueil](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
 
 ##Exécution d’un exemple Starter Storm sur HDInsight
 
@@ -233,4 +245,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

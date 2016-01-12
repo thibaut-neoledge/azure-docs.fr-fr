@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Flux de travail typique de développement Azure Search
@@ -42,7 +42,7 @@ Deux niveaux de tarification sont disponibles. Nous vous recommandons d’utilis
 
 Une fois le service créé, vous êtes prêt à créer l’index, en commençant par la définition de son schéma.
 
-Le moyen le plus rapide et le plus simple de créer un index consiste à utiliser le Portail Azure Classic. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](search-create-index-portal.md).
+Le moyen le plus rapide et le plus simple de créer un index consiste à utiliser le portail Azure. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](search-create-index-portal.md).
 
 > [AZURE.NOTE]À l’intérieur d’un index Azure Search
 >
@@ -73,7 +73,7 @@ Une seconde option consiste à écrire un programme simple à l'aide de l'API RE
 - [Ajout, mise à jour ou suppression de documents (API REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [Classe DocumentOperationsExtensions](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Une troisième option efficace pour les ensembles de données très réduits consiste à télécharger les documents à l’aide de [Fiddler](search-fiddler.md) ou [Chrome Postman](search-chrome-postman.md).
+Une troisième option efficace pour les ensembles de données très réduits consiste à télécharger les documents à l’aide de [Fiddler](search-fiddler.md).
 
 Une quatrième option, peut-être la plus simple, consiste à emprunter le code à partir de l’[exemple d’API REST C# Adventure Works](https://azuresearchadventureworksdemo.codeplex.com/) qui charge les documents à partir d'une base de données (.mdf) intégrée dans la solution, ou l’[exemple d’API REST C# Scoring Profiles](https://azuresearchscoringprofiles.codeplex.com/) qui charge des données à partir de fichiers de données JSON inclus dans la solution.
 
@@ -83,7 +83,7 @@ Une quatrième option, peut-être la plus simple, consiste à emprunter le code 
 
 Une fois les documents chargés dans l’index, vous pouvez écrire votre première requête.
 
-Le moyen le plus rapide pour obtenir des résultats de recherche initiaux à l’aide de votre service de recherche consiste à utiliser [Fiddler](search-fiddler.md) ou [Chrome Postman](search-chrome-postman.md) pour afficher une réponse, mais vous souhaiterez probablement écrire un code simple d'interface utilisateur pour afficher les résultats dans un format lisible.
+Le moyen le plus rapide d’obtenir des résultats de recherche initiaux à l’aide de votre service de recherche consiste à utiliser [Fiddler](search-fiddler.md) pour afficher une réponse, mais vous souhaiterez probablement écrire un code d’interface utilisateur simple pour afficher les résultats dans un format lisible.
 
 Les API pour les opérations de recherche incluent :
 
@@ -140,7 +140,8 @@ Azure Search fournit deux modèles de programmation : la bibliothèque .NET pour
 
 Actuellement, un petit sous-ensemble de fonctionnalités n’existe pas encore dans la bibliothèque .NET. Même si vous préférez écrire du code géré, vous devrez donc peut-être utiliser l'API REST pour obtenir les fonctionnalités souhaitées. Les fonctionnalités qui sont uniquement disponibles dans l'API REST incluent :
 
-- [Processeurs de langage naturel Microsoft - aperçu uniquement](../search-api-2015-02-28-preview/)
+- [Analyseurs personnalisés - aperçu uniquement](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Analyseur de requêtes Lucene - aperçu uniquement](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [Fonctionnalité moreLikeThis - aperçu uniquement](../search-api-2015-02-28-preview/)
 - [API de gestion](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

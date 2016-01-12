@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
-# Concevez votre premier pipeline Azure Data Factory en utilisant Azure PowerShell
+# Concevez votre premier pipeline Azure Data Factory en utilisant le modèle Gestionnaire de ressources Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -217,7 +217,7 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 ## Étape 2 : Déployer des entités Data Factory à l’aide du modèle ARM
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
-	- Exécutez **Login-AzureRmAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.  
+	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	- Exécutez **Select-AzureSubscription Nom\_abonnement** pour sélectionner l’abonnement que vous voulez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 1. Exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle ARM que vous avez créé à l’étape 1. 
@@ -234,7 +234,7 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 4.	Dans la **Vue de diagramme**, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 	
 	![Vue du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-8. Dans la vue de diagramme, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
+8. Dans la vue schématique, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 9. Quand le traitement est terminé, l’état du segment devient **Prêt**. Notez que la création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). 
@@ -243,4 +243,4 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

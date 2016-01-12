@@ -48,7 +48,7 @@ Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
+- Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] version v0.10.29 ou supérieure.
 - [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 - [Git][].
@@ -183,7 +183,8 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. 
+> Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 		
 3. Enregistrez et fermez le fichier **docdbUtils.js**.
 
@@ -457,7 +458,8 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 
 
-	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. Enregistrez et fermez ce fichier **layout.jade**.
+	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. 
+	Enregistrez et fermez ce fichier **layout.jade**.
 
 4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
@@ -501,7 +503,9 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Ce code étend la mise en page et fournit du contenu pour l'espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
 	
-	Dans cette mise en page, nous avons créé deux fichiers HTML. Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
+	Dans cette mise en page, nous avons créé deux fichiers HTML. 
+	Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. 
+	Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
@@ -544,7 +548,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 ## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](../web-sites-publish-source-control-git.md#step4).
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la procédure à suivre dans la rubrique [Déploiement continu à l’aide de GIT dans Azure App Service](../app-service-web/web-sites-publish-source-control.md).
 
 2. Ajoutez votre site web Azure en tant que git distant.
 
@@ -562,11 +566,11 @@ Félicitations ! Vous venez de créer votre première application web Express N
 
 Vous pouvez télécharger le code source de l’application de référence complète sur [GitHub][].
 
-Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

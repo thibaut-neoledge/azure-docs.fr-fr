@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="01/04/2016"
+   ms.author="twounder;barbkess"/>
 
 # Se connecter et lancer des requêtes avec Visual Studio
 
@@ -91,4 +91,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
