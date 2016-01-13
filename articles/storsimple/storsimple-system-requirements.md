@@ -262,4 +262,4 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
