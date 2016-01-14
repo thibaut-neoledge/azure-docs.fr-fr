@@ -46,7 +46,9 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Oui | Pour les ressources : <br />**{namespace}/{type}/providers/locks**<br /><br />Pour les groupes de ressources :<br />**Microsoft.Authorization/locks** | Le type de ressource à créer. |
 | apiVersion | enum | Oui | **2015-01-01** | La version de l'API à utiliser pour la création de la ressource. |  
-| name | string | Oui | Pour les ressources :<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />Pour les groupes de ressources :<br />**{lockname}****<br /><br />jusqu'à 64 caractères<br />Ne peut pas contenir <, >, %, &, ? ou les caractères de contrôle. | Une valeur qui spécifie à la fois la ressource à verrouiller et le nom du verrou. | | dependsOn | array | Non | Liste séparée par des virgules de noms de ressources ou d'identificateurs de ressources uniques. | La collection de ressources dont dépend ce verrou. Si la ressource que vous verrouillez est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource soit déployée en premier. | | properties | object | Oui | (voir ci-dessous) | Objet qui identifie le type de verrou et des remarques sur le verrou. | 
+| name | string | Oui | Pour les ressources :<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />Pour les groupes de ressources :<br />**{lockname}****<br /><br />jusqu'à 64 caractères<br />Ne peut pas contenir <, >, %, &, ? ou les caractères de contrôle. | Une valeur qui spécifie à la fois la ressource à verrouiller et le nom du verrou. |
+| dependsOn | array | Non | Liste séparée par des virgules de noms de ressources ou d'identificateurs de ressources uniques. | La collection de ressources dont dépend ce verrou. Si la ressource que vous verrouillez est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource soit déployée en premier. |
+| properties | object | Oui | (voir ci-dessous) | Objet qui identifie le type de verrou et des remarques sur le verrou. | 
 
 ### objet propriétés
 
@@ -133,4 +135,4 @@ L'exemple suivant applique un verrou ReadOnly au groupe de ressources.
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour plus d'informations sur les verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

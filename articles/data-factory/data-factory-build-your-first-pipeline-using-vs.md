@@ -307,6 +307,7 @@ Quand vous publiez la solution à l’étape suivante, le fichier **partitionweb
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
+
 	>[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -340,4 +341,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
