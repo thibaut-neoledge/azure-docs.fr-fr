@@ -63,7 +63,8 @@ Les ressources Machines virtuelles (classiques) peuvent être déplacées vers u
 | Base de données SQL | Oui | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Search | Oui | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL Data Warehouse | Oui | | | |
-| StorSimple | Non | - | - | - | | Cache géré | Non | - | - | - |
+| StorSimple | Non | - | - | - |
+| Cache géré | Non | - | - | - |
 
 ## Web et mobilité
 
@@ -89,7 +90,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Stream Analytics | Oui | | [Stream Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Oui | Oui | [Créer un cluster](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data Factory | Oui | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Machine Learning | Non | - | - | - | | Data Catalog | Non | - | - | - |
+| Machine Learning | Non | - | - | - |
+| Data Catalog | Non | - | - | - |
 
 ## Média et CDN
 
@@ -105,13 +107,16 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | BizTalk Services | Oui | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Oui | | [REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Non | - | - | - | | Site Recovery | Non | - | - | - |
+| Backup | Non | - | - | - |
+| Site Recovery | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 
 | Service | Resource Manager activé | Déplacer des ressources | API REST | Schéma | Modèles de démarrage rapide |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | Non | - | - | - | | Azure Actice Directory B2C | Non | - | - | - | | Multi-Factor Authentication | Non | - | - | - |
+| Azure Active Directory | Non | - | - | - |
+| Azure Actice Directory B2C | Non | - | - | - |
+| Multi-Factor Authentication | Non | - | - | - |
 
 ## Services de développement 
 
