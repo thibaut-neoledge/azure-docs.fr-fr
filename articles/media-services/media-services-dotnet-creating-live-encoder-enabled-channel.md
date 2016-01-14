@@ -22,12 +22,12 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
 
 
 
 
->[AZURE.NOTE]
+> [AZURE.NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Vue d'ensemble
