@@ -21,13 +21,11 @@
 
 > *Kate Baroni* et *Ben Boatman* sont des architectes de solution du Data Insights Center of Excellence de Microsoft. Dans cet article, ils décrivent leur expérience de migration d’une suite d’analyse de régression existante vers une solution de cloud à l’aide d’Azure Machine Learning.
 
-
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 
 ## Objectif
 
-Notre projet a commencé avec deux objectifs :
+Notre projet a commencé avec deux objectifs :  
 
 1. l’utilisation de l’analyse prédictive pour améliorer la précision des projections de recettes mensuelles de notre organisation ;  
 2. l’utilisation d’Azure ML pour confirmer, optimiser, mettre à l’échelle nos résultats et en accélérer la vitesse.  
@@ -161,4 +159,4 @@ Certaines ressources sont répertoriées pour vous aider à utiliser la régress
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!------HONumber=AcomDC_1210_2015-->
