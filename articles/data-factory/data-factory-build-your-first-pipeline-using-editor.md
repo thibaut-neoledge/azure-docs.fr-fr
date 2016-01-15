@@ -291,7 +291,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
->[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
+	>[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
