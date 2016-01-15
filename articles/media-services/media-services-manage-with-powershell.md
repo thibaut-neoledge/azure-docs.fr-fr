@@ -19,12 +19,10 @@
 
 #Gérer des comptes Azure Media Services avec PowerShell
 
-
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
-
 
 > [AZURE.NOTE]Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
@@ -123,4 +121,4 @@ Quand vous êtes prêt à supprimer le compte Azure Media, utilisez [Remove-Azur
 
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->
