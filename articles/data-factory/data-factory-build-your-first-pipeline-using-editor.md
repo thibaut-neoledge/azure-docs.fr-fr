@@ -290,8 +290,9 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 12. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
->[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
+9. Quand le traitement est terminé, l’état du segment devient **Prêt**.  
+
+	>[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
