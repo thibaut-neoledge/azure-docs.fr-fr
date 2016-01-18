@@ -44,7 +44,7 @@ Le diagramme suivant montre la relation entre les applications et les instances 
 ![Partitions et réplicas au sein d'un service][cluster-application-instances]
 
 
->[AZURE.TIP]Vous pouvez afficher la disposition des applications dans un cluster à l'aide de l'outil Service Fabric Explorer disponible à l'adresse http://&lt;yourclusteraddress&gt;:19080/Explorer. Pour plus de détails, consultez [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] Vous pouvez afficher la disposition des applications dans un cluster à l'aide de l'outil Service Fabric Explorer disponible à l'adresse http://&lt;yourclusteraddress&gt;:19080/Explorer. Pour plus de détails, consultez [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Décrire un service
 
@@ -82,7 +82,7 @@ Les attributs **Version** sont des chaînes non structurées et ne sont pas anal
 
 **DataPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient des données statiques arbitraires destinées à être consommées par le processus pendant l'exécution.
 
-**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
+**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml*:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">

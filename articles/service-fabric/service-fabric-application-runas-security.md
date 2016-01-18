@@ -98,15 +98,15 @@ setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Pour supprimer cette variable système utilisez
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
 
 ~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+
 ~~~
 
 Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 1. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType** :

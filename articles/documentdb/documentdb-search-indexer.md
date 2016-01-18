@@ -267,7 +267,7 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
 
  - Pour en savoir plus sur Azure DocumentDB, consultez la [page du service DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/fr-FR/services/search/).
+ - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

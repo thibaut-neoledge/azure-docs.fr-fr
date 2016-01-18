@@ -24,7 +24,7 @@
 
 Cet article fournit des informations détaillées ainsi que des exemples sur l’utilisation d’un serveur principal Node.js dans Azure App Service Mobile Apps.
 
-> [AZURE.NOTE]Ce Kit de développement logiciel est disponible en VERSION PRÉLIMINAIRE. En conséquence, nous ne vous recommandons pas de l’utiliser en production. Les exemples de ce document utilisent v2.0.0-beta2 de [azure-mobile-apps].
+> [AZURE.NOTE] Ce Kit de développement logiciel est disponible en VERSION PRÉLIMINAIRE. En conséquence, nous ne vous recommandons pas de l’utiliser en production. Les exemples de ce document utilisent v2.0.0-beta2 de [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -430,10 +430,10 @@ Si la propriété d’accès n’est pas définie, l’accès non authentifié e
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read*: opération GET RESTful sur la table
+  - *insert*: opération POST RESTful sur la table
+  - *update*: opération PATCH RESTful sur la table
+  - *delete*: opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 

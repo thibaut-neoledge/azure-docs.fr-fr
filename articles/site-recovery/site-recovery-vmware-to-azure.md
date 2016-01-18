@@ -23,7 +23,8 @@ Cet article explique comment déployer la récupération de sites pour :
 - **protéger les machines virtuelles VMware**— coordonner la réplication, le basculement et la récupération des machines virtuelles VMware locales vers Azure
 - **protéger les serveurs physiques**— coordonner la réplication, le basculement et la récupération des serveurs physiques Windows et Linux vers Azure à l’aide du service Azure Site Recovery.
 
-Cet article fournit une vue d'ensemble, décrit les conditions préalables au déploiement et communique les instructions d'installation. À la fin de l'article, vos machines virtuelles ou serveurs physiques VMware seront répliqués vers Azure. Si vous rencontrez des problèmes, posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Cet article fournit une vue d'ensemble, décrit les conditions préalables au déploiement et communique les instructions d'installation. À la fin de l'article, vos machines virtuelles ou serveurs physiques VMware seront répliqués vers Azure.
+Si vous rencontrez des problèmes, posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Qu’est-ce que le service Azure Site Recovery ?
@@ -228,7 +229,8 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 4. Dans **Détails du nouveau serveur de configuration**, spécifiez :
 
 	- un nom pour le serveur de configuration et les informations d'identification pour s’y connecter.
-	- Dans la liste déroulante pour le type de connectivité réseau, sélectionnez Internet public ou VPN.[AZURE.NOTE]Ce choix doit se faire au moment du déploiement et ne peut pas être modifié ultérieurement.  
+	- Dans la liste déroulante pour le type de connectivité réseau, sélectionnez Internet public ou VPN.
+	[AZURE.NOTE]Ce choix doit se faire au moment du déploiement et ne peut pas être modifié ultérieurement.  
 	- Sélectionnez le réseau Azure sur lequel le serveur doit se trouver. Si vous avez spécifié VPN comme type de connectivité réseau, assurez-vous que ce réseau virtuel Azure est connecté à votre site local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site.
 	- Spécifiez le sous-réseau et l'adresse IP interne à affecter au serveur. Notez que les quatre premières adresses IP d’un sous-réseau sont réservées à un usage interne Azure. Utilisez une autre adresse IP disponible.
 	
@@ -382,7 +384,8 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 	1. Assurez-vous que vous avez installé les derniers services d'intégration Linux (LIS) avant d'installer le logiciel du serveur cible maître. Vous trouverez la dernière version de LIS, ainsi que des instructions d'installation [ici](https://www.microsoft.com/fr-FR/download/details.aspx?id=46842). Redémarrez la machine après l'installation de LIS.
 	2. Dans **Préparer les ressources (Azure) cibles**, cliquez sur **Télécharger et installer des logiciels supplémentaires (uniquement pour le serveur cible maître Linux)** pour télécharger le package du serveur cible maître Linux. Copiez le fichier tar téléchargé sur l'ordinateur virtuel à l'aide d'un client sftp. Ou vous pouvez aussi vous connecter au serveur cible maître Linux déployé et utiliser *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* pour télécharger le fichier.
 2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
-	3. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+	3. Extrayez les fichiers du programme d'installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***
+	![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
 	5. Copiez la phrase secrète du serveur de configuration dans un fichier local à l'aide de la commande **echo*`<passphrase>`* > passphrase.txt**
 	6. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
@@ -757,8 +760,10 @@ Si un serveur de traitement est dans un état critique, un avertissement d'état
 
 1. Accédez à la page **SERVEURS DE CONFIGURATION** sous **SERVEURS**
 2. Cliquez sur le nom du serveur de configuration et accédez aux **Détails du serveur**.
-3. Dans la liste **Serveurs de traitement**, cliquez sur **Modifier le serveur de traitement** à côté du serveur que vous souhaitez modifier. ![Modifier le serveur de traitement 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. Dans la boîte de dialogue **Modifier le serveur de traitement**, sélectionnez le nouveau serveur dans **Serveur de traitement cible**, puis sélectionnez les machines virtuelles que vous souhaitez répliquer vers le nouveau serveur. Cliquez sur l’icône d’informations à côté du nom de serveur pour obtenir des informations le concernant, telles que l’espace libre ou la mémoire utilisée. L’espace moyen requis pour répliquer chaque machine virtuelle sélectionnée vers le nouveau serveur de traitement s’affiche pour vous aider à prendre des décisions quant à la charge. ![Modifier le serveur de traitement 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. Dans la liste **Serveurs de traitement**, cliquez sur **Modifier le serveur de traitement** à côté du serveur que vous souhaitez modifier.
+	![Modifier le serveur de traitement 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. Dans la boîte de dialogue **Modifier le serveur de traitement**, sélectionnez le nouveau serveur dans **Serveur de traitement cible**, puis sélectionnez les machines virtuelles que vous souhaitez répliquer vers le nouveau serveur. Cliquez sur l’icône d’informations à côté du nom de serveur pour obtenir des informations le concernant, telles que l’espace libre ou la mémoire utilisée. L’espace moyen requis pour répliquer chaque machine virtuelle sélectionnée vers le nouveau serveur de traitement s’affiche pour vous aider à prendre des décisions quant à la charge.
+	![Modifier le serveur de traitement 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. Cliquez sur la coche pour commencer la réplication vers le nouveau serveur de traitement. Si vous supprimez tous les ordinateurs virtuels d'un serveur de traitement qui était essentiel, il ne doit plus afficher un avertissement critique dans le tableau de bord.
 
 

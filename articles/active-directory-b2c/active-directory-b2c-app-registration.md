@@ -30,7 +30,7 @@ Pour créer une application qui accepte l'inscription et la connexion des consom
 
 Vous pouvez accéder au panneau de fonctionnalités B2C à partir du portail Azure ou Azure Classic.
 
-### 1\. Accès direct via le portail Azure
+### 1. Accès direct via le portail Azure
 
 Si le panneau de fonctionnalités B2C est épinglé sur votre Tableau d'accueil, vous pouvez le voir dès que vous vous connectez au [portail Azure](https://portal.azure.com/) en tant qu'administrateur général du client B2C.
 
@@ -39,9 +39,9 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir** puis **
 Vous pouvez également y accéder directement en naviguant vers l'URL [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) où **{tenant}** est remplacé par le nom utilisé au moment de la création du client (par exemple, contosob2c). Vous pouvez marquer ce lien à l’aide d’un signet afin de vous y référer ultérieurement.
 
    >[AZURE.IMPORTANT]
-   >Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.
+   Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.
 
-### 2\. Accès via le portail Azure Classic
+### 2. Accès via le portail Azure Classic
 
 Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu'administrateur d'abonnements (à l'aide du compte professionnel ou scolaire, ou du compte Microsoft utilisé pour l'inscription à Azure). Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C. Sous l'onglet **Démarrage rapide** (le premier à s'ouvrir), cliquez sur **Gestion des paramètres B2C** sous **Administrer**. Cela a pour effet d’ouvrir le panneau de fonctionnalités B2C dans une nouvelle fenêtre ou un nouvel onglet du navigateur.
 
@@ -54,7 +54,8 @@ Le lien **Gestion des paramètres B2C** figure également sous l'onglet **Confi
 3. Le **Nom** de l'application décrit votre application pour les consommateurs. Par exemple, entrez « Application B2C Contoso ».
 4. Si vous écrivez une application basée sur le web, positionnez le commutateur **Inclure l'application web/API web** sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C retourne les jetons que votre application demande. Par exemple, entrez :`https://localhost:44321/`. Si votre application inclut un composant côté serveur (API) qui doit être sécurisé, vous pouvez également créer (et copier) un **Secret d'application** en cliquant sur le bouton **Générer une clé**.
 
-    > [AZURE.NOTE]Un **secret d'application** est une information d'identification de sécurité importante.
+    > [AZURE.NOTE]
+    Un **secret d'application** est une information d'identification de sécurité importante.
 
 5. Si vous écrivez une application mobile, positionnez le commutateur **Inclure un client natif** sur **Oui**. Copiez vers le bas la valeur par défaut **URI de redirection** créée automatiquement pour vous.
 6. Cliquez sur **Créer** pour inscrire votre application.

@@ -24,7 +24,7 @@
 
 Dans ce document, vous découvrirez les différentes façons de créer un cluster HDInsight basé sur Linux dans Azure, ainsi que les configurations facultatives qui peuvent être utilisées avec votre cluster. HDInsight fournit des services Apache Hadoop, Apache Storm et Apache HBase sur la plateforme cloud Azure.
 
-> [AZURE.NOTE]Ce document fournit des instructions sur les différentes méthodes de création d’un cluster. Si vous recherchez une approche de démarrage rapide pour créer un cluster, consultez [Prise en main d’Azure HDInsight sous Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE] Ce document fournit des instructions sur les différentes méthodes de création d’un cluster. Si vous recherchez une approche de démarrage rapide pour créer un cluster, consultez [Prise en main d’Azure HDInsight sous Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## Qu’est-ce qu’un cluster HDInsight ?
 
@@ -45,7 +45,7 @@ Lors de la configuration, vous allez sélectionner un de ces types pour le clust
 
 Chaque type de cluster possède sa propre terminologie pour les nœuds appartenant au cluster, ainsi que le nombre de nœuds et la taille de machine virtuelle par défaut pour chaque type de nœud :
 
-> [AZURE.IMPORTANT]Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
+> [AZURE.IMPORTANT] Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
 ![Nœuds de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -105,7 +105,7 @@ Vous pouvez configurer des clusters HDInsight sur l’un des deux systèmes d’
 
 - **HDInsight sous Linux (Ubuntu 12.04 LTS pour Linux)** : sélectionnez cette option si vous maîtrisez Linux ou Unix, pour une migration à partir d’une solution Hadoop Linux existante ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
 
-> [AZURE.NOTE]Les informations présentes dans ce document supposent que vous utilisez un cluster HDInsight Linux. Pour obtenir des informations spécifiques aux clusters basés sur Windows, consultez [Création de clusters Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md).
+> [AZURE.NOTE] Les informations présentes dans ce document supposent que vous utilisez un cluster HDInsight Linux. Pour obtenir des informations spécifiques aux clusters basés sur Windows, consultez [Création de clusters Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md).
 
 ###Nom d'abonnement
 
@@ -138,7 +138,7 @@ HDInsight utilise le stockage d’objets Blob Azure comme stockage sous-jacent p
 
 Lorsque vous créez un nouveau cluster, vous devez créer également un nouveau compte de stockage Azure, ou utiliser un compte existant.
 
-> [AZURE.IMPORTANT]L’emplacement géographique sélectionné pour le compte de stockage détermine l’emplacement du cluster HDInsight, et le cluster doit se trouver dans le même centre de données que le compte de stockage par défaut.
+> [AZURE.IMPORTANT] L’emplacement géographique sélectionné pour le compte de stockage détermine l’emplacement du cluster HDInsight, et le cluster doit se trouver dans le même centre de données que le compte de stockage par défaut.
 >
 > Pour obtenir la liste des régions prises en charge, cliquez sur la liste déroulante **Région** de la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -148,7 +148,7 @@ HDInsight crée également un _conteneur de stockage par défaut_ sur le compte 
 
 Par défaut, ce conteneur porte le même nom que le cluster HDInsight. Pour plus d’informations sur le fonctionnement d’HDInsight avec le stockage d’objets blob Azure, consultez [Utilisation du stockage d’objets blob Azure compatibles avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
->[AZURE.WARNING]Ne répartissez pas un conteneur sur plusieurs clusters. Ce n’est pas pris en charge.
+>[AZURE.WARNING] Ne répartissez pas un conteneur sur plusieurs clusters. Ce n’est pas pris en charge.
 
 ###Taille du nœud
 
@@ -160,7 +160,7 @@ Différents types de cluster ont des types de nœuds, des nombres de nœuds et d
 
 Quand vous utilisez la version préliminaire du portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
 
-> [AZURE.IMPORTANT]La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT] La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Configuration facultative
 
@@ -186,7 +186,7 @@ Un réseau [Azure Virtual Network](http://azure.microsoft.com/documentation/serv
 
 Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant de créer un cluster. Pour plus d’informations, consultez [Création d’un réseau virtuel](virtual-networks-create-vnet.md).
+> [AZURE.NOTE] Vous devez créer le réseau Azure Virtual Network avant de créer un cluster. Pour plus d’informations, consultez [Création d’un réseau virtuel](virtual-networks-create-vnet.md).
 >
 > Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
 >
@@ -207,13 +207,13 @@ Le metastore contient les métadonnées Hive et Oozie, telles que les informatio
 
 L’utilisation de l’option de configuration Metastore vous permet de spécifier un stockage metastore externe utilisant Base de données SQL. Cela permet aux informations de type métadonnées d’être préservées en cas de suppression d’un cluster, car il est stocké à l’extérieur par rapport à la base de données. Pour obtenir des instructions sur la création d’une base de données SQL dans Azure, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
-> [AZURE.NOTE]La configuration Metastore n’est pas disponible pour les types de cluster HBase.
+> [AZURE.NOTE] La configuration Metastore n’est pas disponible pour les types de cluster HBase.
 
 ###<a id="scriptaction"></a>Action de script
 
 Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster en utilisant les scripts pendant l’approvisionnement du cluster. Ces scripts sont appelés via une **action de script**. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [AZURE.IMPORTANT]L’ajout de composants supplémentaires après la création d’un cluster n’est pas pris en charge, car ces composants ne sont pas disponibles après la réinitialisation d’un nœud de cluster. Les composants installés à l'aide d’actions de script sont réinstallés dans le cadre du processus de réinitialisation.
+> [AZURE.IMPORTANT] L’ajout de composants supplémentaires après la création d’un cluster n’est pas pris en charge, car ces composants ne sont pas disponibles après la réinitialisation d’un nœud de cluster. Les composants installés à l'aide d’actions de script sont réinstallés dans le cadre du processus de réinitialisation.
 
 ### Stockage supplémentaire
 

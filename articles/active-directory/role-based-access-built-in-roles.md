@@ -133,7 +133,9 @@ Les collaborateurs peuvent gérer tout sauf les accès
 | **Actions** ||
 | ------- | ------ |
 | * | Créer et gérer les ressources de tous les types |
-| ****Non-actions | | | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles| | Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
+| ****Non-actions |  |
+| Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles|
+| Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
 
 ### Collaborateurs de fabrique de données
 Gérer les fabriques de données
@@ -379,7 +381,8 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. | | Microsoft.Authorization/* | Autorisation de lecture |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. |
+| Microsoft.Authorization/* | Autorisation de lecture |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle classique

@@ -21,7 +21,7 @@ Ce guide présente l'exécution de tâches de programmation courantes avec le se
 
 ## Définition du service de messagerie SendGrid
 
-SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
+SendGrid est un [service de messagerie dans le cloud](https://sendgrid.com/email-solutions) qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle](https://sendgrid.com/transactional-email), d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
 
 -   Envoi automatique d'accusés de réception aux clients
 -   Administration de listes de distribution pour un envoi mensuel de prospectus électroniques et d'offres spéciales aux clients
@@ -65,7 +65,7 @@ Vous pouvez également spécifier un message HTML pour les clients qui le prenne
 
 Définir les propriétés text et html offre une solution de repli intéressante pour le contenu textuel dans le cas des clients qui ne peuvent pas prendre en charge les messages HTML.
 
-Pour plus d'informations sur l'ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs][].
+Pour plus d'informations sur l'ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Envoi d'un message électronique
 
@@ -114,7 +114,7 @@ Il est possible d'ajouter des pièces jointes à un message en spécifiant les n
 
 ## Utilisation de filtres pour activer les pieds de page et le suivi
 
-SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][].
+SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html).
 
 Il est possible d'appliquer des filtres à un message par l'intermédiaire de la propriété **filters**. Chaque filtre est spécifié par un hachage contenant des paramètres propres au filtre. Les exemples suivants montrent les filtres de pied de page et de suivi des clics :
 
@@ -168,18 +168,24 @@ ou définir un filtre en utilisant
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-Pour plus d'informations, consultez la page [sendgrid-nodejs][].
+Pour plus d'informations, consultez la page [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Utilisation de services SendGrid supplémentaires
 
-SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][].
+SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid](https://sendgrid.com/docs).
 
 ## Étapes suivantes
 
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
--   Référentiel du module Node.js SendGrid : [sendgrid-nodejs][]
+-   Référentiel du module Node.js SendGrid : [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
 -   Documentation de l'API SendGrid : <https://sendgrid.com/docs>
--   Offre spéciale SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [offre spéciale] : https://sendgrid.com/windowsazure.html [sendgrid-nodejs] : https://github.com/sendgrid/sendgrid-nodejs [Paramètres de filtre] : https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [documentation de l’API SendGrid] : https://sendgrid.com/docs [service de messagerie dans le cloud] : https://sendgrid.com/email-solutions [remise de courrier électronique transactionnelle] : https://sendgrid.com/transactional-email
+-   Offre spéciale SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+  [offre spéciale]: https://sendgrid.com/windowsazure.html
+  [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
+  [Paramètres de filtre]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [documentation de l’API SendGrid]: https://sendgrid.com/docs
+  [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
+  [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
 <!---HONumber=AcomDC_0107_2016-->

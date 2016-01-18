@@ -6,7 +6,8 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"	/>
+	tags="azure-service-management"
+	/>
 
 <tags
 	ms.service="virtual-machines"
@@ -49,7 +50,7 @@ Ce didacticiel présente les procédures suivantes :
 
 	![Choisir une image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Pour obtenir les informations les plus récentes concernant les images SQL Server prises en charge sur Azure, consultez la rubrique [Vue d'ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Pour obtenir les informations les plus récentes concernant les images SQL Server prises en charge sur Azure, consultez la rubrique [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE]Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
 >
@@ -97,7 +98,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 	- **Exécution**
 
 
-##<a id="RemoteDesktop">Ouverture de la machine virtuelle à l'aide du Bureau à distance pour achever la configuration</a>
+##<a id="RemoteDesktop">Ouverture de la machine virtuelle à l’aide du Bureau à distance pour achever la configuration</a>
 
 1. Une fois l’approvisionnement terminé, cliquez sur le nom de votre machine virtuelle pour accéder à la page TABLEAU DE BORD. En bas de la page, cliquez sur **Connect**.
 
@@ -111,7 +112,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 
 4. Utilisez le nom de la machine en tant que nom de domaine, suivi de votre nom d’administrateur au format suivant : `machinename\username`. Saisissez votre mot de passe et connectez-vous à la machine.
 
-4. Lors de la première connexion, plusieurs processus doivent s’effectuer, notamment la configuration de votre bureau, les mises à jour de Windows et l’achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L'exécution de ces tâches peut nécessiter quelques minutes. `SELECT @@SERVERNAME` peut ne pas renvoyer le nom correct tant que la configuration de SQL Server n'est pas terminée, et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
+4. Lors de la première connexion, plusieurs processus doivent s’effectuer, notamment la configuration de votre bureau, les mises à jour de Windows et l’achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L’exécution de ces tâches peut nécessiter quelques minutes. `SELECT @@SERVERNAME` peut ne pas renvoyer le nom correct tant que la configuration de SQL Server n’est pas terminée, et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
 
 Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l’instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
 
