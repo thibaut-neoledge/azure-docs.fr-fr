@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Tarification et facturation de Service Bus
 
 Service Bus est disponible en trois niveaux de service : de base, standard, et [premium](service-bus-premium-messaging.md). Vous pouvez choisir un niveau de service pour chaque espace de noms Service Bus que vous créez et cette sélection s'applique à l'ensemble des files d'attente, rubriques/abonnements, relais et Event Hubs créés dans cet espace de noms.
 
->[AZURE.NOTE]Pour obtenir toutes les informations sur la tarification actuelle de Service Bus, consultez la section [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md).
+>[AZURE.NOTE]Pour obtenir des informations détaillées sur la tarification actuelle de Service Bus, consultez la section [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md).
 
 Service Bus utilise les deux mesures suivantes pour les files d'attente et les rubriques/abonnements :
 
@@ -39,19 +39,19 @@ Le tableau suivant résume les différences fonctionnelles entre les niveaux de 
 
 |Fonctionnalité|De base|Standard/Premium|
 |---|---|---|
-|Event Hubs|OUI|OUI|
-|Files d’attente|OUI|OUI|
-|Messages planifiés|OUI|OUI|
-|Rubriques/abonnements|NON|OUI|
-|Relais|NON|OUI|
-|Transactions|NON|OUI|
-|Déduplication|NON|OUI|
-|Sessions|NON|OUI|
-|Messages volumineux|NON|OUI|
-|ForwardTo|NON|OUI|
-|SendVia|NON|OUI|
+|Event Hubs|Oui|Oui|
+|Files d’attente|Oui|Oui|
+|Messages planifiés|Oui|Oui|
+|Rubriques/abonnements|Non|Oui|
+|Relais|Non|Oui|
+|Transactions|Non|Oui|
+|Déduplication|Non|Oui|
+|Sessions|Non|Oui|
+|Messages volumineux|Non|Oui|
+|ForwardTo|Non|Oui|
+|SendVia|Non|Oui|
 |Connexions réparties (incluses)|100 par espace de noms Service Bus|1 000 par abonnement Azure|
-|Connexions réparties (dépassement autorisé)|NON|OUI (facturable)|
+|Connexions réparties (dépassement autorisé)|Non|Oui (facturable)|
 
 ## Opérations de messagerie
 
@@ -85,7 +85,7 @@ Les prix suivants sont appliqués depuis le 1er novembre 2014 :
 
 ## Connexions réparties
 
-Les *connexions réparties* répondent aux modèles d’utilisation client qui impliquent un grand nombre d’expéditeurs/destinataires « en permanence connectés » aux files d’attente, rubriques/abonnements ou Event Hubs. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
+Les *connexions réparties* répondent aux modèles d'utilisation client qui impliquent un grand nombre d'expéditeurs/destinataires « en permanence connectés » aux files d'attente, rubriques/abonnements ou Event Hubs. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
 
 Auparavant, les files d'attente et les rubriques/abonnements avaient une limite de 100 connexions simultanées par URL. Le modèle de facturation actuel supprime la limite par URL des files d'attente et des rubriques/abonnements et implémente des quotas et des mesures de connexions réparties au niveau de l'espace de noms Service Bus et de l'abonnement Azure.
 
@@ -143,10 +143,10 @@ Par exemple :
 
 Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. La réception d'événements avec le protocole HTTP et à l'aide d'un délai d'expiration supérieur à zéro, parfois appelé « interrogation longue », génère des frais de connexion répartie. Les connexions AMQP génèrent des frais de connexion répartie peu importe si les connexions sont utilisées pour l'envoi ou pour la réception. Notez que 100 connexions réparties sont autorisées gratuitement dans un espace de noms de base. Il s'agit également du nombre maximal de connexions réparties autorisées pour l'abonnement Azure. Les 1 000 premières connexions réparties entre tous les espaces de noms standard d'un abonnement Azure sont incluses sans frais supplémentaires (hors frais de base). Étant donné que ces volumes couvrent de nombreux scénarios de messagerie de service à service, des frais de connexion répartie sont habituellement pertinents si vous prévoyez d'utiliser l'interrogation longue AMQP ou HTTP avec un grand nombre de clients. Par exemple, pour obtenir un flux d'événements plus efficace ou permettre une communication bidirectionnelle avec de nombreux appareils ou instances d'application.
 
-## Voir aussi
+## Étapes suivantes
 
-[FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md)
+Pour plus d'informations sur la tarification Service Bus, consultez la section [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md).
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

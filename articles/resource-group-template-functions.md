@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Expressions de modèle Azure Resource Manager
@@ -408,7 +408,7 @@ Unique au niveau du déploiement pour un groupe de ressources
 L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources.
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
@@ -764,9 +764,9 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 
 
 ## Étapes suivantes
-- Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
-- Pour boucler un nombre de fois spécifié lors de la création d’un type de ressource, consultez [Créer plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion à une machine virtuelle SQL Server | Microsoft Azure"
+	pageTitle="Connexion à une machine virtuelle SQL Server (classique) | Microsoft Azure"
 	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique, et explique comment se connecter à SQL Server s’exécutant sur une machine virtuelle dans Azure. Les scénarios diffèrent selon la configuration réseau et l’emplacement du client."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="jroth" />
 
-# Se connecter à une machine virtuelle SQL Server sur Azure
+# Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
+
+> [AZURE.SELECTOR]
+- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Classic](virtual-machines-sql-server-connectivity.md)
 
 ## Vue d'ensemble
 
@@ -38,7 +42,7 @@ La méthode utilisée par un client pour se connecter à un serveur SQL Server e
 
 ### se connecter à SQL Server dans le même service de cloud computing
 
-Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, voir [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](cloud-services-connect-virtual-machine.md).
+Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](cloud-services-connect-virtual-machine.md).
 
 Commencez par effectuer la [procédure décrite dans cet article pour configurer la connectivité](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Notez qu’il est inutile de configurer un point de terminaison public si vous devez connecter des machines situées dans le même service cloud.
 
@@ -54,7 +58,7 @@ Commencez par effectuer la [procédure décrite dans cet article pour configurer
 
 	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint).
+Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)
 
 >[AZURE.NOTE]Il est important de noter que lorsque vous utilisez cette technique pour communiquer avec SQL Server, toutes les données renvoyées sont considérées comme du trafic sortant depuis le centre de données. Elles sont donc soumises à la [tarification sur les transferts de données sortantes](http://azure.microsoft.com/pricing/details/data-transfers) standard. C’est également le cas lorsque vous utilisez cette technique à partir d’une machine ou d’un service cloud différent au sein d’un même centre de données Azure, car le trafic passe toujours par l’équilibreur de charge public d’Azure.
 
@@ -74,7 +78,27 @@ Notez que dans ce scénario, vous pouvez également spécifier l’adresse IP de
 
 ## Procédure de configuration de la connectivité SQL Server dans une machine virtuelle Azure
 
+Les étapes suivantes montrent comment se connecter à l’instance SQL Server sur Internet à l’aide de SQL Server Management Studio (SSMS). Toutefois, les mêmes étapes s’appliquent pour rendre votre machine virtuelle SQL Server accessible pour vos applications exécutées en local et dans Azure.
+
+Avant de pouvoir vous connecter à l’instance de SQL Server à partir d’une autre machine virtuelle ou d’Internet, vous devez effectuer les tâches suivantes, comme indiqué dans les sections ci-dessous :
+
+- [Créer un point de terminaison TCP pour la machine virtuelle](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Ouvrir des ports TCP dans le pare-feu Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configurer SQL Server pour l’écoute du protocole TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configurer SQL Server pour l’authentification en mode mixte](#configure-sql-server-for-mixed-mode-authentication)
+- [Créer des connexions d’authentification SQL Server](#create-sql-server-authentication-logins)
+- [Déterminer le nom DNS de la machine virtuelle](#determine-the-dns-name-of-the-virtual-machine)
+- [Se connecter au moteur de base de données à partir d’un autre ordinateur](#connect-to-the-database-engine-from-another-computer)
+
+Le chemin de connexion est résumé dans le schéma suivant :
+
+![Connexion à une machine virtuelle SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [Se connecter à SQL Server sur un point de terminaison TCP classique de machine virtuelle](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [Se connecter à SQL Server dans une machine virtuelle](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [Se connecter à SQL Server dans une procédure classique de machine virtuelle](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## Étapes suivantes
 
@@ -86,4 +110,4 @@ Il est important d’examiner toutes les recommandations de sécurité pour SQL 
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

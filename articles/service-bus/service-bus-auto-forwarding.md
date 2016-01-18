@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Chaînage des entités Service Bus avec transfert automatique
@@ -59,7 +59,7 @@ Pour plus d'informations sur le transfert automatique, consultez les rubriques d
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Partitionnement des entités de messagerie][].
+Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Entités de messagerie partitionnées][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ Pour en savoir plus sur les améliorations des performances de Service Bus, cons
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partitionnement des entités de messagerie]: service-bus-partitioning.md
+  [Entités de messagerie partitionnées]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

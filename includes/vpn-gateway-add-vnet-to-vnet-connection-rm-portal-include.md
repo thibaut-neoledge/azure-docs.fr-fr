@@ -1,11 +1,13 @@
-When adding a VNet-to-VNet connection, verify that both of your virtual networks have a virtual network gateway and that your virtual networks do not have any overlapping address ranges.
+Lors de l'ajout d'une connexion de réseau virtuel à réseau virtuel, vérifiez que vos deux réseaux virtuels ont une passerelle de réseau virtuel et que les plages d'adresses de vos réseaux virtuels ne se chevauchent pas.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*. You can also configure settings directly from your virtual network gateway without first expanding the VNet.
-2. From the virtual network gateway settings, click **Connections**, and then **Add**.
-3. **Name** your Connection. 
-4. For **Connection type**, select **VNet-to-VNet**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Second virtual network gateway**, select the gateway you want to create a connection to from this gateway.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. Dans le volet **Réseaux virtuels**, recherchez votre réseau virtuel, puis cliquez pour ouvrir le volet. Dans le volet, votre passerelle est répertoriée comme un *Périphérique connecté*. Vous pouvez également configurer les paramètres directement à partir de votre passerelle de réseau virtuel sans développer au préalable le réseau virtuel.
+2. Dans les paramètres de passerelle de réseau virtuel, cliquez sur **Connexions**, puis sur **Ajouter**.
+3. **Nommez** votre connexion. 
+4. Pour le **Type de connexion**, sélectionnez **Réseau virtuel à réseau virtuel**.
+5. Pour **Passerelle de réseau virtuel**, la valeur est fixe, car vous vous connectez à partir de cette passerelle.
+6. Pour **Seconde passerelle de réseau virtuel**, sélectionnez la passerelle à laquelle vous souhaitez créer une connexion à partir de cette passerelle.
+8. Les valeurs restantes pour **Abonnement**, **Groupe de ressources** et **Emplacement** sont fixes.
+9. Cliquez sur **OK** pour créer votre connexion. Le message *Création de la connexion* clignote à l'écran.
+10. Une fois la connexion terminée, elle s'affiche dans le volet **Connexions** de votre passerelle.
+
+<!---HONumber=AcomDC_0107_2016-->

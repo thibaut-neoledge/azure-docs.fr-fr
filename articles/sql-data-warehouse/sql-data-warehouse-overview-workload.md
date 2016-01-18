@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 
@@ -28,7 +28,7 @@ Les entrepôts de données incluent des requêtes qui analysent un grand nombre 
 
 - Un entrepôt de données est davantage performant lorsque la configuration de stockage des données est idéale pour les requêtes qui doivent analyser un grand nombre de lignes ou de gros volumes de données. Ce type de tâches d’analyse est plus efficace lorsque les données sont stockées et classées par colonnes, non en lignes. 
 
->[AZURE.NOTE]L’index Columnstore en mémoire, qui utilise le stockage par colonne, procure une compression jusqu’à 5 fois supérieure et des requêtes jusqu’à 10 fois supérieures par rapport aux arborescences binaires traditionnelles dédiées aux requêtes de rapports et d’analyse. Nous considérons les index Columnstore comme la norme en matière de stockage et d’analyse de gros volumes de données dans un entrepôt de données.
+>[AZURE.NOTE]L’index Columnstore en mémoire, qui utilise le stockage par colonne, procure une compression jusqu'à 10 fois supérieure et des requêtes jusqu'à 100 fois supérieures par rapport aux arborescences binaires traditionnelles dédiées aux requêtes de rapports et d'analyse. Nous considérons les index Columnstore comme la norme en matière de stockage et d’analyse de gros volumes de données dans un entrepôt de données.
 
 - Un entrepôt de données présente des exigences différentes d’un système ; il est configuré pour le traitement transactionnel en ligne (OLTP, online transaction processing). Le système OLTP propose de multiples opérations d’insertion, de mise à jour et de suppression. Ces opérations sont dirigées vers des lignes spécifiques de la table. Les recherches de table aboutissent à de meilleurs résultats lorsque les données sont stockées par lignes. Les données peuvent être triées et recherchées rapidement à l’aide d’une approche de type « Diviser pour régner », appelée recherche par arborescence binaire.
 
@@ -73,4 +73,4 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

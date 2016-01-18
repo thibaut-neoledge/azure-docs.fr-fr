@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 
@@ -60,4 +60,4 @@ La table suivante décrit les paramètres de stratégie de mot de passe disponib
 * [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
 * [En savoir plus](active-directory-passwords-learn-more.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

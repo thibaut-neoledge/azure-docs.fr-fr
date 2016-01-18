@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -264,4 +264,9 @@ Pendant la configuration de l’opération d’espace réservé, nous pouvons co
 ## Résumé
 Le service de gestion des API Azure offre des stratégies flexibles que vous pouvez appliquer de façon sélective au trafic HTTP et permet de composer des services principaux. Que vous vouliez améliorer votre passerelle API avec des fonctions d’alerte, des fonctionnalités de vérification et de validation ou créer des ressources composites reposant sur plusieurs services principaux, la stratégie `send-request` et les stratégies associées vous ouvrent un monde de possibilités.
 
-<!---HONumber=AcomDC_1210_2015-->
+## Regarder une vidéo de présentation de ces stratégies.
+Pour plus d'informations sur les stratégies [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) et [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordées dans cet article, regardez la vidéo suivante.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?
@@ -21,10 +21,12 @@
 
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple présentes dans le centre de données et dans le cloud comme avec une solution de stockage intégrée unique, ce qui simplifie les processus de sauvegarde et contribue à réduire les coûts.
 
-Cette vue d’ensemble présente le Gestionnaire d’instantanés StorSimple, décrit ses caractéristiques et explique son rôle dans Microsoft Azure StorSimple.
+Cette vue d'ensemble présente le Gestionnaire d'instantanés StorSimple, décrit ses caractéristiques et explique son rôle dans Microsoft Azure StorSimple.
 
 Pour avoir une vue d’ensemble de l’ensemble du système de Microsoft Azure StorSimple, et notamment de l’unité StorSimple, du service StorSimple Manager, du Gestionnaire d’instantanés StorSimple et de l’adaptateur StorSimple pour SharePoint, consultez [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md).
  
+>[AZURE.NOTE]Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
+
 ## Architecture et objectif du gestionnaire d’instantanés StorSimple
 
 Le gestionnaire d’instantanés StorSimple met à votre disposition une console de gestion centralisée que vous pouvez utiliser pour créer des copies de sauvegarde de données locales et cloud ponctuelles. Par exemple, vous pouvez utiliser la console pour :
@@ -150,4 +152,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 - [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

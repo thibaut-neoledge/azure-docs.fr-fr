@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -300,7 +300,7 @@ Utilisez cet appel pour suivre les temps de réponse et les taux de réussite de
             }
 ```
 
-N'oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C'est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
+N’oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C'est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
 
 Pour désactiver le module de suivi des dépendances standard, modifiez le fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -666,7 +666,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
  * Jusqu'à 500 points de données par seconde pour toutes les autres données, y compris la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code. (100 par seconde pour le niveau de tarification gratuit.)
 1. Volume total mensuel des données, selon votre [niveau de tarification](app-insights-pricing.md).
 1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l'envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les noms de mesure et de propriété sont globaux pour chaque clé d'instrumentation et ne s’étendent pas au type de données.
-2.	Les propriétés peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
+2.	Les propriétés peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche, mais elle ne peut plus être utilisée pour des filtres.
 3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
 
 *Comment puis-je éviter d'atteindre la limite de débit de données ?*
@@ -705,9 +705,9 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 
 
-* *Existe-t-il une API REST ?*
+* *Existe-t-il une API REST pour obtenir des données à partir du portail ?*
 
-    Oui, mais nous ne l’avons pas encore publiée.
+    Oui, elle sera bientôt disponible. En attendant, utilisez [l’exportation continue](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Étapes suivantes
 
@@ -736,4 +736,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

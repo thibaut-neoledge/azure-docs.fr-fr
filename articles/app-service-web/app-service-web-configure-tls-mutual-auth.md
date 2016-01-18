@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/17/2015" 
 	ms.author="naziml"/>
 
 # Configuration de l'authentification mutuelle TLS pour une application Web
@@ -179,4 +179,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

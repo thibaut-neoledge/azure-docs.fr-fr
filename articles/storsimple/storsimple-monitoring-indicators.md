@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil   
@@ -31,7 +31,7 @@ Le reste de cet article décrit les différents voyants LED d’analyse, leur em
 
 ## Voyants LED du panneau avant
 
-Le panneau avant, également appelé *panneau de commande*, indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l’appareil StorSimple et le boîtier EBOD, comme illustré ci-dessous.
+Le panneau avant, également appelé *panneau de commande*, indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l'appareil StorSimple principal et le boîtier EBOD, comme illustré ci-dessous.
 
    ![Panneau avant de l’appareil][1]
  
@@ -256,4 +256,4 @@ En savoir plus sur [les composants matériels StorSimple et leur état](storsimp
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

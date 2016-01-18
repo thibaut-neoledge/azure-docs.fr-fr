@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs
@@ -24,7 +24,7 @@ Ce guide fournit des exemples de code c# qui montrent comment déclencher un pro
 
 Pour obtenir des exemples de code vous indiquant comment créer des objets blob, consultez la rubrique [Utilisation du stockage de file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
-Ce guide part du principe que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
+Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md) ou [plusieurs comptes de stockage](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 ## <a id="trigger"></a> Déclenchement d’une fonction lors de la création ou de la mise à jour d’un objet blob
 
@@ -89,9 +89,15 @@ Vous pouvez utiliser l’attribut `BlobTrigger` sur les types de paramètre suiv
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * Autres types de désérialisation par [ICloudBlobStreamBinder](#icbsb) 
 
 Si vous souhaitez utiliser directement le compte Microsoft Azure Storage, vous pouvez ajouter un paramètre `CloudStorageAccount` à la signature de méthode.
+
+Pour obtenir des exemples, consultez le [code de liaison d'objets blob dans le référentiel azure-webjobs-sdk sur GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Obtention du contenu de l’objet blob de texte via la liaison à une chaîne
 
@@ -203,7 +209,7 @@ Le Kit de développement logiciel (SDK) Webjobs s’assure qu’aucune fonction 
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* Fonction appelée pour l’objet blob ("*{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*", par exemple : « WebJob1.Functions.CopyBlob »)
+* Fonction appelée pour l'objet blob ("*{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*", par exemple : « WebJob1.Functions.CopyBlob »)
 * Nom du conteneur
 * Type d’objet blob (« BlockBlob » ou « PageBlob »)
 * Nom de l’objet blob
@@ -232,4 +238,4 @@ Les sujets associés abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des objets blob Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

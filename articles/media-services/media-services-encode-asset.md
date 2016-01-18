@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
@@ -72,13 +72,17 @@ Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.mic
 
 Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Miniature
+###Génération de miniatures
 
-Pour plus d’informations sur la génération de miniatures, consultez [Génération des miniatures à l’aide de Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
+Pour plus d'informations, consultez [Génération de miniatures à l'aide de Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Superpositions audio et/ou vidéo
+###Découpage de vidéos (extrait)
 
-Fonctionnalité non prise en charge actuellement.
+Pour plus d'informations, consultez [Découpage de vidéos à l'aide de Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Création de superpositions
+
+Pour plus d'informations, consultez [Création de superpositions à l'aide de Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###Voir aussi
 
@@ -143,7 +147,7 @@ Media Encoder Premium Workflow se configure à l’aide de flux de travail compl
 Nom du processeur multimédia|Tarification applicable|Remarques
 ---|---|---
 **Media Encoder Standard** |ENCODEUR|Les tâches d’encodage seront facturées en fonction de la taille de la ressource de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODER.
-**Encodeur multimédia Azure** |ENCODEUR|Les tâches d’encodage seront facturées en fonction de la taille de la ressource de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODER.
+**Encodeur multimédia Azure** |ENCODEUR|Les tâches d’encodage seront facturées en fonction de la taille de l’élément multimédia de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR.
 **Media Encoder Premium Workflow** |ENCODEUR PREMIUM|Les tâches d’encodage seront facturées en fonction de la taille de la ressource de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne PREMIUM ENCODER.
 
 
@@ -265,4 +269,4 @@ Windows Media Audio|Non|Oui|Oui
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

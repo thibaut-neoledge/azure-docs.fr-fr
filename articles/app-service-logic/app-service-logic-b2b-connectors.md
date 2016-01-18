@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/04/2016" 
 	ms.author="mandia"/>
 
 # Connecteurs et applications API B2B dans Microsoft Azure App Service
@@ -206,4 +206,4 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 [Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,14 +1,14 @@
-### To verify your connection using the Azure portal
+### Vérification de votre connexion à l'aide du portail Azure
 
-You can verify a VPN connection in the Azure Portal by navigating to **Virtual network gateways** -> ***click your gateway name*** -> **Settings** -> **Connections**. By selecting the name of the connection, you can view more information in the **Connection** blade.  
+Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** -> ***cliquez sur votre nom de votre passerelle*** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le volet **Connexion**.
 
-### To verify your connection using PowerShell
+### Vérification de votre connexion à l'aide de PowerShell
 
-It is also possible to verify that your connection succeeded by using *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this. You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
+Vous pouvez également vérifier que votre connexion a abouti en exécutant la commande *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. À l'avenir, nous aurons une applet de commande pour cela. Vous pouvez utiliser l'exemple d'applet de commande suivant, en le configurant selon vos propres valeurs. Quand vous y êtes invité, sélectionnez *A* pour exécuter Tout.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+ Une fois l'applet de commande exécutée, faites défiler pour afficher les valeurs. Dans l’exemple ci-dessous, l’état de la connexion indique *Connecté* et vous pouvez voir les octets d’entrée et de sortie.
 
 	Body:
 	{
@@ -36,3 +36,5 @@ It is also possible to verify that your connection succeeded by using *Get-Azure
 	    "ingressBytesTransferred": 33509044,
 	    "egressBytesTransferred": 4142431
 	  }
+
+<!---HONumber=AcomDC_0107_2016-->

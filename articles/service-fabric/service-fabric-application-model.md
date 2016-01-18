@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"   
+   ms.date="12/30/2015"   
    ms.author="seanmck"/>
 
 # Modéliser une application dans Service Fabric
@@ -24,14 +24,16 @@ Cet article fournit une vue d’ensemble du modèle d’application Service Fabr
 
 Une application est une collection de services constitutifs qui exécutent une ou plusieurs fonctions. Un service exécute une fonction complète et autonome (il peut démarrer et s'exécuter indépendamment des autres services) et est composé de code, d’une configuration et de données. Pour chaque service, le code se compose de fichiers binaires exécutables, la configuration comprend des paramètres de service qui peuvent être chargés pendant l'exécution, tandis que les données comportent des données statiques arbitraires destinées à être consommées par le service. Chaque composant de ce modèle d'application hiérarchique peut faire l'objet d'une gestion de versions et d'une mise à niveau indépendantes.
 
-![][1]
+![Modèle d'application Service Fabric][appmodel-diagram]
 
 
 Un type d'application est une catégorisation d'une application constituée d'un ensemble de types de service. Un type de service est la catégorisation d’un service. La catégorisation peut avoir différents paramètres et différentes configurations, mais la fonctionnalité principale reste la même. Les instances d'un service représentent les variantes de configuration de service d'un même type de service.
 
-Les classes (ou « types ») d’applications et services sont décrites à l'aide de fichiers XML (manifestes d'application et manifestes de service) qui sont des modèles sur lesquels des applications peuvent être instanciées. Le code de différentes instances d'application s'exécute sous forme de processus distincts même si elles sont hébergées par le même nœud Service Fabric. En outre, le cycle de vie de chaque instance d'application peut être géré (c'est-à-dire, mis à niveau) indépendamment. Comme le montre le diagramme suivant, les types d'application sont composés de types de service, eux-mêmes constitués de code, de configuration et de packages.
+Les classes (ou « types ») d'applications et services sont décrites à l'aide de fichiers XML (manifestes d'application et manifestes de service) qui sont des modèles sur lesquels des applications peuvent être instanciées à partir du magasin d'images du cluster.
 
-![Types d’application service Fabric et types de service][Image1]
+Le code de différentes instances d'application s'exécute sous forme de processus distincts même si elles sont hébergées par le même nœud Service Fabric. En outre, le cycle de vie de chaque instance d'application peut être géré (c'est-à-dire, mis à niveau) indépendamment. Comme le montre le diagramme suivant, les types d'application sont composés de types de service, eux-mêmes constitués de code, de configuration et de packages. Pour simplifier le diagramme, seuls les packages code/configuration/données pour `ServiceType4` sont affichés, même si chaque type de service inclut certains ou tous ces types de packages.
+
+![Types d’application service Fabric et types de service][cluster-imagestore-apptypes]
 
 Deux fichiers manifestes différents sont utilisés pour décrire des applications et des services : le manifeste de service et le manifeste d'application. Ils sont traités en détail dans les sections suivantes.
 
@@ -39,8 +41,10 @@ Une ou plusieurs instances d'un type de service peuvent être actives dans le cl
 
 Le diagramme suivant montre la relation entre les applications et les instances de service, les partitions et les réplicas.
 
-![Partitions et réplicas au sein d'un service][Image2]
+![Partitions et réplicas au sein d'un service][cluster-application-instances]
 
+
+>[AZURE.TIP]Vous pouvez afficher la disposition des applications dans un cluster à l'aide de l'outil Service Fabric Explorer disponible à l'adresse http://&lt;yourclusteraddress&gt;:19080/Explorer. Pour plus de détails, consultez [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Décrire un service
 
@@ -78,7 +82,7 @@ Les attributs **Version** sont des chaînes non structurées et ne sont pas anal
 
 **DataPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient des données statiques arbitraires destinées à être consommées par le processus pendant l'exécution.
 
-**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml*:
+**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -104,7 +108,9 @@ For more information about other features supported by service manifests, refer 
 ## Décrire une application
 
 
-Le manifeste d’application décrit le type et la version de manière déclarative. Il spécifie les métadonnées de composition de service telles que les noms stables, le schéma de partitionnement, le nombre d'instances/facteur de réplication, la stratégie de sécurité/d'isolation, les contraintes de placement, les remplacements de configuration et les types de service constitutifs. Les domaines d'équilibrage de charge dans lesquels l'application est placée sont également décrits. Ainsi, un manifeste d'application décrit les éléments au niveau de l'application et fait référence à un ou plusieurs des manifestes de service pour composer un type d'application. Voici un exemple simple de manifeste d'application :
+Le manifeste d’application décrit le type et la version de manière déclarative. Il spécifie les métadonnées de composition de service telles que les noms stables, le schéma de partitionnement, le nombre d'instances/facteur de réplication, la stratégie de sécurité/d'isolation, les contraintes de placement, les remplacements de configuration et les types de service constitutifs. Les domaines d'équilibrage de charge dans lesquels l'application est placée sont également décrits.
+
+Ainsi, un manifeste d'application décrit les éléments au niveau de l'application et fait référence à un ou plusieurs des manifestes de service pour composer un type d'application. Voici un exemple simple de manifeste d'application :
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -172,7 +178,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MyCodeA** et **MyCodeB**, deux dossiers de même nom contiennent les fichiers binaires nécessaires pour chaque package de code.
 
-### Utilisation de SetupEntryPoint
+### Utilisation de SetupEntrypoint
 
 **SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple :
 
@@ -186,7 +192,7 @@ Si vous utilisez Visual Studio 2015 pour créer votre application, vous pouvez 
 
 Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Explorateur de solutions et choisissez la commande Package, comme indiqué ci-dessous :
 
-![][2]
+![Empaquetage d'une application avec Visual Studio][vs-package-command]
 
 Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie**. Notez que l'étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
 
@@ -238,14 +244,14 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 [RunAs : exécution d'une application Service Fabric avec des autorisations de sécurité différentes][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
+[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
+[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

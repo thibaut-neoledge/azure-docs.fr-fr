@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Azure"
-	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et décrit les différents types de stratégies HADR pour SQL Server s’exécutant sur des machines virtuelles Azure."
+	description="Une analyse des différents types de stratégies HADR pour SQL Server s’exécutant dans des machines virtuelles Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/07/2015"
 	ms.author="jroth" />
 
 # Haute disponibilité et récupération d'urgence pour SQL Server sur des machines virtuelles Azure
@@ -39,6 +39,7 @@ Les technologies HADR SQL Server prises en charge dans Azure incluent :
 - [Mise en miroir de bases de données](https://technet.microsoft.com/library/ms189852.aspx)
 - [Copie des journaux de transaction](https://technet.microsoft.com/library/ms187103.aspx)
 - [Sauvegarde et restauration avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+- [Instances de cluster de basculement AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
 
 Il est possible de combiner les technologies pour implémenter une solution SQL Server qui a des fonctions de haute disponibilité et de récupération d’urgence. Selon la technologie que vous utilisez, un déploiement hybride peut nécessiter un tunnel VPN avec le réseau virtuel Azure. Les sections ci-dessous illustrent certains exemples d’architectures de déploiement.
 
@@ -48,8 +49,9 @@ Disposez d’une solution haute disponibilité pour vos bases de données SQL Se
 
 |Technology|Exemples d’architecture|
 |---|---|
-|**Groupes de disponibilité AlwaysOn**|Tous les réplicas de disponibilité exécutés dans les machines virtuelles Azure pour la haute disponibilité dans la même région. Vous devez configurer un contrôleur de domaine en plus des machines virtuelles SQL Server, car le clustering de basculement Windows Server (WSFC) nécessite un domaine Active Directory.<br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Pour plus d’informations, voir [Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Groupes de disponibilité AlwaysOn**|Tous les réplicas de disponibilité exécutés dans les machines virtuelles Azure pour la haute disponibilité dans la même région. Vous devez configurer une machine virtuelle de contrôleur de domaine, car le clustering de basculement Windows Server (WSFC) nécessite un domaine Active Directory.<br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Pour plus d’informations, consultez [Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Mise en miroir de bases de données**|Serveurs principal, miroir et témoin s’exécutant tous dans le même centre de données Azure pour la haute disponibilité. Déployez avec un contrôleur de domaine.<br/>![Mise en miroir de bases de données](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>Vous pouvez également déployer la même configuration de mise en miroir de bases de données sans contrôleur de domaine en utilisant des certificats de serveur à la place.<br/>![Mise en miroir de bases de données](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**Instances de cluster de basculement AlwaysOn**|Les instances de cluster de basculement (FCI) qui nécessitent un stockage partagé peuvent être créées de 2 manières différentes.<br/><br/>1. Une instance de cluster de basculement sur un WSFC à deux nœuds exécutée dans des machines virtuelles Azure, avec le stockage pris en charge par une solution de clustering tierce. Pour un exemple spécifique utilisant SIOS DataKeeper, consultez [Haute disponibilité pour un partage de fichiers à l’aide de WSFC et du logiciel tiers SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Une instance de cluster de basculement sur un WSFC à deux nœuds exécutée dans des machines virtuelles Azure, avec le stockage de bloc partagé cible iSCSI distant via ExpressRoute. Par exemple, NPS (NetApp Private Storage) expose une cible iSCSI via ExpressRoute avec Equinix dans les machines virtuelles Azure.<br/><br/>Pour les solutions tierces de stockage partagé et de réplication de données, vous devez contacter le fournisseur pour tous les problèmes liés à l’accès aux données lors du basculement.<br/><br/>Notez que l’utilisation des FCI dans le [stockage de fichiers Azure](https://azure.microsoft.com/services/storage/files/) n’est pas encore prise en charge, car cette solution n’utilise pas Premium Storage. Nous travaillons actuellement à mettre en place cette prise en charge.|
 
 ## Azure uniquement : solutions de récupération d’urgence
 
@@ -141,7 +143,7 @@ La géo-réplication dans les disques Azure ne prend pas en charge le fichier de
 
 ## Étapes suivantes
 
-Si vous devez créer une machine virtuelle Azure avec SQL Server, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
+Si vous devez créer une machine virtuelle Azure avec SQL Server, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
 
 Pour obtenir des performances optimales de SQL Server dans Azure, voir les indications de [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
 
@@ -152,4 +154,4 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 - [Installation d’une nouvelle forêt Active Directory dans Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Création du cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure ](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

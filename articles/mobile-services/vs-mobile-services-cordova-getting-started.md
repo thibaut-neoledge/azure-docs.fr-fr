@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’un projet de services mobiles Cordova (services connectés Visual Studio)"
+	pageTitle="Prise en main d'un projet de services mobiles Cordova (services connectés Visual Studio) | Microsoft Azure"
 	description="Décrit les premières étapes que vous pouvez suivre une fois votre projet Cordova connecté à Azure Mobile Services à l'aide de services connectés de Visual Studio."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Prise en main de Mobile Services (Projets Cordova)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##Premières étapes
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
@@ -33,8 +26,6 @@ La première étape à effectuer pour suivre le code figurant dans ces exemples 
 - Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem. Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez « TodoItem » comme nom de table.
 
 - Si vous disposez d’un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
-
-
 
 ##Créer une référence à une table
 
@@ -99,4 +90,4 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

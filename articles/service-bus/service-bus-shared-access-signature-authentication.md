@@ -25,7 +25,7 @@ La prise en charge de l’authentification SAP est incluse dans le kit de dével
 
 L’authentification SAP dans Service Bus implique la configuration d’une clé de chiffrement avec les droits associés sur une ressource Service Bus. Les clients demandent l’accès aux ressources de Service Bus à l’aide d’un jeton SAS. Ce jeton se compose de l’URL de ressource à laquelle on accède et de l’expiration signée avec la clé configurée.
 
-Vous pouvez configurer des règles d’autorisation de Signature d’accès partagé sur les [relais](service-bus-fundamentals-hybrid-solutions.md/#relays), les [files d’attente](service-bus-fundamentals-hybrid-solutions.md/#queues), les [rubriques](service-bus-fundamentals-hybrid-solutions.md/#topics), et les [concentrateurs d’événements](https://azure.microsoft.com/documentation/services/event-hubs/) Service Bus.
+Vous pouvez configurer des règles d’autorisation de Signature d’accès partagé sur les [relais](service-bus-fundamentals-hybrid-solutions.md#relays), les [files d’attente](service-bus-fundamentals-hybrid-solutions.md#queues), les [rubriques](service-bus-fundamentals-hybrid-solutions.md#topics), et les [concentrateurs d’événements](https://azure.microsoft.com/documentation/services/event-hubs/) Service Bus.
 
 L’authentification SAP utilise les éléments suivants :
 
@@ -258,4 +258,4 @@ Pour plus de contexte au sujet de l’authentification Service Bus, consultez [A
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

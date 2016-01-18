@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/17/2015" 
 	ms.author="stefsch"/>
 
 # Présentation de l'architecture réseau des environnements App Service
@@ -44,7 +44,7 @@ Si le point de terminaison appelé est **en dehors** de la topologie de réseau 
  
 ![Adresse IP sortante][OutboundIPAddress]
 
-Il est également possible de déterminer cette adresse en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse VIP publique et l'adresse NAT sortante de l'environnement App Service.
+Il est également possible de déterminer cette adresse en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse IP virtuelle publique et l'adresse NAT sortante de l'environnement App Service.
 
 Si le point de terminaison appelé est **dans** la topologie de réseau virtuel, l'adresse sortante de l'application appelante sera l'adresse IP interne de la ressource de calcul individuelle exécutant l'application. Toutefois, il n'existe pas de mappage persistant des adresses IP internes du réseau virtuel aux applications. Les applications peuvent se déplacer entre différentes ressources de calcul et le pool de ressources de calcul disponibles dans un environnement App Service peut changer en raison d'opérations de mise à l'échelle.
 
@@ -87,4 +87,4 @@ Cet [article][ExpressRoute] contient des informations sur l’utilisation d’it
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

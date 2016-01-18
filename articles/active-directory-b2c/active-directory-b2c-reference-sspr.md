@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : configuration de la réinitialisation du mot de passe libre-service pour vos consommateurs
@@ -22,7 +22,7 @@
 
 Cette fonctionnalité permet à vos consommateurs (qui ont souscrit des comptes locaux) de réinitialiser eux-mêmes leurs mots de passe. Cela réduit considérablement la charge pesant sur votre personnel de support, surtout si votre application est utilisée régulièrement par des millions de consommateurs. Actuellement, nous prenons uniquement en charge l’utilisation d’une adresse électronique vérifiée comme méthode de récupération. Nous allons ajouter des méthodes de récupération supplémentaires (numéro de téléphone vérifié, questions de sécurité, etc.) à l’avenir. Par défaut, la réinitialisation de mot de passe libre-service ne sera pas activée pour votre annuaire. Pour l’activer, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour créer votre annuaire.
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour créer votre annuaire.
 2. Accédez à l’extension Active Directory dans la barre de navigation sur le côté gauche.
 3. Recherchez votre annuaire sous l’onglet **Annuaire**, puis cliquez dessus.
 4. Cliquez sur l’onglet **Configurer**.
@@ -36,4 +36,4 @@ Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stra
 
 > [AZURE.NOTE]Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](active-directory-add-company-branding.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

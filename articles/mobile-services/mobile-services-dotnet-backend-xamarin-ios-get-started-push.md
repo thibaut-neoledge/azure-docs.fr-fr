@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="12/24/2015"
 	ms.author="lindydonna"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -27,4 +27,4 @@
 
 [AZURE.INCLUDE [mobile-services-content-not-ready](../../includes/mobile-services-content-not-ready.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

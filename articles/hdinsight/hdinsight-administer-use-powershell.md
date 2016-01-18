@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
@@ -41,9 +41,9 @@ Pour connaître la version de PowerShell installée :
 	
 Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalités dans le Panneau de configuration.
 
-Il existe deux options principales pour l’installation d’Azure PowerShell.
+Il existe deux options principales pour l’installation d’Azure PowerShell.
 
-- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
+- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
 
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
@@ -60,7 +60,7 @@ Il existe deux options principales pour l’installation d’Azure PowerShell.
 
 	Pour plus d’informations, consultez [PowerShell Gallery](https://www.powershellgallery.com/).
 
-- [Programme d’installation de la plateforme web Microsoft (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez la rubrique [Installation d’Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez [Installer Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Si vous êtes familiarisé avec l’installation à partir de PowerShell Gallery, il s’agit du premier canal pour bénéficier des dernières nouveautés d’Azure PowerShell.
 
@@ -164,7 +164,7 @@ Utilisez les commandes suivantes pour supprimer un cluster :
 ##Mise à l’échelle des clusters
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
 
->[AZURE.NOTE]Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés. Consultez [Se familiariser avec l’interface du portail de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés. Voir [Se familiariser avec l’interface du portail de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
@@ -232,7 +232,7 @@ Pour octroyer :
 
 	# Credential option 1
 	$hadoopUserName = "admin"
-	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPassword = "<Enter the Password>"
 	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
 	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
@@ -332,4 +332,4 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

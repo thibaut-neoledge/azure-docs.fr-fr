@@ -39,7 +39,7 @@ Outre les conditions préalables répertoriées dans la rubrique Vue d’ensembl
 Si vous utilisez une **version < 1.0** d’Azure PowerShell, vous devez utiliser les applets de commande documentées [ici][old-cmdlet-reference]. Vous devez également exécuter les commandes suivantes avant d’utiliser les applets de commande Data Factory :
 
 1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
-	1. Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
+	1. Exécutez **Add-AzureAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.
 	2. Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	3. Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 4. Passez en mode AzureResourceManager, car les applets de commande Azure Data Factory sont disponibles uniquement dans ce mode : **Switch-AzureMode AzureResourceManager**.
@@ -59,10 +59,10 @@ Le tableau suivant répertorie les étapes que vous allez exécuter dans le cadr
 ## <a name="CreateDataFactory"></a>Étape 1 : créer une fabrique de données Azure
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée **ADFTutorialDataFactoryPSH**.
 
-1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
+1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
 	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
-	- Exécutez **Select-AzureSubscription <Name of the subscription>** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
+	- Exécutez **Select-AzureSubscription<Name of the subscription>** pour sélectionner l’abonnement que vous voulez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 3. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante.
    
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -72,7 +72,7 @@ Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de do
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
-	Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « ADFTutorialDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple, votrenomADFTutorialDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « ADFTutorialDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple, votrenomADFTutorialDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
 	> [AZURE.NOTE]Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
@@ -431,7 +431,6 @@ Consultez la [Référence des applets de commande Data Factory][cmdlet-reference
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -440,7 +439,7 @@ Consultez la [Référence des applets de commande Data Factory][cmdlet-reference
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

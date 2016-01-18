@@ -8,7 +8,7 @@
 
 3. Dans la boîte de dialogue **Modifier le conteneur de volumes**, procédez comme suit :
 
-    1. Modifiez le nom du conteneur de volumes, modifiez la bande passante associée et indiquez si les données résidant dans le cloud doivent être chiffrées.
+    1. Modifiez le nom du conteneur de volumes, ainsi que le paramètre de bande passante associé. 
 
         ![Modifier le conteneur de volumes avec le modèle de bande passante 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
@@ -26,4 +26,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Approvisionner des clusters HDInsight Hadoop avec Azure Data Lake Store à l'aide du portail | Azure" 
-   description="Utiliser le portail Azure pour configurer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake Store" 
+   pageTitle="Créer des clusters HDInsight Hadoop avec Azure Data Lake Store à l'aide du portail | Azure" 
+   description="Utiliser le portail Azure pour créer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Approvisionner un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
+# Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Apprenez à utiliser le portail Azure pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) afin qu'il fonctionne avec un Azure Data Lake Store. Points importants à prendre en compte pour cette version :
+Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
 
 * **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
 
@@ -92,7 +92,7 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 	Effectuez les tâches suivantes sous votre compte Data Lake Store.
 
 	* [Créer un dossier dans votre Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	Vous utiliserez ultérieurement les fichiers téléchargés, lorsque vous testerez le compte Data Lake Store avec le cluster HDInsight.
 
@@ -104,7 +104,7 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 
 	![Définir des ACL sur le système de fichiers Data Lake](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "Définir des ACL sur le système de fichiers Data Lake")
 
-5. Le panneau **Accès** répertorie les accès standard et personnalisés déjà affectés à la racine. Cliquez sur l'icône **Ajouter** pour ajouter des listes de contrôle d'accès personnalisées et inclure le principal du service que vous avez créé précédemment.
+5. Le panneau **Accès** répertorie les accès standard et personnalisés déjà affectés à la racine. Cliquez sur l'icône **Ajouter** pour ajouter des ACL de niveau personnalisé et inclure le principal du service que vous avez créé précédemment.
 
 	![Lister les accès standard et personnalisés](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.2.png "Lister les accès standard et personnalisés")
 
@@ -144,7 +144,7 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 	Dans cette requête Hive, nous créons une table à partir des données stockées dans Data Lake Store à l'adresse `adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder`. Cet emplacement contient un fichier d'exemples de données que vous devez avoir téléchargé au préalable.
 
-	La table **Session de tâche** en bas indique l'état de la tâche, qui passe d'**Initialisation** à **En cours d'exécution**, puis à **Terminée**. Vous pouvez également cliquer sur **Afficher les détails** pour plus d'informations sur la tâche terminée.
+	La table **Session de la tâche** en bas indique l'état de la tâche, qui passe d'**Initialisation** à **En cours d'exécution**, puis à **Terminée**. Vous pouvez également cliquer sur **Afficher les détails** pour plus d'informations sur la tâche terminée.
 
 	![Créer une table](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster3.png "Créer une table")
 
@@ -207,4 +207,4 @@ Pour obtenir des instructions sur l'ajout d'un principal du service à un systè
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

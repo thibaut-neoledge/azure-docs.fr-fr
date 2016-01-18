@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -124,7 +124,7 @@ Enregistrez l'Index d'étape de l’étape la plus longue.
 Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
 - Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 
 
@@ -203,4 +203,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="10/08/2015"
  ms.author="danlep"/>
 
-# Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack
+# Options pour créer et gérer un cluster HPC (calcul haute performance) dans Azure avec Microsoft HPC Pack
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -99,4 +99,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

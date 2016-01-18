@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Prise en main d’une application mobile Javascript après l’ajout d’Azure Mobile Services à l’aide des services connectés Visual Studio
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
@@ -80,7 +76,7 @@ Mettez une ligne à jour dans une table de données. Dans cet exemple, c'est l'�
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Supprimer une entité
+##Supprimer une entité
 
 Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur l'objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l'objet inséré et gérer les éventuelles erreurs.
 
@@ -92,4 +88,4 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

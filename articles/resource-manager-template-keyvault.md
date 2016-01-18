@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modèle Resource Manager pour le coffre de clés | Microsoft Azure"
-   description="Montre le schéma de Resource Manager pour les coffres de clés."
+   description="Affiche le schéma Resource Manager pour le déploiement de coffres de clés par le biais d'un modèle."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Schéma d’un modèle de coffre de clés
@@ -234,10 +234,16 @@ L'exemple suivant déploie un coffre de clés et la clé secrète.
         }]
     }
 
+## Modèles de démarrage rapide
+
+Le modèle de démarrage rapide suivant déploie un coffre de clés.
+
+- [Création d'un coffre de clés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+
 
 ## Étapes suivantes
 
 - Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

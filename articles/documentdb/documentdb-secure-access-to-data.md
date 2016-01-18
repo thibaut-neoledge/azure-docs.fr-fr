@@ -18,7 +18,7 @@
 
 # Sécurisation de l'accès aux données DocumentDB #
 
-Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure DocumentDB](../../services/documentdb/).
+Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Après avoir lu cette présentation, vous serez en mesure de répondre aux questions suivantes :
 
@@ -163,4 +163,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

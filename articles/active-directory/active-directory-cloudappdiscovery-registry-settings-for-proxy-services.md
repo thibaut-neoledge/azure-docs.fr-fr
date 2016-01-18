@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/05/2016" 
 	ms.author="markusvi"/>
 
 # Paramètres de Registre de Cloud App Discovery pour les services de proxy
@@ -47,4 +47,4 @@ L’objectif de cette rubrique est de présenter les étapes que vous devez effe
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

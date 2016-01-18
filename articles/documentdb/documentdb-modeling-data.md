@@ -383,7 +383,7 @@ Comprendre que la modélisation des données dans un monde sans schéma reste au
 
 De même qu'il existe plusieurs façons de représenter un élément de données sur un écran, il existe plusieurs manières de modéliser vos données. Vous devez comprendre votre application et comment elle produira, utilisera et traitera les données. Ensuite, en appliquant certaines des instructions présentées ici, vous pouvez entreprendre de créer un modèle qui répond aux besoins immédiats de votre application. Lorsque vos applications doivent changer, vous pouvez exploiter la flexibilité d'une base de données sans schéma pour adopter ce changement et développer facilement votre modèle de données.
 
-Pour en savoir plus sur Azure DocumentDB, consultez la page de [documentation](../../services/documentdb/) du service.
+Pour en savoir plus sur Azure DocumentDB, consultez la page de [documentation](https://azure.microsoft.com/documentation/services/documentdb/) du service.
 
 Pour plus d’informations sur le paramétrage des index dans Azure DocumentDB, consultez l’article portant sur les [stratégies d’indexation](documentdb-indexing-policies.md).
 
@@ -392,4 +392,4 @@ Pour comprendre la répartition de vos données entre plusieurs partitions, cons
 Et enfin, pour obtenir des conseils sur la modélisation et le partitionnement des données pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (script Windows PowerShell)
@@ -116,7 +116,7 @@ Si true, imprime des messages à partir du script dans le flux de sortie.
 
 ## Remarques
 
-Pour obtenir une explication complète de la façon d’utiliser le script pour créer des environnements de développement et de test, consultez [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](vs-azure-tools-publishing-using-powershell-scripts.md).
+Pour obtenir une explication complète de la façon d'utiliser le script pour créer des environnements de développement et de test, consultez [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 Le fichier de configuration JSON spécifie les détails de ce qui doit être déployé. Il inclut les informations que vous avez spécifiées lorsque vous avez créé le projet, comme le nom, le groupe d’affinités, l’image VHD et la taille de la machine virtuelle. Il inclut également les points de terminaison sur la machine virtuelle, les bases de données à configurer, le cas échéant, et les paramètres de déploiement web. Le code suivant montre un exemple de fichier de configuration JSON :
 
@@ -189,4 +189,4 @@ Le fichier de configuration JSON spécifie les détails de ce qui doit être dé
 
 Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est configuré. Une machine virtuelle et un service cloud sont requis, mais la section de la base de données est facultative.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

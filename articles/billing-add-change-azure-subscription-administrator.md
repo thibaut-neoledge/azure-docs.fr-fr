@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="01/05/2015"
 	ms.author="genli"/>
 
 # Ajout ou modification de rôles d’administrateur Azure
@@ -42,13 +42,13 @@ L’adresse de messagerie suivante peut être ajoutée en tant que coadministrat
 
 **Remarque :**
 
- * Chaque abonnement est associé à un annuaire Azure Active Directory (appelé « annuaire par défaut »). Pour rechercher l’annuaire par défaut auquel l’abonnement est associé, accédez à [Portail Azure Classic](https://manage.windowsazure.com/), sélectionnez **Paramètres** > **Abonnements** et vérifiez l’ID d’abonnement.
+ * Chaque abonnement est associé à un annuaire Azure Active Directory (appelé « annuaire par défaut »). Pour identifier l’annuaire par défaut associé à l'abonnement, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/), sélectionnez **Paramètres** > **Abonnements**. Vérifiez l'ID d'abonnement pour trouver l’annuaire par défaut.
 
  * Si vous vous êtes connecté avec un compte Microsoft, vous ne pouvez ajouter d’autres comptes ou utilisateurs Microsoft dans l’annuaire par défaut qu’en tant que coadministrateur.
  * Si vous vous êtes connecté avec un compte professionnel, vous pouvez ajouter d’autres comptes professionnels de votre organisation en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com, sauf si john@noncontoso.com est l’utilisateur de l’annuaire par défaut. Les utilisateurs connectés avec des comptes professionnels peuvent continuer à ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services fédérés ou coadministrateur.
  * Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services fédérés et Coadministrateur :
 
-| Méthode de connexion| Ajouter un compte ou des utilisateurs Microsoft dans l’annuaire par défaut en tant que coadministrateur ou administrateur de services fédérés ? |Ajouter un compte de société de la même société en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société d’une autre société en tant que coadministrateur ou administrateur de services ?
+| Méthode de connexion| Ajouter un compte ou des utilisateurs Microsoft dans l’annuaire par défaut en tant que coadministrateur ou administrateur de services fédérés ? |Ajouter un compte de société dans la même organisation que le coadministrateur ou administrateur de services fédérés ? |Ajouter un compte de société dans une autre organisation que le coadministrateur ou administrateur de services fédérés ?
 | ------------- | ------------- |---------------|---------------|
 |Compte Microsoft |Oui|Non|Non|
 |Compte de société|Oui|Oui|Non|
@@ -66,4 +66,4 @@ Seul l’administrateur de compte peut modifier l’administrateur de services p
 
 Pour transférer la propriété du compte Azure vers un autre, consultez [Transfert d’un abonnement Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

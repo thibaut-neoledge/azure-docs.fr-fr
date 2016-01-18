@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="12/31/2015"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les conteneurs de volumes StorSimple
@@ -25,7 +25,7 @@ Un conteneur de volumes créé dans un appareil Microsoft Azure StorSimple co
 
 Un conteneur de volumes présente les attributs suivants :
 
-- **Volumes** : les volumes StorSimple alloués dynamiquement et hébergés dans le conteneur de volumes. Un conteneur de volumes peut contenir jusqu’à 256 volumes StorSimple alloués dynamiquement.
+- **Volumes** : les volumes StorSimple à plusieurs niveaux ou épinglés en local et hébergés dans le conteneur de volumes. Un conteneur de volumes peut contenir jusqu’à 256 volumes StorSimple.
 
 - **Chiffrement** : clé de chiffrement pouvant être définie pour chaque conteneur de volumes. Cette clé est utilisée pour chiffrer les données envoyées depuis votre appareil StorSimple sur le cloud. Une clé AES 256 bits de niveau militaire est utilisée avec la clé saisie par l’utilisateur. Pour sécuriser vos données, nous vous recommandons de toujours activer le chiffrement du stockage cloud.
 
@@ -66,4 +66,4 @@ Un conteneur de volumes comporte plusieurs volumes. Il peut être supprimé uniq
 - En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md). 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

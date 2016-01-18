@@ -51,17 +51,17 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 1. À l’aide d’un éditeur, enregistrez le code suivant sous **mapreducejob.ps1**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
 
-		#Specify the values
-		$clusterName = "CLUSTERNAME"
-        		
-		# Login to your Azure subscription
-		# Is there an active Azure subscription?
-		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-		if(-not($sub))
-		{
-		    Login-AzureRmAccount
-		}
-        
+        #Specify the values
+        $clusterName = "CLUSTERNAME"
+                
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Login-AzureRmAccount
+        }
+
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -79,28 +79,28 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
             
-		#Define the MapReduce job
-		#NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
-		# -JarFile = the JAR containing the MapReduce application
-		# -ClassName = the class of the application
-		# -Arguments = The input file, and the output directory
-		$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        #Define the MapReduce job
+        #NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
+        # -JarFile = the JAR containing the MapReduce application
+        # -ClassName = the class of the application
+        # -Arguments = The input file, and the output directory
+        $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
             -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
             -ClassName "wordcount" `
             -Arguments `
                 "wasb:///example/data/gutenberg/davinci.txt", `
                 "wasb:///example/data/WordCountOutput"
 
-		#Submit the job to the cluster
-		Write-Host "Start the MapReduce job..." -ForegroundColor Green
-		$wordCountJob = Start-AzureRmHDInsightJob `
+        #Submit the job to the cluster
+        Write-Host "Start the MapReduce job..." -ForegroundColor Green
+        $wordCountJob = Start-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $wordCountJobDefinition `
             -HttpCredential $creds
 
-		#Wait for the job to complete
-		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob `
+        #Wait for the job to complete
+        Write-Host "Wait for the job to complete..." -ForegroundColor Green
+        Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $wordCountJob.JobId `
             -HttpCredential $creds
@@ -110,8 +110,8 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
             -Container $container `
             -Destination output.txt `
             -Context $context
-		# Print the output
-		Get-AzureRmHDInsightJobOutput `
+        # Print the output
+        Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $wordCountJob.JobId `
             -DefaultContainer $container `
@@ -161,7 +161,7 @@ Si aucune information n'est retournée lorsque la tâche est terminée, il se pe
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            -HttpCredential $creds `
             -DisplayOutputType StandardError
 
 Cela renvoie les informations écrites dans STDERR sur le serveur lors de l’exécution de la tâche et peut vous aider à déterminer pourquoi la tâche échoue.
@@ -182,4 +182,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

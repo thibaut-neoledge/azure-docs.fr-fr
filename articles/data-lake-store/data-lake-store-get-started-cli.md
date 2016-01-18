@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec l'interface de ligne de commande Azure
@@ -91,7 +91,7 @@ Par exemple :
 
 Vous pouvez charger vos données dans Data Lake Store directement à la racine ou dans un dossier que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment charger des exemples de données dans le dossier (**mynewfolder**) que vous avez créé dans la section précédente.
 
-Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
+Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -193,4 +193,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

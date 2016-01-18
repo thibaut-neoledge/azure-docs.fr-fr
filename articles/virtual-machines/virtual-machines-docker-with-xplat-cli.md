@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
@@ -24,14 +24,9 @@
 
 Cette rubrique décrit la création d’une machine virtuelle avec l’extension Docker VM, en mode Azure Service Management (ASM) à partir de l’interface de ligne de commande Azure sur toute plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur l'[agent Linux Azure](virtual-machines-linux-agent-user-guide.md) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-+ [Utilisation de l’extension Docker VM avec Azure]
-+ [Extensions de machine virtuelle pour Linux et Windows]
-+ [Conteneurs et ressources de gestion de conteneurs pour Azure]
-+ [Étapes suivantes]
 
 ##Utilisation de l'extension Docker VM avec Azure
 Pour utiliser l’extension Docker VM avec Azure, vous devez installer une version de l’[interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat) supérieure à 0.8.6 (lors de la rédaction de ce document, la version la plus récente était 0.8.10). Vous pouvez installer cette interface sur Mac, Linux et Windows.
-
 
 
 Le processus d’utilisation de Docker sur Azure est relativement simple :
@@ -160,16 +155,12 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
-[Étapes suivantes]: #next-steps
+[Next steps]: #next-steps
 
-[Utilisation de l’extension Docker VM avec Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Extensions de machine virtuelle pour Linux et Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Conteneurs et ressources de gestion de conteneurs pour Azure]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
@@ -181,4 +172,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

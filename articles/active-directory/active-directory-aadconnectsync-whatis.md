@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -37,7 +37,7 @@ Que voulez-vous faire ensuite ? :
 - Si vous voulez changer la configuration par défaut, consultez [Meilleures pratiques pour la modification de la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 - Pour plus d’informations sur la façon de faire fonctionner le serveur de synchronisation, consultez [Tâches opérationnelles et considérations](active-directory-aadconnectsync-operations.md).
 - Si vous voulez examiner les attributs synchronisés avec Azure AD, consultez [Attributs synchronisés avec Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
-- Si vous souhaitez en savoir plus sur l’approvisionnement déclaratif, consultez la section [Comprendre les expressions relatives à l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Si vous souhaitez en savoir plus sur la configuration déclarative, consultez la section [Comprendre les expressions d’approvisionnement déclaratives](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 - Pour explorer les fonctions liées à l’approvisionnement déclaratif, consultez la section [Référence sur les fonctions](active-directory-aadconnectsync-functions-reference.md)
 
 
@@ -45,4 +45,4 @@ Que voulez-vous faire ensuite ? :
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

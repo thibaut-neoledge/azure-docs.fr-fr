@@ -21,6 +21,7 @@
 Voici les notes de publication détaillées et les instructions de mise à jour de nos Kits de développement logiciel (SDK) :
 
 * [.NET](app-insights-release-notes-dotnet.md)
+* [Adaptateurs de journalisation .NET](app-insights-release-notes-dotnet-logging.md)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -32,4 +33,4 @@ Voici les notes de publication détaillées et les instructions de mise à jour 
 
 Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updates/?service=application-insights) qui résument les améliorations principales qui ont été apportées au service Application Insights.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

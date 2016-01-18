@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="09/23/2015"
+    ms.date="01/05/2016"
     ms.author="tamram"/>
 
 # Utilisation du stockage de table à partir de C++
@@ -206,7 +206,7 @@ Pour exécuter une requête de table pour toutes les entités d’une partition,
 La requête de cet exemple affiche toutes les entités qui correspondent aux critères de filtre. Si vous avez des tables volumineuses et que vous devez télécharger les entités de table souvent, nous vous recommandons de plutôt stocker vos données dans des objets blob de stockage Azure.
 
 ## Extraction d’un ensemble d’entités dans une partition
-Si vous ne voulez pas exécuter une requête pour toutes les entités d’une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
+Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -240,7 +240,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d’une pa
 			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 	}  
 
-## Extraction d’une seule entité
+## Extraction d'une seule entité
 Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **table\_operation::retrieve\_entity** pour spécifier le client « Jeff Smith ». Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -414,4 +414,4 @@ Les bases du stockage des tables étant assimilées, voir les liens suivants pou
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

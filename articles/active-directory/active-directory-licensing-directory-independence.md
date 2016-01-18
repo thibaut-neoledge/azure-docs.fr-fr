@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Ajouter et gérer plusieurs annuaires Azure Active Directory
@@ -40,4 +40,4 @@ Pour ajouter un annuaire Azure AD dans le portail Azure Classic, sélectionnez 
 
 Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

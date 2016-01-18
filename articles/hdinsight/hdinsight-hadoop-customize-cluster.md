@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/30/2015"
 	ms.author="nitinme"/>
 
-# Personnalisation des clusters HDInsight à l'aide d'une action de script (Windows)
+# Personnalisation de clusters HDInsight basés sur Windows à l'aide d'une action de script
 
-[AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Une **action de script** peut être utilisée pour appeler des [scripts personnalisés](hdinsight-hadoop-script-actions.md) pendant le processus de création de cluster pour l’installation de logiciels supplémentaires sur un cluster.
 
@@ -35,7 +35,7 @@ L’action de script est utilisée uniquement pendant la création d’un cluste
 
 Quand le script est en cours d’exécution, le cluster entre dans la phase **ClusterCustomization**. À ce stade, le script est exécuté sous le compte de l'administrateur système, en parallèle sur tous les nœuds spécifiés dans le cluster, et fournit des privilèges d'administrateur complets sur les nœuds.
 
-> [AZURE.NOTE]Étant donné que vous disposez de privilèges d’administrateur sur les nœuds du cluster au cours de la phase **ClusterCustomization**, vous pouvez utiliser le script pour effectuer des opérations comme arrêter et démarrer des services, y compris des services liés à Hadoop. Vous devez donc vous assurer, dans le cadre du script, que les services Ambari et autres services liés à Hadoop sont en cours d’exécution avant la fin de l’exécution du script. Ces services sont requis pour établir correctement l'intégrité et l'état du cluster pendant sa création. Si vous modifiez la configuration d'un cluster d'une manière qui affecte ces services, vous devez utiliser les fonctions d'assistance fournies. Pour plus d’informations sur les fonctions d’assistance, consultez [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script].
+> [AZURE.NOTE]Étant donné que vous disposez de privilèges d’administrateur sur les nœuds du cluster au cours de la phase **ClusterCustomization**, vous pouvez utiliser le script pour effectuer des opérations comme arrêter et démarrer des services, y compris des services liés à Hadoop. Vous devez donc vous assurer, dans le cadre du script, que les services Ambari et autres services liés à Hadoop sont en cours d’exécution avant la fin de l’exécution du script. Ces services sont requis pour établir correctement l'intégrité et l'état du cluster pendant sa création. Si vous modifiez la configuration d'un cluster d'une manière qui affecte ces services, vous devez utiliser les fonctions d'assistance fournies. Pour plus d'informations sur les fonctions d'assistance, consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-write-script].
 
 La sortie et les journaux des erreurs du script sont stockés dans le compte de stockage par défaut spécifié pour le cluster. Les journaux sont stockés dans une table nommée **u<\\cluster-name-fragment><\\time-stamp>setuplog**. Il s’agit de journaux d’agrégation provenant du script exécuté sur tous les nœuds (nœud principal et nœuds de travail) dans le cluster.
 
@@ -90,7 +90,7 @@ Le script PowerShell suivant montre comment installer Spark sur un cluster HDIns
 	
 	$hdinsightClusterName = $namePrefix + "spark"
 	$httpUserName = "admin"
-	$httpPassword = "Pass@word111"
+	$httpPassword = "<Enter a Password>"
 	
 	$defaultStorageAccountName = "$namePrefix" + "store"
 	$defaultBlobContainerName = $hdinsightClusterName
@@ -115,13 +115,23 @@ Le script PowerShell suivant montre comment installer Spark sur un cluster HDIns
 	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 	
 	# Create storage account
-	New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
-	New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
+	New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Location $location `
+        -Type Standard_GRS
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $storageAccountKey  
+	New-AzureStorageContainer `
+        -Name $defaultBlobContainerName `
+        -Context $defaultStorageAccountContext
 	
 	#############################################################
-	# Create cluster with Spark
+	# Create cluster with ApacheSpark
 	#############################################################
 	
 	# Specify the configuration options
@@ -294,8 +304,8 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 - [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script]
 - [Installer et utiliser Spark sur les clusters HDInsight][hdinsight-install-spark]
 - [Installer et utiliser R sur les clusters HDInsight][hdinsight-install-r]
-- [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
-- [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md)
+- [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
+- [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -306,4 +316,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

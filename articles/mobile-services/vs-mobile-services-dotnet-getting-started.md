@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Prise en main de Mobile Services (Projets .NET)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
-> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
@@ -33,7 +26,7 @@ La première étape à effectuer pour suivre le code figurant dans ces exemples 
 
 - Si vous disposez d’un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
 
-#####Obtenir une référence à une table
+##Obtenir une référence à une table
 
 Le code ci-dessous permet de créer une référence à une table (`todoTable`) qui contient des données destinées à un objet TodoItem. Cette référence peut ensuite être utilisée pour lire et mettre à jour la table de données. Les attributs de la classe TodoItem doivent être configurés pour interpréter le JSON que le service mobile envoie en réponse à vos requêtes.
 
@@ -52,14 +45,14 @@ Le code ci-dessous permet de créer une référence à une table (`todoTable`) q
 
 Ce code fonctionne si les autorisations de votre table sont définies sur **Toute personne avec la clé d'application**. Si vous modifiez les autorisations pour sécuriser votre service mobile, vous devez ajouter la prise en charge de l'authentification des utilisateurs. Consultez la page [Prise en main de l'authentification](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Ajouter un élément de table
+##Ajouter un élément de table
 
 Insérez un nouvel élément dans une table de données.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Lire une table ou exécuter des requêtes sur une table
+##Lire une table ou exécuter des requêtes sur une table
 
 Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table. Notez qu'il ne renvoie que la première page de données, qui contient par défaut 50 éléments. Vous pouvez transmettre n'importe quelle taille de page, puisqu'il s'agit d'un paramètre facultatif.
 
@@ -75,13 +68,13 @@ Le code ci-dessous permet de lancer une requête sur tous les éléments d'une t
     }
 
 
-#####Mettre à jour un élément de table
+##Mettre à jour un élément de table
 
 Mettez une ligne à jour dans une table de données. L'élément de paramètre correspond à l'objet TodoItem à mettre à jour.
 
 	await todoTable.UpdateAsync(item);
 
-#####Supprimer un élément de table
+##Supprimer un élément de table
 
 Supprimez une ligne de la base de données. L'élément de paramètre correspond à l'objet TodoItem à supprimer.
 
@@ -90,4 +83,4 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

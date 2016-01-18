@@ -13,7 +13,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="10/20/2015" 
+	ms.date="01/05/2016" 
 	ms.author="markusvi"/>
 
 
@@ -123,7 +123,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 -  [Installation d’un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
+-  [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 -  [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Guide de référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -137,4 +137,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

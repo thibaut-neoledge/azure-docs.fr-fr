@@ -32,8 +32,8 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des éléments suivants :
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](http://azure.microsoft.com/pricing/purchase-options/), les [offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) ou la [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
-- Un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../storage-whatis-account.md).
-- Un poste de travail sur lequel est installé Azure PowerShell 0.9.8. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Ce didacticiel n’a pas encore été mis à jour pour la version préliminaire d’Azure PowerShell 1.0. 
+- Un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+- Un poste de travail sur lequel est installé Azure PowerShell 0.9.8. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md). Ce didacticiel n’a pas encore été mis à jour pour la version préliminaire d’Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Étape 1 : téléchargement et extraction des fichiers d’exemple ##
 Commençons par télécharger les fichiers d'exemple que nous utiliserons dans ce didacticiel.
@@ -210,4 +210,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

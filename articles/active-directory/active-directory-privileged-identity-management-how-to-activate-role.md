@@ -20,8 +20,8 @@
 
 ## Activation ou désactivation d’un rôle
 
-1. Accédez à [http://portal.azure.com](http://portal.azure.com).
-2. Suivez les étapes décrites dans [Prise en main d’Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) pour placer Azure Privileged Identity Management sur le tableau de bord du portail.
+1. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Suivez les étapes décrites dans [Prise en main d’Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) pour placer Azure Privileged Identity Management sur le tableau de bord du portail Azure.
 3. Après avoir exécuté les étapes de l’Assistant Sécurité, vous voyez s’afficher le menu principal d’Azure Privileged Identity Management.
 4. Cliquez sur **Activer mon rôle**.
 5. La liste des rôles qui vous ont été attribués s’affiche.
@@ -38,4 +38,4 @@
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

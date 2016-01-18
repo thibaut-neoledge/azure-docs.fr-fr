@@ -59,7 +59,7 @@ Ce qui génère la sortie suivante :
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Si vous n’avez pas de compte Azure, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure actuel, consultez [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](../resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si vous n’avez pas de compte Azure, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure actuel, consultez [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Ouvrez [https://aka.ms/devicelogin](https://aka.ms/devicelogin) dans un navigateur, puis entrez le code fourni dans la sortie de commande.
 
@@ -83,7 +83,7 @@ Outre la méthode de connexion interactive décrite ici, d’autres méthodes de
 
 ### Passer en mode de groupe de ressources d’interface de ligne de commande Microsoft Azure
 
-Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
+Par défaut, l'interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
 
 	azure config mode arm
 
@@ -166,7 +166,7 @@ Ce qui génère la sortie suivante car votre nouveau compte est configuré :
 
 Si vous rencontrez des erreurs, consultez la section [Dépannage](#troubleshooting).
 
-Une fois que la commande a renvoyé un résultat, le compte est à l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** indiquant qu’il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
+Une fois que la commande a renvoyé un résultat, le compte est dans l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** dans lequel il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
 
 ## <a id="deploy-documentdb-from-a-template"></a>Tâche : créer un compte DocumentDB à l’aide d’un modèle ARM
 
@@ -308,7 +308,7 @@ Comme le compte est configuré, vous recevez les informations suivantes :
 
 Si vous rencontrez des erreurs, consultez la section [Dépannage](#troubleshooting).
 
-Une fois que la commande a renvoyé un résultat, le compte est à l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** indiquant qu’il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
+Une fois que la commande a renvoyé un résultat, le compte est dans l’état **Création** pendant quelques minutes, avant de passer à l’état **En ligne** dans lequel il est prêt à être utilisé. Vous pouvez vérifier l’état du compte sur le panneau **Comptes DocumentDB** du [portail Azure](https://portal.azure.com).
 
 ## Résolution de problèmes
 
@@ -326,7 +326,7 @@ Si vous rencontrez des erreurs semblables à `Deployment provisioning state was 
 
     	azure group log show new_res_group --last-deployment
 
-    Pour plus d’informations, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-group-deploy-debug.md).
+    Pour plus d’informations, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../virtual-machines/resource-group-deploy-debug.md).
 
 - Les informations relatives aux erreurs sont également disponibles dans le portail Azure, comme illustré dans la capture d’écran suivante. Pour accéder aux informations relatives aux erreurs : cliquez sur Groupes de ressources dans la barre de lancement, sélectionnez le groupe de ressources concerné par l’erreur, puis, dans la zone Éléments principaux du panneau Groupe de ressources, cliquez sur la date du dernier déploiement. Ensuite, dans le panneau Historique du déploiement, sélectionnez le déploiement ayant échoué, puis, dans le panneau Déploiement, cliquez sur le détail de l’opération marqué d’un point d’exclamation rouge. Le message d’état correspondant au déploiement ayant échoué s’affiche dans le panneau Détails de l’opération.
 
@@ -351,4 +351,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

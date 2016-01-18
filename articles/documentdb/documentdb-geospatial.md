@@ -24,7 +24,7 @@ Cet article est une introduction aux fonctionnalités géospatiales dans [Azure�
 - Comment puis-je interroger des données géographiques dans Azure DocumentDB dans SQL et LINQ ?
 - Comment puis-je activer ou désactiver l'indexation spatiale dans DocumentDB ?
 
-Consultez ce [projet Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) pour obtenir des échantillons de code.
+Consultez ce [projet Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) pour obtenir des échantillons de code.
 
 ## Présentation des données spatiales
 
@@ -350,9 +350,9 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 ## Étapes suivantes
 Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
 
-- Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
+- Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
 - Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

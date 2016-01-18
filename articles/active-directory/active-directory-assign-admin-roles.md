@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)
@@ -28,8 +28,8 @@ Les rôles d’administrateur disponibles sont les suivants :
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
-    > [AZURE.NOTE] 
-    > Pour assigner le rôle d'administrateur du service à un utilisateur, l'administrateur général doit d'abord assigner des autorisations administratives à l'utilisateur du service, comme Exchange Online, puis lui assigner le rôle d'administrateur du service dans le portail de gestion Microsoft Azure. 
+> [AZURE.NOTE]Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
+
 - **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
 ## Autorisations des administrateurs
@@ -85,4 +85,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,10 +21,7 @@
 # Connexion à SQL Database à l’aide de PHP sur Windows avec la gestion des erreurs temporaires
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique montre comment vous connecter à Azure SQL Database à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
@@ -139,4 +136,4 @@ La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 
 Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [Accès aux bases de données du serveur SQL avec PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

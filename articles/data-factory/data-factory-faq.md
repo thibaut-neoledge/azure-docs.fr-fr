@@ -74,7 +74,7 @@ Vous pouvez créer des fabriques de données à l'aide de l'une des solutions su
 
 - **Portail Azure**. Les panneaux du service Data Factory dans le portail Azure fournissent une interface utilisateur complète qui vous permet de créer des fabriques de données et des services liés. **Data Factory Editor**, qui fait également partie du portail, vous permet de créer facilement des services liés, des tables, des jeux de données et des pipelines en spécifiant des définitions JSON pour ces artefacts. Consultez [Data Factory Editor][data-factory-editor] pour obtenir une vue d'ensemble de l'éditeur et [Prise en main de Data Factory][datafactory-getstarted] pour obtenir un exemple d'utilisation du portail et de l'éditeur pour créer et déployer une fabrique de données.   
 - **Azure PowerShell** Si vous êtes familiarisé avec PowerShell et que vous le préférez à l'interface utilisateur du portail, vous pouvez utiliser les applets de commande Azure Data Factory fournies dans le cadre d'Azure PowerShell pour créer et déployer des fabriques de données. Consultez [Créer et surveiller des fabriques de données Azure à l'aide d'Azure PowerShell][create-data-factory-using-powershell] pour obtenir un exemple simple et [Didacticiel : déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory][adf-tutorial] pour obtenir un exemple complet d'utilisation des applets de commande PowerShell pour créer et déployer une fabrique de données. Consultez [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.  
-- **Visual Studio**. Vous pouvez également utiliser Visual Studio pour créer, surveiller et gérer des fabriques de données par programme. Consultez l’article [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically) pour plus de détails.  
+- **Visual Studio**. Vous pouvez également utiliser Visual Studio pour créer, surveiller et gérer des fabriques de données par programme. Consultez l’article [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically.md) pour plus de détails.  
 - **Bibliothèque de classes .NET** Vous pouvez créer par programmation des fabriques de données à l'aide du Kit de développement logiciel (SDK) Data Factory .NET. Consultez [Créer, surveiller et gérer des fabriques de données à l'aide du Kit de développement logiciel (SDK) .NET][create-factory-using-dotnet-sdk] pour découvrir comment créer une fabrique de données à l'aide du Kit de développement logiciel (SDK) .NET. Consultez [Informations de référence sur la bibliothèque de classes Data Factory][msdn-class-library-reference] pour obtenir une documentation complète sur le Kit de développement logiciel (SDK) Data Factory .NET.  
 - **API REST** Vous pouvez également utiliser l'API REST exposée par le service Azure Data Factory pour créer et déployer des fabriques de données. Consultez [Informations de référence sur l'API REST Data Factory][msdn-rest-api-reference] pour obtenir une documentation complète de l'API REST Data Factory. 
 
@@ -153,8 +153,6 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 
 
 
-[image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
-
 [adfgetstarted]: data-factory-get-started.md
 [adf-introduction]: data-factory-introduction.md
 [adf-troubleshoot]: data-factory-troubleshoot.md
@@ -177,4 +175,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -100,8 +100,7 @@ Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le m
 
 	Créez un projet configuré pour être déployé automatiquement sous forme de tâche web lorsqu'un projet web dans la même solution est déployé. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans la même application web que celle dans laquelle vous exécutez l’application web liée.
 
-Dans la version 2.4 du Kit de développement logiciel (SDK), le modèle de nouveau projet de tâche web n'est pas plus simple que la création d'un projet d'application console et l'activation d'un déploiement de tâche web. À l'avenir, le modèle de nouveau projet de tâche web sera plus pratique pour le développement du [Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), car il installera automatiquement les packages NuGet appropriés. En attendant, vous pouvez configurer un projet à l'aide du Kit de développement logiciel (SDK) WebJobs en installant manuellement les packages, comme illustré dans le [didacticiel du Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs).
-
+> [AZURE.NOTE]Le modèle de nouveau projet WebJobs installe automatiquement les packages NuGet et inclut le code dans *Program.cs* pour le [Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Si vous ne souhaitez pas utiliser le Kit de développement logiciel (SDK) WebJobs, ou si vous voulez utiliser une tâche WebJob planifiée plutôt que continue, supprimez ou modifiez l'instruction `host.RunAndBlock` dans *Program.cs*.
 
 ### <a id="createnolink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante
   
@@ -198,4 +197,4 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

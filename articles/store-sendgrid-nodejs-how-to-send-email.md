@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Envoi de courrier électronique à l'aide de SendGrid depuis Node.js
 
@@ -21,7 +21,7 @@ Ce guide présente l'exécution de tâches de programmation courantes avec le se
 
 ## Définition du service de messagerie SendGrid
 
-SendGrid est un [service de messagerie dans le cloud](https://sendgrid.com/email-solutions) qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle](https://sendgrid.com/transactional-email), d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
+SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
 
 -   Envoi automatique d'accusés de réception aux clients
 -   Administration de listes de distribution pour un envoi mensuel de prospectus électroniques et d'offres spéciales aux clients
@@ -168,7 +168,7 @@ ou définir un filtre en utilisant
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-Pour plus d'informations, consultez la page [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
+Pour plus d'informations, consultez la page [sendgrid-nodejs][].
 
 ## Utilisation de services SendGrid supplémentaires
 
@@ -178,14 +178,8 @@ SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionna
 
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
--   Référentiel du module Node.js SendGrid : [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
+-   Référentiel du module Node.js SendGrid : [sendgrid-nodejs][]
 -   Documentation de l'API SendGrid : <https://sendgrid.com/docs>
--   Offre spéciale SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-  [offre spéciale]: https://sendgrid.com/windowsazure.html
-  [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [Paramètres de filtre]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [documentation de l’API SendGrid]: https://sendgrid.com/docs
-  [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
-  [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
+-   Offre spéciale SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [offre spéciale] : https://sendgrid.com/windowsazure.html [sendgrid-nodejs] : https://github.com/sendgrid/sendgrid-nodejs [Paramètres de filtre] : https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [documentation de l’API SendGrid] : https://sendgrid.com/docs [service de messagerie dans le cloud] : https://sendgrid.com/email-solutions [remise de courrier électronique transactionnelle] : https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

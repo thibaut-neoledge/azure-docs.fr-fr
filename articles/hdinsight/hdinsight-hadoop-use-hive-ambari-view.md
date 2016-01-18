@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2015"
    ms.author="larryfr"/>
 
 #Utilisez la vue Hive avec Hadoop dans HDInsight
@@ -75,7 +75,7 @@ Pour exécuter une requête Hive sur les données incluses avec le cluster, suiv
 
 	>[AZURE.NOTE]Les tables externes doivent être utilisées lorsque les données sous-jacentes sont censées être mises à jour par une source externe (comme, par exemple, dans le cas d’un processus de téléchargement automatique des données) ou par une autre opération MapReduce, mais vous souhaitez toujours que les requêtes Hive utilisent les données les plus récentes. La suppression d'une table externe ne supprime *pas* les données, mais seulement la définition de table.
 
-2. Utilisez le bouton __Exécuter__ au bas de l’éditeur de requête pour démarrer la requête. Le bouton doit alors s’afficher en orange et indiquer __Arrêter l’exécution__. Une section __Résultats du processus de requête__ doit apparaître en dessous de l’éditeur de requête et afficher des informations sur la tâche.
+2. Utilisez le bouton __Exécuter__ au bas de l’éditeur de requête pour démarrer la requête. Le bouton doit s’afficher en orange et indiquer le libellé __Arrêter l’exécution__. Une section __Résultats du processus de requête__ doit apparaître en dessous de l’éditeur de requête et afficher des informations sur la tâche.
 
     > [AZURE.IMPORTANT]Certains navigateurs peuvent ne pas actualiser correctement le fichier journal ou les informations de résultats. Si vous exécutez une tâche et que celle-ci semble s’exécuter indéfiniment sans mettre à jour le journal ou renvoyer des résultats, essayez d’utiliser Mozilla FireFox ou Google Chrome.
     
@@ -123,7 +123,7 @@ Il s’agit de la vue __Visual Explain__ de la requête, qui peut être utile po
 
 ###Tez
 
-Sélectionnez l’icône __Visual Explain__ à droite de l’éditeur.
+Sélectionnez l'icône __Tez__ à droite de l'éditeur.
 
 ![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Cette opération affiche le graphe orienté acyclique (DAG) utilisé par Tez pou
 
 ###Notifications
 
-Sélectionnez l’icône __Visual Explain__ à droite de l’éditeur.
+Sélectionnez l'icône __Notifications__ à droite de l'éditeur.
 
 ![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -199,4 +199,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

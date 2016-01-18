@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Contrôle d’accès en fonction du rôle Azure
@@ -22,7 +22,7 @@
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 ### Concepts de base de la gestion d’accès dans Azure
-Chaque abonnement Azure est hébergé dans un annuaire Azure Active Directory. Seuls les utilisateurs, les groupes et les applications de ce répertoire peuvent être autorisés à gérer les ressources de l’abonnement Azure à l’aide du portail Azure, des outils de ligne de commande Azure et des API de gestion Azure.
+Chaque abonnement Azure est associé à un annuaire Azure Active Directory. Seuls les utilisateurs, les groupes et les applications de ce répertoire peuvent être autorisés à gérer les ressources de l’abonnement Azure à l’aide du portail Azure, des outils de ligne de commande Azure et des API de gestion Azure.
 
 L’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans l’étendue appropriée. Pour accorder l’accès à la totalité de l’abonnement, attribuez un rôle dans l’étendue de l’abonnement. Pour accorder l’accès à un groupe de ressources spécifique au sein d’un abonnement, attribuez un rôle dans l’étendue du groupe de ressources. Vous pouvez également attribuer des rôles à des ressources spécifiques, telles que des sites web, des machines virtuelles et des sous-réseaux, pour accorder l’accès à une seule ressource.
 
@@ -70,7 +70,6 @@ Sélectionnez les paramètres d’accès dans la section Essentials du panneau d
 
 > [AZURE.NOTE]Les affectations héritées ne peuvent pas être supprimées des étendues enfant. Vous devez accéder à l’étendue parente et supprimer ces affectations.
 
-
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Gérer l’accès avec Azure PowerShell
@@ -98,6 +97,9 @@ L’accès peut être géré à l’aide des commandes du contrôle d’accès e
 -	Utilisez `azure role assignment delete` pour supprimer un accès.
 
 Pour des exemples plus détaillés de la gestion de l’accès à l’aide de l’interface de ligne de commande Azure, consultez la rubrique [Gérer l’accès avec l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md).
+
+## Gestion de l'accès à l'aide de l'API REST
+Consultez [Gestion du contrôle d'accès basé sur les rôles à l'aide de l'API REST](role-based-access-control-manage-access-rest.md) pour obtenir des exemples plus détaillés de gestion de l'accès avec l'API REST.
 
 ## Utiliser le rapport d’historique des modifications d’accès
 Toutes les modifications d’accès effectuées dans vos abonnements Azure sont enregistrées dans les événements Azure.
@@ -173,10 +175,12 @@ Utilisez la commande `Get-AzureRmProviderOperation` ou `azure provider operation
 ### Non-actions
 Si l’ensemble des opérations que vous souhaitez autoriser peut être plus facilement exprimé en excluant des opérations spécifiques qu’en incluant toutes les opérations à l’exception des opérations à exclure, utilisez la propriété **NotActions** d’un rôle personnalisé. L’accès effectif accordé par un rôle personnalisé est déterminé en excluant les opérations **NotActions** des opérations Actions.
 
-Notez que si un utilisateur se voit affecter un rôle qui exclut une opération dans **NotActions** et un second rôle qui accorde l’accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
+> [AZURE.NOTE]Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions** et un second rôle qui accorde l'accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
 
 ### AssignableScopes
-La propriété **AssignableScopes** du rôle personnalisé spécifie les étendues (abonnements, groupes de ressources ou ressources) au sein desquelles le rôle personnalisé peut être affecté à des utilisateurs, des groupes et des applications. À l’aide de **AssignableScopes**, vous pouvez rendre le rôle personnalisé disponible uniquement dans les abonnements ou les groupes de ressources qui le nécessitent afin de ne pas surcharger l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources. La propriété **AssignableScopes** d’un rôle personnalisé permet également de contrôler les personnes autorisées à afficher, mettre à jour et supprimer le rôle. Voici quelques exemples d’étendues d’affectation valides :
+La propriété **AssignableScopes** du rôle personnalisé spécifie les étendues (abonnements, groupes de ressources ou ressources) au sein desquelles le rôle personnalisé peut être affecté à des utilisateurs, des groupes et des applications. À l’aide de **AssignableScopes**, vous pouvez rendre le rôle personnalisé disponible uniquement dans les abonnements ou les groupes de ressources qui le nécessitent afin de ne pas surcharger l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources.
+
+> [AZURE.NOTE]Vous devez utiliser au moins un abonnement, un groupe de ressources ou ID de ressource.* La propriété **AssignableScopes** d'un rôle personnalisé contrôle également qui est autorisé à afficher, mettre à jour et supprimer le rôle. Voici quelques exemples d’étendues d’affectation valides :
 
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” : le rôle peut être affecté dans deux abonnements.
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” : le rôle peut être affecté dans un seul abonnement.
@@ -191,4 +195,4 @@ La propriété **AssignableScopes** du rôle personnalisé détermine les person
 
 **Qui est autorisé à afficher les rôles personnalisés pouvant être affectés dans une étendue ?** Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue. Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

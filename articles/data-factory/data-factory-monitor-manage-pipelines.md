@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Surveillance et gestion des pipelines d’Azure Data Factory
@@ -96,7 +96,7 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -195,7 +195,7 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 2.	Dans le panneau **JEUX DE DONNÉES AVEC ERREURS**, cliquez sur la table qui vous intéresse.
 
 	![Panneau Jeux de données avec erreurs](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **FAILED**.
+3.	Dans le panneau **TABLE**, cliquez sur la tranche qui pose problème, et dont l’**ÉTAT** est défini sur **Failed**.
 
 	![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’exécution d’activité qui a échoué.
@@ -207,9 +207,6 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 
 #### Utilisez PowerShell pour déboguer une erreur
 1.	Lancez **Azure PowerShell**.
-2.	Passez en mode **AzureResourceManager**, car les applets de commande Data Factory sont disponibles uniquement dans ce mode.
-
-		switch-azuremode AzureResourceManager
 3.	Exécutez la commande **Get-AzureRmDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **FAILED** devrait apparaître.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -323,7 +320,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -355,9 +352,9 @@ OnDemandClusterDeleted | Succeeded
 Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour plus d’informations sur les éléments JSON utilisés dans l’exemple ci-dessus.
 
 #### Déploiement de l’alerte 
-Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Une fois le déploiement du groupe de ressources réussi, les messages suivants s’affichent :
 
@@ -377,9 +374,9 @@ Une fois le déploiement du groupe de ressources réussi, les messages suivants 
 	Outputs           :
 
 #### Récupération de la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l'applet de commande : **Get-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l'applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -543,15 +540,13 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs :
-- FailedRuns
-- SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
-Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 Le message suivant devrait s’afficher après la réussite du déploiement :
 
@@ -569,4 +564,7 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d'alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d'informations et des exemples.
+
+<!---HONumber=AcomDC_0107_2016-->

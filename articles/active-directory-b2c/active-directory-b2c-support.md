@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : dépôt de demandes de prise en charge de fichiers pour Azure Active Directory B2C
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C sur le portail Azure en version préliminaire, procédez comme suit :
+Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C sur le portail Azure, procédez comme suit :
 
-1. [Accédez au panneau de fonctionnalités B2C sur le portail Azure en version préliminaire](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est votre client des employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus sur la relation entre les abonnements Azure et les annuaires Azure AD, lire [cet article](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
 
-    > [AZURE.IMPORTANT]
-    Cette étape est obligatoire. Si vous ne l’exécutez pas, le processus échoue.
+    > [AZURE.IMPORTANT]Cette étape est obligatoire. Si vous ne l’exécutez pas, le processus échoue.
 
     ![Support - changement d’annuaires](./media/active-directory-b2c-support/support-switch-dir.png)
 
@@ -47,9 +46,8 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
 
 Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 
-> [AZURE.IMPORTANT]
-> N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
+> [AZURE.IMPORTANT]N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -98,13 +98,13 @@ foreach (UserProfile activeUser in query)
 ## Programme de résolution de partition par hachage
 Avec le partitionnement par hachage, les partitions sont affectées en fonction de la valeur d'une fonction de hachage, ce qui vous permet de répartir uniformément les demandes et les données dans un certain nombre de partitions. Cette méthode est généralement utilisée pour partitionner des données produites ou consommées par un grand nombre de clients distincts. Elle est utile pour stocker des profils utilisateur, des éléments de catalogue et des données de télémétrie IoT (Internet des objets).
 
-**Partitionnement par hachage :** ![Diagramme illustrant la répartition uniforme des demandes entre les partitions avec le partitionnement par hachage](media/documentdb-sharding/partition-hash.png "Partitionnement par hachage")
+**Partitionnement par hachage :** ![Diagramme illustrant la répartition uniforme des demandes entre les partitions avec le partitionnement par hachage](media/documentdb-sharding/partition-hash.png)
 
 Un modèle de partitionnement par hachage simple dans *N* collections consisterait à prendre n'importe quel document et à calculer *hash(d) mod N* pour déterminer dans quelle collection il se trouve. Mais le problème avec cette technique simple est qu'elle ne fonctionne pas correctement lorsque vous ajoutez de nouvelles collections ou que vous supprimez des collections car cela nécessiterait que presque toutes les données soient relues de façon aléatoire. Le [hachage cohérent](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) est un algorithme connu qui répond à ce problème en implémentant un modèle de hachage qui limite le nombre de déplacements de données requis lors de l'ajout ou de la suppression de collections.
 
 La classe [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) implémente une logique pour générer un anneau de hachage cohérent sur la fonction de hachage spécifiée dans l’interface [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx). Par défaut, la classe HashPartitionResolver utilise une fonction de hachage MD5, mais vous pouvez remplacer celle-ci par votre propre implémentation de hachage. La classe HashPartitionResolver crée les 16 hachages ou « nœuds virtuels » en interne dans l'anneau de hachage pour chaque collection afin d'obtenir une distribution uniforme de documents entre les collections, mais vous pouvez modifier ce chiffre pour compenser la différence de données avec le calcul côté client.
 
-**Hachage cohérent avec HashPartitionResolver :** ![Diagramme illustrant comment HashPartitionResolver crée un anneau de hachage](media/documentdb-sharding/HashPartitionResolver.JPG "Hachage cohérent")
+**Hachage cohérent avec HashPartitionResolver :** ![Diagramme illustrant comment HashPartitionResolver crée un anneau de hachage](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## Programme de résolution de la partition de plage
 
@@ -114,7 +114,7 @@ Dans le partitionnement par plage, l'affectation des partitions est fonction de 
 
 **Partitionnement par plage :**
 
-![Diagramme illustrant la répartition uniforme des demandes entre les partitions avec le partitionnement par plage](media/documentdb-sharding/partition-range.png "Partitionnement par plage")
+![Diagramme illustrant la répartition uniforme des demandes entre les partitions avec le partitionnement par plage](media/documentdb-sharding/partition-range.png)
 
 Un cas particulier de partitionnement par plage se présente lorsque la plage est simplement une valeur discrète unique, parfois appelée « partitionnement par recherche ». Cette méthode est couramment utilisée pour le partitionnement par région (par exemple, la partition pour la Scandinavie contient la Norvège, le Danemark et la Suède) ou pour le partitionnement par client dans une application avec plusieurs clients.
 
@@ -167,4 +167,4 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 * [Blog de DocumentDB avec des conseils relatifs aux performances](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

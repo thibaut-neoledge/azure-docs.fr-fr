@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Utilisation du tableau de bord d’appareil StorSimple Manager
@@ -21,7 +21,7 @@
 
 Le tableau de bord d’appareil StorSimple Manager offre une vue d’ensemble des informations relatives à un appareil StorSimple spécifique, à la différence du tableau de bord de service, qui regroupe les informations concernant tous les appareils inclus dans votre solution Microsoft Azure StorSimple.
 
-![Page du tableau de bord d’un appareil](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![Page du tableau de bord d’un appareil](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 Le tableau de bord contient les informations suivantes :
 
@@ -100,4 +100,4 @@ Vous aurez peut-être besoin de l'IQN cible au moment de configurer le protocole
 - En savoir plus sur le [tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

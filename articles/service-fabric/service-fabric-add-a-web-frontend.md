@@ -107,6 +107,10 @@ Maintenant que nous avons défini l’interface, nous devons la mettre en œuvre
 2. Recherchez la classe qui hérite de `StatefulService`, par exemple `MyStatefulService`, et étendez-la pour mettre en œuvre l'interface `ICounter`.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ Avec l'interface `ICounter` mise en œuvre, l'étape finale de l'activation du s
 
 >[AZURE.NOTE]La méthode équivalente pour ouvrir un canal de communication sur des services sans état est appelée `CreateServiceInstanceListeners`.
 
-Dans ce cas, nous vous proposons un `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients avec `ServiceProxy`.
+Dans ce cas, nous remplaçons la méthode `CreateServiceReplicaListeners` existante et vous proposons un `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients avec `ServiceProxy`.
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -155,13 +163,18 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 Notre service avec état est maintenant prêt à recevoir le trafic provenant d’autres services de sorte qu’il reste uniquement à ajouter le code pour établir la communication à partir du service web ASP.NET.
 
-1. Dans votre projet ASP.NET, ajoutez une référence à la bibliothèque de classes contenant l'interface `ICounter`.
+1. Dans votre projet ASP.NET, ajoutez une référence à la bibliothèque de classes contenant l’interface `ICounter`.
 
 2. Ajoutez le package Microsoft.ServiceFabric.Services au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy`.
 
 3. Dans le dossier des contrôleurs, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -221,4 +234,4 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

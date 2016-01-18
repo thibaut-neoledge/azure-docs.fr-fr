@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -50,7 +50,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 4.	La clé de chiffrement de contenu (CEK) est alors utilisée pour déchiffrer les données utilisateur chiffrées.
 
 ## Mécanisme de chiffrement  
-La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
+La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur, Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### Objets blob  
 La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lors de l’utilisation des méthodes **upload*** ou de la méthode **openOutputStream**. Les téléchargements complets et de plages sont tous deux pris en charge.
@@ -91,7 +91,7 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 
 	Notez que seules les propriétés de type chaîne peuvent être chiffrées. Si d’autres types de propriétés doivent être chiffrés, ils doivent être convertis en chaînes. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
 
-	Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [Encrypt] \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de demande. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis retourne une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+	Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [Encrypt] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de demande. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis retourne une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 ### Opérations de traitement par lots  
 Dans les opérations de traitement par lots, la même clé de chiffrement de clés (KEK) est utilisée pour toutes les lignes d’une même opération, car la bibliothèque cliente n’accepte qu’un seul objet d’options (et par conséquent, une seule stratégie/clé de chiffrement de clés) par opération de traitement par lots. Toutefois, la bibliothèque cliente génère en interne un nouveau vecteur d’initialisation (IV) aléatoire et une clé de chiffrement de contenu (CEK) aléatoire par ligne dans le lot. Les utilisateurs peuvent également choisir de chiffrer différentes propriétés pour chaque opération dans le lot en définissant ce comportement dans le programme de résolution de chiffrement.
@@ -234,4 +234,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 ## Étapes suivantes  
 Télécharger la [bibliothèque cliente de stockage Azure pour le package Maven Java](<fix URL>) Télécharger la [bibliothèque cliente de stockage Azure pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java) Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -51,7 +51,7 @@ Lorsque vous cliquez sur le bouton **Révision**, les volets **Démarrer la rév
   - Nombre de personnes révisées ?
   - Délai selon lequel les utilisateurs seront en mesure d’ajouter l’extension et d’effectuer la révision ?
 4. Cliquez sur le bouton OK dans le volet **Modifier les paramètres par défaut**. Le volet se ferme.
-5. Cliquez sur le bouton OK dans le volet **Démarrer une révision d’un rôle**. Le volet se ferme. Une notification s’affiche dans le menu principal du portail. Actualisez le tableau de bord en cliquant sur le bouton **Actualiser** ; la révision de la sécurité s’affiche dans la section **Révisions de la sécurité**.
+5. Cliquez sur le bouton OK dans le volet **Démarrer une révision d’un rôle**. Le volet se ferme. Une notification s’affiche dans le menu principal du portail Azure. Actualisez le tableau de bord en cliquant sur le bouton **Actualiser** ; la révision de la sécurité s’affiche dans la section **Révisions de la sécurité**.
 6. Notifiez les individus du rôle qu’ils devront ajouter l’extension, puis réviser leur propre accès administratif. Voir l’étape suivante.
 6. [Réviser l’accès administratif](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@ Si vous avez sélectionné l’option « Moi » pour le réviseur, passez à l
 ## Sommaire PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

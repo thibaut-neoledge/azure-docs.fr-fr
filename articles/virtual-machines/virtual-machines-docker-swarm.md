@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # Comment utiliser docker avec swarm
@@ -24,9 +24,7 @@
 
 Cette rubrique montre un moyen très simple d’utiliser [docker](https://www.docker.com/) avec [swarm](https://github.com/docker/swarm) pour créer un cluster géré par swarm dans Microsoft Azure. Quatre machines virtuelles sont créées dans Azure, une en tant que gestionnaire d'essaim et trois dans le cadre du cluster d'hôtes docker. Quand vous avez terminé, vous pouvez utiliser swarm pour voir le cluster, puis commencer à utiliser docker sur celui-ci. Par ailleurs, les appels de l’interface de ligne de commande Microsoft Azure de cette rubrique utilisent le mode de gestion de services Azure (Azure Service Management, asm).
 
-> [AZURE.NOTE] Comme il s'agit d'une version préliminaire du logiciel, vérifiez régulièrement les mises à jour concernant son utilisation sur Azure pour créer des clusters volumineux, équilibrés et contrôlés de conteneurs Docker. Pensez également à consulter la documentation de docker swarm pour découvrir toutes ses fonctionnalités.
-<!-- -->
-> En outre, cette rubrique utilise docker avec swarm et l’interface de ligne de commande Microsoft Azure *sans* utiliser **docker-machine** pour montrer comment les différents outils fonctionnent ensemble tout en demeurant indépendant. **docker-machine** possède des commutateurs **--swarm** qui vous permettent d’utiliser **docker-machine** pour ajouter directement des nœuds à un essaim. Pour obtenir un exemple, consultez la documentation [docker-machine](https://github.com/docker/machine). Si l’exécution de **docker-machine** sur des machines virtuelles Microsoft Azure ne vous est pas familière, consultez la page [Utilisation de docker-machine avec Azure](virtual-machines-docker-machine.md).
+> [AZURE.NOTE]Cette rubrique utilise docker avec swarm et l'interface de ligne de commande Microsoft Azure *sans* utiliser **docker-machine** pour montrer comment les différents outils fonctionnent ensemble tout en demeurant indépendants. **docker-machine** possède des commutateurs **--swarm** qui vous permettent d'utiliser **docker-machine** pour ajouter directement des nœuds à un essaim. Pour obtenir un exemple, consultez la documentation [docker-machine](https://github.com/docker/machine). Si l’exécution de **docker-machine** sur des machines virtuelles Microsoft Azure ne vous est pas familière, consultez la page [Utilisation de docker-machine avec Azure](virtual-machines-docker-machine.md).
 
 ## Créer des hôtes docker avec des machines virtuelles Azure
 
@@ -137,4 +135,4 @@ Expérimentez votre essaim. Si vous êtes en manque d’inspiration, consultez l
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
@@ -108,31 +108,28 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u2.md#step-6-crea
 
 3. Cliquez sur **Ajouter** en bas de la page. L’Assistant Ajouter un volume démarre.
 
-     ![Assistant Ajout de volume, paramètres de base](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Assistant Ajout de volume, paramètres de base](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. Dans l’Assistant Ajouter un volume, sous **Paramètres de base**, procédez comme suit :
 
   1. Saisissez un **nom** pour le volume.
-  2. Dans la liste déroulante, sélectionnez un **type d’utilisation**. Pour les charges de travail qui requièrent que les données soient disponibles localement sur l’appareil en permanence, sélectionnez **Épinglé localement**. Pour tous les autres types de données, sélectionnez **Hiérarchisé**. (**Hiérarchisé** est la valeur par défaut.)
+  2. Dans la liste déroulante, sélectionnez un **type d'utilisation**. Pour les charges de travail qui requièrent que les données soient disponibles localement sur l’appareil en permanence, sélectionnez **Épinglé localement**. Pour tous les autres types de données, sélectionnez **Hiérarchisé**. (**Hiérarchisé** est la valeur par défaut.)
   3. Si vous avez sélectionné **Hiérarchisé** à l’étape 2, vous pouvez cocher la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** pour configurer un volume d’archivage.
   4. Indiquez la **capacité allouée** du volume en Go ou To. Consultez la section [Capacité allouée](#provisioned-capacity) pour connaître les tailles maximales pour chaque type d’appareil et de volume. Examinez la **capacité disponible** pour déterminer la quantité de stockage réellement disponible sur votre appareil.
 
-    Si vous configurez un volume épinglé localement, le message suivant s’affiche.
+5. Cliquez sur l'icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Si vous configurez un volume épinglé localement, le message suivant s’affiche.
 
-    ![Message de modification du type de volume](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    La page suivante apparaît.
+    ![Message de modification du type de volume](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. Cliquez de nouveau sur l'icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
 
     ![Assistant Ajout de volume, paramètres avancés](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
 
 6. Sous **Paramètres supplémentaires**, ajoutez un enregistrement de contrôle d’accès (ACR) :
   
   1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès (ACR). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement. Si vous ne spécifiez pas d’ACR, le message suivant s’affiche.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. Nous vous recommandons de cocher la case **Autoriser une sauvegarde par défaut pour ce volume**.
   3. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
@@ -206,18 +203,16 @@ Vous souhaiterez peut-être modifier un volume épinglé localement en volume hi
 
 3. Sélectionnez un volume, puis cliquez sur **Modifier** en bas de la page. L’Assistant Modification de volume démarre.
 
-4. Dans la page **Paramètres de base**, modifiez le type d’utilisation en sélectionnant le nouveau type dans la liste déroulante **Type d’utilisation**.
+4. Dans la page **Paramètres de base**, modifiez le type d'utilisation en sélectionnant le nouveau type dans la liste déroulante **Type d'utilisation**.
 
     - Si vous définissez le type sur **Épinglé localement**, StorSimple vérifie si sa capacité est suffisante.
     - Si vous définissez le type sur **Hiérarchisé** et que ce volume sera utilisé pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**.
 
-    ![Case à cocher Archiver](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![Case à cocher Archiver](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
+5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**. Si vous configurez un volume épinglé localement, le message suivant s'affiche.
 
-    Le message suivant s’affiche.
-
-    ![Message de modification du type de volume](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![Message de modification du type de volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. Cliquez de nouveau sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour continuer.
 
@@ -280,9 +275,7 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
 4. En bas de la page, cliquez sur **Modifier**.
 
-5. Dans l’Assistant Modification de volume, sous **Paramètres de base**, sélectionnez **Activer** ou **Désactiver** dans la liste déroulante **Analyse**.
-
-    ![Case à cocher Archiver](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+5. Dans l’Assistant Modifier un volume, sous **Paramètres de base**, sélectionnez **Activer** ou **Désactiver** dans la liste déroulante **Analyse**.
 
 ## Étapes suivantes
 
@@ -291,4 +284,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

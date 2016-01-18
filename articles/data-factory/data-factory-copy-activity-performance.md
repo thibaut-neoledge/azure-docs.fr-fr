@@ -218,10 +218,10 @@ Dans ce cas, la compression de données BZIP2 pourrait ralentir l’ensemble du 
 Voici quelques références relatives à la surveillance et au réglage des performances pour quelques magasins de données pris en charge :
 
 - Azure Storage (y compris les objets blob Azure et la table Azure) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage//storage-performance-checklist.md)
-- Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) et vérifier le pourcentage de l’unité de débit de base de données (UDBD).
-- Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU). Voir [Performances et mise à l’échelle élastiques avec SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
-- Azure DocumentDB : [Niveaux de performances dans DocumentDB](../documentdb/documentdb-performance-levels/).
+- Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-service-tiers.md#monitoring-performance) et vérifier le pourcentage de l’unité de débit de base de données (UDBD).
+- Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU). Voir [Performances et mise à l’échelle élastiques avec SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
+- Azure DocumentDB : [Niveaux de performances dans DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
 - Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs
@@ -22,7 +22,7 @@
 
 Ce guide fournit des exemples de code C# qui indiquent comment lire et écrire des tables de stockage Azure à l’aide du [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
+Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md) ou [plusieurs comptes de stockage](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 		
 Certains extraits de code illustrent l’attribut `Table` utilisé dans des fonctions [appelées manuellement](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
@@ -163,4 +163,4 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des tables Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

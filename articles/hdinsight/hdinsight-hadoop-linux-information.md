@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sous Linux
@@ -88,7 +88,7 @@ Puisqu'il s'agit d'un stockage par défaut pour HDInsight, vous n'avez normaleme
 
 	hadoop fs -ls /example/data
 
-Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe ****WASB://**.
+Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe ****WASB://**
 
 HDInsight vous permet également d’associer de multiples comptes de stockage d’objets blob à un cluster. Pour accéder à des données sur un compte de stockage d’objets blob qui n’est pas celui par défaut, vous pouvez utiliser le format **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Par exemple, celui-ci listera le contenu du répertoire **/example/data** pour le conteneur et le compte de stockage indiqués :
 
@@ -98,27 +98,31 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
 À la création du cluster, vous pouvez choisir d’utiliser un compte Azure Storage et un conteneur existants ou d’en créer de nouveaux. Vous avez peut-être oublié cela par la suite. Vous pouvez trouver le conteneur et le compte de stockage par défaut à l’aide de l’API REST Ambari.
 
-1. Utilisez la commande suivante pour récupérer les informations de configuration HDFS :
+1. Utilisez la commande suivante pour récupérer les informations de configuration HDFS à l'aide de curl, puis filtrez ces informations avec [jq](https://stedolan.github.io/jq/) :
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE]Renvoie la première configuration appliquée au serveur (`service_config_version=1`), qui contiendra ces informations. Si vous récupérez une valeur qui a été modifiée après la création du cluster, vous devrez peut-être lister les versions de configuration et récupérer la plus récente.
 
-2. Dans les données JSON renvoyées, recherchez l’entrée `fs.defaultFS`. Celle-ci contient les noms par défaut du conteneur et du compte de stockage dans un format similaire à ce qui suit :
+    Renvoie une valeur similaire à la suivante, où __CONTAINER__ est le conteneur par défaut et __ACCOUNTNAME__ est le nom de compte Azure Storage :
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP]Si vous avez installé [jq](http://stedolan.github.io/jq/), vous pouvez utiliser les éléments suivants pour retourner uniquement l’entrée `fs.defaultFS` :
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. Récupérez le groupe de ressources du compte de stockage, utilisez l'[interface de ligne de commande Azure](../xplat-cli-install.md). Dans la commande suivante, remplacez __ACCOUNTNAME__ par le nom du compte de stockage récupéré à partir d'Ambari :
 
-3. Pour trouver la clé utilisée pour s’authentifier auprès du compte de stockage, ou pour rechercher les comptes de stockage secondaire associés au cluster, procédez comme suit :
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    Renvoie le nom du groupe de ressources du compte.
+    
+    > [AZURE.NOTE]Si cette commande ne renvoie aucun résultat, vous devrez peut-être modifier l'interface de ligne de commande Azure pour la faire passer en mode Azure Resource Manager et réexécuter la commande. Pour passer en mode Azure Resource Manager, utilisez la commande suivante :
+    >
+    > `azure config mode arm`
+    
+2. Récupérez la clé du compte de stockage. Remplacez __GROUPNAME__ par le groupe de ressources de l'étape précédente. Remplacez __ACCOUNTNAME__ par le nom du compte de stockage :
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. Dans les données JSON renvoyées, recherchez les entrées commençant par `fs.azure.account.key`. Le reste du nom de l’entrée correspond au nom du compte de stockage. Par exemple : `fs.azure.account.key.mystorage.blob.core.windows.net`. La valeur stockée dans cette entrée est la clé utilisée pour s’authentifier auprès du compte de stockage.
-
-	> [AZURE.TIP]Si vous avez installé [jq](http://stedolan.github.io/jq/), vous pouvez utiliser les éléments suivants pour renvoyer uniquement la liste des clés et valeurs :
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+    Renvoie la clé primaire du compte.
 
 Vous pouvez également rechercher les informations de stockage à l’aide du portail Azure :
 
@@ -252,4 +256,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

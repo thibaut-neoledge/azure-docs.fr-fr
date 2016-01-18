@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015"  
+	ms.date="12/21/2015"  
 	ms.author="juliako"/>
 
 
@@ -26,6 +26,8 @@ Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimé
 Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md). Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
+
+>[AZURE.NOTE]MES génère un fichier de sortie avec un nom qui contient les 32 premiers caractères du nom du fichier d'entrée. Le nom est basé sur ce qui est spécifié dans le fichier prédéfini. Par exemple, « NomFichier » : « {NomBase}\_{Index}{Extension} ». {NomBase} est remplacé par les 32 premiers caractères du nom du fichier d'entrée.
 
 ###Formats MES
 
@@ -52,7 +54,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
-- Indiquez l'utilisation des paramètres prédéfinis « 720p débits binaires multiples H264 ». Vous pouvez afficher tous les paramètres de présélection [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Vous pouvez également consulter le schéma auquel ces paramètres de présélection doivent se conformer dans [cette rubrique](https://msdn.microsoft.com/library/mt269962.aspx).
+- Indiquez l'utilisation des paramètres prédéfinis « 720p débits binaires multiples H264 ». Vous pouvez afficher tous les paramètres prédéfinis [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Vous pouvez également consulter le schéma auquel ces paramètres de présélection doivent se conformer dans [cette rubrique](https://msdn.microsoft.com/library/mt269962.aspx).
 - Ajout d’une tâche d’encodage unique. 
 - Spécification de l’élément multimédia d’entrée à encoder.
 - Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
@@ -145,4 +147,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

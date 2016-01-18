@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
@@ -75,7 +75,7 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 	<ol type="a">
 	<li>Lancez <b>Visual Studio&#160;2012</b> ou <b>Visual Studio&#160;2013</b>.</li>
 	<li>Cliquez sur <b>Fichier</b>, pointez le curseur de la souris sur <b>Nouveau</b>, puis cliquez sur <b>Projet</b>.</li>
-	<li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual&#160;C#</b>. Dans cette procédure pas à pas, vous utilisez&#160;C#, mais vous pouvez utiliser un autre langage&#160;.NET pour développer l'activité personnalisée.</li>
+	<li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual&#160;C#</b>. Dans cette procédure pas à pas, vous utilisez&#160;C#, mais vous pouvez utiliser un autre langage&#160;.NET pour développer l’activité personnalisée.</li>
 	<li>Sélectionnez <b>Bibliothèque de classes</b> dans la liste des types de projet, sur la droite.</li>
 	<li>Entrez <b>MyDotNetActivity</b> dans le champ <b>Nom</b>.</li>
 	<li>Sélectionnez <b>C:\ADFGetStarted</b> dans le champ <b>Emplacement</b>.</li>
@@ -126,6 +126,18 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -288,7 +300,7 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug. Si vous le souhaitez, vous pouvez inclure le fichier **MyDotNetActivity.pdb** afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source à l’origine du problème en cas de défaillance.
 
 	![Fichiers de sortie binaires](./media/data-factory-use-custom-activities/Binaries.png)
-13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Azure utilisé par le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **customactivitycontainer**, le cas échéant.
+13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Azure qu’utilise le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **customactivitycontainer**, le cas échéant.
 
 > [AZURE.NOTE]Si vous ajoutez ce projet d'activité .NET à une solution dans Visual Studio qui contient un projet Data Factory, il est inutile d'effectuer les deux dernières étapes de création du fichier zip et de le télécharger manuellement dans le stockage blob Azure. Lorsque vous publiez des entités Data Factory à l'aide de Visual Studio, ces étapes sont effectuées automatiquement par le processus de publication. Consultez les articles [Concevez votre premier pipeline à l’aide de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) et [Copie de données à partir d’un objet Blob Azure vers SQL Azure](data-factory-get-started-using-vs.md) pour en savoir plus sur la création et la publication des entités Data Factory à l’aide de Visual Studio.
 
@@ -296,7 +308,7 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 
 Cette section fournit des informations et remarques supplémentaires concernant le code contenu dans la méthode **Execute**.
  
-1. Les membres de l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). Pour parcourir la collection d’objets blob, vous devez utiliser la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
+1. Les membres de l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). L’itération dans la collection d’objets blob requiert d’utiliser la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, voir [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
 
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
@@ -314,7 +326,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
     		output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 		} while (continuationToken != null);
 
-	Consultez la documentation de la méthode [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) pour plus d’informations.
+	Pour plus de détails, voir la documentation sur la méthode [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
 
 2.	Le code permettant de parcourir l’ensemble d’objets blob s’inscrit logiquement dans la boucle do-while. Dans la méthode **Execute**, la boucle do-while transmet la liste d’objets blob à une méthode nommée **Calculate**. La méthode renvoie une variable de chaîne nommée **output**, qui correspond au résultat de l’itération dans tous les objets blob du segment.
 
@@ -322,7 +334,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 
 			output += string.Format("{0} occurrences of the search term "{1}" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
 
-3.	À la fin de l’exécution de la méthode **Calculate**, vous devez l’écrire dans un nouvel objet blob. Par conséquent, pour chaque ensemble d’objets blob traité, un nouvel objet blob peut être écrit avec les résultats correspondants. Pour écrire dans un nouvel objet blob, commencez par rechercher le jeu de données de sortie.
+3.	Une fois l’exécution de la méthode **Calculate** terminée, vous devez écrire le résultat dans un nouvel objet blob. Par conséquent, pour chaque ensemble d’objets blob traité, un nouvel objet blob peut être écrit avec les résultats correspondants. Pour écrire dans un nouvel objet blob, commencez par rechercher le jeu de données de sortie.
 
 			// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 			Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
@@ -330,7 +342,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 			// Convert to blob location object.
 			outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
-4.	Le code appelle également une méthode d’assistance **GetFolderPath** pour récupérer le chemin d’accès au dossier (le nom du conteneur de stockage).
+4.	Le code appelle également une méthode d’assistance, **GetFolderPath**, pour récupérer le chemin d’accès au dossier (nom du conteneur de stockage).
  
 			folderPath = GetFolderPath(outputDataset);
 
@@ -360,7 +372,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 
 ## Création de la fabrique de données
 
-Dans la section **Création de l’activité personnalisée**, vous avez créé une activité personnalisée et téléchargé le fichier zip contenant les fichiers binaires et le fichier PDB dans un conteneur d’objets blob Azure. Dans cette section, vous allez maintenant créer une **fabrique de données** Azure avec un **pipeline** qui utilise l’**activité personnalisée**.
+Dans la section **Création de l’activité personnalisée**, vous avez créé une activité personnalisée et chargé le fichier zip contenant les fichiers binaires et le fichier PDB dans un conteneur d’objets blob Azure. Dans cette section, vous allez créer une **fabrique de données** Azure avec un **pipeline** qui utilise l’**activité personnalisée**.
  
 Le jeu de données d’entrée de l’activité personnalisée représente les objets blob (fichiers) contenus dans le dossier d’entrée (mycontainer\\inputfolder) du stockage d’objets blob. Le jeu de données de sortie de l’activité personnalisée représente les objets blob de sortie contenus dans le dossier de sortie (mycontainer\\outputfolder) du stockage d’objets blob.
 
@@ -386,9 +398,9 @@ Voici les étapes que vous allez effectuer lors de cette opération :
 
 1.	Une fois connecté au portail Azure, procédez comme suit :
 	1.	Cliquez sur **NOUVEAU** dans le menu de gauche.
-	2.	Cliquez sur **Données + Analyse** dans le panneau **Nouveau**.
+	2.	Dans le panneau **Nouveau**, cliquez sur **Données et analyse**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
-2.	Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible**, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
+2.	Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Data factory name “CustomActivityFactory” is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible) s’affiche, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
 3.	Cliquez sur **NOM DU GROUPE DE RESSOURCES** pour sélectionner un groupe de ressources existant, ou créez un nouveau groupe de ressources. 
 4.	Vérifiez que vous utilisez l’**abonnement** et la **région** correspondant à ceux dans lesquels vous souhaitez créer la fabrique de données. 
 5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
@@ -403,7 +415,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 
 1.	Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Cette action lance l'éditeur Data Factory Editor.
 2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Azure Storage**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
-3.	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+3.	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 
@@ -627,7 +639,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 	2 occurrences (s) du terme de recherche « Microsoft » ont été trouvées dans le fichier inputfolder/2015-11-16-00/file.txt.
 
-10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l’outil **ActivityLogger** dans le code concernant l’activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l’aide d’applets de commande.
+10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l'outil **ActivityLogger** dans le code concernant l'activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l'aide d'applets de commande.
 
 	![Téléchargement des journaux d’activités personnalisées][image-data-factory-download-logs-from-custom-activity]
 
@@ -640,7 +652,7 @@ Le débogage consiste à utiliser quelques techniques de base :
 1.	Si la tranche d’entrée n’est pas définie sur **Prêt**, vérifiez que la structure de dossiers d’entrée est correcte et que le fichier file.txt est présent dans les dossiers d’entrée.
 2.	Dans la méthode **Execute** de votre activité personnalisée, utilisez l’objet **IActivityLogger** pour consigner les informations qui vous aideront à résoudre les problèmes. Les messages consignés s’afficheront dans le fichier user\_0.log. 
 
-	Dans le panneau **OutputDataset**, cliquez sur la tranche pour afficher le panneau **TRANCHE DE DONNÉES** correspondant à cette tranche. Les **activités exécutées** s’afficheront pour cette tranche. Vous devez normalement voir une exécution d’activité pour la tranche. Si vous cliquez sur Exécuter dans la barre de commandes, vous pouvez démarrer une autre exécution d’activité pour la même tranche.
+	Dans le panneau **OutputDataset**, cliquez sur la tranche pour afficher le panneau **TRANCHE DE DONNÉES** correspondant à cette tranche. Les **activités exécutées** pour cette tranche s’affichent. Vous devez normalement voir une exécution d’activité pour la tranche. Si vous cliquez sur Exécuter dans la barre de commandes, vous pouvez démarrer une autre exécution d’activité pour la même tranche.
 
 	Lorsque vous cliquez sur l’exécution d’activité, le panneau **DÉTAILS DE L’EXÉCUTION D’ACTIVITÉ** s’affiche avec une liste de fichiers journaux. Les messages consignés s’afficheront dans le fichier user\_0.log. Lorsqu’une erreur se produit, vous verrez trois exécutions d’activité car le nombre de tentatives est défini sur 3 dans le script JSON du pipeline et de l’activité. Lorsque vous cliquez sur l’exécution de l’activité, vous accédez aux fichiers journaux qui vous permettront de résoudre l’erreur.
 
@@ -656,6 +668,37 @@ Le débogage consiste à utiliser quelques techniques de base :
 
 ## Mettre à jour l’activité personnalisée
 Si vous mettez à jour le code de l’activité personnalisée, créez et téléchargez le fichier .zip qui contient les nouveaux fichiers binaires pour le stockage d’objets blob.
+
+## Accéder aux propriétés étendues
+Vous pouvez déclarer des propriétés étendues dans l'activité JSON, comme indiqué ci-dessous :
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+Dans l'exemple ci-dessus, il existe deux propriétés étendues : **SliceStart** et **DataFactoryName**. La valeur de SliceStart est basée sur la variable système SliceStart. Consultez la page [Variables système](data-factory-scheduling-and-execution.md#data-factory-system-variables) pour obtenir la liste des variables système prises en charge. La valeur de DataFactoryName est codée en dur sous la forme « CustomActivityFactory ».
+
+Pour accéder à ces propriétés étendues dans la méthode **Execute**, utilisez un code semblable au suivant :
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
 
 ## <a name="AzureBatch"></a> Utilisation du service lié Azure Batch
 > [AZURE.NOTE]Consultez la rubrique concernant les [concepts de base d’Azure Batch][batch-technical-overview] pour obtenir un aperçu du service Microsoft Azure Batch, et la page [Prise en main de la bibliothèque Azure Batch pour .NET][batch-get-started] pour mettre rapidement en route ce service.
@@ -760,4 +803,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

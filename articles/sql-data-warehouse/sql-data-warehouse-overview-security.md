@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -119,4 +119,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

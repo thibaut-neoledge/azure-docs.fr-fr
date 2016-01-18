@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Prise en charge des clients de niveau inférieur de SQL Data Warehouse pour l’audit des données | Microsoft Azure" 
-	description="En savoir plus sur la prise en charge des clients de niveau inférieur de SQL Data Warehouse pour l’audit des données" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Prise en charge des clients de niveau inférieur de SQL Data Warehouse pour l’audit des données | Microsoft Azure" 
+   description="En savoir plus sur la prise en charge des clients de niveau inférieur de SQL Data Warehouse pour l’audit des données" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # SQL Data Warehouse : prise en charge des clients de niveau inférieur pour l’audit et le masquage de données dynamiques 
 
@@ -40,4 +40,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory (Azure AD) B2B Collaboration
@@ -72,4 +72,4 @@ Consultez les autres articles sur Azure B2B Collaboration
 - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

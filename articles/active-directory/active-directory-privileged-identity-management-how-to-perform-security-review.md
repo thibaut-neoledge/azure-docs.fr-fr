@@ -26,10 +26,10 @@ Il est très facile d’examiner un accès privilégié une fois qu’une [révi
 ### Révision manuelle
 1. Dans le menu principal de PIM, cliquez sur **Réviser l’accès administratif**. Une liste de révisions de sécurité s’affiche.
 2. Sélectionnez les **utilisateurs** dans la liste pour lesquels vous souhaitez modifier l’accès. REMARQUE : l’accès sera réellement modifié. Ce processus crée simplement une liste de vérification pour ceux qui pourraient être amenés à modifier l’accès pour le rôle. Une fois qu’au moins un utilisateur a été sélectionné, les boutons **Approuver l’accès** et **Refuser l’accès** sont activés.
-3. Cliquez sur **Approuver l’accès** ou **Refuser l’accès** pour les utilisateurs que vous avez sélectionnés. Une notification s’affiche dans le menu principal du portail, et la liste de révisions disparaît. Fermez le panneau **Réviser les rôles Azure AD**.
+3. Cliquez sur **Approuver l’accès** ou **Refuser l’accès** pour les utilisateurs que vous avez sélectionnés. Une notification s’affiche dans le menu principal du portail Azure, et la liste de révisions disparaît. Fermez le panneau **Réviser les rôles Azure AD**.
 
 ### Révision automatique
-1. L’utilisateur reçoit un message électronique indiquant qu’il doit réviser son accès. Le message électronique contient un lien de connexion au portail.
+1. L’utilisateur reçoit un message électronique indiquant qu’il doit réviser son accès. Le message électronique contient un lien de connexion au portail Azure.
 2. Une fois connecté, l’utilisateur peut approuver ou refuser son propre accès en cliquant sur les boutons **Approuver l’accès** ou **Refuser l’accès**. Son nom disparaît de la liste.
 
 ## Pour les responsables de la révision : gestion des révisions de sécurité
@@ -60,4 +60,4 @@ Vous pouvez exporter une révision pour une utilisation avec Excel ou tout autre
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

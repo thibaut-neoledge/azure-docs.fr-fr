@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Utilisez les actions du menu MMC dans Gestionnaire d’instantanés StorSimple
@@ -128,4 +128,4 @@ Utilisez le menu **Aide** pour consulter l’aide en ligne disponible du Gestion
 - En savoir plus sur [l’interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 - En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : inscription et connexion de consommateurs à vos applications
@@ -28,7 +28,7 @@ Azure Active Directory B2C est en version préliminaire. Nous sommes actuelleme
 
 Pour créer une application qui accepte l'inscription et la connexion des consommateurs, vous devez commencer par inscrire cette application auprès d'un client Azure Active Directory B2C. Obtenez votre propre client en procédant de la manière décrite dans cet [article](active-directory-b2c-get-started.md).
 
-Vous pouvez écrire votre application pour le service Azure Active Directory B2C soit en envoyant directement des messages de protocole à l’aide d’[OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) ou d’[Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow), soit en utilisant nos bibliothèques pour faire le travail à votre place (choisissez votre plateforme favorite ci-dessous, puis commencez).
+Vous pouvez écrire votre application pour le service Azure Active Directory B2C soit en envoyant directement des messages de protocole à l’aide d’[OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) ou d’[Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow), soit en utilisant nos bibliothèques pour faire le travail à votre place (choisissez votre plateforme favorite ci-dessous, puis commencez).
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
@@ -43,7 +43,7 @@ Revenez souvent pour en savoir plus sur les futures modifications apportées à 
 
 Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active Directory B2C en version préliminaire :
 
-- Configurer des comptes ([Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) et [LinkedIn](active-directory-b2c-setup-li-app.md)) pour une utilisation dans vos applications accessibles aux consommateurs.
+- Configurer des comptes [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft Account](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) et [LinkedIn](active-directory-b2c-setup-li-app.md) pour une utilisation dans vos applications accessibles aux consommateurs.
 - [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](active-directory-b2c-reference-custom-attr.md).
 - [Activer l’authentification multifacteur dans vos applications accessibles aux consommateurs](active-directory-b2c-reference-mfa.md).
 - [Configurer une réinitialisation de mot de passe libre-service pour vos consommateurs](active-directory-b2c-reference-sspr.md).
@@ -54,13 +54,13 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 
 Les liens ci-dessous vous seront utiles pour explorer le service en profondeur :
 
-- Consultez les [informations de tarification Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
-- Pour obtenir une aide sur le dépassement de capacité de la pile, utilisez les mots-clés [azure active directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
+- Consultez les [informations de tarification Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c).
+- Pour obtenir une aide sur le dépassement de capacité de pile, utilisez les mots-clés [azure active directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 - Dites-nous ce que vous pensez de la version préliminaire sur le [forum des utilisateurs](http://feedback.azure.com/forums/169401-azure-active-directory), votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
 - Azure Active Directory B2C prend en charge les protocoles standard, OpenID Connect et OAuth 2.0, à l’aide d’un modèle d’inscription d’application que nous appelons « Modèle d’application v2.0 ».
   - [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-b2c-reference-protocols.md)
   - [Informations de référence sur les jetons du modèle d’application v2.0](active-directory-b2c-reference-tokens.md)
 - [FAQ sur Azure Active Directory B2C](active-directory-b2c-faqs.md)
-- [Demandes de prise en charge de fichier adressées à Azure Active Directory B2C](active-directory-b2c-support.md)
+- [Demandes de prise en charge de fichier adressées à Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

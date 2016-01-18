@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -65,7 +65,7 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris 
 
 ## Ajoutez le modèle d’analyse de sentiments de la galerie Cortana Analytics
 
-1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Analytics.  
+1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Analytics  
 2.	Cliquez sur **Ouvrir** dans Studio :  
 
     ![ouvrir le studio machine learning du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -107,7 +107,7 @@ Notez l’URL et la clé d’accès du service web depuis le fichier excel tél�
 
     ![fonction machine learning d’ajout de didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
-10.	Sur la page **Paramètres du Service Web Machine Learning**, recherchez l’espace de travail de Machine Learning, le service web et le point de terminaison par défaut. Pour ce didacticiel, appliquez les paramètres manuellement pour vous familiariser avec la configuration du service web d’un espace de travail quelconque dont vous connaissez l’URL et avez la clé. Indiquez l’**URL** et la **clé API** du point de terminaison. Cliquez ensuite sur **OK**.
+10.	Sur la page **Paramètres du Service Web Machine Learning**, recherchez l’espace de travail de Machine Learning, le service web et le point de terminaison par défaut. Pour ce didacticiel, appliquez les paramètres manuellement pour vous familiariser avec la configuration du service web d’un espace de travail quelconque dont vous connaissez l’URL et avez la clé. Fournir le point de terminaison **URL** et **Clé API**. Cliquez ensuite sur **OK**.
 
     ![service web machine learning de didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
@@ -142,7 +142,7 @@ Notez l’URL et la clé d’accès du service web depuis le fichier excel tél�
 
 Dans ce didacticiel, un travail Stream Analytics a été créé et lit des données de texte diffusées en continu et applique l’analyse des sentiments à ces dernières en continu. Vous avez pu réaliser toutes ces opérations sans avoir à vous soucier des subtilités de la création d’un modèle d’analyse des sentiments. Il s’agit de l’un des avantages de la suite Cortana Analytics.
 
-La fonction Azure Machine Language liée aux mesures peut également être observée. Cliquez sur l’onglet **SURVEILLER**. Trois fonctions liées aux métriques sont présentes.
+Vous pouvez également observer les mesures liées à la fonction Azure Machine Learning. Cliquez sur l’onglet **SURVEILLER**. Trois fonctions liées aux métriques sont présentes.
   
 - REQUÊTES DE FONCTION indique le nombre de requêtes adressées au service web machine learning.  
 - FONCTIONS D’ÉVÉNEMENTS indique le nombre d’événements de la requête. Par défaut, chaque requête au service web ML contient jusqu’à 1 000 événements.  
@@ -150,4 +150,4 @@ La fonction Azure Machine Language liée aux mesures peut également être obser
 
     ![affichage du moniteur ml du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

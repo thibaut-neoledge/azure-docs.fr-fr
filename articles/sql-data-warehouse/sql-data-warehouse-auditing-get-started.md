@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Prendre en main l’audit de base de données SQL Data Warehouse | Microsoft Azure" 
-	description="Prendre en main de l’audit de base de données SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Prendre en main l’audit de base de données SQL Data Warehouse | Microsoft Azure" 
+   description="Prendre en main de l’audit de base de données SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Prendre en main de l’audit de base de données SQL Data Warehouse 
-<p> L’audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
+L'audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
 
 L'audit peut vous aider à respecter une conformité réglementaire, à comprendre l'activité de la base de données et à découvrir des discordances et anomalies susceptibles d'indiquer des problèmes pour l'entreprise ou des violations de la sécurité.
 
@@ -40,10 +40,10 @@ Vous pouvez configurer l'audit pour les catégories d'événements suivantes :
 
 **SQL ordinaire** et **SQL paramétré** pour lesquels les journaux d'audit collectés sont classés comme
 
-- **accès aux données** ;
-- **modifications de schéma (DDL)** ;
-- **modifications de données (DML)** ;
-- **comptes, rôles et autorisations (DCL)** ;
+- **accès aux données ;**
+- **modifications de schéma (DDL) ;**
+- **modifications de données (DML) ;**
+- **comptes, rôles et autorisations (DCL) ;**
 - **Procédure stockée**, **connexion** et **Gestion des transactions**.
 
 Pour chaque catégorie d'événements, les audits des opérations **Succès** et **Échec** sont configurées séparément.
@@ -141,4 +141,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

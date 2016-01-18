@@ -1,10 +1,10 @@
-<properties 
+<properties
    pageTitle="Gérer : mode de distribution d’équilibrage de charge (affinité d’IP source)"
-   description="Fonctionnalités de gestion pour le mode de distribution d'équilibrage de charge Azure" 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="telmosampaio" 
-   manager="carmonm" 
+   description="Fonctionnalités de gestion pour le mode de distribution d'équilibrage de charge Azure"
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carmonm"
    editor=""
    />
 
@@ -17,7 +17,7 @@
    ms.date="12/07/2015"
    ms.author="telmos"
    />
-   
+
 # Gérer un réseau virtuel : mode de distribution d’équilibrage de charge (affinité d’IP source)
 L’**affinité d’IP source** (également appelée **affinité de session** ou **affinité d’IP du client**), l’un des modes de distribution d’équilibrage de charge Azure, lie les connexions entre un client unique et un serveur unique hébergé sur Azure, au lieu de répartir dynamiquement chaque connexion client entre différents serveurs hébergés sur Azure (comportement d’équilibrage de charge par défaut).
 
@@ -44,7 +44,7 @@ L'affinité d'IP source peut être configurée pour les éléments suivants :
   * Le client initie une session UDP à la même adresse IP publique soumise à l'équilibrage de charge et hébergée sur Azure.
   * L'équilibrage de charge Azure dirige la demande vers le même point de terminaison DIP que la connexion TCP.
   * Le client télécharge le média avec un débit UDP plus élevé tout en conservant le canal de contrôle sur TCP pour des raisons de fiabilité.
-  
+
 ## Mises en garde
 * Si le jeu d'équilibrage de la charge est modifié (c'est-à-dire, si une machine virtuelle est ajoutée ou supprimée), la distribution du canal client est recalculée ; les nouvelles connexions à partir des clients existants peuvent être gérées par un autre serveur que celui utilisé à l'origine.
 * L'utilisation de l'affinité d'IP source peut occasionner une distribution inégale du trafic entre les serveurs hébergés sur Azure.
@@ -55,15 +55,15 @@ Pour optimiser les résultats, téléchargez la [dernière version d’Azure Pow
 
 ### Ajouter un point de terminaison Azure à une machine virtuelle et définir le mode de distribution d'équilibrage de charge
 
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
 
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 Ã¢â‚¬â€œLoadBalancerDistribution Ã¢â‚¬Å“sourceIPÃ¢â‚¬ï¿½| Update-AzureVM  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
 
 LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut (équilibrage de charge à 5 tuples).
 
 ### Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
-    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
-    
+    PS C:\> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
     LocalPort : 80
@@ -86,10 +86,10 @@ Si l'élément LoadBalancerDistribution n'est pas présent, l'équilibrage de ch
 
 ### Définir le mode de distribution sur un jeu de points de terminaison d'équilibrage de charge
 
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
 
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 Ã¢â‚¬â€œLoadBalancerDistribution "sourceIP"
-    
 Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le mode de distribution défini doit être le jeu de points de terminaison d'équilibrage de charge.
 
 ## Exemples de service cloud
@@ -115,7 +115,7 @@ Voici un exemple de modifications apportées aux paramètres de point de termina
         </InstanceAddress>
       </AddressAssignments>
     </NetworkConfiguration>
-    
+
 ## Exemples d'API
 
 Les développeurs peuvent configurer la distribution d'équilibrage de charge à l'aide de l'API de gestion de service. Veillez à ajouter l'en-tête x-ms-version et de le définir sur la version 01/09/2014 ou une version ultérieure.
@@ -124,41 +124,40 @@ Les développeurs peuvent configurer la distribution d'équilibrage de charge à
 
 #### Demande
 
-    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet 
-    
-    x-ms-version: 2014-09-01 
-    
-    Content-Type: application/xml 
-    
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
-      <InputEndpoint> 
-        <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName> 
-        <LocalPort> local-port-number </LocalPort> 
-        <Port> external-port-number </Port> 
-        <LoadBalancerProbe> 
-          <Port> port-assigned-to-probe </Port> 
-          <Protocol> probe-protocol </Protocol> 
-          <IntervalInSeconds> interval-of-probe </IntervalInSeconds> 
-          <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds> 
-        </LoadBalancerProbe> 
-        <Protocol> endpoint-protocol </Protocol> 
-        <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn> 
-        <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes> 
-        <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution> 
-      </InputEndpoint> 
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet
+
+    x-ms-version: 2014-09-01
+
+    Content-Type: application/xml
+
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <InputEndpoint>
+        <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
+        <LocalPort> local-port-number </LocalPort>
+        <Port> external-port-number </Port>
+        <LoadBalancerProbe>
+          <Port> port-assigned-to-probe </Port>
+          <Protocol> probe-protocol </Protocol>
+          <IntervalInSeconds> interval-of-probe </IntervalInSeconds>
+          <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds>
+        </LoadBalancerProbe>
+        <Protocol> endpoint-protocol </Protocol>
+        <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn>
+        <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes>
+        <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution>
+      </InputEndpoint>
     </LoadBalancedEndpointList>
 
 La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 2 tuples, sourceIPProtocol pour une affinité à 3 tuples ou none (aucune affinité, c'est-à-dire, 5 tuples)
 
 #### Réponse
 
-    HTTP/1.1 202 Accepted 
-    Cache-Control: no-cache 
-    Content-Length: 0 
-    Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0 
-    x-ms-servedbyregion: ussouth2 
-    x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
+    HTTP/1.1 202 Accepted
+    Cache-Control: no-cache
+    Content-Length: 0
+    Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0
+    x-ms-servedbyregion: ussouth2
+    x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

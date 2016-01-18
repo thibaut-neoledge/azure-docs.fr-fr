@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Code SQL dynamique dans SQL Data Warehouse
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 Si la chaîne est courte, vous pouvez utiliser [sp\_executesql][] comme d’habitude.
 
+> [AZURE.NOTE]Les instructions exécutées en tant qu'instructions SQL dynamiques sont toujours soumises à l'ensemble des règles de validation TSQL.
 
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
@@ -45,4 +46,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

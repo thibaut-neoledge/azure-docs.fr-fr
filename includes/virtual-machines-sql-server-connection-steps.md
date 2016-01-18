@@ -1,40 +1,3 @@
-Les étapes suivantes montrent comment se connecter à l’instance SQL Server sur Internet à l’aide de SQL Server Management Studio (SSMS). Toutefois, les mêmes étapes s’appliquent pour rendre votre machine virtuelle SQL Server accessible pour vos applications exécutées en local et dans Azure.
-
-Avant de pouvoir vous connecter à l’instance de SQL Server à partir d’une autre machine virtuelle ou d’Internet, vous devez effectuer les tâches suivantes, comme indiqué dans les sections ci-dessous :
-
-- [Créer un point de terminaison TCP pour la machine virtuelle](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Ouvrir des ports TCP dans le pare-feu Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configurer SQL Server pour l’écoute du protocole TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configurer SQL Server pour l’authentification en mode mixte](#configure-sql-server-for-mixed-mode-authentication)
-- [Créer des connexions d’authentification SQL Server](#create-sql-server-authentication-logins)
-- [Déterminer le nom DNS de la machine virtuelle](#determine-the-dns-name-of-the-virtual-machine)
-- [Se connecter au moteur de base de données à partir d’un autre ordinateur](#connect-to-the-database-engine-from-another-computer)
-
-Le chemin de connexion est résumé dans le schéma suivant :
-
-![Connexion à une machine virtuelle SQL Server](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
-
-### Création d'un point de terminaison TCP pour la machine virtuelle
-
-Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
-
->[AZURE.NOTE]Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d'informations, consultez [Scénarios de connexion](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
-
-1. Dans le portail de gestion Azure, cliquez sur **VIRTUAL MACHINES**.
-	
-2. Cliquez sur la machine virtuelle que vous venez de créer. Les informations relatives à la machine virtuelle sont affichées.
-	
-3. En haut de la page, sélectionnez la page **POINTS DE TERMINAISON**, puis en bas de la page, cliquez sur **AJOUTER**.
-	
-4. Dans la page **Ajouter un point de terminaison à la machine virtuelle**, cliquez sur **Ajouter un point de terminaison autonome**, puis sur la flèche Suivant.
-	
-5. Sur la page **Specify the details of the endpoint**, entrez les informations suivantes.
-
-	- Dans la zone **NAME**, entrez un nom pour le point de terminaison.
-	- Dans la zone **PROTOCOL**, sélectionnez **TCP**. Vous pouvez taper la valeur **57500** dans la zone **PORT PUBLIC**. De la même façon, vous pouvez indiquer le port d’écoute par défaut de SQL Server **1433** dans la zone **Port privé**. Notez que plusieurs organisations sélectionnent différents numéros de ports pour éviter les attaques de sécurité. 
-
-6. Cliquez sur la coche pour continuer. Le point de terminaison est créé.
-
 ### Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données
 
 1. Connectez-vous à la machine virtuelle via le Bureau à distance Windows. Une fois connecté, sur l’écran d’accueil, tapez **WF.msc**, puis appuyez sur ENTRÉE. 
@@ -95,7 +58,7 @@ Pour plus d'informations sur l'activation des protocoles pour le moteur de base 
 
 Le moteur de base de données de SQL Server ne peut pas utiliser l'authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows
 
->[AZURE.NOTE] il n’est pas nécessaire de configurer l’authentification en mode mixte si vous avez configuré un réseau virtuel Azure avec un environnement de domaine configuré.
+>[AZURE.NOTE](il n’est pas nécessaire de configurer l’authentification en mode mixte si vous avez configuré un réseau virtuel Azure avec un environnement de domaine configuré).
 
 1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **SQL Server 2014 Management Studio** et cliquez sur l’icône sélectionnée.
 
@@ -161,26 +124,4 @@ Pour vous connecter au moteur de base de données à partir d'un autre ordinateu
 
 Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
 
-### Détermination du nom DNS de la machine virtuelle
-
-Pour vous connecter au moteur de base de données SQL Server à partir d'un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
-
-1. Dans le portail de gestion Azure (ou à partir de l'étape précédente), sélectionnez **VIRTUAL MACHINES**. 
-
-2. Sur la page **INSTANCES DE MACHINE VIRTUELLE**, dans la colonne **Aperçu rapide**, recherchez et copiez le nom DNS de la machine virtuelle.
-
-	![Nom DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
-	
-
-### Connexion au moteur de base de données à partir d'un autre ordinateur
- 
-1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
-2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé pendant la tâche précédente) et le numéro d’un port de point de terminaison public au format *NomDNS,NuméroPort*, par exemple **tutorialtestVM.cloudapp.net,57500**. Pour obtenir le numéro de port, connectez-vous au portail de gestion Azure et cherchez la machine virtuelle. Dans le tableau de bord, cliquez sur **POINTS DE TERMINAISON** et utilisez le **PORT PUBLIC** affecté à **MSSQL**. ![Port public](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
-5. Dans la zone **Connexion**, entrez le nom d'une connexion créée lors d'une tâche précédente.
-6. Dans la zone **Mot de passe**, entrez le mot de passe de connexion que vous avez créé lors d'une tâche précédente.
-7. Cliquez sur **Connecter**.
-
-	![Connexion en utilisant SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

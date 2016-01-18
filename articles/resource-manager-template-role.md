@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modèle Resource Manager pour les attributions de rôles | Microsoft Azure"
-   description="Affiche le schéma Ressource Manager pour la création d'une attribution de rôle au cours du déploiement."
+   description="Affiche le schéma Resource Manager pour le déploiement d'une attribution de rôle par le biais d'un modèle."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Attributions de rôles - schéma de modèle
+# Attributions de rôles, schéma de modèle
 
 Attribue un utilisateur, un groupe ou un principal du service à un rôle avec une portée spécifique.
 
@@ -58,7 +58,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | scope | string | Oui | Pour un groupe de ressources :<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />Puor une ressource :<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | L'étendue avec laquelle l'attribution de rôle est appliquée. |
 
 
-## Utilisation de la ressource de verrouillage
+## Utilisation de la ressource d'attribution de rôle
 
 Vous ajoutez une attribution de rôle à votre modèle lorsque vous devez ajouter un utilisateur, un groupe ou un principal du service à un rôle au cours du déploiement. Les attributions de rôles sont héritées des niveaux supérieurs de la portée. Si vous avez déjà ajouté un principal à un rôle au niveau d'abonnement, vous n'avez donc pas besoin de le réaffecter au groupe de ressources ou à la ressource.
 
@@ -119,10 +119,17 @@ L'exemple suivant affecte un groupe à un rôle pour le groupe de ressources.
         "outputs": {}
     }
 
+## Modèles de démarrage rapide
+
+Les modèles suivants montrent comment utiliser la ressource d'attribution de rôle :
+
+- [Attribuer un rôle intégré au groupe de ressources](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
+- [Attribuer un rôle intégré à une machine virtuelle existante](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
+- [Attribuer un rôle intégré à plusieurs machines virtuelles existantes](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour plus d'informations sur le contrôle d'accès en fonction du rôle, voir [Contrôle d'accès en fonction du rôle Azure Active Directory](active-directory/role-based-access-control-configure.md).
+- Pour plus d'informations sur le contrôle d'accès en fonction du rôle, consultez [Contrôle d'accès en fonction du rôle Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,10 +21,7 @@
 # Se connecter à une base de données SQL à l’aide de Ruby sur Ubuntu Linux
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique présente un exemple de code Ruby qui s’exécute sur un ordinateur client Ubuntu Linux, pour la connexion à une base de données SQL Azure.
@@ -80,7 +77,7 @@ La fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) perme
 
 ## Étape 3 : exécuter une requête
 
-La fonction [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) permet de récupérer un jeu de résultats d’une requête effectuée dans Base de données SQL. Cette fonction accepte une requête et retourne un jeu de résultats. Une itération est effectuée sur le jeu de résultats en utilisant [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
+La fonction [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) permet de récupérer un jeu de résultats d’une requête effectuée dans la base de données SQL. Cette fonction accepte une requête et retourne un jeu de résultats. Une itération est effectuée sur le jeu de résultats en utilisant [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
     require 'tiny_tds'  
     print 'test'     
@@ -94,7 +91,7 @@ La fonction [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) perme
 
 ## Étape 4 : insérer une ligne
 
-Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
 Pour utiliser TinyTDS avec Azure, il est recommandé d’exécuter plusieurs instructions `SET` pour modifier la façon dont la session en cours gère des informations spécifiques. Les instructions `SET` recommandées sont fournies dans l’exemple de code. Par exemple, `SET ANSI_NULL_DFLT_ON` permet aux nouvelles colonnes créées d’autoriser les valeurs Null même si la possibilité d’utiliser ces valeurs dans ces colonnes n’est pas explicitement définie.
 
@@ -121,4 +118,4 @@ Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/libra
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

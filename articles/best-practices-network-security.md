@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Services cloud et sécurité réseau Microsoft
@@ -307,7 +307,13 @@ Une fois que les tables de routage sont créées, elles sont liées à leurs sou
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Il existe des limitations actuelles avec l’UDR et les réseaux hybrides. Cela est résolu dans une version ultérieure ; des exemples montrant comment activer votre zone DMZ avec ExpressRoute ou la mise en réseau de site à site sont décrits ci-dessous dans les exemples 3 et 4.
+>[AZURE.NOTE]Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
+>
+> 1. Le routage UDR ne doit pas être appliqué au sous-réseau de passerelle auquel la passerelle virtuelle Azure liée à ExpressRoute est connectée.
+> 2. La passerelle virtuelle Azure liée à ExpressRoute ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés.
+>
+>L’intégration complète d’UDR et d’ExpressRoute sera résolue dans une version ultérieure d’Azure ; des exemples montrant comment activer votre zone DMZ avec ExpressRoute ou la mise en réseau de site à site sont décrits ci-dessous dans les exemples 3 et 4.
+
 
 #### Description du transfert IP
 Le transfert IP est associé à l’UDR. Il s’agit d’un paramètre d’appliance virtuelle qui permet de recevoir du trafic pas spécialement adressé à l’équipement, puis de transférer ce trafic vers sa destination finale.
@@ -436,9 +442,15 @@ La mise en réseau hybride à l’aide d’une connexion d’homologation privé
 
 Comme indiqué dans la figure ci-dessus, l’homologation privée ExpressRoute fournit une connexion directe entre votre réseau local et le réseau virtuel Azure. Le trafic passe uniquement dans le réseau du prestataire de services et le réseau Microsoft/Azure, sans jamais toucher Internet.
 
->[AZURE.NOTE]Il existe une limite à l’utilisation de l’itinéraire défini par utilisateur (UDR) et ExpressRoute, et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. L’UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés. La possibilité d’intégrer entièrement l’UDR et ExpressRoute sera activée dans une future version d’Azure.
+>[AZURE.NOTE]Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
+>
+> 1. Le routage UDR ne doit pas être appliqué au sous-réseau de passerelle auquel la passerelle virtuelle Azure liée à ExpressRoute est connectée.
+> 2. La passerelle virtuelle Azure liée à ExpressRoute ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés.
+>
+>La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
 
-</br>
+<br />
+
 >[AZURE.TIP]L’utilisation d’ExpressRoute tient le trafic du réseau d’entreprise éloigné d’Internet pour une meilleure sécurité, améliorant ainsi significativement les performances et autorisant les accords de niveau de service de votre fournisseur ExpressRoute. En ce qui concerne les performances ExpressRoute, la passerelle Azure peut transférer jusqu’à 2 Gbits/s avec ExpressRoute, tandis qu’avec les VPN de site à site, le débit maximal de la passerelle Azure est de 200 Mbits/s.
 
 Comme on le voit dans le schéma ci-dessous, avec cette option, l’environnement dispose maintenant de deux périmètres réseau. La NVA et le NSG contrôlent les flux de trafic pour les réseaux intra-Azure et entre Azure et Internet, tandis que la passerelle est un périmètre réseau totalement distinct et isolé entre le réseau local et Azure.
@@ -499,4 +511,4 @@ bientôt disponibles et liés à partir de cette page.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

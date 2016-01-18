@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn
@@ -34,17 +34,17 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 
     ![LinkedIn - inscription d’application](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. Copier les valeurs **Client ID** et **Client Secret** (vous pouvez les trouver dans la section **Authentication Keys**). Vous aurez besoin de ces deux valeurs pour configurer LinkedIn en tant que fournisseur d’identité dans votre annuaire.
+5. Copier les valeurs **Client ID** et **Client Secret** (vous pouvez les trouver dans la section **Authentication Keys**). Vous aurez besoin de ces deux valeurs pour configurer LinkedIn en tant que fournisseur d’identité dans votre client.
 
-    > [AZURE.NOTE]La valeur **Client Secret** est une information d’identification de sécurité importante.
+> [AZURE.NOTE]La valeur **Client Secret** est une information d’identification de sécurité importante.
 
-6. Entrez [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) dans le champ **Authorized Redirect URLs** (dans la section **OAuth 2.0**), où **{directory}** est remplacé par le nom de votre annuaire (par exemple, contoso.onmicrosoft.com), puis cliquez sur **Add**. Cliquez ensuite sur **Update**.
+6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Authorized Redirect URLs** (dans la section **OAuth 2.0**), où **{tenant}** est remplacé par le nom de votre client (par exemple, contoso.onmicrosoft.com), puis cliquez sur **Add**. Cliquez ensuite sur **Update**.
 
     ![LinkedIn - configuration d’application](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
-## Configuration de LinkedIn en tant que fournisseur d’identité dans votre annuaire
+## Configuration de LinkedIn en tant que fournisseur d’identité dans votre client
 
-1. [Accédez au panneau de fonctionnalités B2C sur le portail Azure en version préliminaire](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « LI ».
@@ -52,4 +52,4 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’**ID client** et la **Clé secrète client** de l’application LinkedIn que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration LinkedIn.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

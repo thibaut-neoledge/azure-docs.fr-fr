@@ -39,13 +39,13 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
-
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
+	
 ##Créer un compte Analytique Data Lake
 
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d’un groupe de ressources Azure. [Azure Resource Manager](resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
     
@@ -162,7 +162,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier .csv à l’aide d’**Outputters.Csv()**.
+	Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv à l’aide d’**Outputters.Csv()**.
     
     Ne modifiez pas les deux chemins d’accès, sauf si vous copiez le fichier source dans un autre emplacement. L’analyse de données Analytique Data Lake créera le dossier de sortie s’il n’existe pas encore.
 	
@@ -211,10 +211,10 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 ## Voir aussi
 
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
-- Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Pour connaître U-SQL, consultez [Prise en main du langage U-SQL d’Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
+- Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md).
+- Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

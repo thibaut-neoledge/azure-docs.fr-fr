@@ -30,23 +30,12 @@ Application Gateway prend actuellement en charge la remise d'application de couc
 
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
-## Équilibrage de charge de couche 7 HTTP
-
-Azure fournit un équilibrage de la charge de couche 4 via l'équilibreur de charge Azure fonctionnant au niveau du transport (TCP/UDP) et via l'équilibrage de la charge de tout le trafic réseau entrant pour le service Application Gateway. La passerelle Application Gateway applique ensuite les règles de routage au trafic HTTP, fournissant ainsi un équilibrage de la charge de niveau 7 (HTTP). Quand vous créez une passerelle Application Gateway, un point de terminaison (VIP) est associé et utilisé comme adresse IP publique pour le trafic réseau en entrée.
-
-La passerelle Application Gateway achemine le trafic HTTP en fonction de sa configuration, qu’il s’agisse d’un ordinateur virtuel, d’un service cloud, d’une application web ou d’une adresse IP externe.
-
-Le diagramme ci-dessous explique comment le trafic circule pour Application Gateway :
-
- 
-![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
-
 L'équilibrage de charge de couche 7 HTTP est utile pour :
-
 
 - Les applications qui demandent des requêtes à partir de la même session client/utilisateur pour atteindre la même machine virtuelle principale. Exemples : applications de panier d'achat et serveurs de messagerie.
 - Les applications qui veulent libérer les batteries de serveurs web de la surcharge de terminaison SSL.
 - Les applications, telles que CDN, qui demandent plusieurs requêtes HTTP sur la même connexion TCP de longue durée pour être acheminées/à charge équilibrée sur différents serveurs principaux.
+
 
 ## Instances et tailles de passerelle
 
@@ -68,9 +57,7 @@ Le tableau ci-dessous présente un débit moyen de performances pour chaque inst
 ## Surveillance de l’intégrité
  
 
-Azure Application Gateway surveille l'intégrité des instances de serveur principal toutes les 30 secondes. Il envoie une demande de sonde d’intégrité à chaque instance du port configuré dans les éléments *BackendHttpSettings* de la configuration. La sonde d'intégrité attend une réponse HTTP réussie avec le code d'état de réponse dans la plage de 200 à 399.
-
-Lorsqu'une réponse HTTP est correctement reçue, l'adresse IP est marquée comme intègre et continue de recevoir du trafic d’Azure Application Gateway. Si la sonde échoue, l’instance de serveur principal est supprimée d’un pool principal intègre et le trafic vers ce serveur est arrêté. La sonde d'intégrité continue toutes les 30 secondes dans l'instance de serveur principal ayant échoué afin que l’état d’intégrité soit contrôlé. Lorsque l'instance du serveur principal répond correctement à la sonde d'intégrité, elle est ajoutée au pool principal intègre et le trafic circule de nouveau vers l’instance.
+Azure Application Gateway surveille automatiquement l'intégrité des instances de serveur principal. Consultez [sondes et contrôle d’intégrité Application Gateway](application-gateway-probe-overview.md) pour plus d’informations.
 
 ## Configuration et gestion
 
@@ -80,8 +67,8 @@ Vous pouvez créer et gérer une passerelle d'application à l'aide des API REST
 
 ## Étapes suivantes
 
-Créer une passerelle Application Gateway. Consultez [Création d’une passerelle Application Gateway](application-gateway-create-gateway.md).
+Créer une passerelle Application Gateway. Consultez [Création d'une passerelle Application Gateway](application-gateway-create-gateway.md).
 
 Configurer le déchargement SSL. Consultez [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

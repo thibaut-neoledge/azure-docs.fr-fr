@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/18/2015"
+   ms.date="01/04/2016"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -29,6 +29,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 
 
 ## Nouvelles mises à jour
+
+###### **4 janvier 2016**
+Le déploiement du système d’exploitation invité de 201511-02 de novembre a été publié le 4 janvier 2016. Cette version du système d'exploitation n'étant pas définie comme système d'exploitation par défaut pour la mise à jour automatique, le délai d’approvisionnement du déploiement du système d’exploitation invité de 201511-02 de novembre devrait être légèrement plus long.
 
 ###### **18 décembre 2015**
 La date de publication du système d’exploitation invité de 201511-02 de novembre a été différée du 16 décembre 2015 au 4 janvier 2016.
@@ -177,7 +180,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 4\.27 | WA-GUEST-OS-4.27\_201512-01 | Prévu le 8 janvier 2016 | Mise à jour à l’occasion de la publication de la version 4.29 | TBD |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Prévu le 4 janvier 2016 | Mise à jour lors de la publication de la version 4.28 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 4.28 | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 4.28 | TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 4.27 | TBD |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
@@ -207,7 +210,7 @@ Prend en charge .NET 4.0, 4.5
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 3\.34 | WA-GUEST-OS-3.34\_201512-01 | Prévu le 8 janvier 2016 | Mise à jour lors de la publication de la version 3.36 | TBD |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Prévu le 4 janvier 2016 | Mise à jour lors de la publication de la version 3.35 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 3.35 | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 3.35 | TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 3.34 | TBD |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
@@ -238,7 +241,7 @@ Prend en charge .NET 3.5, 4.0
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 2\.46 | WA-GUEST-OS-2.46\_201512-01 | Prévu le 8 janvier 2015 | Mise à jour lors de la publication de la version 2.48 | TBD |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Prévu le 4 janvier 2016 | Mise à jour lors de la publication de la version 2.47 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 2.47 | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 2.47 | TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 2.46 | TBD |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
@@ -405,4 +408,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

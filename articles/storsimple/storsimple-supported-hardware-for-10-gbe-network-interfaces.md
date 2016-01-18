@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
@@ -112,4 +112,4 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 [En savoir plus sur les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -7,15 +7,18 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags ms.service="app-service-logic" ms.workload="intégration" ms.tgt_pltfrm="na" ms.devlang="na"
-	
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques
 
-Bien que les applications logiques soient équipées d’un ensemble de plus de 40 connecteurs pour un large éventail de services, il se peut que vous deviez appeler votre propre API personnalisée pour exécuter votre propre code. L’un des moyens les plus simples et les plus évolutifs d’héberger vos propres API web personnalisées consiste à utiliser App Service. Cet article explique comment appeler une API web hébergée dans une application web App Service.
+Bien que les applications logiques soient équipées d’un ensemble de plus de 40 connecteurs pour un large éventail de services, il se peut que vous deviez appeler votre propre API personnalisée pour exécuter votre propre code. L’un des moyens les plus simples et les plus évolutifs d’héberger vos propres API web personnalisées consiste à utiliser App Service. Cet article explique comment appeler une API web hébergée dans une application API App Service, une application web ou une application mobile.
 
 ## Déployer votre application web
 
@@ -25,19 +28,19 @@ Assurez-vous d’obtenir l’**URL** de votre application web, qui apparaît dan
 
 ## Appel dans l’API
 
-Commencez par créer une nouvelle application Logic vide. Une fois que vous avez créé une application Logic vide, cliquez sur **Modifier** ou **Déclencheurs et actions** et sélectionnez **Créer de toutes pièces**.
+Commencez par créer une nouvelle application Logic vide. Une fois que vous avez créé une application Logic vide, cliquez sur **Modifier** ou **Déclencheurs et actions**, puis sélectionnez **Créer de toutes pièces**.
 
 Dans un premier temps, vous utiliserez probablement un déclencheur de répétition ou cliquerez sur **Exécuter cette logique manuellement**. Ensuite, vous voudrez effectuer réellement l’appel à votre API. Pour ce faire, cliquez sur l’action **HTTP** sur le côté droit.
 
 1. Choisissez la **Méthode** : elle sera définie dans le code de votre API
-2. Dans la section **URL**, collez l’**URL** correspondant à votre application web déployée
+2. Dans la section **URL**, collez l’**URL** correspondant à l’application web déployée
 3. Si vous avez besoin d’**en-têtes**, incluez-les dans le format JSON comme suit : `{"Content-type" : "application/json", "Accept" : "application/json" }`
 4. Si votre API est publique, vous pouvez laisser la zone **Authentification** vide. Si vous souhaitez sécuriser les appels à votre API, consultez les sections suivantes.
 5. Enfin, incluez le **corps** de la question que vous avez définie dans votre API.
 
 Cliquez sur **Enregistrer** dans la barre de commandes. Si vous cliquez sur **Exécuter** vous devez voir l’appel à votre API et la réponse dans la liste d’exécution.
 
-Cela fonctionne parfaitement si vous disposez d’une API publique, mais si vous voulez sécuriser votre API, il existe plusieurs façons de procéder :
+Cela fonctionne très bien si vous avez une API publique. Cependant, si vous voulez sécuriser votre API, il existe plusieurs façons de procéder :
 
 1. *Aucune modification de code nécessaire* : Azure Active Directory peut être utilisé pour protéger votre API sans nécessiter de modification du code ou de redéploiement.
 2. Appliquer l’authentification de base, l’authentification AAD ou l’authentification de certificat dans le code de votre API. 
@@ -48,7 +51,7 @@ Dans cette section, vous allez créer deux applications Azure Active Directory 
 
 ### Partie 1 : Configurer l’identité de l’application pour votre application logique
 
-C’est ce que l’application logique utilisera pour s’authentifier sur Active Directory. Vous ne *devez* exécuter cette opération qu’une fois pour votre répertoire. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez également en créer des uniques si vous le souhaitez. Vous pouvez effectuer cette opération dans l’interface utilisateur ou utiliser PowerShell.
+C’est ce que l’application logique utilise pour s’authentifier sur Active Directory. Il vous suffit de *faire cela* une fois pour chaque abonnement. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez également créer des identités uniques si vous le souhaitez. Vous pouvez effectuer cette opération dans l’interface utilisateur ou utiliser PowerShell.
 
 #### Créez l’identité de l’application en utilisant le portail Azure Classic
 
@@ -79,7 +82,7 @@ Si votre application web est déjà déployée, vous pouvez simplement l’activ
 2. Cliquez sur **Autorisation/authentification**. 
 3. Activez l’**autorisation/authentification**.
 
-À ce stade, une application est automatiquement créée pour vous. Vous aurez besoin de l’ID client de cette Application pour la partie 3, et vous devez donc :
+À ce stade, une application est automatiquement créée pour vous. Vous aurez besoin de l’ID client de cette application pour la partie 3, et vous devez donc :
 
 1. Accédez à [Active Directory dans le portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez votre annuaire. 
 2. Rechercher l’application dans la zone de recherche
@@ -170,4 +173,4 @@ Pour aller plus loin, si vous souhaitez le mettre en œuvre au sein de votre cod
 
 Vous devez toujours exécuter les opérations ci-dessus pour créer une identité d’application pour votre application logique, puis l’utiliser pour l’API.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs
@@ -26,12 +26,21 @@ Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual St
 
 Les extraits de code présentent uniquement les fonctions, et non le code chargé de créer l’objet `JobHost` comme dans cet exemple :
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+Le référentiel azure-webjobs-sdk-samples sur GitHub.com contient un [exemple de code complet Service Bus](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs).
+
 ## <a id="prerequisites"></a> Conditions préalables
 
 Pour utiliser Service Bus, vous devez installer le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) en plus des autres packages du Kit de développement logiciel (SDK) WebJobs.
@@ -146,6 +155,17 @@ Pour écrire une fonction que le Kit de développement logiciel (SDK) appelle au
 
 Pour créer un message sur une rubrique, utilisez l’attribut `ServiceBus` avec un nom de rubrique, comme vous le faites avec un nom de file d’attente.
 
+## Fonctionnalités ajoutées dans la version 1.1
+
+Les fonctionnalités suivantes ont été ajoutées dans la version 1.1 :
+
+* Autoriser la personnalisation complète du traitement des messages via `ServiceBusConfiguration.MessagingProvider`.
+* `MessagingProvider` prend en charge la personnalisation de `MessagingFactory` et `NamespaceManager` de Service Bus.
+* Un modèle de stratégie `MessageProcessor` vous permet de spécifier un processeur par file d'attente/rubrique.
+* L'accès concurrentiel de traitement des message est pris en charge par défaut. 
+* Personnalisation facile de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
+* Autoriser la spécification des [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) sur `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (pour les scénarios où vous ne disposez pas des droits de gestion). 
+
 ## <a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente de stockage
 
 Pour en savoir plus sur les scénarios de Kit de développement logiciel (SDK) WebJobs non spécifiques de Service Bus, voir [Utilisation du stockage de file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
@@ -166,4 +186,4 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation d’Azure Service Bus. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurer des clusters HDInsight avec Azure Data Lake Store à l'aide de PowerShell | Azure" 
-   description="Utiliser Azure PowerShell pour configurer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake" 
+   pageTitle="Créer des clusters HDInsight avec Azure Data Lake Store à l'aide de PowerShell | Azure" 
+   description="Utiliser Azure PowerShell pour créer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Approvisionner un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
+# Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) afin qu'il fonctionne avec un Azure Data Lake Store. Points importants à prendre en compte pour cette version :
+Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
 
 * **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
 
@@ -118,7 +118,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 
 	Le résultat doit être **True**.
 
-4. Téléchargez des exemples de données sur Azure Data Lake. Nous les utiliserons plus loin dans cet article pour vérifier que les données sont accessibles à partir d'un cluster HDInsight. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Téléchargez des exemples de données sur Azure Data Lake. Nous les utiliserons plus loin dans cet article pour vérifier que les données sont accessibles à partir d'un cluster HDInsight. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -296,9 +296,9 @@ Le résultat de la tâche se présente ainsi :
 
 Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data Lake Store, vous pouvez utiliser les commandes de l'interpréteur de commandes HDFS pour accéder au magasin.
 
-1. Connectez-vous au nouveau [portail Azure](https://portal.azure.com).
+1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **Parcourir**, sur **Clusters HDInsight**, puis sur le cluster HDInsight que vous avez créé.
+2. Cliquez sur **Parcourir**, puis sur **Clusters HDInsight** et enfin sur le cluster HDInsight que vous avez créé.
 
 3. Dans le panneau du cluster, cliquez sur **Bureau à distance** puis, dans le panneau **Bureau à distance**, cliquez sur **Connexion**.
 
@@ -325,4 +325,4 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

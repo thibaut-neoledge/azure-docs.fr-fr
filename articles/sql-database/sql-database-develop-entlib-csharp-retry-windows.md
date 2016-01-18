@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Logique de nouvelle tentative EntLib pour se connecter à SQL Database | Microsoft Azure"
 	description="Enterprise Library est conçu pour faciliter un grand nombre de tâches pour les programmes clients qui interagissent avec les services cloud, y compris l’ajout d’une logique de nouvelle tentative pour les erreurs temporaires."
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # Exemple de code : logique C&#x23; de nouvelle tentative Enterprise Library 6 pour se connecter à SQL Database
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique présente un exemple de code complet illustrant la bibliothèque EntLib (Enterprise Library). EntLib facilite un grand nombre de tâches pour les programmes clients qui interagissent avec les services cloud comme Azure SQL Database. Notre exemple porte sur une tâche primordiale qui est l’ajout d’une logique de nouvelle tentative pour les erreurs temporaires.
@@ -316,7 +312,7 @@ SELECT TOP 3
  - Pour voir le code source, cliquez sur le bouton en haut de cette rubrique pour [télécharger le code source EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898).
 
 
-- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145).
+- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, deuxième édition](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Espace de noms Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

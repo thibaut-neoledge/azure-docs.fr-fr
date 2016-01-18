@@ -21,7 +21,7 @@
 
 Azure Search est un service cloud avec une API HTTP qu'il est possible d'utiliser dans des applications de recherche personnalisées. Notre service Search fournit le moteur d'analyse de texte avec recherche en texte intégral, des fonctionnalités de recherche avancée, un espace de stockage de données de recherche et une syntaxe de commande de requête.
 
-Cet article vous explique comment administrer un service Search dans le [portail Azure Classic](https://portal.azure.com).
+Cet article vous explique comment administrer un service Search dans le [portail Azure](https://portal.azure.com).
 
 Vous pouvez également utiliser l'API REST de gestion. Pour en savoir plus, consultez les articles [Prise en main de l'API REST de gestion Azure Search](search-get-started-management-api.md) et [Informations de référence sur l'API REST de gestion Azure Search](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -193,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

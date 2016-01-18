@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/07/2015"
+    ms.date="01/05/2016"
     ms.author="micurd"/>
 
 # Utilisation du stockage d’objets blob à partir d’iOS
@@ -111,10 +111,10 @@ L’exemple suivant montre comment utiliser l’interface de ligne de commande 
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Pour en savoir plus sur SAP, consultez le [didacticiel sur les signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1).
+Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant le [didacticiel de signature d’accès partagé](../storage-dotnet-shared-access-signature-part-1).
 
 ##Opérations asynchrones
-> [AZURE.NOTE]Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code du gestionnaire d’achèvement s’exécute **après** l’exécution de la demande. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
+> [AZURE.NOTE]Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
 
 ## Création d’un conteneur
 Chaque objet blob dans Azure Storage doit résider dans un conteneur. L’exemple suivant montre comment créer un conteneur appelé *newcontainer* dans votre compte de stockage s’il n’existe pas déjà. Lorsque vous choisissez un nom pour votre conteneur, gardez à l’esprit les règles d’affectation de noms mentionnées ci-dessus.
@@ -353,10 +353,10 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, voir les l
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Blog de l'équipe Azure Storage]
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, publiez un message sur la page des [Commentaires relatifs à Azure Storage](http://feedback.azure.com/forums/217298-storage).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](http://feedback.azure.com/forums/217298-storage).
 
 [Bibliothèque iOS Azure Storage]: https://github.com/azure/azure-storage-ios
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

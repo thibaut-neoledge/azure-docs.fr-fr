@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Entités de messagerie partitionnées
@@ -31,7 +31,7 @@ Il n'existe aucun coût supplémentaire lors de l'envoi d'un message à, ou lors
 
 ## Activation du partitionnement
 
-Pour utiliser des rubriques et des files d'attente partitionnées avec Microsoft Azure Service Bus, utilisez le Kit de développement logiciel Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
+Pour utiliser des rubriques et des files d'attente partitionnées avec Azure Service Bus, utilisez le Kit de développement logiciel Microsoft Azure version 2.2 ou version ultérieure, ou spécifiez `api-version=2013-10` dans vos requêtes HTTP.
 
 Vous pouvez créer des files d'attente et des rubriques Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Si le partitionnement est activé, Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d'attente de 5 Go, avec 16 partitions, la taille maximale de la file d'attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure Classic][].
 
@@ -125,7 +125,7 @@ Dans son implémentation actuelle, Service Bus impose les limites suivantes aux
 
 ## Étapes suivantes
 
-Consultez la discussion sur la prise en charge par AMQP 1.0 des rubriques et files d'attente partitionnées de Service Bus (prochainement) pour en savoir plus sur le partitionnement des entités de messagerie.
+Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et files d'attente partitionnées de Service Bus][] pour en savoir plus sur le partitionnement des entités de messagerie.
 
   [Architecture de Service Bus]: service-bus-architecture.md
   [portail Azure Classic]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Consultez la discussion sur la prise en charge par AMQP 1.0 des rubriques et fi
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
+  [prise en charge par AMQP 1.0 des rubriques et files d'attente partitionnées de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

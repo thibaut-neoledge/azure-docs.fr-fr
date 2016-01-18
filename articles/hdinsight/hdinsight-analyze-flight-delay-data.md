@@ -103,7 +103,7 @@ Hadoop MapReduce correspond au traitement par lots. La manière la plus économi
 		
 		$HDInsightClusterName = $namePrefix + "hdi"
 		$httpUserName = "admin"
-		$httpPassword = "Pass@word111"
+		$httpPassword = "<Enter the Password>"
 		
 		$defaultStorageAccountName = $namePrefix + "store"
 		$defaultBlobContainerName = $HDInsightClusterName # use the cluster name
@@ -742,4 +742,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

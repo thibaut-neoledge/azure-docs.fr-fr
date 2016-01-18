@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Installation et configuration de StorSimple Adapter for SharePoint
@@ -197,7 +197,7 @@ Après avoir installé StorSimple Adapter for SharePoint, configurez RBS comme d
 
 Lorsque des objets sont supprimés d'un site SharePoint, ils ne sont pas automatiquement supprimés du volume de stockage RBS. Au lieu de cela, un programme de maintenance en arrière-plan asynchrone supprime les objets blob orphelins du magasin de fichiers. Les administrateurs système peuvent planifier ce processus pour une exécution périodique ou le démarrer chaque fois que cela est nécessaire.
 
-Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : *disque de démarrage*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 Pour plus d'informations sur la configuration et l'utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
 
@@ -308,4 +308,4 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

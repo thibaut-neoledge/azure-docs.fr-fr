@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# Adresses IP Azure Resource Manager
+# Adresses IP dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
 
 Les adresses IP publiques sont utilisées pour la communication avec Internet, y compris les services Azure accessibles au public.
 
 Les adresses IP privées sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modèle de déploiement classique](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+Si vous êtes familiarisé avec le modèle de déploiement classique, consultez l’article [Différences d’adressage IP entre les déploiements classiques et Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Adresses IP publiques
 Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), les [bases de données SQL](sql-database-technical-overview.md) et [Azure Storage](storage-introduction.md).
@@ -33,7 +35,7 @@ Dans Azure Resource Manager, une [adresse IP publique](resource-groups-networkin
 - Machines virtuelles
 - Équilibreurs de charge accessibles sur Internet
 - Passerelles VPN
-- Passerelles d’application
+- Passerelles d'application
 
 ### Méthode d’allocation
 L’allocation d’une adresse IP à une *ressource IP publique* est possible à l’aide de deux méthodes : *dynamique* ou *statique*. La méthode d’allocation par défaut est *dynamique*. Dans ce cas, une adresse IP n’est **pas** allouée au moment de sa création. Au lieu de cela, l’adresse IP publique est allouée lorsque vous démarrez (ou créez) la ressource associée (telle qu’une machine virtuelle ou un équilibreur de charge). L’adresse IP est libérée lorsque vous arrêtez (ou supprimez) la ressource. Ainsi, l’adresse IP change quand vous arrêtez et démarrez une ressource.
@@ -45,8 +47,8 @@ Pour vous assurer que l’adresse IP de la ressource associée ne change pas, vo
 Des adresses IP publiques statiques sont fréquemment utilisées dans les cas suivants :
 
 - Les utilisateurs finaux doivent mettre à jour les règles de pare-feu pour communiquer avec vos ressources Azure.
-- Votre résolution de noms DNS est telle qu’une modification de l’adresse IP nécessiterait une mise à jour des enregistrements A.
-- Vos ressources Azure communiquent avec d’autres services web qui utilisent le modèle de sécurité basé sur IP.
+- La résolution de noms DNS est telle qu’une modification de l’adresse IP nécessiterait une mise à jour des enregistrements A.
+- Vos ressources Azure communiquent avec d’autres applications ou services qui utilisent un modèle de sécurité basé sur une adresse IP.
 - Vous utilisez des certificats SSL liés à une adresse IP.
 
 >[AZURE.NOTE]La liste des plages d’adresses IP à partir desquelles les adresses IP publiques (statiques/dynamiques) sont affectées à des ressources Azure est publiée dans [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -111,7 +113,7 @@ Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son ad
 Les machines virtuelles configurées avec des serveurs DNS gérés par Azure peuvent résoudre les noms d’hôtes de toutes les machines virtuelles figurant au sein de leur réseau virtuel pour les adresses IP privées.
 
 ### Équilibreurs de charge internes (ILB) et Application Gateway
-Vous pouvez affecter une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](load-balancer-internal-overview.md) (ILB) ou d’une [Application Gateway Azure](application-gateway-introduction.md). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel, et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale. Vous pouvez également affecter plusieurs adresses IP privées pour permettre des scénarios avec plusieurs adresses IP virtuelles.
+Vous pouvez affecter une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](load-balancer-internal-overview.md) (ILB) ou d’une [passerelle d’application Azure](application-gateway-introduction.md). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel (VNet), et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale. Vous pouvez également affecter plusieurs adresses IP privées pour permettre des scénarios avec plusieurs adresses IP virtuelles.
 
 ### Aperçu
 Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’allocation possible (statique/dynamique) et la possibilité d’affecter plusieurs adresses IP privées.
@@ -122,19 +124,27 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 |Équilibreur de charge interne frontal|Oui|Oui|Oui|
 |Passerelle d’application frontale|Oui|Oui|Oui|
 
-## Comparaison entre les déploiements Resource Manager et Classic
-Voici une comparaison de l’adresse IP dans Resource Manager et dans le modèle de déploiement classique.
+## Limites
 
-||Ressource|Classic|Resource Manager|
-|---|---|---|---|
-|**Adresse IP publique**|Machine virtuelle|Appelée ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)|
-|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle|
-||Équilibreur de charge accessible via Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)|
-|||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge|
-||||
-|**Adresse IP privée**|Machine virtuelle|Appelée adresse IP dédiée|Appelée adresse IP privée|
-|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle|
-||Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
+Le tableau ci-dessous présente les limites imposées sur l’adressage IP dans Azure par région, par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
+
+||Limite par défaut|Limite maximum| |---|---|---| |Adresses IP publiques (dynamiques)|60|Contacter le support| |Adresses IP publiques (statiques)|20|Contacter le support| |Adresse IP frontale publique par équilibreur de charge|5|Contacter le support| |Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
+
+Assurez-vous de lire l’ensemble des [limites pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
+
+## Tarification
+
+Dans la plupart des cas, les adresses IP publiques sont gratuites. Il existe un coût nominal pour utiliser des adresses IP publiques supplémentaires et/ou statiques. Assurez-vous que vous comprenez la [tarification des adresses IP publiques](https://azure.microsoft.com/pricing/details/ip-addresses/).
+
+En résumé, la tarification suivante s’applique aux ressources IP publiques :
+
+- Les passerelles VPN et passerelles d’Application Gateway n’utilisent qu’une seule adresse IP publique dynamique, qui est gratuite.
+- Les machines virtuelles n’utilisent qu’une seule adresse IP publique, qui reste gratuite tant qu’il s’agit d’une adresse IP dynamique. Si une machine virtuelle utilise une adresse IP publique statique, elle est comptabilisée dans l’utilisation Adresse IP publique (réservée) statique.
+- Chaque équilibreur de charge peut utiliser plusieurs adresses IP publiques. La première adresse IP publique est gratuite. Les adresses IP dynamiques supplémentaires sont facturées à 0,004 $/h. Les adresses IP publiques statiques sont comptabilisées dans l’utilisation Adresse IP publique (réservée) statique.
+- Utilisation Adresse IP publique (réservée) statique : 
+	- Les 5 premières (utilisées) sont gratuites. Les adresses IP publiques statiques supplémentaires sont facturées à 0,004 $/h. 
+	- Les adresses IP publiques statiques non affectées à une ressource sont facturées à 0,004 $/h.
+	- L’utilisation est calculée en fonction du nombre total d’adresses IP publiques statiques dans l’abonnement.
 
 ## Étapes suivantes
 - [Déployer une machine virtuelle avec une adresse IP publique statique](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,5 +155,4 @@ Voici une comparaison de l’adresse IP dans Resource Manager et dans le modèle
 - [Créer une adresse IP privée statique frontale pour un équilibreur de charge interne à l’aide de PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [Créer un pool principal avec des adresses IP privées statiques pour une passerelle d’application à l’aide de PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_1223_2015-->
-
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
@@ -155,4 +155,4 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 - [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 - [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,10 +21,7 @@
 # Connexion à une base de données SQL à l'aide de Node.js avec Tedious sous Ubuntu Linux
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique présente un exemple de code Node.js qui s'exécute sous Ubuntu Linux. L'exemple se connecte à Azure SQL Database à l'aide du pilote Tedious.
@@ -128,7 +125,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 
 ## Étape 4 : insérer une ligne
 
-Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
+Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de l’injection de code SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
 
 	var Connection = require('tedious').Connection;
@@ -175,4 +172,4 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

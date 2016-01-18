@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio"
+   pageTitle="Préparation de la publication ou du déploiement d'une application Azure à partir de Visual Studio | Microsoft Azure"
    description="Découvrez les procédures de configuration des services de compte de stockage et cloud et de votre application Azure."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio
@@ -112,7 +112,7 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 ### Pour configurer votre application afin d’utiliser les services fournis par le compte de stockage
 
-1. Dans Visual Studio, ouvrez votre solution Azure. Dans l’Explorateur de solutions, ouvrez le menu contextuel de chaque rôle de votre projet Azure qui accède aux services de stockage et sélectionnez **Propriétés**. Une page s’affiche avec le nom du rôle dans l'éditeur Visual Studio. La page affiche les champs pour l’onglet **Configuration**.
+1. Dans Visual Studio, ouvrez votre solution Azure. Dans l’Explorateur de solutions, ouvrez le menu contextuel de chaque rôle de votre projet Azure qui accède aux services de stockage et sélectionnez **Propriétés**. Une page s’affiche avec le nom du rôle dans l'éditeur Visual Studio. La page affiche les champs de l’onglet **Configuration**.
 
 1. Dans les pages Propriétés du rôle, sélectionnez **Paramètres**.
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 Pour en savoir plus sur la publication d’applications entre Visual Studio et Azure, consultez la page [Publication d’un service cloud en utilisant les outils Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

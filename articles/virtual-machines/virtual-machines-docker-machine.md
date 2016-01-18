@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # Comment utiliser docker-machine avec Azure
@@ -201,7 +201,7 @@ Ouvrez votre navigateur préféré et jetez un coup d'œil.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure](virtual-machines-docker-swarm) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
+Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure](virtual-machines-docker-swarm.md) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@ Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

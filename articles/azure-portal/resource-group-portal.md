@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Avant, pour gérer une ressource (par exemple un serveur de base de données, un
 
 En général, un groupe de ressources contient des ressources associées à une application spécifique. Par exemple, un groupe peut contenir une application web qui héberge votre site web public, une base de données SQL qui stocke les données relationnelles utilisées par le site et un compte de stockage qui stocke les ressources non relationnelles. Chaque ressource d’un groupe de ressources doit partager le même cycle de vie. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
-Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans le portail Azure. Actuellement, certaines services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour l’état de chaque service, consultez [Prise en charge de Resource Manager pour les services, les régions et les versions API](resource-manager-supported-services.md).
+Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans le portail Azure. Actuellement, certaines services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour obtenir l'état de chaque service, consultez [Tableau de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/)
 
 ## Création d’un groupe de ressources et des ressources
 
@@ -101,7 +101,7 @@ La section sur les opérations vous indique les opérations individuelles qui on
 
 Vous pouvez sélectionner une des opérations pour afficher des détails supplémentaires, notamment quel utilisateur a exécuté l'opération.
 
-Vous pouvez filtrer les informations affichées dans le journal d’audit en sélectionnant **Filtrer**.
+Vous pouvez filtrer les informations affichées dans le journal d'audit en sélectionnant **Filtrer**.
 
 ![filtrer un journal](./media/resource-group-portal/filter-logs.png)
 
@@ -146,7 +146,7 @@ Après avoir lancé le déploiement du modèle, vous pouvez créer le modèle pe
 ## Étapes suivantes
 Mise en route
 
-- Pour une introduction aux concepts de Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).  
+- Pour une introduction aux concepts de Resource Manager, consultez [Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).  
 - Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 - Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md). 
   
@@ -154,4 +154,4 @@ Mise en route
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

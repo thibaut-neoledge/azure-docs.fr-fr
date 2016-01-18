@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire d'Azure AD B2C : types d'applications
@@ -23,9 +23,9 @@ Azure AD B2C prend en charge l'authentification pour de multiples architectures 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Concepts de base
-Chaque application qui utilise Azure AD B2C devra être enregistrée dans votre [répertoire B2C](active-directory-b2c-get-started.md) via le [portail Azure en version préliminaire](https://portal.azure.com). Le processus d’inscription des applications collecte quelques valeurs et les affecte pour vos applications :
+Chaque application qui utilise Azure AD B2C devra être enregistrée dans votre [répertoire B2C](active-directory-b2c-get-started.md) via le [portail Azure Classic](https://portal.azure.com). Le processus d’inscription des applications collecte quelques valeurs et les affecte pour vos applications :
 
-- un **ID d'application** qui identifie de manière unique votre application ;
+- un **ID d’application** qui identifie de manière unique votre application ;
 - un **URI de redirection** pouvant être utilisé pour diriger les réponses vers votre application ;
 - quelques valeurs spécifiques au scénario. Pour plus de détails, découvrez comment [inscrire une application](active-directory-b2c-app-registration.md).
 
@@ -128,4 +128,4 @@ De nombreuses architectures incluent une API Web qui doit appeler une autre API
 
 Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la concession des informations d'identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n'est pas actuellement implémenté dans la version préliminaire d'Azure AD B2C.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

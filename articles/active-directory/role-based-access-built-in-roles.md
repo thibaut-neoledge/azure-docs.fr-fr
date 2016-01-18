@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC : rôles intégrés
@@ -133,9 +133,7 @@ Les collaborateurs peuvent gérer tout sauf les accès
 | **Actions** ||
 | ------- | ------ |
 | * | Créer et gérer les ressources de tous les types |
-| ****Non-actions |  |
-| Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles|
-| Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
+| ****Non-actions | | | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles| | Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
 
 ### Collaborateurs de fabrique de données
 Gérer les fabriques de données
@@ -381,8 +379,7 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. |
-| Microsoft.Authorization/* | Autorisation de lecture |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. | | Microsoft.Authorization/* | Autorisation de lecture |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle classique
@@ -483,4 +480,4 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

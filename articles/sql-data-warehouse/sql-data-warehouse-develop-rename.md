@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Changements de noms dans SQL Data Warehouse
 SQL Server prend en charge le changement de nom de base de données à l'aide de la procédure stockée ```sp_renamedb```. Pour atteindre cet objectif, SQL Data Warehouse utilise quant à lui la syntaxe DDL. La commande DDL est ```RENAME OBJECT```.
 
-## Renommer une table
+## Changement de nom de table
 
 Actuellement, seules les tables peuvent être renommées. La syntaxe permettant de renommer une table est la suivante :
 
@@ -29,11 +29,11 @@ RENAME OBJECT Customer TO NewCustomer;
 
 Lorsque vous renommez une table, tous les objets et les propriétés associés à cette table sont mises à jour pour référencer le nouveau nom de table. Par exemple, les définitions de table, les index, les contraintes et les autorisations sont mis à jour. Les vues ne sont pas mises à jour.
 
-## Renommer une table externe
+## Changement de nom de table externe
 
 La modification du nom d'une table externe modifie le nom de la table dans SQL Server PDW. Elle n'affecte pas l'emplacement des données externes pour la table.
 
-## Modifier un schéma de table
+## Modification d'un schéma de table
 Si vous voulez modifier le schéma auquel un objet appartient, vous pouvez utiliser MODIFIER LE SCHÉMA :
 
 ```
@@ -53,4 +53,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->
