@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse | Microsoft Azure" 
-	description="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="barbkess" 
-	editor=""/>
+   pageTitle="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse | Microsoft Azure" 
+   description="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

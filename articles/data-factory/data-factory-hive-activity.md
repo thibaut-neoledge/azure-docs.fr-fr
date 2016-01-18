@@ -18,7 +18,7 @@
 
 # Activité Hive
 
-L'activité HDInsight Hive d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Hive sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l’article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+L'activité HDInsight Hive d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Hive sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 ## Syntaxe
 
@@ -104,7 +104,7 @@ Le **script Hive** pour traiter ces données se présente comme suit :
 Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
 
 1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
-2. Créez un [service lié](data-factory-azure-storage-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
+2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « HiveSampleIn » et le jeu de données de sortie « HiveSampleOut »
 4. Copiez la requête Hive en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête Hive et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
 
@@ -214,4 +214,4 @@ Pour paramétrer le script Hive, procédez comme suit :
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

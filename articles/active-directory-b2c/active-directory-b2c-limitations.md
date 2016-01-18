@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : limites et restrictions
@@ -22,13 +22,13 @@ Il existe plusieurs fonctions et fonctionnalités d'Azure Active Directory (AD) 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Problèmes lors de la création de répertoires Azure AD B2C
+## Problèmes lors de la création de clients Azure AD B2C
 
-Il existe des problèmes connus que vous pourriez rencontrer lors de la [création d’un client Azure AD B2C](active-directory-b2c-get-started). Consultez cet [article](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
+Si vous rencontrez ces problèmes lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started), lisez cet [article](active-directory-b2c-support-create-directory.md) pour obtenir des conseils.
 
-## Problèmes de personnalisation sur des messages électroniques de vérification et les pages de réinitialisation du mot de passe libre-service
+## Problèmes de marque sur le courrier électronique de vérification
 
-Par défaut, les messages électroniques de vérification et les pages de réinitialisation du mot de passe libre-service contiennent les éléments de personnalisation « Microsoft » et « Azure ». Nous allons les supprimer par la suite. Vous pouvez modifier la personnalisation de ces pages à l’aide de la [fonctionnalité de personnalisation de la société](./active-directory/active-directory-add-company-branding.md), sur laquelle ces éléments de personnalisation n’apparaîtront pas.
+Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de marque de votre société](./active-directory/active-directory-add-company-branding.md).
 
 ## Prise en charge des applications de production
 
@@ -36,7 +36,7 @@ Les applications qui s'intègrent avec Azure AD B2C ne doivent pas être mises �
 
 ## Restrictions sur les applications
 
-Les types d'applications suivants ne sont actuellement pas pris en charge dans la version préliminaire d'Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, voir [cet article](active-directory-b2c-apps).
+Les types d'applications suivants ne sont actuellement pas pris en charge dans la version préliminaire d'Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, voir [cet article](active-directory-b2c-apps.md).
 
 ### Applications à page unique (Javascript)
 
@@ -44,7 +44,7 @@ Plusieurs applications modernes présentent une application frontale à page uni
 
 ### Démons / applications côté serveur
 
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d'un utilisateur doivent également disposer d'un moyen d'accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un client), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-protocols.md#oauth2-client-credentials-grant-flow). Ce flux n'est pas encore disponible dans la version préliminaire d'Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu'un flux de connexion interactif de client s'est produit.
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d'un utilisateur doivent également disposer d'un moyen d'accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un client), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Ce flux n'est pas encore disponible dans la version préliminaire d'Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu'un flux de connexion interactif de client s'est produit.
 
 ### API Web autonome
 
@@ -60,32 +60,40 @@ Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la conc
 
 Toutes les langues et plateformes ne possèdent pas de bibliothèques prenant en charge la version préliminaire d'Azure AD B2C. L'ensemble de bibliothèques d'authentification est actuellement limité à .NET, iOS, Android et NodeJS. Des didacticiels de démarrage rapide correspondant à chacun des éléments sont disponibles dans la section [Prise en main](active-directory-b2c-overview.md#getting-started).
 
-Si vous souhaitez intégrer une application avec la version préliminaire d’Azure AD B2C en utilisant une langue ou plateforme différente, consultez [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-protocols.md), qui vous expliquera comment rédiger les messages HTTP nécessaires à la communication avec le service Azure AD B2C.
+Si vous souhaitez intégrer une application avec la version préliminaire d’Azure AD B2C en utilisant une langue ou plateforme différente, consultez [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md), qui vous expliquera comment rédiger les messages HTTP nécessaires à la communication avec le service Azure AD B2C.
 
 ## Restriction sur les protocoles
 
-La version préliminaire d'Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans la version préliminaire d’Azure AD B2C, consultez notre page [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-protocols.md).
+La version préliminaire d'Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans la version préliminaire d’Azure AD B2C, consultez notre page [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md). La prise en charge de SAML et WS-Fed n’est pas disponible.
 
 ## Restriction sur les jetons
 
 La plupart des jetons émis par la version préliminaire d'Azure AD B2C sont implémentés en tant que jetons Web JSON (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred\_username ». Attendez-vous à de grandes modifications par rapport à la version préliminaire. Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-tokens.md).
 
-## Problèmes de gestion des utilisateurs sur le portail Azure
+## Problèmes de gestion des utilisateurs sur le portail Classic Azure
 
-Les fonctionnalités B2C sont accessibles sur le portail Azure en version préliminaire. Toutefois, vous pouvez utiliser le portail Azure pour accéder aux autres fonctionnalités du client, y compris la gestion des utilisateurs. La gestion des utilisateurs (onglet **Utilisateurs**) sur le portail Azure pose actuellement quelques problèmes.
+Les fonctionnalités B2C sont accessibles sur le portail Azure. Toutefois, vous pouvez utiliser le portail Azure Classic pour accéder aux autres fonctionnalités client, notamment la gestion des utilisateurs. La gestion des utilisateurs (onglet **Utilisateurs**) sur le portail Azure Classic pose actuellement quelques problèmes.
 
-- Pour un utilisateur de compte local (c’est-à-dire, un client qui s’inscrit avec une adresse de messagerie et un mot de passe ou un nom d’utilisateur et un mot de passe), le champ **Nom d’utilisateur** ne correspond pas à l’identificateur (adresse de messagerie ou nom d’utilisateur) utilisé pendant l’inscription. Ceci est dû au fait que le champ affiché dans le portail Azure est en fait le nom principal de l'utilisateur (UPN), qui n'est pas utilisé dans les scénarios B2C. Pour afficher l’identificateur du compte local utilisé pour l’inscription, recherchez l’objet utilisateur dans l’[Explorateur graphique](https://graphexplorer.cloudapp.net/). Vous rencontrerez le même problème avec un utilisateur de compte social (c'est-à-dire un client qui s'inscrit avec Facebook, Google+, etc.), mais dans ce cas, il n'existe aucun identificateur d'utilisateur à proprement parler.
+- Pour un utilisateur de compte local (c’est-à-dire, un client qui s’inscrit avec une adresse de messagerie et un mot de passe ou un nom d’utilisateur et un mot de passe), le champ **Nom d’utilisateur** ne correspond pas à l’identificateur (adresse de messagerie ou nom d’utilisateur) utilisé pendant l’inscription. Ceci est dû au fait que le champ affiché dans le portail Azure est en fait le nom principal de l’utilisateur (UPN), qui n’est pas utilisé dans les scénarios B2C. Pour afficher l’identificateur du compte local utilisé pour l’inscription, recherchez l’objet utilisateur dans l’[Explorateur graphique](https://graphexplorer.cloudapp.net/). Vous rencontrerez le même problème avec un utilisateur de compte social (c'est-à-dire un client qui s'inscrit avec Facebook, Google+, etc.), mais dans ce cas, il n'existe aucun identificateur d'utilisateur à proprement parler.
 
     ![Compte local - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - Pour un utilisateur de compte local, vous ne pouvez pas modifier les champs et enregistrer des modifications sous l’onglet **Profil**. Nous résoudrons cela bientôt.
 
-## Problèmes de réinitialisation de mot de passe initiée par l’administrateur sur le portail Azure
+## Problèmes de réinitialisation de mot de passe initiée par l’administrateur sur le portail Azure Classic
 
-Si vous réinitialisez le mot de passe pour un consommateur basé sur un compte local sur le portail Azure (commande **Réinitialiser le mot de passe** de l’onglet **Utilisateurs**), ce consommateur ne sera pas en mesure de modifier son mot de passe à la prochaine connexion et il sera exclu de vos applications. Nous travaillons actuellement à la correction de ce problème. Pour résoudre ce problème, utilisez l’[API Graph d’Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour réinitialiser le mot de passe du client.
+Si vous réinitialisez le mot de passe d’un consommateur basé sur un compte local sur le portail Azure Classic (commande **Réinitialiser le mot de passe** de l’onglet **Utilisateurs**), ce consommateur ne sera pas en mesure de modifier son mot de passe à la prochaine connexion et il sera exclu de vos applications. Nous travaillons actuellement à la correction de ce problème. Pour résoudre ce problème, utilisez l’[API Graph d’Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour réinitialiser le mot de passe du client.
 
-## Restriction sur la suppression des répertoires Azure AD B2C
+## Restriction sur la suppression de clients Azure AD B2C
 
-Vous ne pourrez pas supprimer un client Azure AD B2C dans le portail Azure.
+Vous ne pourrez pas supprimer un client Azure AD B2C dans le portail Azure Classic.
 
-<!---HONumber=Oct15_HO3-->
+## Problèmes liés à la vérification d’un domaine sur le portail Azure Classic
+
+Actuellement, vous ne pouvez pas vérifier un domaine avec succès sur le [Portail Azure Classic](https://manage.windowsazure.com/). Nous développons actuellement un correctif.
+
+## Messages d’avertissement sur le portail Azure
+
+Lorsque vous accédez au panneau des paramètres B2C sur le portail Azure, vous pouvez voir un message d’avertissement sous Notifications (dans le coin supérieur droit) ; il affichera : « vous n’avez aucun abonnement dans le répertoire <B2CTenantName>. Vous avez d’autres répertoires sur lesquels vous pouvez basculer. », où <B2CTenantName> est le nom de votre client B2C. Vous pouvez sans risque ignorer ce message et continuer d’accéder à vos fonctionnalités B2C. Nous travaillons avec l’équipe du portail Azure à élaborer un correctif pour résoudre ce problème.
+
+<!---HONumber=AcomDC_0107_2016-->

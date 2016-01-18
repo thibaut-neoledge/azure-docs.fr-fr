@@ -44,11 +44,11 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 ## Créez une base de données de requête élastique
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
-2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ». Pour le niveau de tarification, vous devez sélectionner l’une des offres premium. La requête de base de données élastique n’est actuellement disponible qu’au niveau premium.
+2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ». 
 
 	![Portail Azure et tarification][3]
 
-	Remarque : vous pouvez utiliser une base de données premium existante. Si c’est le cas, il ne doit pas s’agir de l’une des partitions sur laquelle vous souhaitez exécuter les requêtes. Cette base de données sera utilisée pour la création d’objets de métadonnées pour une requête de base de données élastique.
+	Remarque : vous pouvez utiliser une base de données existante. Si c’est le cas, il ne doit pas s’agir de l’une des partitions sur laquelle vous souhaitez exécuter les requêtes. Cette base de données sera utilisée pour la création d’objets de métadonnées pour une requête de base de données élastique.
 
 
 ## Créez des objets de base de données
@@ -127,7 +127,7 @@ Toutes les lignes de la table **Clients**, stockées dans des partitions différ
 Vous pouvez maintenant utiliser les fonctions de visualisation de données puissantes d’Excel. Vous pouvez utiliser la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour vous connecter vos outils d’intégration BI et de données dans la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Vous pouvez vous traiter la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### Coût
-La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
+La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires.
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -142,4 +142,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

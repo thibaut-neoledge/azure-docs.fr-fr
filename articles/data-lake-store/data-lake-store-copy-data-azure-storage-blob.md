@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Copier des données d’objets blob Azure Storage vers Data Lake Store
 
-Azure Data Lake Store fournit un outil en ligne de commande nommé [AdlCopy](http://aka.ms/downloadadlcopy) qui permet de copier les données d’objets blob Azure Storage dans Data Lake Store. Vous pouvez utiliser l’outil de deux manières :
+Azure Data Lake Store fournit un outil en ligne de commande nommé [AdlCopy](http://aka.ms/downloadadlcopy) qui permet de copier les données **d’objets blob Azure Storage dans Data Lake Store**. Vous ne pouvez pas utiliser AdlCopy pour copier des données de Data Lake Store vers des objets blob Azure Storage.
+
+Vous pouvez utiliser l’outil AdlCopy de deux manières :
 
 * **Autonome** : l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
 * **À l’aide d’un compte Data Lake Analytics** : les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
@@ -68,9 +70,12 @@ Les paramètres de la syntaxe sont décrits ci-après :
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. Vous pouvez également copier tous les objets blob d’un conteneur donné vers le compte Data Lake Store à l’aide de la commande suivante :
@@ -103,10 +108,14 @@ Par exemple :
 
 * Si vous utilisez l’outil AdlCopy avec votre compte Data Lake Analytics, les [tarifs de facturation Data Lake Analytics standard](https://azure.microsoft.com/pricing/details/data-lake-analytics/) s’appliquent.
 
+## Considérations sur l’utilisation d’AdlCopy
+
+* AdlCopy ne prend pas en charge la copie de données à partir de sources contenant collectivement plus de 1 000 fichiers et dossiers. Une autre approche consisterait à répartir les fichiers/dossiers dans différents sous-dossiers et à utiliser comme source le chemin d'accès à ces sous-dossiers.
+
 ## Étapes suivantes
 
 - [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

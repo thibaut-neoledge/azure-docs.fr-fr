@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/26/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 
@@ -24,9 +24,9 @@
 
 Objets dans les propriétés du système de support de stockage Azure et des métadonnées définies par l’utilisateur, en plus des données qu’ils contiennent :
 
-*   Les **propriétés système** : propriétés existant sur chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. La bibliothèque cliente de stockage Azure gère ces en-têtes pour vous.  
+*   **Les propriétés système :** propriétés existant sur chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. La bibliothèque cliente de stockage Azure gère ces en-têtes pour vous.  
 
-*   Les **métadonnées configurées par l’utilisateur** : il s’agit de métadonnées que vous spécifiez pour une ressource donnée, sous la forme d’une paire nom-valeur. Vous pouvez utiliser les métadonnées pour stocker des valeurs supplémentaires avec une ressource de stockage. Ces valeurs sont pour votre usage personnel et n’ont aucun impact sur le comportement de la ressource.
+*   **Les métadonnées configurées par l’utilisateur :** il s’agit de métadonnées que vous spécifiez pour une ressource donnée, sous la forme d’une paire nom-valeur. Vous pouvez utiliser les métadonnées pour stocker des valeurs supplémentaires avec une ressource de stockage. Ces valeurs sont pour votre usage personnel et n’ont aucun impact sur le comportement de la ressource.
 
 La récupération des valeurs des propriétés et des métadonnées d’une ressource se déroule en deux étapes. Pour pouvoir lire ces valeurs, vous devez les récupérer explicitement en appelant la méthode **FetchAttributes**.
 
@@ -99,4 +99,4 @@ Pour récupérer des métadonnées, appelez la méthode **FetchAttributes** sur 
 - [Références sur la bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Package de la bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

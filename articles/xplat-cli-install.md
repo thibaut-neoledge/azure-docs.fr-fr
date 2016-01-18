@@ -14,30 +14,19 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Installer l’interface de ligne de commande Microsoft Azure
 
-Cet article décrit la procédure d’installation de l’interface de ligne de commande Azure (Azure CLI). L’interface de ligne de commande Azure offre un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure.
+Installez rapidement l’interface de ligne de commande Azure (Azure CLI) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure. Utilisez un des packages de programme d’installation fournis pour installer cette interface sur votre système d’exploitation, installez l’interface CLI à l’aide de Node.js et **npm**, ou installez Azure CLI en tant que conteneur dans un hôte Docker. Pour obtenir davantage d’options générales et de contexte, consultez le référentiel du projet sur [GitHub](https://github.com/azure/azure-xplat-cli).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
+Une fois la CLI Azure installée, vous êtes à même de [vous connecter à votre abonnement Azure](xplat-cli-connect.md) et d’exécuter les commandes **azure** depuis votre interface de ligne de commande (Bash, Terminal, invite de ligne de commande, etc.) pour travailler avec vos ressources Azure.
 
-L’interface Azure CLI est écrite en JavaScript et nécessite [Node.js](https://nodejs.org). Elle est implémentée à l’aide du [Kit de développement logiciel (SDK) Azure pour Node](https://github.com/azure/azure-sdk-for-node) et publiée sous licence Apache 2.0. Le référentiel du projet se trouve à la page [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
-> [AZURE.NOTE]Si vous avez déjà installé l’interface Azure CLI, connectez-la à vos ressources Azure. Pour plus d’informations, voir l’article [Connexion à votre abonnement Azure](xplat-cli-connect.md#configure).
 
-<a id="install"></a>
-## Installation de l’interface de ligne de commande Azure
-
-Vous disposez de plusieurs méthodes pour installer l’interface de ligne de commande Azure.
-
-1. Utilisation d’un programme d’installation
-2. Installez Node.js et de npm, puis utilisez la commande **npm install**.
-3. Exécution d’Azure CLI sous la forme d’un conteneur Docker
-
-Une fois la CLI Azure installée, vous serez à même d’utiliser la commande **azure** à partir de l’interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal, etc.) afin d’accéder aux commandes de l’interface de ligne de commande Azure.
 
 ## Utilisation d’un programme d’installation
 
@@ -59,6 +48,7 @@ Si Node.js est installé sur votre système, utilisez la commande ci-après pour
 > [AZURE.NOTE]Sur les distributions Linux, vous devrez peut-être utiliser `sudo` pour parvenir à exécuter la commande __npm__.
 
 ### Installation de node.js et de npm sur des distributions Linux utilisant la gestion des packages [dpkg](http://en.wikipedia.org/wiki/Dpkg)
+
 La plus courante de ces distributions utilise soit l’[outil d’empaquetage avancé (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool), soit d’autres outils basés sur le format de package `.deb`. Ubuntu et Debian en sont des exemples.
 
 La plupart des plus récentes de ces distributions nécessitent l’installation de **nodejs-legacy** afin d’obtenir un outil **npm** adéquatement configuré pour installer Azure CLI. Le code ci-après illustre les commandes qui installent correctement **npm** sur Ubuntu 14.04.
@@ -67,18 +57,18 @@ La plupart des plus récentes de ces distributions nécessitent l’installation
 	sudo apt-get install npm
 	sudo npm install -g azure-cli
 
-Certaines des distributions plus anciennes, comme Ubuntu 12.04, requièrent l'installation de la distribution binaire actuelle de node.js. Le code ci-dessous montre comment effectuer cette opération en installant et en utilisant **curl**.
+Certaines des distributions plus anciennes, comme Ubuntu 12.04, requièrent l’installation de la distribution binaire actuelle de Node.js. Le code ci-dessous montre comment effectuer cette opération en installant et en utilisant **curl**.
 
->[AZURE.NOTE]Ces commandes proviennent des instructions d’installation Joyent disponibles [ici](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Toutefois, quand vous utilisez **sudo** comme cible de canal, vous devez toujours vérifier les scripts que vous installez et vous assurer qu’ils font exactement ce que vous attendez avant de les exécuter par le biais de **sudo**. Qui dit possibilités étendues dit responsabilités accrues.
+>[AZURE.NOTE]Ces commandes sont prises parmi les instructions d’installation disponibles [ici](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Toutefois, quand vous utilisez **sudo** comme cible de canal, vous devez toujours vérifier les scripts que vous installez et vous assurer qu’ils font exactement ce que vous attendez avant de les exécuter par le biais de **sudo**. Qui dit possibilités étendues dit responsabilités accrues.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-### Installation de node.js et de npm sur des distributions Linux utilisant la gestion des packages [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
+### Installation de Node.js et de npm sur des distributions Linux utilisant la gestion de package [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
 
-L'installation de node.js sur des distributions RPM requiert l'activation du référentiel EPEL. Le code suivant illustre les méthodes conseillées pour l'installation sur CentOS 7. (Notez que dans la première ligne ci-dessous, le caractère « - » (tiret) est important !)
+L’installation de Node.js sur des distributions RPM requiert l’activation du référentiel EPEL. Le code suivant illustre les méthodes conseillées pour l'installation sur CentOS 7. (Notez que dans la première ligne ci-dessous, le caractère « - » (tiret) est important !)
 
 	su -
 	yum update [enter]
@@ -88,9 +78,9 @@ L'installation de node.js sur des distributions RPM requiert l'activation du ré
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-### Installation de node.js et de npm sur Windows et Mac OS X
+### Installation de Node.js et de npm sur Windows et Mac OS X
 
-Vous pouvez installer node.js et npm sur Windows et sur OS X à l’aide des programmes d’installation accessibles à partir de [Nodejs.org](https://nodejs.org/download/). Vous devrez peut-être redémarrer l’ordinateur pour terminer l’installation. Vérification que node et npm ont été correctement installés en ouvrant une fenêtre Commande et en tapant
+Vous pouvez installer Node.js et npm sur Windows et sur OS X à l’aide des programmes d’installation accessibles à partir de [Nodejs.org](https://nodejs.org/en/download/). Vous devrez peut-être redémarrer l’ordinateur pour terminer l’installation. Vérifiez sur node et npm ont été correctement installés en ouvrant une fenêtre Commande ou Terminal, et en effectuant une saisie
 
 	npm -v
 
@@ -120,33 +110,46 @@ Si la version de npm installée s’affiche, vous pouvez poursuivre et installer
 
 >[AZURE.NOTE]Pour les systèmes Linux, vous pouvez également installer l’interface Azure CLI en la générant à partir de la [source](http://go.microsoft.com/fwlink/?linkid=253472). Pour plus d’informations sur la génération de l’interface à partir de la source, voir le fichier INSTALL inclus dans l’archive.
 
-## Utilisation d’un conteneur Docker
+## Utiliser un conteneur Docker
 
-Dans un hôte Docker, exécutez la commande suivante : ```
-	docker run -it microsoft/azure-cli
-```
-
-## Exécution des commandes de l’interface de ligne de commande Azure
-
-Une fois l’interface de ligne de commande Azure installée, vous pouvez utiliser la commande **azure** à partir de l’interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal, etc.) afin d’accéder aux commandes de l’interface de ligne de commande Azure. Par exemple, pour exécuter la commande d’aide dans Windows, ouvrez une fenêtre Commandes, puis entrez ce qui suit :
+Dans un hôte de Docker, exécutez la commande :
 
 ```
-	c:> azure help
+docker run -it microsoft/azure-cli
 ```
 
-Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à votre abonnement Azure à partir de l’interface Azure CLI](xplat-cli-connect.md) et commencer à utiliser les commandes **azure**.
+## Exécution des commandes Azure CLI
+Une fois l’interface de ligne de commande Azure installée, vous pouvez exécuter la commande **azure** depuis l’interface de ligne de commande utilisateur (Bash, Terminal, invite de ligne de commande, etc.) Par exemple, pour exécuter la commande d’aide, saisissez ce qui suit :
 
+```
+azure help
+```
 
-<a id="additional-resources"></a>
+Pour afficher la version de l’interface CLI que vous avez installée, saisissez la commande suivante :
+
+```
+azure --version
+```
+
+Vous avez terminé l’installation. Pour accéder à toutes les commandes CLI et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface CLI Azure](xplat-cli-connect.md).
+
+## Mise à jour de l’interface CLI
+
+Microsoft publie fréquemment des versions mises à jour de l’interface CLI Azure. Réinstallez l’interface CLI à l’aide du programme d’installation de votre système d’exploitation ou, si Node.js et npm sont installés, procédez à la mise à jour en saisissant ce qui suit (dans les distributions Linux, vous devrez peut-être utiliser **sudo**).
+
+```
+npm upgrade -g azure-cli
+```
+
 ## Ressources supplémentaires
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des ressources][cliarm]
+* [Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager (ARM)][cliarm]
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes (classiques) de gestion des services][cliasm]
+* [Utilisation de l’interface de ligne de commande Azure avec la gestion des services Azure][cliasm]
 
-* Pour plus d’informations sur l’interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l’interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
+* Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
-* Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Si vous avez des questions sur l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurescripting).
 
 
 
@@ -156,4 +159,4 @@ Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

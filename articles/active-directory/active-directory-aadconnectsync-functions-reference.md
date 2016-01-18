@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -224,7 +224,7 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Description :**<br> La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encodée UTF8.
 
-**Syntaxe :** <br> `str ConvertToUTF8Hex(str source)`
+**Syntaxe :**<br> `str ConvertToUTF8Hex(str source)`
 
 **Remarques :**<br> Le format de sortie de cette fonction est utilisé par Azure Active Directory en tant que format d’attribut de nom de domaine.
 
@@ -300,7 +300,7 @@ Les deux exemples renvoient « *Hello world!* »
 - valeur : nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé).
 - date : DateTime représentant la date à laquelle l’intervalle est ajouté.
 
-**Exemple :** <br> `DateAdd("m", 3, CDate("2001-01-01"))` <br> Ajoute 3 mois et retourne une valeur DateTime représentant « 2001-04-01 »
+**Exemple :** <br> `DateAdd("m", 3, CDate("2001-01-01"))` <br> ajoute 3 mois et retourne une valeur DateTime représentant « 2001-04-01 »
 
 
 
@@ -386,9 +386,9 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Exemple :** <br>
 
-`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)`<br> Donne comme résultat « 2007-12-25 ».
+`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)`<br> Donne comme résultat « 2007-12-25 ».
 
-`FormatDateTime(DateFromNum([pwdLastSet]),”yyyyMMddHHmmss.0Z”)` <br> Peut générer « 20140905081453.0Z »
+`FormatDateTime(DateFromNum([pwdLastSet]),”yyyyMMddHHmmss.0Z”)` <br> Peut entraîner une « 20140905081453.0Z »
 
 
 
@@ -500,7 +500,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ###IsGuid
 
-**Description :** <br> La fonction IsGuid prend la valeur True si la chaîne peut être convertie en GUID.
+**Description :** <br> la fonction IsGuid renvoie true si la chaîne peut être convertie en GUID.
 
 **Syntaxe :** <br> `bool IsGuid(str GUID)`
 
@@ -522,7 +522,7 @@ Utilisé pour déterminer si CGuid() sera réussi.
 
 **Remarques :**<br> Dans le cas d’un attribut, une valeur Null est exprimée par l’absence de ce dernier.
 
-**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans CS ou MV.
+**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV.
 
 
 
@@ -530,13 +530,13 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ###IsNullOrEmpty
 
-**Description :** <br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression a la valeur null ou s’il s’agit d’une chaîne vide.
+**Description :** <br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression est null ou s’il s’agit d’une chaîne vide.
 
 **Syntaxe :** <br> `bool IsNullOrEmpty(var Expression)`
 
-**Remarques :**<br> Dans le cas d’un attribut, cela correspond à la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
+**Remarques :**<br> Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
 
-**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans CS ou MV ou s’il s’agit d’une chaîne vide.
+**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV ou s’il s’agit d’une chaîne vide.
 
 
 
@@ -584,7 +584,7 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ### Item
 
-**Description :**<br> La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+**Description :**<br> La fonction Élément renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
 **Syntaxe :** <br> `var Item(mvstr attribute, num index)`
 
@@ -664,7 +664,7 @@ Retourne une valeur Null si l’index est hors limites.
 
 Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
 
-**Exemple :** <br> `Left(“John Doe”, 3)` <br> Renvoie « Joh ».
+**Exemple :** <br> `Left(“John Doe”, 3)` <br> renvoie « Joh ».
 
 
 
@@ -688,7 +688,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 
 **Syntaxe :** <br> `str LTrim(str value)`
 
-**Exemple :** <br> `LTrim(“ Test ”)` <br> Renvoie “Test ”.
+**Exemple :** <br> `LTrim(“ Test ”)` <br> renvoie « Test ».
 
 
 
@@ -700,7 +700,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 
 **Syntaxe :** <br> `str Mid(str string, num start, num NumChars)`
 
-- string : chaîne à partir de laquelle les caractères sont renvoyés <br>
+- string : chaîne à partir de laquelle renvoyer des caractères <br>
 - start : nombre identifiant la position de départ dans la chaîne à partir de laquelle les caractères sont renvoyés
 - NumChars : nombre identifiant le nombre de caractères à retourner à partir de la position dans la chaîne
 
@@ -737,7 +737,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 ----------
 ### NumFromDate
 
-**Description :**<br> La fonction NumFromDate renvoie une date au format AD.
+**Description :**<br> la fonction NumFromDate renvoie une date au format de date AD.
 
 **Syntaxe :** <br> `num NumFromDate(dt value)`
 
@@ -808,7 +808,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 
 **Syntaxe :** <br> `String PCase(string)`
 
-**Exemple :** <br> `PCase(“TEsT”)` <br> Renvoie “Test”.
+**Exemple :** <br> `PCase(“TEsT”)` <br> renvoie « Test ».
 
 
 
@@ -949,7 +949,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 - delimiter : caractère unique à utiliser comme délimiteur.
 - limit : nombre maximal de valeurs qui seront renvoyées.
 
-**Exemple :** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> Renvoie une chaîne à valeurs multiples contenant 2 éléments utiles à l’attribut proxyAddress
+**Exemple :** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> renvoie une chaîne à plusieurs valeurs avec 2 éléments utiles pour l’attribut proxyAddress
 
 
 
@@ -977,7 +977,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 ----------
 ### Switch
 
-**Description :**<br> La fonction Switch est utilisée pour renvoyer une valeur unique en fonction des conditions évaluées.
+**Description :**<br> la fonction Switch est utilisée pour renvoyer une valeur unique en fonction des conditions évaluées.
 
 **Syntaxe :** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -1002,7 +1002,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### Trim
 
-**Description :** <br> La fonction Trim supprime les espaces blancs de début et de fin d’une chaîne.
+**Description :** <br>la fonction Trim supprime les espaces à gauche et à droite d’une chaîne.
 
 **Syntaxe :** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
 
@@ -1028,7 +1028,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### Word
 
-**Description :**<br> La fonction Word renvoie un mot contenu dans une chaîne, en fonction des paramètres indiquant les délimiteurs à utiliser et le nombre de mots à renvoyer.
+**Description :**<br> La fonction Word renvoie un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à renvoyer.
 
 **Syntaxe :** <br> `str Word(str string, num WordNumber, str delimiters)`
 
@@ -1058,4 +1058,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

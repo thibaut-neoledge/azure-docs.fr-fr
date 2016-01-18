@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
@@ -93,7 +93,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 3. Créez un programme.
 
-	Lors de l’utilisation du portail Azure Classic, la création d’un programme crée également une ressource.
+	Lors de l’utilisation du portail Azure Classic, la création d’un programme crée également un élément multimédia.
 
 	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
 1. Publiez la ressource associée au programme.   
@@ -130,7 +130,8 @@ Les diffuseurs professionnels utilisent généralement des encodeurs dynamiques 
 
 Considérations :
 
-- L’utilisation d’une entrée SPTS (Single Program Transport Stream) est vivement recommandée. Néanmoins, l’utilisation de pistes audio multilingues est prise en charge.
+- L’utilisation d’une entrée SPTS (Single Program Transport Stream) est vivement recommandée. 
+- Vous pouvez utiliser en entrée jusqu'à 8 flux audio à l'aide de MPEG-2 TS via RTP. 
 - Le flux vidéo doit avoir un débit binaire moyen inférieur à 15 Mbits/s.
 - La somme des débits binaires moyens des flux audio doit être inférieure à 1 Mbits/s.
 - Voici les codecs pris en charge :
@@ -244,7 +245,7 @@ Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obte
 
 Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-**Remarque** Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure Classic pour afficher votre flux.
+>[AZURE.NOTE]Actuellement, le flux d'aperçu ne peut être distribué qu'au format MP4 fragmenté (Smooth Streaming), quel que soit le type d'entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure Classic pour afficher votre flux.
 
 ###Adresses IP autorisées
 
@@ -253,6 +254,8 @@ Vous pouvez définir les adresses IP autorisées à se connecter au point de te
 ##Paramètres d’encodage en temps réel
 
 Cette section décrit comment les paramètres de l’encodeur dynamique dans le canal peuvent être ajustés, lorsque le paramètre **Type d’encodage** d’un canal est défini sur **Standard**.
+
+>[AZURE.NOTE]Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n'existe aucune limitation en cas d'encodage en temps réel avec des [encodages locaux en temps réel](media-services-manage-channels-overview.md), car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 
 ###Source de marqueur de publicité
 
@@ -335,7 +338,7 @@ ID unique de la pause publicitaire à utiliser par une application en aval pour 
 
 ###Afficher l’ardoise
 
-facultatif. Signale à l'encodeur en direct de basculer vers l'image de l'[ardoise par défaut](media-services-manage-live-encoder-enabled-channels.md#default_slate) pendant une pause publicitaire et de masquer le flux vidéo entrant. Le son est également désactivé pendant l’affichage de l’ardoise. La valeur par défaut est **false**.
+facultatif. Signale à l’encodeur en direct de basculer vers l’image de l’[ardoise par défaut](media-services-manage-live-encoder-enabled-channels.md#default_slate) pendant une pause publicitaire et de masquer le flux vidéo entrant. Le son est également désactivé pendant l’affichage de l’ardoise. La valeur par défaut est **false**.
  
 L’image utilisée sera celle qui est spécifiée par la propriété ID de ressource d’ardoise par défaut au moment de la création du canal. L’ardoise est étirée pour s’ajuster à la taille de l’image de l’écran.
 
@@ -358,7 +361,7 @@ S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null.
 
-**Remarque** : avant de créer le canal, l'image d'ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
+**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
 
 - Résolution maximale de 1920 x 1080
 - Taille maximale de 3 Mo.
@@ -427,6 +430,7 @@ Arrêté|Arrêté|Non
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
 - Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 - Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+- Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n'existe aucune limitation en cas d'encodage en temps réel avec des [encodages locaux en temps réel](media-services-manage-channels-overview.md), car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 - N'oubliez pas d'ARRÊTER VOS CANAUX lorsque vous avez terminé. Dans le cas contraire, la facturation continue. 
 
 ##Problèmes connus
@@ -466,4 +470,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

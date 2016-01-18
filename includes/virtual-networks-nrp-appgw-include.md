@@ -1,14 +1,6 @@
 ## Application Gateway
 
-Application Gateway fournit une solution d'équilibrage de la charge HTTP gérée par Azure et basée sur l'équilibrage de la charge de couche 7. L'équilibrage de la charge de l'application permet l'utilisation de règles de routage pour le trafic réseau basé sur HTTP.
-
-| Propriété | Description | 
-|---|---|
-| **backendAddressPools** | Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel, sinon elles doivent être une adresse IP/VIP publique ou une adresse IP privée. |
-| **backendHttpSettingsCollection** | Chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool. |
-| **frontendPorts** | Ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux. |
-| **httpListeners** | L'écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). |
-| **requestRoutingRules** | La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé. Travaille actuellement uniquement en tant que Round-robin |
+Application Gateway fournit une solution d'équilibrage de la charge HTTP gérée par Azure et basée sur l'équilibrage de la charge de couche 7. L’équilibrage de charge d’applications permet d’utiliser des règles de routage pour le trafic réseau basé sur HTTP. <BR> | Propriété | Description | |---|---| | **backendAddressPools** | Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel, sinon elles doivent être une adresse IP/VIP publique ou une adresse IP privée. | | **backendHttpSettingsCollection** | Chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool. | | **frontendPorts** | Ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux. | | **httpListeners** | L’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). | | **requestRoutingRules** | La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé. Travaille actuellement uniquement en tant que Round-robin |
 
 
 Exemple d'un modèle de passerelle Application Gateway Json :
@@ -221,4 +213,4 @@ Exemple d'un modèle de passerelle Application Gateway Json :
 
 Lisez [API REST Application Gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) pour plus d'informations.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

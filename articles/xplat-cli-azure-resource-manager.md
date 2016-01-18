@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
 	description="Utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows pour déployer plusieurs ressources comme groupe de ressources."
@@ -32,7 +33,7 @@ Cette rubrique décrit comment créer et gérer des ressources Azure en utilisan
 
 Utilisez Azure Resource Manager pour créer et gérer un groupe de _ressources_ (qui sont des entités gérées par l'utilisateur, comme une machine virtuelle, un serveur de bases de données, une base de données ou un site web) comme une seule unité logique ou un seul _groupe de ressources_.
 
-Un avantage de l'Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure d'une manière _déclarative_ : vous décrivez la structure et les relations d'un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l'exécution d'une commande ou stockés dans un fichier JSON azuredeploy-parameters.json distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
+L'un des avantages d'Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure d'une manière _déclarative_ : vous décrivez la structure et les relations d'un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l'exécution d'une commande ou stockés dans un fichier JSON azuredeploy-parameters.json distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
 
 Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
@@ -68,7 +69,7 @@ Un groupe de ressources est un regroupement logique de réseaux, de stockage et 
 
 	azure group create -n "testRG" -l "West US"
 
-Vous pouvez ensuite commencer à ajouter des ressources à ce groupe et utiliser ce dernier pour configurer une ressource telle qu'une machine virtuelle.
+Vous allez déployer ce groupe de ressources « testRG » ultérieurement, lorsque de l'utilisation d'un modèle pour lancer une machine virtuelle Ubuntu. Une fois que vous avez créé un groupe de ressources, vous pouvez ajouter des ressources telles que des machines virtuelles et des réseaux ou du stockage.
 
 
 ## Utilisation de modèles de groupe de ressources
@@ -79,48 +80,50 @@ Quand vous utilisez des modèles, vous pouvez [créer vos propres modèles](reso
 
 La création d'un nouveau modèle n'est pas abordée dans cet article. Pour commencer, utilisez le modèle _101-simple-vm-from-image_ disponible à partir de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Par défaut, ceci crée une seule machine virtuelle Ubuntu 14.04.2-LTS dans un nouveau réseau virtuel avec un seul sous-réseau dans la région Ouest des États-Unis. Vous devez uniquement spécifier les quelques paramètres suivants pour utiliser ce modèle :
 
-* Un nom de compte de stockage unique
-* Un nom d'utilisateur administrateur de la machine virtuelle
-* Un mot de passe
-* Un nom de domaine de la machine virtuelle
+* Nom d'utilisateur administrateur pour la machine virtuelle = `adminUsername`
+* Mot de passe = `adminPassword`
+* Nom de domaine pour la machine virtuelle = `dnsLabelPrefix`
 
 >[AZURE.TIP]Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Téléchargez les fichiers azuredeploy.json et azuredeploy.parameters.json depuis [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) dans un dossier de travail sur votre ordinateur local.
+1. Téléchargez les fichiers azuredeploy.json et azuredeploy.parameters.json depuis [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) dans un dossier de travail sur votre ordinateur local.
 
 2. Ouvrez le fichier azuredeploy.parameters.json dans un éditeur de texte et entrez des valeurs de paramètre appropriées pour votre environnement (en laissant la valeur **ubuntuOSVersion** inchangée).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. Après avoir enregistré le fichier azuredeploy.parameters.json, utilisez la commande suivante pour créer un groupe de ressources basé sur le modèle. L'option `-e` spécifie le fichier azuredeploy.parameters.json que vous avez modifié à l'étape précédente. Remplacez le *testRG* par le nom de groupe que vous souhaitez utiliser et *testDeploy* par un nom de déploiement que vous choisissez. L'emplacement doit être identique à celui spécifié dans votre fichier de paramètres de modèle.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  À présent que les paramètres de déploiement ont été modifiés, vous allez déployer la machine virtuelle Ubuntu dans le groupe de ressources créé précédemment. Choisissez un nom pour le déploiement, puis utilisez la commande suivante pour le démarrer.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	Cet exemple crée un déploiement nommé _testRGDeploy_ qui est déployé dans le groupe de ressources _testRG_. L'option `-e` spécifie le fichier azuredeploy.parameters.json que vous avez modifié à l'étape précédente. L'option `-f` spécifie le fichier de modèle azuredeploy.json.
 
 	Cette commande renvoie la valeur OK une fois le déploiement chargé, mais avant qu'il ne soit appliqué aux ressources du groupe.
 
 4. Pour vérifier le statut du déploiement, utilisez la commande suivante.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	**ProvisioningState** indique le statut du déploiement.
 
@@ -210,4 +213,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

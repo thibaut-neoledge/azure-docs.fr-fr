@@ -45,7 +45,6 @@ Plusieurs raisons peuvent justifier que vous ne migriez pas vos services mobiles
   *  Vous êtes actuellement en plein période d’activité et ne pouvez pas vous permettre un redémarrage du site.
   *  Vous ne souhaitez pas affecter votre site de production avant de tester le processus de migration.
   *  Vous disposez de plusieurs sites soumis aux niveaux tarifaires de base et gratuit, et ne souhaitez pas migrer tous les sites en même temps.
-  *  Vous avez planifié des travaux configurés en tant que travaux à la demande que vous souhaitez migrer.
 
 Si vous êtes en période d’activité, veuillez envisager une migration pendant une fenêtre de maintenance planifiée. Le processus de migration redémarre votre site et il se peut que vos utilisateurs constatent une interruption momentanée de la disponibilité.
 
@@ -146,6 +145,24 @@ Cette tâche est facultative, mais contribue à vous offrir une meilleure expér
 
 > [AZURE.TIP]L’un des avantages de l’utilisation d’un Azure App Service est que vous pouvez exécuter votre site web et votre service mobile sur le même site. Pour plus d’informations, voir la section [Étapes suivantes](#next-steps).
 
+### <a name="download-publish-profile"></a>Télécharger un nouveau profil de publication
+
+Le profil de publication de votre site est modifié lors de la migration vers Azure App Service. Si vous avez l’intention de publier votre site depuis Visual Studio, vous avez besoin d’un nouveau profil de publication. Pour télécharger un nouveau profil de publication :
+
+  1.  Connectez-vous au [portail Azure].
+  2.  Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
+  3.  Cliquez sur **Obtenir le profil de publication**.
+
+Le fichier PublishSettings sera téléchargé sur votre ordinateur. Normalement, il est appelé _nom de site_.PublishSettings. Vous pouvez ensuite importer les paramètres de publication dans votre projet existant :
+
+  1.  Ouvrez Visual Studio et votre projet Service mobile Azure.
+  2.  Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Publier**.
+  3.  Cliquez sur **Importer**
+  4.  Cliquez sur **Parcourir** et sélectionnez le fichier de paramètres de publier que vous avez téléchargé. Cliquez sur **OK**.
+  5.  Cliquez sur **Valider la connexion** pour garantir le fonctionnement des paramètres de publication.
+  6.  Cliquez sur **Publier** pour publier votre site.
+
+
 ## <a name="working-with-your-site"></a>Utilisation de votre site après migration
 
 Commencez à utiliser votre nouvel App Service dans le [portail Azure] après migration. Voici quelques remarques concernant des opérations spécifiques que vous étiez habitué à effectuer dans le [portail Azure Classic], avec leurs équivalents App Service.
@@ -224,33 +241,24 @@ L’onglet _API_ dans Mobile Services a été remplacé par _Easy APIs_ dans le 
 
 Vos API migrées figurent déjà dans le panneau. Vous pouvez également ajouter une nouvelle API à partir de ce panneau. Pour gérer une API spécifique, cliquez dessus. Dans le nouveau panneau, vous pouvez ajuster les autorisations et modifier les scripts de l’API.
 
-### <a name="on-demand-jobs"></a>Tâches planifiées à la demande
+### <a name="on-demand-jobs"></a>Tâches du planificateur
 
-Les tâches planifiées à la demande sont déclenchées par une demande web. Nous vous recommandons d’utiliser un client HTTP tel que [Postman], [Fiddler] ou [curl]. Si votre site s’appelle « contoso », vous disposez d’un point de terminaison https://contoso.azure-mobile.net/jobs/_yourjobname_ permettant de déclencher la tâche à la demande. Vous devez envoyer un en-tête supplémentaire **X-ZUMO-MASTER** avec votre clé principale.
-
-La clé principale peut être obtenue comme suit :
+Tous les travaux du planificateur sont disponibles via la section Collections de travaux du planificateur. Pour accéder à vos tâches de planificateur :
 
   1. Connectez-vous au [portail Azure].
-  2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
-  3. Par défaut, le panneau Paramètres s’ouvre. S’il ne s’ouvre pas, cliquez sur **Paramètres**.
-  4. Cliquez sur **Paramètres de l’application** dans le menu GÉNÉRAL.
-  5. Recherchez le paramètre de l’application **MS\_MasterKey**.
+  2. Sélectionnez **Parcourir>**, entrez **Planification** dans la zone _Filtre_, puis sélectionnez **Collections Scheduler**.
+  3. Sélectionnez la Collection de tâches pour votre site. Elle sera nommée _sitename_-Jobs.
+  4. Cliquez sur **Paramètres**.
+  5. Cliquez sur **Tâches du planificateur** sous MANAGE.
 
-Vous pouvez couper et coller la clé principale dans votre session Postman. Voici un exemple de déclenchement d’une tâche à la demande dans un service mobile migré :
+Les tâches planifiées seront affichées à la fréquence que vous avez spécifiée avant la migration. Les travaux à la demande seront désactivés. Pour exécuter une tâche sur demande :
 
-  ![Déclencher une tâche à la demande avec Postman][2]
+  1. sélectionnez la tâche que vous souhaitez exécuter.
+  2. Le cas échéant, cliquez sur **Activer** pour activer la tâche.
+  3. Cliquez sur **Paramètres**, puis sur **Planification**.
+  4. Sélectionnez une Périodicité de **Une fois**, puis cliquez sur **Enregistrer**
 
-Consignez les paramètres :
-
-  * Méthode : **POST**
-  * URL : https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
-  * En-têtes : X-ZUMO-MASTER : _votre-clé-principale_
-
-Vous pouvez également utiliser [curl] pour déclencher la tâche à la demande sur une ligne de commande :
-
-    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
-
-Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`. Nous vous conseillons de convertir toutes les tâches à la demande en [WebJobs].
+Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`. Nous vous conseillons de convertir toutes les tâches à la demande en [WebJobs]. Vous devez écrire de nouveaux travaux en tant que [Tâches web].
 
 ### <a name="notification-hubs"></a>Notification Hubs
 
@@ -384,5 +392,6 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [emplacements intermédiaires]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

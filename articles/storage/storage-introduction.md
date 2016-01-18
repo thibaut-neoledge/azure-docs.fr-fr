@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -63,10 +63,10 @@ Pour la prise en main d'Azure, vous pouvez bénéficier d'un [essai gratuit](htt
 
 Un compte de stockage standard vous donne accès au stockage d’objets blob, de tables, de files d’attente et de fichiers :
 
-- **Blob Storage** stocke des données de fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. Blob Storage est parfois appelé stockage d’objets. 
-- Le **stockage de table** stocke des jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
-- **Queue Storage** fournit une messagerie fiable pour le traitement des flux de travail et pour la communication entre les composants des services cloud.
-- **File Storage** propose un stockage partagé pour les applications héritées utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. 
+- Le **stockage d'objets blob** (Blob Storage) stocke les données des fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. Blob Storage est parfois appelé stockage d’objets. 
+- Le **stockage de tables** (Table Storage) stocke des jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
+- Le **stockage de files d'attente** (Queue Storage) fournit une messagerie fiable pour le traitement des flux de travail et pour la communication entre les composants des services cloud.
+- Le **stockage de fichiers** (File Storage) propose un stockage partagé pour les applications héritées utilisant le protocole SMB standard. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. 
 
 Chaque compte de stockage standard peut contenir jusqu’à 500 To de données d’objets blob, de files d’attente, de tables et de fichiers combinées. Pour plus d’informations sur la capacité du compte de stockage standard, consultez [Objectifs de performances et évolutivité d’Azure Storage](storage-scalability-targets.md).
 
@@ -153,7 +153,7 @@ Pour plus d'informations sur l'accès sécurisé à votre compte de stockage, co
 
 La facturation d’Azure Storage aux clients se base sur quatre facteurs : la capacité de stockage utilisée, l’option de réplication sélectionnée, le nombre de demandes concernant le service et l’acheminement des données.
 
-La capacité de stockage fait référence à l’unité de compte de stockage que vous utilisez pour stocker des données. Le coût d'un simple stockage de vos données est déterminé par la quantité de données que vous stockez et leur type de réplication. Chaque opération de lecture et d’écriture vis-à-vis d’Azure Storage effectue également une demande auprès du service. L’acheminement des données fait référence aux données transférées hors d’une région Microsoft Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n’est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d’application, vous êtes facturé pour l’acheminement des données (avec les services Microsoft Azure, vous pouvez regrouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais de traitement et d’acheminement des données).
+La capacité de stockage fait référence à l’unité de compte de stockage que vous utilisez pour stocker des données. Le coût d'un simple stockage de vos données est déterminé par la quantité de données que vous stockez et leur type de réplication. Chaque opération de lecture et d'écriture vis-à-vis d'Azure Storage effectue également une demande auprès du service. L’acheminement des données fait référence aux données transférées hors d’une région Microsoft Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n’est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d’application, vous êtes facturé pour l’acheminement des données (avec les services Microsoft Azure, vous pouvez regrouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais de traitement et d’acheminement des données).
 
 La page [Tarification – Stockage](http://azure.microsoft.com/pricing/details/storage/) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](http://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données. Vous pouvez utiliser le [Calcul des coûts Azure Storage](http://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l'estimation des coûts.
 
@@ -236,4 +236,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

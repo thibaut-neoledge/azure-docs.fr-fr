@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio
@@ -71,7 +71,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 
 **Pour télécharger le fichier vers un compte de stockage d'objets Blob Azure**
 
-1. À partir de l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés. 
+1. À partir de l'**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés. 
 2. Développez le compte Azure Storage.
 3. Cliquez avec le bouton droit sur le conteneur dans lequel vous souhaitez télécharger des fichiers, puis cliquez sur **Explorer**.
 4. Accédez au dossier où vous souhaitez télécharger des fichiers, 
@@ -79,7 +79,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 
 ## Développer des scripts U-SQL 
 
-Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Pour créer et soumettre une tâche Data Lake Analytics**
 
@@ -88,6 +88,8 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 	![nouveau projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	>[AZURE.NOTE]Actuellement, les outils Data Lake Tools ne prennent pas en charge les chemins de projet UNC dans l'exécution locale.
+	
 3. Cliquez sur **OK**. Visual Studio crée une solution avec un fichier **Script.usql**.
 4. Insérez le script suivant dans le fichier **Script.usql** :
 
@@ -152,7 +154,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 	- **Insertion du chemin d'accès Azure**
 		
-		Plutôt que de mémoriser le chemin d'accès du fichier Azure et de le taper manuellement lors de l'écriture du script, Data Lake Tools pour Visual Studio offre une méthode facile : cliquez avec le bouton droit dans l'éditeur, cliquez sur Insérer le chemin d'accès Azure. Accédez au fichier dans la boîte de dialogue de l'Explorateur d'objets Blob Azure. Cliquez sur **OK** pour insérer le chemin d’accès dans votre code.
+		Plutôt que de mémoriser le chemin d'accès du fichier Azure et de le taper manuellement lors de l'écriture du script, Data Lake Tools pour Visual Studio offre une méthode facile : cliquez avec le bouton droit dans l'éditeur, cliquez sur Insérer le chemin d'accès Azure. Accédez au fichier dans la boîte de dialogue de l'Explorateur d'objets Blob Azure. Cliquez sur **OK** pour insérer le chemin d'accès dans votre code.
 
 5. Spécifiez le compte Data Lake Analytics, la base de données et le schéma. Vous pouvez sélectionner **(local)** pour exécuter le script en local à des fins de test. Pour plus d’informations, consultez [Exécuter U-SQL localement](#run-u-sql-locally).
 
@@ -196,7 +198,7 @@ La lecture de travail vous permet de surveiller la progression de l'exécution d
 
 **Pour afficher la progression de l'exécution du travail**
 
-1. Cliquez sur **Charger le profil** dans le coin supérieur droit. Reportez-vous à la capture d'écran précédente.
+1. Cliquez sur **CHARGER LE PROFIL** dans le coin supérieur droit. Reportez-vous à la capture d'écran précédente.
 2. Cliquez sur le bouton Lecture dans le coin inférieur gauche pour passer en revue la progression de l'exécution du travail. 
 3. Lors de la lecture, cliquez sur **Pause** pour l’arrêter ou faites glisser directement la barre de progression sur des positions spécifiques. 
 
@@ -218,6 +220,10 @@ Un compte *Local* est répertorié dans Visual Studio et le programme d’instal
 - Stocker les métadonnées, notamment des tables, des bases de données, des fonctions à valeurs de tables (TVF), etc.
 - Pour un certain script : si un chemin d'accès relatif est référencé dans les chemins d'entrée/sortie, nous examinerons le dossier DataRoot (ainsi que le chemin du script)
 - Le dossier DataRoot ne sera PAS référencé si vous tentez d'inscrire un assembly et d'utiliser un chemin d'accès relatif (voir la rubrique « Utilisation d'assemblys lors de l'exécution locale » pour plus de détails)
+
+La vidéo suivante présente la fonctionnalité d'exécution locale U-SQL :
+
+>[AZURE.VIDEO usql-localrun]
 
 ### Problèmes connus et limitations
 
@@ -263,8 +269,6 @@ La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les v
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Définissez des points d'arrêt dans le code C#.
 4.	Appuyez sur **F5** pour déboguer le script en faisant référence à la dll C# localement.  
- 
-
 
 ##Voir aussi
 
@@ -353,4 +357,4 @@ Le script PowerShell suivant prépare un compte Azure Data Lake Analytics et la 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

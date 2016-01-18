@@ -466,7 +466,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 		outputBlob.UploadText(output);
 
 
-### Création de la fabrique de données
+## Création de la fabrique de données
 
 Dans la section [Création de l’activité personnalisée](#create-the-custom-activity), vous avez créé une activité personnalisée et chargé le fichier zip contenant les fichiers binaires et le fichier PDB dans un conteneur d’objets blob Azure. Dans cette section, vous allez créer une **fabrique de données** Azure avec un **pipeline** qui utilise l’**activité personnalisée**.
 
@@ -512,7 +512,7 @@ La procédure pas à pas suivante fournit des détails supplémentaires.
 
     2.  Dans le panneau **Nouveau**, cliquez sur **Données et analyse**.
 
-    3.  Dans le panneau **Analyse des données**, cliquez sur **Data Factory**.
+    3.  Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
 
 2.  Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Data factory name “CustomActivityFactory” is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible) s’affiche, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
 
@@ -534,7 +534,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 
 #### Créer le service lié Azure Storage
 
-1.  Dans le panneau **DATA FACTORY** correspondant à **CustomActivityFactory**, cliquez sur la vignette **Créer et déployer**. Cette action lance l’éditeur Data Factory Editor.
+1.  Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Cette action lance l’éditeur Data Factory Editor.
 
 2.  Dans la barre de commandes, cliquez sur **Nouvelle banque de données**, puis choisissez **Azure Storage**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
 
@@ -935,4 +935,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

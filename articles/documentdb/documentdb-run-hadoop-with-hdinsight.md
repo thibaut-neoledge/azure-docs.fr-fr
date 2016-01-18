@@ -83,7 +83,7 @@ Lors de l'approvisionnement d'un cluster HDInsight, vous spécifiez un compte Az
 	> [AZURE.NOTE]Azure HDInsight est actuellement pris en charge dans le portail Azure Classic tandis qu’Azure DocumentDB existe uniquement dans le portail Microsoft Azure.
 
 2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**.
-	![Portail Azure où vous pouvez utiliser l'option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
+	![Portail Azure Classic où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
 
 3. Entrez l’**URL**, sélectionnez les valeurs **EMPLACEMEN**T et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge. 
 	
@@ -196,7 +196,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 2. Ouvrez l'environnement de script intégré Azure PowerShell :
 	- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’accueil, tapez **powershell ise**, puis cliquez sur **Entrée**. 
-	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell\_ise**, puis cliquez sur **Entrée**.
+	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell_ise**, puis cliquez sur **Entrée**.
 
 3. Ajoutez votre compte Azure.
 	1. Dans le volet de la console, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**. 
@@ -210,7 +210,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 ## <a name="RunHive"></a>Étape 4 : Exécution d’une tâche Hive à l’aide de DocumentDB et HDInsight
 
-> [AZURE.IMPORTANT]Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
+> [AZURE.IMPORTANT] Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
 
 1. Définissez les variables suivantes dans le volet Script PowerShell.
 
@@ -223,7 +223,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 		$clusterName = "<HDInsightClusterName>"
 
 2. 
-	<p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB. </p>
+	<p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB. </p><p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>> [AZURE.NOTE]**L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
 
     <p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>
 
@@ -311,7 +311,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 ## <a name="RunPig"></a>Étape 5 : Exécution d’une tâche Pig à l’aide de DocumentDB et HDInsight
 
-> [AZURE.IMPORTANT]Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
+> [AZURE.IMPORTANT] Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
 
 1. Définissez les variables suivantes dans le volet Script PowerShell.
 
@@ -322,8 +322,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
         $clusterName = "Azure HDInsight Cluster Name"
 
 2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (DTS) et des identificateurs uniques (_rid) à partir d'une collection DocumentDB, comptabilise tous les documents à la minute, puis stocke les résultats de la sauvegarde dans une nouvelle collection DocumentDB.</p>
-    <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
-
+    <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>> [AZURE.NOTE]Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
     > [AZURE.NOTE]Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br>
     '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
 
@@ -476,8 +475,8 @@ Pour en savoir plus, consultez les articles suivants :
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
 [hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
+[hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
 [hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
@@ -490,7 +489,7 @@ Pour en savoir plus, consultez les articles suivants :
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

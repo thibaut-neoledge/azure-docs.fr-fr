@@ -69,7 +69,7 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 Étape 2 : Exécutez cette commande, en remplaçant le nom de votre machine virtuelle par « vmname ».
@@ -82,7 +82,7 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 Étape 2 : Exécutez cette commande, en remplaçant le nom de votre machine virtuelle par « vmname ».
@@ -96,7 +96,7 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 Étape 2 : Exécutez cette commande, en remplaçant le nom de votre machine virtuelle par « vmname ».
@@ -122,7 +122,7 @@ Si la configuration SSH se trouve dans un état non souhaité, vous pouvez égal
 Étape 1 : Créez un fichier appelé PrivateConf.json avec ces éléments.
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 Étape 2 : Exécutez cette commande, en remplaçant le nom de votre machine virtuelle par « vmname ».
@@ -136,7 +136,7 @@ Si vous souhaitez supprimer un compte utilisateur sans vous connecter directemen
 Étape 1 : Créez un fichier appelé PrivateConf.json avec ces éléments, en lieu et place de la valeur d’espace réservé.
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 Étape 2 : Exécutez cette commande, en remplaçant le nom de votre machine virtuelle par « vmname ».
@@ -266,4 +266,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: virtual-machines-extensions-features.md
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/20/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 # Réplication Azure Storage
@@ -106,4 +106,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Émulateur de stockage Microsoft Azure 3.1 avec RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

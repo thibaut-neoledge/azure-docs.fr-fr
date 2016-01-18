@@ -8,14 +8,14 @@
     manager="stevenpo"
     editor=""/>
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="12/01/2015"
-      ms.author="curtand"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="01/05/2016"
+    ms.author="curtand"/>
 
 # Intégrer l’authentification unique Azure Active Directory aux applications SaaS  
 
@@ -68,4 +68,4 @@ Si l’application n’apparaît pas dans la galerie d’applications, vous pouv
 
 Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Qu'est-ce que l'accès aux applications et l'authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

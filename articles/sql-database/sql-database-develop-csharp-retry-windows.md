@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Logique de nouvelle tentative C# pour se connecter à SQL Database | Microsoft Azure" 
-	description="L’exemple C# inclut une logique de nouvelle tentative permettant d’interagir de manière fiable avec Azure SQL Database." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Logique de nouvelle tentative C# pour se connecter à SQL Database | Microsoft Azure"
+	description="L’exemple C# inclut une logique de nouvelle tentative permettant d’interagir de manière fiable avec Azure SQL Database."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
@@ -22,10 +22,7 @@
 
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 
@@ -289,4 +286,4 @@ Il exécuterait le programme avec le paramètre « test » et vérifierait que
 
 - [Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

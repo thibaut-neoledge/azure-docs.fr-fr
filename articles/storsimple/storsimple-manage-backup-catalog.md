@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/14/2015"
+   ms.date="12/30/2015"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre catalogue de sauvegarde
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
+La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou planifiées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
 Ce didacticiel explique comment répertorier, sélectionner et supprimer un jeu de sauvegarde. Pour savoir comment restaurer votre appareil à partir d’une sauvegarde, accédez à [Restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md). Pour découvrir comment cloner un volume, accédez à [Cloner un volume StorSimple](storsimple-clone-volume.md).
 
@@ -43,7 +43,7 @@ Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur
 
 - **Type** : les jeux de sauvegarde peuvent être des instantanés locaux ou des instantanés cloud. Un instantané local est une sauvegarde de toutes les données de volume stockées localement sur l’appareil, tandis qu’un instantané cloud correspond à la sauvegarde des données de volume résidant dans le cloud. Les instantanés locaux offrent un accès plus rapide, alors que les instantanés cloud sont choisis pour la résilience des données.
 
-- **Initié par** : les sauvegardes peuvent être lancées automatiquement par une planification ou manuellement par un utilisateur. Vous pouvez utiliser une stratégie de sauvegarde pour planifier des sauvegardes. Vous pouvez également utiliser l’option **Effectuer une sauvegarde** pour effectuer une sauvegarde interactive.
+- **Initié par** : les sauvegardes peuvent être lancées automatiquement par une planification ou manuellement par un utilisateur. Vous pouvez utiliser une stratégie de sauvegarde pour planifier des sauvegardes. Vous pouvez également utiliser l'option **Effectuer une sauvegarde** pour effectuer une sauvegarde manuelle.
 
 ## Répertorier les jeux de sauvegarde pour un volume
  
@@ -85,7 +85,7 @@ Procédez comme suit pour sélectionner un jeu de sauvegarde pour un volume ou u
 
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer et Supprimer** apparaissent en bas de la page. Vous pouvez effectuer une de ces actions sur le jeu de sauvegarde que vous avez sélectionné.
+3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer** et **Supprimer** apparaissent en bas de la page. Vous pouvez effectuer une de ces actions sur le jeu de sauvegarde que vous avez sélectionné.
 
 ## Supprimer un jeu de sauvegarde
 
@@ -107,7 +107,7 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer et Supprimer** apparaissent en bas de la page. Cliquez sur **Supprimer**.
+3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer** et **Supprimer** apparaissent en bas de la page. Cliquez sur **Supprimer**.
 
 4. Vous serez informé de la progression de la suppression et de son issue. Une fois la suppression terminée, actualisez la requête dans cette page. Le jeu de sauvegarde supprimé n’apparaîtra plus dans la liste des jeux de sauvegarde.
 
@@ -117,4 +117,4 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

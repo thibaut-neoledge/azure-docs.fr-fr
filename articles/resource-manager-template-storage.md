@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modèle Resource Manager pour le stockage | Microsoft Azure"
-   description="Affiche le schéma du gestionnaire de ressources pour les comptes de stockage."
+   description="Affiche le schéma Resource Manager pour le déploiement de comptes de stockage par le biais d'un modèle."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Compte de stockage - schéma de modèle
+# Compte de stockage, schéma de modèle
 
 Crée un compte de stockage.
 
@@ -78,9 +78,22 @@ L’exemple suivant déploie un compte de stockage Standard Locally Redundant av
 	    "outputs": {}
     }
 
+## Modèles de démarrage rapide
+
+Il existe de nombreux modèles de démarrage rapide qui incluent un compte de stockage. Les modèles suivants illustrent des scénarios courants :
+
+- [Création d'un compte de stockage standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+- [Déploiement simple d'une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Déploiement simple d'une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [Création d'un profil CDN, d'un point de terminaison CDN avec un compte de stockage comme origine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+- [Création d'une batterie de serveurs SharePoint à haute disponibilité avec 9 machines virtuelles à l'aide de l'extension DSC Powershell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [Déploiement simple d'un cluster Service Fabric sécurisé à 5 nœuds avec WAD activé](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Création d'une machine virtuelle à partir d'une image Windows avec 4 disques de données vides](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
+
+
 ## Étapes suivantes
 
 - Pour obtenir des informations générales sur le stockage, consultez [Introduction à Microsoft Azure Storage](./storage/storage-introduction.md).
 - Par obtenir des exemples de modèles qui utilisent un nouveau compte de stockage avec une machine virtuelle, consultez [Déployer une machine virtuelle Linux simple](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) ou [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

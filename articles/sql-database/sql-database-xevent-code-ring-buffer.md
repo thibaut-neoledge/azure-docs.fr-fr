@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="12/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -60,8 +60,8 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 
 - SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe à partir des liens suivants :
  - [Un lien fourni dans une rubrique.](http://msdn.microsoft.com/library/mt238290.aspx)
- - [Un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe.
+ - [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
+ - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe, par exemple tous les mois.
 
 
 ## Exemple de code
@@ -163,32 +163,40 @@ GO
 
 
 SELECT
-		se.name  AS [session-name],
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source,
-		st.target_data,
-		CAST(st.target_data AS XML)  AS [target_data_XML]
-	FROM
-				   sys.dm_xe_database_session_event_actions  AS ac
-		INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name            = ac.event_name
-		                                                           AND ev.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_object_columns AS oc  ON oc.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_targets        AS st  ON st.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_sessions               AS se  ON ac.event_session_address = se.address
-	WHERE
-		oc.column_name = 'occurrence_number'
-		AND
-		se.name        = 'eventsession_gm_azuresqldb51'
-		AND
-		ac.action_name = 'sql_text'
-	ORDER BY
-		se.name,
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source;
+    se.name                      AS [session-name],
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source,
+    st.target_data,
+    CAST(st.target_data AS XML)  AS [target_data_XML]
+FROM
+               sys.dm_xe_database_session_event_actions  AS ac
+
+    INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name = ac.event_name
+        AND CAST(ev.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_object_columns AS oc
+         ON CAST(oc.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_targets        AS st
+         ON CAST(st.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_sessions               AS se
+         ON CAST(ac.event_session_address AS BINARY(8)) = CAST(se.address AS BINARY(8))
+WHERE
+        oc.column_name = 'occurrence_number'
+    AND
+        se.name        = 'eventsession_gm_azuresqldb51'
+    AND
+        ac.action_name = 'sql_text'
+ORDER BY
+    se.name,
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source
+;
 GO
 
 ---- Step set 6.
@@ -377,4 +385,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -65,7 +65,7 @@ Installez la dernière version d’Azure PowerShell, disponible dans la page des
 ### Étape 2 :
 Connectez-vous à votre compte Azure.
 
-	PS C:\> Login-AzureRmAccopunt
+	PS C:\> Login-AzureRmAccount
 
 Vous devez indiquer vos informations d’identification.
 
@@ -141,12 +141,13 @@ Par exemple, pour modifier la durée de vie (TTL) du profil :
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## Ajouter des points de terminaison Traffic Manager [](#adding-traffic-manager-endpoints)
+## Ajouter des points de terminaison Traffic Manager
 Il existe trois types de points de terminaison Traffic Manager : 1. Les points de terminaison Azure : ils représentent des services hébergés dans Azure. 2. Les points de terminaison externes : ils représentent des services hébergés en dehors d’Azure. 3. Les points de terminaison imbriqués : ils sont utilisés pour établir des hiérarchies de profils Traffic Manager imbriquées, et ce, pour mettre en place des configurations de routage de trafic avancées pour les applications plus complexes. Ils ne sont pas encore pris en charge via l’API ARM.
 
 Dans ces trois cas, les points de terminaison peuvent être ajoutés de deux manières : 1. En utilisant un processus en 3 étapes similaire à celui qui est décrit dans [Mettre à jour un profil Traffic Manager](#update-traffic-manager-profile) : obtenez un objet de profil à l’aide de Get-AzureRmTrafficManagerProfile ; mettez-le à jour hors ligne pour ajouter un point de terminaison à l’aide de Add-AzureRmTrafficManagerEndpointConfig ; téléchargez les modifications dans Azure Traffic Manager à l’aide de Set-AzureRmTrafficManagerProfile. L’avantage de cette méthode est que plusieurs modifications de point de terminaison peuvent être apportées en une seule mise à jour. 2. Utilisation de l’applet de commande New-AzureRmTrafficManagerEndpoint. Elle permet d’ajouter un point de terminaison à un profil existant en une seule opération.
 
 ### Ajout de points de terminaison Azure
+
 Les points de terminaison Azure font référence à des services hébergés dans Azure. Actuellement, 3 types de point de terminaison Azure sont pris en charge : 1. Azure Web Apps 2. Services cloud « classiques » (qui peuvent contenir un service PaaS ou des machines virtuelles IaaS) 3. Ressources ARM de Microsoft.Network/publicIpAddress (peuvent être attachées à un équilibreur de charge ou à une carte réseau de machine virtuelle). Notez que publicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
 
 Dans tous les cas : - le service est spécifié avec le paramètre « targetResourceId » de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint. - « Target » et « EndpointLocation » ne doivent pas être spécifiés, ils sont induits par le paramètre TargetResourceId spécifié plus haut. La spécification de « Weight » est facultative. Les poids ne sont utilisés que si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Pondéré ». Autrement, ils sont ignorés. S’ils sont spécifiés, ils doivent se situer dans la plage 1 à 1 000. La valeur par défaut est « 1 ». - La spécification de la « Priorité » est facultative. Les priorités sont utilisées uniquement si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Priorité ». Dans le cas contraire, elles sont ignorées. Les valeurs valides sont comprises entre 1 et 1 000 (des valeurs inférieures ont une priorité plus élevée). Si elles sont spécifiées pour un point de terminaison, elles doivent l’être pour tous les points de terminaison. En cas d’omission, les valeurs par défaut à partir de 1, 2, 3, etc. sont appliquées dans l’ordre dans lequel les points de terminaison sont fournis.
@@ -228,7 +229,7 @@ Pour activer un point de terminaison Traffic Manager, utilisez Enable-AzureRmTra
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-De même, pour désactiver un profil Traffic Manager :
+De même, pour désactiver un point de terminaison Traffic Manager :
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 
@@ -264,4 +265,4 @@ Cette séquence peut également être canalisée :
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

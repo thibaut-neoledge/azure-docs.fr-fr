@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # FAQ sur la tarification de Service Bus
@@ -88,7 +88,7 @@ Nous nous réservons le droit de désactiver le compte d’un client ayant dépa
 
 - **Quotas de taille des messages**
 	- **File d’attente/Rubrique/Abonnement**
-		- **Taille de message** : chaque message est limité au total à 256 Ko, en-têtes de message compris.
+		- **Taille de message** – chaque message est limité au total à 256 Ko, en-têtes de message compris.
 		- **Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
 
 	- **Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
@@ -111,9 +111,9 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 - [Présentation de la messagerie Azure Service Bus Premium (billet de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Présentation de la messagerie Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Présentation de l’architecture d’Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

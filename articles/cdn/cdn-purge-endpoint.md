@@ -58,4 +58,4 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
 ## Voir aussi
 [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

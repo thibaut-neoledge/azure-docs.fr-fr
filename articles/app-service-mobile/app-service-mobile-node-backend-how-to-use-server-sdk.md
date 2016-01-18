@@ -24,7 +24,7 @@
 
 Cet article fournit des informations détaillées ainsi que des exemples sur l’utilisation d’un serveur principal Node.js dans Azure App Service Mobile Apps.
 
-> [AZURE.NOTE]Ce Kit de développement logiciel est disponible en VERSION PRÉLIMINAIRE. En conséquence, nous ne vous recommandons pas de l’utiliser en production. Les exemples de ce document utilisent v2.0.0-beta1 de [azure-mobile-apps].
+> [AZURE.NOTE] Ce Kit de développement logiciel est disponible en VERSION PRÉLIMINAIRE. En conséquence, nous ne vous recommandons pas de l’utiliser en production. Les exemples de ce document utilisent v2.0.0-beta2 de [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -256,7 +256,7 @@ Le SDK Node.js Azure Mobile Apps utilise le [package mssql Node] pour établir e
   2. Cliquez sur **Protocols for SQLEXPRESS**.
   3. Cliquez avec le bouton droit sur **TCP/IP** et sélectionnez **Enable**. Cliquez sur **OK** dans la boîte de dialogue contextuelle.
   4. Cliquez avec le bouton droit sur **TCP/IP** et sélectionnez **Properties**.
-  5. Cliquez sur l’onglet **IP Addresses**.
+  5. Cliquez sur l'onglet **IP Addresses**.
   6. Recherchez le nœud **IPAll**. Dans le champ **TCP Port**, entrez **1433**.
 
 	 	 ![Configure SQL Express for TCP/IP][3]
@@ -374,7 +374,7 @@ Une fois le serveur principal d’application mobile créé, vous pouvez choisir
 
 7. Dans le panneau **Ajouter une connexion de données**, cliquez sur **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
 
-8. Cliquez sur **Serveur**. Dans le panneau **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un **nom de connexion d’administration serveur** et un **mot de passe** appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Cliquez sur **OK**.
+8. Cliquez sur **Serveur**. Dans le panneau **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un **nom de connexion d’administration serveur** et un **mot de passe** appropriés. Vérifiez que l'option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Cliquez sur **OK**.
 
 	![Création d’une base de données SQL Azure][6]
 
@@ -698,7 +698,7 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [Comment configurer votre application pour utiliser une connexion Google]: app-service-mobile-how-to-configure-google-authentication.md
 [Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guide de déploiement d’Azure App Service]: ../app-service-web/web-site-deploy.md
+[Guide de déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [Surveiller les applications web dans Microsoft Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

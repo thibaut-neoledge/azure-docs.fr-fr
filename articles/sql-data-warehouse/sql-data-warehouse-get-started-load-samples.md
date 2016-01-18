@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Charger des exemples de données dans SQL Data Warehouse
@@ -68,7 +68,7 @@ Nous pouvons même utiliser la clause WHERE pour filtrer les commandes antérieu
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De fait, SQL Data Warehouse prend parfaitement en charge presque toutes les constructions T-SQL de SQL Server. Certaines des différences sont indiquées dans notre documentation sur le [code de migration][].
+De fait, SQL Data Warehouse prend parfaitement en charge presque toutes les constructions T-SQL de SQL Server. Certaines des différences sont indiquées dans notre documentation sur la [code de migration][].
 
 
 
@@ -95,4 +95,4 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

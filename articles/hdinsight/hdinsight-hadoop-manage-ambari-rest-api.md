@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 #Gérer des clusters HDInsight à l'aide de l'API REST d'Ambari
@@ -111,6 +111,10 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
     
     Renvoie le nom du groupe de ressources du compte.
     
+    > [AZURE.NOTE]Si cette commande ne renvoie aucun résultat, vous devrez peut-être modifier l'interface de ligne de commande Azure pour la faire passer en mode Azure Resource Manager et réexécuter la commande. Pour passer en mode Azure Resource Manager, utilisez la commande suivante :
+    >
+    > `azure config mode arm`
+    
 2. Récupérez la clé du compte de stockage. Remplacez __GROUPNAME__ par le groupe de ressources de l'étape précédente. Remplacez __ACCOUNTNAME__ par le nom du compte de stockage :
 
         azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
@@ -131,4 +135,4 @@ Pour obtenir une référence complète de l'API REST, consultez la page [Référ
 
 > [AZURE.NOTE]Certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d'hôtes du cluster, ou l'ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Analyse des données avec Azure Machine Learning
@@ -139,4 +139,4 @@ Pour en savoir plus sur la création de modèles Machine Learning prédictifs, r
 [charger manuellement des exemples de données]: sql-data-warehouse-get-started-manually-load-samples.md
 [Créer un entrepôt SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -338,7 +338,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
     
   		Consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory][adf-custom-activities] pour suivre une procédure pas à pas permettant de créer une activité personnalisée et de l’utiliser dans un pipeline Azure Data Factory.
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -354,4 +354,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

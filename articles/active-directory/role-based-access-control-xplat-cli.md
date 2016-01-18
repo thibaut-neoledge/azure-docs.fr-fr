@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI) #
@@ -151,4 +151,4 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 - [Configurer le contrôle d’accès en fonction du rôle à l’aide de Windows PowerShell](role-based-access-control-powershell.md)
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

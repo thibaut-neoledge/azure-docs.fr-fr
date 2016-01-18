@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -54,7 +54,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 
 ## Mécanisme de chiffrement
 
-La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur, et plus précisément le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
+La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur, Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### Objets blob
 
@@ -244,6 +244,9 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 
 ## Étapes suivantes
 
-Télécharger la [bibliothèque cliente de stockage Azure pour le package NuGet .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Télécharger la [bibliothèque cliente de stockage Azure pour le code source .NET](https://github.com/Azure/azure-storage-net) à partir de GitHub Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
+Télécharger la [bibliothèque cliente de stockage Azure pour le package NuGet .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
+Télécharger la [bibliothèque cliente de stockage Azure pour le code source .NET](https://github.com/Azure/azure-storage-net) à partir de GitHub
+Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
+Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

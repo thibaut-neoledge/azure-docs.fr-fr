@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Mise en route avec TSQL et le chiffrement transparent des données (TDE) pour SQL Data Warehouse | Microsoft Azure" 
-	description="Mise en route avec TSQL et le chiffrement transparent des données (TDE) pour SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Mise en route avec TSQL et le chiffrement transparent des données (TDE) pour SQL Data Warehouse | Microsoft Azure" 
+   description="Mise en route avec TSQL et le chiffrement transparent des données (TDE) pour SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Prise en main du chiffrement transparent des données (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

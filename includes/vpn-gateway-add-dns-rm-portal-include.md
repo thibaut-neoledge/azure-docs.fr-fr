@@ -1,5 +1,7 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+Ce paramètre vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Il n'entraîne pas la création d'un serveur DNS.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to expand.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
+1. Sur la page **Paramètres** de votre réseau virtuel, accédez à la section **Serveurs DNS** et cliquez dessus pour la développer.
+2. Sur la page **Serveurs DNS**, sous **Serveurs DNS**, sélectionnez **DNS personnalisé**.
+3. Dans le champ **Serveur DNS principal**, entrez l'adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de nom.
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -20,7 +20,7 @@
 
 Si vous souhaitez améliorer les recherches au niveau de vos données DocumentDB, utilisez l'indexeur Azure Search pour DocumentDB. Dans cet article, nous allons vous montrer comment intégrer Azure Search à Azure DocumentDB sans avoir à écrire le moindre code pour mettre l'infrastructure d'indexation à jour.
 
-Pour ce faire, vous devez [configurer un compte Azure Search](../search-get-started.md#start-with-the-free-service) (vous n’avez pas besoin de procéder à la mise à niveau vers la recherche standard), puis appeler l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour créer une **source de données** DocumentDB et un **indexeur** pour cette dernière.
+Pour ce faire, vous devez [configurer un compte Azure Search](../search/search-get-started.md#start-with-the-free-service) (vous n’avez pas besoin de procéder à la mise à niveau vers la recherche standard), puis appeler l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour créer une **source de données** DocumentDB et un **indexeur** pour cette dernière.
 
 ##<a id="Concepts"></a>Concepts d’indexeur Azure Search
 
@@ -121,7 +121,7 @@ Vous recevrez une réponse HTTP 201 Créé si la source de données a été cré
 
 ##<a id="CreateIndex"></a>Étape 2 : Création d’un index
 
-Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure Classic](../search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure Classic](../search/search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -265,9 +265,9 @@ L'historique d'exécution contient les 50 exécutions les plus récentes, class
 
 Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure DocumentDB à l'aide de l'indexeur pour DocumentDB.
 
- - Pour en savoir plus sur Azure DocumentDB, cliquez [ici](/services/documentdb/).
+ - Pour en savoir plus sur Azure DocumentDB, consultez la [page du service DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
+ - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016--->

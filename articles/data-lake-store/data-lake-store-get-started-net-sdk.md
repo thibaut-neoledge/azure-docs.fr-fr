@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
@@ -31,7 +31,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 
 * Visual Studio 2013 ou 2015. Les instructions ci-dessous utilisent Visual Studio 2015.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+* **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 
 ## Créer une application .NET
 
@@ -49,24 +49,27 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 
 4. Cliquez sur **OK** pour créer le projet.
 
-5. Ajoutez le package Nuget à votre projet.
+5. Ajoutez les packages Nuget à votre projet.
 
 	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
 	2. Dans l’onglet **Gestionnaire de package Nuget**, assurez-vous que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
-	3. Recherchez et installez les packages suivants :
+	3. Recherchez et installez les packages Data Lake Store suivants :
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Créer un compte Azure Data Lake")
 
+	4. Vous devez également installer le package **Microsoft.Azure.Common.Authentication**. Il s’agit également d’un package préliminaire requis pour l'authentification avec Azure Data Lake Store.
+
+		![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Créer un compte Azure Data Lake")
+
 	4. Fermez le **Gestionnaire de package NuGet**.
 
 7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : En outre, fournissez les valeurs des paramètres dans l’extrait de code.
 
-	Ce code déroule le processus de création d’un magasin Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Ce code déroule le processus de création d’un magasin Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -224,4 +227,4 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

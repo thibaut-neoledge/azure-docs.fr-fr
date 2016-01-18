@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Documentation sur le déploiement d’Azure App Service"
-	description="Cette documentation vous explique comment déployer votre application dans Azure App Service."
+	pageTitle="Déploiement de votre application dans Azure App Service"
+	description="Apprendre à déployer votre application sur Azure App Service"
 	services="app-service"
 	documentationCenter=""
-	authors="tdykstra"
+	authors="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,85 +13,107 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="tdykstra"/>
+	ms.date="01/07/2016"
+	ms.author="cephalin;tdykstra"/>
+    
+# Déploiement de votre application dans Azure App Service
 
-# Documentation sur le déploiement d’Azure App Service
+Cet article vous aidera à déterminer la meilleure solution pour déployer les fichiers de votre application web, un serveur d’application mobile ou une application API sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puis de vous orienter vers des articles et des blocs contenant des informations sur les procédures spécifiques à votre option préférée.
 
-## Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble du processus de déploiement
 
-Cet article répertorie les méthodes disponibles pour le déploiement de votre contenu vers [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris des liens vers les articles et les blogs qui contiennent des informations sur les procédures. D’autres articles seront ajoutés à cette liste au fur et à mesure de leur publication.
+Dès que vous avez créé ou configuré une application dans Azure App Service, avant de déployer un code quelconque, Azure App Service assure la gestion de l’infrastructure d’application pour vous (ASP.NET, PHP, Node.js, etc.). Certaines infrastructures sont activées par défaut tandis que d’autres, comme Java et Python, peuvent nécessiter une simple configuration avec coche pour l’activer. En outre, vous pouvez personnaliser votre infrastructure d’application, notamment la version de PHP ou le nombre de bits de votre runtime. Pour plus d’informations, consultez [Configurer votre application dans Azure App Service](web-sites-configure.md).
 
-La meilleure méthode pour déployer une application Web consiste à configurer un [flux de diffusion continu](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) intégré dans votre [système de contrôle du code source](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). L'automatisation renforce l'efficacité du processus de développement, ainsi que la gestion et la fiabilité de vos processus de sauvegarde et de restauration.
+Comme vous n’avez pas à vous soucier du serveur web ou l’infrastructure d’application web, le déploiement de votre application sur le service d’application consiste à déployer votre code, les fichiers binaires, les fichiers de contenu et leur structure de répertoire respective sur l’annuaire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou le répertoire **/Data/Jobs** pour les tâches web). App Service prend en charge les trois processus de déploiement suivants.
 
-##### Déploiement à partir de systèmes de contrôle du code source hébergés sur le cloud
+- [FTP ou FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol) : utilisez votre outil compatible FTP ou FTPS favori pour déplacer vos fichiers vers Azure, de [FileZilla](https://filezilla-project.org) à des IDE complets comme [NetBeans](https://netbeans.org). Il s’agit d’un processus de téléchargement de fichier au sens strict. Aucun service supplémentaire n’est fourni par le Service d’application, notamment le contrôle de version, la gestion de structure de fichiers, etc. 
+- [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment) : le [moteur de déploiement](https://github.com/projectkudu/kudu/wiki) dans service d’application. Placez votre code directement dans Kudu depuis n’importe quel référentiel. Kudu offre également des services ajoutés à chaque fois que le code lui est transmis, notamment la version de contrôle, la restauration de package, MSBuild et [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) pour un déploiement continu et d’autres tâches d’automatisation. Tous les services sont personnalisables et déclenchés 
+    - à chaque fois que **git push** est exécuté à partir d’un référentiel Git,
+	- à chaque fois que **hg push** est exécuté à partir d’un référentiel Mercurial configuré ou 
+    - à chaque fois qu’un stockage cloud lié en tant que Dropbox ou OneDrive est synchronisé avec le Service d’application. 
+- [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy) : outil qui automatise le déploiement de serveurs IIS. Déployer le code vers App Service directement à partir de vos outils Microsoft préférés tels que Visual Studio, WebMatrix et Visual Studio Team Services. Cet outil prend en charge le déploiement différentiel, la création de base de données, les transformations de chaînes de connexion, etc. Web Deploy diffère de Kudu parce que les fichiers binaires d’application sont générés avant d’être déployés vers Azure. Comme FTP, aucun service supplémentaire n’est fourni par le service d’application.
 
-* [Livraison continue au moyen de Visual Studio Team Services](#vsts)
-* [Sites Web référentiels avec Git](#git)
-* [Sites Web référentiels avec Mercurial](#mercurial)
-* [Automatiser le déploiement avec Dropbox](#dropbox)
+Les outils de développement web populaires prennent en charge un ou plusieurs de ces processus de déploiement. L’outil que vous choisissez détermine les processus de déploiement que vous pouvez exploiter, la fonctionnalité DevOps réelle à votre disposition dépend de la combinaison du processus de déploiement et les outils spécifiques que vous choisissez. Par exemple, si vous effectuez le déploiement Web à partir de [Visual Studio avec Azure SDK](#vspros), même si vous n’obtenez pas d’automatisation de la part de Kudu, vous obtenez une restauration de package et l’automatisation MSBuild dans Visual Studio. Le kit de développement logiciel Azure fournit également un Assistant simple d’utilisation pour vous aider à créer les ressources Azure dont vous avez besoin directement au sein de l’interface de Visual Studio.
 
-##### Déploiement à partir de systèmes de contrôle du code source locaux
+>[AZURE.NOTE]Ces processus de déploiement n’[approvisionnent pas réellement les ressources Azure](resource-group-portal) dont votre application peut avoir besoin, tel que le plan App Service, l’application App Service et la base de données SQL. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate).
 
-* [Livraison continue avec Team Foundation Server (TFS)](#tfs)
-* [Référentiels Git ou Mercurial locaux](#onpremises)
+## <a name="ftp"></a>Déploiement par copie manuelle des fichiers dans Azure
+Si vous êtes habitué à copier manuellement votre contenu web sur les hébergeurs web, un flux de travail courant pour les développeurs PHP, vous pouvez utiliser un utilitaire [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers, notamment l’Explorateur Windows ou [FileZilla](https://filezilla-project.org/).
 
-##### Automatiser le déploiement à l’aide d’outils en ligne de commande
+La copie manuelle des fichiers utilise le protocole FTP pour le déploiement (voir [Vue d’ensemble du processus de déploiement](#overview)).
 
-* [Automatiser le déploiement avec MSBuild](#msbuild)
-* [Copier des fichiers avec des scripts et des outils FTP](#ftp)
-* [Automatiser le déploiement avec Windows PowerShell](#powershell)
-* [Automatiser le déploiement avec l’API de gestion .NET](#api)
-* [Déploiement à partir de l’interface de ligne de commande Azure](#cli)
-* [Déploiement à partir de la ligne de commande Web Deploy](#webdeploy)
+Les avantages de la copie manuelle de fichiers sont :
+
+- les outils FTP sont familiers. 
+- vous savez exactement où vont vos fichiers.
+- la sécurité ajoutée avec FTPS.
+- Il s’agit d’une solution de déploiement appropriée si vous aimez utiliser un outillage minimal de développement web (par exemple, développez des applications web à l’aide d’un bloc-notes).
+
+Les inconvénients de la copie manuelle de fichiers sont :
+
+- Vous êtes responsable du déploiement des fichiers dans les répertoires appropriés dans App Service.
+- Aucun contrôle de version pour la restauration en cas de défaillance.
+- De nombreux outils FTP ne sont pas dotés de la copie différentielle, et se contentent de copier tous les fichiers. Pour les grandes applications, les délais de déploiement sont très longs, même pour des mises à jour mineures.
+
+### <a name="howtoftp"></a>Comment assurer le déploiement par copie manuelle des fichiers dans Azure
+La copie de fichiers dans Azure fait appel à quelques étapes simples :
+
+1. Créer des informations d’identification de déploiement pour votre application dans le [portail Azure](https://portal.azure.com). Pour ce faire, dans le panneau de votre application, cliquez sur **Paramètres** > **Informations d’identification du déploiement**.
+2. Une fois que vous avez configuré les informations d’identification de déploiement, obtenez les informations de connexion FTP en accédant à **Paramètres** > **Propriétés**, puis en copiant les valeurs correspondant à **Utilisateur FTP/Développement**, **Nom d’hôte FTP** et **Nom de l’hôte FTPS**.
+3. À partir de votre client FTP, utilisez les informations de connexion que vous avez recueillies pour vous connecter à votre application.
+4. Copiez vos fichiers et la structure de répertoire qui leur correspond dans le répertoire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou dans le répertoire **/Data/Jobs** pour les tâches web).
+5. Accédez à l’URL de votre application pour vérifier que l’application s’exécute correctement. 
+
+Pour plus d'informations, consultez les ressources suivantes :
+
+* [Créer une application Web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP](web-sites-php-mysql-deploy-use-ftp.md).
+* [Utilisation des scripts de commandes FTP](http://support.microsoft.com/kb/96269).
+
+## <a name="dropbox"></a>Déploiement par synchronisation avec un dossier cloud
+Une bonne alternative à la [copie manuelle de fichiers](#ftp) consiste à synchroniser les fichiers et les dossiers avec App Service en utilisant un service de stockage hébergé sur le cloud tel que OneDrive et Dropbox. Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer un dossier spécial dans votre stockage cloud, travailler avec votre code d’application et votre contenu dans ce dossier et à synchroniser avec App Service sur un simple clic.
+
+La synchronisation avec un dossier de cloud utilise le processus de Kudu pour le déploiement (voir [Vue d’ensemble du processus de déploiement](#overview)).
+
+Les avantages de la synchronisation avec un dossier cloud sont :
+
+- la simplicité de déploiement. Les services tels que OneDrive et Dropbox fournissent des clients de synchronisation avec un ordinateur de bureau, de sorte que votre répertoire de travail local est également votre répertoire de déploiement.
+- le déploiement sur un clic.
+- Toutes les fonctionnalités de Kudu sont disponibles (par exemple, grâce au contrôle de version de déploiement, la restauration, la restauration de package, l’automatisation).
+- Il s’agit d’une solution de déploiement appropriée si vous aimez l’outil minimal de développement web.
+
+Les inconvénients de la synchronisation avec un dossier cloud sont :
+
+- il ne s’agit pas d’une bonne solution pour un projet d’équipe.
+
+### <a name="howtodropbox"></a>Déploiement par synchronisation avec un dossier cloud
  
-##### Déploiement à partir de votre environnement de développement intégré (IDE)
-
-* [Déploiement direct depuis Visual Studio](#vs)
-* [Déploiement direct depuis WebMatrix](#webmatrix)
-
-Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
-
-##<a name="vsts"></a>Diffusion continue au moyen de Visual Studio Team Services
-
-[Visual Studio Team Services](http://www.visualstudio.com/) (anciennement Team Foundation Service) est une solution Microsoft basée sur le cloud pour le contrôle du code source et la collaboration d’équipe. Ce service est gratuit pour une équipe allant jusqu'à 5 développeurs. Vous pouvez effectuer une diffusion continue vers une application Web dans App Services, et votre référentiel peut utiliser [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
-
-Pour plus d'informations, consultez les ressources suivantes :
-
-* [Livraison continue sur Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. TFVC est l’option de contrôle du code source centralisée, contrairement à Git, qui est l’option de contrôle du code source distribuée.
-* [Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
-
-##<a name="git"></a>Sites Web référentiels avec Git
-
-[MySQL](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) est un système de contrôle de code source distribué populaire. Azure intègre des fonctionnalités qui simplifient l’automatisation du déploiement vers une application Web à partir des sites référentiels basés sur le Web qui stockent des référentiels Git, comme [GitHub](http://www.github.com), [CodePlex](http://www.codeplex.com/) et [BitBucket](https://bitbucket.org/). L'avantage de l'utilisation de Git pour le déploiement est qu'il est assez facile de revenir à un déploiement précédent le cas échéant.
-
-Pour plus d'informations, consultez les ressources suivantes :
-
-* [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Permet d’apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur Web Apps (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
-* [Déploiement vers Web Apps avec GitHub au moyen de Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Web Apps.
-* [Bouton Deploy to Azure pour Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sur une méthode permettant de lancer le déploiement à partir d’un référentiel Git.
-* [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
-
-##<a name="mercurial"></a>Sites Web référentiels avec Mercurial
-
-Si vous utilisez [Mercurial](http://mercurial.selenic.com/) comme système de contrôle de code source et si vous stockez votre référentiel dans [CodePlex](http://www.codeplex.com/) ou [BitBucket](https://bitbucket.org/), vous pouvez utiliser des fonctionnalités intégrées d’Azure App Service pour déployer automatiquement vos contenus.
-
-Pour plus d'informations sur le déploiement avec Mercurial, consultez les ressources suivantes :
-
-* [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Bien que ce didacticiel montre comment publier un référentiel Git, le processus est similaire pour les référentiels Mercurial hébergés dans CodePlex ou BitBucket.
-* [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
-
-##<a name="dropbox"></a>Automatiser le déploiement avec Dropbox
-
-[Dropbox](https://www.dropbox.com/) n'est pas un système de contrôle de code source, mais si vous stockez votre code source dans Dropbox, vous pouvez automatiser le déploiement à partir de votre compte Dropbox.
-
-* [Déploiement vers Web Apps à partir de Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx) (en anglais). Explique comment utiliser le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour configurer un déploiement Dropbox.
+* [Déploiement vers Web Apps à partir de Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx) (en anglais). Explique comment utiliser le [portail Azure](https://portal.azure.com) pour configurer un déploiement Dropbox.
 * [Déploiement Dropbox vers Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites) (en anglais). Cette vidéo vous guide durant le processus de connexion d’un dossier DropBox vers une application web et montre à quel point vous pouvez rapidement rendre une application web fonctionnelle ou en assurer la maintenance en utilisant un simple déploiement par glisser-déplacer.
 * [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="vs"></a>Déploiement direct depuis Visual Studio
+## Déployer avec un IDE
+Si vous utilisez déjà [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) avec un [kit de développement logiciel Azure](https://azure.microsoft.com/downloads/) ou WebMatrix ou d’autres suites IDE comme [Xcode](https://developer.apple.com/xcode/) et [Eclipse](https://www.eclipse.org), vous pouvez assurer un déploiement sur Azure directement depuis l’intérieur de votre IDE. Cette option est idéale pour un développeur individuel.
 
-Pour plus d’informations sur le déploiement vers Web Apps depuis Visual Studio, consultez les ressources suivantes :
+Visual Studio prend en charge les trois processus de déploiement (FTP, Git et Web Deploy), selon votre préférence, tandis que les autres IDE peuvent déployer App Service s’ils sont dotés de l’intégration de FTP ou de Git (voir [Vue d’ensemble du processus de déploiement](#overview)).
+
+Les avantages du déploiement à l’aide d’un IDE sont :
+
+- La réduction potentielle des outils de votre cycle de vie d’application de bout en bout. Développer, déboguer, suivre et déployer votre application dans Azure sans sortir de votre IDE. 
+
+Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
+
+- Une complexité accrue des outils.
+- Nécessite toujours un système de contrôle de code source en cas de projet d’équipe.
+
+<a name="vspros"></a> Voici d’autres avantages du déploiement à l’aide de Visual Studio avec le kit de développement logiciel Azure :
+
+- Le kit de développement logiciel Azure favorise nettement les ressources Azure dans Visual Studio. Créer, supprimer, modifier, démarrer et arrêter les applications, interroger la base de données SQL du serveur principal, déboguer l’application Azure en direct, entre autres. 
+- Modification en direct des fichiers de code sur Azure.
+- Débogage en direct des applications sur Azure.
+- Explorateur Azure intégré.
+- Déploiement différentiel uniquement. 
+
+###<a name="vs"></a>Déploiement direct à partir de Visual Studio
 
 * [Prise en main d'Azure et ASP.NET](web-sites-dotnet-get-started.md). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
 * [Déployer des tâches Web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md). Explique comment configurer les projets d'application console pour qu'ils se déploient sous forme de tâches web WebJobs.  
@@ -100,38 +122,106 @@ Pour plus d’informations sur le déploiement vers Web Apps depuis Visual Studi
 * [Déploiement Web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste. Certaines fonctionnalités de déploiement Azure ont été ajoutées depuis la rédaction de ce didacticiel. Cependant, les notes ajoutées par la suite expliquent les éléments manquants.
 * [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git. À partir de Visual Studio 2013, la prise en charge Git est intégrée et ne nécessite pas l’installation d’un plug-in.
 
-##<a name="webmatrix"></a>Déploiement direct depuis WebMatrix
-
-Pour plus d’informations sur le déploiement vers Web Apps depuis WebMatrix, consultez les ressources suivantes :
+###<a name="webmatrix"></a>Déploiement direct depuis WebMatrix
 
 * [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Création et déploiement d’un site Web Azure PHP-MySQL avec WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3 : Git intégré et déploiement dans Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Utilisation de WebMatrix pour procéder au déploiement depuis un référentiel de contrôle de code source Git.
 
-Pour plus d'informations, consultez les ressources suivantes :
+## <a name="onprem"></a>Déploiement à partir d’un système de contrôle du code source local
 
-* [Créer une application Web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP](web-sites-php-mysql-deploy-use-ftp.md).
+Si vous travaillez dans une équipe de développement, quelle que soit la taille, et utilisez un système de gestion de code source (SCM) local [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS), [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) ou [Mercurial](http://mercurial.selenic.com/), vous pouvez configurer App Service pour intégrer votre référentiel et déployer directement sur App Service dans votre flux de travail de contrôle source. Si vous utilisez TFS, vous pouvez également le configurer pour un déploiement continu sur App Service.
 
-##<a name="tfs"></a>Livraison continue avec Team Foundation Server (TFS)
+TFS utilise Web Deploy pour assurer le déploiement sur App Service, tandis que le déploiement à partir des référentiels Git/Mercurial se sert de Kudu (voir [Vue d’ensemble du processus de déploiement](#overview)).
 
-Team Foundation Server est une solution Microsoft locale pour le contrôle du code source et la collaboration d'équipe. Vous pouvez configurer TFS pour qu’il procède à des livraisons continues vers une application web.
+Les avantages du déploiement à partir d’un système de contrôle source local :
 
-Pour plus d'informations, consultez les ressources suivantes :
+- Prise en charge du déploiement dans n’importe quelle infrastructure de langage ou client Git ou Mercurial, notamment [Xcode](https://developer.apple.com/xcode/) et [Eclipse](https://www.eclipse.org).
+- Déploiement spécifique de branche, possibilité de déployer différentes versions dans des [emplacements](web-sites-staged-publishing) distincts.
+- Il convient aux équipes de développement de toute taille.
+
+Inconvénients du déploiement à partir d’un système de contrôle source local :
+
+- Besoin de connaître le système SCM choisi.
+- Peut fournir davantage de fonctions et de fonctionnalités que nécessaire.
+- Manque de solutions clé en main pour un déploiement continu et un déploiement spécifique de branche dans les outils client Git et Mercurial. 
+
+Autres avantages du déploiement à l’aide de TFS :
+
+- Intégration continue (CI) des versions, des tests et du déploiement.
+- Outils de collaboration intégrés qui fonctionnent avec l’IDE ou l’éditeur existant.
+- Prise en charge de Git pour le contrôle de version décentralisé ou le contrôle de version Team Foundation pour un contrôle de version centralisé (CVTF) précis. 
+- Des outils riches pour un déploiement agile.
+- Des intégrations prêtes à l’emploi pour [Jenkins](https://jenkins-ci.org), [Slack](https://slack.com), [ZenDesk](https://www.zendesk.com), [Trello](https://trello.com), [Azure Service Bus](/services/service-bus/) et bien d’autres encore. 
+- [Team Foundation Server Express](https://www.microsoft.com/download/details.aspx?id=48259) est gratuit pour une équipe pouvant compter jusqu’à 5 développeurs.
+
+###<a name="tfs"></a>Déploiement continu avec TFS
 
 * [Livraison continue pour Cloud Services dans Azure](../cloud-services-dotnet-continuous-delivery.md). Ce document concerne un service cloud Azure, mais une partie de son contenu concerne aussi Web Apps.
 
-##<a name="gitmercurial"></a>Référentiels Git ou Mercurial locaux
-
-Dans Azure, vous pouvez entrer l'URL de n'importe quel référentiel utilisant Git ou Mercurial, afin d'effectuer un déploiement depuis cet emplacement. Vous pouvez également procéder à un envoi depuis un référentiel Git local vers une application web.
-
-Pour plus d'informations, consultez les ressources suivantes :
+###<a name="gitmercurial"></a>Déploiement d’un référentiel Git ou Mercurial local
 
 * [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Permet d’apprendre à utiliser Git pour publier directement à partir de votre ordinateur local vers une application web (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
 * [Publication vers Web Apps à partir de n’importe quel référentiel git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html) (en anglais). Blog qui explique la fonctionnalité « Référentiel externe » de Web Apps.
 * [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * [Déploiement de DEUX sites Web sur Azure à partir d'un référentiel Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Billet de blog de Scott Hanselman.
 
-##<a name="msbuild"></a>Automatiser le déploiement avec MSBuild
+## Déploiement à partir d’un système de contrôle source hébergé sur le cloud
+Si vous travaillez dans une équipe de développement (quelle que soit sa taille) et utilisez un service de gestion de code source (SCM) basé sur le cloud [Visual Studio Team Services](http://www.visualstudio.com/) (anciennement Visual Studio Online), [GitHub](https://www.github.com), [GitLab](https://gitlab.com), [BitBucket](https://bitbucket.org/), [CodePlex](https://www.codeplex.com/), [Codebase](https://www.codebasehq.com) et [Kiln](https://www.fogcreek.com/kiln/), vous pouvez configurer le Service d’application pour l’intégrer à votre référentiel et déployer en continu.
+
+Pour assurer le déploiement sur App Service, Visual Studio Team Services utilise Web Deploy, tandis que le déploiement à partir des référentiels en ligne utilise Kudu (voir [Vue d’ensemble du processus de déploiement](#overview)).
+
+Les avantages du déploiement à partir d’un système de contrôle source sont :
+
+- La prise en charge de l’infrastructure de n’importe quel langage.
+- Le déploiement en continu sans configuration de référentiels Git et Mercurial. 
+- Le déploiement de branche spécifique, la possibilité de déployer différentes branches à différents [emplacements](web-sites-staged-publishing).
+- Il convient aux équipes de développement de toute taille.
+
+Inconvénients du déploiement à partir d’un service de contrôle de source de cloud :
+
+- Besoin de connaître le service SCM choisi.
+- Peut fournir davantage de fonctions et de fonctionnalités que nécessaire.
+
+Voici d’autres avantages du déploiement à l’aide de Visual Studio Team Services :
+
+- Gratuit pour une équipe de jusqu’à 5 développeurs.
+- Intégration continue (CI) des versions, des tests et du déploiement.
+- Outils de collaboration intégrés qui fonctionnent avec l’IDE ou l’éditeur existant.
+- Prise en charge de Git pour le contrôle de version décentralisé ou le contrôle de version Team Foundation pour un contrôle de version centralisé (CVTF) précis. 
+- Des outils riches pour un déploiement agile.
+- Des intégrations prêtes à l’emploi pour [Jenkins](https://jenkins-ci.org), [Slack](https://slack.com), [ZenDesk](https://www.zendesk.com), [Trello](https://trello.com), [Azure Service Bus](/services/service-bus/) et bien d’autres encore. 
+- Tableaux de bord complets pour les rapports en faciles avec [connexion à Power BI](https://www.visualstudio.com/get-started/report/report-on-vso-with-power-bi-vs).
+
+###<a name="vsts"></a>Déploiement continu avec Visual Studio Team Services
+
+- [Livraison continue sur Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. 
+- [Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
+
+###<a name="cloudgitmercurial"></a>Déploiement à partir d’un référentiel Git ou Mercurial local hébergé sur le cloud
+
+- [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Activation du déploiement en continu de référentiels à partir de GitHub, CodePlex ou BitBucket. Bien que ce didacticiel montre comment publier un référentiel Git, le processus est similaire pour les référentiels Mercurial hébergés dans CodePlex ou BitBucket.
+- [Déploiement vers Web Apps avec GitHub au moyen de Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Service App.
+- [Bouton Deploy to Azure pour Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sur une méthode permettant de lancer le déploiement à partir d’un référentiel Git.
+- [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
+
+Pour plus d’informations, consultez les ressources suivantes :
+
+- [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Permet d’apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur Web Apps (dans Azure, cette méthode de publication est appelée Git local). 
+
+## <a name="automate"></a>Automatiser le déploiement à l’aide d’outils de ligne de commande
+
+* [Automatiser le déploiement avec MSBuild](#msbuild)
+* [Copier des fichiers avec des scripts et des outils FTP](#ftp)
+* [Automatiser le déploiement avec Windows PowerShell](#powershell)
+* [Automatiser le déploiement avec l’API de gestion .NET](#api)
+* [Déploiement à partir de l’interface de ligne de commande Azure](#cli)
+* [Déploiement à partir de la ligne de commande Web Deploy](#webdeploy)
+* [Utilisation des scripts de commandes FTP](http://support.microsoft.com/kb/96269).
+ 
+Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+
+###<a name="msbuild"></a>Automatiser le déploiement avec MSBuild
 
 Si vous utilisez l'[IDE Visual Studio](#vs) pour le développement, vous pouvez utiliser [MSBuild](http://msbuildbook.com/) pour automatiser tout ce que vous pouvez faire dans votre IDE. Vous pouvez configurer MSBuild pour utiliser [Web Deploy](#webdeploy) ou le [FTP/FTPS](#ftp) pour copier vos fichiers. Web Deploy peut également automatiser de nombreuses autres tâches de déploiement, comme le déploiement des bases de données.
 
@@ -140,17 +230,7 @@ Pour plus d'informations sur le déploiement en ligne de commande avec MSBuild, 
 * [Déploiement Web ASP.NET en utilisant Visual Studio : déploiement en ligne de commande](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment) (en anglais). Une série d'une dizaine de didacticiels sur le déploiement dans Azure avec Visual Studio. Montre comment utiliser la ligne de commande pour le déploiement après la configuration de profils de publication dans Visual Studio.
 * [Présentation de Microsoft Build Engine : utilisation de MSBuild et Team Foundation Build](http://msbuildbook.com/). Manuel comportant des chapitres sur l'utilisation de MSBuild pour le déploiement.
 
-##<a name="ftp"></a>Copier des fichiers avec des scripts et des outils FTP
-
-Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application Web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
-
-Bien que les utilitaires FTP permettent de copier facilement vos fichiers d’application web dans Azure, ils n’effectuent ou ne coordonnent pas automatiquement de tâches de déploiement telles que le déploiement d’une base de données ou la modification de chaînes de connexion. De même, de nombreux outils FTP ne comparent pas les fichiers source et de destination afin d'ignorer la copie des fichiers qui n'ont pas été modifiés. Pour des applications volumineuses, le fait de toujours copier tous les fichiers peut allonger la durée des déploiements, même dans le cas d’une mise à jour mineure, puisque tous les fichiers sont toujours copiés.
-
-Pour plus d’informations, consultez les ressources suivantes :
-
-* [Utilisation des scripts de commandes FTP](http://support.microsoft.com/kb/96269).
-
-##<a name="powershell"></a>Automatiser le déploiement avec Windows PowerShell
+###<a name="powershell"></a>Automatiser le déploiement avec Windows PowerShell
 
 Vous pouvez utiliser des fonctions de déploiement MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
 
@@ -162,7 +242,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Tout automatiser (développement d'applications de cloud concrètes avec Azure)](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Chapitre d'un livre électronique expliquant comment l'exemple d'application contenu dans le livre utilise des scripts Windows PowerShell pour créer un environnement de test Azure et y procéder à un déploiement. Consultez la section [Ressources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) pour obtenir des liens vers une documentation Azure PowerShell supplémentaire.
 * [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](http://msdn.microsoft.com/library/dn642480.aspx). Explique comment utiliser les scripts Windows PowerShell générés par Visual Studio.
 
-##<a name="api"></a>Automatiser le déploiement avec l’API de gestion .NET
+###<a name="api"></a>Automatiser le déploiement avec l’API de gestion .NET
 
 Vous pouvez écrire un code C# pour utiliser des fonctions MSBuild ou FTP pour vos déploiements. Ce faisant, vous pouvez accéder à l'API REST de gestion Azure pour utiliser des fonctions de gestion de site.
 
@@ -170,7 +250,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 * [Tout automatiser avec les bibliothèques de gestion Azure et .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Présente l’API de gestion .NET et fournit des liens vers d’autres documentations.
 
-##<a name="cli"></a>Déploiement à partir de l’interface de ligne de commande Azure (Azure CLI)
+###<a name="cli"></a>Déploiement à partir de l’interface de ligne de commande Azure (Azure CLI)
 
 Vous pouvez utiliser la ligne de commande avec des ordinateurs Windows, Mac ou Linux pour vos déploiements en utilisant le FTP. Ce faisant, vous pouvez également accéder à l'API de gestion REST Azure en utilisant l'interface en ligne de commande interplateforme.
 
@@ -178,7 +258,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Outils en ligne de commande Azure](/downloads/#cmd-line-tools). Page du portail Azure.com qui fournit des informations sur les outils en ligne de commande.
 
-##<a name="webdeploy"></a>Déploiement à partir de la ligne de commande Web Deploy
+###<a name="webdeploy"></a>Déploiement à partir de la ligne de commande Web Deploy
 
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) est un logiciel Microsoft pour le déploiement dans IIS qui fournit des fonctionnalités de synchronisation des fichiers intelligentes et effectue ou coordonne également de nombreuses autres tâches liées au déploiement qui ne peuvent pas être automatisées lorsque vous utilisez le FTP. Par exemple, Web Deploy peut déployer une nouvelle base de données ou mettre à jour une base de données existante avec votre application web. Web Deploy peut également réduire le délai de mise à jour d'un site existant, en copiant uniquement les fichiers modifiés. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services et Team Foundation Server prennent en charge le logiciel Web Deploy intégré, mais vous pouvez également utiliser Web Deploy directement depuis la ligne de commande pour automatiser le déploiement. Les commandes Web Deploy sont très efficaces, mais leur apprentissage peut être long.
 
@@ -204,4 +284,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

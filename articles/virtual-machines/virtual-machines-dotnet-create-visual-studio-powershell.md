@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Création d’une machine virtuelle pour une application web avec Visual Studio
@@ -36,12 +36,12 @@ Pour créer une machine virtuelle quand vous créez une application web, procéd
 	![][2]
 
 5. Dans la zone **Nom DNS**, saisissez le nom de la machine virtuelle. Le nom DNS doit être unique dans Azure. Si le nom saisi n'est pas disponible, un point d'exclamation rouge apparaît.
-6. Dans la liste **Images**, choisissez l’image de machine virtuelle sur laquelle vous souhaitez baser la machine virtuelle. Vous pouvez choisir n'importe quelle image de machine virtuelle Azure standard ou votre propre image téléchargée dans Azure.
+6. Dans la liste **Images**, choisissez l'image de machine virtuelle sur laquelle vous souhaitez baser la machine virtuelle. Vous pouvez choisir n'importe quelle image de machine virtuelle Azure standard ou votre propre image téléchargée dans Azure.
 7. Ne cochez pas la case **Activer IIS et Web Deploy**, sauf si vous prévoyez d'installer un serveur web différent. Vous ne pourrez pas effectuer de publication à partir de Visual Studio si vous désactivez Web Deploy. Vous pouvez ajouter IIS et Web Deploy à n'importe quelle image Windows Server, y compris à vos images personnalisées.
 8. Dans la liste **Taille**, sélectionnez la taille de la machine virtuelle.
 9. Spécifiez les identifiants de connexion de cette machine virtuelle. Notez-les, car vous en aurez besoin pour accéder à la machine avec le Bureau à distance.
 10. Dans la liste **Emplacement**, choisissez la région dans laquelle héberger la machine virtuelle.
-11. Cliquez sur le bouton **OK** pour commencer la création de la machine virtuelle. Vous pouvez suivre la progression de l’opération dans la fenêtre **Sortie**.
+11. Cliquez sur le bouton **OK** pour commencer la création de la machine virtuelle. Vous pouvez suivre la progression de l'opération dans la fenêtre **Sortie**.
 
 	![][3]
 
@@ -71,4 +71,4 @@ Si vous souhaitez personnaliser les scripts publiés que vous avez créés, vous
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

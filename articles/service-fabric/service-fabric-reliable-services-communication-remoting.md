@@ -17,15 +17,15 @@
    ms.author="bharatn@microsoft.com"/>
 
 # Communication à distance des services avec Reliable Services
-Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, WCF ou autres, l'infrastructure fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
+Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l'infrastructure fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
 
 ## Configuration de la communication à distance sur un service
-La configuration de communication à distance pour un service s'effectue en deux étapes simples.
+La configuration de communication à distance pour un service s'effectue en deux étapes simples :
 
-1. Créez une interface pour implémenter votre service. Cette interface définit les méthodes disponibles pour l'appel de procédure distante sur votre service, qui doivent être des méthodes asynchrones retournant des tâches. L'interface doit implémenter `Microsoft.ServiceFabric.Services.Remoting.IService` pour signaler que le service dispose d'une interface de communication à distance. 
+1. Créez une interface pour implémenter votre service. Cette interface définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Ces méthodes doivent être des méthodes asynchrones retournant des tâches. L'interface doit implémenter `Microsoft.ServiceFabric.Services.Remoting.IService` pour signaler que le service dispose d'une interface de communication à distance.
 2. Utilisez `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` dans votre service. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
 
-Par exemple, ce service Hello World expose une méthode pour obtenir « Hello World » sur l'appel de procédure distante :
+Par exemple, ce service Hello World expose une méthode pour obtenir « Hello World » sur un appel de procédure distante :
 
 ```csharp
 public interface IHelloWorldStateful : IService
@@ -47,11 +47,11 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 }
 
 ```
-> [AZURE.NOTE]Les arguments et les types de retour dans l'interface de service peuvent être tout type simple, complexe ou personnalisé, mais ils doivent être sérialisables par l'élément .net [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> [AZURE.NOTE]Les arguments et les types de retour dans l'interface de service peuvent être de type simple, complexe ou personnalisé, mais ils doivent être sérialisables par l'élément [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) .NET.
 
 
 ## Méthodes d’appel de service distant
-Les méthodes d’appel sur un service à l'aide de la pile de communication à distance utilisent un proxy local pour le service via la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. Le `ServiceProxy` crée un proxy local à l'aide de l’interface implémentée par le service. Avec ce proxy, vous pouvez appeler simplement et à distance des méthodes sur l'interface.
+Les méthodes d'appel sur un service à l'aide de la pile de communication à distance utilisent un proxy local pour le service via la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. La méthode `ServiceProxy` crée un proxy local à l'aide de l'interface implémentée par le service. Avec ce proxy, vous pouvez appeler simplement et à distance des méthodes sur l'interface.
 
 
 ```csharp
@@ -63,11 +63,11 @@ string message = await helloWorldClient.GetHelloWorld();
 ```
 
 L'infrastructure de communication à distance propage les exceptions levées au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l'aide de `ServiceProxy` peut directement traiter les exceptions levées par le service.
- 
+
 ## Étapes suivantes
 
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
 * [Communication WCF avec Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

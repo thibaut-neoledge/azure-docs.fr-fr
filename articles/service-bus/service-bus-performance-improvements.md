@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus
@@ -142,7 +142,7 @@ Si un message contenant des informations sensibles ne devant pas être égarées
 
 ## Utilisation de files d’attente partitionnées ou de rubriques
 
-En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une file d’attente ou une rubrique partitionnée, elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Partitionnement des entités de messagerie][].
+En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une file d’attente ou une rubrique partitionnée, elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][] sur **true**, comme illustré dans l’exemple suivant. Pour plus d'informations sur les entités partitionnées, consultez [Entités de messagerie partitionnées][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ Pour maximiser le débit, procédez comme suit :
 
 ## Étapes suivantes
 
-Pour en savoir plus sur l’optimisation des performances Service Bus, consultez [Partitionnement des entités de messagerie][].
+Pour en savoir plus sur l'optimisation des performances Service Bus, consultez [Entités de messagerie partitionnées][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,7 +288,7 @@ Pour en savoir plus sur l’optimisation des performances Service Bus, consultez
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [Partitionnement des entités de messagerie]: service-bus-partitioning.md
+  [Entités de messagerie partitionnées]: service-bus-partitioning.md
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

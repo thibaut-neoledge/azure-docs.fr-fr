@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Création d'applications qui utilisent des rubriques et des abonnements Service Bus
@@ -148,6 +148,6 @@ Toutes les raisons d'utiliser la mise en file d’attente décrites dans [Créat
 
 ## Étapes suivantes
 
-Consultez la section [Création d'applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour voir comment utiliser des files d'attente dans le scénario de vente au détail de PDV.
+Consultez [Création d'applications qui utilisent les files d'attente Service Bus](service-bus-create-queues.md) pour obtenir des informations sur l'utilisation des files d'attente dans le scénario de vente au détail de PDV.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

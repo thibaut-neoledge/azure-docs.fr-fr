@@ -21,11 +21,11 @@
 
 Le suivi de la croissance des index et de la taille des documents peut vous aider à ajuster la capacité de manière proactive avant d’atteindre la limite supérieure définie pour votre service.
 
-Les chiffres et les statistiques sont facilement accessibles sur le [portail Azure Classic](https://portal.azure.com) pour la surveillance de l’utilisation des ressources, mais vous pouvez aussi obtenir ces informations par programme en concevant un outil d’administration de service personnalisé. Cet article présente les étapes relatives à ces deux techniques.
+Les chiffres et les statistiques sont facilement accessibles sur le [portail Azure](https://portal.azure.com) pour la surveillance de l'utilisation des ressources, mais vous pouvez aussi obtenir ces informations par programme en concevant un outil d'administration de service personnalisé. Cet article présente les étapes relatives à ces deux techniques.
 
 ##Affichage des chiffres et des mesures sur le portail 
 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Les mosaïques associées au service se trouvent sur la page d’accueil. Vous pouvez aussi accéder au service à partir de l’option de navigation de la barre de lancement. Consultez [Création d’un service](search-create-service-portal.md) pour obtenir les instructions détaillées.
 
@@ -57,4 +57,4 @@ Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

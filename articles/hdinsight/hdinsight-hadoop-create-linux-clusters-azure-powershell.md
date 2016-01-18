@@ -25,13 +25,13 @@ Azure PowerShell est un environnement de création de scripts vous permettant de
 
 > [AZURE.NOTE]Azure PowerShell est uniquement disponible sur les clients Windows. Si vous utilisez un client Linux, Unix ou Mac OS X, consultez [Créer un cluster HDInsight basé sur Linux avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-linux-cluster-azure-cli.md) pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure pour créer un cluster.
 
-##Configuration requise
+###Configuration requise
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerSHell__. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des applets de commande HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-##Création du cluster
+##Créer des clusters
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant Azure PowerShell :
 
@@ -106,6 +106,11 @@ Les valeurs que vous spécifiez pour **$clusterCredentials** sont utilisées pou
 
 L’approvisionnement peut prendre jusqu’à 15 minutes.
 
+##Personnalisation des clusters
+
+- Voir [Personnalisation de clusters HDInsight à l'aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Voir [Personnalisation de clusters HDInsight basés sur Windows à l'aide d'une action de script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+
 ##Étapes suivantes
 
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :
@@ -135,4 +140,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/06/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de Fuse avec Azure AD, vous devez ajouter Fuse
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
+3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Fuse**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_01.png)<br>
@@ -93,7 +93,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) <br>
 
-    a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Fuse, au format suivant : **« https://azuresso.fusion-universal.com/ »**.
+    a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Fuse, au format suivant : **« https://<nom du client>.fusion-universal.com/ »**.
 
     > [AZURE.NOTE]Contactez l’[équipe du support technique Fuse](mailto:support@fusion-universal.com) si vous ne connaissez pas votre URL de connexion.
     
@@ -138,11 +138,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_06.png) <br>
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_06.png) <br>
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
-    b. Dans la zone de texte **Nom**, entrez **Simon**.
+    b. Dans la zone de texte **Nom**, tapez **Simon**.
 
     c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
 
@@ -173,7 +173,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Fuse, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Dans l’affichage des annuaires du portail Azure Classic, pour ouvrir l’affichage des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **Fuse**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_50.png) <br>
 
@@ -181,7 +181,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -214,4 +214,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

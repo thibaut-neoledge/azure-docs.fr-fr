@@ -22,14 +22,14 @@ Le service Azure AD Privileged Identity Management vous permet de gérer, de co
 
 Pour permettre aux utilisateurs d’effectuer des opérations privilégiées, les organisations doivent souvent attribuer à plusieurs de leurs utilisateurs un accès privilégié permanent à Azure AD, à des ressources Azure ou Office 365 ou à d’autres applications SaaS. Pour de nombreux clients, cela pose un risque de sécurité croissant pour leurs ressources hébergées sur le cloud, car ils ne peuvent pas suffisamment contrôler ce que font les utilisateurs avec leurs privilèges d'administrateur. En outre, un compte d’utilisateur compromis qui dispose d’un accès privilégié peut affecter leur sécurité globale sur le cloud. Azure AD Privileged Identity Management contribue à minimiser ce risque.
 
-Dans cette version préliminaire, Azure AD Privileged Identity Management vous permet de :
+Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 - Identifier les utilisateurs qui ont un rôle d’administrateur dans Azure AD
 - Activer un accès administratif immédiat et à la demande aux ressources des répertoires
 - Obtenir des rapports sur l'historique des accès administrateur et sur les modifications apportées aux affectations de l'administrateur
 - Recevoir des alertes sur l'accès à un rôle privilégié
 
-Dans cette version préliminaire, Azure AD Privileged Identity Management peut gérer les rôles d'organisation intégrés dans Azure Active Directory :
+Azure AD Privileged Identity Management peut gérer les rôles d'organisation intégrés dans Azure Active Directory :
 
 - Administrateur général
 - Administrateur de facturation
@@ -43,11 +43,13 @@ Jusqu'ici, vous pouviez affecter un utilisateur à un rôle d'administrateur via
 
 ## Activer la gestion des identités privilégiées pour votre répertoire
 
-Vous pouvez commencer à utiliser Azure AD Privileged Identity Management en accédant au [portail Microsoft Azure](https://portal.azure.com/). Pour l’instant, Azure AD Privileged Identity Management est disponible uniquement sur le portail Microsoft Azure. Vous devez être un administrateur global pour activer Azure AD Privileged Identity Management pour un répertoire.
+Vous pouvez commencer à utiliser Azure AD Privileged Identity Management en accédant au [portail Azure](https://portal.azure.com/). Pour l’instant, Azure AD Privileged Identity Management est disponible uniquement sur le portail Azure. Il n'apparaît pas dans le portail classique. Vous devez être un administrateur global pour activer Azure AD Privileged Identity Management pour un répertoire.
 
 ![][1]
 
-Après avoir initialisé cette extension, vous devenez automatiquement le premier **administrateur de sécurité** du répertoire. Seul un administrateur de sécurité peut accéder à cette extension pour gérer l'accès des autres administrateurs. Pendant l'initialisation, une mosaïque d’Azure AD Privileged Identity Management est ajoutée au tableau d'accueil du portail de la version préliminaire d’Azure.
+Après avoir initialisé cette extension, vous devenez automatiquement le premier **administrateur de sécurité** du répertoire. Seul un administrateur de sécurité peut accéder à cette extension pour gérer l'accès des autres administrateurs.
+
+Pendant l'initialisation, une mosaïque d’Azure AD Privileged Identity Management est ajoutée au panneau de démarrage du portail Azure.
 
 ## Tableau de bord de gestion des identités privilégiées
 
@@ -79,7 +81,7 @@ Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrat
 
 Pour activer un rôle, un administrateur temporaire doit demander une « activation » limitée dans le temps pour le rôle. L'activation peut être demandée à l'aide de l’option **Activate my role** dans Azure AD Privileged Identity Management.
 
-Un administrateur qui souhaite activer un rôle doit initialiser Azure AD Privileged Identity Management sur le portail de la version préliminaire d’Azure.
+Un administrateur qui souhaite activer un rôle doit initialiser Azure AD Privileged Identity Management sur le portail Azure.
 
 Toutes les catégories d'administrateur peuvent utiliser Azure AD Privileged Identity Management pour activer leur rôle.
 
@@ -104,4 +106,4 @@ Azure AD Privileged Identity Management vous permet également d’effectuer un 
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

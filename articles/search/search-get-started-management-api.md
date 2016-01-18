@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous aurez besoin d'un compte Azure.
 
 Ce didacticiel est basé sur une application console Windows écrite en C#, que vous pouvez modifier et exécuter dans Visual Studio 2012 ou 2013
 
-Vous pouvez trouver l'application cliente sur Codeplex à la page [Démonstration de l'API de gestion Azure Search](https://azuresearchmgmtapi.codeplex.com/).
+Vous pouvez trouver l'application cliente sur Codeplex à la page [Démonstration de l'API de gestion Azure Search](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configuration de l'application
@@ -58,7 +58,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ###Création d'un service Active Directory
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
 
 2. Faites défiler le volet de navigation gauche, puis cliquez sur **Active Directory**.
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez modifier la solution dans Visual Studio, en rempl
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Si vous n'avez pas encore [téléchargé l'exemple d'application à partir de Codeplex](https://azuresearchmgmtapi.codeplex.com/), vous en aurez besoin pour cette étape.
+Si vous n'avez pas encore [téléchargé l'exemple d'application à partir de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), vous en aurez besoin pour cette étape.
 
 1. Ouvrez **ManagementAPI.sln** dans Visual Studio.
 
@@ -204,4 +204,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

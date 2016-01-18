@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur Lotus Domino
@@ -34,7 +34,7 @@ Le connecteur Lotus Domino vous permet d’intégrer le service de synchronisati
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée | Serveur : <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client :<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Source de données connectée | Serveur : <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client :<li>Lotus Notes 9.x</li> |
 | Scénarios | <li>Gestion du cycle de vie des objets</li><li>Gestion des groupes</li><li>Gestion des mots de passe</li> |
 | Opérations | <li>Importation complète et différentielle</li><li>Exportation</li><li>Définition du mot de passe sur le mot de passe HTTP</li> |
 | Schéma | <li> Personne (utilisateur itinérant, contact [personne sans certificat])</li><li>Groupe</li><li>Ressource (ressource, salle, réunion en ligne)</li><li>Base courrier en arrivée</li><li>Découverte dynamique d’attributs pour les objets pris en charge</li> |
@@ -539,4 +539,4 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

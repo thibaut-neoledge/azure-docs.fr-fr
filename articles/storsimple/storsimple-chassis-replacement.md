@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Remplacer le châssis sur un appareil StorSimple | Microsoft Azure"
-   description="Décrit comment retirer et remplacer le châssis sur votre appareil principal StorSimple ou le boîtier EBOD."
+   description="Décrit comment retirer et remplacer le châssis pour votre boîtier principal StorSimple ou le boîtier EBOD."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Remplacer le châssis sur votre appareil StorSimple
 
 ## Vue d’ensemble
 
-Ce didacticiel explique comment retirer et remplacer un châssis dans un appareil StorSimple. Le modèle StorSimple 8100 est un appareil à boîtier unique (un châssis), alors que le modèle 8600 comprend deux boîtiers (deux châssis). Pour un modèle 8600, il existe deux châssis potentiellement défaillants dans l’appareil : le châssis du boîtier principal ou le châssis du boîtier EBOD.
+Ce didacticiel explique comment retirer et remplacer un châssis dans un appareil de la gamme StorSimple 8000. Le modèle StorSimple 8100 est un appareil à boîtier unique (un châssis), alors que le modèle 8600 comprend deux boîtiers (deux châssis). Pour un modèle 8600, il existe deux châssis potentiellement défaillants dans l’appareil : le châssis du boîtier principal ou le châssis du boîtier EBOD.
 
 Dans les deux cas, le châssis de remplacement livré par Microsoft sera vide. Aucun module d’alimentation et de refroidissement (PCM), module de contrôleur, disque SSD, lecteur de disque dur (HDD) ni module EBOD ne seront inclus.
 
@@ -55,7 +55,7 @@ Pour installer le châssis dans un appareil Microsoft Azure StorSimple, procéde
 
 3. Installez les lecteurs dans les mêmes positions et emplacements que précédemment.
 
-    >[AZURE.NOTE]En règle générale, nous vous recommandons de placer d’abord les disques SSD dans les emplacements, puis d’installer les lecteurs de disque dur.
+    >[AZURE.NOTE]Nous vous recommandons d'installer d'abord les disques SSD dans les emplacements, puis d'installer les lecteurs de disque dur.
 
 2. Une fois l’appareil monté dans le rack et les composants installés, connectez votre appareil aux sources d’alimentation appropriées, puis activez l’appareil. Pour plus d’informations, consultez [Branchement des câbles de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Branchement des câbles de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
@@ -63,4 +63,4 @@ Pour installer le châssis dans un appareil Microsoft Azure StorSimple, procéde
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

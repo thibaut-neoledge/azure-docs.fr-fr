@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Création d'applications qui utilisent les files d'attente Service Bus
@@ -97,7 +97,7 @@ Pour des opérations d'exécution sur les entités Service Bus ; par exemple, p
  bm.Properties["MachineID"] = "POS_1";
 ```
 
-Les messages envoyés aux files d'attente Service Bus (et ceux en provenance de celle-ci) sont des instances de la classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette classe se compose d'un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps en transmettant un objet sérialisable (l'exemple suivant transmet un objet **SalesData** qui représente les données de ventes à partir du terminal de PDV), qui utilisera [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) pour sérialiser l'objet. Une autre possibilité consiste à fournir un objet [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
+Les messages envoyés aux files d’attente Service Bus (et reçus de celle-ci) sont des instances de la classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette classe se compose d'un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps en transmettant un objet sérialisable (l'exemple suivant transmet un objet **SalesData** qui représente les données de ventes à partir du terminal de PDV), qui utilisera [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) pour sérialiser l'objet. Une autre possibilité consiste à fournir un objet [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
 
 Le moyen le plus simple pour envoyer des messages à une file d'attente donnée, dans notre cas **DataCollectionQueue**, consiste à utiliser [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) pour créer un objet [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) directement à partir de l'instance [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Maintenant que vous avez appris les fondamentaux des files d'attente, consultez la section [Créer des applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour poursuivre cette discussion à l'aide des fonctions publication/abonnement de la messagerie répartie de Service Bus.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,12 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Déployer votre appareil StorSimple local (Update 1)
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Vue d’ensemble
 
@@ -71,7 +74,7 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | **Configuration et inscription de l'appareil** | Paramètres réseau Data 0 | Adresse IP Data 0 :</br>Masque de sous-réseau :</br>Passerelle :</br>Serveur DNS principal :</br>Serveur NTP principal :</br>Adresse IP/nom de domaine complet (facultatif) du serveur proxy Web :</br>Port proxy Web :| |
 | | Mot de passe d'administrateur de l'appareil | Le mot de passe doit contenir entre 8 et 15 caractères en minuscules, en majuscules, numériques et spéciaux. | |
 | | Mot de passe de gestionnaire d’instantanés StorSimple | Le mot de passe doit contenir 14 ou 15 caractères en minuscules, en majuscules, numériques et spéciaux.| |
-| | Clé d'inscription du service | Cette clé est générée à partir du portail Azure Classic. | |
+| | Clé d'inscription du service | Cette clé est générée à partir du Portail Azure Classic. | |
 | | Clé de chiffrement des données du service | Cette clé est créée lorsque l'appareil est inscrit auprès du service de gestion par le biais de Windows PowerShell pour StorSimple. Copiez-la et enregistrez-la en lieu sûr.| |
 | | | | |
 | **Mener à bien l'installation minimale de l’appareil** | Nom convivial pour votre appareil | Il s'agit d'un nom descriptif pour l'appareil. | |
@@ -152,7 +155,7 @@ Un service StorSimple Manager peut gérer plusieurs appareils StorSimple. Procé
 
 Une fois le service StorSimple Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
-Procédez comme suit dans le portail Azure Classic.
+Procédez comme suit dans le Portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -200,9 +203,9 @@ Les étapes suivantes sont effectuées sur votre hôte Windows Server.
 
 > - Pour une haute disponibilité de votre solution StorSimple, nous vous recommandons de configurer MPIO sur vos serveurs hôtes (facultatif) avant de configurer iSCSI. La configuration de MPIO sur les serveurs hôtes permet de s'assurer que les serveurs peuvent tolérer une panne de liaison, de réseau ou d'interface.
 
-> - Pour obtenir les instructions d’installation et de configuration de MPIO et d’iSCSI sur l’hôte Windows Server, consultez [Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
+> - Pour obtenir les instructions d'installation et de configuration de MPIO et d'iSCSI sur l'hôte Windows Server, consultez [Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
 
-> - Pour obtenir les instructions d’installation et de configuration de MPIO et d’iSCSI sur un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux StorSimple](storsimple-configure-mpio-on-linux.md).
+> - Pour obtenir les instructions d'installation et de configuration de MPIO et d'iSCSI sur un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux StorSimple](storsimple-configure-mpio-on-linux.md).
 
 Si vous décidez de ne pas configurer MPIO, procédez comme suit pour monter, initialiser et formater vos volumes StorSimple sur un hôte Windows Server.
 
@@ -239,17 +242,17 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 ## Recherche et application des mises à jour
 
 La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
-<!-- > can take 1-4 hours-->
+<!--can take 1-4 hours-->
 
 <!--Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.-->
 
 #### Mise à jour de votre appareil
 
-1.	Dans la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l’appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
 
 2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**.
 
-3.	Une tâche de mise à jour est créée. Surveillez l’état de la mise à jour en accédant à **Tâches**.
+3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
 	> [AZURE.NOTE]Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L’état ne passe à 100 % que lorsque la tâche de mise à jour est terminée. Il n’existe aucun état en temps réel du processus de mise à jour.
 
@@ -273,7 +276,7 @@ Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre 
 
 La solution MPIO (Multipath I/O) est une fonctionnalité facultative qui n’est pas installée sur Windows Server par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Pour obtenir les instructions d’installation de la solution MPIO, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Pour obtenir les instructions d’installation et de configuration de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-on-linux.md).
+Pour obtenir les instructions d'installation et de configuration de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-on-linux.md).
 
 
 > [AZURE.NOTE]La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
@@ -287,4 +290,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -74,7 +74,7 @@ Par défaut, tous les documents sont automatiquement indexés par DocumentDB. To
 ## Étapes suivantes
 Pour obtenir des instructions sur la surveillance des niveaux de performances dans le portail Azure, consultez la rubrique [Surveillance d’un compte DocumentDB](documentdb-monitor-accounts.md).
 
-Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels).
+Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

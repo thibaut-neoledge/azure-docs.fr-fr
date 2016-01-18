@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -61,7 +61,7 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 
 Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **download*/openInputStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes **DownloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
+Le téléchargement d’une plage arbitraire (méthodes **downloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 
 Tous les types d’objets blob (objets blob de blocs, objets blob de pages et objets blob d’ajouts) peuvent être chiffrés/déchiffrés à l’aide de ce schéma.
 
@@ -234,4 +234,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 ## Étapes suivantes  
 Télécharger la [bibliothèque cliente de stockage Azure pour le package Maven Java](<fix URL>) Télécharger la [bibliothèque cliente de stockage Azure pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java) Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

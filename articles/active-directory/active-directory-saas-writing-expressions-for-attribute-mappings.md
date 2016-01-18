@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -209,8 +209,8 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **source** | Requis | String | Valeur **source** à mettre à jour. |
-| **defaultValue** | Facultatif | String | Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
-| **key** | Requis | String | **Key** avec laquelle comparer la valeur **source**. |
+| **defaultValue** | Facultatif | Chaîne | Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
+| **key** | Requis | Chaîne | **Key** avec laquelle comparer la valeur **source**. |
 | **value** | Requis | String | Valeur de remplacement pour la **source** correspondant à la clé. |
 
 
@@ -307,4 +307,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

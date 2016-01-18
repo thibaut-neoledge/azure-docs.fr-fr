@@ -32,7 +32,7 @@ L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie 
 L’appareil virtuel StorSimple est disponible en deux modèles, un 8 010 Standard et un 8 020 Premium (dans Update 2). Vous trouverez ci-dessous une comparaison de ces deux modèles.
 
 
-| Modèle de l'appareil | 8 010<sup>1, 2</sup> | 8 020<sup>3</sup> |
+| Modèle de l'appareil | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacité maximale** | 30 To | 64 To |
 | **Microsoft Azure** | Standard\_A3 (4 cœurs, 7 Go de mémoire) | Standard\_DS3 (4 cœurs, 14 Go de mémoire) |
@@ -41,7 +41,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8 010 Stand
 | **Type de stockage** | Utilise le stockage Azure Standard<br></br> Découvrez comment [créer un compte de stockage Standard]() | Utilise le stockage Azure Premium<br></br>Découvrez comment [créer un compte de stockage Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Aide relative à la charge de travail** | Récupération au niveau des éléments des fichiers à partir de sauvegardes | Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes <br></br>Appareil secondaire pour la récupération d'urgence |
  
-<sup>1</sup> *Anciennement 1 100*, <sup>2</sup> *A représente le facteur de forme Azure*, <sup>3</sup> *AP représente le facteur de forme Azure Premium.*
+<sup>1</sup> *Anciennement, 1100*.
 
 
 Cet article décrit le processus de déploiement pas à pas d'un appareil virtuel StorSimple dans Azure. À la fin de cet article, vous serez capable :
@@ -259,4 +259,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

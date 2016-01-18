@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Gestion du Contrôle d'accès en fonction du rôle avec Azure PowerShell
-<!-- Azure Selector -->
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## Répertorier les rôles RBAC
 ### Répertorier tous les rôles disponibles
@@ -136,9 +136,9 @@ L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtu
 ![](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## Répertorier les rôles personnalisés
-Pour répertorier les rôles qui sont disponibles pour une attribution au niveau d’une étendue, utilisez la commande `Get-AzureRmRoleDefinition`.
+Pour répertorier les rôles pouvant être affectés dans une étendue, utilisez la commande `Get-AzureRmRoleDefinition`.
 
-L’exemple suivant répertorie tous les rôles disponibles pour une attribution dans l’abonnement sélectionné.
+L’exemple suivant répertorie tous les rôles pouvant être affectés dans l’abonnement sélectionné.
 
 ![](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
 
@@ -149,4 +149,4 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

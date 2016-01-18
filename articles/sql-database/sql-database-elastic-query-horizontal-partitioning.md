@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # Requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)
 
 Ce document explique comment configurer des requêtes de base de données élastiques pour les scénarios de partitionnement horizontal et effectuer vos requêtes. Pour avoir une définition du scénario de partitionnement horizontal, consultez [vue d’ensemble de requête élastique de la base de données (version préliminaire)](sql-database-elastic-query-overview.md).
+
+![Requête sur plusieurs partitions][1]
 
 La fonctionnalité fait partie de l’[ensemble de fonctionnalités de base de données élastiques](sql-database-elastic-scale.md) d’Azure SQL.
  
@@ -236,6 +238,7 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # Contrôle d’accès, rôles et ressources dans Application Insights
@@ -110,4 +110,4 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

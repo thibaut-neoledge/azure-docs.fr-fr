@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modèle Resource Manager pour les verrous de ressources | Microsoft Azure"
-   description="Montre le schéma de Resource Manager pour les verrous de ressources."
+   description="Affiche le schéma Resource Manager pour le déploiement de verrous de ressources par le biais d'un modèle."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Verrou de ressources - schéma de modèle
+# Verrou de ressources, schéma de modèle
 
 Crée un nouveau verrou sur une ressource et ses ressources enfants.
 
@@ -135,4 +135,4 @@ L'exemple suivant applique un verrou ReadOnly au groupe de ressources.
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour plus d'informations sur les verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,13 +14,13 @@ Dans cette procédure, vous allez :
 
 1. Sur le serveur Web frontal, ouvrez SharePoint 2013 Management Shell en tant qu'administrateur.
 
-2. Accédez au dossier <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Accédez au dossier *disque de démarrage*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
 
 3. Renommez **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** en **web.config**.
 
 4. Utilisez `aspnet_regiis -pdf connectionStrings` pour déchiffrer le fichier web.config.
 
-5. Dans le fichier web.config déchiffré, sous le nœud **<connectionStrings>**, ajoutez la chaîne de connexion pour votre instance de SQL server et le nom de base de données de contenu. Consultez l’exemple qui suit.
+5. Dans le fichier web.config déchiffré, sous le nœud `connectionStrings`, ajoutez la chaîne de connexion pour votre instance de SQL Server et le nom de base de données de contenu. Consultez l’exemple qui suit.
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@ Dans cette procédure, vous allez :
 
 2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l'application Web** pour la base de données de contenu souhaitée afin d’activer à nouveau la Corbeille. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)** -> **SharePoint - 80** -> **Paramètres généraux de l'application**. Définissez l’état de la Corbeille sur **ON**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

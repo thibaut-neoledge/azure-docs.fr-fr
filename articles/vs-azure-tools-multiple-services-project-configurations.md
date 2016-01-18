@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration de votre projet Azure à l'aide de plusieurs configurations de service"
+   pageTitle="Configuration de votre projet Azure à l'aide de plusieurs configurations de service | Microsoft Azure"
    description="Découvrez comment configurer un projet de service cloud Azure en modifiant les fichiers ServiceDefinition.csdef et ServiceConfiguration.cscfg."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Configuration de votre projet Azure à l'aide de plusieurs configurations de service
@@ -93,7 +93,7 @@ Dans la page **Certificats**, vous pouvez associer des certificats à votre rôl
 
 La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Pour associer un certificat à votre rôle, donnez un nom au certificat. Ce nom permet de faire référence au certificat lorsque vous configurez un point de terminaison HTTPS dans la page de propriétés **Points de terminaison**. Ensuite, spécifiez si le magasin de certificats est **Ordinateur local** ou **Utilisateur actuel**, ainsi que le nom du magasin. Enfin, entrez l'empreinte du certificat. Si le certificat est dans Utilisateur actuel\\Mon magasin, vous pouvez entrer l'empreinte du certificat en sélectionnant le certificat à partir d'une liste. S'il se trouve à un autre emplacement, entrez la valeur de l'empreinte numérique à la main.
+Pour associer un certificat à votre rôle, donnez un nom au certificat. Ce nom permet de faire référence au certificat lorsque vous configurez un point de terminaison HTTPS dans la page de propriétés **Points de terminaison**. Ensuite, spécifiez si le magasin de certificats est **Machine locale** ou **Utilisateur actuel** et le nom du magasin. Enfin, entrez l'empreinte du certificat. Si le certificat est dans Utilisateur actuel\\Mon magasin, vous pouvez entrer l'empreinte du certificat en sélectionnant le certificat à partir d'une liste. S'il se trouve à un autre emplacement, entrez la valeur de l'empreinte numérique à la main.
 
 Lorsque vous ajoutez un certificat à partir du magasin de certificats, les éventuels certificats intermédiaires sont automatiquement ajoutés aux paramètres de configuration. Ces certificats intermédiaires doivent également être chargés sur Azure afin de configurer correctement votre service pour SSL.
 
@@ -110,4 +110,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 |Développement|Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent.|
 |Web|Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web.|
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/04/2016"
 	ms.author="klam"/>
 
 #Qu'est-ce qu'une application logique ?
@@ -24,17 +24,17 @@
 | [Documentation du connecteur des applications logiques](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Forum Logic Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps) |
 
-Azure App Service est une plateforme PaaS entièrement gérée (plateforme en tant que service) pour les développeurs. Elle les aide à créer des applications web, mobiles et d’intégration. Logic Apps fait partie de cette suite et permet à n’importe quel utilisateur technique ou développeur d’automatiser l’exécution des processus d’entreprise et des flux de travail via un concepteur visuel facile à utiliser.
+Azure App Service est une plateforme PaaS entièrement gérée (plateforme en tant que service) pour les développeurs. Elle les aide à créer des applications web, mobiles et d’intégration. Logic Apps fait partie de cette suite et permet à n’importe quel utilisateur technique ou développeur d’automatiser l’exécution des processus d’entreprise et des flux de travail à l’aide d’un concepteur visuel facile à utiliser.
 
-De plus, vous pouvez combiner Logic Apps avec des [Connecteurs][connectors] de notre Marketplace pour résoudre facilement des scénarios d’intégration délicats.
+De plus, vous pouvez combiner Logic Apps avec des [Connecteurs][connectors] de notre Marketplace pour résoudre facilement des scénarios d’intégration délicats :
 
 ![Concepteur d’application de flux](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-Si vous souhaitez automatiquement répliquer de nouveaux enregistrements dans votre base de données SQL et votre messagerie à partir du bureau principal ou rechercher automatiquement les tweets négatifs et les envoyer à un canal secondaire
+Vous pouvez automatiquement répliquer de nouveaux enregistrements dans votre base de données SQL et votre messagerie à partir du bureau principal. Ou rechercher automatiquement les tweets négatifs et les envoyer à un canal secondaire.
 
 ##Pourquoi des applications logiques ?
 
-Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes, chacune appelant une application API App Service tout en prenant soin de l’authentification et des meilleures pratiques telles que l’exécution durable.
+Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes. Chaque étape appelle une application API App Service tout en prenant soin de l’authentification et des meilleures pratiques telles la création de points de contrôle et l’exécution durable.
 
 Si vous souhaitez automatiser des processus d’entreprise (par exemple, rechercher des tweets négatifs et les publier dans un canal secondaire ou répliquer de nouveaux enregistrements clients à partir de SQL, à mesure de leur arrivée, dans votre système CRM), Logic Apps permet une intégration facile de sources de données disparates du cloud vers un emplacement local. Découvrez nos [connecteurs][connectors] pour plus d’inspiration et [démarrez][create] maintenant pour voir ce que vous pouvez faire.
 
@@ -58,7 +58,7 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 - **Connecteurs** : vos applications logiques doivent accéder aux données et aux services. Un connecteur est un type spécial d'application API. Il est créé spécifiquement pour vous aider à vous connecter à des données et à les utiliser. Consultez la liste des connecteurs désormais disponibles dans [Utilisation des connecteurs][connectors].
 - **Déclencheurs** : certains connecteurs peuvent aussi jouer le rôle de déclencheur. Un déclencheur démarre une nouvelle instance d'un flux de travail suite à un événement spécifique, comme l'arrivée d'un message électronique ou une modification de votre compte Azure Storage.
 -  **Actions** : chaque étape après le déclencheur dans un flux de travail est appelée une action. Chaque action correspond généralement à une opération sur votre connecteur ou vos applications API personnalisées.
-- **BizTalk** : pour les scénarios d’intégration avancés, Azure App Service offre des fonctionnalités Biztalk. BizTalk est la plateforme d'intégration Microsoft leader sur le marché. Les applications API BizTalk vous permettent d'inclure facilement une validation, une transformation, des règles et bien plus encore dans vos flux de travail d'applications logiques. Pour en savoir plus, consultez [Qu’est-ce qu’un connecteur et une application API BizTalk ?][biztalk].
+- **BizTalk** : pour les scénarios d’intégration avancés, Azure App Service offre des fonctionnalités BizTalk. BizTalk est la plateforme d'intégration Microsoft leader sur le marché. Les applications API BizTalk vous permettent d'inclure facilement une validation, une transformation, des règles et bien plus encore dans vos flux de travail d'applications logiques. Pour en savoir plus, consultez [Qu’est-ce qu’un connecteur et une application API BizTalk ?][biztalk].
 
 ## Mise en route
 
@@ -75,4 +75,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

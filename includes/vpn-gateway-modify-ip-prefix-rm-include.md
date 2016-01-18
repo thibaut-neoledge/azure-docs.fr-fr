@@ -1,29 +1,29 @@
-If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
+Si vous devez modifier les préfixes de votre site local, utilisez les instructions ci-dessous. Deux jeux d'instructions sont fournis et varient selon que vous avez déjà créé votre connexion à la passerelle VPN.
 
-### Add or remove prefixes without a VPN gateway connection
+### Ajouter ou supprimer des préfixes sans une connexion à la passerelle VPN
 
 
-- **To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
+- **Pour ajouter** d’autres préfixes d’adresses à un site local que vous avez créé, mais qui ne dispose pas encore d’une connexion à la passerelle VPN, utilisez l’exemple ci-dessous.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
+- **Pour supprimer** un préfixe d’adresse d’un site local ne disposant pas d’une connexion VPN, utilisez l’exemple ci-dessous. Abandonnez les préfixes dont vous n'avez plus besoin. Dans cet exemple, le préfixe 20.0.0.0/24 (de l'exemple précédent) n'est plus nécessaire. Nous allons donc modifier le site local et exclure ce préfixe.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Add or remove prefixes with a VPN gateway connection
+### Ajouter ou supprimer des préfixes avec une connexion à la passerelle VPN
 
-If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
+Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d'adresses IP contenues dans votre site local, vous devez effectuer les étapes suivantes dans l'ordre. Cela interrompra votre connexion VPN car vous devrez supprimer et recréer la passerelle. Toutefois, étant donné que vous avez demandé une adresse IP pour la connexion, vous n’aurez pas besoin de reconfigurer votre routeur VPN local, sauf si vous décidez de modifier les valeurs que vous avez déjà utilisées.
 
  
-1. Remove the gateway connection. 
-2. Modify the prefixes for your local site. 
-3. Create a new gateway connection. 
+1. Supprimez la connexion à la passerelle. 
+2. Modifiez les préfixes de votre site local. 
+3. Créez une connexion de passerelle. 
 
-You can use the following sample as a guideline.
+Vous pouvez utiliser l'exemple suivant comme référence.
 
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -35,3 +35,5 @@ You can use the following sample as a guideline.
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+
+<!---HONumber=AcomDC_0107_2016-->

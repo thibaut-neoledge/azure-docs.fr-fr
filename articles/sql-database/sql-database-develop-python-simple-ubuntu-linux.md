@@ -21,10 +21,7 @@
 # Connexion à une base de données SQL à l'aide de Python sous Ubuntu Linux
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique présente un exemple de code Python qui s'exécute sur un ordinateur client Ubuntu Linux, pour la connexion à une base de données SQL Azure.
@@ -120,4 +117,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

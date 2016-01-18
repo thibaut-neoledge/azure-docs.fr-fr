@@ -18,7 +18,7 @@
 
 # Données de partition et d’échelle dans DocumentDB
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) est conçu pour vous aider à atteindre des performances rapides et prévisibles, et pour *monter en charge* en toute transparence parallèlement à l’évolution de votre application. DocumentDB a été utilisé pour faire fonctionner les services de production à grande échelle chez Microsoft, comme le magasin de données utilisateur qui alimente la suite MSN d'applications web et mobiles.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) est conçu pour vous aider à atteindre des performances rapides et prévisibles, et pour *monter en charge* en toute transparence parallèlement à l’évolution de votre application. DocumentDB a été utilisé pour faire fonctionner les services de production à grande échelle chez Microsoft, comme le magasin de données utilisateur qui alimente la suite MSN d'applications web et mobiles.
 
 Vous pouvez obtenir une échelle presque illimitée en termes de débit et de stockage pour votre application DocumentDB en partitionnant horizontalement les données, un concept connu sous le nom de **partitionnement**. Les comptes DocumentDB peuvent évoluer linéairement avec les coûts via des unités empilables, ou **collections**. Le meilleur partitionnement de vos données dans les collections dépend du format de vos données et de vos modèles d'accès.
 
@@ -112,4 +112,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

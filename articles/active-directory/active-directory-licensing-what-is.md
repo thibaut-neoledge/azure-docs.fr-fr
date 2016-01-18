@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="12/01/2015"
+    ms.date="01/05/2016"
     ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) est une plateforme et une solution Microsoft 
 
 > [AZURE.NOTE]Le portail d’administration d’Azure AD fait partie intégrante du Portail Azure Classic. Alors que l'utilisation d'Azure AD ne nécessite pas l'achat d'Azure, l'accès à ce portail requiert un abonnement Azure actif ou un [abonnement à la version d’évaluation d’Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Pour une présentation détaillée des fonctionnalités des services Azure AD, consultez l’article [Qu'est-ce qu'Azure Active Directory ?](active-directory-whatis.md). [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
+Pour découvrir une présentation détaillée des fonctionnalités des services Azure AD, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md). [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Les abonnements Azure de type paiement à l’utilisation sont différents : bien qu’ils soient également représentés dans votre annuaire, ces abonnements activent la création de ressources Azure et les mappent sur votre mode de paiement. Dans ce cas, AUCUN nombre de licences n’est associé à l’abonnement. L’association d’utilisateurs à l’abonnement, qui définit l’accès des utilisateurs à la gestion des ressources d’abonnement, s’effectue en leur octroyant des autorisations de manipulation des ressources Azure mappées sur l’abonnement.
 
@@ -56,7 +56,7 @@ Avec l’attribution de licences par groupe, tout utilisateur non associé à un
 
 ##Prise en main de la gestion des licences Azure AD
 
-La prise en main d’Azure AD est d’une grande simplicité ; vous pouvez toujours créer votre annuaire dans le cadre de votre inscription à la version d’évaluation gratuite d’Azure. [En savoir plus sur l'inscription en tant qu'organisation](sign-up-organization.md). Les informations ci-après peuvent vous aider à vérifier que votre annuaire s’harmonise au mieux avec d’autres services Microsoft que vous consommez ou envisagez de consommer, ainsi qu’avec vos objectifs en obtenant le service.
+La prise en main d’Azure AD est d’une grande simplicité ; vous pouvez toujours créer votre annuaire dans le cadre de votre inscription à la version d’évaluation gratuite d’Azure. [En savoir plus sur l’inscription en tant qu’organisation](sign-up-organization.md). Les informations ci-après peuvent vous aider à vérifier que votre annuaire s’harmonise au mieux avec d’autres services Microsoft que vous consommez ou envisagez de consommer, ainsi qu’avec vos objectifs en obtenant le service.
 
 Voici quelques bonnes pratiques : - Si vous utilisez déjà l’un des services d’organisation de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans ce cas, vous devez continuer à utiliser le même annuaire pour les autres services, afin que la gestion des identités principales, y compris l’approvisionnement et l’authentification unique hybride, soit utilisable dans l’ensemble des services. Vos utilisateurs bénéficieront alors d’une expérience d’ouverture de session unique et de fonctionnalités enrichies dans tous les services. Par conséquent, si vous décidez d’acheter un service Azure AD payant pour vos ressources, nous vous recommandons d’utiliser le même répertoire pour effectuer cette opération. - Si vous prévoyez d’utiliser Azure AD pour un autre groupe d’utilisateurs (partenaires, clients, etc.), que vous souhaitez évaluer des services Azure AD indépendamment de votre service de production, ou que vous cherchez à configurer un environnement de bac à sable (sandbox) pour vos services, nous vous recommandons de commencer par créer un autre répertoire par le biais du Portail Azure Classic. [En savoir plus sur la création d’un nouveau répertoire Azure AD dans le Portail Azure Classic](active-directory-licensing-directory-independence.md). Ce nouvel annuaire sera créé avec votre compte en tant qu’utilisateur externe avec des autorisations d’administrateur globales. Lorsque vous vous connecterez au Portail Azure Classic avec ce compte, vous pourrez voir ce répertoire et accéder à toutes les tâches d’administration de répertoire. Nous vous recommandons de créer un compte local avec les privilèges appropriés pour gérer les autres services Microsoft (ceux qui ne sont pas accessibles par le biais du Portail Azure Classic). [En savoir plus sur la création de comptes d'utilisateurs dans Azure AD](active-directory-create-users.md).
 
@@ -101,7 +101,7 @@ Lors de l’attribution des licences Azure AD, des erreurs d’attribution peuv
 
 ###Visualiser les licences attribuées
 
-L'onglet **Licences** présente une vue récapitulative des licences attribuées, notamment le nombre de licences disponibles et attribuées, ainsi que l'événement du cycle de vie d'abonnement suivant.
+L’onglet **Licences** présente une vue récapitulative des licences attribuées, indiquant le nombre de licences disponibles et attribuées, et l’événement de cycle de vie d’abonnement suivant.
 
 ![Visualiser le nombre de licences attribuées](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
@@ -132,4 +132,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

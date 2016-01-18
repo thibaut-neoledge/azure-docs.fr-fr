@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Envoi de courrier électronique à l'aide de SendGrid depuis Node.js
 
@@ -65,7 +65,7 @@ Vous pouvez également spécifier un message HTML pour les clients qui le prenne
 
 Définir les propriétés text et html offre une solution de repli intéressante pour le contenu textuel dans le cas des clients qui ne peuvent pas prendre en charge les messages HTML.
 
-Pour plus d'informations sur l'ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs][].
+Pour plus d'informations sur l'ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Envoi d'un message électronique
 
@@ -114,7 +114,7 @@ Il est possible d'ajouter des pièces jointes à un message en spécifiant les n
 
 ## Utilisation de filtres pour activer les pieds de page et le suivi
 
-SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][].
+SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html).
 
 Il est possible d'appliquer des filtres à un message par l'intermédiaire de la propriété **filters**. Chaque filtre est spécifié par un hachage contenant des paramètres propres au filtre. Les exemples suivants montrent les filtres de pied de page et de suivi des clics :
 
@@ -172,7 +172,7 @@ Pour plus d'informations, consultez la page [sendgrid-nodejs](https://github.com
 
 ## Utilisation de services SendGrid supplémentaires
 
-SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][].
+SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid](https://sendgrid.com/docs).
 
 ## Étapes suivantes
 
@@ -188,4 +188,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -19,8 +19,6 @@
 
 # Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
 
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
-
 ## Vue d'ensemble
 
 Vous pouvez utiliser le service Microsoft Azure Import/Export pour transférer de grandes quantités de données de fichiers vers le stockage d’objets blob Azure lorsque le coût de l’opération de téléchargement via le réseau est prohibitif, voire irréalisable. Vous pouvez également utiliser ce service pour transférer de manière rapide et économique des volumes importants de données résidant dans le stockage d'objets Blob vers vos installations locales.
@@ -279,4 +277,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

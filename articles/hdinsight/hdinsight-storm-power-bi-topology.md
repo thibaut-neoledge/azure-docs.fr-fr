@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/06/2015"
  ms.author="larryfr"/>
 
 # Utilisation de Power BI (version préliminaire) pour visualiser les données d’une topologie Apache Storm
@@ -67,7 +67,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Black
 
 ## Configurer l'exemple
 
-1. Ouvrez l'exemple dans Visual Studio. Dans l'**Explorateur de solutions**, ouvrez le fichier **SCPHost.exe.config**, puis recherchez l'élément **<OAuth .../>**. Entrez des valeurs pour les propriétés suivantes de cet élément.
+1. Ouvrez l'exemple dans Visual Studio. Dans l'**Explorateur de solutions**, ouvrez le fichier **App.config**, puis recherchez l'élément **<OAuth .../>**. Entrez des valeurs pour les propriétés suivantes de cet élément.
 
     * **Client** : l'ID du client pour l'inscription de l'application créée précédemment.
 
@@ -139,4 +139,4 @@ Dans ce document, vous avez appris comment envoyer des données à partir d'une 
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

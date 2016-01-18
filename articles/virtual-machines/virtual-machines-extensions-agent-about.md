@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/22/2015"
+ ms.date="01/04/2016"
  ms.author="rasquill"/>
 
 #À propos de l'agent de machine virtuelle et des extensions
 
-L'Agent de machine virtuelle Azure (VM Agent) est utilisé pour installer, configurer, gérer et exécuter des extensions de machine virtuelle Azure (VM Extensions). Les extensions de machine virtuelle fournissent des fonctionnalités dynamiques fournies par Microsoft et des fournisseurs tiers. L'agent et les extensions sont ajoutés principalement dans le portail de gestion, mais vous pouvez également utiliser les applets de commande [Powershell](../install-configure-powershell.md) ou [Azure CLI](xplat-install.md) pour les ajouter et les configurer lorsque vous créez une machine virtuelle ou travaillez avec des machines virtuelles existantes.
+L'Agent de machine virtuelle Azure (VM Agent) est utilisé pour installer, configurer, gérer et exécuter des extensions de machine virtuelle Azure (VM Extensions). Les extensions de machine virtuelle fournissent des fonctionnalités dynamiques fournies par Microsoft et des fournisseurs tiers. L'agent et les extensions sont ajoutés principalement dans le portail de gestion, mais vous pouvez également utiliser les applets de commande [Powershell](../powershell-install-configure.md) ou [Azure CLI](../xplat-cli-install.md) pour les ajouter et les configurer lorsque vous créez une machine virtuelle ou travaillez avec des machines virtuelles existantes.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
@@ -44,9 +44,9 @@ Il existe deux agents de machine virtuelle Azure, un pour les machines virtuelle
 
 L'agent de machine virtuelle est activé dans les situations suivantes :
 
--   Quand vous créez une instance d’une machine virtuelle à l’aide de la méthode **Création rapide** dans le portail de gestion ou à l’aide de la méthode **Création personnalisée** dans le portail de gestion. Assurez-vous que la case à cocher **Installer l’agent de machine virtuelle** est cochée (comme indiqué dans l’image ci-dessous). Pour plus d’informations, consultez la rubrique [Création d’une machine virtuelle personnalisée](virtual-machines-create-custom.md).
+-   Lorsque vous créez une instance d'un ordinateur virtuel à l'aide de la méthode **Création rapide** dans le portail de gestion ou à l'aide de la méthode **Création personnalisée** dans le portail de gestion. Assurez-vous que la case à cocher **Installer l'agent de machine virtuelle** est sélectionnée (comme indiqué dans l'image ci-dessous). Pour plus d’informations, consultez la rubrique [Création d’une machine virtuelle personnalisée](virtual-machines-create-custom.md).
 
-    ![Case à cocher Agent de machine virtuelle](./media/virtual-machines-extensions-agent-about/IC719409.png "Case à cocher Agent de machine virtuelle")
+    ![Case à cocher Agent de machine virtuelle](media/virtual-machines-extensions-agent-about/IC719409.png)
 
 -   Quand vous créez une instance d’une machine virtuelle à l’aide de l’applet de commande [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) ou [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). Vous pouvez créer une machine virtuelle sans l’Agent de machine virtuelle installé en ajoutant le paramètre **–DisableGuestAgent** à l’applet de commande [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -66,4 +66,4 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
 
 Pour plus d’informations sur ces tâches, consultez [Ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
@@ -39,6 +39,8 @@ Cet article fournit des liens vers des didacticiels qui décrivent le Gestionnai
 
 - Pour connaître les procédures de déploiement du Gestionnaire d’instantanés StorSimple, consultez l’article [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 
+>[AZURE.NOTE]Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
+
 ## Tâches et flux de travail du Gestionnaire d’instantanés StorSimple
 
 Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller et gérer les tâches de sauvegarde en cours, planifiées et terminées. De plus, le Gestionnaire d’instantanés StorSimple offre un catalogue pouvant comporter jusqu’à 64 sauvegardes terminées. Vous pouvez utiliser ce catalogue pour rechercher et restaurer des volumes ou des fichiers individuels.
@@ -60,4 +62,4 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 
 [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

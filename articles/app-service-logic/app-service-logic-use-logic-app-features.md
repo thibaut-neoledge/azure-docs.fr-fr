@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser les fonctionnalités des applications logiques" 
+	pageTitle="Utiliser les fonctionnalités d’une application logique | Microsoft Azure" 
 	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Utiliser les fonctionnalités des applications logiques
@@ -49,7 +49,7 @@ Repeat prend une liste d'éléments et exécute l'action pour chaque élément d
 
 3. Cliquez sur l’icône d’engrenage et sélectionnez **Répéter sur une liste**.
  
-2. À côté de la zone **Répéter**, cliquez sur `...` et sélectionnez **Corps**. Le texte suivant :
+2. À côté de la zone **Répéter**, cliquez sur `...` et sélectionnez **Corps**. L’élément :
 
     	@body('twitterconnector')
 
@@ -106,7 +106,7 @@ Le code suivant met à jour votre application logique existante pour utiliser de
 
 Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez notre [Documentation sur l’API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
-Maintenant, quand vous cliquez sur **Enregistrer**, toutes les heures les nouveaux tweets qui ont plus de cinq retweets seront envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+Maintenant, quand vous cliquez sur **Enregistrer**, toutes les heures les nouveaux tweets qui ont plus de 5 retweets seront envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
 
 Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](app-service-logic-author-definitions.md).
 
@@ -129,7 +129,7 @@ Vous pouvez utiliser ce rappel pour appeler une application logique depuis votre
             "outputs" : { "property" : "value" }
         }
 
-Vous pouvez passer des sorties au flux de travail et y fait référence dans le flux de travail. Par exemple, avec le déclencheur ci-dessus, si vous incluez `@triggers().outputs.property`, vous obtiendrez `value`.
+Vous pouvez passer des sorties au flux de travail et y fait référence dans le flux de travail. Par exemple, avec le déclencheur ci-dessus, si vous incluez `@triggers().outputs.property`, vous obtenez `value`.
 
 Pour plus d’informations, [consultez la documentation REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
@@ -143,4 +143,4 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

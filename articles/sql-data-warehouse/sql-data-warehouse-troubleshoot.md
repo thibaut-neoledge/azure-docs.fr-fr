@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/11/2015"
+   ms.date="01/04/2016"
    ms.author="twounder"/>
 
 # Résolution de problèmes
@@ -90,4 +90,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

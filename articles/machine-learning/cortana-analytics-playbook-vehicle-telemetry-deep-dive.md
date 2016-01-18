@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | Berline familiale
 3.	Exécutez l’application **CarEventGenerator.exe**.
 
 ### Références
-[Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) [Azure Event Hub](http://azure.microsoft.com/services/event-hubs/) [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Concentrateur d'événement d'Azure](http://azure.microsoft.com/services/event-hubs/)
+
+[Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## Ingestion
@@ -149,7 +154,12 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 *Figure 10 - Résultat du pipeline PrepareSampleDataPipeline*
 
 ### Références
-[SDK Azure Event Hub pour l’ingestion de flux](event-hubs-csharp-ephcs-getstarted.md) [Fonctionnalités de déplacement de données Azure Data Factory](data-factory-data-movement-activities.md) [Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md) [Solution Azure Data Factory DotNet Activity Visual Studio pour la préparation des exemples de données](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[Kit de développement logiciel (SDK) Azure Event Hub pour l’ingestion de flux](event-hubs-csharp-ephcs-getstarted.md)
+
+[Fonctionnalités de déplacement de données Azure Data Factory](data-factory-data-movement-activities.md) [Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md)
+
+[Solution Azure Data Factory DotNet Activity Visual Studio pour la préparation des exemples de données](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## Préparation
@@ -696,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
@@ -21,7 +21,9 @@
 
 Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager.
 
-La page **Maintenance** affiche l'état du matériel de tous les composants de l’appareil StorSimple. La liste des composants pour 8100 présente trois sections :
+La page **Maintenance** affiche l'état du matériel de tous les composants de l’appareil StorSimple.
+
+La liste des composants pour 8100 présente trois sections :
 
 - **Composants partagés** – Ceux-ci ne font pas partie des contrôleurs, tels que les disques, le boîtier, les composants PCM et la température PCM, la tension de ligne et les capteurs de courant de ligne.
 
@@ -44,15 +46,16 @@ Un appareil 8600 présente des composants supplémentaires qui correspondent au 
 
 Procédez comme suit pour afficher l'état du matériel d'un composant d’appareil :
 
-1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur l’onglet **Maintenance**. 
+1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**. 
 2. Recherchez la section **État du matériel** et faites un choix parmi les composants disponibles (comme décrit ci-dessus). Cliquez simplement sur la flèche en regard de l'étiquette du composant pour développer la liste et afficher l'état des différents composants de l’appareil. Consultez la [liste détaillée des composants du boîtier principal](#component-list-for-primary-enclosure-of-storsimple-device) et la [liste détaillée des composants détaillées du boîtier EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
+
 2. Utilisez le codage couleur suivant pour interpréter l'état du composant :
 	-  **Coche verte** – Composant **Sain** ou **OK**.
 	-  **Jaune** – Composant en état d’**avertissement**.
 	-  **Point d'exclamation rouge** – Composant présentant un **échec** ou **nécessitant une attention**.
 	-  **Blanc avec texte noir** – Composant absent.
 
-3. Si vous rencontrez un composant dont l’état n'est pas **sain**, contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+3. Si vous rencontrez un composant dont l'état n'est pas **sain**, contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
 
 ## Liste des composants du boîtier principal de l'appareil StorSimple
@@ -125,7 +128,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 |Connexion au contrôleur de périphérique|E/S|Physique|Controller|Non|Indique l'état de la connexion entre le module E/S du module EBOD et le contrôleur de périphérique.|
 
 ## Étapes suivantes
-- Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+- Pour utiliser le service StorSimple Manager pour gérer votre appareil, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 - Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
 
@@ -133,4 +136,4 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 - Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Prise en main avec les applets de commande Azure Data Warehouse et les API REST
@@ -111,4 +111,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

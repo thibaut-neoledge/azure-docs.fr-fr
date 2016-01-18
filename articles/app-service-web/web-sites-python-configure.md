@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+	ms.date="12/16/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Azure Marketplace comporte des modèles pour les infrastructures Bottle, Django 
 
 Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail Azure.
 
-Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Cliquez sur le bouton NOUVEAU en bas à gauche, puis cliquez sur **Web + mobile** > **Application web**.
+Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Cliquez sur le bouton NOUVEAU dans l'angle supérieur gauche, puis cliquez sur **Web + mobile** > **Application web**.
 
 ## Publication Git
 
@@ -374,7 +374,7 @@ Contenu de `ptvs_virtualenv_proxy.py` :
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -385,4 +385,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

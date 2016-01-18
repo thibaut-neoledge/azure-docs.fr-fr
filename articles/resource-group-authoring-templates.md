@@ -13,20 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
-Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
+Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Cette rubrique décrit les sections du modèle.
 
-Cette rubrique décrit les sections du modèle. Pour obtenir les schémas réels, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas). Visual Studio fournit des outils pour vous aider à créer des modèles. Pour plus d’informations sur l’utilisation de Visual Studio avec vos modèles, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) et [Modèles de modification d’un gestionnaire de ressources avec Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+Visual Studio fournit des outils pour vous aider à créer des modèles. Pour plus d’informations sur l’utilisation de Visual Studio avec vos modèles, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) et [Modèles de modification d’un gestionnaire de ressources avec Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 Vous devez limiter la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 Ko. La limite de 1 Mo s'applique à l'état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres.
 
+## Planifiez votre modèle
+
+Avant de commencer à travailler avec le modèle, vous devez prendre le temps de déterminer les éléments que vous souhaitez déployer et la façon dont vous allez utiliser le modèle. Vous devez plus particulièrement déterminer :
+
+1. les types de ressources nécessaires au déploiement,
+2. l’endroit où les ressources seront placées,
+3. la version du fournisseur de ressources API que vous allez utiliser au moment de déployer la ressource,
+4. si l’une des ressources doit être déployée après les d’autres ressources,
+5. les valeurs à transmettre pendant le déploiement, et les valeurs que vous souhaitez définir directement dans le modèle,
+6. s’il faut retourner des valeurs depuis le déploiement.
+
+Pour vous aider à découvrir les types de ressources disponibles au déploiement, les régions prises en charge en fonction du type et les versions d’API disponibLes avantages chaque type, consultez [les fournisseurs, régions, versions d’API et schémas du gestionnaire de ressources.](resource-manager-supported-services.md). Cette rubrique fournit des exemples et des liens pour vous aider à déterminer les valeurs que vous devez fournir dans votre modèle.
+
+Si une ressource doit être déployée après une autre, vous pouvez la signaler comme étant dépendante de l’autre ressource. Vous allez voir comment le faire dans la section [Ressources](#resources) ci-dessous.
+
+Vous pouvez faire varier le résultat du déploiement de votre modèle en fournissant des valeurs de paramètres lors de l’exécution. Vous verrez comment procéder dans la section [Paramètres](#parameters) ci-dessous.
+
+Vous pouvez retourner les valeurs de votre déploiement dans la section [Sorties](#outputs).
+
 ## Format de modèle
 
-L'exemple suivant montre les sections qui composent la structure de base d'un modèle.
+Dans sa structure la plus simple, un modèle contient les éléments suivants.
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -39,11 +58,11 @@ L'exemple suivant montre les sections qui composent la structure de base d'un mo
 
 | Nom de l'élément | Requis | Description
 | :------------: | :------: | :----------
-| $schema | Oui | Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.
-| contentVersion | Oui | Version du modèle (par exemple, 1.0.0.0). Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé.
+| $schema | Oui | Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle. Vous devez utiliser l’URL affichée ci-dessus.
+| contentVersion | Oui | Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé.
 | parameters | Non | Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources.
 | variables | Non | Valeurs utilisées en tant que fragments JSON dans le modèle pour simplifier les expressions du langage du modèle.
-| les ressources | Oui | Types de services déployés ou mis à jour dans un groupe de ressources.
+| les ressources | Oui | Types de ressource déployés ou mis à jour dans un groupe de ressources.
 | outputs | Non | Valeurs retournées après le déploiement.
 
 Nous allons examiner les sections du modèle de manière plus approfondie plus loin dans cette rubrique. Pour l'instant, nous allons nous intéresser à la syntaxe qui constitue le modèle.
@@ -67,9 +86,11 @@ Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions d
 
 ## Paramètres
 
-Dans la section des paramètres du modèle, vous spécifiez les valeurs qu'un utilisateur peut entrer lors du déploiement des ressources. Vous pouvez utiliser ces valeurs de paramètre dans tout le modèle pour définir les valeurs des ressources déployées. Seuls les paramètres déclarés dans la section des paramètres peuvent être utilisés dans d'autres sections du modèle.
+C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Il est inutile de fournir des paramètres dans votre modèle, mais sans les paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
 
-Au sein de la section des paramètres, vous ne pouvez pas utiliser une valeur de paramètre pour construire une autre valeur de paramètre. Ce type d'opération se produit généralement dans la section des variables.
+Vous pouvez utiliser ces valeurs de paramètre dans tout le modèle pour définir les valeurs des ressources déployées. Seuls les paramètres déclarés dans la section des paramètres peuvent être utilisés dans d'autres sections du modèle.
+
+Au sein de la section des paramètres, vous ne pouvez pas utiliser une valeur de paramètre pour construire une autre valeur de paramètre. Les nouvelles valeurs se construisent dans la section des variables.
 
 Vous définissez des paramètres avec la structure suivante :
 
@@ -150,7 +171,7 @@ L’exemple suivant vous indique comment définir les paramètres :
 
 ## Variables
 
-Dans la section des variables, vous construisez des valeurs qui peuvent être utilisées pour simplifier les expressions du langage du modèle. En règle générale, ces variables se basent sur des valeurs fournies à partir des paramètres.
+Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. En règle générale, ces variables se basent sur des valeurs fournies à partir des paramètres. Il est inutile de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
 
 Vous définissez des variables avec la structure suivante :
 
@@ -204,7 +225,7 @@ L'exemple suivant vous indique une variable qui est un type complexe de JSON et 
 
 ## Ressources
 
-Dans la section des ressources, vous définissez les ressources déployées ou mises à jour.
+Dans la section des ressources, vous définissez les ressources déployées ou mises à jour. C’est à ce stade que votre modèle peut gagner en complexité, car vous devez connaître les types que vous déployez pour fournir les valeurs adéquates. Pour apprendre ce que vous devez savoir sur les fournisseurs de ressources, consultez [fournisseurs de gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
 
 Vous définissez des ressources avec la structure suivante :
 
@@ -221,7 +242,7 @@ Vous définissez des ressources avec la structure suivante :
          ],
          "properties": "<settings-for-the-resource>",
          "resources": [
-           "<array-of-dependent-resources>"
+           "<array-of-child-resources>"
          ]
        }
     ]
@@ -231,18 +252,46 @@ Vous définissez des ressources avec la structure suivante :
 | apiVersion | Oui | La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les numéros de version disponibles pour un type de ressources particulier, consultez les [versions d’API prises en charge](../resource-manager-supported-services/#supported-api-versions).
 | type | Oui | Type de la ressource. Cette valeur est une combinaison de l'espace de noms du fournisseur de ressources et du type de ressource qu'il prend en charge.
 | name | Oui | Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986.
-| location | Non | Emplacements géographiques de la ressource fournie pris en charge.
+| location | Non | Emplacements géographiques de la ressource fournie pris en charge. Pour déterminer les emplacements disponibles, consultez [Régions prises en charge](../resource-manager-supported-services/#supported-regions).
 | tags | Non | Balises associées à la ressource.
 | commentaires | Non | Vos commentaires pour documenter les ressources dans votre modèle
 | dependsOn | Non | Ressources desquelles dépend la ressource qui est définie. Les dépendances entre les ressources sont évaluées et les ressources sont déployées dans leur ordre dépendant. Quand les ressources ne dépendent les unes des autres, leur déploiement en parallèle est tenté. La valeur peut être une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.
-| properties | Non | Paramètres de configuration spécifiques aux ressources.
-| les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**.
+| properties | Non | Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, voir [fournisseurs du Gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
+| les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**. La dépendance à la ressource parent n’est pas induite ; vous devez la définir explicitement cette dépendance. 
+
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs de l’élément **properties** sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez les [informations de référence sur Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource à déployer.
+La section des ressources contient un tableau des ressources à déployer. Au sein de chaque ressource, vous pouvez également définir un tableau de ressources enfant correspondant à ces ressources. Par conséquent, la structure de la section de ressources peut ressembler à ce qui suit :
 
-L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
+    "resources": [
+       {
+           "name": "resourceA",
+           ...
+       },
+       {
+           "name": "resourceB",
+           ...
+           "resources": [
+               {
+                   "name": "firstChildResourceB",
+                   ...
+               },
+               {   
+                   "name": "secondChildResourceB",
+                   ...
+               }
+           ]
+       },
+       {
+           "name": "resourceC",
+           ...
+       }
+    ]
+
+
+
+L’exemple suivant représente une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource enfant **Extensions** : Notez que le site est marqué comme dépendant de la batterie de serveurs, car cette dernière doit être en place avant que le site puisse être déployé. Notez également que la ressource **Extensions** est une ressource enfant du site.
 
     "resources": [
         {
@@ -329,7 +378,7 @@ Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario p
 
 Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
-Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Créer plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -421,4 +470,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour afficher les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="12/11/2015"
+ ms.date="01/05/2016"
  ms.author="cynthn"/>
 
 # Tailles de machines virtuelles
@@ -33,10 +33,7 @@ Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS
 
 *   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
-    La série Dv2 sera disponible dans les différentes régions selon le calendrier suivant : Octobre 2015 : Est des États-Unis 2, Centre des États-Unis, Nord-Centre des États-Unis, Ouest des États-Unis Novembre 2015 : Est des États-Unis, Europe septentrionale, Europe occidentale Janvier 2016 : Sud-Centre des États-Unis, Est de l’Asie-Pacifique, Sud-est de l’Asie-Pacifique, Est du Japon, Ouest du Japon, Est de l’Australie, Sud-est de l’Australie, Sud du Brésil
-
-
-*   Les machines virtuelles de la série G offrent la plus grande taille et les meilleures performances ; elles s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
+*   Les machines virtuelles de la série G offrent le plus de mémoire et s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
 *   Les machines virtuelles de la série DS et GS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
@@ -45,13 +42,31 @@ La taille de la machine virtuelle a une incidence sur la tarification. La taille
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 
-*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.  
+* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
-*   Les tailles de machines virtuelles A8/A10 et A9/A11 présentent les mêmes capacités physiques. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n'ont pas besoin d'une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
 
 *	Les séries Dv2, D, G et DS/GS sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 
+*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
 
+
+## Considérations relatives aux performances
+
+Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de comparer les performances de calcul (UC) des références Azure. Cela vous aidera à identifier facilement la référence la plus à même de répondre à vos besoins en termes de performances. L’unité ACU est actuellement normalisée sur une machine virtuelle de petite taille (Standard\_A1) correspondant à 100, et toutes les autres références représentent ensuite approximativement la rapidité avec laquelle la référence en question peut exécuter un test d’évaluation.
+
+>[AZURE.IMPORTANT]Cette unité ACU est fournie uniquement à titre indicatif. Les résultats de votre charge de travail peuvent varier.
+
+<br>
+
+|Famille de références |ACU/Cœur |
+|---|---|
+|[Standard\_A0 (très petite)](#standard-tier-a-series) |50 |
+|[Standard\_A1-4 (petite à grande)](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+
+
+Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
 
 
 
@@ -60,6 +75,8 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 Les tableaux ci-après indiquent les tailles et les capacités qu’elles offrent.
 
 >[AZURE.NOTE]La capacité de stockage est représentée avec 1024^3 octets comme unité de mesure pour les Go. Cette unité est parfois appelée gibioctet ou définition en base 2. Quand vous comparez des tailles qui utilisent des systèmes en base différente, n’oubliez pas que les tailles en base 2 peuvent paraître plus petites que celles en base 10, mais que pour une taille spécifique (par exemple, 1 Go), un système en base 2 offre une capacité plus élevée qu’un système en base 10, car 1 024^3 est supérieur à 1 000^3.
+
+<br>
 
 
 
@@ -85,10 +102,18 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 |Standard\_A5|2|14 Go|1|Temporaire = 135 Go |4|4 x 500|
 |Standard\_A6|4|28 Go|2|Temporaire = 285 Go |8|8 x 500|
 |Standard\_A7|8|56 Go|4|Temporaire = 605 Go |16|16 x 500|
-|Standard\_A8|8|56 Go|2| Temporaire = 382 Go Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16 x 500|
-|Standard\_A9|16|112 Go|4| Temporaire = 382 Go Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16 x 500|
-|Standard\_A10|8|56 Go|2| Temporaire = 382 Go Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16 x 500|
-|Standard\_A11|16|112 Go|4| Temporaire = 382 Go Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16 x 500|
+
+
+## Niveau standard : série A : instances nécessitant beaucoup de ressources système
+
+Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md).
+
+|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|---|---|---|---|---|---|---|
+|Standard\_A8|8|56 Go|2| Temporaire = 382 Go |16|16 x 500|
+|Standard\_A9|16|112 Go|4| Temporaire = 382 Go |16|16 x 500|
+|Standard\_A10|8|56 Go|2| Temporaire = 382 Go |16|16 x 500|
+|Standard\_A11|16|112 Go|4| Temporaire = 382 Go |16|16 x 500|
 
 ## Niveau standard : série D
 
@@ -159,4 +184,4 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

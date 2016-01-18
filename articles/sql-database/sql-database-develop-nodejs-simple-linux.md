@@ -21,10 +21,7 @@
 # Connexion à une base de données SQL à l'aide de Node.js avec Tedious sous Ubuntu Linux
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Cette rubrique présente un exemple de code Node.js qui s'exécute sous Ubuntu Linux. L'exemple se connecte à Azure SQL Database à l'aide du pilote Tedious.
@@ -175,4 +172,4 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

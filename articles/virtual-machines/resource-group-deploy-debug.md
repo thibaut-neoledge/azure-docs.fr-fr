@@ -3,6 +3,7 @@
    description="Décrit les problèmes courants de déploiement de ressources créés à l'aide du modèle de déploiement Resource Manager et montre comment détecter et résoudre ces problèmes."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/14/2015"
+   ms.date="01/06/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure
@@ -101,7 +102,7 @@ Vous trouverez plus d'informations sur l’origine de l’échec du déploiement
 
     azure group log show ExampleGroup --last-deployment
 
-La commande **azure group log show** risque de renvoyer un grand nombre d'informations. Pour le dépannage, vous devez généralement vous concentrer sur les opérations ayant échoué. Le script suivant utilise les options **--json** et **jq** pour rechercher les échecs de déploiement dans le journal. Pour en savoir plus sur les outils tels que **jq**, consultez [Outils utiles pour interagir avec Azure](#useful-tools-to-interact-with-azure)
+La commande **azure group log show** risque de renvoyer un grand nombre d'informations. Pour le dépannage, vous devez généralement vous concentrer sur les opérations ayant échoué. Le script suivant utilise les options **--json** et **jq** pour rechercher les échecs de déploiement dans le journal. Pour en savoir plus sur les outils comme **jq**, consultez [Outils utiles pour interagir avec Azure](#useful-tools-to-interact-with-azure)
 
     azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -175,7 +176,7 @@ Pour PowerShell, utilisez **Test-AzureRmResourceGroupDeployment** (ou **Test-Azu
 
 ### Interface de ligne de commande Azure
 
-Pour l'interface de ligne de commande Azure, utilisez **azure group template validate <resource group>**
+Pour l’interface de ligne de commande Azure, utilisez **azure group template validate <resource group>**
 
 L’exemple suivant montre comment valider un modèle et tous les paramètres requis. L’interface de ligne de commande Azure vous propose des valeurs de paramètres requises.
 
@@ -293,6 +294,10 @@ Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
 > [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
+<!-- -->
+Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json.
+<!-- -->
+azure provider show Microsoft.Compute --json | jq ’.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}’ { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 <!-- -->
 Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json.
 <!-- -->
@@ -414,7 +419,7 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 Lorsque vous travaillez avec vos ressources Azure à partir de la ligne de commande, vous collectez les outils qui vous aideront à exécuter votre tâche. Les modèles de groupe de ressources Azure sont des documents JSON, et l’API Azure Resource Manager accepte et retourne des données en JSON. Par conséquent, les outils d’analyse JSON sont l’un des premiers éléments que vous utiliserez pour parcourir des informations relatives à vos ressources, ainsi que pour concevoir des modèles et fichiers de paramètres de modèle ou interagir avec ces modèles et fichiers.
 
 ### Outils Mac, Linux et Windows
-Si vous utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui traitent JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm). En fait, il existe plusieurs manières d’obtenir des outils Linux et d'autres outils logiciels open source fonctionnant également sous Windows.)
+Si vous utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui traitent JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) ; en fait, il existe plusieurs manières d’obtenir des outils Linux et d’autres outils logiciels open source fonctionnant également sur Windows.)
 
 Cette rubrique inclut certaines commandes d'interface de ligne de commande Azure que vous pouvez utiliser avec **jq** pour obtenir précisément les informations souhaitées avec plus d'efficacité. Vous devez choisir l’ensemble d’outils que vous maîtrisez pour mieux comprendre l’utilisation des ressources Azure.
 
@@ -434,4 +439,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

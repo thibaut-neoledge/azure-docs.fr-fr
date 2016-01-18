@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/07/2016" 
 	ms.author="spelluru"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -49,37 +49,71 @@ La passerelle de données offre les fonctionnalités suivantes :
 ## Installation
 La passerelle de gestion des données peut être installée en téléchargeant un package d'installation MSI à partir du Centre de téléchargement Microsoft. Le fichier MSI peut également servir à mettre à niveau la passerelle de gestion des données existante vers la version la plus récente, en conservant tous les paramètres. Vous trouverez le lien vers le package MSI sur le portail Azure Classic en suivant la procédure étape par étape ci-dessous.
 
+
 ### Meilleures pratiques d’installation :
 1.	Définissez un plan d'alimentation sur l'ordinateur hôte de la passerelle afin d’empêcher la mise en veille prolongée. Si l’ordinateur hôte est en veille prolongée, la passerelle n’est pas en mesure de répondre à la demande de données.
 2.	Vous devriez sauvegarder le certificat associé à la passerelle.
 
-### Dépannage de l'installation :
-Si votre entreprise utilise un pare-feu ou un serveur proxy, des étapes supplémentaires peuvent être requises si la passerelle de gestion des données est incapable de se connecter aux services de cloud Microsoft.
+## Considérations liées aux ports et à la sécurité
 
-#### Analyse des journaux de la passerelle à l’aide de l'Observateur d'événements :
+### Considérations d’ordre général
+Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entreprise** en cours d’exécution sur le routeur central de l’entreprise et le **pare-feu Windows** configuré en tant que démon sur l’ordinateur local où la passerelle est installée. Si vous utilisez un pare-feu tiers plutôt que le pare-feu Windows, respectez les recommandations suivantes à titre de référence et configurez les ports de manière appropriée. Si votre entreprise utilise un serveur proxy, reportez-vous à également à la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations). Voici quelques considérations générales à prendre en compte :
 
-Le gestionnaire de configuration de la passerelle affiche l'état de passerelle : « Déconnecté » ou « En cours de connexion ».
+**Avant de configurer la passerelle :**
 
-Pour plus d'informations, vous pouvez consulter les journaux de la passerelle dans les journaux des événements Windows. Vous les trouverez à l'aide de **l'Observateur d'événements** Windows sous **Journaux des applications et des services** > **Passerelle de gestion des données**. Lors de la résolution des problèmes liés à la passerelle, recherchez des événements de type erreur dans l’Observateur d’événements.
+- Pour le **pare-feu d’entreprise et le pare-feu Windows**, vous devez vous assurer que la règle de trafic sortant est activée pour les ports **TCP** **80** et **443**, ainsi que, éventuellement, pour les ports **9350** à **9354**. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre Azure Data Factory et la passerelle de gestion des données. Bien qu’il ne soit pas obligatoire d’ouvrir les ports 9350 à 9354, leur utilisation peut potentiellement améliorer les performances de communication entre Azure Data Factory et la passerelle de gestion des données.
+
+**Lors de l’installation de la passerelle :**
+
+- Par défaut, l’installation de la passerelle de gestion des données ouvre le port d’entrée **8050** sur le **pare-feu Windows local** de l’ordinateur de passerelle. Le port sera utilisé par l’application de **configuration des informations d’identification** pour relayer les informations d’identification à la passerelle lorsque vous configurez un service lié en local dans le portail Azure (voir la suite du présent article) ; il ne sera pas accessible à partir d’Internet, ce qui signifie que vous n’avez pas besoin de l’ouvrir au niveau du pare-feu de l’entreprise.
+- Si vous ne souhaitez pas que le port 8050 soit ouvert sur le pare-feu Windows de l’ordinateur de passerelle au moment de l’installation de la passerelle, vous pouvez utiliser la commande suivante pour installer la passerelle sans configurer le pare-feu.
+
+		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+
+Si le port d’entrée 8050 n’est pas ouvert sur l’ordinateur de passerelle et que vous souhaitez configurer un service lié en local, vous devez utiliser d’autres mécanismes que l’application de **configuration des informations d’identification** pour pouvoir configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Reportez-vous à la section [Configuration des informations d’identification et de la sécurité](#setting-credentials-and-security) pour connaître la procédure de configuration des informations d’identification du magasin de données.
 
 
-#### Symptômes possibles des erreurs liées au pare-feu :
+**Pour copier des données d’un magasin de données source vers un magasin de données récepteur :**
 
-1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2. Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lors de l’affichage de journaux d’événements Windows, sous « Observateur d’événements » > « Journaux d’applications et de services » > « Passerelle de gestion des données », des messages d’erreur apparaissent, tels que « Impossible de se connecter au serveur distant » ou « Un composant de la passerelle de gestion des données ne répond plus et va redémarrer automatiquement. Nom du composant : Passerelle. »
+Vous devez vous assurer que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de l’ordinateur de passerelle, ainsi que sur le magasin de données lui-même. Cela permet à la passerelle de se connecter correctement à la source et au récepteur. Vous devez activer les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Ces messages sont dus à une configuration incorrecte du pare-feu ou du serveur de proxy, qui empêche la passerelle de gestion des données de se connecter aux services cloud en vue de son authentification.
+Par exemple, pour effectuer une copie entre **un magasin de données local et un récepteur de base de données SQL Azure ou un récepteur Azure SQL Data Warehouse**, vous devez autoriser le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et le pare-feu d’entreprise. Vous devez également configurer les paramètres du pare-feu du serveur SQL Azure pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste des adresses IP autorisées.
 
-Les deux pare-feu concernés peuvent être : les pare-feu d'entreprise en cours d'exécution sur le routeur central de l'entreprise et le pare-feu Windows configuré en tant que démon sur l'ordinateur local où la passerelle est installée. Voici quelques considérations :
+### Considérations relatives aux serveurs proxy
+Par défaut, la passerelle de gestion des données utilisera les paramètres de proxy d’Internet Explorer et utilisera les informations d’identification par défaut pour y accéder. Si vous avez besoin de modifier ces paramètres, vous pouvez configurer les **paramètres du serveur proxy** comme indiqué ci-dessous pour vous assurer que la passerelle sera en mesure de se connecter à Azure Data Factory :
 
-- Il est inutile de modifier la stratégie entrante du pare-feu d'entreprise.
-- Le pare-feu d’entreprise et le Pare-feu Windows doivent activer la règle sortante pour les ports TCP 80, 443 et de 9350 à 9354. Ces ports sont utilisés par Microsoft Azure Service Bus pour établir la connexion entre les services de cloud et la passerelle de gestion des données.
+1.	Après avoir installé la passerelle de gestion des données, dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de « C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config » pour sauvegarder le fichier d’origine.
+2.	Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte « C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config ». La balise par défaut pour system.net apparaît comme suit :
 
-Le programme d'installation MSI configurera automatiquement les règles de pare-feu Windows pour les ports entrants de l'ordinateur de la passerelle (voir la section consacrée aux ports et à la sécurité ci-dessus).
+			<system.net>
+				<defaultProxy useDefaultCredentials="true" />
+			</system.net>	
 
-Mais le programme d'installation suppose que les ports de sortie mentionnés ci-dessus sont activés par défaut sur l'ordinateur local et le pare-feu d'entreprise. Vous devez activer ces ports sortants si ce n'est déjà fait. Si vous avez remplacé le pare-feu Windows par un pare-feu tiers, ces ports peuvent nécessiter une ouverture manuelle.
+	Vous pouvez ensuite ajouter les détails du serveur proxy (par exemple, l’adresse du proxy) à l’intérieur de cette balise parent. Par exemple :
 
-Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure à la liste blanche. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+			<system.net>
+			      <defaultProxy enabled="true">
+			            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+			      </defaultProxy>
+			</system.net>
+
+	Vous pouvez ajouter des propriétés supplémentaires à l’intérieur de la balise de proxy pour spécifier les paramètres requis comme scriptLocation. Reportez-vous à la page de syntaxe [<proxy>, élément (paramètres réseau)](https://msdn.microsoft.com/library/sa91de1e.aspx).
+
+			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+
+3. Enregistrez le fichier de configuration à l’emplacement d’origine, puis redémarrez le service de passerelle de gestion des données pour relever les modifications. Pour cela, utilisez le menu **Démarrer** > **Services.msc**. Sinon, à partir du **Gestionnaire de configuration de la passerelle de gestion des données**, cliquez sur le bouton **Arrêter le service**, puis sur **Démarrer le service**. Si le service ne démarre pas, il est probable qu’une syntaxe de balise XML incorrecte ait été ajoutée dans le fichier de configuration d’application que vous avez modifié.
+
+Outre les points ci-dessus, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+
+### Symptômes possibles des erreurs liées au pare-feu et au serveur proxy :
+Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle de gestion des données ne peut pas se connecter à Azure Data Factory pour s’authentifier. Reportez-vous à la section ci-dessus pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
+
+1.	Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
+2.	Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lors de l’affichage de journaux d’événements Windows, sous « Observateur d’événements » > « Journaux d’applications et de services » > « Passerelle de gestion des données », des messages d’erreur apparaissent, tels que « Impossible de se connecter au serveur distant » ou « Un composant de la passerelle de gestion des données ne répond plus et va redémarrer automatiquement. Nom du composant : Passerelle. »
+
+## Résolution des problèmes de passerelle :
+Pour plus d’informations, vous pouvez consulter les journaux de la passerelle contenus dans les journaux des événements Windows. Vous les trouverez à l'aide de **l'Observateur d'événements** Windows sous **Journaux des applications et des services** > **Passerelle de gestion des données**. Lors de la résolution des problèmes liés à la passerelle, recherchez des événements de type erreur dans l’Observateur d’événements.
+
 
 ## Utilisation de la passerelle de données – Procédure pas à pas
 Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
@@ -212,7 +246,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 
 ### Préparation du serveur SQL Server local pour le didacticiel
 
-1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server local (**SqlServerLinkedService**), pour créer la table **emp** dans la base de données, utilisez le script SQL suivant.
+1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server local (**SqlServerLinkedService**), utilisez le script SQL suivant pour créer la table **emp** dans la base de données.
 
 
         CREATE TABLE dbo.emp
@@ -382,10 +416,10 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	Notez les points suivants :
  
-	- Dans la section des activités, toutes les activités sont de **type** **Copy**.
+	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -413,7 +447,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d'entrée/de sortie) pour afficher les propriétés associées.
 
 ### Étape 6 : surveiller les jeux de données et les pipelines
-Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
+Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](data-factory-monitor-manage-pipelines.md).
 
 1. Ouvrez le **portail Azure** (si vous l’avez fermé).
 2. Si le panneau **ADFTutorialOnPremDF** n’est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialOnPremDF** dans le **tableau d’accueil**.
@@ -477,7 +511,7 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
 6. Laissez le **Gestionnaire de configuration de la passerelle de gestion des données** ouvert. 
  
 	![Gestionnaire de configuration](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
-7. Dans le panneau **Configurer** du portail, dans la barre de commandes, cliquez sur **Recréer une clé**, puis, au message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé pour copier la clé dans le presse-papiers. Notez que la passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.  
+7. Dans le panneau **Configurer** du portail, cliquez sur **Recréer une clé** dans la barre de commandes, puis, au message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé pour copier la clé dans le presse-papiers. Notez que la passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.  
 	
 	![Recréer la clé](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
 	 
@@ -514,13 +548,13 @@ Vous pouvez également créer un service lié SQL Server à l’aide du panneau 
 7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
 8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
 
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Sélectionnez l’**authentification** que le service Data Factory doit utiliser pour se connecter à la base de données. 
-	2.	Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 
-	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.  
-	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
-4. Cliquez sur **OK** pour fermer le panneau **Informations d’identification**. 
-5. Cliquez sur **OK** dans le panneau **Nouvelle banque de données**. 	
+	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
+	1. Sélectionnez l’**authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données. 
+	2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 
+	3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**. 
+	4. Cliquez sur **OK** pour fermer la boîte de dialogue. 
+4. Cliquez sur **OK** pour fermer le panneau **Informations d'identification**. 
+5. Cliquez sur **OK** dans le panneau **Nouveau magasin de données**. 	
 6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.
 	![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
@@ -604,18 +638,4 @@ Voici un flux de données global et un résumé des opérations servant à la co
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-### Considérations liées aux ports et à la sécurité
-
-1. Comme mentionné ci-dessus dans la procédure étape par étape, il existe plusieurs façons de configurer les informations d’identification de magasins de données locaux à l’aide de Data Factory. Les considérations liées aux ports varient selon ces options.	
-
-	- Utilisation de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows local de la machine contenant la passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
-	2.	Utilisation de l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) : a. si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
-	
-			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	Si vous utilisez l’application **Configuration des informations d’identification**, vous devez la lancer sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
-4.	Lors de la copie des données depuis/vers une base de données SQL Server locale vers/à partir d’une base de données SQL Azure, vérifiez les points suivants :	
-	- 	Le pare-feu sur l’ordinateur de passerelle autorise les communications TCP sortantes sur le port **TCP** **1433**.
-	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
-5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

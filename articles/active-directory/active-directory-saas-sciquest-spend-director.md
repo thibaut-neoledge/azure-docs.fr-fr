@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/05/2016"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory avec SciQuest Spend Director
@@ -58,9 +58,9 @@ Pour configurer l’intégration de SciQuest Spend Director avec Azure AD, vous 
 
 1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]
 
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Dans la liste **Répertoire**, sélectionnez le répertoire pour lequel vous voulez activer l'intégration de répertoire.
 
-3. Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]
+3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]
 6. Dans la zone de recherche, entrez **sciQuest spend director**.<br> ![Applications][5]
@@ -103,7 +103,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 5. Contactez le support technique de SciQuest pour activer cette méthode d’authentification à l’aide des métadonnées téléchargées ci-dessus.
 
 6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][15]
-10. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Qu’est-ce qu’Azure AD ?][16]
+10. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![What is Azure AD Connect][16]
 
 
 
@@ -115,16 +115,16 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][100] 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][101] 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br>![Qu’est-ce qu’Azure AD Connect ?][102] 
-5. Dans la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][103] 
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][101] 
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][102] 
+5. Sur la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][103] 
   1. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
   2. Dans la zone de texte **Nom d’utilisateur**, tapez **BrittaSimon**.
   3. Cliquez sur Suivant.
-6.  Dans la page **Profil utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][104] 
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][104] 
   1. Dans la zone de texte **Prénom**, tapez **Britta**.  
-  2. Dans la zone de texte **Nom**, tapez **Simon**.
-  3. Dans la zone de texte **Nom complet**, tapez **Britta Simon**.
+  2. Dans la zone de texte **Nom**, saisissez **Simon**.
+  3. Dans la zone de texte **Nom complet**, saisissez **Britta Simon**.
   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
   5. Cliquez sur **Next**.
 7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][105]  
@@ -195,4 +195,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

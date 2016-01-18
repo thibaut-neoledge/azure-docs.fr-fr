@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # Requête de base de données élastique pour les requêtes de base de données croisée (partitionnement vertical)
 
 Ce document explique comment configurer des requêtes élastiques pour les scénarios de requête de base de données croisées (partitionnement vertical). Pour avoir une définition du scénario de partitionnement horizontal, consultez [Vue d’ensemble d’une requête de base de données élastique SQL Azure (version préliminaire)](sql-database-elastic-query-overview.md).
+
+![Requête sur plusieurs tables dans des bases de données différentes][1]
 
 ## Création d’objets de base de données
 
@@ -182,6 +184,9 @@ Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecte
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

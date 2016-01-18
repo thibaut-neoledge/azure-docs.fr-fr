@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/16/2015"
 	ms.author="jaime-espinosa"/>
 
-# Références sur la navigation dans le portail Azure Classic
+# Références sur la navigation dans le portail Azure
 
 Le service Sites Web Azure s’appelle désormais [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Nous sommes actuellement en train de mettre à jour l’ensemble de notre documentation afin qu’elle reflète ce changement de nom et fournisse les instructions adaptées au portail Azure. En attendant que ce processus soit terminé, vous pouvez utiliser ce document pour vous guider lors de l’utilisation de Web Apps dans le portail Azure.
 
@@ -30,7 +30,7 @@ Vous aurez peut-être déjà remarqué les modifications au niveau de la marque 
 
 Dans le portail Azure Classic, tous les services Azure étaient répertoriés sur le côté gauche. Le portail Azure Classic possédait une structure en arborescence, depuis laquelle vous démarriez à partir du service et naviguiez dans chaque élément. Cette structure fonctionne bien lorsque vous gérez des composants indépendants. Toutefois, les applications créées à partir d'Azure sont constituées de services interconnectés, et cette arborescence n'est pas idéale pour les collections de services.
 
-Le nouveau portail Azure facilite la création d’applications de bout en bout avec des composants provenant de plusieurs services. Le portail Azure est organisé en *parcours*. Un *voyage* est un ensemble de *panneaux*, qui sont les conteneurs de différents composants. Par exemple, la configuration de la mise à l’échelle automatique pour une application web est un *voyage* qui vous mène à travers plusieurs panneaux, comme le montre l’exemple suivant : le panneau **Site web** (le titre de ce panneau n’a pas encore été adapté à la nouvelle terminologie), le panneau **Paramètres** et le panneau **Échelle**. Dans cet exemple, la mise à l’échelle automatique est configurée pour dépendre de l’utilisation du processeur. Le panneau **Pourcentage UC** s’affiche donc également. Les composants des *panneaux* sont appelés des *portions* et ont l’aspect de mosaïques.
+Le nouveau portail Azure facilite la création d’applications de bout en bout avec des composants provenant de plusieurs services. Le portail est organisé en *voyages*. Un *voyage* est un ensemble de *panneaux*, qui sont les conteneurs de différents composants. Par exemple, la configuration de la mise à l’échelle automatique pour une application web est un *voyage* qui vous mène à travers plusieurs panneaux, comme le montre l’exemple suivant : le panneau **Site web** (le titre de ce panneau n’a pas encore été adapté à la nouvelle terminologie), le panneau **Paramètres** et le panneau **Montée en charge**. Dans cet exemple, la mise à l’échelle automatique est configurée pour dépendre de l’utilisation du processeur. Le panneau **Pourcentage UC** s’affiche donc également. Les composants des *panneaux* sont appelés des *portions* et ont l’aspect de mosaïques.
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
@@ -40,13 +40,13 @@ La création d'applications web est toujours aussi facile qu'avant. L’illustra
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
 
-Dans le portail Azure, vous pouvez choisir parmi les types d’applications web les plus courants, comme les applications de galerie telles que WordPress. Pour obtenir une liste complète des applications disponibles, rendez-vous sur [Azure Marketplace].
+Dans le portail, vous pouvez choisir parmi les types d'applications web les plus courants, comme les applications de galerie telles que WordPress. Pour obtenir une liste complète des applications disponibles, rendez-vous sur [Azure Marketplace].
 
-Quand vous créez une application web, vous spécifiez l’URL, le plan App Service et l’emplacement dans le portail Azure, comme vous le faisiez dans le portail Azure Classic.
+Quand vous créez une application web, vous spécifiez l’URL, le plan App Service et l’emplacement dans le portail, comme vous le faisiez dans le portail Azure Classic.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)
 
-De plus, le portail Azure permet de définir d’autres paramètres courants. Par exemple, les [groupes de ressources](../resource-group-overview.md) facilitent l’affichage et la gestion des ressources Azure connexes.
+De plus, le portail permet de définir d'autres paramètres courants. Par exemple, les [groupes de ressources](../resource-group-overview.md) facilitent l’affichage et la gestion des ressources Azure connexes.
 
 ## Exemple de navigation : paramètres et fonctionnalités
 
@@ -70,7 +70,7 @@ Pour configurer les paramètres de l’application, cliquez sur **Paramètres de
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres d’application (**Configurer**) dans l’ancien portail.
+Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres d’application (**Configurer**) dans le portail Classic.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -87,4 +87,4 @@ Outre le nom de la marque, quelques autres éléments du portail ont été renom
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
