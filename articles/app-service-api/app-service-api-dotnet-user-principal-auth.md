@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="01/08/2016"
 	ms.author="tdykstra"/>
 
 # Authentification utilisateur pour API Apps dans Azure App Service
@@ -28,7 +28,7 @@ Ce didacticiel montre comment utiliser les fonctionnalités d’authentification
  
 ## Authentification et autorisation dans App Service
 
-Pour obtenir une présentation des fonctions d’authentification utilisées dans ce didacticiel, consultez le didacticiel précédent de cette série, [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-authentication.md).
+Pour obtenir une présentation des fonctions utilisées dans ce didacticiel, consultez le didacticiel précédent de cette série, [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-authentication.md).
 
 ## Procédure pour suivre ce didacticiel
 
@@ -268,4 +268,4 @@ Le programme frontal peut désormais appeler l’API pour le compte d’un utili
 
 Dans ce didacticiel, vous avez utilisé l’authentification/autorisation App Service pour restreindre l’accès à une application API pour que seuls les utilisateurs authentifiés puissent l’appeler. Dans le didacticiel suivant de la série, vous allez découvrir comment [restreindre l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

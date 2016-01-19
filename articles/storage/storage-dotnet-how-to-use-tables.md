@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Comment utiliser le stockage de tables à partir de .NET | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage de tables Microsoft Azure pour créer et supprimer des tables, et insérer et interroger les entités d’une table."
+	description="Utilisez Table storage pour stocker des données non structurées, sans schéma. Table storage est un magasin de clés/d’attributs NoSQL. La bibliothèque cliente de stockage pour .NET fournit des API pour la création et la suppression de tables, ainsi que pour l’insertion, la mise à jour, la suppression et l’interrogation des données."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 
@@ -440,4 +440,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

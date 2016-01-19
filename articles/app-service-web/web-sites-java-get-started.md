@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Créer une application web Java dans Azure App Service
@@ -27,7 +27,7 @@
 
 Ce didacticiel vous explique comment créer une [application web Java dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide du [portail Azure](https://portal.azure.com/). Le portail Azure est une interface web que vous pouvez utiliser pour gérer les ressources Azure.
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
+> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service][]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -171,9 +171,9 @@ Cette section explique comment créer une application web et la configurer pour 
 Pour plus d’informations sur le développement des applications Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
 <!-- External Links -->
-[activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [obtenir un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

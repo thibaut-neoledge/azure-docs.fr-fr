@@ -14,17 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc"/>
 
 # Configurer une connexion VPN de point à site à un réseau virtuel
 
+> [AZURE.SELECTOR]
+- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
 
-Cet article s’applique aux connexions de passerelle VPN point à site à un réseau virtuel créées en utilisant le modèle de déploiement classique (Gestion des services). Les connexions point à site pour les réseaux virtuels créées en utilisant le modèle de déploiement d’Azure Resource Manager sont maintenant disponibles via les API REST et PowerShell. Nous travaillons sur un article qui vous guidera à travers les étapes d’utilisation de PowerShell. Je mettrai à jour cette page et j’inclurai le lien quand l’article sera prêt. Nous le prévoyons actuellement pour début janvier.
+Une configuration de point à site vous permet de créer individuellement une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur client. Le démarrage de la connexion à partir de l’ordinateur client permet d’établir une connexion VPN. Ceci est une excellente solution lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique afin de fonctionner. Pour plus d’informations sur les connexions de point à site, consultez la page [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) et [À propos des connexions intersites](vpn-gateway-cross-premises-options.md).
 
-**À propos des modèles de déploiement Azure**
+Cet article s’applique aux connexions de passerelle VPN de point à site à un réseau virtuel créées en utilisant le **modèle de déploiement classique** (Gestion des services). Si vous souhaitez configurer une connexion de point à site pour un réseau virtuel créé à l’aide du Gestionnaire de ressources, consultez [cet article](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
 
 ## À propos de la création d’une connexion point à site
  
@@ -42,7 +46,7 @@ Une connexion point à site nécessite un réseau virtuel avec une passerelle de
 
 ### Créez un réseau virtuel
 
-1. Connectez-vous au **portail Azure Classic** (et non pas au portail Azure).
+1. Connectez-vous au **Portail Azure Classic** (et non pas au portail Azure).
 1. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 1. Sur la page **Détails du réseau virtuel**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 	- **Nom** : nommez votre réseau virtuel. Par exemple, attribuez-lui le nom « VNetEast ». Il s’agit du nom auquel vous ferez référence lors du déploiement des machines virtuelles et des instances PaaS (platform as a service) sur ce réseau virtuel.
@@ -88,20 +92,21 @@ Si vous souhaitez utiliser un certificat auto-signé, les étapes ci-dessous vou
 
 Si vous n’utilisez pas de solution de certificat d’entreprise, vous devez générer un certificat racine auto-signé. Les opérations ci-dessous fonctionnent sous Windows 8. Nous sommes en train de procéder à la mise à niveau les nouvelles étapes pour Windows 10.
 
-1. L’une des solutions pour créer un certificat X.509 consiste à utiliser l’outil de création de certificats (makecert.exe). Pour utiliser makecert, téléchargez et installez [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), qui est disponible gratuitement.
+L’une des solutions pour créer un certificat X.509 consiste à utiliser l’outil de création de certificats (makecert.exe). Pour utiliser makecert, téléchargez et installez [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), qui est disponible gratuitement.
+
 2. Accédez au dossier Visual Studio Tools et démarrez l’invite de commandes en tant qu’administrateur.
 3. La commande figurant dans l’exemple suivant crée et installe un certificat racine dans le magasin de certificats Personnel de votre ordinateur, et elle crée également un fichier *.cer* correspondant que vous chargerez par la suite dans le portail Azure Classic.
-4. Accédez au répertoire où vous voulez stocker le fichier .cer, puis exécutez la commande suivante (*RootCertificateName* est le nom que vous voulez utiliser pour le certificat). L’exécution de l’exemple suivant sans aucune modification entraîne la création d’un certificat racine et du fichier *RootCertificateName.cer* correspondant.
+4. Accédez au répertoire dans lequel vous souhaitez stocker le fichier .cer, puis exécutez la commande suivante (*RootCertificateName* correspond au nom de certificat à utiliser). L’exécution de l’exemple suivant sans aucune modification entraîne la création d’un certificat racine et du fichier *RootCertificateName.cer* correspondant.
 
 >[AZURE.NOTE]Comme vous avez créé un certificat racine permettant de générer des certificats clients, il peut être utile d'exporter ce certificat avec sa clé privée et de l'enregistrer à un emplacement sûr à partir duquel il pourra être récupéré.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Télécharger le fichier de certificat racine .cert dans le Portail Azure Classic
+### Télécharger le fichier de certificat racine .cert dans le portail Azure Classic
 
 Vous devez télécharger le fichier .cer correspondant pour chaque certificat racine sur Azure. Vous pouvez télécharger jusqu’à 20 certificats.
 
-1. Quand vous avez généré un certificat racine lors de la procédure précédente, vous avez également créé un fichier *.cer*. Vous allez à présent charger ce fichier dans le Portail Azure Classic. Notez que le fichier .cer ne contient pas la clé privée du certificat racine. Vous pouvez télécharger jusqu’à 20 certificats racine.
+1. Quand vous avez généré un certificat racine lors de la procédure précédente, vous avez également créé un fichier *.cer*. Vous allez à présent charger ce fichier dans le portail Azure Classic. Notez que le fichier .cer ne contient pas la clé privée du certificat racine. Vous pouvez télécharger jusqu’à 20 certificats racine.
 1. Dans le portail Azure Classic, sur la page **Certificats** de votre réseau virtuel, cliquez sur **Télécharger un certificat racine**.
 1. Dans la page **Télécharger un certificat**, recherchez le certificat racine .cer, puis cliquez sur la coche correspondante.
 
@@ -113,7 +118,7 @@ Les étapes ci-dessous servent à générer un certificat client à partir du ce
 2. Accédez à l’emplacement où vous souhaitez enregistrer le client fichier de certificat client. *RootCertificateName* fait référence au certificat racine auto-signé que vous avez généré. Si vous exécutez l’exemple suivant (en remplaçant « RootCertificateName » par le nom de votre certificat racine), cette opération entraînera la création d’un certificat client nommé « ClientCertificateName » dans votre magasin de certificats Personnel.
 3. Tapez la commande suivante :
 
-    makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
 
 4. Tous les certificats sont stockés dans le magasin de certificats Personnel de votre ordinateur. Utilisez *certmgr* pour vérifier ce point. Vous pouvez générer autant de certificats clients que nécessaire d’après cette procédure. Nous vous recommandons de créer un certificat client unique pour chaque ordinateur que vous souhaitez connecter au réseau virtuel.
 
@@ -154,7 +159,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
  - Pour les clients 32 bits, sélectionnez **Télécharger le package VPN client 32 bits**.
  - Pour les clients 64 bits, sélectionnez **Télécharger le package VPN client 64 bits**.
 1. La création du package client prendra quelques minutes. Une fois le package généré, vous serez en mesure de télécharger le fichier. Le fichier *.exe* que vous téléchargez peut être stocké en toute sécurité sur votre ordinateur local.
-1. Après avoir généré et téléchargé le package client VPN à partir du Portail Azure Classic, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client. Le package client VPN contient des informations de configuration pour configurer le logiciel client VPN intégré à Windows. Le package n’installe aucun logiciel supplémentaire.
+1. Après avoir généré et téléchargé le package client VPN à partir du portail Azure Classic, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client. Le package client VPN contient des informations de configuration pour configurer le logiciel client VPN intégré à Windows. Le package n’installe aucun logiciel supplémentaire.
 
 ### Installer le package de configuration VPN sur le client et démarrer la connexion
 
@@ -191,4 +196,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous voulez d’autres informations sur les réseaux virtuels, consultez la page [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

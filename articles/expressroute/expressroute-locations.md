@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/08/2015"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -133,10 +133,12 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|FR||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe/Moyen-Orient/Afrique|
+|**[Project Leadership](http://www.projectleadership.net/azure)** | FR |
+|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

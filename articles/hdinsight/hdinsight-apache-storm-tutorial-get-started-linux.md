@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -148,25 +148,13 @@ Les exemples [storm-starter](https://github.com/apache/storm/tree/master/example
 
 L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution.
 
-> [AZURE.IMPORTANT]L’interface utilisateur Storm n’est pas disponible publiquement sur Internet et est accessible à l’aide d’un tunnel SSH vers le nœud principal du cluster HDInsight. Pour plus d’informations, consultez [Utiliser un tunnel SSH pour accéder à ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
+Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’interface utilisateur de Storm.
 
-Procédez comme suit pour afficher l’interface utilisateur Storm.
+1. Ouvrez un navigateur web et accédez à https://CLUSTERNAME.azurehdinsight.net/stormui, où __CLUSTERNAME__ est le nom de votre cluster. L’interface utilisateur de Storm s’ouvre.
 
-1. Une fois que vous avez créé un tunnel SSH pour le cluster, ouvrez un navigateur web et entrez l’adresse https://CLUSTERNAME.azurehdinsight.net, où __CLUSTERNAME__ est le nom de votre cluster. L’interface utilisateur web Ambari s’ouvre.
+	> [AZURE.NOTE]Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster.
 
-	> [AZURE.NOTE]Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster. Vous pouvez être invité à vous authentifier deux fois, une fois par le navigateur et une deuxième fois par l’interface utilisateur web Ambari. Utilisez les mêmes informations d’identification pour les deux.
-
-2. Dans la liste des services, à gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __Storm UI__ dans __Quick Links__.
-
-    ![Saisie de l’interface utilisateur Storm dans liens rapides](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    L’interface utilisateur de Storm s’affiche :
-
-    ![l’interface utilisateur Storm](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE]Si vous recevez une erreur indiquant que le serveur est introuvable, vous n’avez peut-être pas établi de tunnel SSH vers le cluster. Pour plus d’informations, consultez [Utiliser un tunnel SSH pour accéder à ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
-
-4. Sous **Résumé de la topologie**, sélectionnez l’entrée **Statistiques** située dans la colonne **Nom**. Vous obtiendrez plus d’informations sur la topologie.
+2. Sous **Résumé de la topologie**, sélectionnez l’entrée **Statistiques** située dans la colonne **Nom**. Vous obtiendrez plus d’informations sur la topologie.
 
 	![Tableau de bord Storm avec les informations sur la topologie Statistiques Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Procédez comme suit pour afficher l’interface utilisateur Storm.
 
 	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
-5. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtiendrez des informations relatives au composant sélectionné.
+3. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtiendrez des informations relatives au composant sélectionné.
 
 	![Tableau de bord Storm avec des informations sur les composants sélectionnés.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Procédez comme suit pour afficher l’interface utilisateur Storm.
 
 	* **Erreurs** : erreurs générées par ce composant.
 
-5. Lorsque vous affichez les détails d’un spout ou d’un bolt, sélectionnez une entrée depuis la colonne **Port** située dans la section **Exécuteurs** pour afficher les détails d’une instance spécifique du composant.
+4. Lorsque vous affichez les détails d’un spout ou d’un bolt, sélectionnez une entrée depuis la colonne **Port** située dans la section **Exécuteurs** pour afficher les détails d’une instance spécifique du composant.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
@@ -245,4 +233,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

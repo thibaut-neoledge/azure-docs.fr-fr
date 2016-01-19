@@ -182,7 +182,7 @@ Si vous souhaitez envoyer des notifications à l’intérieur d’une applicatio
 	![][32]
 
 
-2. [Ajoutez des sorties](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) pour les champs de texte et d’étiquette connectés à votre affichage, et mettez à jour votre définition `interface` pour prendre en charge `UITextFieldDelegate` et `NSXMLParserDelegate`. Ajoutez les trois déclarations de propriété ci-dessous pour aider le support à appeler l'API REST et à analyser la réponse.
+2. [Ajoutez des sorties](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) pour les champs de texte et d’étiquette connectés à votre affichage et mettez à jour votre définition `interface` pour prendre en charge `UITextFieldDelegate` et `NSXMLParserDelegate`. Ajoutez les trois déclarations de propriété ci-dessous pour aider le support à appeler l'API REST et à analyser la réponse.
 
 	Votre fichier ViewController.h doit se présenter comme suit :
 
@@ -324,7 +324,7 @@ Si vous souhaitez envoyer des notifications à l’intérieur d’une applicatio
 		}
 
 
-8. Tout en appuyant sur CTRL, faites glisser le bouton **Send Notification** vers ViewController.m pour ajouter une action nommée **SendNotificationMessage** pour le **Touch Down**. Mettez à jour la méthode à l’aide du code suivant pour envoyer la notification à l’aide de l’API REST.
+8. Tout en appuyant sur CTRL, faites glisser le bouton **Send Notification** vers ViewController.m pour ajouter une action nommée **SendNotificationMessage** pour l’événement de **Touch Down**. Mettez à jour la méthode à l’aide du code suivant pour envoyer la notification à l’aide de l’API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -464,9 +464,9 @@ Si vous rencontrez des problèmes ou si vous avez des recommandations d’améli
 
 Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Pour poursuivre votre formation, nous vous suggérons d’utiliser le didacticiel [Utilisation de Notification Hubs pour transmettre des notifications aux utilisateurs]. Ce didacticiel vous guidera dans la création d’un serveur principal servant à envoyer vos notifications à l’aide de balises.
 
-Si vous souhaitez segmenter vos utilisateurs par groupes d’intérêt, consultez [Utilisation de Notification Hubs pour diffuser les dernières nouvelles].
+Si vous souhaitez segmenter vos utilisateurs par groupes d’intérêt, vous pouvez accéder à [Utilisation de Notification Hubs pour diffuser les dernières nouvelles].
 
-Pour obtenir des informations plus générales sur Notification Hubs, consultez [Vue d’ensemble de Notification Hubs].
+Pour obtenir des informations plus générales sur Notification Hubs, consultez [Recommandations relatives à Notification Hubs].
 
 
 
@@ -498,7 +498,7 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [portail Azure Classic]: https://manage.windowsazure.com/
-[Vue d’ensemble de Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -508,4 +508,4 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 
 [Guide de programmation des notifications locales et push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

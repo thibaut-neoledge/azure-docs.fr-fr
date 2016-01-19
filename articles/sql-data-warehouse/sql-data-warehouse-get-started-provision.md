@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Créer un entrepôt de données SQL
 
@@ -54,12 +54,7 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : 
-  >
-  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. 
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pour cette raison que nous l’appelons *serveur logique*. 
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances. 
-  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pour cette raison que nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 
@@ -98,9 +93,9 @@ Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes pr�
   
         ![Sélectionner un exemple](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
-    - **Groupe de ressources**. Vous pouvez conserver les valeurs par défaut. Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
+    - **Groupe de ressources** Vous pouvez conserver les valeurs par défaut. Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
     
-    - **Abonnement**. Sélectionnez l’abonnement à facturer pour cette base de données.
+    - **Abonnement** Sélectionnez l’abonnement à facturer pour cette base de données.
 
 1. Cliquez sur **Créer** pour créer votre base de données SQL Data Warehouse.
 
@@ -135,4 +130,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

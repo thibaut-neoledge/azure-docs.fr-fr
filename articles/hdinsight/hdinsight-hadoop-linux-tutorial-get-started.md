@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/03/2015"
+   	ms.date="01/13/2016"
    	ms.author="nitinme"/>
 
 # Didacticiel Hadoop : prise en main de Hadoop avec Hive dans HDInsight sur Linux
@@ -52,11 +52,11 @@ Procédez comme suit pour créer un cluster :
 
 4. Si vous avez plusieurs abonnements, cliquez sur l’entrée **Abonnement** pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
 
-5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également cliquer sur **Créer un nouveau**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
+5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également cliquer sur **CRÉER UN NOUVEAU**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
 
 	> [AZURE.NOTE]Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
 
-6. Cliquez sur **Informations d’identification**, puis entrez un mot de passe pour l’utilisateur admin. Vous devez également entrer un **Nom d’utilisateur SSH**. Pour **Type d’authentification SSH**, cliquez sur **MOT DE PASSE** et spécifiez un mot de passe pour l’utilisateur SSH. Cliquez sur **Sélectionner** au bas de l'écran pour enregistrer la configuration des informations d'identification.
+6. Cliquez sur **Informations d’identification**, puis entrez un mot de passe pour l’utilisateur admin. Vous devez également entrer un **Nom d’utilisateur SSH**. Pour **Type d’authentification SSH**, cliquez sur **MOT DE PASSE** et spécifiez un mot de passe pour l’utilisateur SSH. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer la configuration des informations d’identification.
 
 	![Fournir les informations d’identification du cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Fournir les informations d’identification du cluster")
 
@@ -72,7 +72,7 @@ Procédez comme suit pour créer un cluster :
 
 	![Panneau Source de données](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Fournir la configuration de la source de données")
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau **Source de données**.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau **Source de données**.
 
 	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
 
@@ -84,15 +84,15 @@ Procédez comme suit pour créer un cluster :
 
 		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
-	Cliquez sur **Sélectionner** pour enregistrer la configuration de la source de données.
+	Cliquez sur **Sélectionner** pour enregistrer la configuration de source de données.
 
-8. Cliquez sur **Niveaux de tarification du nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
+8. Cliquez sur **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Spécification du nombre de nœuds de cluster")
     
     > [AZURE.IMPORTANT]Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
     >
-    > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez la rubrique [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+    > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de la tarification du nœud.
 
@@ -110,13 +110,13 @@ Une fois la configuration terminée, cliquez sur la vignette du cluster dans le 
 
 Ambari Views met à votre disposition plusieurs utilitaires via une page web. Dans les sections suivantes, vous utiliserez la vue Hive pour exécuter des requêtes Hive sur votre cluster HDInsight.
 
-> [AZURE.NOTE]Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters HDInsight sous Linux. Ambari offre de nombreuses fonctionnalités qui ne seront pas traitées dans ce document. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE]Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters HDInsight sous Linux. Ambari offre de nombreuses fonctionnalités qui ne seront pas traitées dans ce document. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-Pour accéder à Ambari Views à partir du portail Azure, sélectionnez votre cluster HDInsight, puis sélectionnez __Ambari Views__ dans la section __Liens rapides__.
+Pour accéder à Ambari Views à partir du portail Azure, sélectionnez votre cluster HDInsight, puis sélectionnez __Vues Ambari__ dans la section __Liens rapides__.
 
 ![section liens rapides](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-Vous pouvez également accéder directement à Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web (où __CLUSTERNAME__ est le nom de votre cluster HDInsight,), puis sélectionner l’ensemble de carrés dans le menu de la page (en regard du lien __Admin__ du bouton à gauche de la page) pour dresser la liste des vues disponibles. Sélectionnez la __vue Hive__.
+Vous pouvez également accéder directement à Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web (où __CLUSTERNAME__ est le nom de votre cluster HDInsight), puis sélectionner l’ensemble de carrés dans le menu de la page (en regard du lien __Admin__ et du bouton à gauche de la page) pour dresser la liste des vues disponibles. Sélectionnez la __vue Hive__.
 
 ![Sélection des vues ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
@@ -152,7 +152,7 @@ Pour exécuter une requête Hive sur les données incluses avec le cluster, suiv
 
     > [AZURE.IMPORTANT]Certains navigateurs peuvent ne pas actualiser correctement le fichier journal ou les informations de résultats. Si vous exécutez une tâche et que celle-ci semble s’exécuter indéfiniment sans mettre à jour le journal ou renvoyer des résultats, essayez d’utiliser Mozilla FireFox ou Google Chrome.
     
-3. Une fois la requête terminée, la section __Résultats du processus de requête__ affiche les résultats de l’opération. Le bouton __Arrêter l’exécution__ s’affichera de nouveau en vert avec le libellé __Exécuter__. Les informations suivantes devraient s’afficher dans le volet __Résultats__ :
+3. Une fois la requête terminée, la section __Résultats du processus de requête__ affiche les résultats de l’opération. Le bouton __Arrêter l’exécution__ s’affichera de nouveau en vert avec le libellé __Exécuter__. Les informations suivantes devraient s’afficher dans l’onglet __Résultats__ :
 
         sev       cnt
         [ERROR]   3
@@ -163,7 +163,7 @@ Pour exécuter une requête Hive sur les données incluses avec le cluster, suiv
 
 3. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez __Exécuter__. Notez qu’aucun résultat n’est renvoyé à la fin de la tâche. En effet, si vous utilisez le bouton __Exécuter__ alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées seront exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton __Exécuter__, vous devriez obtenir les résultats attendus.
 
-3. Utilisez le bouton __Nouvelle feuille de calcul__ au bas de l’__Éditeur de requête__ pour créer une nouvelle feuille de calcul. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
+3. Utilisez le bouton __Nouvelle feuille de calcul__ au bas de l’__Éditeur de requête__ pour créer une feuille de calcul. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
 
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -186,9 +186,9 @@ Pour exécuter une requête Hive sur les données incluses avec le cluster, suiv
     
     Autres icônes disponibles :
     
-        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
+	* Paramètres : l’icône d’engrenage vous permet de modifier les paramètres Ruche, tels que la configuration des paramètres `hive.execution.engine` ou Tez.
+	* Tez : affiche le graphe orienté acyclique utilisé par Tez pour effectuer la requête. Si vous souhaitez afficher le DAG pour les requêtes que vous avez exécutées par le passé, utilisez plutôt la __vue Tez__.
+	* Notifications : affiche des notifications, telles que « La requête a bien été soumise », ou indique si une erreur s’est produite lors de la requête.
 
 5. Sélectionnez l’icône __SQL__ pour revenir à l’éditeur de requête, puis créez une nouvelle feuille de calcul et entrez la requête suivante :
 
@@ -260,4 +260,4 @@ Si vous voulez en savoir plus sur la création ou la gestion d’un cluster HDIn
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

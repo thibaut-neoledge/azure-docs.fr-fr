@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Créer une application API ASP.NET dans Azure App Service
@@ -56,4 +56,4 @@ Pour plus d’informations sur l’authentification des utilisateurs des applica
 
 Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

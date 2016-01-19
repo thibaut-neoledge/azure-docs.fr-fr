@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="01/12/2016"
 	ms.author="stepsic"/>
 
 # Créer une application logique connectant les services SaaS
@@ -26,7 +26,7 @@
 
 Cette rubrique illustre comment se familiariser avec les [applications logiques App Services](app-service-logic-what-are-logic-apps.md) en quelques minutes. Nous allons suivre un flux de travail qui vous permet d'envoyer un ensemble de tweets qui vous intéressent vers un dossier Dropbox.
 
-Pour activer ce scénario, vous aurez besoin des éléments suivants :
+Pour activer ce scénario, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure
 - un compte Twitter ;
@@ -36,13 +36,13 @@ Pour activer ce scénario, vous aurez besoin des éléments suivants :
 
 ## Obtenir vos connecteurs
 
-Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [Connecteur Dropbox](app-service-logic-connector-dropbox.md) et [Connecteur Twitter](app-service-logic-connector-twitter.md). En raison de restrictions sur l'API Twitter, vous devrez également vous inscrire pour une application gratuite avec Twitter. Pour les créer :
+Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [Connecteur Dropbox](app-service-logic-connector-dropbox.md) et [Connecteur Twitter](app-service-logic-connector-twitter.md). En raison de restrictions sur l’API Twitter, vous devez également vous inscrire pour une application gratuite avec Twitter. Pour les créer :
 
 1. Connectez-vous au portail Azure.
 
 2. Cliquez sur [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) dans l'écran d'accueil et recherchez Twitter (ou [cliquez ici](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
 
-3. Sélectionnez le **Connecteur Twitter** et cliquez sur **Créer**. Vous obtiendrez une vue pour tous vos paramètres. Vous pouvez conserver le nom **Connecteur Twitter**.
+3. Sélectionnez le **Connecteur Twitter** et cliquez sur **Créer**. Vous obtenez une vue pour tous vos paramètres. Vous pouvez conserver le nom **Connecteur Twitter**.
 4. Sélectionnez **Paramètres de package** : vous devrez entrer ici les informations de votre application Twitter. Vous pouvez configurer une application gratuite en suivant ces étapes :
 	1. Accédez à la [Page d'inscription des applications Twitter](http://apps.twitter.com).
 	2. Créez une application.
@@ -188,4 +188,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Comment utiliser le stockage de files d’attente à partir de .NET | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage de files d’attente Microsoft Azure pour créer et supprimer des files d’attente, et insérer, lire, obtenir et supprimer les messages en file d’attente."
+	description="Découvrez comment utiliser le stockage de files d’attente pour créer et supprimer des files d’attente, et insérer, lire, obtenir et supprimer les messages en file d’attente."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # Utilisation du stockage de files d’attente à partir de .NET
 
@@ -246,7 +246,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../websites-dotnet-webjobs-sdk/).
 - Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    - Utilisez le [stockage de table](storage-dotnet-how-to-use-tables.md) pour stocker des données structurées. 
+    - Utilisez le [stockage de table](storage-dotnet-how-to-use-tables.md) pour stocker des données structurées.
     - Utilisez le [stockage d'objets blob](storage-dotnet-how-to-use-blobs.md) pour stocker des données non structurées.
     - Utilisez une [base de données SQL](sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
 
@@ -259,6 +259,5 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

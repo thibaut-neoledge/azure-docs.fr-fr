@@ -2,7 +2,7 @@
 	pageTitle="Prise en main d’Azure Mobile Engagement pour les applications universelles Windows"
 	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications push pour les applications universelles Windows."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -213,4 +213,4 @@ Si l’application était en cours d’exécution, une notification dans l’app
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

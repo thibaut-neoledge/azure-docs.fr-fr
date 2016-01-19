@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Le Portail Azure Classic comprend, sur le tableau de bord Azure Search, une commande **Importer des données** qui vous guide tout au long du processus d’ingestion des données dans Azure Search. La commande s’appuie sur une fonctionnalité d’indexeurs intégrée qui analyse une source de données et utilise l’ensemble de lignes contenues dans cette source de données pour créer et charger des documents.
+Le portail Azure comprend, sur le tableau de bord Azure Search, une commande **Importer des données** qui vous guide tout au long du processus d’ingestion des données dans Azure Search. La commande s’appuie sur une fonctionnalité d’indexeurs intégrée qui analyse une source de données et utilise l’ensemble de lignes contenues dans cette source de données pour créer et charger des documents.
 
 L’Assistant d’importation des données propose une construction en trois phases :
 
@@ -39,7 +39,7 @@ Vous pouvez uniquement importer à partir d’une seule table, d’une vue ou d�
 
 ##Configurer l’importation des données
 
-1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
 	- Dans la barre de lancement, cliquez sur **Accueil**. La page d'accueil comporte des vignettes pour chaque service de votre abonnement. Cliquez sur la vignette pour ouvrir le tableau de bord des services.
@@ -74,4 +74,4 @@ L’opération d’importation des données que vous venez de terminer crée un 
 
 Dans le tableau de bord des services, double-cliquez sur la vignette Indexeur pour extraire une liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

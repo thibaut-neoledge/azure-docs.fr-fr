@@ -20,9 +20,7 @@
 
 Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise le service de recherche hébergé dans le cloud Azure Search pour son expérience de recherche. Ce didacticiel utilise le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exercice, ainsi que l'API REST du service Azure Search.
 
-Pour exécuter cet exemple, vous devez disposer d’un service Azure Search, auquel vous pouvez vous connecter dans le [Portail Azure Classic](https://portal.azure.com).
-
-> [AZURE.TIP]Téléchargez le code source pour ce didacticiel dans les [exemples d'Azure Search .NET](http://go.microsoft.com/fwlink/p/?LinkId=530196). Apprenez à configurer les connexions et envoyer des demandes en consultant la rubrique [Comment utiliser Azure Search à partir d'une application .NET](search-howto-dotnet-sdk.md).
+Pour exécuter cet exemple, vous devez disposer d’un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Pour obtenir des instructions pas-à-pas, consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md).
 
 ## À propos des données
 
@@ -30,44 +28,17 @@ Cet exemple d'application utilise des données de l’[USGS (United States Geolo
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
-> [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](search-limits-quotas-capacity.md).
+> [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez un autre niveau tarifaire, cette limite ne s’applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](search-limits-quotas-capacity.md).
 
-## Créer le service d’Azure Search
-
-1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
-
-2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
-
-     ![][1]
-
-3. Définissez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
-
-     ![][2]
-
-	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour plus d'informations sur les conventions d'affectation des noms.
-
-	- Le **niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
-
-		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
-		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
-
-	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
-
-	- L’**abonnement** vous permet de choisir votre abonnement, si vous en avez plusieurs.
-
-	- L’**emplacement** correspond à la zone géographique du centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition de ressources entre plusieurs centres de données n'est pas prise en charge.
-
-4. Cliquez sur **Créer** pour approvisionner le service.
-
-Surveillez les notifications dans la barre de lancement. Une notification s'affiche lorsque le service est prêt à être utilisé.
 
 <a id="sub-2"></a>
 ## Recherche du nom du service et des clés api de votre service Azure Search ##
 
 Une fois le service créé, revenez au portail pour obtenir l'URL ou `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
-1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service.
-
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search configurés pour votre abonnement.
+3. Sélectionnez le service que vous souhaitez utiliser.
 2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
 
   	![][3]
@@ -794,4 +765,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

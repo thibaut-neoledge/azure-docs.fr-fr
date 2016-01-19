@@ -2,7 +2,7 @@
 	pageTitle="Prise en main d’Azure Mobile Engagement pour iOS dans Swift"
 	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications iOS"
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -209,4 +209,4 @@ Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

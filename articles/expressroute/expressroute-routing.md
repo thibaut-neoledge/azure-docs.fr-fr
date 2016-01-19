@@ -120,30 +120,31 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 
 | **Région géopolitique** | **Région Microsoft Azure (s'applique également à Office 365)** | **Valeur de communauté BGP** |
 |---|---|---|
-| **Amérique du Nord** | | 12076:51201 |
+| **Amérique du Nord** | | |
 | | Est des États-Unis | 12076:51004 |
 | | Est des États-Unis 2 | 12076:51005 |
 | | Ouest des États-Unis | 12076:51006 |
 | | Nord du centre des États-Unis | 12076:51007 |
 | | Sud du centre des États-Unis | 12076:51008 |
 | | Centre des États-Unis | 12076:51009 |
-| **Amérique du Sud** | | 12076:51202 |
+| **Amérique du Sud** | | |
 | | Sud du Brésil | 12076:51014 |
-| **Europe** | | 12076:51203 |
+| **Europe** | | |
 | | Europe du Nord | 12076:51003 |
 | | Europe de l'Ouest | 12076:51002 |
-| **Asie-Pacifique** | | 12076:51204 |
-| | Asie de l'Est | 12076:51010 |
+| **Asie-Pacifique** | | |
+| | Est de l'Asie | 12076:51010 |
 | | Asie du Sud-Est | 12076:51011 |
-| **Japon** | Est du Japon | 12076:51012 |
+| **Japon** | | |
+| | Est du Japon | 12076:51012 |
 | | Ouest du Japon | 12076:51013 |
-| **Australie** | Est de l’Australie | 12076:51015 |
+| **Australie** | | | 
+| | Est de l’Australie | 12076:51015 |
 | | Sud-est de l’Australie | 12076:51016 |
-| **Inde** | Sud de l'Inde | 12076:51019 |
+| **Inde** | | |
+| | Sud de l'Inde | 12076:51019 |
 | | Inde-Ouest | 12076:51018 |
 | | Inde-Centre | 12076:51017 |
-| **Globale** | **Uniquement pris en charge et publié lorsqu’un module complémentaire Premium est activé.** | 12076:51000 |
-| **Diffusion aléatoire** | | 12076:51250 |
 
 Tous les routages publiés par Microsoft seront marqués avec la valeur de communauté appropriée.
 
@@ -173,4 +174,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

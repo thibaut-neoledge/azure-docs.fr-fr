@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="10/21/2015"
@@ -39,7 +39,7 @@ Dans ce didacticiel, vous allez développer une application de console C# qui co
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C+**.
-- **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**. Installez-le avec [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**. Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Outils Data Lake pour Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **Un compte Analytique Data Lake**. Consultez [Créer un compte Analytique Data Lake Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
@@ -255,4 +255,4 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
