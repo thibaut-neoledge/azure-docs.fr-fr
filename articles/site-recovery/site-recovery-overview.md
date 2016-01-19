@@ -34,8 +34,8 @@ Ce tableau récapitule les scénarios de réplication pris en charge par Site R
 
 **REPLICATE** | **RÉPLICATION DEPUIS** | **RÉPLICATION VERS** | **ARTICLE**
 ---|---|---|---
-Machines virtuelles VMware | Serveur VMware local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure.md)
-Serveur Windows/Linux physique | Serveur physique local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure.md)
+Machines virtuelles VMware | Serveur VMware local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure-classic.md)
+Serveur Windows/Linux physique | Serveur physique local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure-classic.md)
 Machines virtuelles Hyper-V | Serveur hôte Hyper-V local dans le cloud VMM | Stockage Azure | [Déployer](site-recovery-vmm-to-azure.md)
 Machines virtuelles Hyper-V | Site Hyper-V local (un ou plusieurs serveurs hôte Hyper-V) | Stockage Azure | [Déployer](site-recovery-hyper-v-site-to-azure.md)
 Machines virtuelles Hyper-V locales| Serveur hôte Hyper-V local dans le cloud VMM | Serveur hôte Hyper-V local dans le cloud VMM dans le centre de données secondaire | [Déployer](site-recovery-vmm-to-vmm.md)
@@ -68,4 +68,4 @@ En savoir plus en consultant [Aide relative à la charge de travail Site Recover
 Une fois que vous avez fini de consulter cette présentation, vous pouvez [en savoir plus](site-recovery-components.md) sur l’architecture Site Recovery.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

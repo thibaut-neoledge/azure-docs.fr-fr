@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Authentification de principal du service pour API Apps dans Azure App Service
@@ -189,7 +189,7 @@ Le code dans ContactsList.API qui appelle CompanyContacts.API est commenté pour
 
 7. Cliquez sur **OK**.
 
-10. Dans le panneau **Authentification/Autorisation**, cliquez sur **Enregistrer**.
+10. Dans le panneau **Authentification / Autorisation**, cliquez sur **Enregistrer**.
  
 11. Dans le [portail Azure Classic](https://manage.windowsazure.com/), accédez à **Azure Active Directory**.
 
@@ -304,4 +304,4 @@ Il s’agit du dernier de la série de didacticiels de prise en main d’API App
 	* [Configuration d’un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md)
 	* [Activation du protocole HTTPS pour un site web Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

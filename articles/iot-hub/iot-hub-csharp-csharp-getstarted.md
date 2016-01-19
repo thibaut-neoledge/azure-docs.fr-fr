@@ -18,6 +18,8 @@
 
 # Didacticiel : prise en main d’Azure IoT Hub
 
+[AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
+
 ## Introduction
 
 Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
@@ -30,7 +32,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 - Utilisez le portail Azure pour créer un hub IoT.
 - Créer une identité de l’appareil dans votre hub IoT.
-- Créer un périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
+- Créer un appareil simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
 
 À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
 
@@ -38,7 +40,7 @@ Ce didacticiel vous explique les procédures suivantes :
 * **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE]L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> [AZURE.NOTE]L’article [Kits de développement logiciel (SDK) IoT Hub][lnk-hub-sdks] fournit des informations sur les différents Kits de développement logiciels que vous pouvez utiliser pour générer les applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
@@ -100,17 +102,17 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le portail, puis créé une identité d’appareil dans le registre d’identités du concentrateur. Vous avez utilisé cette identité d’appareil dans un appareil simulé qui envoie des messages de l’appareil vers le cloud au concentrateur et créé une autre application qui affiche les messages reçus par le concentrateur. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les didacticiels suivants :
 
-- [Envoyer des messages du cloud vers des appareils avec IoT Hub](lnk-c2d-tutorial) montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
-- [Traiter les messages des appareils vers le cloud](lnk-process-d2c-tutorial) montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
-- [Téléchargement de fichiers à partir d’appareils](lnk-upload-tutorial), qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
+- [Envoyer des messages du cloud vers des appareils avec IoT Hub][lnk-c2d-tutorial] montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
+- [Traiter les messages des appareils vers le cloud][lnk-process-d2c-tutorial] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
+- [Téléchargement de fichiers à partir d’appareils][lnk-upload-tutorial], qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
 Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants :
 
-* [Vue d’ensemble d’IoT Hub](lnk-hub-overview)
-* [Guide du développeur IoT Hub](lnk-hub-dev-guide)
-* [Concevoir votre solution IoT Hub](lnk-hub-guidance)
-* [Langages et plateformes d’appareils pris en charge](lnk-supported-devices)
-* [Centre de développement Azure IoT](lnk-dev-center)
+* [Vue d’ensemble d’IoT Hub][lnk-hub-overview]
+* [Guide du développeur IoT Hub][lnk-hub-dev-guide]
+* [Concevoir votre solution IoT Hub][lnk-hub-guidance]
+* [Langages et plateformes d’appareils pris en charge][lnk-supported-devices]
+* [Centre de développement Azure IoT][lnk-dev-center]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -123,8 +125,8 @@ Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-overview]: iot-hub-what-is-iot-hub.md
 [lnk-hub-guidance]: iot-hub-guidance.md
@@ -136,4 +138,4 @@ Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_0114_2016-->

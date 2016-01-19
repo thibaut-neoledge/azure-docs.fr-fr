@@ -49,7 +49,7 @@ Si vous utilisez une version d’Azure PowerShell **antérieure à la version 
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée **FirstDataFactoryPSH**. Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
-	- Exécutez **Login-AzureRmAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.  
+	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	- Exécutez **Select-AzureSubscription<Name of the subscription>** pour sélectionner l’abonnement que vous voulez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 3. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante.
@@ -163,7 +163,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 		    }
 		} 
 
-	Dans l’exemple précédent, vous créez un jeu de données nommé **AzureBlobOutput** et, en spécifiant l’extrait de code JSON, vous créez un jeu de données nommé **AzureBlobInput** qui représente les données d’entrée pour une activité du pipeline. En outre, vous spécifiez que les données d’entrée se trouvent dans le conteneur d’objets blob nommé **adfgetstarted** et dans le dossier nommé **inputdata**.
+	Le code JSON ci-dessus définit un jeu de données nommé **AzureBlobInput**, qui représente les données d’entrée concernant une activité du pipeline. En outre, ce code spécifie que les données d’entrée figurent dans le conteneur d’objets blob nommé **adfgetstarted** et dans le dossier nommé **inputdata**.
 
 	Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
@@ -205,7 +205,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 		  }
 		}
 
-	Dans l’extrait de code JSON, créez un jeu de données appelé **AzureBlobOutput** et spécifiez la structure des données qui seront produites par le script Hive. Indiquez aussi que les résultats sont stockés dans le conteneur d’objets blob appelé **adfgetstarted** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
+	Le code JSON ci-dessus définit un jeu de données nommé **AzureBlobOutput**, qui représente les données de sortie concernant une activité du pipeline. En outre, ce code spécifie que les résultats sont stockés dans le conteneur d’objets blob appelé **adfgetstarted** et dans le dossier nommé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
 
 2. Exécutez la commande suivante dans Azure PowerShell pour créer le jeu de données Data Factory :
 
@@ -276,7 +276,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Félicitations, vous avez réussi à créer votre premier pipeline avec Azure PowerShell.
 
-### <a name="MonitorDataSetsAndPipeline"></a> Surveiller les jeux de données et le pipeline
+### <a name="MonitorDataSetsAndPipeline"></a> Surveillance des jeux de données et du pipeline
 Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller ce qui se passe dans une fabrique de données Azure.
 
 1. Exécutez **Get-AzureRmDataFactory** et affectez le résultat à une variable **$df**.
@@ -342,4 +342,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/21/2015"
+	ms.date="01/07/2016"
 	ms.author="awills"/>
 
 # Application Insights : langages, plateformes et intégrations
@@ -44,6 +44,7 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 + [Applications web Azure et machines virtuelles](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
 + [CRM Online pour Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Docker](app-insights-docker.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE : pour les applications déjà actives](app-insights-java-live.md)
@@ -84,4 +85,4 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

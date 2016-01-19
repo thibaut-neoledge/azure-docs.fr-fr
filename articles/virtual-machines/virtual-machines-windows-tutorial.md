@@ -20,15 +20,11 @@
 # Créer une machine virtuelle exécutant Windows dans le portail Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure, et ce, en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
@@ -66,7 +62,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 2. Saisissez le **Nom** choisi pour la machine virtuelle. Ce nom ne doit pas contenir de caractères spéciaux.
 
-3. Saisissez un **Nom d’utilisateur** d’administration, et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d’utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+3. Saisissez un **Nom d’utilisateur** d’administration, et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d’utilisateur et du mot de passe pour vous connecter à la machine virtuelle.**
 
 4. Si vous possédez plusieurs abonnements, indiquez celui associé à la nouvelle machine virtuelle ainsi qu’un **groupe de ressources** nouveau ou existant et l’**emplacement** d’un centre de données Azure.
 
@@ -116,6 +112,6 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 ## Étapes suivantes
 
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
-* Automatisez le déploiement et la gestion des machines virtuelles et charges de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
+* Automatisez le déploiement et la gestion des machines virtuelles et charges de travail à l’aide des [modèles d’Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

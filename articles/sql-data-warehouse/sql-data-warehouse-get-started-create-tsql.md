@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Créer un entrepôt SQL Data Warehouse avec TSQL | Microsoft Azure"
-	description="Découvrez comment créer un entrepôt Azure SQL Data Warehouse avec TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Créer un entrepôt SQL Data Warehouse avec TSQL | Microsoft Azure"
+   description="Découvrez comment créer un entrepôt Azure SQL Data Warehouse avec TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #Création de SQL Data Warehouse à l’aide TQSL 
 
@@ -51,7 +51,7 @@ Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et S
 + 40960 Go
 + 51200 Go
 
-SERVICE_OBJECTIVE indique le nombre de DWU avec laquelle votre instance démarre avec et acceptera les valeurs suivantes :
+SERVICE\_OBJECTIVE indique le nombre de DWU avec laquelle votre instance démarre avec et acceptera les valeurs suivantes :
 
 + DW100
 + DW200
@@ -76,4 +76,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [page de tarification]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

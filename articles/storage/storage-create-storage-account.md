@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Un compte de stockage Azure vous donne accès aux services Azure Objet blob, Fil
 
 Il existe deux types de comptes de stockage :
 
-- Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers. 
+- Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers.
 - Un compte de stockage Premium prend actuellement en charge uniquement les disques de machine virtuelle Azure. Pour une présentation détaillée du stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
 ## Facturation du compte de stockage
@@ -139,4 +139,4 @@ Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au com
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

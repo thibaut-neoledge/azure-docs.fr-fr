@@ -28,7 +28,7 @@ Dans Azure Search, vous pouvez rapidement créer un prototype d’index dans le 
 
 Pour effectuer cette tâche, assurez-vous que vous disposez d'un service Azure Search opérationnel. Consultez [Créer un service Azure Search dans le portail](search-create-service-portal.md) si vous avez besoin d'aide pour la configuration.
 
-1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
 	- Dans la barre de lancement, cliquez sur **Accueil**. La page d'accueil comporte des vignettes pour chaque service de votre abonnement. Cliquez sur la vignette pour ouvrir le tableau de bord des services.
@@ -105,4 +105,4 @@ Une fois que vous êtes familiarisé avec l'index de base, vous pouvez ajouter u
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

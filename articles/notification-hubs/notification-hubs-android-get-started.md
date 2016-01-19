@@ -129,7 +129,7 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 	    private static Boolean isVisible = false;
 
 
-	Veillez à mettre à jour les trois espaces réservés:
+	Veillez à mettre à jour les trois espaces réservés :
 	* **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment depuis le projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console).
 	* **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail Azure Classic].
 	* **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
@@ -153,10 +153,10 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
             	protected Object doInBackground(Object... params) {
                 	try {
                     	String regid = gcm.register(SENDER_ID);
-                    DialogNotify("Registered Successfully","RegId : " +
+                    ToastNotify("Registered Successfully - RegId : " +
 						hub.register(regid).getRegistrationId());
                 	} catch (Exception e) {
-                    	DialogNotify("Exception",e.getMessage());
+                    	ToastNotify("Registration Exception Message - " + e.getMessage());
                     	return e;
                 	}
                 	return null;
@@ -489,7 +489,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 Si vous souhaitez effectuer les tests sur un émulateur, vérifiez que votre image d’émulateur prend en charge le niveau d’API Google que vous choisissez pour votre application. Si votre image ne prend pas en charge les API Google, l’exception **SERVICE\_NOT\_AVAILABLE** est levée.
 
-Assurez-vous également que vous avez ajouté votre compte Google à l’émulateur en cours d’exécution sous **Paramètres** > **Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION\_FAILED**.
+Assurez-vous également que vous avez ajouté votre compte Google à l’émulateur en cours d’exécution sous **Paramètres**->**Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION\_FAILED**.
 
 ####Test de l'application
 
@@ -550,4 +550,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

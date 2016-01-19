@@ -5,7 +5,7 @@
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="" />
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="12/17/2015"
-      ms.author="robinsh" />
+      ms.author="jutang" />
 
 # Utilisation du stockage de fichiers Azure avec Windows
 
@@ -64,7 +64,7 @@ Le [portail Azure](portal.azure.com) offre une interface utilisateur permettant 
 - Charger et télécharger des fichiers vers et à partir de votre partage de fichiers
 - Surveiller l’utilisation réelle de chaque partage de fichiers
 - Ajuster le quota de taille de partage
-- Obtenir la commande `net use` à utiliser pour monter le partage de fichiers à partir d’un client Windows 
+- Obtenir la commande `net use` à utiliser pour monter le partage de fichiers à partir d’un client Windows
 
 ## Utiliser PowerShell pour gérer un partage de fichiers
 
@@ -96,7 +96,7 @@ Créez ensuite le partage de fichiers nommé `logs`.
 
 Vous disposez désormais d’un partage de fichier dans le stockage de fichiers. Nous allons maintenant ajouter un répertoire et un fichier.
 
-> [AZURE.IMPORTANT]Le nom de votre partage de fichiers doit être en minuscules. Pour plus d’informations sur la dénomination des partages de fichiers et des fichiers, consultez [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> [AZURE.IMPORTANT]Le nom de votre partage de fichiers doit être en minuscules. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Création d’un répertoire dans le partage de fichiers
 
@@ -129,13 +129,13 @@ Depuis la version 0.9.7 d’Azure PowerShell, vous pouvez copier un fichier dan
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montage du partage de fichiers 
+## Montage du partage de fichiers
 
 Avec la prise en charge de SMB 3.0, le stockage de fichiers prend désormais en charge le chiffrement et les handles persistants à partir de clients SMB 3.0. La prise en charge du chiffrement signifie que les clients SMB 3.0 peuvent monter un partage de fichiers à partir de n’importe quel emplacement, y compris :
 
 - Une machine virtuelle Azure se trouvant dans la même région (prise en charge également par SMB 2.1)
 - Une machine virtuelle Azure se trouvant dans une autre région (SMB 3.0 uniquement)
-- Une application de client local (SMB 3.0 uniquement) 
+- Une application de client local (SMB 3.0 uniquement)
 
 Lorsqu’un client accède au stockage de fichiers, la version de SMB utilisée dépend de la version de SMB prise en charge par le système d’exploitation. Le tableau ci-dessous récapitule les versions prises en charge par les différents clients Windows. Pour plus d’informations, consultez << Which version of the SMB protocol blog post>>.
 
@@ -152,7 +152,7 @@ Lorsqu’un client accède au stockage de fichiers, la version de SMB utilisée 
 
 Pour illustrer comment monter un partage de fichiers Azure, nous allons créer une machine virtuelle Azure exécutant Windows, à laquelle nous accéderons à distance pour monter le partage.
 
-1. Créez d’abord une machine virtuelle Azure en suivant les instructions de la rubrique [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial.md).
+1. Tout d’abord, créez une machine virtuelle Azure en suivant les instructions de la rubrique [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial.md).
 2. Ensuite, connectez-vous à distance à la machine virtuelle en suivant les instructions de la rubrique [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server.md).
 3. Ouvrez une fenêtre PowerShell sur la machine virtuelle.
 
@@ -168,14 +168,14 @@ Notez que les informations d’identification sont rendues persistantes seulemen
 
 ### Montage du partage de fichiers à l’aide des informations d’identification conservées
 
-Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers en utilisant la syntaxe suivante. Remplacez `<storage-account-name>` par le nom de votre compte de stockage et `<share-name>` par le nom du partage de stockage de fichiers.
+Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l’aide de la syntaxe suivante. Remplacez `<storage-account-name>` par le nom de votre compte de stockage et `<share-name>` par le nom du partage de stockage de fichiers.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas encore rendues persistantes vos informations d’identification, incluez-les en les passant comme paramètres dans la commande `net use`, comme le montre l’exemple suivant.
+Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas conservé vos informations d’identification, incluez-les en les transmettant comme paramètres dans la commande `net use`, comme illustré dans l’exemple suivant.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
@@ -186,18 +186,18 @@ Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de 
 
 Vous pouvez également monter le partage de fichiers à partir d’un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
-### Montage du partage de fichiers à partir d’un client local exécutant Windows 
+### Montage du partage de fichiers à partir d’un client local exécutant Windows
 
 Pour monter le partage de fichiers à partir d’un client local, vous devez d’abord suivre ces étapes :
 
-- Installer une version de Windows qui prend en charge SMB 3.0. Windows exploitera le chiffrement SMB 3.0 pour transférer les données en toute sécurité entre votre client local et le partage de fichiers Azure dans le cloud. 
-- Ouvrir l’accès Internet pour le port 445 (TCP sortant) sur votre réseau local, comme l’exige le protocole SMB. 
+- Installer une version de Windows qui prend en charge SMB 3.0. Windows exploitera le chiffrement SMB 3.0 pour transférer les données en toute sécurité entre votre client local et le partage de fichiers Azure dans le cloud.
+- Ouvrir l’accès Internet pour le port 445 (TCP sortant) sur votre réseau local, comme l’exige le protocole SMB.
 
 > [AZURE.NOTE]Certains fournisseurs de services Internet bloquent le port 445. Il se peut donc que vous deviez vérifier cela auprès de votre fournisseur de services.
 
 ## Développement avec le stockage de fichiers
 
-Pour travailler avec le stockage de fichiers par programmation, vous pouvez utiliser les bibliothèques clientes de stockage pour .NET et Java ou l’API REST d’Azure Storage. L’exemple de cette section montre comment travailler avec un partage de fichiers en utilisant la [bibliothèque du client de stockage .NET Azure](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) à partir d’une application console simple s’exécutant sur le Bureau.
+Pour travailler avec le stockage de fichiers par programmation, vous pouvez utiliser les bibliothèques clientes de stockage pour .NET et Java ou l’API REST d’Azure Storage. L’exemple présenté dans cette section montre comment travailler avec un partage de fichiers en utilisant la [bibliothèque cliente de stockage .NET Azure](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) à partir d’une application console simple s’exécutant sur le Bureau.
 
 ### Création de l’application console et obtention de l’assembly
 
@@ -239,7 +239,7 @@ Vous pouvez extraire vos informations d’identification enregistrées dans le f
 L’exemple présenté ici montre comment récupérer vos informations d’identification à l’aide de la classe `CloudConfigurationManager` et les encapsuler avec la classe `CloudStorageAccount`. Ajoutez le code suivant à la méthode `Main()` dans program.cs.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ### Accès au partage de fichiers par programmation
 
@@ -472,20 +472,20 @@ Vous pouvez activer les métriques pour File Storage à partir du [portail Azure
 
 ## Forum Aux Questions sur le stockage de fichiers
 
-1. **L’authentification basée sur Active Directory est-elle prise en charge par le stockage de fichiers ?** 
+1. **L’authentification basée sur Active Directory est-elle prise en charge par le stockage de fichiers ?**
 
 	À l’heure actuelle, l’authentification ou les listes de contrôle d’accès basées sur Active Directory ne sont pas prises en charge, mais elles figurent dans notre liste de demandes de fonctionnalités. Pour l’instant, les clés de compte de stockage Azure sont utilisées pour l’authentification auprès du partage de fichiers. Nous offrons néanmoins une solution de contournement utilisant les signatures d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes. À l’aide des SAP, vous pouvez générer des jetons assortis d’autorisations spécifiques valides pendant une période définie. Par exemple, vous pouvez générer un jeton offrant un accès en lecture seule à un fichier donné. Toute personne qui possède ce jeton pendant sa période de validité dispose d’un accès en lecture seule à ce fichier.
 
 	Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers via le protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu.
 
 2. **Les partages de fichiers Azure sont-ils visibles publiquement sur Internet ou sont-ils seulement accessibles à partir d’Azure ?**
- 
-	Tant que le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (*par exemple* Windows 8 ou Windows Server 2012), votre partage de fichiers est disponible via Internet.
+
+	Tant que le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (*par exemple*, Windows 8 ou Windows Server 2012), votre partage de fichiers est disponible via Internet.
 
 3. **Le trafic réseau entre une machine virtuelle Azure et un partage de fichiers est-il considéré comme de la bande passante externe qui est facturée dans le cadre de l’abonnement ?**
 
 	Si le partage de fichiers et la machine virtuelle se trouvent dans des régions différentes, le trafic entre eux sera facturé en tant que bande passante externe.
- 
+
 4. **Si le trafic réseau se fait entre une machine virtuelle et un partage de fichiers se trouvant dans la même région, est-il gratuit ?**
 
 	Oui. Le trafic est gratuit s’il concerne une même région.
@@ -497,7 +497,7 @@ Vous pouvez activer les métriques pour File Storage à partir du [portail Azure
 6. **Un « témoin de partage de fichiers » pour un cluster de basculement constitue-t-il un des cas d’utilisation du stockage de fichiers Azure ?**
 
 	Cela n’est pas pris en charge à l’heure actuelle.
- 
+
 7. **Le stockage de fichiers est répliqué uniquement via LRS ou GRS pour l’instant, n’est-ce pas ?**
 
 	Nous prévoyons de prendre en charge RA-GRS, mais nous n’avons pas encore de calendrier bien défini.
@@ -546,8 +546,8 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 ### Billets de blog :
 
 - [Le stockage de fichiers Azure est désormais mis à la disposition générale](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Présentation approfondie du stockage de fichiers Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Présentation approfondie du stockage de fichiers Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

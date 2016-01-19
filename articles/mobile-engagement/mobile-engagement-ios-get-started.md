@@ -2,7 +2,7 @@
 	pageTitle="Prise en main d’Azure Mobile Engagement pour iOS en Objective C"
 	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications push pour les applications iOS."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -94,7 +94,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-1. Ouvrez le fichier **ViewController.h**, puis importez **EngagementViewController.h** :
+1. Ouvrez le fichier **ViewController.h** et importez **EngagementViewController.h** :
 
     `# import "EngagementViewController.h"`
 
@@ -106,7 +106,7 @@ Pour commencer à envoyer des données et vous assurer que les utilisateurs sont
 
 [AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Activation des notifications Push et de la messagerie in-app
+##<a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
 
 Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
 
@@ -184,4 +184,4 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->
