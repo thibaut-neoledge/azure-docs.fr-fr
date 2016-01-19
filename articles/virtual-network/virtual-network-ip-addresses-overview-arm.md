@@ -128,7 +128,12 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 Le tableau ci-dessous présente les limites imposées sur l’adressage IP dans Azure par région, par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
-||Limite par défaut|Limite maximum| |---|---|---| |Adresses IP publiques (dynamiques)|60|Contacter le support| |Adresses IP publiques (statiques)|20|Contacter le support| |Adresse IP frontale publique par équilibreur de charge|5|Contacter le support| |Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
+||Limite par défaut|Limite maximum|
+|---|---|---|
+|Adresses IP publiques (dynamiques)|60|Contacter le support|
+|Adresses IP publiques (statiques)|20|Contacter le support|
+|Adresse IP frontale publique par équilibreur de charge|5|Contacter le support|
+|Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
 
 Assurez-vous de lire l’ensemble des [limites pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
 
@@ -155,4 +160,4 @@ En résumé, la tarification suivante s’applique aux ressources IP publiques�
 - [Créer une adresse IP privée statique frontale pour un équilibreur de charge interne à l’aide de PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [Créer un pool principal avec des adresses IP privées statiques pour une passerelle d’application à l’aide de PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
