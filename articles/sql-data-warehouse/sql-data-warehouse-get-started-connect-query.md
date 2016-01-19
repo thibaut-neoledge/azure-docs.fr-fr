@@ -34,7 +34,7 @@ Cette procédure pas à pas vous explique comment vous connecter à une base de 
 
 ## Obtenir le nom complet de votre serveur SQL Azure
 
-Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (****servername**.database.windows.net*) contenant la base de données à laquelle vous souhaitez vous connecter.
+Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur ( ***servername**.database.windows.net* ) contenant la base de données à laquelle vous souhaitez vous connecter.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à la base de données à laquelle vous souhaitez vous connecter.
