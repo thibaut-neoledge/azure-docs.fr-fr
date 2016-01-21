@@ -148,7 +148,7 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 
 Une fois les conteneurs créés, l’application peut charger les fichiers destinés à être utilisés par les tâches.
 
-> [AZURE.TIP] [How to use Blob storage from .NET]L’article (./../storage/storage-dotnet-how-to-use-blobs.md) offre un bon aperçu de l’utilisation des conteneurs et des objets blob Azure Storage, et doit constituer l’une de vos premières lectures lorsque vous commencez à travailler avec Batch.
+> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) L’article  offre un bon aperçu de l’utilisation des conteneurs et des objets blob Azure Storage, et doit constituer l’une de vos premières lectures lorsque vous commencez à travailler avec Batch.
 
 ## Étape 2 : charger les fichiers d’application de tâche et les fichiers de données
 
