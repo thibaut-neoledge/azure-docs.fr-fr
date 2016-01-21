@@ -35,7 +35,7 @@ Votre application devra stocker la chaîne de connexion pour authentifier l'acc�
 - Pour une application s’exécutant sur le bureau ou sur un périphérique, vous pouvez stocker la chaîne de connexion dans un fichier app.config ou un autre fichier de configuration. Si vous utilisez un fichier app.config, ajoutez la chaîne de connexion à la section **AppSettings**.
 - Pour une application s’exécutant dans un service cloud Azure, vous pouvez stocker votre chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
 
-Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l'émulateur de stockage et un compte de stockage Windows Azure dans le cloud. Vous ne devez modifier que la chaîne de connexion pour que celle-ci pointe vers votre compte de stockage.
+Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l'émulateur de stockage et un compte de stockage Microsoft Azure dans le cloud. Vous ne devez modifier que la chaîne de connexion pour que celle-ci pointe vers votre compte de stockage.
 
 Vous pouvez utiliser la classe Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) pour accéder à la chaîne de connexion au moment de l'exécution, quel que soit son l’environnement d'exécution de l’application.
 
@@ -122,4 +122,4 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->
