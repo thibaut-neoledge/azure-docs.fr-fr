@@ -74,7 +74,8 @@ Pour activer l'inscription dans votre application, vous devez créer une straté
 4. Le **Nom** détermine le nom de la stratégie d'inscription utilisé par votre application. Par exemple, entrez « SiUp ».
 5. Cliquez sur **Fournisseurs d'identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 
-    > [AZURE.NOTE]Pour les comptes locaux, les stratégies d’inscription de B2C Azure Active Directory utilisent des mots de passe « forts » (ils sont définis sur « Ne jamais expirer »). Consultez [stratégie de mot de passe Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) pour les autres paramètres (actuellement inutilisés par Azure AD B2C).
+    > [AZURE.NOTE]
+    Pour les comptes locaux, les stratégies d’inscription de B2C Azure Active Directory utilisent des mots de passe « forts » (ils sont définis sur « Ne jamais expirer »). Consultez [stratégie de mot de passe Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) pour les autres paramètres (actuellement inutilisés par Azure AD B2C).
 
 6. Cliquez sur **Attributs d’inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l'inscription. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal », « Nouvel utilisateur » et « ID d'objet de l'utilisateur ».
@@ -82,7 +83,8 @@ Pour activer l'inscription dans votre application, vous devez créer une straté
 9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiUp** ».
 10. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur s'ouvre et vous pouvez vivre l'expérience du client consistant à vous inscrire à votre application.
 
-    > [AZURE.NOTE]La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
+    > [AZURE.NOTE]
+    La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
 
 ## Création d'une stratégie de connexion
 
@@ -98,7 +100,8 @@ Pour activer la connexion à votre application, vous devez créer une stratégie
 8. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiIn** ».
 9. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur s'ouvre et vous pouvez vivre l'expérience du client consistant à vous connecter à votre application.
 
-    > [AZURE.NOTE]La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
+    > [AZURE.NOTE]
+    La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
 
 ## Création d'une stratégie de modification de profil
 
@@ -115,6 +118,7 @@ Pour activer la modification de profil dans votre application, vous devez créer
 9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiPe** ».
 10. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur s'ouvre et vous pouvez vivre l'expérience du client consistant à modifier un profil dans votre application.
 
-    > [AZURE.NOTE]La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
+    > [AZURE.NOTE]
+    La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
 
 <!---HONumber=AcomDC_0107_2016-->

@@ -126,7 +126,8 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
+[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 
@@ -144,7 +145,7 @@ Ce paramètre contient les informations d’identification que votre appareil vi
 
 Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Windows et permet aux administrateurs de gérer les sauvegardes de votre appareil StorSimple sous la forme d’instantanés cloud ou locaux.
 
->[AZURE.NOTE]Pour l’appareil virtuel, l’ordinateur hôte Windows est une machine virtuelle Azure.
+>[AZURE.NOTE] Pour l’appareil virtuel, l’ordinateur hôte Windows est une machine virtuelle Azure.
 
 Lorsque vous configurez un appareil dans le Gestionnaire d’instantanés StorSimple, vous devez fournir l’adresse IP et le mot de passe de l’appareil StorSimple pour authentifier votre appareil de stockage. Pour obtenir la procédure détaillée, consultez la rubrique [Configuration du mot de passe de gestionnaire d'instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -167,7 +168,7 @@ Procédez comme suit pour configurer la gestion à distance de l’appareil virt
 
 Après avoir activé la gestion à distance dans la page de configuration de l’appareil StorSimple, vous pouvez utiliser l’accès distant Windows PowerShell pour vous connecter à l’appareil virtuel à partir d’une autre machine virtuelle située dans le même réseau virtuel. Par exemple, vous pouvez vous connecter à partir de la machine virtuelle que vous avez configurée et utilisée pour vous connecter à iSCSI. Dans la plupart des déploiements, vous avez déjà ouvert un point de terminaison public pour accéder à votre machine virtuelle hôte que vous pouvez utiliser pour accéder à l’appareil virtuel.
 
->[AZURE.WARNING]**Pour renforcer la sécurité, nous vous recommandons d’utiliser le protocole HTTPS lors de la connexion aux points de terminaison et de supprimer ces derniers à la fin de la session à distance PowerShell.**
+>[AZURE.WARNING] **Pour renforcer la sécurité, nous vous recommandons d’utiliser le protocole HTTPS lors de la connexion aux points de terminaison et de supprimer ces derniers à la fin de la session à distance PowerShell.**
 
 Vous devez respecter les procédures de la rubrique [Connexion à distance à votre appareil StorSimple](storsimple-remote-connect.md) afin de configurer la communication à distance pour votre appareil virtuel.
 

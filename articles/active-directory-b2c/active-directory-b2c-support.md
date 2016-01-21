@@ -30,6 +30,7 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
 
     ![Support - changement d’annuaires](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. Après un changement d’annuaire, cliquez sur **Aide + support**.
 
     ![Support - support](./media/active-directory-b2c-support/support-support.png)
