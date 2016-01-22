@@ -33,7 +33,7 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 
 ### Câbles
 
-|S. N° |Assurez-vous|Modèle|
+|S. No. |Assurez-vous|Modèle|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
 | 2\.|Cisco|SFP-H10GB-CU2M|
@@ -42,7 +42,7 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 
 ### Commutateurs
 
-|S. N°|Assurez-vous|Modèle|
+|S. No.|Assurez-vous|Modèle|
 |---|---|---|
 | 1\. |Cisco|N3K C3172PQ-10-GE|
 | 2\. |Cisco|N3K-C3048-ZM-F|
@@ -56,7 +56,7 @@ Mellanox a testé les câbles, les commutateurs et les transmetteurs enfichables
 
 Le tableau suivant répertorie les câbles et les modules pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. N° | Vitesse | Modèle | Description | Assurez-vous |
+| S. No. | Vitesse | Modèle | Description | Assurez-vous |
 |--------|-------|-----------------------|--------------------------------------------------------|-----------------------|
 | 1\. | 10 GbE| CAB-SFP-SFP - 1M | câble en cuivre passif SFP+ 10 Gbit/s, 1 m | Arista |
 | 2\. | 10 GbE| CAB-SFP-SFP-2M | câble en cuivre passif SFP+ 10 Gbit/s, 2 m | Arista |
@@ -98,7 +98,7 @@ Le tableau suivant répertorie les câbles et les modules pris en charge par Mel
 
 Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. N° | Vitesse | Modèle | Description | Assurez-vous |
+| S. No. | Vitesse | Modèle | Description | Assurez-vous |
 |--------|-------|-------------|---------------------------------------------------------------------|-------------|
 | 1\. | 10 GbE | 516733-B21 | Commutateur Ethernet Blade 6120XG 10 GbE HP ProCurve | HP |
 | 2\. | 10 GbE | 538113-B21 | Module de passerelle HP 10 GbE (PTM) | HP |
