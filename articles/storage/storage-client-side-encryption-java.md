@@ -248,6 +248,3 @@ Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.
 Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
 <!----HONumber=AcomDC_0107_2016-->
-
-
-

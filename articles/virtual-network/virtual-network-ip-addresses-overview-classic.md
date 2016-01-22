@@ -168,4 +168,3 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 - [Créer une passerelle d’application interne à l’aide de Powershell](application-gateway-ilb.md)
 
 <!----HONumber=AcomDC_0107_2016-->
-
