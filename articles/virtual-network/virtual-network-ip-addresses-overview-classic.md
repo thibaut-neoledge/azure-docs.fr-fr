@@ -23,7 +23,7 @@ Les adresses IP publiques sont utilisées pour la communication avec Internet, y
 
 Les adresses IP privées sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet), un service cloud, et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Modèle de déploiement de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 ## Adresses IP publiques
 Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), les [bases de données SQL](sql-database-technical-overview.md) et [Azure Storage](storage-introduction.md).
@@ -153,7 +153,8 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 |**Adresse IP publique**|Machine virtuelle|Appelée ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)|
 |||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle|
 ||Équilibreur de charge accessible via Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)|
-|||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge| ||||
+|||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge|
+||||
 |**Adresse IP privée**|Machine virtuelle|Appelée adresse IP dédiée|Appelée adresse IP privée|
 |||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle|
 ||Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
@@ -167,3 +168,4 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 - [Créer une passerelle d’application interne à l’aide de Powershell](application-gateway-ilb.md)
 
 <!----HONumber=AcomDC_0107_2016-->
+
