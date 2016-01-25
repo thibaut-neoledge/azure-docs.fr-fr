@@ -121,7 +121,7 @@ Notez que la définition de build que vous créez à partir de ces instructions 
     5.	Sélectionnez **Calculer** > **Machine virtuelle** > **À partir de la galerie**.
     6.	Sélectionnez l’image **Visual Studio Enterprise 2015 avec le Kit de développement logiciel (SDK) Azure 2.7 sur Windows Server 2012 R2**.
 
-        >[AZURE.NOTE]Le Kit de développement logiciel (SDK) Azure n’est pas un composant obligatoire, mais aucune image n’ayant que Visual Studio 2015 installé n’est disponible.
+        >[AZURE.NOTE] Le Kit de développement logiciel (SDK) Azure n’est pas un composant obligatoire, mais aucune image n’ayant que Visual Studio 2015 installé n’est disponible.
 
     7.	Suivez les instructions de la boîte de dialogue pour créer votre machine virtuelle. (Nous vous recommandons de choisir une machine virtuelle de série D pour optimiser les performances du disque et de l’UC.)
 
@@ -140,7 +140,7 @@ Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azur
 
 3.	Si NuGet.config n’existe pas, créez-le avec le contenu suivant. Remplacez `<path to service fabric SDK>` par le chemin d’accès au Kit de développement logiciel (SDK) Service Fabric sur l’ordinateur de build.
 
->[AZURE.NOTE]Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] Par défaut, `<path to service fabric SDK>` correspond à `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
@@ -164,11 +164,11 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 2. Cliquez avec le bouton droit sur le nœud `HKEY_Users\.Default\Environment` et sélectionnez **Nouveau > Valeur de chaîne extensible**.
 3. Entrez `PSModulePath` pour le nom et `%PROGRAMFILES%\WindowsPowerShell\Modules` pour la valeur.
 
->[AZURE.NOTE]Effectuez cette opération *avant* de démarrer l’agent de build ; sinon, la nouvelle variable d’environnement n’est pas détectée.
+>[AZURE.NOTE] Effectuez cette opération *avant* de démarrer l’agent de build ; sinon, la nouvelle variable d’environnement n’est pas détectée.
 
 ### Importer votre certificat Automation
 
-1. Importez le certificat sur votre ordinateur de build. Pour ce faire :
+1.	Importez le certificat sur votre ordinateur de build. Pour ce faire :
     1. Copiez le fichier PFX créé par le script CreateAndUpload-Certificate.ps1 sur votre ordinateur de build.
     2. Ouvrez un compte PowerShell administrateur et exécutez les commandes suivantes à l’aide du mot de passe passé à GenerateCertificate.ps1 précédemment :
 

@@ -52,7 +52,7 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 1.	**Abonnement et comptes de stockage :** vous devez être titulaire d'un abonnement Azure et posséder un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une tâche ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md).
 2.	**Disques durs :** seuls les disques durs internes SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs jusqu'à 6 To sont pris en charge. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l’aide d’un adaptateur USB SATA II/III externe.
 3.	**Chiffrement BitLocker :** toutes les données stockées sur les disques durs doivent être chiffrées à l’aide de BitLocker avec des clés de chiffrement protégées par des mots de passe numériques.
-4.	**Cibles de stockage d’objets blob** : les données peuvent être téléchargées vers ou à partir d’objets blob de blocs ou de pages.
+4.	**Cibles de stockage d’objets blob** : les données peuvent être téléchargées vers ou à partir d’objets blob de blocs ou de pages. 
 5.	**Nombre de tâches :** un client peut avoir au maximum 20 tâches actives par compte de stockage.
 6.	**Taille maximale des tâches :** la taille d'une tâche dépend de la capacité des disques durs utilisés et de la quantité maximale de données qu'un compte de stockage peut accueillir. Chaque tâche peut contenir au maximum 10 disques durs.
 
@@ -65,7 +65,7 @@ Créez une tâche d’importation pour avertir le service Import/Export que vous
 ### Préparation des lecteurs
 
 Avant de créer une tâche d'importation, préparez vos lecteurs à l'aide de l'outil Microsoft Azure Import/Export. Pour plus d'informations sur l'utilisation de l'outil Microsoft Azure Import/Export, consultez la [page de référence sur l'outil Microsoft Azure Import/Export](http://go.microsoft.com/fwlink/?LinkId=329032). Vous pouvez télécharger l'[outil Microsoft Azure Import/Export](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) comme package autonome.
-
+  
 Pour préparer vos lecteurs, effectuez les trois étapes suivantes :
 
 1.	Déterminez les données à importer et le nombre de lecteurs dont vous avez besoin.
@@ -94,7 +94,7 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d’expédition pour ce travail d’importation après envoi de mon colis**, puis terminez le processus d'importation.
 
 7. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -221,8 +221,9 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 **Formatez-vous les lecteurs avant de les renvoyer ?**
 
 - Non. Tous les lecteurs doivent être préparés avec BitLocker.
-
-**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?** - Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
+ 
+**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
+- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
 
 ### Expédition
 
@@ -243,10 +244,10 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 **Depuis et vers quelles destinations puis-je expédier mes données ?**
 
 - Le service Import/Export prend en charge l’importation et l’exportation de données vers et à partir des comptes de stockage situés dans les régions suivantes :
-	- Est des États-Unis
-	- Ouest des États-Unis
-	- États-Unis - partie centrale septentrionale
-	- États-Unis - partie centrale méridionale
+	- Est des États-Unis 
+	- Ouest des États-Unis 
+	- États-Unis - partie centrale septentrionale 
+	- États-Unis - partie centrale méridionale 
 	- Europe du Nord
 	- Europe de l'Ouest
 	- Est de l'Asie

@@ -35,6 +35,8 @@ La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. C
 
 > [AZURE.NOTE]Ce didacticiel crée une machine virtuelle Azure qui est gérée par l’API de groupe de ressources Azure. Pour plus d’informations, consultez la section [Vue d’ensemble du groupe de ressources Azure](resource-group-overview.md).
 
+</br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Sélectionnez l'image
@@ -59,7 +61,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
 
-1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un ** emplacement** de centre de données Azure.
+1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 

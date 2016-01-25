@@ -128,7 +128,12 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 Le tableau ci-dessous présente les limites imposées sur l’adressage IP dans Azure par région, par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
-||Limite par défaut|Limite maximum| |---|---|---| |Adresses IP publiques (dynamiques)|60|Contacter le support| |Adresses IP publiques (statiques)|20|Contacter le support| |Adresse IP frontale publique par équilibreur de charge|5|Contacter le support| |Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
+||Limite par défaut|Limite maximum|
+|---|---|---|
+|Adresses IP publiques (dynamiques)|60|Contacter le support|
+|Adresses IP publiques (statiques)|20|Contacter le support|
+|Adresse IP frontale publique par équilibreur de charge|5|Contacter le support|
+|Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
 
 Assurez-vous de lire l’ensemble des [limites pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
 

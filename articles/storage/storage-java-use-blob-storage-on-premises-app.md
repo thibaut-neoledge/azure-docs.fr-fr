@@ -355,10 +355,10 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 
 - [Kit de développement logiciel (SDK) Azure Storage pour Java][]
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
-- [API REST d’Azure Storage[]
+- [API REST d’Azure Storage][]
 - [Blog de l'équipe Azure Storage][]
 
-  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Création d'un compte de stockage]: storage-create-storage-account.md#create-a-storage-account
   [Gestion des comptes de stockage]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Utilisation du service de stockage d’objets blob à partir de Java]: storage-java-how-to-use-blob-storage.md

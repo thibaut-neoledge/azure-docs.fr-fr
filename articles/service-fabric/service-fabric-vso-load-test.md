@@ -93,7 +93,7 @@ Un projet de test de charge se compose d’un ou plusieurs scénarios décrits p
 
 4. Dans la section **Paramètres d’exécution**, spécifiez la durée du test de charge.
 
-    >[AZURE.NOTE]L’option **Itérations de tests** est disponible uniquement quand vous exécutez un test de charge localement à l’aide de Visual Studio.
+    >[AZURE.NOTE] L’option **Itérations de tests** est disponible uniquement quand vous exécutez un test de charge localement à l’aide de Visual Studio.
 
 5. Dans la section **Emplacement** de **Paramètres d’exécution**, spécifiez l’emplacement où les requêtes de tests de charge sont générées. L’assistant peut vous inviter à vous connecter à votre compte Team Services. Connectez-vous, puis choisissez un emplacement géographique. Quand vous avez terminé, cliquez sur le bouton **Terminé**.
 

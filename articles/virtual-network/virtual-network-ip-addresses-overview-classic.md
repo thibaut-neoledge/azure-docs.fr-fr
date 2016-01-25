@@ -132,7 +132,12 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 Le tableau ci-dessous présente les limites imposées sur l'adressage IP dans Azure par abonnement. Vous pouvez [contacter le support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
-||Limite par défaut|Limite maximale| |---|---|---| |Adresses IP publiques (dynamiques)|5|contacter le support| |Adresses IP publiques réservées|20|contacter le support| |Adresse IP virtuelle publique par déploiement (service cloud)|5|contacter le support| |Adresse IP virtuelle privée (ILB) par déploiement (service cloud)|1|1|
+||Limite par défaut|Limite maximale|
+|---|---|---|
+|Adresses IP publiques (dynamiques)|5|contacter le support|
+|Adresses IP publiques réservées|20|contacter le support|
+|Adresse IP virtuelle publique par déploiement (service cloud)|5|contacter le support|
+|Adresse IP virtuelle privée (ILB) par déploiement (service cloud)|1|1|
 
 Assurez-vous de lire l'ensemble des [limite pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
 
@@ -143,7 +148,16 @@ Dans la plupart des cas, les adresses IP publiques sont gratuites. Il existe un
 ## Différences entre les déploiements Resource Manager et Classic
 Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager et dans le modèle de déploiement classique.
 
-||Ressource|Classic|Resource Manager| |---|---|---|---| |**Adresse IP publique**|Machine virtuelle|Appelée ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)| |||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle| ||Équilibreur de charge accessible via Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)| |||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge| |||| |**Adresse IP privée**|Machine virtuelle|Appelée adresse IP dédiée|Appelée adresse IP privée| |||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle| ||Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
+||Ressource|Classic|Resource Manager|
+|---|---|---|---|
+|**Adresse IP publique**|Machine virtuelle|Appelée ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)|
+|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle|
+||Équilibreur de charge accessible via Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)|
+|||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge|
+||||
+|**Adresse IP privée**|Machine virtuelle|Appelée adresse IP dédiée|Appelée adresse IP privée|
+|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle|
+||Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
 
 ## Étapes suivantes
 - [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail classique.

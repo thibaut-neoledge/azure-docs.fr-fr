@@ -378,7 +378,13 @@ Informations complémentaires :
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Voici les valeurs à utiliser pour les autres fournisseurs : * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	Voici les valeurs à utiliser pour les autres fournisseurs : 
+	* "microsoftaccount" 
+	* "facebook" 
+	* "twitter" 
+	* "google" 
+<br/><br/>
+
 
 * Le second paramètre de la méthode `GetConsentLinkAsync()` est l’URL de rappel vers laquelle redirige le serveur d’autorisation une fois que l’utilisateur s’est connecté à Dropbox et a autorisé l’accès à son compte.
 
@@ -416,7 +422,7 @@ Cette section traite des sujets suivants :
 * [Erreur HTTP 400 au lieu de la page de connexion à Dropbox](#400)
 * [Erreur HTTP 403 lors de l’appel de l’application API](#403)
 
-### <a id="405"></a> Erreur HTTP 405 après la connexion à la passerelle
+### <a id="405"></a>Erreur HTTP 405 après la connexion à la passerelle
 
 Si vous obtenez une erreur HTTP 405 lorsque le code appelle GetConsentLinkAsync, veuillez vérifier que vous avez bien utilisé https://, et non pas http:// dans l’URL de la passerelle.
 

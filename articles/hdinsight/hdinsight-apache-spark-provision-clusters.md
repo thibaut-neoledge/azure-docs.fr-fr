@@ -19,7 +19,7 @@
 
 # Créer des clusters Apache Spark dans HDInsight à l’aide d’options personnalisées (Windows)
 
-> [AZURE.NOTE]HDInsight fournit désormais des clusters Spark sur Linux. Pour plus d’informations sur la création personnalisée d’un cluster Spark sur HDInsight Linux, consultez [Créer des clusters basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] HDInsight fournit désormais des clusters Spark sur Linux. Pour plus d’informations sur la création personnalisée d’un cluster Spark sur HDInsight Linux, consultez [Créer des clusters basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Dans la plupart des scénarios, vous pouvez créer un cluster Spark à l’aide de la méthode de création rapide décrite dans la rubrique [Prendre en main Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). Dans certains scénarios, vous pouvez créer un cluster personnalisé. Par exemple, vous pouvez souhaiter attacher un magasin de métadonnées externe pour que vos métadonnées Hive demeurent persistantes au-delà de la durée de vie d’un cluster, ou utiliser un espace de stockage supplémentaire avec le cluster.
 
@@ -183,7 +183,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 	* **Tableau de bord du cluster** : permet d’ouvrir le panneau Tableau de bord du cluster, d’où vous pouvez lancer le tableau de bord du cluster lui-même ou les blocs-notes Zeppelin et Jupyter.
 
 
-##<a id="powershell"></a>Utilisation d’Azure PowerShell
+##<a id="powershell"></a> Utilisation d’Azure PowerShell
 
 Consultez [Créer des clusters HDInsight](hdinsight-provision-clusters.md#create-using-azure-powershell).
 

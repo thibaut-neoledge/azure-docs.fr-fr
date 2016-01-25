@@ -56,11 +56,12 @@ La bibliothèque cliente prend actuellement en charge le chiffrement des objets 
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
->**Avertissement :** Si vous modifiez ou téléchargez vos propres métadonnées pour l’objet blob, vous devez vous assurer que ces métadonnées sont conservées. Si vous téléchargez les nouvelles métadonnées sans ces métadonnées, la clé de chiffrement de contenu encapsulée, le vecteur d’initialisation et d’autres métadonnées seront perdus et le contenu de l’objet blob ne sera plus jamais récupérable.
+>**Avertissement :** 
+>Si vous modifiez ou téléchargez vos propres métadonnées pour l’objet blob, vous devez vous assurer que ces métadonnées sont conservées. Si vous téléchargez les nouvelles métadonnées sans ces métadonnées, la clé de chiffrement de contenu encapsulée, le vecteur d’initialisation et d’autres métadonnées seront perdus et le contenu de l’objet blob ne sera plus jamais récupérable.
 
 Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **download*/openInputStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes **DownloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
+Le téléchargement d’une plage arbitraire (méthodes **downloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 
 Tous les types d’objets blob (objets blob de blocs, objets blob de pages et objets blob d’ajouts) peuvent être chiffrés/déchiffrés à l’aide de ce schéma.
 
@@ -76,7 +77,8 @@ Au cours du déchiffrement, la clé encapsulée est extraite du message de la fi
 ### Tables  
 La bibliothèque cliente prend en charge le chiffrement des propriétés de l’entité pour les opérations d’insertion et de remplacement.
 
->**Remarque :** la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.
+>**Remarque :** 
+>la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.
 
 Le chiffrement des données d’une table fonctionne de la manière suivante :
 
@@ -90,7 +92,7 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 
 	Notez que seules les propriétés de type chaîne peuvent être chiffrées. Si d’autres types de propriétés doivent être chiffrés, ils doivent être convertis en chaînes. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
 
-	Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [Encrypt] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de demande. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis retourne une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+	Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [Encrypt] \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de demande. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis retourne une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 ### Opérations de traitement par lots  
 Dans les opérations de traitement par lots, la même clé de chiffrement de clés (KEK) est utilisée pour toutes les lignes d’une même opération, car la bibliothèque cliente n’accepte qu’un seul objet d’options (et par conséquent, une seule stratégie/clé de chiffrement de clés) par opération de traitement par lots. Toutefois, la bibliothèque cliente génère en interne un nouveau vecteur d’initialisation (IV) aléatoire et une clé de chiffrement de contenu (CEK) aléatoire par ligne dans le lot. Les utilisateurs peuvent également choisir de chiffrer différentes propriétés pour chaque opération dans le lot en définissant ce comportement dans le programme de résolution de chiffrement.
@@ -104,7 +106,8 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 La bibliothèque cliente de stockage utilise la bibliothèque principale du coffre de clés Key Vault afin de fournir une infrastructure commune de gestion des clés sur Azure. Les utilisateurs ont un avantage supplémentaire : la possibilité d’utiliser la bibliothèque d’extensions du coffre de clés. La bibliothèque d’extensions fournit une fonctionnalité utile basée sur des fournisseurs de clés Symmetric/RSA simples et transparents, en local et dans le cloud, avec capacité d’agrégation et de mise en cache.
 
 ### Interfaces et dépendances  
-Il existe trois packages de coffre de clés : - azure-keyvault-core contient IKey et IKeyResolver. Il s’agit d’un petit package sans dépendances. La bibliothèque cliente de stockage pour Java le définit en tant que dépendance.
+Il existe trois packages de coffre de clés : 
+- azure-keyvault-core contient IKey et IKeyResolver. Il s’agit d’un petit package sans dépendances. La bibliothèque cliente de stockage pour Java le définit en tant que dépendance.
 
 - azure-keyvault contient le client REST du coffre de clés.  
 
@@ -116,12 +119,14 @@ Il existe trois packages de coffre de clés : - azure-keyvault-core contient IK
 
 2.	Utiliser l’identificateur de base du secret comme paramètre pour résoudre la version actuelle du secret pour le chiffrement et mettre en cache ces informations localement. Utiliser CachingKeyResolver pour la mise en cache ; les utilisateurs ne doivent pas implémenter leur propre programme logique de mise en cache.
 
-3.	Utiliser le programme de résolution de mise en cache en tant qu’entrée lors de la création de la stratégie de chiffrement. Vous trouverez plus d’informations concernant l’utilisation du coffre de clés dans les exemples de code de chiffrement. <fix URL>
+3.	Utiliser le programme de résolution de mise en cache en tant qu’entrée lors de la création de la stratégie de chiffrement. 
+Vous trouverez plus d’informations concernant l’utilisation du coffre de clés dans les exemples de code de chiffrement. <fix URL>
 
 ## Meilleures pratiques  
 La prise en charge du chiffrement est disponible uniquement dans la bibliothèque cliente de stockage pour Java.
 
->**Important :** Tenez compte des points importants suivants quand vous utilisez le chiffrement côté client :
+>**Important :** 
+>Tenez compte des points importants suivants quand vous utilisez le chiffrement côté client :
 >  
 >- Pendant la lecture d’un objet blob chiffré ou l’écriture dans un objet blob chiffré, utilisez les commandes de chargement d’objets entiers et de téléchargement d’objets blob entiers/par plage. N’écrivez pas dans un objet blob chiffré à l’aide d’opérations de protocole telles que Put Block, Put Block List, Write Pages, Clear Pages ou Append Block au risque d’endommager l’objet blob chiffré et de le rendre illisible.  
 >
@@ -149,33 +154,32 @@ Créez un objet **BlobEncryptionPolicy** et définissez-le dans les options de r
 
 	// Create the encryption policy to be used for upload and download.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-
+	
 	// Set the encryption policy on the request options.
 	BlobRequestOptions options = new BlobRequestOptions();
 	options.setEncryptionPolicy(policy);
-
+	
 	// Upload the encrypted contents to the blob.
 	blob.upload(stream, size, null, options, null);
-
+	
 	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); 
-	blob.download(outputStream, null, options, null);
+	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); blob.download(outputStream, null, options, null);
 
 ### Chiffrement du service de File d’attente  
 Créez un objet **QueueEncryptionPolicy** et définissez-le dans les options de requête (par API ou au niveau client à l’aide de **DefaultRequestOptions**). Tout le reste est géré par la bibliothèque cliente en interne.
 
 	// Create the IKey used for encryption.
 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+	
 	// Create the encryption policy to be used for upload and download.
 	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-
+	
 	// Add message
 	QueueRequestOptions options = new QueueRequestOptions();
 	options.setEncryptionPolicy(policy);
-
+	
 	queue.addMessage(message, 0, 0, options, null);
-
+	
 	// Retrieve message
 	CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 
@@ -186,11 +190,11 @@ En plus de créer une stratégie de chiffrement et de la définir dans les optio
 
 	// Create the IKey used for encryption.
 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+	
 	// Create the encryption policy to be used for upload and download.
 	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-
-	TableRequestOptions options = new TableRequestOptions()
+	
+	TableRequestOptions options = new TableRequestOptions() 
 	options.setEncryptionPolicy(policy);
 	options.setEncryptionResolver(new EncryptionResolver() {
 	    public boolean encryptionResolver(String pk, String rk, String key) {
@@ -201,15 +205,15 @@ En plus de créer une stratégie de chiffrement et de la définir dans les optio
         	return false;
     	}
 	});
-
+	
 	// Insert Entity
 	currentTable.execute(TableOperation.insert(ent), options, null);
-
+	
 	// Retrieve Entity
 	// No need to specify an encryption resolver for retrieve
-	TableRequestOptions retrieveOptions = new TableRequestOptions()
+	TableRequestOptions retrieveOptions = new TableRequestOptions() 
 	retrieveOptions.setEncryptionPolicy(policy);
-
+	
 	TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
 	TableResult result = currentTable.execute(operation, retrieveOptions, null);
 
@@ -222,7 +226,7 @@ Comme mentionné ci-dessus, si l’entité implémente TableEntity, les méthode
 	public String getEncryptedProperty1 () {
 	    return this.encryptedProperty1;
 	}
-
+	
 	@Encrypt
 	public void setEncryptedProperty1(final String encryptedProperty1) {
 	    this.encryptedProperty1 = encryptedProperty1;
@@ -232,7 +236,9 @@ Comme mentionné ci-dessus, si l’entité implémente TableEntity, les méthode
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et téléchargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
 ## Étapes suivantes  
-Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java) Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault
+Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) 
+Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java) 
+Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault
 
 Consulter la [documentation d’Azure Key Vault](../articles/key-vault-whatis.md)
 

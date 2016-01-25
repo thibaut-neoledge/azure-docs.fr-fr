@@ -88,7 +88,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Technical Settings](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Technical Settings")
 
-    1.  Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
+    1.  Cliquez sur **Télécharger** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
     2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copiez la valeur de **AssertionConsumerService**.  
 
@@ -108,8 +108,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : "**https://qssolutions.topdesk.net*").
-2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : *https://qssolutions.topdesk.net*").
+    2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : *https://qssolutions.topdesk.net/tas/public/login/saml*").
 3.  Cliquez sur **Next**.
 
 10. Dans la page **Configurer l’authentification unique sur TOPdesk - Public**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
@@ -148,7 +148,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Pour charger votre fichier de métadonnées téléchargé, dans **Federation Metadata**, cliquez sur **Browse**.
     2.  Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
     3.  Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
-    4.  Dans la zone de texte **User name attribute**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    4.  Dans la zone de texte **User name attribute**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
     6.  Cliquez sur **Enregistrer**.
 

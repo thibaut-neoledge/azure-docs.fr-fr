@@ -20,14 +20,12 @@
 # Créer une machine virtuelle exécutant Windows dans le portail Azure Classic
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Portail Azure](virtual-machines-windows-tutorial.md)
+- [Portail Azure Classic](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!-- HHTML comment in to break between the selector and the note in the include below-->
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modèle de déploiement de Resource Manager](virtual-machines-windows-tutorial.md).
 
 Ce didacticiel vous montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows dans le portail Azure Classic. Nous allons utiliser une image Windows Server comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau Windows peuvent être accessibles aux abonnés MSDN.
 
@@ -45,7 +43,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 Cette section vous montre comment utiliser l’option **À partir de la galerie** dans le portail classique Azure pour créer la machine virtuelle. Cette option propose davantage de possibilités de configuration que l'option **Création rapide**. Par exemple, si vous voulez associer une machine virtuelle à un réseau virtuel, vous devez utiliser l'option **À partir de la galerie**.
 
-> [AZURE.NOTE]Vous pouvez également faire un essai avec le portail Azure pour créer une machine virtuelle, utiliser les fonctionnalités avancées de surveillance et de diagnostic des machines virtuelles, utiliser le stockage Premium, etc. Bien qu'il existe des recoupements importants entre les options de configuration d'une machine virtuelle disponibles dans les deux portails, ces options ne sont pas identiques. Par exemple, utilisez le portail pour configurer une machine virtuelle avec le stockage Premium.
+> [AZURE.NOTE] Vous pouvez également faire un essai avec le portail Azure pour créer une machine virtuelle, utiliser les fonctionnalités avancées de surveillance et de diagnostic des machines virtuelles, utiliser le stockage Premium, etc. Bien qu'il existe des recoupements importants entre les options de configuration d'une machine virtuelle disponibles dans les deux portails, ces options ne sont pas identiques. Par exemple, utilisez le portail pour configurer une machine virtuelle avec le stockage Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 

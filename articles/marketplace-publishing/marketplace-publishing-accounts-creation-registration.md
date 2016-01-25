@@ -47,7 +47,7 @@ L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine
 ## 2\. Création de votre compte Centre de développement Microsoft
 Le Centre de développement Microsoft est utilisé pour enregistrer les informations de la société en une seule opération. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’entreprise ; vous aurez à fournir des informations personnelles afin de valider votre identité. Vous devrez également utiliser un compte Microsoft partagé pour l’ensemble de l’entreprise et utiliser **le même compte dans le portail de publication Azure**. Vérifiez que votre entreprise ne possède pas déjà de compte Centre de développement Microsoft avant d’essayer d’en créer un. Dans le cadre de ce processus, nous recueillons l’adresse de votre entreprise, ainsi que vos informations bancaires et fiscales. Vous pouvez généralement obtenir ces informations auprès du service financier ou commercial.
 
-> [AZURE.IMPORTANT]Vous devez renseigner les éléments de profil de développeur suivants pour avancer dans les différentes phases de création et de déploiement d’offres.
+> [AZURE.IMPORTANT] Vous devez renseigner les éléments de profil de développeur suivants pour avancer dans les différentes phases de création et de déploiement d’offres.
 
 
 | Profil de développeur | Pour démarrer le projet | Staging | Publier un produit gratuit et un modèle de solution | Publier un produit commercial |
@@ -57,7 +57,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
 |Compte bancaire | Facultatif | Facultatif | Facultatif | Obligatoire |
 
 
-> [AZURE.NOTE]Le concept BYOL (avec apport de sa propre licence) est pris en charge uniquement pour les machines virtuelles et est considéré comme une offre **gratuite**.
+> [AZURE.NOTE] Le concept BYOL (avec apport de sa propre licence) est pris en charge uniquement pour les machines virtuelles et est considéré comme une offre **gratuite**.
 
 
 ### Enregistrer votre compte de société
@@ -79,7 +79,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
 
 6. Sélectionnez votre « Type de compte » : **Individuel** ou **Entreprise**.
 
-    > [AZURE.IMPORTANT]Pour mieux comprendre les types de comptes et choisir celui qui vous convient le mieux, consultez la page [Types de compte, emplacements et frais](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
+    > [AZURE.IMPORTANT] Pour mieux comprendre les types de comptes et choisir celui qui vous convient le mieux, consultez la page [Types de compte, emplacements et frais](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
 
 7. Entrez le **Nom complet de l’éditeur**, en général le nom de votre société.
 
@@ -147,7 +147,11 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
   >[AZURE.TIP]Les politiques concernant la participation sont décrites sur le [site web Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286). 2. Choisissez **Centre de développement**. 3. Choisissez **Profil**. 4. Choisissez une méthode de contact.
+  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous :
+  1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286).
+  2. Choisissez **Centre de développement**.
+  3. Choisissez **Profil**.
+  4. Choisissez une méthode de contact.
 
 
 
@@ -157,7 +161,12 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 ## Étapes suivantes
 Maintenant que votre compte est créé et enregistré, cliquez sur le type d'artefact (machine virtuelle, service de développeur, service de données ou modèle de solution) que vous souhaitez publier sur Azure Marketplace. Visitez l’un des articles suivants pour apprendre à publier votre offre :
 
-|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution | |----|-----|-----|-----|-----| |**Étape 2 : Création de votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| || [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | [Conditions techniques requises pour les services de développeur](marketplace-publishing-dev-service-creation-prerequisites.md) | [Conditions techniques requises pour les services de données](marketplace-publishing-data-service-creation-prerequisites.md)| [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guide de publication d’images de machine virtuelle][link-single-vm] | [Guide de publication de services de développeur](marketplace-publishing-dev-creation.md) | [Guide de publication de services de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) | || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
+|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution |
+|----|-----|-----|-----|-----|
+|**Étape 2 : Création de votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)|
+|| [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | [Conditions techniques requises pour les services de développeur](marketplace-publishing-dev-service-creation-prerequisites.md) | [Conditions techniques requises pour les services de données](marketplace-publishing-data-service-creation-prerequisites.md)| [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) | 
+|| [Guide de publication d’images de machine virtuelle][link-single-vm] | [Guide de publication de services de développeur](marketplace-publishing-dev-creation.md) | [Guide de publication de services de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) | 
+|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
 
 ## Voir aussi
 - [Mise en route : publication d'une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)

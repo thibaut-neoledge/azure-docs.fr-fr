@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="trinadhk;jimpark"/>
+	ms.author="trinadhk"; "jimpark"/>
 
 # Qu’est-ce qu’Azure Backup ?
 Azure Backup est le service qui vous permet de sauvegarder et restaurer vos données dans le cloud Microsoft. Il remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Il protège également les ressources qui s’exécutent dans le cloud. Azure Backup fournit des services de récupération reposant sur une infrastructure de classe mondiale extensible, durable et hautement disponible.
@@ -82,12 +82,12 @@ Le coffre Azure Backup est la cible de stockage par défaut sur tous les composa
 #### Sauvegarde incrémentielle
 Quel que soit le stockage cible (disque, bande, coffre de sauvegarde), chaque composant prend en charge les sauvegardes incrémentielles. Les sauvegardes sont ainsi efficaces en termes de stockage et de temps puisqu’elles se concentrent uniquement sur les modifications incrémentielles apportées depuis la dernière sauvegarde pour les transférer vers le stockage cible. En outre, les sauvegardes sont compressées afin de réduire l’encombrement de stockage.
 
->[AZURE.NOTE]L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Toutes les données de sauvegarde sont copiées du compte de stockage client vers le coffre de sauvegarde dans la même région, sans compression. Bien que cela augmente légèrement le stockage utilisé, le fait de stocker des données sans compression garantir des restaurations plus rapides.
+>[AZURE.NOTE] L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Toutes les données de sauvegarde sont copiées du compte de stockage client vers le coffre de sauvegarde dans la même région, sans compression. Bien que cela augmente légèrement le stockage utilisé, le fait de stocker des données sans compression garantir des restaurations plus rapides.
 
 #### Déduplication
 La déduplication est prise en charge par SCDPM et Azure Backup Server lorsqu’ils sont [déployés au sein d’une machine virtuelle Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La déduplication intervient au niveau de l’hôte grâce à la fonction de déduplication de Windows Server (sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle).
 
->[AZURE.WARNING]La déduplication n’est en revanche pas disponible dans Azure pour tous les composants d’Azure Backup. Lorsque SCDPM et Azure Backup Server sont déployés dans Azure, les disques de stockage attachés à la machine virtuelle ne peuvent pas être dédupliqués.
+>[AZURE.WARNING] La déduplication n’est en revanche pas disponible dans Azure pour tous les composants d’Azure Backup. Lorsque SCDPM et Azure Backup Server sont déployés dans Azure, les disques de stockage attachés à la machine virtuelle ne peuvent pas être dédupliqués.
 
 ### Sécurité
 
@@ -98,7 +98,7 @@ La déduplication est prise en charge par SCDPM et Azure Backup Server lorsqu’
 
 L’ensemble du trafic de sauvegarde entre vos serveurs et le coffre Azure Backup est chiffré à l’aide du protocole AES256 et les données sont envoyées via une connexion HTTPS sécurisée. Les données de sauvegarde sont également stockées dans le coffre de sauvegarde sous une forme chiffrée. Seul le client détient la phrase secrète permettant de déverrouiller ces données ; Microsoft ne peut à aucun moment déchiffrer les données de sauvegarde.
 
->[AZURE.WARNING]La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
+>[AZURE.WARNING] La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
 
 Pour la sauvegarde de machines virtuelles Azure, vous devez configurer explicitement le chiffrement *dans* la machine virtuelle. Utilisez BitLocker sur les machines virtuelles Windows et dm-crypt sur les machines virtuelles Linux. Azure Backup ne chiffre pas automatiquement les données de sauvegarde via ce chemin d’accès.
 

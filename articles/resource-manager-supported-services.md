@@ -35,7 +35,9 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Batch | Oui | Oui | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics Lifecycle Services | Oui | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (version préliminaire) | Oui | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Machines virtuelles (classique) | Limité | Partiel (voir ci-dessous) | - | - | | Remote App | Non | - | - | - | | Cloud Services (classique) | Oui (voir ci-dessous) | Partiel (voir ci-dessous) | - | - | - |
+| Machines virtuelles (classique) | Limité | Partiel (voir ci-dessous) | - | - |
+| Remote App | Non | - | - | - |
+| Cloud Services (classique) | Oui (voir ci-dessous) | Partiel (voir ci-dessous) | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -93,7 +95,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Stream Analytics | Oui | | [Stream Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Oui | Oui | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data Factory | Oui | Oui | [Data Factory REST](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Machine Learning | Non | - | - | - | | Data Catalog | Non | - | - | - |
+| Machine Learning | Non | - | - | - |
+| Data Catalog | Non | - | - | - |
 
 ## Média et CDN
 
@@ -109,7 +112,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | BizTalk Services | Oui | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Oui | | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Non | - | - | - | | Site Recovery | Non | - | - | - |
+| Backup | Non | - | - | - |
+| Site Recovery | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 
