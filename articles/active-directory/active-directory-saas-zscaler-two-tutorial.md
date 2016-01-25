@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à Zscaler Two
@@ -160,7 +160,7 @@ Pour pouvoir se connecter à Zscaler Two, les utilisateurs d’Azure AD doivent
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Connectez-vous au client **Zscaler**.
+1.  Connectez-vous au locataire **Zscaler**.
 
 2.  Cliquez sur **Administration**.
 
@@ -170,7 +170,7 @@ Pour pouvoir se connecter à Zscaler Two, les utilisateurs d’Azure AD doivent
 
     ![Ajouter](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Ajouter")
 
-4.  Dans l’onglet **Users**, cliquez sur **Add**.
+4.  Sous l’onglet **Users**, cliquez sur **Add**.
 
     ![Ajouter](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Ajouter")
 
@@ -178,7 +178,7 @@ Pour pouvoir se connecter à Zscaler Two, les utilisateurs d’Azure AD doivent
 
     ![Ajouter un utilisateur](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "Ajouter un utilisateur")
 
-    1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte Azure AD valide que vous souhaitez approvisionner.
+    1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte AAD valide que vous souhaitez approvisionner.
     2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Two pour approvisionner des comptes d’utilisateurs Azure AD.
@@ -195,10 +195,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-zscaler-two-tutorial/IC800212.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "Oui")
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ La table suivante décrit les paramètres de stratégie de mot de passe disponib
 | Expiration du mot de passe | <ul><li>Valeur par défaut : **false** jours (indique que la date d'expiration de mot de passe est activée) </li><li>La valeur peut être configurée pour des comptes d'utilisateur individuels à l'aide de l'applet de commande Set-MsolUser. </li></ul> |
 | Historique du mot de passe | Le dernier mot de passe ne peut pas être réutilisé. |
 | Durée de l'historique du mot de passe | Toujours |
-| Verrouillage de compte | <ul><li>Après 10 échecs de tentatives de connexion (mot de passe incorrect), l'utilisateur doit renseigner un dialogue CAPTCHA dans le cadre de l'ouverture de session.</li><li>Après un échec de 10 tentatives supplémentaires (mot de passe incorrect) de connexion et un renseignement correct de la boîte de dialogue CAPTCHA, l'utilisateur est verrouillé pour une certaine période. Une saisie de mots de passe incorrects supplémentaires entraîne une augmentation exponentielle de la période de verrouillage de l'utilisateur.</li></ul> |
+| Verrouillage de compte | Au bout de 10 tentatives de connexion infructueuses (mot de passe incorrect), l’utilisateur est bloqué pendant une minute. La durée de blocage de l’utilisateur augmente au fil des nouvelles tentatives de connexion incorrectes. |
 
 
 ## Étapes suivantes
@@ -60,4 +60,4 @@ La table suivante décrit les paramètres de stratégie de mot de passe disponib
 * [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
 * [En savoir plus](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

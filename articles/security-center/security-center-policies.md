@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="01/05/2016"
    ms.author="yurid"/>
 
-#Définition des stratégies de sécurité dans le Centre de sécurité Azure
+# Définition des stratégies de sécurité dans le Centre de sécurité Azure
 Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité Azure en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
 
 > [AZURE.NOTE]Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
@@ -24,18 +24,18 @@ Ce document est conçu pour vous aider à configurer des stratégies de sécurit
 ## Qu’est-ce que le Centre de sécurité Azure ?
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
-##Que sont les stratégies de sécurité ?
+## Que sont les stratégies de sécurité ?
 Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement spécifique. Dans le Centre de sécurité Azure, vous devez définir des stratégies pour vos abonnements Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
- 
+
 Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications dont les données sont réglementées (par exemple, les informations d’identification personnelle (PII)) peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans le Centre de sécurité Azure déterminent les recommandations de sécurité et la surveillance qui vous aideront à identifier les vulnérabilités potentielles et à éliminer les menaces.
 
-##Définition des stratégies de sécurité
+## Définition des stratégies de sécurité
 
 Les stratégies de sécurité sont configurées pour chaque abonnement. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Pour configurer des stratégies de sécurité dans le Centre de sécurité Azure, suivez les étapes ci-dessous :
 
 1. Cliquez sur la vignette **Stratégie de sécurité** dans le tableau de bord du Centre de sécurité Azure.
- 
-2. Dans le panneau **Stratégie de sécurité - Définir une stratégie par abonnement** qui s’ouvre sur la droite, sélectionnez l’abonnement pour lequel vous voulez activer la stratégie de sécurité.
+
+2. Dans le panneau **Stratégie de sécurité – Définir une stratégie par abonnement** qui s’ouvre sur la droite, sélectionnez l’abonnement pour lequel vous voulez activer la stratégie de sécurité.
 
     ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig0.png)
 
@@ -43,8 +43,9 @@ Les stratégies de sécurité sont configurées pour chaque abonnement. Pour mod
 
     ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig1.png)
 
-    
 4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
+
+    >[AZURE.NOTE]Il est fortement recommandé d’activer la collecte des données pour chacun de vos abonnements, car cela garantit que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez l’activer pour l’abonnement ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
 
 5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la figure ci-dessous peut s’afficher quand vous ouvrez la **stratégie de sécurité** :
 
@@ -62,7 +63,7 @@ Les stratégies de sécurité sont configurées pour chaque abonnement. Pour mod
 
 9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Le tableau ci-dessous explique à quoi servent les options :
 
-    | Stratégie | État : Activé |
+| Stratégie | État : Activé |
 |----- |-----|
 | Mises à jour du système | Récupère la liste des mises à jour disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle) toutes les 12 heures et recommande l’installation des mises à jour manquantes sur les machines virtuelles Windows. |
 | Règles de ligne de base | Analyse l’ensemble des machines virtuelles prises en charge toutes les 12 heures pour identifier les configurations de système d’exploitation susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des modifications de la configuration pour résoudre ces problèmes. Pour plus d’informations sur les configurations surveillées, consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
@@ -73,16 +74,15 @@ Les stratégies de sécurité sont configurées pour chaque abonnement. Pour mod
 | Audit SQL | Recommande l’activation de l’audit de l’accès aux serveurs et aux bases de données SQL Azure à des fins de conformité, de détection avancée et d’investigation. |
 | Chiffrement transparent des données SQL | Recommande l’activation du chiffrement au repos pour les bases de données SQL Azure, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Ainsi, même en cas de violation des données, celles-ci ne pourront pas être lues. |
 
-10. Une fois toutes les options configurées, cliquez sur **Enregistrer** pour valider les modifications.
-
-> [AZURE.NOTE]L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez l’activer pour l’abonnement ou pour une seule machine virtuelle. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
+Une fois toutes les options configurées, cliquez sur **Enregistrer** pour valider les modifications.
 
 ## Étapes suivantes
+
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : Forum Aux Questions concernant l’utilisation de ce service
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

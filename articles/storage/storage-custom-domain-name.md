@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Configuration d’un nom de domaine pour les données d’objets blob d’un compte de stockage | Microsoft Azure" 
-	description="Découvrez comment configurer un domaine personnalisé pour accéder à des données d’objets blob dans un compte de stockage Azure." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Configurer un nom de domaine pour un point de terminaison Blob Storage | Microsoft Azure"
+	description="Découvrez comment mapper un domaine d’utilisateur personnalisé au point de terminaison Blob Storage pour un compte Azure Storage."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/07/2015"
 	ms.author="tamram"/>
 
 
-# Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure
+# Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut du service blob est https://<*mystorageaccount*>.blob.core.windows.net. Si vous mappez un domaine et un sous-domaine personnalisés, tels que **www.contoso.com** au point de terminaison des objets blob de votre compte de stockage, vos utilisateurs peuvent également accéder aux données d’objets blob de votre compte de stockage à l’aide de ce domaine.
+Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de Blob Storage est https://<*mon\_compte\_stockage*>.blob.core.windows.net. Si vous mappez un domaine et un sous-domaine personnalisés, tels que **www.contoso.com** au point de terminaison des objets blob de votre compte de stockage, vos utilisateurs peuvent également accéder aux données d’objets blob de votre compte de stockage à l’aide de ce domaine.
 
 
 > [AZURE.NOTE]Les procédures décrites ici s’appliquent aux comptes de stockage Azure. Pour les services cloud, consultez la page <a href = "/develop/net/common-tasks/custom-dns/">Configuration d’un nom de domaine personnalisé pour un service cloud Azure</a>. Pour les sites web, consultez la page <a href="/develop/net/common-tasks/custom-dns-web-site/">Configuration d’un nom de domaine personnalisé pour un site web Azure</a>.
@@ -44,7 +44,7 @@ Cette procédure permet d’enregistrer un domaine personnalisé si vous n’êt
 
 Si votre domaine personnalisé prend en charge une application qui ne peut supporter une interruption de service, utilisez la procédure décrite à la rubrique <a href="#register-asverify">Enregistrement d’un domaine personnalisé pour votre compte de stockage à l’aide du sous-domaine intermédiaire asverify</a>.
 
-Pour configurer un nom de domaine personnalisé, vous devez créer un enregistrement CNAME auprès de votre bureau d’enregistrement de domaine. L'enregistrement CNAME spécifie un alias pour un nom de domaine ; dans cet exemple, il mappe l'adresse de votre domaine personnalisé au point de terminaison du service BLOB pour votre compte de stockage.
+Pour configurer un nom de domaine personnalisé, vous devez créer un enregistrement CNAME auprès de votre bureau d’enregistrement de domaine. L’enregistrement CNAME spécifie un alias pour un nom de domaine ; dans ce cas, il mappe l’adresse de votre domaine personnalisé au point de terminaison Blob Storage de votre compte de stockage.
 
 Chaque bureau d'enregistrement possède sa propre méthode de spécification des enregistrements CNAME, même si le fonctionnement général reste souvent similaire. Notez que de nombreuses formules de base pour l'enregistrement de domaine n'offrent pas la configuration DNS. Avant de pouvoir créer l'enregistrement CNAME, vous devrez peut-être mettre à niveau votre formule d'enregistrement de domaine.
 
@@ -115,6 +115,5 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 ## Ressources supplémentaires
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -21,7 +21,7 @@
 
 Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un jeu de machines virtuelles identiques. Avec toutes les machines virtuelles configurées de la même façon, les jeux de mise à l’échelle de machine virtuelle sont conçus pour prendre en charge la mise à niveau automatique réelle (aucun réapprovisionnement de machine virtuelle n’est requis) et en tant que tel, facilite la création de services à grande échelle ciblant les grands calculs, big data et les prises en charge en conteneurs.
 
-[AZURE.INCLUDE [Virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [Virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 Pour les applications nécessitant une mise à l’échelle des ressources de calcul internes et externes, les opérations de mise à l’échelle sont équilibrées de façon implicite sur plusieurs domaines d’erreur et de mise à jour. Pour accéder à une présentation des jeux de mise à l’échelle de machines virtuelles, reportez-vous aux récentes [Annonces de blog Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
 
@@ -153,4 +153,4 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 **A.** Oui. Un ensemble de mise à l’échelle est un ensemble haute disponibilité implicite avec 3 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les jeux de mise à l’échelle de machine virtuelle peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un jeu de mise à l’échelle est un ensemble de disponibilité unique.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

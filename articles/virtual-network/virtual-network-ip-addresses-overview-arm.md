@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Adresses IP dans Azure
@@ -23,7 +23,7 @@ Les adresses IP publiques sont utilisées pour la communication avec Internet, y
 
 Les adresses IP privées sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modèle de déploiement classique](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
 Si vous êtes familiarisé avec le modèle de déploiement classique, consultez l’article [Différences d’adressage IP entre les déploiements classiques et Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -128,12 +128,7 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 Le tableau ci-dessous présente les limites imposées sur l’adressage IP dans Azure par région, par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
-||Limite par défaut|Limite maximum|
-|---|---|---|
-|Adresses IP publiques (dynamiques)|60|Contacter le support|
-|Adresses IP publiques (statiques)|20|Contacter le support|
-|Adresse IP frontale publique par équilibreur de charge|5|Contacter le support|
-|Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
+||Limite par défaut|Limite maximum| |---|---|---| |Adresses IP publiques (dynamiques)|60|Contacter le support| |Adresses IP publiques (statiques)|20|Contacter le support| |Adresse IP frontale publique par équilibreur de charge|5|Contacter le support| |Adresse IP frontale privée par équilibreur de charge|1|Contacter le support|
 
 Assurez-vous de lire l’ensemble des [limites pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
 
@@ -152,12 +147,8 @@ En résumé, la tarification suivante s’applique aux ressources IP publiques�
 	- L’utilisation est calculée en fonction du nombre total d’adresses IP publiques statiques dans l’abonnement.
 
 ## Étapes suivantes
-- [Déployer une machine virtuelle avec une adresse IP publique statique](virtual-network-deploy-static-pip-arm-template.md)
-- [Créer une adresse IP publique pour un équilibreur de charge accessible via Internet à l’aide de l’interface de ligne de commande Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Créer une adresse IP publique pour une passerelle d’application à l’aide de PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Créer une adresse IP publique pour une passerelle VPN à l’aide de PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Déployer une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-arm-pportal.md)
-- [Créer une adresse IP privée statique frontale pour un équilibreur de charge interne à l’aide de PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Créer un pool principal avec des adresses IP privées statiques pour une passerelle d’application à l’aide de PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Déployez une machine virtuelle avec une adresse IP publique statique](virtual-network-deploy-static-pip-arm-portal.md) à l’aide du portail Azure.
+- Découvrez comment [déployer une machine virtuelle avec une adresse IP publique statique à l’aide d’un modèle](virtual-network-deploy-static-pip-arm-template.md).
+- [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-arm-pportal.md) à l’aide du portail Azure.
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -157,4 +157,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

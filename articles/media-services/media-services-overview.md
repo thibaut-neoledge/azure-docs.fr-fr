@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/12/2016"
 	ms.author="juliako"/>
 
 #Vue d’ensemble d’Azure Media Services et scénarios courants
@@ -29,7 +29,7 @@ Vous pouvez choisir de diffuser votre contenu en direct ou de distribuer du cont
 Pour créer des solutions Media Services, vous pouvez utiliser les composants suivants :
 
 - [API REST Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Un des SDK clients disponibles : [SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK Azure pour Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services pour Node.js](https://github.com/fritzy/node-azure-media), [SDK Azure PHP](https://github.com/Azure/azure-sdk-for-php)
+- Un des SDK clients disponibles : [SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK Azure pour Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services pour Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [SDK Azure PHP](https://github.com/Azure/azure-sdk-for-php)
 - Outils existants : [Portail Azure Classic](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -37,7 +37,7 @@ Pour créer des solutions Media Services, vous pouvez utiliser les composants su
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Affiche
@@ -61,7 +61,7 @@ Pour commencer à utiliser Azure Media Services, vous devez disposer des éléme
 Pour plus d’informations, consultez [Concepts](media-services-concepts.md).
 
 
-##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarios courants
+##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
 
 Cette section décrit les scénarios courants et fournit des liens vers des rubriques pertinentes. Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans la distribution de contenu à la demande.
 
@@ -171,7 +171,7 @@ Le schéma suivant illustre les principales parties de la plateforme AMS impliqu
 
 ![Flux de travail en direct][live-overview1]
 
-Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -231,4 +231,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

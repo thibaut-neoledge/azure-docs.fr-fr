@@ -3,7 +3,7 @@
 
 ## Envoi d’un URI d’objet blob Azure à l’appareil simulé
 
-Dans cette section, vous allez modifier l’application console **SendCloudtoDevice** que vous avez créée dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] pour inclure un URI d’objet blob Azure avec une signature d’accès partagé. Cela permet au serveur principal d’accorder l’accès en écriture à l’objet blob uniquement au destinataire du message du cloud vers l’appareil.
+Dans cette section, vous allez modifier l’application console **SendCloudtoDevice** que vous avez créée dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] pour inclure un URI d’objet blob Azure avec une signature d’accès partagé. Cela permet au serveur cloud principal d’accorder l’accès en écriture à l’objet blob uniquement au destinataire du message du cloud vers l’appareil.
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **SendCloudtoDevice**, puis sur **Gérer les packages NuGet**. 
 
@@ -43,7 +43,7 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
             return blob.Uri + sasBlobToken;
         }
 
-    Cette méthode crée une nouvelle référence d’objet blob et génère un URI de signature d’accès partagé, comme décrit dans [Création et utilisation d’une signature d’accès partagé avec le service BLOB](https://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Notez que la méthode ci-dessus génère un URI de signature qui est valide pendant 24 heures. Si l’appareil cible nécessite plus de temps pour télécharger le fichier (par exemple, il se connecte rarement, il dispose d’une connectivité qui n’est pas fiable pour télécharger un fichier volumineux), vous pouvez envisager des délais d’expiration plus longs pour les signatures.
+    Cette méthode crée une référence d’objet blob et génère un URI de signature d’accès partagé, comme décrit dans [Créer et utiliser une signature d’accès partagé avec Blob Storage](https://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Notez que la méthode ci-dessus génère un URI de signature qui est valide pendant 24 heures. Si l’appareil cible nécessite plus de temps pour télécharger le fichier (par exemple, il se connecte rarement, il dispose d’une connectivité qui n’est pas fiable pour télécharger un fichier volumineux), vous pouvez envisager des délais d’expiration plus longs pour les signatures.
 
 5. Modifiez **SendCloudToDeviceMessageAsync** de la façon suivante :
 
@@ -70,4 +70,4 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -29,7 +29,7 @@ Cette rubrique est idéale pour commencer une connectivité client avec Azure SQ
 ## Recommandations indépendantes des technologies
 
 
-- [Instructions pour la connexion à la base de données SQL Azure par programme](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Les éléments abordés sont les suivants :
+- [Instructions pour se connecter à Azure SQL Database par programmation](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Les éléments abordés sont les suivants :
  - [Ports et pare-feu](sql-database-configure-firewall-settings.md)
  - Chaînes de connexion
 - [Gestion des ressources de la Base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx) - Les éléments abordés sont les suivants :
@@ -85,7 +85,7 @@ D’autres informations sont disponibles dans la rubrique [Utilisateurs de base 
 - Si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11999-11000 et 14000-14999 sur la machine virtuelle. Pour plus d’informations, cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-- Pour gérer les *erreurs temporaires*, ajoutez une logique de [*nouvelle tentative*](#TransientFaultsAndRetryLogicGm) à vos programmes clients qui interagissent avec Base de données SQL Azure.
+- Pour gérer les *erreurs temporaires*, ajoutez une logique de [*nouvelle tentative*](#TransientFaultsAndRetryLogicGm) à vos programmes clients qui interagissent avec Azure SQL Database.
 
 
 ### Pool de connexions
@@ -103,7 +103,7 @@ Sauf si votre programme doit réutiliser immédiatement la connexion pour une au
 ### Ports autres que simplement 1433 dans V12
 
 
-Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez <br/> [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez <br/> [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 La section suivante contient plus d’informations sur la logique de nouvelle tentative et la gestion des erreurs temporaires.
@@ -125,10 +125,12 @@ Si votre programme client possède une logique de nouvelle tentative, il peut te
 
 Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
 
-Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 
-Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentative, consultez [Exemples de code de démarrage rapide du client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+Pour obtenir des exemples de code qui illustrent la logique de nouvelle tentative, consultez :
+
+- [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### Numéros d’erreur pour les erreurs temporaires
@@ -138,11 +140,17 @@ Quand une erreur se produit avec Base de données SQL, une exception [SqlExcepti
 
 
 - [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md#bkmk_connection_errors)
- - Sa section **Erreurs temporaires, erreurs de perte de connexion** est une liste des erreurs temporaires qui justifient une nouvelle tentative automatique.
+ - Sa section **Erreurs temporaires, erreurs de perte de connexion** répertorie les erreurs temporaires qui justifient une nouvelle tentative automatique.
  - Par exemple, faites une nouvelle tentative si vous obtenez le numéro d’erreur 40613, qui correspond à peu près à <br/>*La base de données « ma\_base\_de\_données » sur le serveur « serveur » n’est pas disponible actuellement.*
 
 
-Pour plus d’informations, consultez [Développement de base de données SQL Azure : Rubriques de](http://msdn.microsoft.com/library/azure/ee621787.aspx) – [Résolution des problèmes de connexion à la base de données Azure SQL](http://support.microsoft.com/kb/2980233/).
+Pour plus d’informations, consultez :
+
+- [Développement de base de données SQL Azure : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -165,8 +173,8 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 - [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**Bibliothèques de pilotes :** pour plus d’informations sur les bibliothèques de pilotes de connexion, y compris les versions recommandées, consultez :
+**Bibliothèques de pilotes :** pour plus d’informations sur les bibliothèques de pilotes de connexion, ainsi que sur les versions recommandées, consultez :
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

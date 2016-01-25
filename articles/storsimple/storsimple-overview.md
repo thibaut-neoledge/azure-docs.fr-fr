@@ -101,7 +101,7 @@ L’appareil virtuel présente les caractéristiques suivantes :
 
 Avec la solution Update 2 et version ultérieure, le périphérique virtuel StorSimple est disponible en deux modèles : l'appareil 8010 (anciennement appelé le modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Azure Premium Storage stocke les données sur des disques SSD, alors qu’avec un stockage standard les données sont stockées sur des disques durs.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium. Pour plus d’informations sur le stockage premium, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
-Pour plus d'informations sur les appareils virtuels StorSimple, consultez [Déployer et gérer un appareil virtuel StorSimple dans Azure](storsimple-virtual-device-u1).
+Pour plus d'informations sur les appareils virtuels StorSimple, consultez [Déployer et gérer un appareil virtuel StorSimple dans Azure](storsimple-virtual-device-u1.md).
 
 ## Service StorSimple Manager
 
@@ -215,7 +215,7 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 | ------------------------------ | ---------------- |
 | enregistrement de contrôle d’accès (ACR) | Enregistrement associé à un volume sur votre appareil Microsoft Azure StorSimple et qui détermine quels sont les hôtes qui peuvent s’y connecter. Ce choix est basé sur le nom complet iSCSI (IQN) des hôtes (dans l’enregistrement de contrôle d’accès) qui se connectent à votre appareil StorSimple.|
 | AES-256 | Algorithme AES (Advanced Encryption Standard) 256 bits de chiffrement des données en provenance et à destination du cloud. |
-| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d’unité d’allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car cela convient aux algorithmes de déduplication.|
+| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d'unité d'allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car elle convient aux algorithmes de déduplication.|
 | hiérarchisation du stockage automatisé | Déplacement automatique des données moins actives de disques SSD vers des disques durs puis vers un certain niveau du cloud, puis activation de la gestion de l’ensemble du stockage à partir d’une interface utilisateur centrale.|
 | catalogue de sauvegarde | Ensemble de sauvegardes habituellement liées par le type d’application utilisé. Cet ensemble est affiché dans la page Catalogue de sauvegarde de l’interface utilisateur du service StorSimple Manager.|
 | fichier de catalogue de sauvegarde | Fichier contenant une liste des instantanés disponibles actuellement stockés dans la base de données de sauvegarde de StorSimple Snapshot Manager. |
@@ -278,4 +278,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

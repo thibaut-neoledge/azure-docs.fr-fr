@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Changements de noms dans SQL Data Warehouse
 SQL Server prend en charge le changement de nom de base de données à l'aide de la procédure stockée ```sp_renamedb```. Pour atteindre cet objectif, SQL Data Warehouse utilise quant à lui la syntaxe DDL. La commande DDL est ```RENAME OBJECT```.
@@ -53,4 +53,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="01/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -151,6 +151,8 @@ Ajoutez le code suivant au début de la méthode **Main** :
 
 La valeur de la variable **resourceGroupName** doit être la même que le nom du groupe de ressources que vous avez créé ou sélectionné lors des étapes préalables.
 
+Pour automatiser l’aspect de présentation des informations d’identification lors de la création d’une tâche, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./articles/resource-group-authenticate-service-principal.md).
+
 Les sections suivantes de cet article supposent que ce code se trouve au début de la méthode **Main**.
 
 ## Création d’un travail Stream Analytics
@@ -180,7 +182,7 @@ Le code suivant crée un travail Stream Analytics sous le groupe de ressources q
 
 ## Création d’une source d’entrée Stream Analytics
 
-Le code suivant crée une source d’entrée Stream Analytics avec objet blob comme type de source d’entrée et sérialisation CSV. Pour créer une source d’entrée de hub d’événements, utilisez **EventHubStreamInputDataSource** au lieu de **BlobStreamInputDataSource**. De même, vous pouvez personnaliser le type de sérialisation de la source d’entrée.
+Le code suivant crée une source d’entrée Stream Analytics avec objet blob comme type de source d’entrée et sérialisation CSV. Pour créer une source d’entrée de concentrateur d’événements, utilisez **EventHubStreamInputDataSource** au lieu de **BlobStreamInputDataSource**. De même, vous pouvez personnaliser le type de sérialisation de la source d’entrée.
 
 	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -364,4 +366,4 @@ Vous avez appris les principes de base de l’utilisation d’un Kit de dévelop
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

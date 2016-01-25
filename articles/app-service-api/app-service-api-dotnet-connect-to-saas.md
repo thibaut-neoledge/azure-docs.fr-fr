@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Connexion à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service
@@ -342,7 +342,7 @@ Les captures d’écran de cette section montrent un projet ContactsList et une 
 
 1. Remplacez {gateway url} par l’URL de votre passerelle.
  
-	Cette URL se trouve dans le panneau **Passerelle** du portail :
+	Cette URL se trouve dans le volet **Passerelle** du portail :
 
 	![](./media/app-service-api-dotnet-connect-to-saas/gwurl.png)
 
@@ -378,13 +378,7 @@ Informations complémentaires :
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Voici les valeurs à utiliser pour les autres fournisseurs : 
-	* "microsoftaccount" 
-	* "facebook" 
-	* "twitter" 
-	* "google" 
-<br/><br/>
-
+	Voici les valeurs à utiliser pour les autres fournisseurs : * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * Le second paramètre de la méthode `GetConsentLinkAsync()` est l’URL de rappel vers laquelle redirige le serveur d’autorisation une fois que l’utilisateur s’est connecté à Dropbox et a autorisé l’accès à son compte.
 
@@ -432,11 +426,11 @@ L’erreur 405 Méthode non autorisée est reçue quand le client tente d’eff
 
 ### <a id="400"></a>Erreur HTTP 400 au lieu de la page de connexion à Dropbox
 
-Vérifiez que l’**ID client** entré dans le volet **Authentification** de l’application API est correct, et qu’il n’y a pas d’espace superflu au début ou à la fin.
+Veuillez vérifier que l’**ID client** entré dans le volet **Authentification** de l’application API est correct, et qu’il n’y a pas d’espace superflu au début ou à la fin.
 
 ### <a id="403"></a> Erreur HTTP 403 pendant l’appel de l’application API
 
-* Vérifiez que le **Niveau d’accès** de l’application API est défini sur **Public (authentifié)** et non sur **Interne**.
+* Veuillez vérifier que le **Niveau d’accès** de l’application API est défini sur **Public (authentifié)** et non sur **Interne**.
 
 * Vérifiez que la **Clé secrète client** entrée dans le panneau **Authentification** de l’application API est correcte, et qu’il n’y a pas d’espace superflu au début ou à la fin.
 
@@ -444,7 +438,7 @@ L’URL de redirection après la connexion à Dropbox peut ressembler à cet exe
 
 	https://sd1aeb4ae60b7cb4f3d966dfa43b6607f30.azurewebsites.net/?error=RmFpbGVkIHRvIGV4Y2hhbmdlIGNvZGUgZm9yIHRva2VuLiBEZXRhaWxzOiB7ImVycm9yX2Rlc2NyaXB0aW9uIjogIkludmFsaWQgY2xpZW50X2lkIG9yIGNsaWVudF9zZWNyZXQiLCAiZXJyb3IiOiAiaW52YWxpZF9jbGllbnQifQ%3d%3d
 
-Si vous supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une chaîne encodée en base64 valide. Si vous décodez la chaîne, vous obtenez le message d’erreur suivant :
+Supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une chaîne encodée en base64 valide. Si vous décodez la chaîne, vous obtenez le message d’erreur suivant :
 
 	Failed to exchange code for token. Details: {"error_description": "Invalid client_id or client_secret", "error": "invalid_client"}
 
@@ -452,7 +446,7 @@ Si vous supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit
 
 Vous avez appris à coder et à configurer une application API se connectant à une plateforme SaaS. Pour consulter des liens vers d’autres didacticiels sur la gestion de l’authentification dans les applications API, consultez [Authentification pour les applications API et les applications mobiles - Étapes suivantes](../app-service/app-service-authentication-overview.md#next-steps).
 
-[portail Azure en version préliminaire]: https://portal.azure.com/
-[portail Azure]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

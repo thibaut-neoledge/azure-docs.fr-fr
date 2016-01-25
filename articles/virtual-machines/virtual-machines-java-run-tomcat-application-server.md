@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
     tags="azure-service-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
@@ -51,7 +51,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5. Cliquez sur **Next**.
 6. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
-    1. Pour **Cloud service**, utilisez la valeur par défaut **Create a new cloud service**.
+    1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région, par exemple, **Bretagne**.
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
@@ -94,7 +94,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Add**.
-6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome** est cochée, puis cliquez sur **Suivant**.
+6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome ** est cochée, puis cliquez sur **Suivant**.
 7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
@@ -146,4 +146,4 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

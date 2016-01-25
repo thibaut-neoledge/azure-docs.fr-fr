@@ -94,13 +94,11 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 
 ## Plans d'architecture
 
-* Le document [Calculs à grande échelle - Services financiers](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF, en anglais) montre comment effectuer et orchestrer des calculs et l'analyse de données à grande échelle dans le cloud pour la gestion des risques, la création de rapports et les simulations.
+* Microsoft Azure Batch et Azure Data Factory : architecture de traitement des données à grande échelle ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) et [article](../data-factory/data-factory-data-processing-using-batch.md)) illustre comment Data Factory orchestre le déplacement et le traitement des données et comment Azure Batch traite les données de manière parallèle.
 
 ## Exemples et démonstrations
 
 * [Exemples de code Azure Batch](https://github.com/Azure/azure-batch-samples)
-
-* [Exemple de Batch Apps Blender](https://github.com/Azure/azure-batch-apps-blender) et [billet de blog](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## Services Azure connexes
 
@@ -123,4 +121,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](http://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

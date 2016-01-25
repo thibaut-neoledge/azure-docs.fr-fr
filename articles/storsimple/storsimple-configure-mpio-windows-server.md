@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Configuration de Multipath I/O pour votre appareil StorSimple
@@ -111,9 +111,9 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 
 13. Initialisez le disque et créez un nouveau volume. Pendant le processus de formatage, sélectionnez une taille de bloc de 64 Ko. ![Gestion des disques](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Sous **Gestion des disques**, cliquez avec le bouton droit sur le **Disque** et sélectionnez **Propriétés**.
-15. Dans la boîte de dialogue du modèle StorSimple ### **Propriétés du périphérique de disque à chemins d’accès multiples**, cliquez sur l’onglet **MPIO**. ![DeviceProp disque à chemins d’accès multiples StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. Dans la boîte de dialogue du modèle StorSimple #### **Propriétés du périphérique de disque à chemins multiples**, cliquez sur l’onglet **MPIO**. ![DeviceProp disque à chemins d’accès multiples StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
-16. Dans la section **Nom DSM**, cliquez sur **Détails** et vérifiez que les paramètres sont définis sur les valeurs par défaut. Les paramètres par défaut sont :
+16. Dans la section **Nom DSM**, cliquez sur **Détails** et vérifiez que les paramètres par défaut sont définis. Les paramètres par défaut sont les suivants :
 
 	- Période de vérification du chemin d’accès = 30
 	- Nombre de tentatives = 3
@@ -173,4 +173,4 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 En savoir plus sur l'[utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

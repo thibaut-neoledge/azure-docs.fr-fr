@@ -30,7 +30,7 @@ Voici une liste des objectifs et exigences les plus significatifs du point de vu
 
 Une application mutualisée correctement mise en œuvre offre les avantages suivants aux utilisateurs.
 
-- **Isolement** : les activités de locataires individuels n'affectent pas l'utilisation de l'application par les autres locataires. Les locataires ne peuvent pas accéder aux données des autres. Le locataire semble disposer d'une utilisation exclusive de l'application.
+- **Isolement** : les activités de locataires individuels n'affectent pas l'utilisation de l'application par les autres locataires. Les locataires ne peuvent pas accéder aux données des uns et des autres. Le locataire a ainsi l’impression d’avoir une utilisation exclusive de l’application.
 - **Disponibilité** : les locataires individuels veulent que l'application soit constamment disponible, sans doute avec des garanties définies dans un contrat SLA. À nouveau, les activités des autres locataires ne doivent pas affecter la disponibilité de l'application.
 - **Extensibilité**  : l'application peut être mise à l'échelle pour répondre aux exigences de locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application.
 - **Coûts** : les coûts sont inférieurs au coût de l'exécution d'une application dédiée à un seul locataire, car une architecture mutualisée permet de partager les ressources.
@@ -95,4 +95,4 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

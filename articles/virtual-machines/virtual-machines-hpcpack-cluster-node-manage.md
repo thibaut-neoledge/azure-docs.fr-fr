@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Gérer le nombre et la disponibilité des nœuds de calcul dans un cluster HPC Pack dans Azure
@@ -34,11 +34,11 @@ Une fois un cluster HPC Pack créé dans des machines virtuelles Azure, il peut 
     * **Importer le fichier de publication de paramètres**. Pour ce faire, exécutez les applets de commande Azure PowerShell suivantes sur le nœud principal :
 
     ```
-    Get-AzurePublishSettingsFile 
-         
+    Get-AzurePublishSettingsFile
+
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-    
+
     * **Configurez le certificat de gestion Azure sur le nœud principal**. Si vous disposez du fichier .cer, importez-le dans le magasin de certificats CurrentUser\\My, puis exécutez l’applet de commande Azure PowerShell suivante pour votre environnement Azure (AzureCloud ou AzureChinaCloud) :
 
     ```
@@ -74,13 +74,13 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserName** : nom d’utilisateur de domaine à utiliser pour joindre les nouvelles machines virtuelles au domaine.
 
-* **DomainUserPassword*** : mot de passe de l’utilisateur de domaine
+* **DomainUserPassword** : mot de passe de l’utilisateur de domaine.
 
-* **NodeNameSeries** (facultatif) : modèle d’affectation de noms pour les nœuds de calcul. Le format doit être &lt;*nom\_racine*&gt;&lt;*numéro\_de\_départ*&gt;%. Par exemple, MyCN%10% représente une série de noms de nœud de calcul commençant par MyCN11. Si ce paramètre n’est pas spécifié, le script utilise la série d’affectation de noms configurée dans le cluster HPC.
+* **NodeNameSeries** (facultatif): modèle d’affectation de noms pour les nœuds de calcul. Le format doit être &lt;*nom\_racine*&gt;&lt;*numéro\_départ*&gt;%. Par exemple, MyCN%10% représente une série de noms de nœud de calcul commençant par MyCN11. Si ce paramètre n’est pas spécifié, le script utilise la série d’affectation de noms configurée dans le cluster HPC.
 
 ### Exemple
 
-L’exemple suivant ajoute 20 machines virtuelles à nœud de calcul de grande taille au service cloud hpcservice1, en se basant sur l’image de machine virtuelle hpccnimage1.
+L’exemple suivant ajoute 20 machines virtuelles à nœud de calcul de grande taille au service cloud *hpcservice1*, en se basant sur l’image de machine virtuelle *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -103,9 +103,9 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Paramètres
 
- * **Name** : noms des nœuds de cluster à supprimer. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Name** : noms des nœuds de cluster à supprimer. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
 
-* **Nœud*** : objet HpcNode des nœuds à supprimer, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Nœud** : objet HpcNode des nœuds à supprimer, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
 
 * **DeleteVHD** (facultatif) : permet de supprimer les disques associés aux machines virtuelles qui sont supprimées.
 
@@ -165,7 +165,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 * **Name** : noms des nœuds de cluster à arrêter. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
 
-* **Nœud** : objet HpcNode des nœuds à arrêter, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell Get-HpcNode. Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Nœud** : objet HpcNode des nœuds à arrêter, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
 
 * **Force** (facultatif) : permet de mettre les nœuds HPC hors connexion avant de les arrêter.
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Étapes suivantes
 
-* Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Agrandir et réduire les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Pour savoir comment augmenter ou réduire automatiquement les nœuds de cluster en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Agrandir et réduire automatiquement les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

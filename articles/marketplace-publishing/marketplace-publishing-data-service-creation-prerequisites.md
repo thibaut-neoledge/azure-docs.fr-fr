@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; avikova" />
 
 # Conditions techniques préalables à la création d’une offre de service de données pour Azure Marketplace
@@ -66,4 +66,4 @@ Ou, si vous souhaitez passer en revue le processus global et les articles respec
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

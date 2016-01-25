@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # Activation du proxy d’application Azure AD
-> [AZURE.NOTE] Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE]Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Le Proxy d’application Microsoft Azure Active Directory vous permet de publier des applications, telles que des sites SharePoint et des applications Outlook Web Access ou IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau. Les employés peuvent se connecter à vos applications à partir de leur domicile sur leurs propres appareils et s’authentifier par le biais de ce proxy cloud.
 
-Le Proxy d’application fonctionne grâce à l’installation d’un service Windows léger appelé connecteur au sein de votre réseau. Le connecteur maintient une connexion sortante depuis l’intérieur de votre réseau vers le service proxy. Lorsque les utilisateurs accèdent à une application publiée, le proxy utilise cette connexion pour fournir l’accès à l’application.
+Le Proxy d’application fonctionne grâce à l’installation d’un service Windows léger appelé connecteur au sein de votre réseau. Le connecteur maintient une connexion sortante depuis l’intérieur de votre réseau vers le service proxy. Quand les utilisateurs accèdent à une application publiée, le proxy utilise cette connexion pour fournir l’accès à l’application.
 
 Cet article vous guide tout au long des procédures suivantes : activation du Proxy d’application Microsoft Azure AD pour votre annuaire cloud dans Azure AD, installation du connecteur du Proxy d’application sur votre réseau privé et inscription du connecteur auprès de votre abonnement client Microsoft Azure AD.
 
-##Conditions préalables pour le proxy d’application
+## Conditions préalables pour le proxy d’application
 Pour pouvoir activer et utiliser les services Proxy d’application, vous devez disposer des éléments suivants :
 
 - Un [abonnement Microsoft Azure AD de base ou Premium](active-directory-editions.md) et un annuaire Azure AD sur lequel vous êtes administrateur général.
@@ -46,26 +46,30 @@ Numéro de port | Description
 Si votre pare-feu régule le trafic en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau. Assurez-vous également d’activer le port 8080 pour NT Authority\\System.
 
 
-##Étape 1 : activer le proxy d’application dans Azure AD
+## Étape 1 : activer le proxy d’application dans Azure AD
 1. Connectez-vous au Portail Azure Classic en tant qu’administrateur.
 2. Accédez à Active Directory, puis sélectionnez l’annuaire dans lequel vous souhaitez activer le proxy d’application.
 3. Cliquez sur **Configurer**, faites défiler l’écran jusqu’à Proxy d’application, puis redéfinissez l’option Activer les services de proxy d’application pour ce répertoire sur **Activé**.
 
-	![Activer le proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
+	![Activer le proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
+
 4. Cliquez sur **Télécharger maintenant** en bas de l’écran. Vous accédez alors à la page de téléchargement. Lisez et acceptez les termes du contrat de licence, puis cliquez sur **Télécharger** pour enregistrer le fichier Windows Installer (.exe) pour le connecteur du Proxy d’application.
 
-##Étape 2 : installer et inscrire le connecteur
+## Étape 2 : installer et inscrire le connecteur
 1. Exécutez `AADApplicationProxyConnectorInstaller.exe` sur le serveur que vous avez préparé (voir la section ci-dessus décrivant les conditions préalables pour le Proxy d’application).
 2. Suivez les instructions de l’Assistant pour effectuer l’installation.
 3. Au cours de l’installation, vous êtes invité à inscrire le connecteur auprès du Proxy d’application de votre client Azure AD.
-<p>- Fournissez vos informations d’identification d’administrateur général Azure AD.
-<p>- Assurez-vous que l’administrateur qui inscrit le connecteur se trouve bien dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du client est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias de ce domaine. De plus, vous devez être un administrateur général du client Azure AD. Votre client d’administrateur général peut être différent de vos informations d’identification Microsoft Azure.
-<p>- Si l’option Configuration de sécurité renforcée d’Internet Explorer présente la valeur **Activé** sur le serveur sur lequel vous installez le connecteur Azure AD, l’écran d’inscription risque d’être bloqué. Si cela se produit, suivez les instructions du message d’erreur pour autoriser l’accès. Assurez-vous que la sécurité renforcée d’Internet Explorer est désactivée.
-<p>- En cas d’échec de l’inscription du connecteur, voir [Résoudre les problèmes du proxy d’application](active-directory-application-proxy-troubleshoot.md).
 
-4. À l’issue de l’installation, deux nouveaux services sont ajoutés à votre serveur, comme dans l’illustration ci-dessous. Il s’agit du service Connecteur, qui est chargé d’activer la connectivité, et d’un service de mise à jour automatisé, qui recherche périodiquement l’existence de nouvelles versions du connecteur et procède éventuellement à sa mise à jour. Cliquez sur Terminer dans la fenêtre d’installation pour achever l’installation.
-	![Service Connecteur Proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
-5. Vous êtes maintenant prêt à publier des applications avec le proxy d’application.
+  - Fournissez vos informations d’identification d’administrateur général d’Azure AD. Votre client d’administrateur global peut être différent de vos informations d’identification Microsoft Azure.
+  - Vérifiez que l’administrateur qui inscrit le connecteur se trouve bien dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du client est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias de ce domaine.
+  - Si l’option Configuration de sécurité renforcée d’Internet Explorer a la valeur **Activé** sur le serveur sur lequel vous installez le connecteur Azure AD, l’écran d’inscription risque d’être bloqué. Si cela se produit, suivez les instructions du message d’erreur pour autoriser l’accès. Vérifiez que la configuration de sécurité renforcée d’Internet Explore est désactivée.
+  - Si l’inscription du connecteur n’aboutit pas, consultez [Résoudre les problèmes du proxy d’application](active-directory-application-proxy-troubleshoot.md).  
+
+4. À l’issue de l’installation, deux nouveaux services sont ajoutés à votre serveur, comme dans l’illustration ci-dessous. Il s’agit du service Connecteur, qui est chargé d’activer la connectivité, et d’un service de mise à jour automatisé, qui recherche périodiquement l’existence de nouvelles versions du connecteur et procède éventuellement à sa mise à jour. Cliquez sur **Terminer** dans la fenêtre d’installation pour achever l’installation.
+
+	![Services de connecteur de proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+
+5. Vous êtes maintenant prêt à [publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md).
 
 Pour bénéficier d’une haute disponibilité, vous devez déployer au moins un connecteur supplémentaire. Pour déployer un connecteur supplémentaire, répétez les étapes 2 et 3 ci-dessus. Chaque connecteur doit être inscrit séparément.
 
@@ -83,7 +87,6 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
 
 ## En savoir plus sur le Proxy d’application
-- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
 - [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -92,4 +95,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 * [Identité Azure](fundamentals-identity.md)
 * [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

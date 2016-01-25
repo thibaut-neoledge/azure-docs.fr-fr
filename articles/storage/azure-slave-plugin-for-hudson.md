@@ -1,22 +1,22 @@
 <properties
     pageTitle="Utilisation du plug-in esclave Azure avec la solution d'intégration continue Hudson"
     description="Décrit comment utiliser le plug-in esclave Azure avec la solution d'intégration continue Hudson."
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
 <tags
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="v-dedomi"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="robmcm"/>
 
-#Utilisation du plug-in esclave Azure avec la solution d'intégration continue Hudson
+# Utilisation du plug-in esclave Azure avec la solution d'intégration continue Hudson
 
 Le plug-in esclave Azure pour Hudson vous permet de mettre en service des nœuds subordonnés sur Azure lors de l'exécution de builds distribués.
 
@@ -27,7 +27,7 @@ Le plug-in esclave Azure pour Hudson vous permet de mettre en service des nœuds
 4. Cliquez sur **Search** (Recherche) et entrez **Azure** pour limiter la liste aux plug-ins appropriés.
 
 	Si vous choisissez de faire défiler la liste des plug-ins disponibles, vous trouverez le plug-in esclave Azure sous la section **Cluster Management and Distributed Build** (Gestion du cluster et build distribué) dans l'onglet **Others** (Autres).
-	 
+
 5. Cochez la case **Azure Slave Plugin** (Plug-in esclave Azure).
 6. Cliquez sur **Installer**.
 7. Redémarrez Hudson.
@@ -81,7 +81,7 @@ Une fois que vous avez votre profil d'abonnement, procédez comme suit pour conf
 5. Copiez l'ID d'abonnement et le certificat de gestion de votre profil d'abonnement et collez-les dans les champs appropriés.
 
 	Lors de la copie de l'ID d'abonnement et du certificat de gestion, n'incluez **pas** les guillemets qui entourent les valeurs.
-	
+
 6. Cliquez sur **Verify configuration** (Vérifier la configuration).
 7. Lorsque la configuration est vérifiée avec succès, cliquez sur **Save** (Enregistrer).
 
@@ -100,7 +100,7 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 
 5. Spécifiez un nom de service cloud dans le champ **Name** (Nom). Si le nom spécifié fait référence à un service cloud existant, l'ordinateur virtuel sera déployé dans ce service. Dans le cas contraire, Azure en crée un nouveau.
 6. Dans le champ **Description**, entrez du texte qui décrit le modèle que vous créez. Ces informations sont uniquement à des fins documentaires et ne sont pas utilisées dans la mise en service d'un ordinateur virtuel.
-7. Dans le champ **Labels** (Étiquettes), entrez **linux**. Cette étiquette est utilisée pour identifier le modèle que vous créez. Elle est ensuite utilisée pour référencer le modèle lors de la création d'un travail Hudson. 
+7. Dans le champ **Labels** (Étiquettes), entrez **linux**. Cette étiquette est utilisée pour identifier le modèle que vous créez. Elle est ensuite utilisée pour référencer le modèle lors de la création d'un travail Hudson.
 8. Sélectionnez une région où l'ordinateur virtuel sera créé.
 9. Sélectionnez la taille appropriée pour l'ordinateur virtuel.
 10. Spécifiez un compte de stockage dans lequel l'ordinateur virtuel sera créé. Assurez-vous qu'il se trouve dans la même région que le service Cloud que vous allez utiliser. Si vous souhaitez créer un nouveau stockage, vous pouvez laisser ce champ vide.
@@ -118,11 +118,11 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 	Si vous souhaitez faire votre choix dans une liste de familles d'images, entrez le premier caractère (respectez la casse) du nom de famille de l'image. Par exemple, le fait de taper **U** affichera une liste des familles de serveurs Ubuntu. Une fois que vous avez fait votre choix dans la liste, Hudson utilisera la version la plus récente de cette image système de cette famille lors de la mise en service de l'ordinateur virtuel.
 
 	![liste de famille de système d'exploitation](./media/azure-slave-plugin-for-hudson/hudson-oslist.png)
-	
+
 	Si vous avez une image personnalisée que vous souhaitez utiliser à la place, entrez son nom. Les noms des images personnalisées ne figurent pas dans une liste. Vous devez donc vous assurer que le nom est entré correctement.
 
 	Pour ce didacticiel, tapez **U** pour afficher une liste d'images Ubuntu et sélectionnez **Ubuntu Server 14.04 LTS**.
- 
+
 14. Pour la **méthode de lancement**, sélectionnez **SSH**.
 15. Copiez le script ci-dessous et collez-le dans le champ du **script init**.
 
@@ -152,7 +152,7 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 		sudo apt-get install -y ant
 
 	Le **script init** sera exécuté une fois l'ordinateur virtuel créé. Dans cet exemple, le script installe Java, git et ant.
-	
+
 16. Dans les champs **Username** (Nom d'utilisateur) et **Password** (Mot de passe), saisissez les valeurs de votre choix pour le compte administrateur qui sera créé sur l'ordinateur virtuel.
 17. Cliquez sur **Verify Template** (Vérifier le modèle) pour vérifier si les paramètres spécifiés sont valides.
 18. Cliquez sur **Save** (Enregistrer).
@@ -162,12 +162,12 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 
 Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un nœud subordonné sur Azure.
 
-1. Dans le tableau de bord Hudson, cliquez sur **New Job** (Nouveau travail). 
+1. Dans le tableau de bord Hudson, cliquez sur **New Job** (Nouveau travail).
 2. Entrez un nom pour le travail que vous créez.
 3. Pour le type de travail, sélectionnez **Build a free-style software job** (Générer un travail logiciel libre).
 4. Cliquez sur **OK**.
 5. Dans la page de configuration du travail, sélectionnez **Restrict where this project can be run** (Limiter où ce projet peut être exécuté).
-6. Sélectionnez **Node and label menu** (Menu nœud et étiquette) et sélectionnez **linux** (nous avons spécifié cette étiquette lors de la création du modèle d'ordinateur virtuel dans la section précédente). 
+6. Sélectionnez **Node and label menu** (Menu nœud et étiquette) et sélectionnez **linux** (nous avons spécifié cette étiquette lors de la création du modèle d'ordinateur virtuel dans la section précédente).
 
 7. Dans la section **Build**, cliquez sur **Add build step** (Ajouter une étape de build) et sélectionnez **Execute shell** (Exécuter shell).
 8. Modifiez le script suivant, en remplaçant **(nom de votre compte github)**, **(nom de votre projet)** et **(répertoire de votre projet)** par les valeurs appropriées et collez le script modifié dans la zone de texte qui s'affiche.
@@ -188,7 +188,7 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
   			git clone https://github.com/(your github account name)/(your project name).git
 
 		fi
-		
+
 		# change directory to project
 
 		cd $currentDir/(your project directory)
@@ -198,19 +198,10 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
 		#Execute build task
 
 		ant
-		
+
 9. Cliquez sur **Save** (Enregistrer).
-10. Dans le tableau de bord Hudson, recherchez le travail que vous venez de créer, puis cliquez sur l'icône **Schedule a build** (Planifier un build). 
+10. Dans le tableau de bord Hudson, recherchez le travail que vous venez de créer, puis cliquez sur l'icône **Schedule a build** (Planifier un build).
 
 Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l'étape de build pour ce travail.
 
-
-
-
-
-
-  
-
-  
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

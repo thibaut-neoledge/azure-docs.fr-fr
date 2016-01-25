@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du Gestionnaire de récupération pour résoudre les problèmes de mappage de partition | Microsoft Azure" 
+	pageTitle="Utilisation du Recovery Manager pour résoudre les problèmes de mappage de partition | Microsoft Azure" 
 	description="Utiliser la classe RecoveryManager pour résoudre les problèmes des mappages de partition" 
 	services="sql-database" 
 	documentationCenter=""  
@@ -21,7 +21,7 @@ La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.a
 
 Le GSM et LSM assurent le suivi de mappage de chaque base de données dans un environnement partitionné. Parfois, une interruption se produit entre le GSM et le LSM. Dans ce cas, utilisez la classe RecoveryManager pour détecter et réparer le l’interruption.
 
-La classe RecoveryManager fait partie de la [Bibliothèque de client de base de données élastique](sql-database-elastic-database-client-library).
+La classe RecoveryManager fait partie de la [Bibliothèque de client de base de données élastique](sql-database-elastic-database-client-library.md).
 
 
 ![Mappage de partition][1]
@@ -30,7 +30,7 @@ La classe RecoveryManager fait partie de la [Bibliothèque de client de base de 
 Vous trouverez les définitions des termes évoqués ici dans la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md). Pour comprendre comment **ShardMapManager** est utilisé pour gérer les données dans une solution partitionnée, voir [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
 
 
-## Pourquoi utiliser le gestionnaire de récupération ?
+## Pourquoi utiliser le Recovery Manager ?
 
 Dans un environnement de base de données partitionnée, il existe un certain nombre de serveurs de base de données. Chaque serveur contient plusieurs bases de données, une par un utilisateur dans une solution mutualisée. Chaque base de données doit être mappée afin que les appels puissent être acheminés de façon adéquate vers le serveur et la base de données corrects. Les bases de données sont suivies en selon une clé de partitionnement, et chaque serveur se voit affecter une plage de valeurs clés. Par exemple, une clé de partitionnement peut représenter les noms de clients, de « D » à « F ». Le mappage de tous les serveurs et leurs plages de clés sont contenus dans le mappage de partition global. Chaque serveur contient également un mappage des bases de données contenues dans la partition. Il est connu comme le mappage de partition locale. Le LSM est utilisé pour valider des données placées en mémoire cache. (Lorsqu’une application se connecte à une partition, le mappage est mis en cache avec l’application pour une récupération rapide. Le LSM valide le mappage.)
 
@@ -51,7 +51,7 @@ Pour plus d’informations sur les outils de base de données élastique de base
 
 ## Récupération RecoveryManager à partir d’un ShardMapManager 
 
-Cette première sert à créer une instance de RecoveryManager. La [méthode GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retourne le gestionnaire de récupération de l’instance [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) en cours. Pour résoudre les incohérences dans le mappage du partitionnement, vous devez d’abord récupérer RecoveryManager pour ce mappage de partition particulier.
+Cette première sert à créer une instance de RecoveryManager. La [méthode GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retourne le Recovery Manager de l’instance [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) en cours. Pour résoudre les incohérences dans le mappage du partitionnement, vous devez d’abord récupérer RecoveryManager pour ce mappage de partition particulier.
 
 	ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
@@ -120,7 +120,7 @@ En cas de basculement géographique, la base de données secondaire est accessib
 
 Basculement géographique et restauration sont des opérations généralement gérées par un administrateur de cloud de l’application intentionnellement en utilisant une des fonctionnalités de continuité d’activité de bases de données SQL Azure. La planification de la continuité des activités requiert des processus, des procédures et des mesures garantissant que les opérations de l’entreprise peuvent continuer sans interruption. Les méthodes disponibles en tant que partie de la classe RecoveryManager doivent être utilisées dans ce flux de travail pour s’assurer que le GSM et LSM sont actualisés en fonction de l’opération de récupération exécutée. Il existe 5 opérations de base pour s’assurer que GSM et LSM reflètent bien les informations précises après un événement de basculement. Le code d’application servant à exécuter ces opérations peut être intégré dans des outils et de flux de travail existants.
 
-1. Récupérer le Gestionnaire de récupération à partir de ShardMapManager. 
+1. Récupérer le Recovery Manager à partir de ShardMapManager. 
 2. Détacher la partition ancienne du mappage de partition.
 3. Attacher la nouvelle partition au mappage de partition, y compris le nouvel emplacement de la partition.
 4. Détecter des incohérences dans le mappage entre le GSM et LSM. 
@@ -157,4 +157,4 @@ Cet exemple effectue les étapes suivantes : 1 Supprimer les partitions du mapp
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -126,17 +126,17 @@ Les packages d’extension NuGet suivants fournissent différentes fonctionnalit
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implémente la page par défaut *cette application mobile est opérationnelle* pour la racine du site web. S’ajoute à la configuration en appelant la méthode d’extension **AddMobileAppHomeController**.
 
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) inclut des classes pour l’utilisation des données et configure le pipeline de données. S’ajoute à la configuration en appelant la méthode d’extension **AddTables**.
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) Inclut des classes pour l’utilisation des données et configure le pipeline de données. S’ajoute à la configuration en appelant la méthode d’extension **AddTables**.
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permet à Entity Framework d’accéder aux données de la base de données SQL. S’ajoute à la configuration en appelant la méthode d’extension **AddTablesWithEntityFramework**.
 
-- [Microsoft.Azure.Mobile.Server.Authentication] active l’authentification et configure l’intergiciel OWIN utilisé pour valider les jetons. S’ajoute à la configuration en appelant les méthodes d’extension **AddAppServiceAuthentication** et **IAppBuilder**.**UseMobileAppAuthentication**.
+- [Microsoft.Azure.Mobile.Server.Authentication] Active l’authentification et configure l’intergiciel OWIN utilisé pour valider les jetons. S’ajoute à la configuration en appelant les méthodes d’extension **AddAppServiceAuthentication** et **IAppBuilder**.**UseAppServiceAuthentication**.
 
 - [Microsoft.Azure.Mobile.Server.Notifications] active les notifications Push et définit un point de terminaison d’inscription Push. S’ajoute à la configuration en appelant la méthode d’extension **AddPushNotifications**.
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) crée un contrôleur qui fournit des données aux navigateurs web hérités à partir de votre application mobile. S’ajoute à la configuration en appelant la méthode d’extension **MapLegacyCrossDomainController**.
 
-- [Microsoft.Azure.Mobile.Server.Login] fournit un support technique de la version préliminaire pour l’authentification personnalisée via la méthode MobileAppLoginHandler.CreateToken(). Il s’agit d’une méthode statique, qu’il n’est pas nécessaire d’activer dans la configuration.
+- [Microsoft.Azure.Mobile.Server.Login] assure une prise en charge préliminaire pour l’authentification personnalisée via la méthode MobileAppLoginHandler.CreateToken(). Il s’agit d’une méthode statique, qu’il n’est pas nécessaire d’activer dans la configuration.
 
 ## <a name="publish-server-project"></a>Publier le projet de serveur
 
@@ -228,7 +228,7 @@ Vous pouvez ajouter l’authentification à votre projet de serveur en étendant
 
 2. Dans le fichier de projet Startup.cs, ajoutez la ligne de code suivante au début de la méthode **Configuration** :
 
-		app.UseMobileAppAuthentication(config);
+		app.UseAppServiceAuthentication(config);
 
 	Cette opération ajoute le composant d’intergiciel OWIN, qui permet à votre application mobile Azure de valider les jetons émis par la passerelle App Service associée.
 
@@ -242,20 +242,20 @@ Vous pouvez décider de fournir votre propre système de connexion si vous ne so
 
 Il vous faudra fournir votre propre logique pour déterminer la nécessité de connexion d’un utilisateur. Par exemple, vous pouvez définir des mots de passe salés et hachés dans une base de données. Dans l’exemple ci-dessous, la méthode `isValidAssertion()` est responsable de ces vérifications ; elle est définie à un autre endroit.
 
-L’authentification personnalisée est exposée via la création d’un élément ApiController et l’exposition des actions d’inscription et de connexion (voir ci-dessous). Le client peut essayer de se connecter en collectant les informations appropriées auprès de l’utilisateur et en soumettant une requête HTTPS POST à l’API, en plaçant les informations de l’utilisateur dans le corps. Une fois que ces informations sont validées, un jeton peut être émis à l’aide de la méthode `MobileAppLoginHandler.CreateToken()`.
+L’authentification personnalisée est exposée via la création d’un élément ApiController et l’exposition des actions d’inscription et de connexion (voir ci-dessous). Le client peut essayer de se connecter en collectant les informations appropriées auprès de l’utilisateur et en soumettant une requête HTTPS POST à l’API, en plaçant les informations de l’utilisateur dans le corps. Une fois que le serveur a validé l’assertion, un jeton peut être émis via la méthode `AppServiceLoginHandler.CreateToken()`.
 
 Une action de connexion peut se présenter ainsi :
 
-		public HttpResponseMessage Post([FromBody] JObject assertion)
+		public IHttpActionResult Post([FromBody] JObject assertion)
 		{
 			if (isValidAssertion(assertion)) // user-defined function, checks against a database
 			{
-				JwtSecurityToken token = MobileAppLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
+				JwtSecurityToken token = AppServiceLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
 					mySigningKey,
 					myAppURL,
 					myAppURL,
 					TimeSpan.FromHours(24) );
-				return this.Request.CreateResponse(HttpStatusCode.OK, new LoginResult()
+				return Ok(new LoginResult()
 				{
 					AuthenticationToken = token.RawData,
 					User = new LoginResultUser() { UserId = userName.ToString() }
@@ -276,9 +276,17 @@ Dans l’exemple ci-dessous, LoginResult et LoginResultUser sont de simples obje
 			}
 		}
 
-La méthode `MobileAppLoginHandler.CreateToken()` inclut un paramètre _audience_ et un paramètre _émetteur_. Ces deux éléments sont généralement définis sur l’URL de la racine de votre application, à l’aide du schéma HTTPS. De la même manière, vous devez définir _secretKey_ en tant que clé de signature de votre application. Il s’agit d’une valeur sensible, qui ne doit jamais être partagée ou incluse dans un client. Hébergé dans App Service, vous pouvez obtenir cette valeur en faisant référence à la variable d’environnement _WEBSITE\_AUTH\_SIGNING\_KEY_. Si vous en avez besoin dans un contexte de débogage local, suivez les instructions de la section [Débogage local avec authentification](#local-debug) afin de récupérer la clé et de la stocker en tant que paramètre d’application.
+La méthode `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` inclut un paramètre _audience_ et un paramètre _émetteur_. Ces deux éléments sont généralement définis sur l’URL de la racine de votre application, à l’aide du schéma HTTPS. De la même manière, vous devez définir _secretKey_ en tant que clé de signature de votre application. Il s’agit d’une valeur sensible, qui ne doit jamais être partagée ou incluse dans un client. Hébergé dans App Service, vous pouvez obtenir cette valeur en faisant référence à la variable d’environnement _WEBSITE\_AUTH\_SIGNING\_KEY_. Si vous en avez besoin dans un contexte de débogage local, suivez les instructions de la section [Débogage local avec authentification](#local-debug) afin de récupérer la clé et de la stocker en tant que paramètre d’application.
 
 Vous devez également fournir une durée de vie associée au jeton émis, ainsi que les revendications que vous souhaitez inclure. Il est nécessaire que vous fournissiez une revendication d’objet, tel qu’illustré dans l’exemple de code.
+
+Vous pouvez aussi simplifier le code client de façon à utiliser la méthode `loginAsync()` (le nom peut varier d’une plateforme à une autre) à la place d’une demande HTTP POST manuelle. Vous utiliserez la surcharge qui prend un paramètre de jeton supplémentaire et qui se met en corrélation avec l’objet d’assertion faisant l’objet de la demande POST. Dans ce cas, le fournisseur doit avoir un nom personnalisé que vous lui aurez attribué. Ensuite, sur le serveur, votre action de connexion doit figurer sur le chemin _/.auth/login/{customProviderName}_ qui contient ce nom personnalisé. Pour placer votre contrôleur sur ce chemin, ajoutez un itinéraire à votre HttpConfiguration avant d’appliquer votre MobileAppConfiguration.
+
+		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
+		
+Remplacez la chaîne « CustomAuth » ci-dessus par le nom du contrôleur hébergeant votre action de connexion.
+
+>[AZURE.TIP]L’utilisation de l’approche loginAsync() est l’assurance que le jeton d’authentification est joint à chaque appel supplémentaire au service.
 
 ###<a name="user-info"></a>Récupérer des informations utilisateur authentifiées
 
@@ -357,7 +365,7 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d’informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d’ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
+À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
 
 ##<a name="tags"></a>Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises
 
@@ -438,4 +446,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

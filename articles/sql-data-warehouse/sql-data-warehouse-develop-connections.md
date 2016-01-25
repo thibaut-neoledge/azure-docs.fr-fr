@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Se connecter à SQL Data Warehouse 
 Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, vous découvrirez également que certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête.
@@ -158,4 +158,4 @@ Une fois connecté, vous pouvez commencer à concevoir vos tables. Pour plus d�
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

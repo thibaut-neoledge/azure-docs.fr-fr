@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop sous Linux dans HDInsight (version préliminaire)
@@ -267,4 +267,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

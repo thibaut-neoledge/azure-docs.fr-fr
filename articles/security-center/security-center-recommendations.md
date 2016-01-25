@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Gestion des recommandations de sécurité dans le Centre de sécurité Azure
@@ -70,7 +70,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 
 | Recommandation | Description |
 |----- |-----|
-| Activer la collecte des données pour des machines virtuelles ou des abonnements | Recommande l’activation de la collecte des données dans la stratégie de sécurité pour certaines machines virtuelles. |
+| Activer la collecte des données pour des machines virtuelles ou des abonnements | Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements ou certaines machines virtuelles. |
 | Résoudre une non-conformité aux règles de ligne de base | Recommande d’aligner les configurations de système d’exploitation sur les lignes de base recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe. |
 | Appliquer des mises à jour système | Recommande le déploiement des mises à jour manquantes sur les machines virtuelles (Windows uniquement). |
 | Configurer des listes ACL pour les points de terminaison | Recommande la configuration d’une liste de contrôle d’accès pour restreindre l’accès entrant aux machines virtuelles (de type Classique uniquement). |
@@ -135,4 +135,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform
@@ -128,7 +128,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Gestion des approbations](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Gestion des approbations")
 
-    >[AZURE.NOTE]Après avoir téléchargé le fichier de métadonnées, les valeurs de **Single Sign-on URL**, **Single Logout URL** et **Signing Certificate** sont remplies automatiquement.
+    >[AZURE.NOTE]Après avoir téléchargé le fichier de métadonnées, les valeurs de **Single Sign-on URL**, **Single Logout URL** et de **Signing Certificate** sont remplies automatiquement.
 
 11. Cliquez sur onglet **Attributes**.
 
@@ -194,4 +194,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; avikova" />
 
 # Tester votre offre de service de données dans l'emplacement intermédiaire
@@ -86,4 +86,4 @@ Si vous êtes satisfait et prêt à publier votre offre, consultez la documentat
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

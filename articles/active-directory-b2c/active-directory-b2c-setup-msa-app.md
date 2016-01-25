@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Microsoft
@@ -41,11 +41,9 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 
     ![MSA - URL de redirection](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. Cliquez sur **Paramètres d’application** dans la barre de navigation à gauche. Copiez les valeurs de **ID Client** et **Client secret**. Vous aurez besoin de ces deux valeurs pour configurer le compte Microsoft en tant que fournisseur d’identité dans votre client.
+6. Cliquez sur **Paramètres d’application** dans la barre de navigation à gauche. Copiez les valeurs de **ID Client** et **Client secret**. Vous aurez besoin de ces deux valeurs pour configurer le compte Microsoft en tant que fournisseur d’identité dans votre client. Remarque : **Client secret** est une information d’identification de sécurité importante.
 
-> [AZURE.NOTE]La valeur **Client secret** est une information d’identification de sécurité importante.
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - Clé secrète client](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## Configuration du compte Microsoft en tant que fournisseur d’identité dans votre client
 
@@ -57,4 +55,4 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis saisissez l’**ID client** et la **Clé secrète client** de l’application de compte Microsoft que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration de compte Microsoft.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

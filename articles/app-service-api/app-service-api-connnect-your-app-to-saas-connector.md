@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service
@@ -26,7 +26,7 @@ Ce didacticiel montre l’installation, la configuration et le test d’un [conn
 
 Par exemple, si vous souhaitez coder les demandes HTTP pour qu’elles lisent et écrivent des fichiers dans votre compte Dropbox, le processus d’authentification pour travailler directement avec Dropbox est complexe. Le connecteur Dropbox s’occupe de la partie complexe de l’authentification afin que vous puissiez vous concentrer sur l’écriture de votre code.
 
-> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l'utilisation de connecteurs SaaS au sein d'applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) et [Utilisation d'une application OAUTH personnalisée dans les connecteurs](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
+> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l'utilisation de connecteurs SaaS au sein d'applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) et [Utilisation d'une application OAUTH personnalisée dans les connecteurs](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Ce didacticiel utilise un connecteur DropBox à titre d’exemple et vous guide dans les étapes suivantes :
 
@@ -238,4 +238,4 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 [portail Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

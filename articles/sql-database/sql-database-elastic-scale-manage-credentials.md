@@ -70,11 +70,11 @@ Tout comme pour les informations d’identification de l’administrateur, n’u
 ## Voir aussi
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
-[Ajout d'utilisateurs à un pool élastique de bases de données](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Sécurisation de votre base de données SQL](sql-database-security.md)
 
 [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

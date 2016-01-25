@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # Créer une machine virtuelle Windows avec Resource Manager et PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 Cette rubrique décrit comment créer rapidement une machine virtuelle Azure Windows à l’aide d’Azure Resource Manager et de PowerShell.
 
@@ -123,18 +123,8 @@ Voici un exemple de résultat possible :
 	RequestId           : 98c7b4fb-b26e-4a58-b17a-b0983d896aae
 	StatusCode          : OK
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+Pour savoir comment gérer la machine virtuelle que vous venez de créer, passez en revue [Gérer des machines virtuelles à l’aide d’Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
 
-[Présentation d'Azure Resource Manager](resource-group-overview.md)
-
-[Création d’une machine virtuelle Windows avec un modèle Resource Manager et PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
-
-[Créer des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

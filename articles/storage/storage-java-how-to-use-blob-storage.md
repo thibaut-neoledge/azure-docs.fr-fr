@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Utilisation du stockage d'objets blob à partir de Java
 
@@ -269,4 +269,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

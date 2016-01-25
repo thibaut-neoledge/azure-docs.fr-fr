@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 #Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
@@ -61,4 +61,4 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
  
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Réentrance des Acteurs fiables"
-   description="Présentation de la réentrance pour les Acteurs fiables Service Fabric"
+   pageTitle="Réentrance Reliable Actors | Microsoft Azure"
+   description="Présentation de la réentrance pour Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -17,8 +17,8 @@
    ms.author="amanbha"/>
 
 
-# Réentrance des Acteurs fiables
-Par défaut, Fabric Actors autorise une réentrance des appels logiques selon le contexte. Cela permet de réentrer des acteurs s'ils se trouvent dans la même chaîne de contexte d'appel. Par exemple, si un acteur A envoie un message à un acteur B qui envoie le message à un acteur C. Dans le cadre du traitement du message, si l'acteur C appelle l'acteur A, le message est réentrant et donc autorisé. Tout autre message faisant partie d'un contexte d'appel différent sera bloqué au niveau de l'acteur A jusqu'à ce qu'il termine le traitement.
+# Réentrance Reliable Actors
+Par défaut, le runtime Fabric Actors autorise la réentrance des appels logiques selon le contexte. Cela permet de réentrer des acteurs s'ils se trouvent dans la même chaîne de contexte d'appel. Par exemple, un acteur A envoie un message à un acteur B qui envoie le message à un acteur C. Dans le cadre du traitement du message, si l’acteur C appelle l’acteur A, le message est réentrant et donc autorisé. Tout autre message faisant partie d’un contexte d’appel différent est bloqué au niveau de l’acteur A jusqu’à ce qu’il termine le traitement.
 
 Les acteurs qui souhaitent désactiver la réentrance des appels logiques selon le contexte peuvent le faire en affectant l'attribut `ReentrantAttribute(ReentrancyMode.Disallowed)` à la classe d'acteur.
 
@@ -30,7 +30,7 @@ public enum ReentrancyMode
 }
 ```
 
-Le code suivant montre la classe d'acteur qui définit le mode de réentrance sur `ReentrancyMode.Disallowed`. Dans ce cas, si un acteur envoie un message réentrant à un autre acteur, une exception de type `FabricException` se produira.
+Le code suivant montre une classe d’acteur qui affecte au mode de réentrance la valeur `ReentrancyMode.Disallowed`. Dans ce cas, si un acteur envoie un message réentrant à un autre acteur, une exception de type `FabricException` est levée.
 
 ```csharp
 [Reentrant(ReentrancyMode.Disallowed)]
@@ -40,4 +40,4 @@ class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 }
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

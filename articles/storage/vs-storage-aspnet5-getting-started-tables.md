@@ -150,9 +150,6 @@ Pour exécuter une requête de table portant sur toutes les entités d'une parti
         }
     } while (token != null);
 
-    return View();
-
-
 ## Obtention d'une seule entité
 Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité du service **Table** consiste à spécifier une clé de partition et une clé de ligne.
 
@@ -202,4 +199,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

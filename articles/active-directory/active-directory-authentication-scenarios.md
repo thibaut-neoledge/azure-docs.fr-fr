@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Scénarios d’authentification pour Azure AD
@@ -248,7 +248,7 @@ Consultez les exemples de code pour les scénarios du type application à page u
 - Application à client unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail de gestion Azure.
 
 
-- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
+- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d'informations, consultez [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 Après avoir inscrit l’application, vous devez la configurer pour qu’elle utilise le protocole d’octroi implicite OAuth 2.0. Par défaut, ce protocole est désactivé pour les applications. Pour activer le protocole d’octroi implicite OAuth2 pour votre application, téléchargez son manifeste d’application à partir du portail de gestion Azure, définissez la valeur « oauth2AllowImplicitFlow » sur True, puis téléchargez le manifeste à nouveau sur le portail. Pour obtenir des instructions détaillées, consultez la rubrique [Activation de l’octroi implicite OAuth 2.0 pour les applications à page unique](active-directory-integrating-applications.md).
 
@@ -467,4 +467,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

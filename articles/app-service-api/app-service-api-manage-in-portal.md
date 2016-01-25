@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Gérer des applications web dans Azure App Service
@@ -136,4 +136,4 @@ Cet article vous a montré comment utiliser le portail Azure pour effectuer des 
 
 Pour en savoir plus sur la gestion des applications API via la ligne de commande, consultez les articles de la section **Automatiser** du menu affiché à gauche de l’article (sur les fenêtres de navigation agrandies) ou sur sa partie supérieure (sur les fenêtres de navigation réduites).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

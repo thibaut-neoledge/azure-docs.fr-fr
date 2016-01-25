@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Installation du kit de ressources Azure pour Eclipse"
-    description="Apprenez à installer le Kit de ressources Azure pour Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Installation du kit de ressources Azure pour Eclipse"
+	description="Apprenez à installer le Kit de ressources Azure pour Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,23 +26,7 @@ Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnal
 
 Les étapes suivantes vous montrent comment installer le kit de ressources Azure pour Eclipse.
 
-## Composants requis ##
-
-* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
-* Kit de développement Java (JDK) version 1.7 ou ultérieure. 
-* Systèmes d'exploitation - le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d'exploitation suivants :
-    * Windows 10
-    * Windows 8 et Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT]Si vous utilisez le kit de ressources Azure pour Eclipse sous Windows, le kit de ressources requiert l'installation du Kit de développement logiciel (SDK) Azure 2.7 ou version ultérieure. Vous avez deux options pour l'installation du Kit de développement logiciel (SDK) Azure :
-> 
-> * Vous pouvez télécharger et installer le Kit de développement logiciel (SDK) Azure à partir de [Web Platform Installer (WebPI)][].
-> * Si le Kit de développement logiciel (SDK) Azure n'est pas installé lorsque vous créez votre premier projet de déploiement Azure, vous serez invité à télécharger et à installer automatiquement la version appropriée du Kit de développement logiciel (SDK) Azure.
-> 
-> Notez que le Kit de développement logiciel (SDK) Azure est requis uniquement sous Windows.
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## Pour installer le Kit de ressources Azure pour Eclipse ##
 
@@ -71,12 +55,12 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 [Nouveautés du kit de ressources Azure pour Eclipse][]
 
-Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java][].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][].
 
 <!-- URL List -->
 
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
@@ -87,4 +71,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

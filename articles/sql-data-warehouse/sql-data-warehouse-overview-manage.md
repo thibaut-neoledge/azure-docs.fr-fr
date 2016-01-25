@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Outils de gestion pour SQL Data Warehouse
 Cette rubrique explore et compare les différents outils et options de gestion de SQL Data Warehouse, de manière à ce que vous puissiez sélectionner l’outil adapté à vos besoins. Or, la sélection de l’outil adapté dépend du nombre de bases de données que vous gérez, de la tâche effectuée et de la fréquence de son exécution.
@@ -48,4 +48,4 @@ Pour commencer à utiliser ces outils, accédez à la rubrique [connexion][].
 <!--Other web references-->
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

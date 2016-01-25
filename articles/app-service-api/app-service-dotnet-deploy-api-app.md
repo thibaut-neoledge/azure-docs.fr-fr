@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Déployer une application API dans Azure App Service 
@@ -129,4 +129,4 @@ Les application API sont des applications web avec des fonctionnalités supplém
 
 Pour en savoir plus sur les fonctionnalités API Apps, consultez [Qu’est-ce qu’API Apps ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

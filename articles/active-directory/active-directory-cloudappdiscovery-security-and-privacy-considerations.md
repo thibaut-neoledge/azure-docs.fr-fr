@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/12/2016"
 	ms.author="markusvi"/>
 
 # Considérations relatives à la confidentialité et à la sécurité de Cloud App Discovery
@@ -179,4 +179,4 @@ Dans le but de protéger les métadonnées recueillies, par défaut seuls les ad
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

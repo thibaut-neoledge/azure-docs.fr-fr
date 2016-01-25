@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure
@@ -72,7 +72,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
     5\.1 **Installer python**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5\.2 **Installer wget**
@@ -81,7 +81,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
 6. **Installation de l’Agent Azure**
 
-    La dernière version de l’agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 et les versions ultérieures sont officiellement prises en charge par FreeBSD 10 (et versions ultérieures).
+    La dernière version de l’agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 et les versions ultérieures sont officiellement prises en charge par FreeBSD 10 (et versions ultérieures). La dernière version de l’Agent Azure pour FreeBSD est la version 2.0.16.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -106,7 +106,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
 Pour télécharger vers Azure un fichier .vhd permettant de créer une machine virtuelle, vous avez besoin d’un compte de stockage Azure. Pour créer un tel compte, vous pouvez utiliser l’édition classique du portail Azure.
 
-1. Connectez-vous à la version classique du portail Azure.
+1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
 
 2. Dans la barre de commandes, cliquez sur **New**.
 
@@ -133,7 +133,7 @@ Pour télécharger vers Azure un fichier .vhd permettant de créer une machine v
 
 	![Détails du compte de stockage](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_detail.png)
 
-7. Cliquez sur **Création d'un conteneur**.
+7. Cliquez sur **Création d’un conteneur**.
 
 	![Détails du compte de stockage](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_container.png)
 
@@ -186,7 +186,7 @@ Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où 
 
 1. Depuis la fenêtre Azure PowerShell utilisée lors de l’étape précédente, tapez :
 
-		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
+		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## Étape 5 : Création d’une machine virtuelle avec le disque dur virtuel téléchargé ##
 Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'image à la liste des images personnalisées associée à votre abonnement et créer une machine virtuelle avec cette image personnalisée.
@@ -209,4 +209,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

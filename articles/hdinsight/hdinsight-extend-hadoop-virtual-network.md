@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/13/2015"
    ms.author="larryfr"/>
 
 
@@ -36,7 +36,7 @@ Azure Virtual Network vous permet d’étendre vos solutions Hadoop à intégrer
 
 	* **Appel des services ou des travaux HDInsight** depuis le service Sites Web Azure ou des services exécutés dans des machines virtuelles Azure.
 
-	* **Transfert direct des données** entre HDInsight et Base de données SQL Azure, SQL Server ou une autre solution de stockage de données exécutée sur une machine virtuelle.
+	* **Transfert direct des données** entre HDInsight et Azure SQL Database, SQL Server ou une autre solution de stockage de données exécutée sur une machine virtuelle.
 
 	* **Combinaison de plusieurs serveurs HDInsight** en une seule solution. Par exemple, il est possible d’utiliser un serveur Storm HDInsight pour consommer les données entrantes puis stocker les données traitées sur un serveur HBase HDInsight. Les données brutes peuvent également être stockées sur un serveur Hadoop HDInsight pour une analyse future avec MapReduce.
 
@@ -59,14 +59,29 @@ Azure Virtual Network vous permet d’étendre vos solutions Hadoop à intégrer
 Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d'approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/).
->
-> Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités.
->
-> Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
->
-> Les clusters Windows nécessitent un réseau virtuel v1 (classique), tandis que les clusters basés sur Linux nécessitent un réseau virtuel v2 (Azure Resource Manager). Si le type de réseau est incorrect, il ne sera pas utilisable lorsque vous créerez le cluster.
->
-> Si vous disposez de ressources sur un réseau virtuel qui n’est pas utilisable par le cluster que vous envisagez de créer, vous pouvez créer un nouveau réseau virtuel utilisable par le cluster et le connecter au réseau virtuel incompatible. Vous pouvez ensuite créer le cluster dans la version réseau dont il a besoin, et il sera en mesure d’accéder aux ressources de l’autre réseau puisque les deux seront reliés. Pour plus d’informations sur la connexion de réseaux virtuels classiques et nouveaux, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+## Conditions requises pour le réseau virtuel
+
+> [AZURE.IMPORTANT]La création d’un cluster HDInsight sur un réseau virtuel nécessite des configurations spécifiques du réseau virtuel, qui sont décrites dans cette section.
+
+* Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités. 
+
+* Il est vivement recommandé de créer un seul sous-réseau pour chaque cluster HDInsight.
+
+* Les clusters Windows nécessitent un réseau virtuel v1 (classique), tandis que les clusters basés sur Linux nécessitent un réseau virtuel v2 (Azure Resource Manager). Si le type de réseau est incorrect, il ne sera pas utilisable lorsque vous créerez le cluster.
+
+    Si vous disposez de ressources sur un réseau virtuel qui n’est pas utilisable par le cluster que vous envisagez de créer, vous pouvez créer un nouveau réseau virtuel utilisable par le cluster et le connecter au réseau virtuel incompatible. Vous pouvez ensuite créer le cluster dans la version réseau dont il a besoin, et il sera en mesure d’accéder aux ressources de l’autre réseau puisque les deux seront reliés. Pour plus d’informations sur la connexion de réseaux virtuels classiques et nouveaux, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+* HDInsight n’est pas pris en charge sur les réseaux virtuels Azure qui limitent explicitement l’accès vers/à partir d’Internet. Un exemple est l’utilisation de groupes de sécurité réseau ou d’ExpressRoute pour bloquer le trafic Internet vers des ressources du réseau virtuel. Le service HDInsight est un service géré, et il nécessite un accès à Internet lors de l’approvisionnement et quand il est en cours d’exécution, pour qu’Azure puisse surveiller l’intégrité du cluster, lancer le basculement des ressources du cluster et effectuer d’autres tâches de gestion automatisées.
+
+    Si vous voulez utiliser HDInsight sur un réseau virtuel qui bloque le trafic Internet, procédez comme suit :
+
+    1.	Créez un sous-réseau dans le réseau virtuel. Ce sous-réseau sera utilisé par HDInsight.
+
+    2.	Définissez une table de routage et créez une route définie par l’utilisateur (UDR) pour le sous-réseau, qui autorise une connectivité Internet entrante et sortante. Vous pouvez faire cela en utilisant des routes *. Ceci va permettre une connectivité Internet seulement pour les ressources situées sur le sous-réseau. Pour plus d’informations sur l’utilisation de routes définies par l’utilisateur, consultez https://azure.microsoft.com/fr-FR/documentation/articles/virtual-networks-udr-overview/ et https://azure.microsoft.com/fr-FR/documentation/articles/virtual-networks-udr-how-to/.
+    
+    3.	Quand vous créez le cluster HDInsight, sélectionnez le sous-réseau créé à l’étape 1. Ceci déploie le cluster dans le sous-réseau qui a un accès Internet.
+
 
 Pour plus d’informations sur l’approvisionnement d’un cluster HDInsight sur un réseau virtuel, consultez la page [Approvisionnement des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 
@@ -176,4 +191,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

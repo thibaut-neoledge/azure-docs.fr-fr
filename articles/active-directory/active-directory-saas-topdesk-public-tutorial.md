@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à TOPdesk - Public
@@ -108,9 +108,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : *https://qssolutions.topdesk.net*").
-    2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : *https://qssolutions.topdesk.net/tas/public/login/saml*").
-    3.  Cliquez sur **Next**.
+    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : "**https://qssolutions.topdesk.net*").
+2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+3.  Cliquez sur **Next**.
 
 10. Dans la page **Configurer l’authentification unique sur TOPdesk - Public**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
 
@@ -152,7 +152,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
     6.  Cliquez sur **Enregistrer**.
 
-17. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+17. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configurer l’authentification unique")
 
@@ -197,4 +197,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

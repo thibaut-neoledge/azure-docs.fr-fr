@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 
 #Utilitaire de migration de l’entrepôt de données (version préliminaire)
@@ -57,4 +57,4 @@ Maintenant que vous avez migré certaines données, découvrez comment [dévelop
 [développer]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
 [ici]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -4,8 +4,8 @@
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	manager="carmonm" 
+	editor="tysonn"/>
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -151,7 +151,7 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 | Option | Description | Commande | Arguments |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess* : démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
+| **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** | Permet d’arrêter l’émulateur de stockage. | `AzureStorageEmulator stop` | |
 | **État** | Permet d’imprimer l’état de l’émulateur de stockage. | `AzureStorageEmulator status` | |
 | **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob* : efface les données d’objet blob. <br/>*queue* : efface les données de file d’attente. <br/>*table* : efface les données de table. <br/>*all* : efface toutes les données de tous les services. |
@@ -232,4 +232,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

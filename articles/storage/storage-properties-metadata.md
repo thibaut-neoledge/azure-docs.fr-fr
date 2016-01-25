@@ -5,8 +5,8 @@
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
-  manager="adinah" 
-  editor=""/>
+  manager="carmonm" 
+  editor="tysonn"/>
 
 <tags 
   ms.service="storage" 
@@ -99,4 +99,4 @@ Pour récupérer des métadonnées, appelez la méthode **FetchAttributes** sur 
 - [Références sur la bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Package de la bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

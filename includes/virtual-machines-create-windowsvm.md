@@ -1,4 +1,4 @@
-1. Connectez-vous au [portail Azure](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
 
 2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
 
@@ -6,12 +6,14 @@
 
 	![Accéder à À partir de la galerie dans la barre de commandes](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. Le premier écran vous propose de **Choisir une image** pour votre machine virtuelle dans la liste d’images disponibles. (Les images disponibles dépendent de l’abonnement que vous utilisez.)
+4. Le premier écran vous propose de **Choisir une image** pour votre machine virtuelle dans la liste d’images disponibles. Vous pouvez choisir une image dans la galerie ou effectuer votre choix parmi les images et les disques que vous avez chargés. Les images disponibles dépendent de l’abonnement que vous utilisez.
 
 5. Le deuxième écran vous permet de choisir un nom d’ordinateur, la taille, un nom d’utilisateur et un mot de passe d’administration. Utilisez le niveau et la taille requis pour exécuter votre application ou charge de travail. Voici quelques conseils :
 
-	- **Nouveau nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Créez un mot de passe unique pour ce compte et gardez-le en mémoire. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+	- **Nom de la machine virtuelle** peut contenir uniquement des lettres, des chiffres et des traits d’union. Il doit commencer par une lettre et se terminer par une lettre ou un chiffre.
 
+	- **Nouveau nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+	
 	- La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](../articles/virtual-machines-size-specs.md).
 
 6. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Voici quelques conseils :
@@ -28,8 +30,8 @@
 
 	>[AZURE.NOTE]L’agent de machine virtuelle fournit l’environnement dans lequel vous installez les extensions qui permettent d’interagir avec la machine virtuelle ou de la gérer. Pour en savoir plus, consultez la page [À propos de l'agent et des extensions de machine virtuelle](virtual-machines-extensions-agent-about.md).
 
-8. Une fois la machine virtuelle créée, le portail la répertorie sous **Machines virtuelles**. Le service cloud et le compte de stockage correspondants sont également créés et répertoriés dans ces sections. La machine virtuelle et le service cloud sont démarrés automatiquement et leur statut est répertorié comme **En cours d'exécution**.
+8. Une fois que vous avez créé la machine virtuelle, la version classique du portail la répertorie sous **Machines virtuelles**. Le service cloud et le compte de stockage correspondants sont également créés et répertoriés dans ces sections. La machine virtuelle et le service cloud sont démarrés automatiquement et leur statut est répertorié comme **En cours d'exécution**.
 
 	![Configurer l’agent de machine virtuelle et les points de terminaison de la machine virtuelle](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,48 +14,59 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="12/04/2015"
+	ms.date="01/08/2015"
 	ms.author="marsma"/>
 
 # Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
 
-La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. Cette facilité d’ajustement vous offre un gain de temps et d’argent. Pour plus d’informations sur les nœuds de calcul et sur les pools, voir [Concepts de base d’Azure Batch](batch-technical-overview.md).
+La mise à l’échelle automatique dans Azure Batch consiste à ajuster automatique la puissance de traitement utilisée par votre application, en ajoutant ou supprimant dynamiquement des nœuds de calcul lors de l’exécution du travail. Cet ajustement automatique peut vous faire gagner du temps et de l’argent.
 
-La mise à l’échelle automatique a lieu lorsqu’elle est activée sur un pool et qu’une formule est associée à ce pool. Cette formule permet de déterminer le nombre de nœuds de calcul nécessaires pour traiter l’application. Intervenant sur les échantillons recueillis à intervalles réguliers, le nombre de nœuds de calcul disponibles du pool est ajusté toutes les 15 minutes, en fonction de la formule associée.
+La mise à l’échelle automatique est activée sur un pool de nœuds de calcul en associant au pool une *formule de mise à l’échelle*, selon le même principe que la méthode [PoolOperations.EnableAutoScale][net_enableautoscale] dans la bibliothèque [Batch .NET](batch-dotnet-get-started.md). Le service Batch utilise ensuite cette formule pour déterminer le nombre de nœuds de calcul nécessaires à l’exécution de vos charges de travail. Intervenant sur les échantillons de données de mesure de service recueillis à intervalles réguliers, le nombre de nœuds de calcul disponibles dans le pool est ajusté à un intervalle configurable en fonction de la formule associée.
 
-La mise à l’échelle automatique peut être définie lors de la création d’un pool, ou activée par la suite sur un pool existant. La formule peut également être mise à jour sur un pool pour lequel la mise à l’échelle automatique a été activée au préalable. Il est recommandé d’évaluer systématiquement la formule avant de l’affecter à un pool, et il est important de surveiller l’état des exécutions de mise à l’échelle automatique. Nous abordons ces deux sujets plus loin.
+La mise à l’échelle automatique peut être activée sur un nouveau pool ou sur un pool existant. Vous pouvez modifier une formule existante sur un pool prenant déjà en charge la mise à l’échelle automatique. Le service Batch vous permet d’évaluer vos formules avant de les assigner à des pools et de surveiller l’état de l’exécution des mises à l’échelle automatiques.
 
-> [AZURE.NOTE]Chaque compte Azure Batch est limité à un nombre maximal de nœuds de calcul utilisables pour le traitement. Le système crée les nœuds à hauteur de cette limite et peut donc ne pas atteindre les nombres cibles spécifiés par une formule.
+## Formules de mise à l’échelle automatique
 
-## Mise à l’échelle automatique des ressources de calcul
+Une formule de mise à l’échelle automatique est une valeur de chaîne contenant une ou plusieurs instructions, qui est affectée à un élément de pool [autoScaleFormula][rest_autoscaleformula] (API REST Batch) ou à la propriété [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (API .NET Batch). Ces formules, une fois définies et affectées à un pool, déterminent le nombre de nœuds de calcul disponibles dans un pool pour le prochain intervalle de traitement (les intervalles seront décrits en détail dans la suite de cet article). La chaîne de formule ne peut pas dépasser 8 Ko et peut inclure jusqu’à 100 instructions séparées par des points-virgules pouvant atteindre des sauts de ligne et des commentaires.
 
-La formule de mise à l’échelle que vous définissez détermine le nombre de nœuds de calcul disponibles dans le pool pour le prochain intervalle de traitement. Une formule de mise à l’échelle automatique est une simple valeur de chaîne affectée à un élément de pool [autoScaleFormula](https://msdn.microsoft.com/library/azure/dn820173.aspx) dans un corps de demande (API REST) ou une propriété [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) (API .NET). Cette chaîne de formule ne peut pas dépasser 8 Ko et peut inclure jusqu’à 100 instructions séparées par des points-virgules pouvant atteindre des sauts de ligne et des commentaires.
+Les formules de mise à l’échelle automatique reviennent en quelque sorte à utiliser un « langage » de mise à l’échelle Batch. Les instructions des formules sont des expressions de forme libre pouvant inclure aussi bien des variables définies par le système et par l’utilisateur que des constantes. Elles peuvent effectuer diverses opérations sur ces valeurs à l’aide de types, opérateurs et fonctions intégrés. Par exemple, une instruction peut prendre la forme suivante :
 
-Les instructions d’une formule sont des expressions au format libre. Elles peuvent inclure des variables définies par le système, des variables définies par l’utilisateur, des valeurs de constante et des opérations prises en charge sur ces variables ou constantes.
+`VAR = Expression(system-defined variables, user-defined variables);`
 
-	VAR = Expression(system-defined variables, user-defined variables);
+Les formules contiennent généralement plusieurs instructions qui effectuent des opérations sur les valeurs obtenues dans les instructions précédentes :
 
-Les formules complexes sont créées par l’utilisation de différentes instructions et variables :
+```
+VAR₀ = Expression₀(system-defined variables);
+VAR₁ = Expression₁(system-defined variables, VAR₀);
+```
 
-	VAR₀ = Expression₀(system-defined variables);
-	VAR₁ = Expression₁(system-defined variables, VAR₀);
+En utilisant les instructions dans votre formule, vous allez chercher à atteindre le nombre de nœuds de calcul auquel le pool doit être mis à l’échelle, soit le nombre **cible** de **nœuds dédiés**. Ce nombre « cible dédié » peut être supérieur, inférieur ou égal au nombre actuel de nœuds dans le pool. Batch évalue la formule de mise à l’échelle d’un pool à un intervalle spécifique (les [intervalles de mise à l’échelle automatique](#interval) sont abordés ci-dessous) et ajuste le nombre cible de nœuds dans le pool en fonction du nombre spécifié par votre formule de mise à l’échelle au moment de l’évaluation.
 
-> [AZURE.NOTE]Une formule de mise à l’échelle automatique est composée de variables, de types, d’opérations et de fonctions API [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx). Celles-ci sont utilisées dans les chaînes de formule lors du travail avec la bibliothèque [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx).
+Prenons un exemple rapide : cette formule de mise à l’échelle de deux lignes indique que le nombre de nœuds doit être ajusté en fonction du nombre de tâches actives, en respectant un maximum de 10 nœuds de calcul :
 
-### Variables
+```
+$averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 15));
+$TargetDedicated = min(10, $averageActiveTaskCount);
+```
 
-Une formule peut utiliser aussi bien des variables définies par le système que des variables définies par l’utilisateur.
+Les sections suivantes de cet article décrivent les différentes entités qui composeront vos formules de mise à l’échelle, à savoir les variables, les opérateurs, les opérations et les fonctions. Vous allez apprendre à obtenir diverses ressources de calcul et mesures de tâche dans Batch pour être en mesure d’ajuster intelligemment le nombre de nœuds de votre pool en fonction de l’utilisation des ressources et de l’état de la tâche. Vous apprendrez ensuite à construire une formule et à activer la mise à l’échelle automatique sur un pool à l’aide des API REST et .NET de Batch, avant de conclure par quelques exemples de formules.
 
-*Obtenez* et *définissez* la valeur des **variables** définies par le système pour gérer les nœuds de calcul dans un pool.
+> [AZURE.NOTE]Chaque compte Azure Batch est limité à un nombre maximal de nœuds de calcul utilisables pour le traitement. Le service Batch crée les nœuds à hauteur de cette limite et peut donc ne pas atteindre les nombres cibles spécifiés par une formule. Consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’affichage et l’augmentation des quotas de votre compte.
+
+## <a name="variables"></a>Variables
+
+Les formules de mise à l’échelle peuvent utiliser aussi bien des variables définies par le système que des variables définies par l’utilisateur. Dans l’exemple de formule de deux lignes ci-dessus, `$TargetDedicated` est une variable définie par un système et `$averageActiveTaskCount` est une variable définie par l’utilisateur. Les tableaux ci-dessous montrent des variables en lecture-écriture et en lecture seule définies par le service Batch.
+
+*Obtenez* et *définissez* la valeur des **variables** définies par le système pour gérer les nœuds de calcul dans un pool :
 
 <table>
   <tr>
-    <th>Variable</th>
+    <th>Variables (lecture-écriture)</th>
     <th>Description</th>
   </tr>
   <tr>
     <td>$TargetDedicated</td>
-    <td>Nombre cible de nœuds de calcul dédiés pour le pool. Cette valeur est modifiable en fonction de l’utilisation réelle pour le traitement des tâches.</td>
+    <td>Nombre <b>cible</b> de <b>nœuds de calcul dédiés</b> pour le pool. Il s’agit du nombre de nœuds de calcul auquel le pool doit être mis à l’échelle. Il s’agit d’un nombre «&#160;cible&#160;» dans la mesure où il est possible qu’un pool ne puisse pas atteindre le nombre cible de nœuds. Ceci peut se produire si le nombre cible de nœuds est à nouveau modifié par une autre évaluation de la mise à l’échelle avant que le pool ait atteint la cible initiale, ou lorsqu’un quota de nœuds ou de cœurs du compte Batch est atteint avant que le pool n’atteigne le nombre cible de nœuds.</td>
   </tr>
   <tr>
     <td>$NodeDeallocationOption</td>
@@ -70,11 +81,11 @@ Une formule peut utiliser aussi bien des variables définies par le système que
    </tr>
 </table>
 
-*Obtenez* les valeurs des **variables définies par le système** ci-après pour effectuer des ajustements basés sur les métriques à partir des nœuds de calcul dans l’échantillon. Ces variables sont en lecture seule.
+*Obtenez* la valeur des **variables définies par le système** ci-après pour effectuer des ajustements basés sur les métriques à partir du service Batch :
 
 <table>
   <tr>
-    <th>Variable</th>
+    <th>Variables (lecture seule)</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -142,12 +153,15 @@ Une formule peut utiliser aussi bien des variables définies par le système que
   </tr>
 </table>
 
-### Types
+> [AZURE.TIP]Les variables en lecture seule définies par le système illustrées ci-dessus sont des *objets* qui fournissent diverses méthodes pour accéder aux données associées à chacun. Consultez la section [Obtenir des échantillons de données](#getsampledata) ci-dessous pour plus d’informations.
+
+## Types
 
 Ces **types** sont pris en charge dans une formule.
 
 - double
 - doubleVec
+- doubleVecList
 - string
 - Horodatage : il s’agit d’une structure composée qui inclut les éléments suivants :
 	- year
@@ -169,7 +183,7 @@ Ces **types** sont pris en charge dans une formule.
 	- TimeInterval\_Week
 	- TimeInterval\_Year
 
-### Opérations
+## Opérations
 
 Les **opérations** autorisées sur les types répertoriés ci-dessus sont les suivantes :
 
@@ -248,7 +262,7 @@ Les **opérations** autorisées sur les types répertoriés ci-dessus sont les s
   </tr>
 </table>
 
-### Fonctions
+## Fonctions
 
 Les **fonctions** prédéfinies disponibles pour la définition d’une formule de mise à l’échelle automatique sont les suivantes :
 
@@ -340,13 +354,11 @@ Certaines des fonctions décrites dans le tableau ci-dessus peuvent accepter une
 
 La valeur *doubleVecList* est convertie en un seul paramètre *doubleVec* avant l’évaluation. Par exemple, si `v = [1,2,3]`, l’appel de `avg(v)` équivaut à appeler `avg(1,2,3)` et l’appel de `avg(v, 7)` équivaut à appeler `avg(1,2,3,7)`.
 
-### Obtenir des échantillons de données
+## <a name="getsampledata"></a>Obtenir des échantillons de données
 
-Les variables définies par le système décrites plus haut sont des objets qui fournissent des méthodes pour accéder aux données associées. Par exemple, l’expression ci-après présente une requête visant à obtenir les cinq dernières minutes de l’utilisation du processeur :
+Les formules de mise à l’échelle agissent sur les données de mesure (échantillons) fournis par le service Batch : elles étendent ou réduisent la taille du pool en fonction des valeurs que la formule obtient du service. Les variables définies par le système illustrées ci-dessus sont des objets qui fournissent diverses méthodes pour accéder aux données associées à chaque objet. Par exemple, l’expression ci-après présente une requête visant à obtenir les cinq dernières minutes de l’utilisation du processeur :
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
-
-Ces méthodes sont ensuite utilisables pour l’obtention d’échantillons de données.
 
 <table>
   <tr>
@@ -354,12 +366,8 @@ Ces méthodes sont ensuite utilisables pour l’obtention d’échantillons de d
     <th>Description</th>
   </tr>
   <tr>
-    <td>Count()</td>
-    <td>Renvoie le nombre total d’échantillons dans l’historique des métriques.</td>
-  </tr>
-  <tr>
     <td>GetSample()</td>
-    <td><p>Renvoie un vecteur d’échantillons de données.
+    <td><p>La méthode <b>GetSample()</b> renvoie un vecteur d’échantillons de données.
 	<p>Un échantillon correspond à 30&#160;secondes de données de métrique. En d’autres termes, les échantillons sont collectés toutes les 30&#160;secondes, mais, comme indiqué ci-dessous, il existe un délai entre le moment où un échantillon est collecté et celui où il devient accessible par la formule. Par conséquent, tous les échantillons pour une période donnée ne sont pas forcément disponibles pour évaluation par une formule.
         <ul>
           <li><p><b>doubleVec GetSample(double count)</b>&#160;: spécifie le nombre d’échantillons à obtenir à partir des échantillons collectés les plus récents.</p>
@@ -375,21 +383,61 @@ Ces méthodes sont ensuite utilisables pour l’obtention d’échantillons de d
     <td>GetSamplePeriod()</td>
     <td>Renvoie la période des échantillons considérés dans un jeu de données d’échantillon historiques.</td>
   </tr>
+	<tr>
+		<td>Count()</td>
+		<td>Renvoie le nombre total d’échantillons dans l’historique des métriques.</td>
+	</tr>
   <tr>
     <td>HistoryBeginTime()</td>
     <td>Renvoie l’horodateur du plus ancien échantillon de données disponible pour le métrique.</td>
   </tr>
   <tr>
     <td>GetSamplePercent()</td>
-    <td><p>Renvoie le pourcentage d’échantillons qu’un historique comprend pour un intervalle de temps donné. Par exemple&#160;:</p>
+    <td><p>Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple&#160;:</p>
     <p><b>doubleVec GetSamplePercent ((timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime])</b>
 	<p>Étant donné que la méthode GetSample échoue si le pourcentage d’échantillons renvoyé est inférieur à la valeur samplePercent indiquée, vous pouvez utiliser les méthodes GetSamplePercent pour vérifier ce point dans un premier temps, puis exécuter une autre action si le nombre d’échantillons présents est insuffisant, sans interrompre l’évaluation de mise à l’échelle automatique.</p></td>
   </tr>
 </table>
 
-### Mesures
+### Échantillons, pourcentage d’échantillonnage et méthode *GetSample()*
 
-Vous pouvez utiliser les ressources et les **mesures** de tâche au moment de définir une formule, et ces mesures peuvent être utilisées pour gérer les nœuds de calcul dans un pool.
+Une formule de mise à l’échelle automatique vise essentiellement à obtenir des données de mesure des tâches et des ressources et à ajuster la taille du pool en fonction de ces données. Par conséquent, il est important de comprendre clairement comment les formules de mise à l’échelle automatique interagissent avec les données de mesure, également appelées « échantillons ».
+
+**Exemples**
+
+Le service Batch prélève régulièrement des *échantillons* des mesures de tâches et de ressources pour les rendre disponibles pour vos formules de mise à l’échelle automatique. Ces échantillons sont enregistrés toutes les 30 secondes par le service Batch. Cependant, un temps de latence entraîne souvent un retard entre l’enregistrement de ces échantillons et leur mise à disposition (en lecture) pour vos formules de mise à l’échelle. En outre, en raison de différents facteurs tels que les problèmes de réseau ou autres problèmes d’infrastructure, il arrive que des échantillons ne soient pas enregistrés pendant un intervalle donné. C’est ce que l’on appelle les échantillons « manquants ».
+
+**Pourcentage d’échantillonnage**
+
+Lorsqu’on utilise un `samplePercent` dans la méthode `GetSample()` ou qu’on appelle la méthode `GetSamplePercent()`, le terme « pourcentage » fait référence à une comparaison entre le nombre total *possible* d’échantillons enregistrés par le service Batch et le nombre d’échantillons effectivement *disponibles* pour la formule de mise à l’échelle.
+
+Prenons l’exemple d’un intervalle de 10 minutes. Puisque les échantillons sont enregistrés toutes les 30 secondes, au cours d’un intervalle de 10 minutes, le nombre total maximal d’échantillons enregistrés par Batch devrait être de 20 échantillons (soit 2 par minute). Toutefois, en raison de la latence inhérente au mécanisme de création de rapports, ou d’un quelque autre problème au sein de l’infrastructure Azure, il se peut que 15 échantillons seulement soient disponibles en lecture pour votre formule de mise à l’échelle. Cela signifie que, pour cette période de 10 minutes, seulement **75 %** du nombre total d’échantillons enregistrés sont réellement disponibles pour votre formule.
+
+**Méthode GetSample() et plages d’échantillons**
+
+Vos formules de mise à l’échelle automatique vont avoir pour effet d’étendre ou de réduire vos pools (en y ajoutant ou en y supprimant des nœuds). Dans la mesure où les nœuds ont un coût, il est important de s’assurer que vos formules prennent des décisions intelligentes à partir de données suffisantes. Par conséquent, il est recommandé d’utiliser une analyse des types de tendances dans vos formules, de manière à étendre ou réduire vos pools selon une *plage* d’échantillons collectés.
+
+Pour ce faire, utilisez `GetSample(interval look-back start, interval look-back end)` pour renvoyer un **vecteur** d’échantillons :
+
+`runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);`
+
+Lorsque Batch évalue la ligne ci-dessus, il retourne une plage d’échantillons sous la forme d’un vecteur de valeurs, par exemple :
+
+`runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
+
+Une fois que vous avez récupéré le vecteur d’échantillons, vous pouvez ensuite utiliser des fonctions telles que `min()`, `max()`, et `avg()` pour dériver des valeurs significatives à partir de la plage collectée.
+
+Pour plus de la sécurité, vous pouvez forcer l’*échec* d’une évaluation de formule si le pourcentage d’échantillons disponible pendant une période donnée est inférieur à un certain seuil. Lorsque vous forcez l’échec d’une évaluation de formule, Batch reçoit l’instruction de cesser toute nouvelle évaluation de la formule si le pourcentage d’échantillons spécifié n’est pas disponible, auquel cas la taille du pool ne sera pas modifiée. Pour spécifier un pourcentage d’échantillons à respecter pour que l’évaluation aboutisse, spécifiez ce pourcentage en tant que troisième paramètre de `GetSample()`. Dans l’exemple ci-dessous, une exigence de 75 % d’échantillons est spécifiée :
+
+`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
+
+Il est également important, en raison du délai de disponibilité des échantillons dont nous avons parlé ci-dessus, de toujours spécifier une plage horaire avec une heure de début différée antérieure à une minute. En effet, il faut environ une minute aux échantillons pour se propager dans le système, ce qui signifie que les échantillons situés dans la plage `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` ne seront généralement pas disponibles. Là encore, vous pouvez utiliser le paramètre pourcentage de `GetSample()` pour forcer une exigence de pourcentage d’échantillon particulière.
+
+> [AZURE.IMPORTANT]Il est **fortement recommandé** d’**éviter de s’appuyer *uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « donne-moi le dernier échantillon disponible, peu importe depuis combien de temps il est disponible ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
+
+## Mesures
+
+Vous pouvez utiliser les mesures de **ressources** et de **tâches** lorsque vous définissez une formule, en ajustant le nombre cible de nœuds dédiés dans le pool en fonction des données de mesures que vous obtenez et évaluez. Consultez la section [Variables](#variables) ci-dessus pour plus d’informations sur chaque mesure.
 
 <table>
   <tr>
@@ -397,13 +445,15 @@ Vous pouvez utiliser les ressources et les **mesures** de tâche au moment de d�
     <th>Description</th>
   </tr>
   <tr>
-    <td>Ressource</td>
-    <td><p>Les mesures de ressources sont basées sur l’utilisation du processeur, de la bande passante et de la mémoire, et sur le nombre de nœuds de calculs. Les variables définies par le système (décrites ci-dessous dans les **variables**) sont utilisées dans les formules pour gérer les nœuds de calcul dans un pool&#160;:</p>
+    <td><b>Ressource</b></td>
+    <td><p>Les <b>mesures de ressources</b> sont les mesures dérivées de l’utilisation du processeur, de la bande passante et de la mémoire par les nœuds de calcul, ainsi que du nombre de nœuds.</p>
+		<p> Ces variables définies par le système sont utiles pour effectuer des ajustements en fonction du nombre de nœuds&#160;:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$NodeDeallocationOption</li>
+			<li>$CurrentDedicated</li>
+			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>Les variables système ci-après sont utilisées pour effectuer des ajustements en fonction des mesures de ressources de nœud&#160;:</p>
+    <p>Ces variables définies par le système sont utilisées pour effectuer des ajustements en fonction de l’utilisation des ressources du nœud&#160;:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -417,15 +467,14 @@ Vous pouvez utiliser les ressources et les **mesures** de tâche au moment de d�
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td>Task</td>
-    <td><p>Basée sur l’état des tâches (Active, En attente et Terminée).</p>
-    <p>Les variables système ci-après sont utilisées pour effectuer des ajustements en fonction des mesures de tâche&#160;:</p>
+    <td><b>Tâche</b></td>
+    <td><p>Les <b>mesures de tâches</b> sont basées sur l’état des tâches (ex. Actif, En attente et Terminé). Ces variables définies par le système sont utiles pour ajuster la taille du pool en fonction des mesures de tâche&#160;:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
       <li>$SucceededTasks</li>
-      <li>$FailedTasks</li>
-      <li>$CurrentDedicated</li></ul></p></td>
+			<li>$FailedTasks</li></ul></p>
+		</td>
   </tr>
 </table>
 
@@ -439,21 +488,25 @@ La construction d’une formule de mise à l’échelle s’effectue par la form
 
 Pour *augmenter* le nombre de nœuds en cas d’utilisation intensive du processeur, nous définissons l’instruction qui remplit une variable définie par l’utilisateur ($TotalNodes) en utilisant une valeur équivalente à 110 % du nombre de nœuds cibles actuels si l’utilisation moyenne du processeur minimale au cours des 10 dernières minutes a été supérieure à 70 % :
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+`$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
 L’instruction suivante définit la même variable à 90 % du nombre de nœuds cible actuel si l’utilisation moyenne du processeur de 60 dernières minutes était *inférieure à* 20 %, ce qui réduit le nombre cible lors de l’utilisation faible d’un processeur. Notez que cette instruction fait également référence à la variable définie par l’utilisateur *$TotalNodes* à partir de l’instruction ci-dessus.
 
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+`$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
 Cet exemple définit le nombre cible de nœuds de calcul dédiés sur un **maximum** de 400 :
 
-	$TargetDedicated = min(400, $TotalNodes)
+`$TargetDedicated = min(400, $TotalNodes)`
 
 Voici la formule complète :
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
-	$TargetDedicated = min(400, $TotalNodes)
+```
+$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+$TargetDedicated = min(400, $TotalNodes)
+```
+
+> [AZURE.NOTE]Une formule de mise à l’échelle automatique est composée de variables, de types, d’opérations et de fonctions API [Batch REST][rest_api]. Celles-ci sont utilisées dans les chaînes de formule lors du travail avec la bibliothèque [Batch .NET][net_api].
 
 ## Créer un pool en activant la mise à l’échelle automatique sur ce dernier
 
@@ -463,25 +516,39 @@ Pour activer la mise à l’échelle automatique lors de la création d’un poo
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) : une fois que cette méthode .NET a été appelée pour créer un pool, vous pouvez définir les propriétés [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) et [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) pour activer la mise à l’échelle automatique.
 - [Ajout d’un pool à un compte](https://msdn.microsoft.com/library/azure/dn820174.aspx) : les éléments enableAutoScale et autoScaleFormula sont utilisés dans cette requête API REST afin de configurer la mise à l’échelle automatique pour le pool lors de la création de ce dernier.
 
-> [AZURE.NOTE]Si vous configurez la mise à l’échelle automatique à l’aide de l’une des techniques mentionnées ci-dessus, le paramètre *targetDedicated* relatif au pool n’est pas (et ne doit pas être) utilisé au moment de la création. Notez également que si vous souhaitez redimensionner manuellement un pool de mise à l’échelle (par exemple, avec [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx)), vous devez dans un premier temps désactiver la mise à l’échelle automatique dans le pool, puis redimensionner le pool.
+> [AZURE.IMPORTANT]Si vous créez un pool compatible avec une mise à l’échelle automatique en utilisant l’une des techniques ci-dessus, le paramètre *targetDedicated* du pool ne doit **pas** être spécifié. Notez également que si vous souhaitez redimensionner manuellement un pool compatible avec une mise à l’échelle compatible (par exemple, avec [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
 
-L’extrait de code suivant illustre la création d’une mise à l’échelle automatique [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) à l’aide de la bibliothèque [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), dont la formule définit le nombre de nœuds cibles à 5 le lundi et 1 tous les jours de la semaine. Dans l’extrait de code, « myBatchClient » est une instance correctement initialisée de [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) :
+L’extrait de code suivant illustre la création d’une mise à l’échelle automatique [CloudPool][net_cloudpool] à l’aide de la bibliothèque [Batch .NET][net_api], dont la formule définit le nombre de nœuds cibles à 5 le lundi et 1 tous les jours de la semaine. En outre, l’intervalle de mise à l’échelle automatique est défini sur 30 minutes (voir [Intervalle de mise à l’échelle automatique](#interval) ci-dessous). Dans cet extrait de code et les autres extraits de cet article, « myBatchClient » est une instance entièrement initialisée de [BatchClient][net_batchclient].
 
-		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
-		pool.AutoScaleEnabled = true;
-		pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
-		pool.Commit();
+```
+CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
+pool.AutoScaleEnabled = true;
+pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
+pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
+pool.Commit();
+```
+
+### <a name="interval"></a>Intervalle de mise à l’échelle automatique
+
+Par défaut, le service Batch ajuste la taille d’un pool en fonction de sa formule de mise à l’échelle toutes les **15 minutes**. Cet intervalle peut toutefois être configuré à l’aide des propriétés de pool suivantes :
+
+- API REST : [autoScaleEvaluationInterval][rest_autoscaleinterval]
+- API .NET : [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
+
+L’intervalle doit être compris entre 5 minutes et 168 heures. Si un intervalle en dehors de cette plage est spécifié, le service Batch renvoie une erreur de demande incorrecte (400).
+
+> [AZURE.NOTE]La mise à l’échelle ne peut pas actuellement répondre aux modifications en moins d’une minute, mais vise plutôt à ajuster progressivement la taille de votre pool pendant l’exécution d’une charge de travail.
 
 ## Activer la mise à l’échelle automatique après la création d’un pool
 
 Si vous avez déjà configuré un pool avec un nombre de nœuds de calcul spécifié à l’aide du paramètre *targetDedicated*, vous pouvez mettre à jour ce pool par la suite afin d’y activer la mise à l’échelle automatique. Pour effectuer cette opération, utilisez l’une des méthodes suivantes :
 
-- [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx) : cette méthode .NET nécessite l’ID d’un pool existant et la formule de la mise à l’échelle automatique à appliquer au pool.
-- [Activation de la mise à l’échelle automatique](https://msdn.microsoft.com/library/azure/dn820173.aspx) : cette API REST nécessite le nom du pool existant dans l’URI et la formule de mise à l’échelle automatique dans le corps de la requête.
+- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] : cette méthode .NET nécessite l’ID d’un pool existant et la formule de la mise à l’échelle automatique à appliquer au pool.
+- [Activation de la mise à l’échelle automatique][rest_enableautoscale] : cette API REST nécessite le nom du pool existant dans l’URI et la formule de mise à l’échelle automatique dans le corps de la requête.
 
 > [AZURE.NOTE]La valeur spécifiée pour le paramètre *targetDedicated* au moment de la création du pool est ignorée lorsque la formule de mise à l’échelle automatique est évaluée.
 
-Cet extrait de code montre l’activation de la mise à l’échelle automatique sur un pool existant à l’aide de la bibliothèque [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx). Notez que l’activation et la mise à jour de la formule sur un pool existant utilisent la même méthode. Par conséquent, cette technique *met à jour* la formule sur le pool spécifié si la mise à l’échelle automatique a déjà été activée. Cet extrait de code suppose que « myBatchClient » est une instance correctement initialisée de [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx), et que « mypool » est l’ID d’un objet [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) existant.
+Cet extrait de code montre l’activation de la mise à l’échelle automatique sur un pool existant à l’aide de la bibliothèque [Batch .NET][net_api]. Notez que l’activation et la mise à jour de la formule sur un pool existant utilisent la même méthode. Par conséquent, cette technique *met à jour* la formule sur le pool spécifié si la mise à l’échelle automatique a déjà été activée. L’extrait de code suppose que « mypool » est l’ID d’un [CloudPool][net_cloudpool].
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -500,50 +567,52 @@ Il est recommandé d’évaluer systématiquement une formule avant de l’utili
 
 > [AZURE.NOTE]Pour évaluer une formule de mise à l’échelle automatique, vous devez d’abord activer mise à l’échelle automatique sur le pool à l’aide d’une formule valide.
 
-Dans cet extrait de code utilisant la bibliothèque [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), nous évaluons une formule avant de l’appliquer à l’objet [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
+Dans cet extrait de code utilisant la bibliothèque [Batch .NET][net_api], nous évaluons une formule avant de l’appliquer à l’objet [CloudPool][net_cloudpool].
 
-		// First obtain a reference to the existing pool
-		CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
+```
+// First obtain a reference to the existing pool
+CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
 
-		// We must ensure that autoscaling is enabled on the pool prior to evaluating a formula
-		if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
-		{
-			// The formula to evaluate - adjusts target number of nodes based on day of week and time of day
-			string myFormula = @"
-				$CurTime=time();
-				$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-				$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-				$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-				$TargetDedicated=$IsWorkingWeekdayHour?20:10;
-			";
+// We must ensure that autoscaling is enabled on the pool prior to evaluating a formula
+if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
+{
+	// The formula to evaluate - adjusts target number of nodes based on day of week and time of day
+	string myFormula = @"
+		$CurTime=time();
+		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+	";
 
-			// Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
-			// the pool.
-			AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
+	// Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
+	// the pool.
+	AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
 
-			if (eval.AutoScaleRun.Error == null)
-			{
-				// Evaluation success - print the results of the AutoScaleRun. This will display the values of each
-				// variable as evaluated by the the autoscaling formula.
-				Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
+	if (eval.AutoScaleRun.Error == null)
+	{
+		// Evaluation success - print the results of the AutoScaleRun. This will display the values of each
+		// variable as evaluated by the the autoscaling formula.
+		Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
 
-				// Apply the formula to the pool since it evaluated successfully
-				client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
-			}
-			else
-			{
-				// Evaluation failed, output the message associated with the error
-				Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
-			}
-		}
+		// Apply the formula to the pool since it evaluated successfully
+		client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
+	}
+	else
+	{
+		// Evaluation failed, output the message associated with the error
+		Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
+	}
+}
+```
 
 L’évaluation réussie de la formule dans cet extrait de code entraîne une sortie similaire à ce qui suit :
 
-		AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0
+`AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0`
 
 ## Obtenir des informations sur les exécutions de mise à l’échelle automatique
 
-Une vérification à intervalle régulier des résultats de l’exécution de mise à l’échelle automatique doit être exécutée automatique sur une formule fonctionnant comme prévu. Pour effectuer cette opération, utilisez l’une des méthodes suivantes :
+Vérifiez régulièrement les résultats de l’exécution de la mise à l’échelle automatique pour vous assurer qu’une formule fonctionne comme prévu.
 
 - [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) : lors de l’utilisation de la bibliothèque .NET, cette propriété d’un pool fournit une instance de la classe [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx) qui indique les propriétés de la dernière exécution de mise à l’échelle automatique :
   - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
@@ -551,11 +620,11 @@ Une vérification à intervalle régulier des résultats de l’exécution de mi
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
 - [Obtention d’informations sur un pool](https://msdn.microsoft.com/library/dn820165.aspx) : cette requête API REST renvoie des informations sur le pool, et inclut la dernière exécution de mise à l’échelle automatique.
 
-## formules exemple
+## <a name="examples"></a>Exemples de formules
 
 Examinons quelques exemples présentant certaines façons d’utiliser des formules pour adapter automatiquement les ressources dans un pool.
 
-### Exemple 1
+### Exemple 1 : ajustement en fonction du temps
 
 Peut-être vous souhaitez ajuster la taille du pool en fonction du jour de la semaine et de l’heure de la journée, augmentant ou en diminuant le nombre de nœuds dans le pool en conséquence :
 
@@ -569,7 +638,7 @@ $TargetDedicated=$IsWorkingWeekdayHour?20:10;
 
 Cette formule obtient dans un premier temps l’heure actuelle. S’il s’agit d’un jour de la semaine (1 à 5) et les heures de travail (8 heures à 18 heures), la taille du pool cible est définie à 20 nœuds. Autrement, la taille cible du pool est définie sur 10.
 
-### Exemple 2
+### Exemple 2 : ajustement en fonction de la tâche
 
 Dans cet exemple, la taille du pool est ajustée en fonction du nombre de tâches présentes dans la file d’attente. Notez que les commentaires et les sauts de ligne sont acceptés dans les chaînes de formule.
 
@@ -588,9 +657,9 @@ $TargetDedicated = max(0,min($TargetVMs,20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### Exemple 3
+### Exemple 3 : comptabilisation des tâches parallèles
 
-Autre exemple adaptant la taille du pool au nombre de tâches, cette formule prend également en compte la valeur [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) qui a été définie pour le pool. Cela est particulièrement utile dans les situations où l’exécution parallèle de tâche sur des nœuds de calcul est souhaitée.
+Autre exemple adaptant la taille du pool au nombre de tâches, cette formule prend également en compte la valeur [MaxTasksPerComputeNode][net_maxtasks] qui a été définie pour le pool. Cela est particulièrement utile dans les situations où l’[exécution parallèle de tâches](batch-parallel-node-tasks.md) a été activée sur votre pool.
 
 ```
 // Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
@@ -607,9 +676,9 @@ $TargetDedicated = max(0,min($TargetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### Exemple 4
+### Exemple 4 : définition d’une taille de pool initiale
 
-Cet exemple montre une formule de mise à l’échelle automatique qui définit la taille du pool à un certain nombre de nœuds pour une période de départ, puis ajuste la taille du pool en fonction du nombre de tâches en cours d’exécution et actives après expiration de la période initiale.
+Cet exemple montre un extrait de code C# avec une formule de mise à l’échelle automatique qui définit la taille du pool sur un certain nombre de nœuds pour une période de départ, puis ajuste la taille du pool en fonction du nombre de tâches en cours d’exécution et actives après expiration de la période initiale.
 
 ```
 string now = DateTime.UtcNow.ToString("r");
@@ -637,13 +706,27 @@ La formule de l’extrait de code ci-dessus présente les caractéristiques suiv
 
 1. Pour parvenir à évaluer intégralement l’efficacité de votre application, il se peut que vous deviez accéder au nœud de calcul . Pour tirer parti de l’accès à distance, vous devez ajouter un compte d’utilisateur au nœud de calcul auquel vous souhaitez accéder, et extraire un fichier RDP de ce nœud.
     - Ajoutez le compte d’utilisateur de l’une des manières suivantes :
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) : cette applet de commande PowerShell utilise le nom du pool, le nom du nœud de calcul, ainsi que le nom et le mot de passe du compte en tant que paramètres.
+        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) : cet applet de commande PowerShell utilise le nom du pool, le nom du nœud de calcul, ainsi que le nom et le mot de passe du compte en tant que paramètres.
         * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx) : cette méthode .NET crée une instance de classe [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) sur laquelle vous pouvez définir le nom de compte et le mot de passe pour le nœud de calcul et [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) est ensuite appelée sur l’instance afin de créer l’utilisateur sur ce nœud.
         * [Ajout d’un compte d’utilisateur à un nœud](https://msdn.microsoft.com/library/dn820137.aspx) : le nom du pool et le nœud de calcul sont spécifiés dans l’URI, et le nom et le mot de passe du compte sont envoyés au nœud dans le corps de cette requête API REST.
     - Obtenez le fichier RDP de l’une des manières suivantes :
         * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) : cette méthode .NET nécessite l’ID du pool, l’ID du nœud et le nom du protocole RDP du fichier à créer.
-        * [Obtention d’un fichier de protocole de bureau distant à partir d’un nœud](https://msdn.microsoft.com/library/dn820120.aspx) : cette requête API REST requiert le nom du pool et le nom du nœud de calcul. La réponse contient le contenu du fichier RDP.
+        * [Obtention d’un fichier de protocole de bureau distant à partir d’un nœud](https://msdn.microsoft.com/library/dn820120.aspx) : cette API REST requiert le nom du pool et le nom du nœud de calcul. La réponse contient le contenu du fichier RDP.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) : cet applet de commande PowerShell obtient le fichier RDP à partir du nœud de calcul spécifié et l’enregistre à l’emplacement de fichier spécifié ou dans un flux de données.
 2.	Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+[net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_cloudpool_autoscaleformula]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx
+[net_cloudpool_autoscaleevalinterval]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval.aspx
+[net_enableautoscale]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx
+[net_maxtasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
+[net_poolops_resizepool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx
+
+[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
+[rest_autoscaleinterval]: https://msdn.microsoft.com/fr-FR/library/azure/dn820173.aspx
+[rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
+
+<!---HONumber=AcomDC_0114_2016-->

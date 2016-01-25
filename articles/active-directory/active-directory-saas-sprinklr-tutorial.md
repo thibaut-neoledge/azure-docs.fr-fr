@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à Sprinklr
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Sprinklr
@@ -67,9 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -124,14 +121,13 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
-10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configurer l’authentification unique")
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr.  
-Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
+Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr. Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
 
 ###Pour approvisionner un compte d’utilisateur dans SpringCM, procédez comme suit :
 
@@ -188,4 +184,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

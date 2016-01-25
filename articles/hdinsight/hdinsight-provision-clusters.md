@@ -51,9 +51,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	
 - **Système d’exploitation**
 
-	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants :
-	 - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** :
-	 - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Type de cluster** et **taille du cluster (également appelé nœuds de données)**
 
@@ -79,25 +77,16 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Les clusters HBase pour HDInsight sont déployés avec trois rôles : 
-	- les serveurs principaux (2 nœuds)
-	- les serveurs Region (au moins 1 nœud) 
-	- les nœuds Master/Zookeeper (3 nœuds)
+	Les clusters HBase pour HDInsight sont déployés avec trois rôles : - les serveurs principaux (2 nœuds) - les serveurs Region (au moins 1 nœud) - les nœuds Master/Zookeeper (3 nœuds)
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Les clusters Storm pour HDInsight sont déployés avec trois rôles : 
-	- les nœuds Nimbus (2 nœuds) 
-	- les serveurs Supervisor (au moins 1 nœud) 
-	- les nœuds Zookeeper (3 nœuds)
+	Les clusters Storm pour HDInsight sont déployés avec trois rôles : - les nœuds Nimbus (2 nœuds) - les serveurs Supervisor (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds)
 
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Les clusters Spark pour HDInsight sont déployés avec trois rôles : 
-	- le nœud principal (2 nœuds) 
-	- le nœud de travail (au moins 1 nœud) 
-	- les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
+	Les clusters Spark pour HDInsight sont déployés avec trois rôles : - le nœud principal (2 nœuds) - le nœud de travail (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
 
 	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -157,7 +146,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	Le metastore contient les métadonnées Hive et Oozie, telles que les tables, les partitions, les schémas et les colonnes Hive. L’utilisation du metastore vous permet de conserver vos métadonnées Hive et Oozie, afin de ne pas devoir recréer des tables Hive ou des tâches Oozie lorsque vous créez un nouveau cluster. Hive utilise par défaut une base de données intégrée Azure SQL pour stocker ces informations. La base de données incorporée ne peut pas conserver les métadonnées lorsque le cluster est supprimé. Par exemple, vous disposez d’un cluster qui a été créé avec un metastore Hive. Vous avez créé des tables Hive. Après avoir supprimé et recréé le cluster à l'aide du même metastore Hive, vous ne pourrez pas afficher les tables Hive que vous avez créées dans le cluster d'origine.
     
-    > [AZURE.NOTE] La configuration Metastore n’est pas disponible pour les types de cluster HBase.
+    > [AZURE.NOTE]La configuration Metastore n’est pas disponible pour les types de cluster HBase.
 
 ## Personnalisation de clusters à l'aide de la personnalisation de cluster de HDInsight (bootstrap)
 
@@ -197,16 +186,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster HDInsight. Pour plus d’informations, consultez [Créer un cluster Hadoop sur un réseau virtuel](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
->
-> Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
->
-> - Exportez la configuration du réseau virtuel existant, puis créez un réseau virtuel. Les nouveaux réseaux virtuels sont basés par défaut sur l’emplacement.
-> - Migrez vers un réseau virtuel basé sur l’emplacement. Consultez la rubrique [Migrer des services existants vers une portée régionale](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
+Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Méthodes de création de cluster
 
@@ -221,4 +201,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

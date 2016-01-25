@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à Workday
@@ -79,7 +79,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Workday (par ex. : *https://impl.workday.com/\<locataire>/login-saml2.htmld*).
     2.  Dans la zone de texte **URL de réponse de Workday**, tapez l’URL appropriée (par ex. : *https://impl.workday.com/\<locataire>/login-saml.htmld*).
 
-        >[AZURE.NOTE]Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que « **http://www.myworkday.com* » fonctionne, mais pas « **http://myworkday.com* ».
+        >[AZURE.NOTE]Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que "**http://www.myworkday.com*" fonctionne, mais pas "**http://myworkday.com*".
  
 4.  Dans la page **Configurer l’authentification unique sur Workday**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -91,7 +91,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Workbench](./media/active-directory-saas-workday-tutorial/IC782923.png "Workbench")
 
-7.  Accédez à **Account Administration**.
+7.  Accédez à **Administration des comptes**.
 
     ![Administration des comptes](./media/active-directory-saas-workday-tutorial/IC782924.png "Administration des comptes")
 
@@ -103,7 +103,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![URL de redirection](./media/active-directory-saas-workday-tutorial/IC7829581.png "URL de redirection")
 
-     9\.1. Cliquez sur le **signe plus** pour ajouter une ligne.
+     9\.1. Cliquez sur **Ajouter une ligne**.
 
      9\.2. Dans les zones de texte **Login Redirect URL** et **Mobile Redirect URL**, tapez l’**URL de locataire Workday** que vous avez entrée dans la page **Configurer l’URL de l’application** du portail Azure.
     
@@ -152,7 +152,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 		>[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
       5.  Ouvrez le certificat codé en base 64 dans le Bloc-notes, puis copiez son contenu.
-      6.  Dans la zone de texte **Certificate**, collez le contenu du Presse-papiers.
+      6.  Dans la zone de texte **Certificat**, collez le contenu du Presse-papiers.
       7.  Cliquez sur **OK**.
 
 12.  Procédez comme suit : <br><br> ![Configuration SSO](./media/active-directory-saas-workday-tutorial/IC7829351111.png "Configuration SSO")
@@ -193,7 +193,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte test.
 
-2.  Dans la page d’intégration d’applications **Workday**, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d'intégration d'applications **Workday**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-workday-tutorial/IC782935.png "Affecter des utilisateurs")
 
@@ -203,4 +203,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

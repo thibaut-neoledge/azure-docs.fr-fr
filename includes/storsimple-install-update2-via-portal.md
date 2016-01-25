@@ -1,64 +1,64 @@
 <!--author=alkohli last changed: 01/11/16-->
 
-#### To install Update 2 from the Azure portal
+#### Pour installer Update 2 à partir du portail Azure
 
-1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
+1. Dans la page du service StorSimple, sélectionnez votre appareil. Accédez à **Appareils** > **Maintenance**.
 
-2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
+2. En bas de la page, cliquez sur **Rechercher les mises à jour**. La tâche créée recherche les mises à jour disponibles. Un message s’affiche une fois la tâche terminée.
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 2 on your device.
+3. Dans la section **Mises à jour logicielles** de cette page, de nouvelles mises à jour logicielles sont disponibles. Nous vous recommandons de consulter les notes de publication avant d’appliquer Update 2 sur votre appareil.
 
-    ![Install software updates](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Installer les mises à jour logicielles](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
 
-4. At the bottom of the page, click **Install Updates**.
+4. En bas de la page, cliquez sur **Installer les mises à jour**.
 
-5. You will be prompted for confirmation. Click **OK**.
+5. Vous êtes invité à confirmer l’opération. Cliquez sur **OK**.
 
-6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
+6. Une boîte de dialogue **Installer les mises à jour** s’affiche. Vérifiez que votre appareil satisfait aux contrôles indiqués dans cette boîte de dialogue. Ces étapes ont été effectuées avant la mise à jour. Sélectionnez **Je comprends l’obligation ci-dessus et je suis prêt à mettre à jour mon appareil**. Cliquez sur l’icône en forme de coche.
 
-    ![Confirmation message](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
+    ![Message de confirmation](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 
-7. A set of automatic pre-checks will now start. These include:
+7. Un ensemble de vérifications automatiques préalables va démarrer. Il s’agit des actions suivantes :
 
-	- **Controller health checks** to verify that both the device controllers are healthy and online.
+	- **Contrôles d’intégrité des contrôleurs**, destinés à vérifier que les contrôleurs d’appareil sont en bon état et en ligne.
 	
-	- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+	- **Contrôles d’intégrité des composants matériels**, utilisés pour vérifier l’état des composants matériels de votre appareil StorSimple.
 	
-	- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
+	- **Contrôles DATA 0**, afin de s’assurer de l’activation de DATA 0 sur votre appareil. Si cette interface n’est pas activée, activez-la, puis réessayez.
 	
-	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
+	- **Contrôles DATA 2 et DATA 3** pour vérifier que les interfaces réseau DATA 2 et DATA 3 ne sont pas activées. Si ces interfaces sont activées, désactivez-les, puis essayez de mettre à jour votre appareil. Cette vérification est effectuée uniquement si vous mettez à jour un appareil exécutant un logiciel de disponibilité générale. Les appareils exécutant les versions 0.1, 0.2 ou 0.3 ne sont pas soumis à cette vérification.
 	
-	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
+	- **Contrôle de passerelle** sur tout appareil exécutant une version antérieure à Update 1. Cette vérification est effectuée sur tous les appareils exécutant le logiciel antérieur à Update 1, mais elle échoue sur les appareils présentant une passerelle configurée pour une interface réseau différente de DATA 0.
  
-	Update 2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	La solution Update 2 est installée uniquement si l’ensemble ci-dessus des vérifications préalables à la mise à jour sont correctement effectuées. Un message indique que les vérifications préalables à la mise à jour sont en cours.
   
-    ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
+    ![Notification de la vérification préalable](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
-    The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    Voici un exemple dans lequel la vérification préalable à la mise à jour a échoué. Vous devez vérifier que les contrôleurs d’appareil sont en bon état et en ligne. Vous devez également vérifier l’intégrité des composants matériels. Dans cet exemple, les composants Contrôleur 0 et Contrôleur 1 méritent attention. Vous devrez peut-être contacter le support technique Microsoft si vous ne pouvez pas résoudre ces problèmes vous-même.
 
-   	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+   	 ![Échec de la vérification préalable](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
+	> [AZURE.NOTE]Si vous effectuez la mise à jour à partir d’un logiciel antérieur à Update 1, toute mise à jour ultérieure à l’installation d’Update 2 sur votre appareil StorSimple ne sera pas soumise aux vérifications DATA 2, DATA 3 et de passerelle. Les autres vérifications préalables seront toujours requises. Si vous avez effectué la mise à jour à partir d’Update 1 ou version ultérieure, les vérifications préalables DATA 2, DATA 3 et de passerelle ne sont pas effectuées.
 
 
-8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
+8. Une fois les vérifications préalables à la mise à jour terminées, une tâche de mise à jour est créée. Un message s’affiche une fois la mise à jour créée.
  
-    ![Update job creation](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
+    ![Création de la tâche de mise à jour](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
 
-    The update will then be applied on your device.
+    La mise à jour est appliquée à votre appareil.
  
-9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
+9. Pour surveiller la progression de la mise à jour, cliquez sur **Afficher le travail**. La page **Travaux** indique la progression de la mise à jour.
     
-10. The update will take a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+10. La mise à jour prend quelques heures. Sélectionnez la tâche de mise à jour et cliquez sur **Détails** pour afficher les détails de la tâche à tout moment.
   
-11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
+11. Une fois la mise à jour terminée, accédez à la page **Maintenance** et faites défiler l’écran jusqu’à **Mises à jour logicielles**.
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
-
-
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
-
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
 
 
+13. Vous voyez maintenant que les mises à jour du mode Maintenance sont disponibles. Ces mises à jour entraînent des temps d'arrêt de l'appareil et ne peuvent être appliquées que par le biais de l'interface Windows PowerShell de votre appareil. Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfix) pour installer ces mises à jour en mode Maintenance.
+
+> [AZURE.NOTE]Dans certains cas, le message indiquant que les mises à jour du mode Maintenance sont disponibles peut s'afficher 24 heures après que les mises à jour du mode Maintenance aient été correctement appliquées sur l'appareil.
+
+<!---HONumber=AcomDC_0114_2016-->

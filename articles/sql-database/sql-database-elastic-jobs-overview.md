@@ -53,7 +53,7 @@ La fonctionnalité **Tâches de bases de données élastiques** est actuellement
 ## Travaux de base de données élastique : de bout en bout 
 1.	Installez les composants de **travaux de bases de données élastiques**. Pour en savoir plus, consultez [Installation des tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md). Si l'installation échoue, voir [comment désinstaller](sql-database-elastic-jobs-uninstall.md).
 2.	Utilisez les APIs PowerShell pour accéder à davantage de fonctionnalités, par exemple la création de collections de bases de données personnalisées, l’ajout de planifications et/ou la collecte des ensembles de résultats. Utilisez le portail pour une installation simple et la création/la surveillance de travaux limités à l’exécution par rapport à un **pool de bases de données élastiques**. 
-3.	Créez des informations d’identification chiffrées pour l’exécution d’une tâche et [ajoutez l’utilisateur (ou le rôle) à chaque base de données du groupe](sql-database-elastic-jobs-add-logins-to-dbs.md).
+3.	Créez des informations d’identification chiffrées pour l’exécution d’une tâche et [ajoutez l’utilisateur (ou le rôle) à chaque base de données du groupe](sql-database-security.md).
 4.	Créez un script T-SQL idempotent qui peut être exécuté sur chacune des bases de données du pool. 
 5.	Procédez comme suit pour créer des travaux à l’aide du portail Azure : [Création et gestion des travaux de base de données élastiques](sql-database-elastic-jobs-create-and-manage.md) 
 6.	Ou utilisez des scripts PowerShell : [Création et gestion des travaux de base de données SQL élastiques à l’aide de PowerShell (version préliminaire)](sql-database-elastic-jobs-powershell.md).
@@ -116,7 +116,7 @@ Il existe plusieurs types de tâches qui effectuent l'exécution des tâches :
 4.	Une fois toutes les tâches terminées, le contrôleur met à jour et définit les tâches sur l’état terminé. À tout moment pendant l'exécution de la tâche, l'API PowerShell peut être utilisée pour afficher l'état actuel de l'exécution de la tâche. Toutes les heures retournées par les APIs PowerShell sont représentées au format UTC. Si vous le souhaitez, une demande d'annulation peut être lancée pour arrêter une tâche. 
 
 ## Étapes suivantes
-[Installez les composants](sql-database-elastic-jobs-service-installation.md), puis [créez et ajoutez un journal dans chaque base de données du groupe](sql-database-elastic-jobs-add-logins-to-dbs.md). Pour mieux comprendre la création et la gestion de tâches, consultez la page [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md).
+[Installez les composants](sql-database-elastic-jobs-service-installation.md), puis [créez et ajoutez un journal dans chaque base de données du groupe](sql-database-security.md). Pour mieux comprendre la création et la gestion de tâches, consultez la page [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Il existe plusieurs types de tâches qui effectuent l'exécution des tâches :
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/05/2015"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web
@@ -32,7 +32,6 @@ L’interface utilisateur Web Ambari utilise les services suivants, qui ne sont 
 * Thread Stacks,
 * Interface utilisateur Web Oozie
 * Interface HBase Master et interface de journaux
-* Interface utilisateur de Storm
 
 Si vous utilisez des actions de script pour personnaliser votre cluster, tous les services ou utilitaires que vous installez et qui exposent une interface utilisateur Web nécessitent un tunnel SSH. Par exemple, si vous installez Hue à l'aide d'une action de script, vous devez utiliser un tunnel SSH pour accéder à l'interface utilisateur Web Hue.
 
@@ -149,11 +148,6 @@ Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour con
 	* **Modèle d’URL** - ***internal.cloudapp.net*** : définit un modèle qui correspond au nom de domaine complet interne des nœuds du cluster.
 
 	![type foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    Si vous utilisez Storm sur cluster HDInsight, vous devez également ajouter un modèle avec les valeurs suivantes :
-    
-    * **Nom de modèle** - **nœuds de travail**
-    * **Modèle d'URL** - ***10.0.0*** : permet à l'interface utilisateur Storm d'accéder aux données sur les nœuds de travail par adresse IP.
 
 4. Cliquez sur **OK** pour ajouter le proxy et fermer les **Paramètres de proxy**.
 
@@ -202,4 +196,4 @@ Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez 
 
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -155,4 +155,4 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 - [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 - [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

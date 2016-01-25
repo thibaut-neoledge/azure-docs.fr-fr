@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor="cgronlun"/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -43,9 +43,9 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](por
 
       **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
 
-      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d’analyser plus précisément les problèmes survenant durant le fonctionnement d’une application.
+      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application.
 
-      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu’au terme de la période de rétention.
+      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
 
 - Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte, de sorte que les données d’analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 
@@ -96,11 +96,11 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 2. Cliquez sur **Monitor**.
 
-	La page **Monitor** s’ouvre. Par défaut, le tableau des mesures affiche un sous-ensemble des mesures disponibles pour la surveillance. L’écran Monitor par défaut illustré ci-dessous représente un compte de stockage avec une surveillance détaillée configurée pour les trois services. Utilisez **Add Metrics** pour sélectionner parmi les mesures disponibles celles qui doivent faire l’objet d’une surveillance.
+	La page **Monitor** s’ouvre. Par défaut, le tableau des mesures affiche un sous-ensemble des mesures disponibles pour la surveillance. L’écran Monitor par défaut illustré ci-dessous représente un compte de stockage avec une surveillance détaillée configurée pour les trois services. Utilisez **Add Metrics** pour sélectionner parmi les mesures disponibles celles qui doivent faire l'objet d'une surveillance.
 
 	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE]Tenez compte des frais au moment de sélectionner les mesures. En effet, l’actualisation des écrans de surveillance s’accompagne de frais de transaction et de sortie. Pour plus d’informations, voir la page [Storage Analytics et facturation](http://msdn.microsoft.com/library/azure/hh360997.aspx).
+	> [AZURE.NOTE]Tenez compte des frais au moment de sélectionner les mesures. En effet, l’actualisation des écrans de surveillance s’accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Cliquez sur **Add Metrics**.
 
@@ -157,4 +157,4 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé $logs dans votre compte de stockage. Pour plus d’informations sur l’accès au conteneur $logs, voir la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

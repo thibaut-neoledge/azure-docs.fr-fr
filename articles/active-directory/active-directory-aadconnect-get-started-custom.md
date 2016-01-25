@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -43,11 +43,11 @@ Lorsque vous installez les services de synchronisation, vous pouvez laisser la s
 ![Composants requis](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-Configuration facultative | Description
-------------- | ------------- |
-Nom du serveur SQL Server | Permet de spécifier le nom du serveur SQL et le nom de l’instance. Choisissez cette option si vous souhaitez utiliser un serveur de base de données existant.
-Compte de service | Par défaut, Azure AD Connect crée le compte de service local qu’utilisent les services de synchronisation. Le mot de passe est généré automatiquement et n’est pas connu de la personne qui installe Azure AD Connect. Si vous utilisez un serveur SQL distant, vous avez besoin d’un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte de service à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service. Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation). |
-Autorisations | Par défaut, Azure AD Connect crée quatre groupes locaux vers le serveur lorsque les services de synchronisation sont installés. Ces groupes sont Administrateurs, Opérateurs, Parcourir et Réinitialisation du mot de passe. Si vous souhaitez spécifier vos propres groupes, vous pouvez le faire ici. Les groupes doivent être locaux sur le serveur et ne peuvent pas être situés dans le domaine. |
+| Configuration facultative | Description |
+| ------------- | ------------- |
+| Utiliser un serveur SQL Server existant | Permet de spécifier le nom du serveur SQL et le nom de l’instance. Choisissez cette option si vous souhaitez utiliser un serveur de base de données existant. Si la navigation n’est pas activée sur votre serveur SQL Server et que vous devez spécifier un numéro de port, dans la zone **Nom de l’instance**, entrez le nom de l’instance suivi d’une virgule et du numéro de port. |
+| Utiliser un compte de service existant | Par défaut, Azure AD Connect crée le compte de service local qu’utilisent les services de synchronisation. Le mot de passe est généré automatiquement et n’est pas connu de la personne qui installe Azure AD Connect. Si vous utilisez un serveur SQL distant, vous avez besoin d’un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte de service à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service. Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation). |
+| Spécifier des groupes de synchronisation personnalisés | Par défaut, Azure AD Connect crée quatre groupes locaux vers le serveur lorsque les services de synchronisation sont installés. Ces groupes sont Administrateurs, Opérateurs, Parcourir et Réinitialisation du mot de passe. Si vous souhaitez spécifier vos propres groupes, vous pouvez le faire ici. Les groupes doivent être locaux sur le serveur et ne peuvent pas être situés dans le domaine. |
 
 
 ## Connexion de l’utilisateur
@@ -98,16 +98,18 @@ Mon propre attribut|Cette option vous permet de sélectionner votre propre attri
 
 - **UserPrincipalName** : l’attribut userPrincipalName est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Il est fortement recommandé de conserver l’userPrincipalName de l’attribut par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut, par exemple une adresse de messagerie électronique, comme attribut contenant l’ID de connexion. Il s’agit de l’**ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire peut être utilisé avec l’authentification unique par mot de passe et avec l’authentification unique de fédération comme solution de connexion.
 
->[AZURE.WARNING]L’utilisation d’un ID secondaire n’est pas compatible avec toutes les charges de travail Office 365. Pour plus d’informations, reportez-vous à la section [Configuration d’un ID secondaire de connexion](https://technet.microsoft.com/library/dn659436.aspx).
+>[AZURE.WARNING]L’utilisation d’un ID secondaire n’est pas compatible avec toutes les charges de travail Office 365. Pour plus d’informations, consultez [Configuration d’un ID secondaire de connexion](https://technet.microsoft.com/library/dn659436.aspx).
 
 
 
 ### Filtrage de synchronisation basé sur les groupes
-Le filtrage de la fonctionnalité Groupes vous permet d’exécuter un pilote réduit où seul un petit sous-ensemble d’objets doit être créé dans Azure AD et Office 365. Pour utiliser cette fonctionnalité, créez un groupe dans votre version d’Active Directory, puis ajoutez les utilisateurs et groupes à synchroniser avec Azure AD en tant que membres directs. Vous pouvez ajouter et supprimer ultérieurement des utilisateurs à ce groupe pour tenir à jour la liste des objets présents dans Azure AD. Pour utiliser cette fonctionnalité, dans le chemin d’accès personnalisé, vous devez consulter cette page :
+Le filtrage de la fonctionnalité Groupes vous permet d’exécuter un pilote réduit où seul un petit sous-ensemble d’objets doit être créé dans Azure AD et Office 365. Pour utiliser cette fonctionnalité, créez un groupe dans votre version d’Active Directory, puis ajoutez les utilisateurs et groupes à synchroniser avec Azure AD en tant que membres directs. Vous pouvez ajouter et supprimer ultérieurement des utilisateurs à ce groupe pour tenir à jour la liste des objets présents dans Azure AD. Les objets que vous voulez synchroniser doivent tous être un membre direct du groupe. Celui-ci comprend des utilisateurs, des groupes, des contacts et des ordinateurs/appareils. L’appartenance à des groupes imbriqués n’est pas résolue ; un membre de groupe doit inclure uniquement le groupe lui-même et pas ses membres.
 
-![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+Pour utiliser cette fonctionnalité, le chemin personnalisé comporte cette page : ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]Cette fonctionnalité est uniquement destinée à prendre en charge un déploiement pilote et ne doit pas être utilisée dans un déploiement de production véritable.
+
+Dans un véritable déploiement de production, il va être difficile de maintenir un seul groupe avec tous les objets à synchroniser. Vous avez plutôt intérêt à utiliser l’une des méthodes décrites dans [Configurer le filtrage](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Fonctionnalités facultatives
 
@@ -248,4 +250,4 @@ Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’
 
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

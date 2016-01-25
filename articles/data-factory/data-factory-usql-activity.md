@@ -48,10 +48,10 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON.
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-Type | La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. | Oui
+Type | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui
 accountName | Nom du compte du service Analytique Azure Data Lake. | Oui
 dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake. | Non 
-autorisation | Le code d'autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans Data Factory Editor et une fois la connexion OAuth effectuée. | Oui 
+autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. | Oui 
 subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). 
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
@@ -125,6 +125,7 @@ degreeOfParallelism | Le nombre maximal de nœuds qui seront utilisés simultan�
 priority | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non 
 parameters | Paramètres du script U-SQL | Non 
 
+Vous trouverez la définition du script dans la section [Définition du script SearchLogProcessing.txt](#script-definition).
 
 ### Exemples de jeux de données d'entrée et de sortie
 
@@ -187,4 +188,35 @@ Voici la définition de l'exemple de service lié Azure Data Lake Store utilisé
 
 Consultez [Déplacer des données vers et depuis Azure Data Lake Store](data-factory-azure-datalake-connector.md) pour obtenir une description des propriétés JSON dans le service lié Azure Data Lake Store et les extraits de code JSON du jeu de données ci-dessus.
 
-<!---HONumber=Nov15_HO2-->
+### Définition du script
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus sont passées dynamiquement par ADF en utilisant la section « parameters ». Consultez la section « parameters » plus haut dans la définition du pipeline.
+
+Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
+
+<!---HONumber=AcomDC_0114_2016-->

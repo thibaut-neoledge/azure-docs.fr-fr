@@ -4,7 +4,7 @@
    services="sql-data-warehouse" 
    documentationCenter="" 
    authors="twounder" 
-   manager="" 
+   manager="barbkess" 
    editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Prendre en main de l’audit de base de données SQL Data Warehouse 
 L'audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
@@ -141,4 +141,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

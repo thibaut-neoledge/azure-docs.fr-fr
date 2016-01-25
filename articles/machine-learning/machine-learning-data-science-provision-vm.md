@@ -23,7 +23,7 @@
 
 La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
 
-- Revolution R Open
+- Microsoft R Server Developer Edition
 - Distribution Anaconda Python
 - Visual Studio Community Edition
 - Power BI Desktop
@@ -51,7 +51,7 @@ Avant de pouvoir créer une machine virtuelle de science des données Microsoft,
 
 Voici les étapes de création d’une instance de la machine virtuelle de sciences des données :
 
-1.	Accédez à la liste des machines virtuelles présentes sur le [portail Azure Classic](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Cliquez sur le bouton **Créer** au bas de l’écran pour accéder à un assistant.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les **entrées** de chacune des **5 étapes** (énumérées à droite de la figure ci-dessus) de l’Assistant utilisé pour créer la machine virtuelle de sciences de données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
@@ -80,26 +80,26 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
 
   **e. Acheter** :
 
-   - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n’est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l’étape **Taille**. 
+   - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**. 
 
 
-L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure Classic.
+L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
 
 ## Accès à une machine virtuelle pour la science des données
 
 Une fois la machine virtuelle créée, vous pouvez vous y connecter à l'aide du bureau distant en utilisant les informations d'identification du compte administrateur créé dans la section Paramètres de base de l'étape 4.
 
-Une fois votre machine virtuelle créée et approvisionnée, vous pouvez commencer à utiliser les outils qui y sont installés et configurés. Pour la plupart des outils, vous disposez d’icônes de bureau et de vignettes dans le menu de démarrage.
+Une fois votre machine virtuelle créée et approvisionnée, vous pouvez commencer à utiliser les outils qui y sont installés et configurés. Pour la plupart des outils, vous disposez d'icônes de bureau et de vignettes dans le menu de démarrage.
 
-## Comment créer un mot de passe fort sur la machine virtuelle de sciences de données
+## Création d'un mot de passe fort sur le serveur Jupyter Notebook 
 
-Exécutez la commande suivante à partir de l’invite de commandes sur la machine virtuelle de sciences de données pour créer votre propre mot de passe fort pour la machine.
+Exécutez la commande suivante à partir de l'invite de commandes sur la machine virtuelle de sciences de données pour créer votre propre mot de passe fort pour le serveur Jupyter Notebook installé sur la machine.
 
 	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
 
-Entrez votre mot de passe lorsque vous y êtes invité.
+À l'invite, choisissez un mot de passe fort.
 
-Vous verrez le hachage du mot de passe au format « sha1:xxxxxx » dans la sortie. Copiez ce hachage de mot de passe et remplacez le hachage existant dans votre fichier de configuration de bloc-notes qui se trouve dans **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py** avec un nom de paramètre ***c.NotebookApp.password***.
+Vous verrez le hachage du mot de passe au format « sha1:xxxxxx » dans la sortie. Copiez ce hachage de mot de passe et remplacez le hachage existant dans votre fichier de configuration de bloc-notes qui se trouve dans **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** avec un nom de paramètre ***c.NotebookApp.password***.
 
 Vous devez remplacer seulement la valeur existante du hachage qui figure entre les guillemets. Les guillemets et le préfixe ***sha1:*** de la valeur du paramètre doivent être conservés.
 
@@ -107,19 +107,19 @@ Enfin, vous devez arrêter et redémarrer le serveur Ipython qui s’exécute su
 
 ## Outils installés sur la machine virtuelle de science des données
 
-### R
-Si vous souhaitez utiliser R dans le cadre de vos tâches d’analyse, l’outil Revolution R Open (RRO) est préinstallé sur votre machine virtuelle. Cette distribution open source de R est totalement compatible avec CRAN-R. Elle contient le tout dernier moteur R open source ainsi que la bibliothèque Intel Math Kernel Library. Un IDE appelé « RRO RGui » est également inclus dans la machine virtuelle. Vous pouvez télécharger et utiliser d’autres IDE, comme [RStudio](http://www.rstudio.com).
+### Microsoft R Server Developer Edition
+Si vous souhaitez utiliser R pour votre analyse, Microsoft R Server Developer Edition est installé sur la machine virtuelle. Microsoft R Server est une plateforme d'analyse d'entreprise très déployable basée sur R qui est prise en charge, évolutive et sécurisée. Prenant en charge les statistiques Big Data, la modélisation prédictive et des fonctionnalités Machine Learning, R Server prend en charge la totalité de l'analyse : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R Open Source, Microsoft R Server est entièrement compatible avec les scripts, les fonctions et les packages CRAN R pour analyser les données à l'échelle de l'entreprise. Il gère également les limitations de mémoire de R Open Source en ajoutant le traitement parallèle et en bloc des données dans Microsoft R Server, permettant aux utilisateurs d'exécuter des analyses de données plus volumineuses que ce que la mémoire principale peut contenir. Un IDE pour R est également inclus dans la machine virtuelle auquel vous pouvez accéder en cliquant sur l'icône « Revolution R Enterprise 8.0 » dans le menu Démarrer ou sur le bureau. Vous pouvez télécharger et utiliser d’autres IDE, comme [RStudio](http://www.rstudio.com).
 
 ### Python
-Pour un développement basé sur Python, la version 2.7 de la distribution Anaconda Python a été installée. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win**+**S**).
+Pour un développement basé sur Python, les versions 2.7 et 3.5 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win**+**S**).
 
-### IPython Notebook
-La distribution Anaconda est également fournie avec un interpréteur IPython, un environnement conçu pour le partage de code et d’analyses. Un serveur d'interpréteur Ipython a été préconfiguré. Il existe une icône de bureau qui permet de lancer le navigateur pour accéder au serveur de l’interpréteur. Si vous accédez à la machine virtuelle via Bureau à distance, vous pouvez également utiliser l’URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur de bloc-notes IPython. (Remarque : si vous recevez des avertissements relatifs au certificat, vous pouvez simplement les ignorer.)
+### Bloc-notes Jupyter
+La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d'analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de lancer le navigateur pour accéder au serveur. Si vous accédez à la machine virtuelle via Bureau à distance, vous pouvez également utiliser l'URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur Jupyter Notebook. Remarque : si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer. Nous avons inclus des exemples de blocs-notes : l'un dans Python et l'autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec le mot de passe créé à l'étape précédente, vous pouvez voir le lien vers les exemples sur la page d'accueil du bloc-notes.
 
 ### Visual Studio 2015 Community Edition
 Visual Studio Community Edition est installé sur la machine virtuelle. Vous pouvez utiliser cette version gratuite de l’IDE populaire de Microsoft à des fins d’évaluation et dans le cadre de projets en petites équipes. Vous pouvez consulter les termes du contrat de licence [ici](https://www.visualstudio.com/support/legal/mt171547). Ouvrez Visual Studio en double-cliquant sur l’icône du bureau ou via le menu **Démarrer**. Vous pouvez également lancer une recherche de programmes avec **Win**+**S** et en entrant « Visual Studio ».
 
-Remarque : il est possible que vous receviez un message indiquant que votre période d’évaluation a expiré. Vous pouvez saisir les informations d’identification de votre compte Microsoft ou en créer un nouveau et entrer les informations pour accéder à Visual Studio Community Edition. Là, vous pouvez créer des projets dans des langages tels que C# ou Python
+Remarque : il est possible que vous receviez un message indiquant que votre période d’évaluation a expiré. Vous pouvez saisir les informations d’identification de votre compte Microsoft ou en créer un nouveau et entrer les informations pour accéder à Visual Studio Community Edition. Là, vous pouvez créer des projets dans des langages tels que C# ou Python. Vous trouverez également des plug-ins installés. Ceux-ci facilitent l'utilisation des services Azure tels que Azure Data Catalog, Azure HDInsight (Hadoop, Spark) et Azure Data Lake.
 
 ### SQL Server Express
 Une version limitée de SQL Server est également fournie avec Visual Studio Community Edition. Vous pouvez accéder à SQL Server en lançant **SQL Server Management Studio**. Le nom de votre machine virtuelle sera celui du serveur. Utilisez l’authentification Windows une fois connecté à Windows en tant qu’administrateur. Dans SQL Server Management Studio, vous pouvez créer d’autres utilisateurs, créer des bases de données, importer des données et exécuter des requêtes SQL.
@@ -129,11 +129,19 @@ Plusieurs outils Azure sont installés sur la machine virtuelle : - Il existe u
 
 ###Power BI
 
-**Power BI Desktop** a été installé pour vous aider à créer des tableaux de bord et des visualisations attrayantes. Utilisez cet outil pour extraire des données de différentes sources, créer vos tableaux de bord et vos rapports, puis les publier sur le cloud. Pour plus d’informations, consultez le site de [Power BI](http://powerbi.microsoft.com).
+**Power BI Desktop** a été installé pour vous aider à créer des tableaux de bord et des visualisations attrayantes. Utilisez cet outil pour extraire des données de différentes sources, créer vos tableaux de bord et vos rapports, puis les publier sur le cloud. Pour plus d'informations, consultez le site de [Power BI](http://powerbi.microsoft.com).
 
 Remarque : vous devez disposer d’un compte Office 365 pour accéder à Power BI.
 
 ## Autres outils de développement Microsoft
 Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) vous permet de découvrir et de télécharger d’autres outils de développement Microsoft. Il existe également un raccourci vers l’outil fourni sur le bureau de la machine virtuelle pour la science des données.
 
-<!---HONumber=AcomDC_1223_2015--->
+## Étapes suivantes
+Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprentissage et d'exploration.
+
+* Explorez les différents outils de science des données sur la machine virtuelle de science des données en cliquant sur le menu Démarrer et en consultant les outils répertoriés dans le menu.
+* Accédez à **C:\\Program Files\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR dans R qui prend en charge l'analyse des données à l'échelle de l'entreprise.  
+* Apprenez à créer des solutions analytiques de bout en bout systématiquement à l'aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d'analyse des données utilisant Cortana Analytics Suite. Nous avons également inclus une icône dans le menu Démarrer et sur le bureau de la machine virtuelle pour un accès aisé. 
+
+<!---HONumber=AcomDC_0114_2016-->

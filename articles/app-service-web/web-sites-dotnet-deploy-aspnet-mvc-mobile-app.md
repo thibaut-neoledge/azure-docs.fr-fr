@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/12/2016" 
 	ms.author="cephalin;riande"/>
 
 
@@ -62,37 +62,45 @@ Des projets Visual Studio avec code source C# sont disponibles pour cette rubr
 
 1.	Téléchargez le [projet de départ][StarterProject] de l'application de listes de conférence.
 
-2. 	Dans l'Explorateur Windows, cliquez ensuite avec le bouton droit sur le fichier Mvc5Mobile.zip et sélectionnez *Propriétés*.
+2. 	Dans l’Explorateur Windows, cliquez avec le bouton droit sur le fichier ZIP téléchargé, puis sélectionnez *Propriétés*.
 
-3. 	Dans la boîte de dialogue **Propriétés de Mvc5Mobile.zip**,cliquez sur le bouton **Débloquer**. Le déblocage empêche l’apparition d’un avertissement de sécurité, qui s’affiche normalement lorsque vous essayez d’utiliser un fichier *.zip* téléchargé à partir d’Internet.
+3. 	Dans la boîte de dialogue **Propriétés**, cliquez sur le bouton **Débloquer**. Le déblocage empêche l’apparition d’un avertissement de sécurité, qui s’affiche normalement lorsque vous essayez d’utiliser un fichier *.zip* téléchargé à partir d’Internet.
 
-4.	Cliquez avec le bouton droit sur le fichier *Mvc5Mobile.zip* et sélectionnez **Extraire tout** pour décompresser le fichier.
+4.	Cliquez avec le bouton droit sur le fichier ZIP, puis sélectionnez **Extraire tout** pour décompresser le fichier.
 
-5. 	Dans Visual Studio, ouvrez le fichier *Mvc5Mobile.sln*.
+5. 	Dans Visual Studio, ouvrez le fichier *C#\\Mvc5Mobile.sln*.
 
 6.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
 	![][DeployClickPublish]
 
-7.	Dans Publier le site Web, cliquez sur **Applications web Microsoft Azure**.
+7.	Dans Publier le site web, cliquez sur **Microsoft Azure App Service**.
 
 	![][DeployClickWebSites]
 
-8.	Cliquez sur **Se connecter**.
+8.	Si vous n’êtes pas déjà connecté à Azure, cliquez sur **Ajouter un compte**.
 
 	![][DeploySignIn]
 
 9.	Suivez les instructions de l’invite pour vous connecter à votre compte Azure.
 
-11. La boîte de dialogue Sélectionner une application web existante doit désormais indiquer que vous êtes connecté. Cliquez sur **Nouveau**.
+11. La boîte de dialogue App Service doit maintenant indiquer que vous êtes connecté. Cliquez sur **Nouveau**.
 
 	![][DeployNewWebsite]
 
-12. Dans le champ **Nom de l’application Web**, indiquez le préfixe d’un nom de site unique. Le nom complet de votre application Web sera *&lt;prefix>*.azurewebsites.net. Configurez également les champs **Plan App Service**, **Groupe de ressources** et **Région**. Cliquez sur **Créer**.
+12. Dans le champ **Nom de l’application web**, indiquez le préfixe d’un nom d’application unique. Le nom complet de votre application Web sera *&lt;prefix>*.azurewebsites.net. Par ailleurs, sélectionnez ou spécifiez un nouveau nom de groupe de ressources dans **Groupe de ressources**. Ensuite, cliquez sur **Nouveau** pour créer un plan App Service.
 
 	![][DeploySiteSettings]
 
-13.	La boîte de dialogue Publier le site Web sera remplie avec les paramètres de votre nouvelle application web. Cliquez sur **Publier**.
+13. Configurez le nouveau plan App Service et cliquez sur **OK**.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
+
+13. Dans la boîte de dialogue Créer App Service, cliquez sur **Créer**.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+
+13.	Une fois les ressources Azure créées, la boîte de dialogue Publier le site web est renseignée avec les paramètres de votre nouvelle application. Cliquez sur **Publier**.
 
 	![][DeployPublishSite]
 
@@ -102,7 +110,7 @@ Des projets Visual Studio avec code source C# sont disponibles pour cette rubr
 
 	![][AllTags]
 
->[AZURE.NOTE]De même que vous pouvez déboguer votre application MVC 5 dans Visual Studio, vous pouvez republier votre application web dans Azure pour la vérifier en ligne directement à partir de votre navigateur mobile ou d’un émulateur de navigateur.
+>[AZURE.TIP]De même que vous pouvez déboguer votre application MVC 5 dans Visual Studio, vous pouvez republier votre application web dans Azure pour la vérifier en ligne directement à partir de votre navigateur mobile ou d’un émulateur de navigateur.
 
 L'affichage est tout à fait lisible sur un appareil mobile. Vous pouvez également déjà voir certains effets visuels appliqués par l'infrastructure CSS Bootstrap. Cliquez sur le lien **ASP.NET**.
 
@@ -163,7 +171,7 @@ Accédez à la page des balises à l'aide d'un navigateur de Bureau et de l'ému
 
 ![][AllTagsMobile_LayoutMobile]
 
-En revanche, l’affichage du Bureau n’a pas changé (avec des titres de *\_Layout.cshtml* et de *AllTags.cshtml*).
+En revanche, l’affichage du Bureau n’a pas changé (avec des titres de *\_Layout.cshtml* et *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -535,13 +543,13 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 
 ## Voir aussi
 
--   [9 principes de base de la conception web réactive](http://blog.froont.com/9-basic-principles-of-responsive-web-design/) (en anglais)
--   [Bootstrap][BootstrapSite] (en anglais)
--   [Blog Bootstrap officiel][] (en anglais)
--   [Tutoriel Bootstrap Twitter de Tutorial Republic][] (en anglais)
--   [The Bootstrap Playground][] (en anglais)
--   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C][] (en anglais)
--   [Candidat à la recommandation du W3C concernant les requêtes de média][] (en anglais)
+-   [9 principes de base de la conception web réactive (en anglais)](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+-   [Bootstrap (en anglais)][BootstrapSite]
+-   [Blog Bootstrap officiel (en anglais)][]
+-   [Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)][]
+-   [The Bootstrap Playground (en anglais)][]
+-   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C (en anglais)][]
+-   [Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)][]
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -575,11 +583,11 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
 [système de grille]: http://getbootstrap.com/css/#grid
 [utilitaires réactifs]: http://getbootstrap.com/css/#responsive-utilities
-[Blog Bootstrap officiel]: http://blog.getbootstrap.com/
-[Tutoriel Bootstrap Twitter de Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-[The Bootstrap Playground]: http://www.bootply.com/
-[Bonnes pratiques pour les applications Web mobiles des recommandations W3C]: http://www.w3.org/TR/mwabp/
-[Candidat à la recommandation du W3C concernant les requêtes de média]: http://www.w3.org/TR/css3-mediaqueries/
+[Blog Bootstrap officiel (en anglais)]: http://blog.getbootstrap.com/
+[Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+[The Bootstrap Playground (en anglais)]: http://www.bootply.com/
+[Bonnes pratiques pour les applications Web mobiles des recommandations W3C (en anglais)]: http://www.w3.org/TR/mwabp/
+[Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)]: http://www.w3.org/TR/css3-mediaqueries/
 
 <!-- Images -->
 [DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
@@ -616,4 +624,4 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Acheter et configurer un nom de domaine personnalisé dans Azure App Service
@@ -98,4 +98,4 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

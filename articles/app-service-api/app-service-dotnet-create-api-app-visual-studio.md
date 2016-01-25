@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Configurer un projet d’API web comme application API
@@ -85,4 +85,4 @@ Cette section présente la configuration d’un projet d’API web existant comm
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

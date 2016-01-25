@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Déploiement et gestion des topologies Apache Storm sur HDInsight Linux
@@ -94,23 +94,10 @@ Le rééquilibrage d’une topologie permet au système de réviser le parallél
 
 ##Surveillance et gestion à l’aide de l’interface utilisateur Storm
 
-L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution.
+L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, ouvrez un navigateur web et accédez à __https://CLUSTERNAME.azurehdinsight.net/stormui__, où __CLUSTERNAME__ est le nom de votre cluster.
 
-> [AZURE.IMPORTANT]L’interface utilisateur Storm n’est pas disponible publiquement sur Internet et est accessible à l’aide d’un tunnel SSH vers le nœud principal du cluster HDInsight. Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez [Utilisation d’un tunnel SSH pour accéder à l’interface utilisateur web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE]Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster.
 
-Procédez comme suit pour afficher l’interface utilisateur Storm.
-
-1. Ouvrez un navigateur web sur l’interface utilisateur web Ambari pour votre cluster HDInsight. L’URL de l’interface web Ambari est https://CLUSTERNAME.azurehdinsight.net, où __CLUSTERNAME__ est le nom de votre cluster.
-
-2. Dans la liste des services, à gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __Storm UI__ dans __Quick Links__.
-
-    ![Saisie de l’interface utilisateur Storm dans liens rapides](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-
-    L’interface utilisateur de Storm s’affiche :
-
-    ![l’interface utilisateur Storm](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-
-> [AZURE.NOTE]Quand vous utilisez l’interface utilisateur Storm, vous remarquerez peut-être que certaines versions d’Internet Explorer n’actualisent pas correctement l’interface utilisateur après votre première visite. Par exemple, elle n’affiche pas les nouvelles topologies que vous avez soumises, ou indique qu’une topologie est active alors que vous l’avez précédemment arrêtée. Microsoft est conscient de ce problème et recherche actuellement une solution.
 
 ### Page principale
 
@@ -124,10 +111,10 @@ Quand vous sélectionnez un lien dans la section **Topology summary**, les infor
 
   - **Kill** : met fin à une topologie Storm après expiration du délai spécifié.
 
-- **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Window** pour définir l’intervalle de temps des entrées restantes sur la page.
+- **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
 - **Spouts** : les spouts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des spouts spécifiques.
 - **Bolts** : les bolts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des bolts spécifiques.
-- **Topology configuration** : configuration de la topologie sélectionnée.
+- **Configuration de la topologie** : configuration de la topologie sélectionnée.
 
 ### Résumé relatif aux spouts et aux bolts
 
@@ -168,4 +155,4 @@ Maintenant que vous avez appris à déployer et surveiller des topologies à l�
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

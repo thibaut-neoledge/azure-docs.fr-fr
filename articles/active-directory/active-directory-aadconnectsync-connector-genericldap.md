@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/14/2015"
    ms.author="andkjell"/>
 
 # Référence technique au connecteur LDAP générique
@@ -49,13 +49,13 @@ Les répertoires pris en charge pour l’importation différentielle et la gesti
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Prend en charge toutes les opérations d’importation différentielle
-    - Prend en charge la définition de mot de passe et la modification de mot de passe
+    - Prend en charge la définition de mot de passe
 - Catalogue global Microsoft Active Directory (AD GC)
     - Prend en charge toutes les opérations d’importation différentielle
-    - Prend en charge la définition de mot de passe et la modification de mot de passe
+    - Prend en charge la définition de mot de passe
 - Serveur d’annuaire 389
     - Prend en charge toutes les opérations d’importation différentielle
-    - Prend en charge la définition de mot de passe
+    - Prend en charge la définition de mot de passe et la modification de mot de passe
 - Apache Directory Server
     - Ne prend pas en charge l’importation différentielle depuis ce répertoire n’a pas de journal des modifications persistantes
     - Prend en charge la définition de mot de passe
@@ -71,10 +71,10 @@ Les répertoires pris en charge pour l’importation différentielle et la gesti
     - Prend en charge la définition de mot de passe et la modification de mot de passe
 - Open DJ
     - Prend en charge toutes les opérations d’importation différentielle
-    - Prend en charge la définition de mot de passe
+    - Prend en charge la définition de mot de passe et la modification de mot de passe
 - Open DS
     - Prend en charge toutes les opérations d’importation différentielle
-    - Prend en charge la définition de mot de passe
+    - Prend en charge la définition de mot de passe et la modification de mot de passe
 - Open LDAP (openldap.org)
     - Prend en charge toutes les opérations d’importation différentielle
     - Prend en charge la définition de mot de passe
@@ -211,13 +211,13 @@ Voici une liste par défaut du journal de modification des noms uniques :
 | Apache Directory Server | Non disponible |
 | Directory 389 | Journal des modifications Valeur à utiliser par défaut : **cn=changelog** |
 | IBM Tivoli DS | Journal des modifications Valeur à utiliser par défaut : **cn=changelog** |
-| Isode Directory | Journal des modifications Valeur à utiliser par défaut : **cn=ChangeLog**
+| Isode Directory | Journal des modifications Valeur à utiliser par défaut : **cn=changelog**
 | Novell/NetIQ eDirectory | Non disponible Horodatage. Le connecteur doit utiliser la date/heure de la dernière mise à jour pour obtenir les nouveaux enregistrements et mises à jour. |
-| DJ/DS Open | Journal des modifications Valeur à utiliser par défaut : **cn=Changelog** |
+| DJ/DS Open | Journal des modifications Valeur à utiliser par défaut : **cn=changelog** |
 | LDAP Open | Journal d’accès. Valeur à utiliser par défaut : **cn= accesslog** |
 | Oracle DSEE | Journal des modifications Valeur à utiliser par défaut : **cn=changelog** |
 | RadiantOne VDS | Répertoire virtuel. Dépend de l’annuaire connecté à VDS. |
-| Sun One Directory Server | Journal des modifications Valeur à utiliser par défaut : **cn=Changelog** |
+| Sun One Directory Server | Journal des modifications Valeur à utiliser par défaut : **cn=changelog** |
 
 L’attribut de mot de passe est le nom de l’attribut que le connecteur doit utiliser pour définir le mot de passe dans le mot de passe et les opérations de définition de mot de passe. Par défaut, il est défini à la valeur **userPassword**, mais peut être modifié en cas de nécessité pour un système particulier de LDAP.
 
@@ -279,4 +279,4 @@ Pour les répertoires avec des journaux de modification différentielle basée s
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

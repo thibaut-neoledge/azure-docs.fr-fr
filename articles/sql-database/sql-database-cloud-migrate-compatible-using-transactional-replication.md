@@ -18,7 +18,7 @@
 
 # Migrer une base de données SQL Server vers Base de données SQL à l’aide de la réplication transactionnelle
 
-Lorsque vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma qui se produisent entre le début et à la fin de la migration s'afficheront dans votre base de données SQL Azure. Une fois la migration terminée, vous devez modifier la chaîne de connexion de vos applications afin de les pointer vers votre base de données SQL Azure au lieu de votre base de données locale. Une fois que la réplication transactionnelle a appliqué toutes les modifications restantes sur votre base de données locale et que toutes vos applications pointent vers la base de données Azure, vous pouvez désinstaller en toute sécurité la réplication en conservant votre base de données SQL Azure comme système de production.
+Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma qui se produisent entre le début et à la fin de la migration s'afficheront dans votre base de données SQL Azure. Une fois la migration terminée, vous devez modifier la chaîne de connexion de vos applications afin de les pointer vers votre base de données SQL Azure au lieu de votre base de données locale. Une fois que la réplication transactionnelle a appliqué toutes les modifications restantes sur votre base de données locale et que toutes vos applications pointent vers la base de données Azure, vous pouvez désinstaller en toute sécurité la réplication en conservant votre base de données SQL Azure comme système de production.
 
  ![Diagramme SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
@@ -33,4 +33,4 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 
 Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données locale. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Par ailleurs, pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

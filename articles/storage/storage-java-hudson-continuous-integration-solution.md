@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Utilisation de Hudson avec le service BLOB Azure | Microsoft Azure"
+	pageTitle="Comment utiliser Hudson avec Blob Storage | Microsoft Azure"
 	description="Description de l’utilisation de la solution Hudson avec le stockage d’objets blob Azure comme référentiel pour des artefacts de build."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Les informations suivantes expliquent comment utiliser le service BLOB Azure comme référentiel pour les artefacts de build créés par une solution d’intégration continue (CI) Hudson ou comme source de fichiers téléchargeables pour un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
+Les informations suivantes expliquent comment utiliser Blob Storage comme dépôt pour les artefacts de build créés par une solution d’intégration continue (CI) Hudson ou comme source de fichiers téléchargeables dans un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
 Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI mis à disposition par Microsoft.
 
@@ -177,4 +177,4 @@ La section suivante présente les composants du service BLOB.
   [Création d'un compte de stockage]: http://go.microsoft.com/fwlink/?LinkId=279823
   [présentation d'Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

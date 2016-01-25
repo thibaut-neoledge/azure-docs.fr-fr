@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?
@@ -25,7 +25,11 @@ Cette vue d'ensemble présente le Gestionnaire d'instantanés StorSimple, décri
 
 Pour avoir une vue d’ensemble de l’ensemble du système de Microsoft Azure StorSimple, et notamment de l’unité StorSimple, du service StorSimple Manager, du Gestionnaire d’instantanés StorSimple et de l’adaptateur StorSimple pour SharePoint, consultez [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md).
  
->[AZURE.NOTE]Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
+>[AZURE.NOTE]
+>
+>- Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
+>
+>- Si vous prévoyez d’installer StorSimple Update 2 sur votre appareil StorSimple, veillez à télécharger la dernière version de StorSimple Snapshot Manager et à l’installer **avant d’installer StorSimple Update 2**. La dernière version de StorSimple Snapshot Manager est à compatibilité descendante et fonctionne avec toutes les versions publiées de Microsoft Azure StorSimple. Si vous utilisez la version précédente de StorSimple Snapshot Manager, vous devez effectuer une mise à jour (il est inutile de désinstaller la version précédente avant d’installer la nouvelle).
 
 ## Architecture et objectif du gestionnaire d’instantanés StorSimple
 
@@ -42,7 +46,7 @@ Les sauvegardes de Gestionnaire d’instantanés StorSimple prennent la forme d�
 
 ![Architecture du Gestionnaire d’instantanés StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Figure 1 : Architecture du Gestionnaire d’instantanés StorSimple**
+**Architecture du Gestionnaire d’instantanés StorSimple**
 
 ## Prise en charge de plusieurs types de volumes
 
@@ -103,7 +107,7 @@ Consultez l’illustration suivante.
 
 ![Processus VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Figure 2 : Processus Windows Volume Shadow Copy Service**
+**Processus du service VSS Windows**
 
 ## Types et stratégies de sauvegarde
 
@@ -152,4 +156,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 - [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

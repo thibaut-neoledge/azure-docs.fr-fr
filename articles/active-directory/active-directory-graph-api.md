@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin" />
 
 # API Graph Azure Active Directory
@@ -46,7 +46,7 @@ L’API Graph fournit les fonctionnalités suivantes :
 
 - **Autorisation basée sur les rôles (RBAC)** : des groupes de sécurité sont utilisés pour affecter des RBAC dans l’API Graph. Par exemple, si vous souhaitez déterminer si un utilisateur a accès à une ressource spécifique, l'application peut appeler l'opération de [vérification de l'appartenance au groupe (opération transitive)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#FunctionsandactionsongroupsCheckmembershipinaspecificgrouptransitive), qui renvoie true ou false.
 
-- **Requête différentielle** : si vous souhaitez vérifier les modifications dans un annuaire entre deux périodes sans avoir à envoyer des requêtes fréquentes à l’API Graph, vous pouvez effectuer une demande de requête différentielle. Ce type de demande renvoie uniquement les modifications apportées entre la demande de requête différentielle précédente et la demande en cours. Pour plus d'informations, consultez [Requête différentielle de l'API Graph Azure AD (en anglais)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
+- **Requête différentielle** : si vous souhaitez vérifier les modifications dans un répertoire entre deux périodes sans avoir à envoyer des requêtes fréquentes à l’API Graph, vous pouvez effectuer une demande de requête différentielle. Ce type de demande renvoie uniquement les modifications apportées entre la demande de requête différentielle précédente et la demande en cours. Pour plus d'informations, consultez [Requête différentielle de l'API Graph Azure AD (en anglais)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
 
 - **Extensions d’annuaire ** : si vous développez une application devant lire ou écrire des propriétés uniques pour les objets d’annuaire, vous pouvez enregistrer et utiliser des valeurs d’extension à l’aide de l’API Graph. Par exemple, si votre application nécessite une propriété d’identifiant Skype pour chaque utilisateur, vous pouvez enregistrer la nouvelle propriété dans le répertoire et elle sera disponible sur chaque objet utilisateur. Pour plus d'informations, consultez [Extensions de schéma d'annuaire de l'API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
@@ -66,4 +66,4 @@ L’API Graph sert dans de nombreux scénarios d’application. Les scénarios s
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

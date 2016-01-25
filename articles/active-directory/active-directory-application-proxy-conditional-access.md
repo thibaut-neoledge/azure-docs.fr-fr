@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/07/2016"
 	ms.author="kgremban"/>
 
 # Utilisation de l’accès conditionnel
@@ -25,9 +25,9 @@ Vous pouvez maintenant activer les règles d'accès pour accorder l’accès con
 - Exiger l’authentification multifacteur uniquement quand les utilisateurs se trouvent à l’extérieur de l’entreprise.
 - Empêcher les utilisateurs d’accéder à l’application quand ils ne sont pas au travail.
 
-Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupes ou uniquement à des utilisateurs et à des groupes spécifiques. Par défaut, la règle s'applique à tous les utilisateurs qui ont accès à l'application. Toutefois, la règle peut également se limiter aux utilisateurs membres de groupes de sécurité spécifiés.
+Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupes ou uniquement à des utilisateurs et à des groupes spécifiques. Par défaut, la règle s'applique à tous les utilisateurs qui ont accès à l'application. Cependant, la règle peut aussi se limiter aux utilisateurs membres de groupes de sécurité spécifiés.
 
-Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une application fédérée qui utilise OAuth 2.0, OpenID Connect, SAML ou WS-Federation. En outre, les règles d'accès sont évaluées lorsqu’un jeton d'actualisation est utilisé pour acquérir un jeton d'accès avec OAuth 2.0 et OpenID Connect.
+Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une application fédérée qui utilise OAuth 2.0, OpenID Connect, SAML ou WS-Federation. De plus, les règles d’accès sont évaluées avec OAuth 2.0 et OpenID Connect quand un jeton d’actualisation est utilisé pour acquérir un jeton d’accès.
 
 ## Conditions préalables d'accès conditionnel
 
@@ -35,14 +35,19 @@ Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une applic
 - Un locataire Azure Active Directory fédéré ou géré
 - Les clients fédérés nécessitent l’activation de l'authentification multifacteur (MFA).
 
-![](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+![Configurer des règles d’accès - imposer l’authentification multifacteur](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configurer l'authentification multifacteur pour chaque application
-1. Connectez-vous en tant qu’administrateur dans le portail de gestion Azure.
+1. Connectez-vous au Portail Azure Classic en tant qu’administrateur.
 2. Accédez à Active Directory, puis sélectionnez l’annuaire dans lequel vous souhaitez activer le proxy d’application.
-3. Cliquez sur **Applications** et faites défiler jusqu’à la section des **Règles d’accès**. La section des règles d'accès ne s'affiche que pour les applications publiées à l'aide du proxy d'application qui utilisent l'authentification fédérée.
+3. Cliquez sur **Applications** et faites défiler jusqu’à la section des **Règles d’accès**. La section des règles d’accès ne s’affiche que pour les applications publiées à l’aide du proxy d’application qui utilisent l’authentification fédérée.
 4. Activez la règle en positionnant **Activer les règles d’accès** sur **Oui**.
-5. Spécifiez les utilisateurs et les groupes auxquels les règles s'appliqueront. Utilisez le bouton **Ajouter un groupe** pour sélectionner un ou plusieurs groupes auxquels doit s’appliquer la règle d’accès. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés. Lorsque les règles d’accès s’appliquent aux groupes, elles ne s’appliqueront qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés. <br> Pour exclure explicitement des groupes de sécurité de la règle, cochez **Sauf** et spécifiez un ou plusieurs groupes. Les utilisateurs qui sont membres d'un groupe dans la liste Sauf ne seront pas tenus d’effectuer l'authentification multifacteur. <br>Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. [En savoir plus sur l’authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md).
+5. Spécifiez les utilisateurs et les groupes auxquels les règles s'appliqueront. Utilisez le bouton **Ajouter un groupe** pour sélectionner un ou plusieurs groupes auxquels doit s’appliquer la règle d’accès. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés. Lorsque les règles d’accès s’appliquent aux groupes, elles ne s’appliqueront qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés.  
+
+  - Pour exclure explicitement des groupes de sécurité de la règle, cochez **Sauf** et spécifiez un ou plusieurs groupes. Les utilisateurs qui sont membres d'un groupe dans la liste Sauf ne seront pas tenus d’effectuer l'authentification multifacteur.  
+
+  - Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. En savoir plus sur l’[authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md).
+
 6. Sélectionnez la règle d'accès que vous souhaitez définir :
 	- **Exiger une authentification multifacteur** : les utilisateurs auxquels s’appliquent des règles d’accès doivent effectuer l’authentification multifacteur pour accéder à l’application à laquelle la règle s’applique.
 	- **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : les utilisateurs qui tentent d’accéder à l’application à partir d’une adresse IP approuvée ne sont pas tenus d’effectuer l’authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
@@ -50,7 +55,13 @@ Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une applic
 
 
 ## Configuration de l'authentification multifacteur pour les services de fédération
-Pour les clients fédérés, l'authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD. L’exemple suivant montre comment activer l’authentification multifacteur localement à l’aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le locataire contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `. En plus de la définition de cet indicateur, l’instance de locataire fédéré AD FS doit être configurée pour effectuer l’authentification multifacteur. Suivez les instructions décrites pour le[déploiement de Microsoft Azure Multi-Factor Authentication en local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+Pour les clients fédérés, l’authentification multifacteur (MFA) peut être exécutée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD.
+
+L’exemple suivant montre comment activer l’authentification multifacteur localement à l’aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le client contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+
+En plus de définir cet indicateur, vous devez configurer l’instance AD FS du client fédéré pour effectuer une authentification multifacteur. Suivez les instructions fournies pour [déployer Microsoft Azure Multi-Factor Authentication en local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+
+
 ## Voir aussi
 Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
@@ -70,4 +81,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

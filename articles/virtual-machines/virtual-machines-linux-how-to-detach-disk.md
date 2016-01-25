@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Détachement d'un disque d'une machine virtuelle Linux
@@ -30,4 +30,4 @@
 
 [Utilisation de l'interface de ligne de commande Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

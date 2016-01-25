@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à ThousandEyes
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent taper pour se connecter à votre application ThousandEyes (par ex., "**https://app.thousandeyes.com/login/sso*")), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « **https://app.thousandeyes.com/login/sso*")), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurer l’URL de l’application")
 
@@ -108,7 +108,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Login Page URL**.
     3.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **Remote Logout URL** et collez-la dans la zone de texte **Logout Page URL**.
     4.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Identity Provider Issuer**.
-    5.  Dans **Identity Provider Certificate**, cliquez sur **Choose file**, puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure.
+    5.  Dans **Certificat du fournisseur d’identité**, cliquez sur **Choisir un fichier** puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure.
     6.  Cliquez sur **Enregistrer**.
 
 10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -164,4 +164,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/11/2015"
+    ms.date="01/07/2016"
     ms.author="elizapo" />
 
 # Comment planifier votre réseau virtuel pour Azure RemoteApp
@@ -55,4 +55,4 @@ Voici les éléments à activer sur votre sous-réseau de réseau virtuel :
 
 [Tunneling forcé](vpn-gateway-about-forced-tunneling.md) est maintenant pris en charge dans toutes les nouvelles collections Azure RemoteApp. Actuellement, nous ne gérons pas la migration d’une collection existante pour prendre en charge le tunneling forcé. Vous devez supprimer toutes les collections existantes à l’aide du réseau virtuel que vous associez à Azure RemoteApp et en créer un nouveau pour activer le tunneling sur vos collections.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="01/08/2016" 
 	ms.author="awills"/>
 
 #  Application Insights : détection proactive
@@ -22,16 +22,27 @@
 
 Application Insights réalise une analyse télémétrique approfondie de votre application et peut vous avertir des éventuels problèmes de performances. Vous lisez probablement cela parce que vous avez reçu l’une de nos alertes proactives par courrier électronique.
 
+
 ## Qu’est-ce que la détection proactive ?
 
-La détection proactive utilise l’apprentissage automatique et les algorithmes d’exploration de données pour détecter les modèles anormaux qui affectent les performances de l’application. La détection proactive analyse automatiquement la télémétrie de performance collectée par Application Insights. Elle vous envoie un courrier électronique en cas de performances anormales de l’application. Vous n’êtes pas obligé de définir des règles de seuils. Les notifications de la détection proactive sont intégrées avec les fonctions analytiques Application Insights, ce qui permet un tri et un diagnostic rapides des problèmes.
+La détection proactive permet de détecter les anomalies de performances dans votre application en analysant les données de télémétrie qu’elle envoie à Application Insights.
 
-La détection proactive est en version préliminaire et n'est pas encore disponible pour tous les utilisateurs d'Application Insights. Si vous souhaitez l'essayer, veuillez contacter AppInsightsML@microsoft.com et nous vous aiderons à la configurer.
+Elle recherche en particulier les problèmes de performances qui touchent uniquement certains de vos utilisateurs ou bien l’ensemble des utilisateurs mais dans certains cas de figure seulement.
+
+Par exemple, elle peut vous avertir que les pages de votre application se chargent beaucoup plus lentement dans un type de navigateur que dans d’autres ou que les demandes sont traitées plus lentement à partir d’un serveur particulier. Elle peut aussi détecter les problèmes liés à des combinaisons de propriétés, tels que des pages qui se chargent lentement dans une zone géographique déterminée à des heures précises de la journée.
+
+Les anomalies de ce type, qui sont très difficiles à détecter par la simple inspection des données, sont plus courantes que vous ne l’imaginez. Souvent, elles sont révélées par les plaintes des clients. Mais il est déjà trop tard : les utilisateurs affectés sont déjà passés à la concurrence !
+
+À l’heure actuelle, nos algorithmes examinent le temps de chargement des pages, le temps de réponse aux demandes et le temps de réponse des dépendances.
+
+Vous n’avez pas à définir de seuils ni à configurer des règles. Des algorithmes d’apprentissage automatique (« Machine Learning ») et d’exploration de données sont utilisés pour détecter les schémas anormaux.
+
+La détection proactive est en version préliminaire et n’est pas encore disponible pour tous les utilisateurs d’Application Insights. Si vous souhaitez l'essayer, veuillez contacter AppInsightsML@microsoft.com et nous vous aiderons à la configurer.
 
 ## À propos de l’alerte proactive
 
 * *Pourquoi ai-je reçu ce courrier électronique ?*
- * La détection proactive a analysé la télémétrie que votre application a envoyé à Application Insights et a détecté un problème de performances dans votre application.
+ * La détection proactive a analysé la télémétrie que votre application a envoyée à Application Insights et a détecté un problème de performances dans votre application.
 * *La notification signifie-t-elle obligatoirement que mon application rencontre un problème ?*
  * Non. Il s’agit simplement d’une suggestion pour vous amener à examiner un élément de plus près. 
 * *Que dois-je faire ?*
@@ -112,11 +123,13 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
  * Cliquez sur le lien de désabonnement dans l'alerte ou l'e-mail. 
  
     Actuellement, ils sont envoyés aux personnes qui ont un [accès en écriture à la ressource Application Insights](app-insights-resources-roles-access-control.md).
+
+    Vous pouvez aussi modifier la liste des destinataires dans le panneau de détection proactive.
 * *Je ne souhaite pas recevoir tous ces messages.*
  * Ceux-ci sont limités à un par jour. Vous n’obtiendrez pas plusieurs fois le même message.
 * *Si je ne fais rien, vais-je recevoir un rappel ?*
  * Non, vous ne recevez qu’un message pour chaque problème.
-* *J'ai perdu l'e-mail. Où puis-je trouver les notifications dans le portail ?*
+* *J’ai perdu le courrier électronique Où puis-je trouver les notifications dans le portail ?*
  * Dans la vue d'ensemble Application Insights de votre application, cliquez sur la mosaïque **Détection proactive**. 
 
 
@@ -128,4 +141,4 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

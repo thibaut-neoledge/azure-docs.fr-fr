@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,15 +29,15 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 - [Rognage d’une vidéo (extrait)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Création d’une superposition](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
+- [Désactiver le désentrelacement automatique](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
-
-##<a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+##<a id="encoding_with_dotnet"></a>Codage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
-- Chargement de la présélection XML ou JSON personnalisée. Vous pouvez enregistrer la présélection XML ou JSON (par exemple, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) dans un fichier et utiliser le code suivant pour charger le fichier.
+- Chargement de la présélection XML ou JSON personnalisée. Vous pouvez enregistrer le code XML ou JSON (par exemple, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) dans un fichier et utiliser le code suivant pour charger le fichier.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -214,9 +214,9 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 		}
 
 
-##<a id="thumbnails"></a>Génération de miniatures
+##<a id="thumbnails"></a>Générer des miniatures
 
-Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter simplement le code qui génère des miniatures.
+Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter le code qui génère des miniatures.
 
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
@@ -418,16 +418,22 @@ Les considérations suivantes s'appliquent :
 	- La configuration par défaut est « Start:{Best} ».
 - Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-##<a id="trim_video"></a>Rognage d’une vidéo (extrait)
+##<a id="trim_video"></a>Rogner une vidéo (extrait)
 
-Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à couper ou rogner une ressource capturée ou archivée à partir d’un flux en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Pour découper vos vidéos, vous pouvez effectuer l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous).
+Pour découper vos vidéos, vous pouvez effectuer l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). Notez que **Sources** doit être placé en haut du schéma.
 
 ###<a id="json"></a>Présélection JSON
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -535,20 +541,132 @@ Pour découper vos vidéos, vous pouvez effectuer l’une des présélections ME
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###Présélection XML
+	
+Pour découper vos vidéos, vous pouvez effectuer l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous).
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
-##<a id="overlay"></a>Création d’une superposition
+##<a id="overlay"></a>Créer une superposition
 
-Media Encoder Standard vous permet de superposer une image (par exemple, jpg ou gif) sur une vidéo existante. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
+Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
 >[AZURE.NOTE]Le paramètre d’opacité de superposition n’est pas actuellement pris en charge.
 
@@ -697,7 +815,7 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	  </Outputs>
 	</Preset>
 
-##<a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
+##<a id="silent_audio"></a>Insérer une piste audio en mode silencieux quand l’entrée ne comporte pas de son
 
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
@@ -723,6 +841,39 @@ Vous pouvez utiliser l’une des présélections MES documentées [ici](https://
       <Bitrate>96</Bitrate>
     </AACAudio>
 
+##<a id="deinterlacing"></a>Désactiver le désentrelacement automatique
+
+Si les clients souhaitent que le contenu d’entrelacement soit automatiquement désentrelacé, aucune action n’est nécessaire. Quand le désentrelacement automatique est activé (par défaut), MES détecte automatiquement les images entrelacées et désentrelace uniquement les images marquées comme entrelacées.
+
+Vous pouvez désactiver le désentrelacement automatique. Cette option n’est pas recommandée.
+
+###Présélection JSON
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###Présélection XML
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
+
 ##Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -735,4 +886,4 @@ Vous pouvez utiliser l’une des présélections MES documentées [ici](https://
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

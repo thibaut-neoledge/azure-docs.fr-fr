@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Conception de tables dans SQL Data Warehouse #
 SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. Il stocke les données sur divers emplacements, appelés **distributions**. Chaque **distribution** est similaire à un compartiment, qui stocke un sous-ensemble unique de données dans l’entrepôt de données. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse peut proposer une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique.
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

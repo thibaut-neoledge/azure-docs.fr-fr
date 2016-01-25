@@ -6,9 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
 
@@ -32,7 +31,6 @@ La mise en réseau Microsoft Azure permet de déployer des clusters privés isol
 - Chaque nœud Cassandra a besoin d'une adresse IP interne fixe
 
 Cassandra peut être déployé dans une seule région Azure ou dans plusieurs régions, selon la nature distribuée de la charge de travail. Le modèle de déploiement dans plusieurs régions peut être exploité pour répondre aux besoins d'utilisateurs finaux plus proches d'un lieu particulier via la même infrastructure Cassandra. La réplication de nœud intégrée de Cassandra assure la synchronisation des écritures à multiples maîtres provenant de plusieurs centres de données et présente une vue cohérente des données aux applications. Le déploiement dans plusieurs régions peut également contribuer à l'atténuation des risques liés aux ruptures de service Azure plus étendues. La topologie de réplication et de cohérence paramétrable de Cassandra permet de répondre à divers besoins des applications en matière d'objectif de point de récupération.
-
 
 ### Déploiement dans une seule région
 Nous allons commencer avec un déploiement dans une seule région, puis nous utiliserons les enseignements que nous aurons tirer afin de créer un modèle à plusieurs régions. Nous utiliserons la mise en réseau virtuel Azure pour créer des sous-réseaux isolés, afin que les exigences de sécurité réseau mentionnées ci-dessus puissent être satisfaites. Le processus décrit lors de la création du déploiement dans une seule région utilise Ubuntu 14.04 LTS et Cassandra 2.08 ; toutefois, vous pouvez aisément adapter le processus à d'autres variantes de Linux. Voici certaines des caractéristiques du déploiement dans une seule région.
@@ -342,7 +340,7 @@ La création de la liste de machines virtuelles ci-dessus nécessite la procédu
 
 La procédure ci-dessus peut être exécutée à l’aide du portail Azure Classic ; utilisez un ordinateur Windows (utilisez une machine virtuelle sur Azure si vous n’avez pas accès à un ordinateur Windows), utilisez le script PowerShell suivant pour approvisionner les huit machines virtuelles automatiquement.
 
-**List1: Script PowerShell dédié au provisionnement des machines virtuelles**
+**Liste 1 : script PowerShell pour l’approvisionnement des machines virtuelles**
 		
 		#Tested with Azure Powershell - November 2014	
 		#This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -499,6 +497,7 @@ Créez deux réseaux locaux avec les détails suivants :
 
 ###Étape 4 : Création des passerelles sur VNET1 et VNET2
 À partir du tableau de bord des deux réseaux virtuels, cliquez sur Créer une passerelle pour déclencher le processus d'approvisionnement de la passerelle VPN. Après quelques minutes, le tableau de bord de chaque réseau virtuel doit afficher l'adresse de passerelle réelle.
+
 ###Étape 5 : Mise à jour des réseaux « Local » avec les adresses de « Passerelle » respectives###
 Modifiez les deux réseaux locaux pour remplacer l'espace réservé d'adresse IP de passerelle par l'adresse IP réelle des passerelles que vous venez d'approvisionner. Utilisez le mappage suivant :
 
@@ -511,10 +510,10 @@ Modifiez les deux réseaux locaux pour remplacer l'espace réservé d'adresse IP
 ###Étape 6 : Mise à jour de la clé partagée
 Utilisez le script PowerShell suivant pour mettre à jour la clé IPSec de chaque passerelle VPN [utilisez la même clé pour les deux passerelles] : Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###Étape 6 : Établissement d’une connexion de réseau virtuel à réseau virtuel
+###Étape 7 : Établissement d’une connexion de réseau virtuel à réseau virtuel
 Dans le portail Azure Classic, utilisez le menu Tableau de bord des deux réseaux virtuels pour établir la connexion de passerelle à passerelle. Utilisez les éléments de menu « Se connecter » dans la barre d'outils inférieure. Après quelques minutes, le tableau de bord doit afficher les informations de connexion sous forme graphique.
 
-###Étape 7 : Création des machines virtuelles dans la région n° 2 
+###Étape 8 : Création des machines virtuelles dans la région n° 2 
 Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la procédure de déploiement de la région n°1 ou copiez le fichier de disque dur virtuel d'image dans le compte de stockage Azure situé dans la région n°2 et créez l'image. Utilisez cette image et créez la liste suivante de machines virtuelles dans un nouveau service cloud hk-c-svc-east-us :
 
 
@@ -532,16 +531,19 @@ Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la
 
 
 Suivez les mêmes instructions que pour la région n°1, mais utilisez l'espace d'adressage 10.2.xxx.xxx.
-###Étape 8: Configuration de Cassandra sur chaque machine virtuelle
+
+###Étape 9 : Configuration de Cassandra sur chaque machine virtuelle
 Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
 
 1. Modifiez $CASS\_HOME/conf/cassandra-rackdc.properties pour spécifier les propriétés du rack et du centre de données au format suivant : dc =EASTUS rack =rack1
 2. Modifiez cassandra.yaml pour configurer les nœuds de départ : Valeurs initiales : 10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10
-###Étape 9 : Démarrage de Cassandra
+
+###Étape 10 : Démarrage de Cassandra
 Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-plan en exécutant la commande suivante : $CASS\_HOME/bin/cassandra
 
 ## Test du cluster à plusieurs régions
 À ce stade, Cassandra a été déployé sur 16 nœuds, avec huit nœuds dans chaque région Azure. Ces nœuds sont dans le même cluster suite à la configuration des nœuds de départ et du nom de cluster identique. Pour tester le cluster, procédez comme suit :
+
 ###Étape 1 : Obtention de l’adresse IP de l’équilibreur de charge interne pour les deux régions à l’aide de PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName « hk-c-svc-west-us »
 - Get-AzureInternalLoadbalancer -ServiceName « hk-c-svc-east-us »  
@@ -690,6 +692,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

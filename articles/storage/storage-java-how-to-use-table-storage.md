@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure"
+	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # Utilisation du stockage de tables à partir de Java
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation**, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#NextSteps).
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation **, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#NextSteps).
 
 Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
 
@@ -48,18 +48,18 @@ Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous
 
 ## Configuration d’une chaîne de connexion de stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l’exécution d’une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](portal.azure.com). Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azur](portal.azure.com)e. Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
@@ -128,19 +128,19 @@ Les entités mappent vers les objets Java en utilisant une implémentation de cl
 
         String email;
         String phoneNumber;
-        
+
         public String getEmail() {
             return this.email;
         }
-        
+
         public void setEmail(String email) {
             this.email = email;
         }
-        
+
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-        
+
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
@@ -156,15 +156,15 @@ Les opérations de table impliquant des entités ont besoin d'un objet **TableOp
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
     	// Create a cloud table object for the table.
     	CloudTable cloudTable = tableClient.getTableReference("people");
-			
+
     	// Create a new customer entity.
     	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     	customer1.setEmail("Walter@contoso.com");
     	customer1.setPhoneNumber("425-555-0101");
-			
+
     	// Create an operation to add the new customer to the people table.
     	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
@@ -247,13 +247,13 @@ Pour exécuter une requête de table pour les entités d'une partition, utilisez
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
 	   // Create a cloud table object for the table.
 	   CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
@@ -265,7 +265,7 @@ Pour exécuter une requête de table pour les entités d'une partition, utilisez
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
-                " " + entity.getRowKey() + 
+                " " + entity.getRowKey() +
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
 	   }
@@ -286,7 +286,7 @@ Si vous ne voulez pas interroger toutes les entités d'une partition, vous pouve
     	final String PARTITION_KEY = "PartitionKey";
     	final String ROW_KEY = "RowKey";
     	final String TIMESTAMP = "Timestamp";
-			
+
     	// Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
@@ -299,18 +299,18 @@ Si vous ne voulez pas interroger toutes les entités d'une partition, vous pouve
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
     	// Create a filter condition where the row key is less than the letter "E".
     	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
+	       ROW_KEY,
 	       QueryComparisons.LESS_THAN,
 	       "E");
 
     	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter,
 	        Operators.AND, rowFilter);
 
     	// Specify a range query, using "Smith" as the partition key,
@@ -350,13 +350,13 @@ Vous pouvez écrire une requête pour extraire une seule entité. Le code suivan
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
 	   // Submit the operation to the table service and get the specific entity.
 	   CustomerEntity specificEntity =
     		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
+
     	// Output the entity.
     	if (specificEntity != null)
     	{
@@ -389,7 +389,7 @@ Pour modifier une entité, extrayez-la dans le service de Table, apportez les mo
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
     	// Submit the operation to the table service and get the specific entity.
@@ -428,7 +428,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
+    	TableQuery<CustomerEntity> projectionQuery =
 	       TableQuery.from(CustomerEntity.class)
 	       .select(new String[] {"Email"});
 
@@ -441,7 +441,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
         };
 
         // Loop through the results, displaying the Email values.
-        for (String projectedString : 
+        for (String projectedString :
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
         }
@@ -563,6 +563,5 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
- 
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

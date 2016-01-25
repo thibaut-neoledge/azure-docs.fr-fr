@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,10 +13,10 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Utilisation du stockage de fichiers Azure avec Linux 
+# Utilisation du stockage de fichiers Azure avec Linux
 
 ## Vue d'ensemble
 
@@ -40,10 +40,10 @@ Voici une vidéo montrant comment créer et utiliser des partages de fichiers Az
 
 Lorsque vous créez une machine virtuelle Linux dans Azure, vous pouvez spécifier une image Linux qui prend en charge SMB 2.1 ou version ultérieure à partir de la galerie d’images Azure. Voici une liste d’images Linux recommandées :
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1+	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1+
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Image Premium)
 
@@ -60,7 +60,7 @@ Ensuite, vous devez effectuer point de montage (mkdir mymountpoint) avant d’é
 Vous pouvez également ajouter des paramètres dans votre répertoire /etc/fstab pour monter le partage.
 
 Veuillez noter que 0777 représente un code d’autorisation de fichier/répertoire qui octroie des autorisations d'exécution, de lecture ou d'écriture à tous les utilisateurs. Vous pouvez le remplacer avec un autre code d’autorisation de fichier en fonction du document d’autorisation de fichier Linux.
- 
+
 De même, pour conserver le montage d’un partage de fichiers après le redémarrage, vous pouvez ajouter un paramètre comme ci-dessous dans votre répertoire /etc/fstab :
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -98,13 +98,13 @@ Le [portail Azure](portal.azure.com) offre une interface utilisateur permettant 
 - Charger et télécharger des fichiers vers et à partir de votre partage de fichiers.
 - Surveiller l'utilisation réelle de chaque partage de fichiers.
 - Ajuster le quota de la taille de partage.
-- Copiez la commande `net use` à utiliser pour monter le partage de fichiers à partir d’un client Windows. 
+- Copiez la commande `net use` à utiliser pour monter le partage de fichiers à partir d’un client Windows.
 
 Vous pouvez également utiliser l'interface de ligne de commande Azure (Azure CLI) interplateforme à partir de Linux pour gérer le partage de fichiers. L'interface de ligne de commande Azure offre un ensemble de commandes open source, interplateforme, vous permettant d'utiliser le stockage Azure, y compris le stockage de fichiers. Elle offre des fonctionnalités similaires à celles du portail Azure, ainsi que des fonctions étendues d'accès aux données. Pour obtenir des exemples, consultez [Utilisation de la CLI Azure avec Azure Storage](storage-azure-cli.md).
 
 ## Développement avec le stockage de fichiers ##
 
-En tant que développeur, vous pouvez créer une application avec File Storage à l’aide de la [bibliothèque cliente Azure Storage pour Java](https://github.com/azure/azure-storage-java). Pour obtenir des exemples de code, consultez [Utilisation de File Storage à partir de Java](storage-java-how-to-use-file-storage.md).
+En tant que développeur, vous pouvez créer une application avec le stockage de fichiers à l’aide de la [bibliothèque cliente Azure Storage pour Java](https://github.com/azure/azure-storage-java). Pour obtenir des exemples de code, consultez [Utilisation du stockage de fichiers à partir de Java](storage-java-how-to-use-file-storage.md).
 
 Vous pouvez également utiliser la [bibliothèque cliente Azure Storage pour Node.js](https://github.com/Azure/azure-storage-node) pour développer sur File Storage.
 
@@ -136,8 +136,8 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 ### Billets de blog :
 
 - [Le stockage de fichiers Azure est désormais mis à la disposition générale](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Présentation approfondie du stockage de fichiers Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Présentation approfondie du stockage de fichiers Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

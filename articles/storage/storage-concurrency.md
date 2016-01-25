@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Gestion de l’accès concurrentiel dans Microsoft Azure Storage" 
-	description="Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier" 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="Gestion de l’accès concurrentiel dans Microsoft Azure Storage"
+	description="Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier"
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
-## Vue d'ensemble 
+## Vue d'ensemble
 
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d'accès concurrentiel aux données :
 
@@ -34,7 +34,7 @@ Le service de stockage Azure prend en charge les trois stratégies. Il se distin
 
 Parallèlement à la sélection d'une stratégie d'accès concurrentiel adaptée, les développeurs doivent savoir comment la plateforme de stockage isole les changements, notamment ceux apportés à un même objet au fil des transactions. Le service de stockage Azure utilise l'isolement de capture instantanée pour permettre l'exécution simultanée des opérations de lecture et d'écriture au sein d'une même partition. Contrairement à d'autres niveaux d'isolement, l'isolement de capture instantanée permet de garantir l'affichage d'une capture instantanée cohérente des données pour tous les lecteurs, même lorsque des mises à jour sont en cours, en renvoyant notamment les dernières valeurs validées pendant le traitement d'une transaction de mise à jour.
 
-## Gestion de l'accès concurrentiel dans le service BLOB
+## Gestion de l’accès concurrentiel dans Blob Storage
 Vous pouvez choisir d'utiliser des modèles d'accès concurrentiel optimiste ou pessimiste pour gérer l'accès aux objets blob et aux conteneurs dans le service BLOB. Si vous ne sélectionnez pas une stratégie de manière explicite, la règle de Thomas est utilisée par défaut.
 
 ### Accès concurrentiel optimiste pour les objets blob et les conteneurs  
@@ -52,18 +52,18 @@ Ce processus se déroule comme suit :
 L'extrait de code C# suivant (à l'aide de la bibliothèque de stockage cliente 4.2.0) présente un exemple simple de construction d'une condition d'accès **If-Match AccessCondition** basée sur la valeur ETag obtenue à partir des propriétés d'un objet blob précédemment récupéré ou inséré. Il utilise ensuite l’objet **AccessCondition** lorsqu’il met à jour l’objet blob : l’objet **AccessCondition** ajoute l’en-tête **If-Match** à la demande. Si l’objet blob a été mis à jour par un autre processus, le service BLOB renvoie un message d’état HTTP 412 (Échec de la condition préalable). L'exemple en version intégrale est disponible en téléchargement [ici](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -121,13 +121,13 @@ L’extrait de code C# suivant présente un exemple d’obtention d’un bail ex
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +182,7 @@ Pour plus d’informations, consultez les pages suivantes :
 
 - [Spécification des en-têtes conditionnels pour les opérations du service BLOB](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Gestion de l’accès concurrentiel dans le service de Table
 Le service de Table utilise les vérifications d'accès concurrentiel optimiste comme comportement par défaut lorsque vous travaillez avec des entités, contrairement au service BLOB où vous devez choisir de manière explicite de procéder à des vérifications d'accès concurrentiel optimiste. L'autre différence réside dans le fait que vous pouvez uniquement gérer le comportement d'accès concurrentiel des entités avec le service de Table alors qu'avec le service BLOB, vous pouvez gérer l'accès concurrentiel des conteneurs et des objets blob.
@@ -211,7 +211,7 @@ L’extrait de code C# suivant présente une entité de client précédemment cr
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 Pour désactiver de manière explicite la vérification d'accès concurrentiel, vous devez définir la propriété **ETag** de l'objet **employee** sur « * » avant d'exécuter l'opération de remplacement.
@@ -228,7 +228,7 @@ Update Entity|	Oui|	Oui|
 Merge Entity|	Oui|	Oui|
 Delete Entity|	Non|	Oui|
 Insert or Replace Entity|	Oui|	Non|
-Insert or Merge Entity|	Oui|	Non 
+Insert or Merge Entity|	Oui|	Non
 
 Notez que les opérations **Insert or Replace Entity** et **Insert or Merge Entity** ne procèdent *pas* à des vérifications d'accès concurrentiel étant donné qu'elles n'envoient pas de valeur ETag au service de Table.
 
@@ -271,6 +271,4 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 - Prise en main du stockage d'[objets blob](storage-dotnet-how-to-use-blobs.md), de [tables](storage-dotnet-how-to-use-tables.md) et de [files d'attente](storage-dotnet-how-to-use-queues.md)
 - Architecture de stockage - [Microsoft Azure Storage : service de stockage dans le cloud à haute disponibilité et à forte cohérence](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

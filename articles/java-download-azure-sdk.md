@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Téléchargement du Kit de développement logiciel (SDK) Azure pour Java #
@@ -49,50 +49,50 @@ Une fois votre projet configuré afin d’utiliser Maven pour la génération, v
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-compute</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-network</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-sql</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-storage</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-websites</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-media</artifactId>
-        <version>0.6.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-servicebus</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-serviceruntime</artifactId>
-        <version>0.6.0</version>
+        <version>n.n.n</version>
     </dependency>
 
-**Remarque** : dans chaque élément `<version>` de l’exemple précédent, remplacez les numéros de version de cet exemple par des numéros de version valides, que vous pouvez obtenir dans le [référentiel des bibliothèques Azure sous Maven][].
+**Remarque** : dans chaque élément `<version>` de l’exemple précédent, remplacez les espaces réservés « n.n.n » de cet exemple par des numéros de version valides, que vous pouvez obtenir dans le [référentiel des bibliothèques Azure sur Maven][].
 
 ## Installation du kit de ressources Azure pour Eclipse ##
 
@@ -118,16 +118,16 @@ Le kit de ressources Azure pour Eclipse utilise la dernière version du Kit de d
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
-[Création d’une application Hello World pour Azure dans Eclipse][]
+[Création d'une application Hello World pour Azure dans Eclipse][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java][].
+Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java][].
 
 <!-- URL List -->
 
 [Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[référentiel des bibliothèques Azure sous Maven]: http://go.microsoft.com/fwlink/?LinkID=286274
+[référentiel des bibliothèques Azure sur Maven]: http://go.microsoft.com/fwlink/?LinkID=286274
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Installer le kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Java Build Path]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
@@ -136,4 +136,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Nouveautés du Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

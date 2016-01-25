@@ -4,7 +4,7 @@
 	documentationCenter="windows"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	services="mobile-services"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
@@ -116,7 +116,7 @@ Ajoutez une autre classe nommée `PlayerRank`.
 
 Notez que les deux classes héritent de la classe **EntityData**. La dérivation depuis **EntityData** facilite la consommation des données par l'application, grâce à l'utilisation de la bibliothèque cliente interplateforme pour Azure Mobile Services. **EntityData** facilite également la [gestion des conflits d'écriture de base de données](mobile-services-windows-store-dotnet-handle-database-conflicts.md) pour une application.
 
-La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/data/jj713564.aspx) pointant vers l'entité `Player` associée. L’attribut **[ForeignKey]** indique à EF que la propriété `Player` représente une clé étrangère.
+La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/data/jj713564.aspx) pointant vers l'entité `Player` associée. L’attribut **ForeignKey** indique à EF que la propriété `Player` représente une clé étrangère.
 
 ## Ajout de contrôleurs d'API web
 
@@ -323,7 +323,7 @@ L’attribut **[Route]** définit un itinéraire personnalisé pour cette métho
 
 	[Route("api/score")]
 
-Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
 ## Création de l'application du Windows Store
 
@@ -765,4 +765,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Ajout de notifications Push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

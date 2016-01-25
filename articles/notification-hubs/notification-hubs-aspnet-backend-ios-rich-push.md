@@ -96,7 +96,7 @@ Ce didacticiel est compatible avec iOS 7 et 8.
             }
         }
 
-> [AZURE.NOTE](optional) Consultez [Comment incorporer des ressources et y accéder à l’aide de Visual C#](http://support.microsoft.com/kb/319292) pour plus d’informations sur la façon d’ajouter et d’obtenir des ressources de projet.
+	>[AZURE.NOTE](optional) Consultez [Comment incorporer des ressources et y accéder à l’aide de Visual C#](http://support.microsoft.com/kb/319292) pour plus d’informations sur la façon d’ajouter et d’obtenir des ressources de projet.
 
 7. Dans **NotificationsController.cs**, redéfinissez **NotificationsController** avec les extraits de code suivants. Ceci envoie un ID de notification enrichi sans assistance initial à l’appareil et permet l’extraction de l’image sur le client :
 
@@ -381,4 +381,4 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

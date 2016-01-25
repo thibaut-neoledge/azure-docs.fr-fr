@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Google+
@@ -48,17 +48,13 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 
     ![G + - écran de consentement OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. Fournissez une valeur **Name** pour votre application, entrez [https://login.microsoftonline.com](https://login.microsoftonline.com) dans le champ **Authorized JavaScript origins** et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Authorized redirect URIs**, où **{tenant}** est remplacé par le nom de votre client (par exemple, contosob2c.onmicrosoft.com). Cliquez sur **Create**.
+8. Fournissez une valeur **Name** pour votre application, entrez [https://login.microsoftonline.com](https://login.microsoftonline.com) dans le champ **Authorized JavaScript origins** et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Authorized redirect URIs**, où **{tenant}** est remplacé par le nom de votre client (par exemple, contosob2c.onmicrosoft.com). Cliquez sur **Create**. Remarque : la valeur de **{tenant}** respecte la casse.
 
-> [AZURE.NOTE]La valeur **{tenant}** respecte la casse.
+    ![G+ - création d’identifiant client](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-    ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
+9. Copiez les valeurs de **ID Client** et **Client secret**. Vous aurez besoin de ces deux valeurs pour configurer Google+ en tant que fournisseur d'identité dans votre client. Remarque : **Client secret** est une information d’identification de sécurité importante.
 
-9. Copiez les valeurs de **ID Client** et **Client secret**. Vous aurez besoin de ces deux valeurs pour configurer Google+ en tant que fournisseur d'identité dans votre client.
-
-> [AZURE.NOTE]La valeur **Client secret** est une information d’identification de sécurité importante.
-
-    ![G+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+    ![G+ - clé secrète client](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## Configuration de Google+ en tant que fournisseur d'identité dans votre client
 
@@ -70,4 +66,4 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’**ID client** et la **Clé secrète client** de l’application Google+ que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Google+.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

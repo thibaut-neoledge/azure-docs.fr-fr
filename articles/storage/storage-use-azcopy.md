@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="micurd" 
 	manager="jahogg" 
-	editor="cgronlun"/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -337,7 +337,7 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez é
   </tr>
   <tr>
     <td><b>/DestType:Blob|Table</b></td>
-    <td>Spécifie que la ressource <code>destination</code> est un objet blob disponible dans l’environnement de développement local, exécuté sur l’émulateur de stockage.</td>
+    <td>Spécifie que la ressource <code>destination</code> est un objet blob disponible dans l'environnement de développement local, exécuté sur l'émulateur de stockage.</td>
     <td>O</td>
     <td>N</td>
     <td>O<br /></td>
@@ -464,7 +464,7 @@ Lorsque vous copiez un objet blob au sein d’un compte de stockage ou sur plusi
 
 Si le stockage géo-redondant avec accès en lecture est activé pour votre compte de stockage, vous pouvez alors copier des données à partir de la région secondaire.
 
-**Copie d'un objet blob sur le compte primaire à partir du secondaire :**
+**Copie d’un objet blob sur le compte primaire à partir du secondaire :**
 
 	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
@@ -480,7 +480,7 @@ Si le stockage géo-redondant avec accès en lecture est activé pour votre comp
 
 Remarque : si le conteneur de destination spécifié n’existe pas, AzCopy le crée et y charge le fichier.
 
-**Chargement d’un fichier vers un nouveau répertoire virtuel d’objet blob**
+**Chargement d'un fichier vers un nouveau répertoire virtuel d'objet blob**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
@@ -496,7 +496,7 @@ Si le dossier `C:\myfolder` n'existe pas encore, AzCopy le crée dans le systèm
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
-Spécifier l'option `/S` engendre la copie des contenus du répertoire spécifié vers le stockage d'objets blob récursivement, ce qui implique également la copie de tous les sous-dossiers et de leurs fichiers. Par exemple, si les fichiers suivants se trouvent dans le dossier `C:\myfolder` :
+Spécifier l’option `/S` engendre la copie des contenus du répertoire spécifié vers le stockage d’objets blob récursivement, ce qui implique également la copie de tous les sous-dossiers et de leurs fichiers. Par exemple, si les fichiers suivants se trouvent dans le dossier `C:\myfolder` :
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -682,7 +682,7 @@ Remarque : chacun des paramètres AzCopy doit être spécifié sur une seule li
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
 
-**Spécification d'une SAP pour le conteneur source sur l'URI du conteneur source**
+**Spécification d’une SAP pour le conteneur source sur l’URI du conteneur source**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
 
@@ -706,13 +706,13 @@ Si le fichier journal existe, AzCopy vérifie si la ligne de commande que vous e
 
 Si vous omettez l'option `/Z`, ou spécifiez l'option `/Z` sans le chemin du dossier, comme démontré ci-dessus, AzCopy crée le fichier journal à l'emplacement par défaut, qui est `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Si le fichier journal existe déjà, AzCopy reprend l’opération en se basant sur le fichier journal.
 
-**Spécification d'un emplacement personnalisé pour le fichier journal**
+**Spécification d’un emplacement personnalisé pour le fichier journal**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 
 Cet exemple crée le fichier journal s’il n’existe pas déjà. S’il existe, AzCopy reprend l’opération en se basant sur le fichier journal.
 
-**Reprise d'une opération AzCopy**
+**Reprise d’une opération AzCopy**
 
 	AzCopy /Z:C:\journalfolder\
 
@@ -725,7 +725,7 @@ Cet exemple reprend la dernière opération, qui est susceptible de ne pas avoir
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-Si vous spécifiez l'option `/V` sans fournir de chemin de fichier pour le journal détaillé, AzCopy crée le fichier journal à l'emplacement par défaut, qui est `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Si vous spécifiez l’option `/V` sans fournir de chemin de fichier pour le journal détaillé, AzCopy crée le fichier journal à l’emplacement par défaut, qui est `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 **Écriture dans le fichier journal détaillé à l'emplacement personnalisé**
 
@@ -827,7 +827,7 @@ Notez que la copie asynchrone depuis le stockage de fichiers vers un objet blob 
 
 ### Copier des fichiers de façon synchrone dans le fichier de stockage Azure
 
-Outre la copie asynchrone, l'utilisateur peut spécifier l'option `/SyncCopy` pour copier des données de façon synchrone depuis le stockage de fichiers vers celui-ci, depuis le stockage de fichiers vers le stockage d'objets Blob et depuis le stockage d'objets Blob vers le stockage de fichiers ; pour ce faire, AzCopy télécharge les données source dans la mémoire locale et les charge vers la destination.
+Outre la copie asynchrone, l’utilisateur peut spécifier l’option `/SyncCopy` pour copier de façon synchrone des données au sein de File Storage, de File Storage à Blob Storage et de Blob Storage à File Storage. Pour ce faire, AzCopy télécharge les données sources dans la mémoire locale, puis les charge à nouveau vers la destination.
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -837,7 +837,7 @@ Outre la copie asynchrone, l'utilisateur peut spécifier l'option `/SyncCopy` po
 
 Pendant la copie depuis le stockage de fichier vers le stockage d'objets Blob, le type d'objet Blob par défaut est l'objet Blob de blocs. L'utilisateur peut spécifier l'option `/BlobType:page` pour modifier le type d'objet Blob de destination.
 
-Notez que `/SyncCopy` peut occasionner des coûts supplémentaires par rapport à une copie asynchrone. L'approche recommandée consiste à utiliser cette option dans la machine virtuelle Azure qui se trouve dans la même région que votre compte de stockage source afin d'éviter les coûts de sortie.
+Notez que `/SyncCopy` peut occasionner des coûts supplémentaires par rapport à une copie asynchrone. L’approche recommandée consiste à utiliser cette option dans la machine virtuelle Azure qui se trouve dans la même région que votre compte de stockage source afin d’éviter les coûts de sortie.
 
 
 ## Copie d’entités dans une table Azure avec AzCopy
@@ -890,7 +890,7 @@ Exemple : supposons qu'AzCopy crée deux fichiers de données après que l'util
 	myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
 	myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Remarque : la valeur minimale possible pour l'option `/SplitSize` est 32 Mo. Si la destination spécifiée est un stockage d'objets blob, AzCopy fractionne le fichier de données lorsque sa taille atteint la limite de taille des objets blob (200 Go), que l'utilisateur ait spécifié ou non l'option `/SplitSize`.
+Remarque : la valeur minimale possible pour l’option `/SplitSize` est 32 Mo. Si la destination spécifiée est un stockage d'objets blob, AzCopy fractionne le fichier de données lorsque sa taille atteint la limite de taille des objets blob (200 Go), que l'utilisateur ait spécifié ou non l'option `/SplitSize`.
 
 ### Exportation simultanée d’entités
 
@@ -910,7 +910,7 @@ L'option `/EntityOperation` indique comment insérer des entités dans la table.
 - `InsertOrMerge` : fusionne une entité existante ou insère une nouvelle entité si elle n'existe pas dans la table.
 - `InsertOrReplace` : remplace une entité existante ou insère une nouvelle entité si elle n'existe pas dans la table.
 
-Remarque : vous ne pouvez pas spécifier l'option `/PKRS` dans le scénario d'importation. À la différence du scénario d'exportation dans lequel vous devez spécifier l'option `/PKRS` pour démarrer des opérations simultanées, AzCopy lance par défaut des opérations simultanées lorsque vous importez des entités. Le nombre par défaut d'opérations simultanées démarrées est égal au nombre de processeurs Core. Cependant, vous pouvez spécifier un nombre différent d'opérations simultanées avec l'option `/NC`. Pour plus d'informations, tapez `AzCopy /?:NC` dans la ligne de commande.
+Remarque : vous ne pouvez pas spécifier l'option `/PKRS` dans le scénario d'importation. À la différence du scénario d'exportation dans lequel vous devez spécifier l'option `/PKRS` pour démarrer des opérations simultanées, AzCopy lance par défaut des opérations simultanées lorsque vous importez des entités. Le nombre par défaut d’opérations simultanées démarrées est égal au nombre de processeurs Core. Cependant, vous pouvez spécifier un nombre différent d’opérations simultanées avec l’option `/NC`. Pour plus d'informations, tapez `AzCopy /?:NC` dans la ligne de commande.
 
 
 ## Problèmes connus et les meilleures pratiques
@@ -982,4 +982,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, voir les ressources suiv
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

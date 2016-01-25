@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
@@ -25,7 +25,7 @@ Cette version contient la mise à jour suivante.
 Intitulé | Description
 ---|---
 Mise à jour de la version de l’API REST | L’API REST a été mise à jour vers la version suivante : 01-10-2015. Vous trouverez plus d’informations sur MSDN à l’adresse [références d’API REST de gestion Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) et [intégration de Machine Learning dans Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Intégration d’Azure Machine Learning | Cette version s’accompagne de la prise en charge des fonctions Azure Machine Learning définies par l’utilisateur. Cliquez [ici](stream-analytics-machine-learning-tutorial.md) pour accéder à un didacticiel, et [ici](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx) pour consulter l’annonce générale dans un billet de blog.
+Intégration d’Azure Machine Learning | Cette version s’accompagne de la prise en charge des fonctions Azure Machine Learning définies par l’utilisateur. Cliquez [ici](stream-analytics-machine-learning-integration-tutorial.md) pour accéder à un didacticiel, et [ici](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx) pour consulter l’annonce générale dans un billet de blog.
 
 ## Notes relatives à la version du 12/11/2015 de Stream Analytics ##
 
@@ -33,7 +33,7 @@ Cette version contient la mise à jour suivante.
 
 Intitulé | Description
 ---|---
-Nouveau comportement de SELECT | Dans Stream Analytics, SELECT a été étendu pour autoriser * comme accesseur de propriété d’un enregistrement imbriqué. Pour plus d’informations, consultez [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Types de données complexes").
+Nouveau comportement de SELECT | Dans Stream Analytics, SELECT a été étendu pour autoriser * comme accesseur de propriété d’un enregistrement imbriqué. Pour plus d’informations, voir [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Types de données complexes").
 
 ## Notes relatives à la version du 22/10/2015 de Stream Analytics ##
 
@@ -85,7 +85,7 @@ Intitulé|Description
 ---|---
 ID d’organisation Power BI dissocié de l’ID Azure|Cette fonctionnalité permet une [sortie Power BI](stream-analytics-power-bi-dashboard.md) pour les tâches ASA dans tout type de compte Azure (Live ID ou ID d’organisation). En outre, vous pouvez avoir un ID d’organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.
 Prise en charge de la sortie de files d’attente de Service Bus|Les sorties de [files d’attente Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sont désormais disponibles dans les tâches Stream Analytics.
-Prise en charge de la sortie de rubriques de Service Bus|Les sorties de [rubriques Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) sont désormais disponibles dans les tâches Stream Analytics.
+Prise en charge de la sortie de rubriques de Service Bus|Les sorties de [rubriques Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) sont maintenant disponibles dans les tâches Stream Analytics.
 
 ## Notes relatives à la version du 09/07/2015 de Stream Analytics ##
 
@@ -126,11 +126,11 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](../stream.analytics.get.started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

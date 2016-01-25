@@ -3,7 +3,7 @@
 	description="Découvrez la structure du modèle Azure Resource Manager pour la batterie de serveurs SharePoint à trois serveurs."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs
 
@@ -53,7 +53,7 @@ La section **"parameters"** spécifie les paramètres qui sont utilisés pour l�
 
 ## section "variables"
 
-La section **"variables"** spécifie les variables et leurs valeurs qui sont utilisées par le modèle. Les valeurs des variables peuvent être définies explicitement ou dériver des valeurs des paramètres. Contrairement aux paramètres, elles n’ont pas à être fournies au moment de l’exécution du modèle. Il est possible de définir 100 variables maximum. Voici quelques exemples :
+La section **"variables"** spécifie les variables (et leurs valeurs) qui sont utilisées par le modèle. Les valeurs des variables peuvent être définies explicitement ou dériver des valeurs des paramètres. Contrairement aux paramètres, elles n’ont pas à être fournies au moment de l’exécution du modèle. Il est possible de définir 100 variables maximum. Voici quelques exemples :
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -366,14 +366,8 @@ Vous devez suivre les mêmes étapes pour votre propre modèle JSON visant à cr
 1.	Créez les éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, groupes à haute disponibilité, interfaces réseau, instances d’équilibreur de charge) de l’infrastructure Azure requis pour votre déploiement.
 2.	Pour chaque niveau de votre application (par exemple l’authentification, la base de données, le web), créez et configurez les serveurs de ce niveau à l’aide des éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, interfaces réseau et instances d’équilibreur de charge).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
+## Étape suivante
 
-## Ressources supplémentaires
+- Découvrez le [langage des modèles Azure Resource Manager](../resource-group-authoring-templates.md) et créez votre propre modèle.
 
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md) [Présentation d’Azure Resource Manager](../resource-group-overview.md)
-
-[Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
-
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -32,7 +32,7 @@ Avant de suivre les instructions de cet article, vous devez disposer d’un abon
 
 ##<a id="configuration"></a>Quelles sont les différentes options de configuration ?
 
-###Stockage supplémentaire
+### Stockage supplémentaire
 
 Durant la configuration, vous devez spécifier un compte de stockage d’objet blob Azure, ainsi qu’un conteneur par défaut. Ceci est utilisé par le cluster comme emplacement de stockage par défaut. Vous pouvez éventuellement spécifier un compte de stockage Azure supplémentaire, également associé à votre cluster.
 
@@ -40,7 +40,7 @@ Durant la configuration, vous devez spécifier un compte de stockage d’objet b
 
 Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
 
-###Metastore
+### Metastore
 
 Spark permet de définir un schéma et des tables Hive sur des données brutes. Vous pouvez enregistrer ces schémas et ces métadonnées de table dans des metastores externes. L’utilisation de metastores vous permet de conserver vos métadonnées Hive, afin de ne pas devoir recréer de tables Hive lorsque vous créez un cluster. Hive utilise par défaut une base de données intégrée pour stocker ces informations. La base de données incorporée ne peut pas conserver les métadonnées lorsque le cluster est supprimé.
 
@@ -51,7 +51,7 @@ Pour obtenir des instructions sur la création d’une base de données SQL, co
 Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **action de script**, une option de configuration qui peut être utilisée à partir du portail Azure, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script][hdinsight-customize-cluster].
 
 
-###Réseau virtuel
+### Réseau virtuel
 
 [Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
 
@@ -69,13 +69,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 	![diagram of point-to-site configuration](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant de créer un cluster. Pour plus d’informations, consultez [Création d’un réseau virtuel](virtual-networks-create-vnet.md).
->
-> Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités.
->
-> Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
+Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ##<a id="portal"></a> Utilisation du portail Azure en version préliminaire
 
@@ -88,13 +82,13 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
     ![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "Création d’un cluster dans le portail Azure en version préliminaire")
 
-3. Saisissez un **Nom de cluster**, sélectionnez **Spark** comme **Type de cluster**, et à partir du menu déroulant **Système d’exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
+3. Saisissez un **Nom de cluster**, sélectionnez **Spark** comme **Type de cluster**, et à partir du menu déroulant **Système d'exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
 
 	![Saisir le nom et le type du cluster](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.2.png "Saisir le nom et le type du cluster")
 
 4. Si vous avez plusieurs abonnements, cliquez sur l’entrée **Abonnement** pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
 
-5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également cliquer sur **Créer un nouveau**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
+5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également cliquer sur **CRÉER UN NOUVEAU**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
 
 	> [AZURE.NOTE]Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
 
@@ -106,11 +100,11 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	![Panneau Source de données](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.4.png "Fournir la configuration de la source de données")
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau **Source de données**.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau **Source de données**.
 
-	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **nom de stockage** et la **clé d’accès** d’un compte de stockage existant.
+	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
 
-	- **Sélectionner le compte de stockage / Créer un nouveau** : cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- **Sélectionner le compte de stockage / Créer un nouveau** : cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
 	- **Choisir le conteneur par défaut** : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
@@ -118,19 +112,19 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
-	Cliquez sur **Sélectionner** pour enregistrer la configuration de la source de données.
+	Cliquez sur **Sélectionner** pour enregistrer la configuration de source de données.
 
-8. Cliquez sur **Niveaux de tarification du nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds Worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
+8. Cliquez sur **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.5.png "Spécifier le nombre de nœuds de cluster")
 
-	Cliquez sur **Sélectionner** pour enregistrer la configuration de la tarification du nœud.
+	Cliquez sur **Sélectionner** pour enregistrer la configuration de tarif de nœud.
 
 9. Cliquez sur **Configuration facultative** pour sélectionner la version de cluster et configurer d’autres paramètres facultatifs (connexion à un **réseau virtuel**, configuration d’un **metastore externe** pour conserver les données Hive et Oozie, etc.), utiliser des actions de script pour personnaliser un cluster et installer des composants personnalisés ou encore utiliser des comptes de stockage supplémentaires avec le cluster.
 
 	* Cliquez sur le menu déroulant **Version HDInsight** et sélectionnez la version à utiliser pour le cluster. Pour plus d’informations, consultez [Versions de clusters HDInsight](hdinsight-component-versioning.md).
 
-	* Cliquez sur **Réseau virtuel** pour fournir les informations permettant de configurer le cluster en tant que composant d’un réseau virtuel. Dans le panneau **Réseau virtuel**, cliquez sur **Réseau virtuel**, puis sur le réseau à utiliser. En procédant de même, sélectionnez un **sous-réseau** pour le réseau, puis cliquez sur **Sélectionner** pour enregistrer la configuration du réseau virtuel.
+	* Cliquez sur **RÉSEAU VIRTUEL** pour fournir les informations permettant de configurer le cluster en tant que composant d’un réseau virtuel. Dans le panneau **Réseau virtuel**, cliquez sur **Réseau virtuel**, puis sur le réseau à utiliser. En procédant de même, sélectionnez un **sous-réseau** pour le réseau, puis cliquez sur **Sélectionner** pour enregistrer la configuration du réseau virtuel.
 
 		![Panneau Réseau virtuel](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.6.png "Spécifier les détails du réseau virtuel")
 
@@ -138,7 +132,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 		![Panneau de metastores personnalisés](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.7.png "Spécification des metastores externes")
 
-		Pour **utiliser une base de données SQL existante pour les métadonnées Hive**, cliquez sur **Oui**, sélectionnez une base de données SQL, puis indiquez le nom d’utilisateur/mot de passe pour la base de données. Répétez ces étapes si vous souhaitez **utiliser une base de données SQL existante pour les métadonnées Oozie**. Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Configuration facultative**.
+		Pour **Utiliser une base de données SQL existante pour les métadonnées Hive**, cliquez sur **Oui**, sélectionnez une base de données SQL, puis indiquez le nom d’utilisateur/mot de passe pour la base de données. Répétez ces étapes si vous souhaitez **utiliser une base de données SQL existante pour les métadonnées Oozie**. Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Configuration facultative**.
 
 		>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
 
@@ -148,13 +142,13 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 		Cliquez sur **Sélectionner** pour enregistrer les modifications apportées à la configuration d’action de script.
 
-	* Cliquez sur **Clés de stockage Azure** pour spécifier les comptes de stockage supplémentaires à associer au cluster. Dans le panneau **Clés de stockage Azure**, cliquez sur **Ajouter une clé de stockage**, puis sélectionnez un compte de stockage existant ou créez-en un.
+	* Cliquez sur **Clés de stockage Azure** pour spécifier les comptes de stockage supplémentaires à associer au cluster. Dans le panneau **CLÉS DE STOCKAGE AZURE**, cliquez sur **AJOUTER UNE CLÉ DE STOCKAGE**, puis sélectionnez un compte de stockage existant ou créez-en un.
 
 		![Panneau Stockage supplémentaire](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.9.png "Spécifier des comptes de stockage supplémentaires")
 
 		Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Nouveau cluster HDInsight **.
 
-10. Dans le panneau **Nouveau cluster HDInsight**, vérifiez que l’option **Épingler au tableau d’accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L’icône indique que le cluster est en cours de création et sera modifiée pour représenter l’icône HDInsight une fois la création terminée.
+10. Dans le panneau **Nouveau cluster HDInsight**, assurez-vous que l’option **Épingler au tableau d’accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L’icône indique que le cluster est en cours de création et sera modifiée pour représenter l’icône HDInsight une fois la création terminée.
 
 	| En cours de création | Création terminée |
 	| ------------------ | --------------------- |
@@ -178,9 +172,9 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	* **Supprimer** : permet de supprimer le cluster HDInsight.
 
-	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)) : affiche des informations pour vous aider à prendre en main HDInsight.
+	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)) : affiche des informations qui vous aideront à utiliser HDInsight.
 
-	* **Utilisateurs** (![icône d’utilisateurs](./media/hdinsight-apache-spark-provision-clusters/users.png)) : permet de définir des autorisations pour la _gestion au moyen du portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+	* **Utilisateurs** (![icône d’utilisateurs](./media/hdinsight-apache-spark-provision-clusters/users.png)) : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 
 		> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure en version préliminaire et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
 
@@ -248,4 +242,4 @@ Spécifiez un type de cluster Spark :
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

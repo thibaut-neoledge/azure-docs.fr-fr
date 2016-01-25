@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="TomArcher" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
-	ms.author="tarcher"/>
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 # Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
-Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l'hébergement d'une application de conversation instantanée socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez le site <a href="http://socket.io/">http://socket.io/</a>.
+Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l'hébergement d'une application de conversation instantanée socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez <http://socket.io/>.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -170,4 +170,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
   
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

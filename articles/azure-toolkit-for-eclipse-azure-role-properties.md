@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -394,11 +394,11 @@ Dans cette boîte de dialogue, vous pouvez activer le déchargement SSL, ce qui 
 
 [Liste du compte de stockage Azure][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java][].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Azure avec Java][].
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
 [portail de gestion]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
@@ -439,4 +439,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

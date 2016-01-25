@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 
@@ -74,7 +74,7 @@ Une fois que vous avez publié la définition de service de mise à jour, vous p
 
     ![Invite de sécurité Windows][5]
 
-4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1]\[Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
+4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
 
     ![invite du nom d'utilisateur/mot de passe][6]
 
@@ -116,4 +116,4 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
   [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

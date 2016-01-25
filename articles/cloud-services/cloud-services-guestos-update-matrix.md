@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/04/2016"
+   ms.date="01/13/2016"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -179,10 +179,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.27 | WA-GUEST-OS-4.27\_201512-01 | Prévu le 8 janvier 2016 | Mise à jour à l’occasion de la publication de la version 4.29 | TBD |
+| 4\.27 | WA-GUEST-OS-4.27\_201512-01 | 12 janvier 2016 | Mise à jour à l’occasion de la publication de la version 4.29 | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 4.28 | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 4.28 | TBD |
-| 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 4.27 | TBD |
+| 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | 12 février 2016 | TBD |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
 | 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 7 août 2015 | 1 novembre 2015 | TBD |
@@ -209,10 +209,10 @@ Prend en charge .NET 4.0, 4.5
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.34 | WA-GUEST-OS-3.34\_201512-01 | Prévu le 8 janvier 2016 | Mise à jour lors de la publication de la version 3.36 | TBD |
+| 3\.34 | WA-GUEST-OS-3.34\_201512-01 | 12 janvier 2016 | Mise à jour lors de la publication de la version 3.36 | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 3.35 | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 3.35 | TBD |
-| 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 3.34 | TBD |
+| 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | 12 février 2016 | TBD |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
 | 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 7 août 2015 | 1 novembre 2015 | TBD |
@@ -240,10 +240,10 @@ Prend en charge .NET 3.5, 4.0
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.46 | WA-GUEST-OS-2.46\_201512-01 | Prévu le 8 janvier 2015 | Mise à jour lors de la publication de la version 2.48 | TBD |
+| 2\.46 | WA-GUEST-OS-2.46\_201512-01 | 12 janvier 2016 | Mise à jour lors de la publication de la version 2.48 | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 2.47 | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 2.47 | TBD |
-| 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 2.46 | TBD |
+| 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | 12 février 2016 | TBD |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1er octobre 2015 | 10 janvier 2016 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
 | 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 7 août 2015 | 1 novembre 2015 | TBD |
@@ -408,4 +408,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

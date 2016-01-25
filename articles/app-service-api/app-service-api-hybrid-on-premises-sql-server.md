@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Connexion à un serveur SQL Server local à partir d’une application API dans Azure App Service au moyen de connexions hybrides
@@ -34,7 +34,7 @@ Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont
 
 - **Visual Studio** : pour télécharger une version d’évaluation gratuite de Visual Studio 2013 ou Visual Studio 2015, consultez [Téléchargements de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez-en une des deux avant de continuer. (Les captures d’écran de ce didacticiel ont été effectuées à l’aide de Visual Studio 2013)
 
-- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
+- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
 
 - **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299).
 
@@ -82,7 +82,7 @@ Cette section explique comment installer SQL Server Express, activer TCP/IP 
 
 1. Pour installer SQL Server Express, téléchargez le fichier **SQLEXPRWT\_x64\_ENU.exe** (version 64 bits) ou **SQLEXPR\_x86\_ENU.exe** (version 32 bits) et extrayez-le dans le dossier souhaité. 
 
-2. Une fois que vous avez extrait les fichiers d’installation de SQL Server Express, exécutez **setup.exe**.
+2. Une fois que vous avez extrait les fichiers d’installation de SQL Server Express, exécutez **setup.exe**.
 
 3. Quand le **Centre d’installation SQL Server** s’affiche, choisissez **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
 
@@ -367,7 +367,7 @@ La fenêtre **Activité d’Azure App Service** affiche la progression du déplo
  
 	![Panneau Application API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Quand le panneau **Hôte d’application d’API** s’affiche, faites défiler l’écran vers le bas jusqu’à la section **Mise en réseau** et cliquez sur **Connexions hybrides**.
+6. Quand le panneau **Hôte d’application API** s’affiche, faites défiler l’écran vers le bas jusqu’à la section **Mise en réseau** et cliquez sur **Connexions hybrides**.
 	
 	![Hybrid connections](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
@@ -432,4 +432,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

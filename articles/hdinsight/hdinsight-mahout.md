@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop dans HDInsight
@@ -104,7 +104,7 @@ De façon pratique, [GroupLens Research][movielens] fournit des données d’év
             -Container $container `
             -Context $context
     
-    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’URI __wasb:///example/data/u.data__ des tâches HDInsight.
+    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’URI \_\___wasb:///example/data/u.data__ des tâches HDInsight.
 
 ###Exécution de la tâche
 
@@ -132,7 +132,7 @@ Utilisez le script Windows PowerShell suivant pour exécuter une tâche à l’a
             
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
-	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.2.7.1-33/examples/target/mahout-examples-0.9.0.2.2.7.1-33-job.jar"
+	$jarFile =  "file:///C:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar"
     #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you
@@ -370,19 +370,19 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 3. Utilisez la commande suivante pour générer le descripteur de fichier (__KDDTrain+.info__), qui utilise Mahout.
 
-		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
+		hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
 	`N 3 C 2 N C 4 N C 8 N 2 C 19 N L` décrit les attributs des données du fichier. Par exemple, L indique une étiquette.
 
 4. Construisez une forêt d’arbres décisionnels à l’aide de la commande suivante :
 
-		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
+		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
+    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
 
 5. Testez la forêt en classant l’ensemble de données __KDDTest+.arff__. Utilisez la commande suivante :
 
-    	hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasb:///example/data/KDDTest+.arff -ds wasb:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasb:///example/data/predictions
+    	hadoop jar c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasb:///example/data/KDDTest+.arff -ds wasb:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasb:///example/data/predictions
 
     Cette commande renvoie des informations récapitulatives sur un processus de classification du type suivant :
 
@@ -410,7 +410,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Cette tâche génère également un fichier situé dans __wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
+  Cette tâche génère également un fichier situé dans \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
 
 > [AZURE.NOTE]Les tâches Mahout ne remplacent pas les fichiers. Si vous souhaitez réexécuter ces tâches, vous devez supprimer les fichiers créés par les tâches précédentes.
 
@@ -428,9 +428,9 @@ Mahout est installé sur les clusters HDInsight 3.1 et peut être installé man
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	À l'issue de la création, vous pouvez localiser le fichier JAR à l'emplacement __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] À la sortie de Mahout1.0, vous devriez être en mesure d'utiliser les packages préconçus avec HDInsight3,0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Téléchargez le fichier jar vers __example/jars__ dans le stockage par défaut de votre cluster. Dans le script suivant, remplacez CLUSTERNAME par le nom de votre cluster HDInsight et FILENAME par le chemin d'accès du fichier __mahout-coure-0.9-job.jar__.
 
@@ -530,4 +530,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

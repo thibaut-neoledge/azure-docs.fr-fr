@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -59,7 +59,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5. Cliquez sur **Next**.
 5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
-    1. Pour **Cloud service**, utilisez la valeur par défaut **Create a new cloud service**.
+    1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
@@ -99,7 +99,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles. ![Capture d'écran Available Namespaces][avail_namespaces]
 2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée. ![Capture d'écran Liste d'espaces de noms][namespace_list]
-3.  Le panneau **Propriétés** de droite répertorie les propriétés du nouvel espace de noms. ![Capture d'écran du volet Propriétés][properties_pane]
+3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms. ![Capture d'écran du volet Propriétés][properties_pane]
 4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité. ![Capture d’écran Clé par défaut][default_key]
 5.  Notez l'**Émetteur par défaut** et la **Clé par défaut**, car vous devrez utiliser ces informations ci-dessous pour accomplir les opérations relatives à l'espace de noms.
 
@@ -520,4 +520,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

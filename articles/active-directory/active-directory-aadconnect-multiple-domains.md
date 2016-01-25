@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 #Prise en charge de plusieurs domaines
 
-Vous êtes nombreux à avoir demandé comment configurer plusieurs domaines et sous-domaines Office 365 ou Azure AD de premier niveau avec la fédération. Même si une telle configuration est plutôt simple à réaliser, en raison de certains points sous-jacents, il existe quelques trucs et astuces à connaître pour éviter les problèmes suivants.
+Nombreux sont les utilisateurs à avoir demandé comment configurer plusieurs domaines et sous-domaines Office 365 ou Azure AD de premier niveau avec la fédération. Même si une telle configuration est plutôt simple à réaliser, en raison de certains points sous-jacents, il existe quelques trucs et astuces à connaître pour éviter les problèmes suivants.
 
 - Messages d’erreur en essayant de configurer des domaines supplémentaires pour la fédération
 - Impossibilité pour les utilisateurs de sous-domaines de se connecter après la configuration de plusieurs domaines de premier niveau pour la fédération
@@ -26,7 +26,7 @@ Vous êtes nombreux à avoir demandé comment configurer plusieurs domaines et s
 ## Présence de plusieurs domaines de premier niveau
 Je vais vous guider dans la configuration d’un exemple d’organisation comme contoso.com qui veut un domaine supplémentaire nommé fabrikam.com.
 
-Supposons que, dans mon système local, j’aie configuré AD FS avec le nom de service de fédération fs.jenfield.com.
+Supposons que dans mon système local, j’ai configuré AD FS avec le nom de service de fédération fs.contoso100.com.
 
 Quand je m’inscris à Office 365 ou Azure AD, je choisis de configurer contoso.com en tant que domaine de ma première authentification. Pour cela, j’utilise Azure AD Connect ou Azure AD Powershell avec New-MsolFederatedDomain.
 
@@ -34,8 +34,8 @@ Ensuite, examinons les valeurs par défaut de deux des nouvelles propriétés de
 
 | Nom de la propriété | Valeur | Description|
 | ----- | ----- | -----|
-|IssuerURI | http://fs.jenfield.com/adfs/services/trust| Même si elle ressemble à une URL, cette propriété n’est que le nom du système d’authentification local, donc le chemin n’a pas besoin d’être résolu en quoi que ce soit. Par défaut, AD Azure affecte cette propriété à la valeur de l’identificateur du service de fédération dans ma configuration AD FS locale.
-|PassiveClientSignInUrl|https://fs.jenfield.com/adfs/ls/|This est l’emplacement auquel les requêtes de connexion passive sont envoyées. Il se résout en mon système AD FS réel. Il existe en fait plusieurs propriétés « *Url », mais nous allons juste examiner un exemple pour illustrer la différence entre cette propriété et un URI comme IssuerURI.
+|IssuerURI | http://fs.contoso100.com/adfs/services/trust| Même si elle ressemble à une URL, cette propriété n’est que le nom du système d’authentification local, donc le chemin n’a pas besoin d’être résolu en quoi que ce soit. Par défaut, AD Azure affecte cette propriété à la valeur de l’identificateur du service de fédération dans ma configuration AD FS locale.
+|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This est l’emplacement auquel les requêtes de connexion passive sont envoyées. Il se résout en mon système AD FS réel. Il existe en fait plusieurs propriétés « *Url », mais nous allons juste examiner un exemple pour illustrer la différence entre cette propriété et un URI comme IssuerURI.
 
 Imaginons maintenant que j’ajoute mon deuxième domaine fabrikam.com. Là encore, je peux exécuter l’Assistant Azure AD Connect une deuxième fois ou utiliser PowerShell.
 
@@ -51,9 +51,9 @@ j’obtiens la configuration suivante dans Azure AD :
 
 - DomainName : fabrikam.com
 - IssuerURI : http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
 
-Notez que même si la valeur IssuerURI a été définie selon mon domaine et qu’elle est donc unique, les valeurs des URL des points de terminaison sont quand même configurées pour pointer vers mon service de fédération sur fs.jenfield.com, comme elles le sont pour le domaine contoso.com d’origine. Ainsi, tous les domaines pointent quand même vers le même système AD FS.
+Notez que même si la valeur d’IssuerURI a été définie en fonction de mon domaine et qu’elle est donc unique, les valeurs d’URL de point de terminaison sont quand même configurées pour pointer vers mon service de fédération sur fs.contoso100.com, comme elles le sont pour le domaine contoso.com d’origine. Ainsi, tous les domaines pointent quand même vers le même système AD FS.
 
 D’autre part, le paramètre SupportMultipleDomain permet de veiller à ce que le système AD FS inclue la valeur Issuer appropriée dans les jetons émis pour Azure AD. Pour cela, c’est la partie domaine de l’UPN des utilisateurs qui est prise et définie en tant que domaine dans issuerURI, c’est-à-dire https://{upn suffixe}/adfs/services/trust. Ainsi, pendant l’authentification auprès d’Azure AD ou Office 365, l’élément Issuer du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD. Si aucune correspondance ne peut être trouvée, l’authentification échoue.
 
@@ -75,10 +75,10 @@ Après cela, nous avons donc une configuration pour deux domaines dans Azure AD�
 
 - DomainName : contoso.com
 - IssuerURI : http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
 - DomainName : fabrikam.com
 - IssuerURI : http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
 
 L’authentification fédérée pour les utilisateurs des domaines contoso.com et fabrikam.com fonctionne désormais. Il ne reste qu’un seul problème : l’authentification des utilisateurs dans les sous-domaines.
 
@@ -91,4 +91,4 @@ Vous devez configurer la règle de revendication personnalisée afin qu’elle r
 
 En résumé, vous pouvez avoir plusieurs domaines portant des noms disparates, ainsi que des sous-domaines, tous fédérés sur le même serveur AD FS. Il suffit de quelques étapes supplémentaires pour garantir la bonne définition des valeurs Issuer pour tous les utilisateurs.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

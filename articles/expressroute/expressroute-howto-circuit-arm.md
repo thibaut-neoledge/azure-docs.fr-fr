@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -63,7 +63,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 	Avant de créer un circuit ExpressRoute, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante. L'applet de commande PowerShell *Get-AzureRmExpressRouteServiceProvider* renvoie ces informations que vous utiliserez dans les étapes ultérieures.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Vérifiez si votre fournisseur de connectivité y est référencé. Notez les éléments suivants, car vous en aurez besoin pour créer des circuits.
 	
@@ -93,13 +93,13 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 	La réponse contiendra la clé de service. Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **Répertoriez tous les circuits ExpressRoute.**
 
 	Vous pouvez exécuter la commande *Get-AzureRmExpressRouteCircuit* pour obtenir une liste de tous les circuits ExpressRoute que vous avez créés.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	La réponse ressemblera à l'exemple ci-dessous :
@@ -159,7 +159,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 	Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Envoyez la clé de service à votre fournisseur de connectivité pour l’approvisionnement.**
 
@@ -215,17 +215,22 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 6. **Créez votre configuration de routage.**
 	
-	Reportez-vous à la page [Configuration du circuit ExpressRoute (créer et modifier des homologations de circuit)](expressroute-howto-routing-arm.md) pour obtenir des instructions pas à pas.
+	Pour des instructions pas à pas, reportez-vous à [Créer et modifier le routage pour un circuit ExpressRoute](expressroute-howto-routing-arm.md).
 
-7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.**
+>[AZURE.IMPORTANT]Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
 
-	Liez ensuite un VNet à votre circuit ExpressRoute. Vous pouvez utiliser [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) avec le mode de déploiement Azure Resource Manager. Nous travaillons actuellement sur les procédures PowerShell.
+
+7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.** 
+
+	Liez ensuite un VNet à votre circuit ExpressRoute. Pour des instructions pas à pas, reportez-vous à [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Pour obtenir l'état d'un circuit ExpressRoute
 
 Vous pouvez récupérer ces informations à tout moment à l’aide de l’applet de commande *Get-AzureRmExpressRouteCircuit*. L'appel sans paramètre répertorie tous les circuits.
 
 		Get-AzureRmExpressRouteCircuit
+
+La réponse sera similaire à l’exemple ci-dessous :
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@ Vous pouvez obtenir des informations sur un circuit ExpressRoute spécifique en 
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+La réponse ressemblera à l'exemple ci-dessous :
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@ Vous pouvez obtenir des informations sur un circuit ExpressRoute spécifique en 
 
 Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Pour modifier un circuit ExpressRoute
 
@@ -351,10 +357,10 @@ Notez que vous devez dissocier tous les réseaux virtuels du circuit ExpressRout
 
 Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
 
-Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur *not provisioned* - non approvisionné) avant que vous n’exécutiez l’applet de commande ci-dessus, nous annulerons l’approvisionnement du circuit et cesserons la facturation.
+Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état d'approvisionnement du fournisseur de services affiche la valeur *not provisioned* (non approvisionné)) avant que vous n'exécutiez l'applet de commande ci-dessus, nous annulerons l'approvisionnement du circuit et cesserons la facturation.
 
 ## Étapes suivantes
 
 - [Configuration du routage](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à TimeOffManager
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement TimeOffManager pour lequel l’authentification unique est activée
@@ -67,9 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire TimeOffManager.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire TimeOffManager. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -141,9 +138,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à TimeOffManager, les utilisateurs d’Azure AD doivent être approvisionnés dans TimeOffManager.  
-TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisateurs. Vous n’avez rien à faire.  
-Les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.
+Pour se connecter à TimeOffManager, les utilisateurs d’Azure AD doivent être approvisionnés dans TimeOffManager. TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisateurs. Vous n’avez rien à faire. Les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TimeOffManager, pour approvisionner des comptes d’utilisateur AAD.
 
@@ -159,10 +154,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Oui")
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

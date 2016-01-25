@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.date="01/07/2016"
+   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Performances et mise à l’échelle élastiques avec SQL Data Warehouse
 Pour augmenter et faire descendre de manière flexible votre capacité de calcul, il vous suffit de modifier le nombre d’unités DWU (Data Warehouse Units) allouées à votre instance SQL Data Warehouse. Les unités DWU sont un nouveau concept proposé par SQL Data Warehouse pour simplifier et optimiser l’efficacité de votre gestion. Cette rubrique vous présente les unités DWU et vous explique comment les valoriser pour mettre à l’échelle de manière flexible votre capacité de calcul. L’article fournit également quelques recommandations initiales relatives à la définition d’une valeur raisonnable de DWU pour votre environnement.
@@ -94,4 +94,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 [Portail Azure Classic]: http://portal.azure.com/
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
