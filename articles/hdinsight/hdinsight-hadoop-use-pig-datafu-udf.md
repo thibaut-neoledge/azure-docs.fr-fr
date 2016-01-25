@@ -1,6 +1,6 @@
 <properties
-pageTitle="Utilisation de DataFu avec Pig dans HDInsight"
-description="DataFu est un ensemble de bibliothèques à utiliser avec Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight."
+pageTitle="Utilisation de DataFu avec Pig sur HDInsight"
+description="DataFu est une collection de bibliothèques à utiliser avec Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,14 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/06/2015"
+ms.date="01/08/2016"
 ms.author="larryfr"/>
 
 #Utilisation de DataFu avec Pig dans HDInsight
 
 DataFu est un ensemble de bibliothèques Open Source à utiliser avec Hadoop. Dans ce document, vous apprendrez comment utiliser DataFu dans votre cluster HDInsight et comment utiliser les fonctions définies par l'utilisateur (UDF) DataFu avec Pig.
 
-##Configuration requise
+##Composants requis
 
 * Un abonnement Azure.
 
@@ -34,9 +34,9 @@ DataFu est un ensemble de bibliothèques Open Source à utiliser avec Hadoop. Da
 
 DataFu peut être téléchargé et installé à partir du référentiel Maven. Procédez comme suit pour ajouter DataFu à votre cluster HDInsight :
 
-1. Connectez-vous à votre cluster HDInsight basé sur Linux à l'aide de SSH. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des articles suivants :
+1. Connectez-vous à votre cluster HDInsight Linux en utilisant SSH. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des articles suivants :
 
-    * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Utiliser SSH avec Hadoop Linux sur HDInsight à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
     * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
     
 2. Utilisez la commande suivante pour télécharger le fichier jar DataFu à l'aide de l'utilitaire wget, ou copiez et collez le lien dans votre navigateur pour commencer le téléchargement.
@@ -107,4 +107,4 @@ Pour plus d'informations sur DataFu ou Pig, consultez les documents suivants :
 
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

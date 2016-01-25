@@ -84,8 +84,6 @@ D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'
 
 ## Connexions de point à site
 
-Actuellement, les connexions de point à site sont disponibles uniquement pour le modèle de déploiement classique (également appelé Service Management). Nous travaillons actuellement sur une solution de point à site pour le modèle de déploiement Azure Resource Manager. Lorsque cette solution sera disponible, cette page sera mise à jour.
-
 ### Quels systèmes d'exploitation puis-je utiliser avec une connexion de point à site ?
 
 Les systèmes d’exploitation pris en charge sont les suivants :
@@ -269,4 +267,4 @@ Pour plus d’informations sur les passerelles VPN, consultez la [page de docume
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

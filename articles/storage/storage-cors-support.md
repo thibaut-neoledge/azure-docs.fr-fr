@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Prise en charge du service Partage des ressources cross-origine (CORS) | Microsoft Azure" 
-	description="Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Prise en charge du service Partage des ressources cross-origine (CORS) | Microsoft Azure"
+	description="Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/07/2016"
+	ms.author="tamram"/>
 
 # Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 
-Depuis la version du 15/08/2013, les services de stockage Azure prennent en charge le Partage de ressources cross-origine (CORS) pour les services BLOB, de Table et de File d'attente. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/).
+Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/).
 
 Vous pouvez définir des règles CORS individuellement pour chaque service de stockage en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) et [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Une fois que vous avez défini les règles CORS du service, une demande authentifiée exécutée auprès du service à partir d'un autre domaine est évaluée pour déterminer si elle est autorisée conformément aux règles que vous avez spécifiées.
 
@@ -194,6 +194,5 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 [Définition des propriétés du service de Table](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

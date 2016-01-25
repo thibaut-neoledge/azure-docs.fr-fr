@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Appeler une application API Azure à partir d'un client d'application web authentifié par Azure Active Directory
@@ -155,7 +155,7 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
 
 	Dans ce code, `ConfigHelper.Authority` correspond à « https://login.microsoftonline.com/{votre locataire} », par exemple : « https://login.microsoftonline.com/contoso.onmicrosoft.com ».
 
-2.	Ajoutez le code directement avant l’instruction `return View()` à la fin de la méthode `About` pour appeler l'application API. (Dans l'étape suivante, vous ajouterez du code à l'affichage `About` pour afficher les données renvoyées.)
+2.	Ajoutez le code directement avant l’instruction `return View()` à la fin de la méthode `About` pour appeler l'application API. (Dans l'étape suivante, vous ajouterez du code à l’affichage `About` pour afficher les données renvoyées.)
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
@@ -223,9 +223,9 @@ Merci à Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) pou
 
 ## Étapes suivantes
 
-Vous avez vu comment procéder à l'authentification du flux client pour les applications API Service App. Pour plus d'informations sur d'autres manières de gérer l'authentification dans des applications API, consultez la page [Authentification pour les applications d'API et les applications mobiles](../app-service/app-service-authentication-overview.md).
+Vous avez vu comment procéder à l'authentification du flux client pour les applications API Service App. Pour plus d’informations sur d’autres façons de gérer l’authentification dans les applications API, consultez la page [Authentification pour les applications API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

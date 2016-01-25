@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -194,7 +194,7 @@ Pour valider le package téléchargé :
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]Le logiciel Thales inclut un python dans %NFAST\_HOME%\\python\\bin
-	
+
 2.	Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie : **Résultat : RÉUSSITE**
 
 Ce script valide la chaîne de signataire jusqu’à la clé racine Thales. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Vous pouvez également confirmer cette valeur séparément en vous rendant sur le [site web de Thales](http://www.thalesesec.com/).
@@ -295,13 +295,13 @@ Lorsque vous exécutez cette commande, utilisez ces instructions :
 
 - Remplacez *contosokey* par l’identificateur que vous avez utilisé pour générer la clé à l’**Étape 3.3 : créer une clé** lors de l’opération [Générer votre clé](#step-3-generate-your-key).
 
-- Remplacez *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez récupéré cette valeur auparavant, au cours de l’**Étape 1.2 : obtenir votre ID d’abonnement Azure** lors de l’opération [Préparer votre station de travail connectée à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Remplacezv*SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez récupéré cette valeur auparavant, au cours de l’**Étape 1.2 : obtenir votre ID d’abonnement Azure** lors de l’opération [Préparer votre station de travail connectée à Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Remplacez *ContosoFirstHSMKey* par une étiquette qui sera utilisée pour votre nom de fichier de sortie.
 
 Une fois cette opération terminée, **Résultat : RÉUSSITE** apparaît et un nouveau fichier est ajouté au dossier en cours. Il porte le nom suivant : TransferPackage-*ContosoFirstHSMkey*.byok.
 
-###Étape 4.4 : copiez votre package de transfert de clé vers la station de travail connectée à Internet 
+###Étape 4.4 : copiez votre package de transfert de clé vers la station de travail connectée à Internet
 
 Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le fichier de sortie issu de la première étape (KeyTransferPackage-ContosoFirstHSMkey.byok) pour votre station de travail connectée à Internet.
 
@@ -317,4 +317,4 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

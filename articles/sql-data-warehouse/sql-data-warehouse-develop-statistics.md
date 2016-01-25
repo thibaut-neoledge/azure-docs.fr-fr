@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Gérer des statistiques dans SQL Data Warehouse
  SQL Data Warehouse s’appuie sur des statistiques pour évaluer le coût de différentes méthodes d’exécution d’une requête distribuée. Lorsque les statistiques sont précises, l’optimiseur de requête peut générer des plans de requête de haute qualité, qui améliorent les performances des requêtes.
@@ -459,4 +459,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

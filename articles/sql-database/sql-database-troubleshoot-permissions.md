@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #Résoudre les problèmes relatifs aux autorisations et à l’accès aux bases de données Azure SQL
 Utilisez cette rubrique pour accorder et refuser l’accès à une base de données SQL Azure en quelques opérations rapides. Pour obtenir des informations complètes, consultez :
 
 - [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
-- [Sécurisation de votre base de données SQL](sql-database-security)
+- [Sécurisation de votre base de données SQL](sql-database-security.md)
 - [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 ##Modifier le mot de passe d’administration d’un serveur logique
@@ -37,4 +37,4 @@ Utilisez cette rubrique pour accorder et refuser l’accès à une base de donn�
 ## Pour créer des connexions supplémentaires pour les utilisateurs avec des privilèges élevés vers la base de données master virtuelle
 - Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx), et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md) pour plus de détails.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

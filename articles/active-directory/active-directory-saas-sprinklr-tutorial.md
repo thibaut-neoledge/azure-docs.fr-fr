@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à Sprinklr
@@ -69,7 +69,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
   
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -91,7 +91,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Sprinklr en tant qu’administrateur.
 
-6.  Accédez à **Administration > Settings**.
+6.  Accédez à **Administration > Paramètres**.
 
     ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
@@ -107,24 +107,24 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Single Sign-Ons")
 
-    1.  Dans la zone de texte **Name**, indiquez le nom de votre configuration (par exemple, *WAADSSOTest*).
+    1.  Dans la zone de texte **Nom**, indiquez le nom de votre configuration (par exemple, *WAADSSOTest*).
     2.  Sélectionnez **Enabled**.
     3.  Sélectionnez **Use new SSO Certificate**.
     4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity Provider Certificate**.
-    6.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Sprinklr** de la boîte de dialogue, copiez la valeur **ID du fournisseur d’identité** et collez-la dans la zone de texte **Entity Id**.
-    7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Sprinklr**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL**.
-    8.  Dans le portail Azure, dans la page**Configurer l’authentification unique sur Sprinklr**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Identity Provider Logout URL**.
-    9.  Dans **SAML User ID Type**, sélectionnez **Assertion contains User’s sprinklr.com username**.
-    10. Dans **SAML User ID Location**, sélectionnez **User ID is in the Name Identifier element of the Subject statement**.
-    11. Cliquez sur **Save**.
+    5.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat du fournisseur d’identité**.
+    6.  Dans la page **Configurer l’authentification unique sur Sprinklr** du portail Azure, copiez la valeur **ID du fournisseur d’identité** et collez-la dans la zone de texte **ID de l’entité**.
+    7.  Dans la page **Configurer l’authentification unique sur Sprinklr** du portail Azure, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion du fournisseur d’identité**.
+    8.  Dans la page **Configurer l’authentification unique sur Sprinklr** du portail Azure, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion du fournisseur d’identité**.
+    9.  Dans **Type d’ID utilisateur SAML**, sélectionnez **L’assertion contient le nom d’utilisateur Sprinklr.com de l’utilisateur**.
+    10. Dans **Emplacement de l’ID utilisateur SAML**, sélectionnez **L’ID utilisateur est dans l’élément NameIdentifier de l’instruction Subject**.
+    11. Cliquez sur **Enregistrer**.
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
-10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configurer l’authentification unique")
 
@@ -137,15 +137,15 @@ Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprink
 
 1.  Connectez-vous à votre site d’entreprise Sprinklr en tant qu’administrateur.
 
-2.  Accédez à **Administration > Settings**.
+2.  Accédez à **Administration > Paramètres**.
 
     ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
-3.  Accédez à **Manage Client > Users** dans le volet gauche.
+3.  Accédez à **Manage Client > Utilisateurs** dans le volet gauche.
 
     ![Paramètres](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Paramètres")
 
-4.  Cliquez sur **Add User**.
+4.  Cliquez sur **Ajouter un utilisateur**.
 
     ![Paramètres](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Paramètres")
 
@@ -157,7 +157,7 @@ Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprink
     2.  Sélectionnez **Password Disabled**.
     3.  Sélectionnez une langue dans **Language**.
     4.  Sélectionnez un type d’utilisateur dans **User Type**.
-    5.  Cliquez sur **Update**.
+    5.  Cliquez sur **Mettre à jour**.
 
     >[AZURE.IMPORTANT]Décochez **Password Disabled** pour permettre à un utilisateur de se connecter par le biais d’un fournisseur d’identité.
 
@@ -166,9 +166,9 @@ Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprink
     ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Partner Roles")
 
     1.  Dans la liste **Global**, sélectionnez **ALL\_Permissions**.
-    2.  Cliquez sur **Update**.
+    2.  Cliquez sur **Mettre à jour**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Sprinklr, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Sprinklr, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -188,4 +188,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

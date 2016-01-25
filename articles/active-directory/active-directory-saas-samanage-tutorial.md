@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Samanage
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’application pour Sa
   
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Samanage avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
-Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -78,7 +78,7 @@ Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment con
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/IC771710.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.samanage.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.samanage.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-samanage-tutorial/IC771711.png "Configurer l’URL de l’application")
 
@@ -111,9 +111,9 @@ Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment con
     6.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
     7.  Cliquez sur **Create users if they do not exist in Samanage**. 
         ![Mettre à jour](./media/active-directory-saas-samanage-tutorial/IC771722.png "Mettre à jour")
-    8.  Cliquez sur **Update**.
+    8.  Cliquez sur **Mettre à jour**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/IC771723.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -124,7 +124,7 @@ Pour se connecter à Samanage, les utilisateurs d’Azure AD doivent être appro
 
 1.  Connectez-vous à votre locataire **Samanage**.
 
-2.  Accédez à **Dashboard > Setup**.
+2.  Accédez à **Dashboard > Setup**.
 
     ![Paramétrage](./media/active-directory-saas-samanage-tutorial/IC771724.png "Paramétrage")
 
@@ -156,10 +156,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-samanage-tutorial/IC771728.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-samanage-tutorial/IC767830.png "Oui")
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

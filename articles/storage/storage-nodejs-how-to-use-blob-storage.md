@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Utilisation du stockage d’objets blob à partir de Node.js | Microsoft Azure"
-	description="Découvrez comment utiliser le service BLOB Azure pour charger, répertorier, télécharger et supprimer du contenu d'objets blob. Les exemples sont écrits en Node.js."
+	description="Découvrez comment utiliser Blob Storage pour charger, télécharger, répertorier et supprimer le contenu d’objets blob. Les exemples sont écrits en Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Vue d’ensemble
 
-Ce guide décrit le déroulement de scénarios courants en utilisant le service blob Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent comment transférer, lister, télécharger et supprimer des objets blob.
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation de Blob Storage. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent comment transférer, lister, télécharger et supprimer des objets blob.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -95,7 +95,7 @@ Si le conteneur est nouvellement créé, `result` a la valeur true. Si le conten
 
 Par défaut, les nouveaux conteneurs sont privés et ne sont pas accessibles de façon anonyme. Pour rendre le conteneur public afin de permettre l’accès anonyme, définissez le niveau d’accès au conteneur sur **blob** ou **container**.
 
-* **blob** : permet l’accès en lecture anonyme au contenu de l’objet blob et aux métadonnées de ce conteneur, mais pas aux métadonnées du conteneur, comme la liste de tous les objets blob d’un conteneur.
+* **blob** : permet l'accès en lecture anonyme au contenu de l'objet blob et aux métadonnées de ce conteneur, mais pas aux métadonnées du conteneur, comme la liste de tous les objets blob d'un conteneur.
 
 * **container** : permet l’accès en lecture anonyme au contenu et aux métadonnées de l’objet blob, ainsi qu’aux métadonnées de conteneur.
 
@@ -142,11 +142,11 @@ Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permette
 
 Pour télécharger des données dans un objet blob de blocs, utilisez :
 
-* **createBlockBlobFromLocalFile** : permet de créer un objet blob de blocs et de télécharger le contenu d’un fichier
+* **createBlockBlobFromLocalFile** : permet de créer un objet blob de blocs et de télécharger le contenu d'un fichier
 
-* **createBlockBlobFromStream** : permet de créer un objet blob de blocs et de télécharger le contenu d’un flux
+* **createBlockBlobFromStream** : permet de créer un objet blob de blocs et de télécharger le contenu d'un flux
 
-* **createBlockBlobFromText** : permet de créer un objet blob de blocs et de télécharger le contenu d’une chaîne
+* **createBlockBlobFromText** : permet de créer un objet blob de blocs et de télécharger le contenu d'une chaîne
 
 * **createWriteStreamToBlockBlob** : fournit un flux d’écriture vers un objet blob de blocs
 
@@ -158,7 +158,7 @@ L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myb
 	  }
 	});
 
-Le `result` renvoyé par ces méthodes contient les informations sur l’opération, comme l’**ETag** de l’objet blob.
+Le `result` renvoyé par ces méthodes contient les informations sur l'opération, comme l'**ETag** de l'objet blob.
 
 ### Objets blob de pages
 
@@ -260,7 +260,7 @@ Si la valeur a été modifiée, cela signifie qu'un autre client ou qu'une autre
 
 ### Lease
 
-Vous pouvez acquérir un nouveau bail à l’aide de la méthode **acquireLease** en spécifiant l’objet blob ou le conteneur concerné. Par exemple, le code suivant permet d’acquérir un bail sur **myblob**.
+Vous pouvez acquérir un nouveau bail à l’aide de la méthode **acquireLease** en spécifiant l’objet blob ou le conteneur concerné. Par exemple, le code suivant permet d'acquérir un bail sur **myblob**.
 
 	blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
 	  if(!error) {
@@ -268,7 +268,7 @@ Vous pouvez acquérir un nouveau bail à l’aide de la méthode **acquireLease*
 	  }
 	});
 
-Les opérations suivantes sur **myblob** doivent fournir le paramètre `options.leaseId`. L’ID du bail est renvoyé comme `result.id` à partir de **acquireLease**.
+Les opérations suivantes sur **myblob** doivent fournir le paramètre `options.leaseId`. L'ID du bail est renvoyé comme `result.id` à partir de **acquireLease**.
 
 > [AZURE.NOTE]Par défaut, la durée du bail est infinie. Vous pouvez spécifier une durée finie (entre 15 et 60 secondes) en fournissant le paramètre `options.leaseDuration`.
 
@@ -338,7 +338,7 @@ Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stra
 	  }
 	];
 
-L’exemple de code suivant obtient la liste de contrôle d’accès active pour **mycontainer**, puis ajoute les nouvelles stratégies à l’aide de **setBlobAcl**. Cette approche permet :
+L'exemple de code suivant obtient la liste de contrôle d'accès active pour **mycontainer**, puis ajoute les nouvelles stratégies à l'aide de **setBlobAcl**. Cette approche permet :
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
       if(!error){
@@ -377,4 +377,4 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

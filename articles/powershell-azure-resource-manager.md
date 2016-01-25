@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
@@ -158,7 +158,7 @@ Nous allons exécuter la même commande pour la base de données :
     West Europe
     Brazil South
 
-Il semble que ces ressources soient disponibles dans plusieurs régions. Pour cette rubrique, nous utiliserons la région **Ouest des États-Unis**, mais vous pouvez spécifier n’importe quelle région prise en charge.
+Il semble que ces ressources soient disponibles dans plusieurs régions. Pour cette rubrique, nous utiliserons l’**ouest des États-Unis**, mais vous pouvez spécifier n’importe quelle région prise en charge.
 
 ## Créer un groupe de ressources
 
@@ -302,6 +302,9 @@ Vous pouvez copier le modèle et l’enregistrer en local en tant que fichier .j
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -382,9 +385,9 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 
 - Pour obtenir tous les groupes de ressources de votre abonnement, utilisez l’applet de commande **Get-AzureRmResourceGroup** :
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +395,38 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 		
 		...
 
+      Si vous souhaitez simplement obtenir un groupe de ressources particulier, fournissez le paramètre **Name**.
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - Pour obtenir les ressources du groupe, utilisez l’applet de commande **Find-AzureRmResource** et son paramètre **ResourceGroupNameContains**. Si vous ne spécifiez pas de paramètres, Find-AzureRmResource récupère l’ensemble des ressources de votre abonnement Azure.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- Le modèle ci-dessus inclut une balise sur une ressource. Vous pouvez utiliser des balises pour organiser logiquement les ressources dans votre abonnement. Utilisez les commandes **Find-AzureRmResource** et **Find-AzureRmResourceGroup** pour interroger vos ressources selon les balises.
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      Vous pouvez faire bien d’autres choses avec les balises. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
 ## Ajouter une ressource à un groupe de ressources
 
@@ -441,4 +461,4 @@ Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressou
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

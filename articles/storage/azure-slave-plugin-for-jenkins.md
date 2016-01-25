@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
-    ms.author="v-dedomi"/>
+	ms.date="01/09/2016"
+    ms.author="robmcm"/>
 
 # Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Jenkins
 
@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Jenkins qui s'exécutera sur un
 
 Jenkins crée ensuite un nœud subordonné à l’aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l’étape de build pour cette tâche.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

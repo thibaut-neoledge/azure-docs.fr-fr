@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Nouveautés du kit de ressources Azure pour Eclipse"
-    description="En savoir plus sur les dernières fonctionnalités du kit de ressources Azure pour Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Nouveautés du kit de ressources Azure pour Eclipse"
+	description="En savoir plus sur les dernières fonctionnalités du kit de ressources Azure pour Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -23,6 +23,14 @@
 ## Versions du kit de ressources Azure pour Eclipse ##
 
 Cet article contient des informations sur les différentes versions et les dernières mises à jour du kit de ressources Azure pour Eclipse.
+
+### 4 janvier 2015 ###
+
+La version de janvier 2016 du kit de ressources Azure pour Eclipse inclut les améliorations suivantes :
+
+* **Prise en charge des mises à jour de Zulu OpenJDK**. Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
+* **Distributions Tomcat et Jetty mises à jour**. Les distributions Jetty et Tomcat qui sont disponibles sur Microsoft Azure en vue d’une utilisation avec le kit de ressources Azure pour Eclipse ont été mises à jour.
+* **Parité des fonctionnalité entre les kits de ressources Eclipse et IntelliJ pour Azure**. Le kit de ressources Azure pour Eclipse et le [kit de ressources Azure pour IntelliJ][] prennent désormais en charge le même jeu de fonctionnalités.
 
 ### 1 septembre 2015 ###
 
@@ -90,105 +98,105 @@ La version d’octobre 2014 du kit de ressources Azure pour Eclipse inclut les 
 * **Prise en charge de la version mise à jour du package Zulu OpenJDK v1.8**. Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
 * **Prise en charge de la dépréciation des anciennes versions des JDK tiers**. Les packages de JDK déconseillés ne s’affichent plus dans le menu déroulant pour les nouveaux projets de déploiement. Les projets existants qui référencent les packages de JDK déconseillés continuent de les afficher pour le moment, mais il est recommandé de mettre à niveau ces projets pour qu’ils utilisent les dernières versions.
 * **Version mise à jour de la bibliothèque d’API clientes Package des bibliothèques Azure pour Java**. Pour plus d’informations, consultez la page [API cliente Microsoft Azure][].
-* **Résolution des bogues**. Cette version contient plusieurs correctifs de bogues qui ont été apportés suite aux rapports utilisateur et aux tests.
+* **Résolution des bogues.** Cette version contient plusieurs correctifs de bogues qui ont été apportés suite aux rapports utilisateur et aux tests.
 
 ### 5 août 2014 ###
 
 La version d’août 2014 du kit de ressources Azure pour Eclipse inclut les améliorations suivantes :
 
-* **Prise en charge du Kit de développement logiciel (SDK) Azure 2.4**. Les versions antérieures du kit de ressources pour Eclipse ne fonctionnent pas avec ce Kit de développement logiciel (SDK) qui vient d’être publié.
-* **Versions mises à jour des packages Zulu OpenJDK v1.6, 1.7 et v1.8**. Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
-* **Version mise à jour de la bibliothèque d’API clientes Package des bibliothèques Azure pour Java**. Pour plus d’informations, consultez la page [API cliente Microsoft Azure][].
-* **Prise en charge du dernier format de fichier de paramètres de publication**. La version 2.0 du format de fichier de paramètres de publication est maintenant prise en charge.
-* **Modifications architecturales en appui de la fonctionnalité de publication dans le cloud**. Le kit de ressources utilise maintenant la nouvelle API cliente Microsoft Azure pour Java pour la prise en charge de la publication dans le cloud.
-* **Résolution des bogues**. Cette version contient plusieurs correctifs de bogues demandés par l’utilisateur.
+* **Prise en charge du Kit de développement logiciel (SDK) Azure 2.4.** Les versions antérieures du kit de ressources pour Eclipse ne fonctionnent pas avec ce Kit de développement logiciel (SDK) qui vient d’être publié.
+* **Versions mises à jour des packages Zulu OpenJDK v1.6, 1.7 et v1.8.** Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
+* **Version mise à jour de la bibliothèque d’API clientes Package des bibliothèques Azure pour Java.** Pour plus d’informations, consultez la page [API cliente Microsoft Azure][].
+* **Prise en charge du dernier format de fichier de paramètres de publication.** La version 2.0 du format de fichier de paramètres de publication est maintenant prise en charge.
+* **Modifications architecturales en appui de la fonctionnalité de publication dans le cloud.** Le kit de ressources utilise maintenant la nouvelle API cliente Microsoft Azure pour Java pour la prise en charge de la publication dans le cloud.
+* **Résolution des bogues.** Cette version contient plusieurs correctifs de bogues demandés par l’utilisateur.
 
 ### 12 juin 2014 ###
 
 La version de juin 2014 du kit de ressources Azure pour Eclipse est une mise à jour de maintenance mineure qui fournit les améliorations suivantes :
 
-* **Prise en charge du package Zulu OpenJDK v1.8**. Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
-* **Versions mises à jour des packages Zulu OpenJDK v1.6 et v1.7**. Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
-* **Version mise à jour de la bibliothèque d’API clientes Package des bibliothèques Azure pour Java**. Pour plus d’informations, consultez la page [API cliente Microsoft Azure][].
-* **Résolution des bogues**. Cette version contient plusieurs correctifs de bogues demandés par l’utilisateur.
+* **Prise en charge du package Zulu OpenJDK v1.8.** Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
+* **Versions mises à jour des packages Zulu OpenJDK v1.6 et v1.7.** Pour plus d’informations, consultez la [page web d’Azul Systems correspondant à Zulu OpenJDK][].
+* **Version mise à jour de la bibliothèque d’API clientes Package des bibliothèques Azure pour Java.** Pour plus d’informations, consultez la page [API cliente Microsoft Azure][].
+* **Résolution des bogues.** Cette version contient plusieurs correctifs de bogues demandés par l’utilisateur.
 
 ### 4 avril 2014 ###
 
 Publication de la version d’avril 2014 du plug-in Azure pour Eclipse. Il s’agit d’une mise à jour accompagnant la publication du Kit de développement logiciel (SDK) Azure 2.3, qui est un composant requis téléchargé automatiquement lorsque vous installez le plug-in. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire de février 2014 :
 
-* **Prise en charge de la version 2.3 du Kit de développement logiciel (SDK) Azure**. La version d’avril 2014 du plug-in Azure pour Eclipse requiert le Kit de développement logiciel (SDK) Azure 2.3. Lors de l’utilisation du nouveau plug-in, si vous ne possédez pas le Kit de développement logiciel (SDK) Azure 2.3, vous devez autoriser son installation. N’utilisez pas le Kit de développement logiciel (SDK) Azure 2.3 avec les versions antérieures du plug-in.
-* **Mise à niveau des applications sans déploiement de package complet**. Lors du déploiement des applications Java qui font partie de votre projet, le plug-in les charge désormais automatiquement dans votre compte de stockage sélectionné afin que vous puissiez le mettre à jour et recycler les instances de rôle pour déployer les derniers bits d’application sans devoir régénérer ni redéployer l’ensemble du package.
-* **Tomcat 8 est désormais un serveur d’applications reconnu**. Si vous sélectionnez un répertoire d’installation de Tomcat 8 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer Tomcat 8 de façon automatisée, à l’instar des anciennes versions de Tomcat figurant déjà dans la liste.
-* **Mises à jour de package Azul Zulu OpenJDK : mise à jour 51 de la version 1.7 et mise à jour 47 de la version 1.6**. La mise à jour 51 du package Azul System Zulu OpenJDK v7 est disponible depuis cette publication. Les packages Zulu OpenJDK v6 sont disponibles depuis la mise à jour 47. Ces mises à jour s’ajoutent aux mises à jour 45, 40 et 25 des packages Zulu OpenJDK v7 précédemment disponibles.
-* **Prise en charge des tailles de machine virtuelle Microsoft Azure A8 et A9**. À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A8 et A9 à mémoire élevée. Pour plus d’informations sur ces tailles de machine virtuelle, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
-* **Redirection automatique de HTTP vers HTTPS pour les rôles compatibles SSL**. Lorsque votre service cloud contient uniquement des rôles HTTPS, si la demande utilisateur spécifie le protocole HTTP, elle est alors automatiquement redirigée vers HTTPS. Il est inutile de créer un rôle distinct pour gérer les requêtes HTTP.
-* **Émulateur express utilisé pour l’émulation locale**. L’émulateur express Azure est maintenant utilisé comme émulateur lors du débogage local de vos applications.
-* **Azure est renommé Microsoft Azure**. Les écrans de l’interface utilisateur indiquent désormais qu’Azure a été renommé Microsoft Azure et n’est plus appelé ainsi.
+* **Prise en charge de la version 2.3 du Kit de développement logiciel (SDK) Azure.** La version d’avril 2014 du plug-in Azure pour Eclipse requiert le Kit de développement logiciel (SDK) Azure 2.3. Lors de l’utilisation du nouveau plug-in, si vous ne possédez pas le Kit de développement logiciel (SDK) Azure 2.3, vous devez autoriser son installation. N’utilisez pas le Kit de développement logiciel (SDK) Azure 2.3 avec les versions antérieures du plug-in.
+* **Mise à niveau des applications sans déploiement de package complet.** Lors du déploiement des applications Java qui font partie de votre projet, le plug-in les charge désormais automatiquement dans votre compte de stockage sélectionné afin que vous puissiez le mettre à jour et recycler les instances de rôle pour déployer les derniers bits d’application sans devoir régénérer ni redéployer l’ensemble du package.
+* **Tomcat 8 est désormais un serveur d’applications reconnu.** Si vous sélectionnez un répertoire d’installation de Tomcat 8 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer Tomcat 8 de façon automatisée, à l’instar des anciennes versions de Tomcat figurant déjà dans la liste.
+* **Mises à jour de package Azul Zulu OpenJDK : mise à jour 51 de la version 1.7 et mise à jour 47 de la version 1.6.** La mise à jour 51 du package Azul System Zulu OpenJDK v7 est disponible depuis cette publication. Les packages Zulu OpenJDK v6 sont disponibles depuis la mise à jour 47. Ces mises à jour s’ajoutent aux mises à jour 45, 40 et 25 des packages Zulu OpenJDK v7 précédemment disponibles.
+* **Prise en charge des tailles de machine virtuelle Microsoft Azure A8 et A9.** À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A8 et A9 à mémoire élevée. Pour plus d’informations sur ces tailles de machine virtuelle, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
+* **Redirection automatique de HTTP vers HTTPS pour les rôles compatibles SSL.** Lorsque votre service cloud contient uniquement des rôles HTTPS, si la demande utilisateur spécifie le protocole HTTP, elle est alors automatiquement redirigée vers HTTPS. Il est inutile de créer un rôle distinct pour gérer les requêtes HTTP.
+* **Émulateur express utilisé pour l’émulation locale.** L’émulateur express Azure est maintenant utilisé comme émulateur lors du débogage local de vos applications.
+* **Azure est renommé Microsoft Azure.** Les écrans de l’interface utilisateur indiquent désormais qu’Azure a été renommé Microsoft Azure et n’est plus appelé ainsi.
 
 ### 6 février 2014 ###
 
 Publication de la version préliminaire de février 2014 du plug-in Azure pour Eclipse. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire d’octobre 2013 :
 
-* **Prise en charge du déchargement SSL**. Le déchargement SSL (Secure Sockets Layer) a été ajouté en tant que fonctionnalité, ce qui vous permet d’activer facilement la prise en charge du protocole sécurisé HTTPS (Hypertext Transfer Protocol Secure) dans votre déploiement Java sur Azure, sans avoir à configurer SSL dans votre serveur d’applications Java. Cela est particulièrement approprié dans les scénarios de communication authentifiée et/ou d’affinité de session, par exemple, lors de l’utilisation du filtre ACS (Access Control Service), qui est déjà pris en charge par le kit de ressources. Pour plus d’informations, consultez [Déchargement SSL][] et [Comment utiliser le déchargement SSL][].
-* **GlassFish 4 est désormais un serveur d’applications reconnu**. Si vous sélectionnez un répertoire d’installation de GlassFish 4 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer GlassFish OSE 4 de façon automatisée, à l’instar de la version GlassFish OSE 3 figurant déjà dans la liste.
-* **Mise à jour 45 du package Azul Zulu OpenJDK**. La mise à jour 45 du package Azul System Zulu OpenJDK v7 est disponible depuis cette publication. Elle s’ajoute aux mises à jour 40 et 25 déjà disponibles.
-* **Prise en charge du paramètre Automatique pour les ports des points de terminaison privés**. Vous pouvez définir un port privé sur automatique pour les points de terminaison d’entrée et internes pour permettre à Azure d’affecter automatiquement un port à ce point de terminaison. Auparavant, vous ne pouviez qu’affecter un numéro de port spécifique.
-* **Prise en charge de la personnalisation du nom de certificat dans l’interface utilisateur de création de certificat auto-signé**. Auparavant, un même nom codé en dur était utilisé pour tous les nouveaux certificats. Désormais, vous pouvez spécifier votre propre nom de certificat pour permettre de faire la distinction entre plusieurs certificats dans le portail Azure utilisés à des fins différentes.
+* **Prise en charge du déchargement SSL.** Le déchargement SSL (Secure Sockets Layer) a été ajouté en tant que fonctionnalité, ce qui vous permet d’activer facilement la prise en charge du protocole sécurisé HTTPS (Hypertext Transfer Protocol Secure) dans votre déploiement Java sur Azure, sans avoir à configurer SSL dans votre serveur d’applications Java. Cela est particulièrement approprié dans les scénarios de communication authentifiée et/ou d’affinité de session, par exemple, lors de l’utilisation du filtre ACS (Access Control Service), qui est déjà pris en charge par le kit de ressources. Pour plus d’informations, consultez [Déchargement SSL][] et [Comment utiliser le déchargement SSL][].
+* **GlassFish 4 est désormais un serveur d’applications reconnu.** Si vous sélectionnez un répertoire d’installation de GlassFish 4 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer GlassFish OSE 4 de façon automatisée, à l’instar de la version GlassFish OSE 3 figurant déjà dans la liste.
+* **Mise à jour 45 du package Azul Zulu OpenJDK.** La mise à jour 45 du package Azul System Zulu OpenJDK v7 est disponible depuis cette publication. Elle s’ajoute aux mises à jour 40 et 25 déjà disponibles.
+* **Prise en charge du paramètre Automatique pour les ports des points de terminaison privés.** Vous pouvez définir un port privé sur automatique pour les points de terminaison d’entrée et internes pour permettre à Azure d’affecter automatiquement un port à ce point de terminaison. Auparavant, vous ne pouviez qu’affecter un numéro de port spécifique.
+* **Prise en charge de la personnalisation du nom de certificat dans l’interface utilisateur de création de certificat auto-signé.** Auparavant, un même nom codé en dur était utilisé pour tous les nouveaux certificats. Désormais, vous pouvez spécifier votre propre nom de certificat pour permettre de faire la distinction entre plusieurs certificats dans le portail Azure utilisés à des fins différentes.
 * **Barre d’outils Azure :** la barre d’outils Azure a été mise à jour avec les modifications suivantes : 
     * ![][ic710876] Cette icône a été ajoutée pour le **nouveau projet de déploiement Azure**.
     * ![][ic710877] Cette icône a été ajoutée en tant que raccourci vers la boîte de dialogue de création de certificat auto-signé.
-* **Prise en charge de la taille de machine virtuelle Azure A5**. À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A5 à mémoire élevée. Pour plus d’informations sur cette taille de machine virtuelle, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
-* **Prise en charge de Microsoft Windows Server 2012 R2**. Vous pouvez désormais sélectionner Windows Server 2012 R2 comme système d’exploitation cloud.
+* **Prise en charge de la taille de machine virtuelle Azure A5.** À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A5 à mémoire élevée. Pour plus d’informations sur cette taille de machine virtuelle, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
+* **Prise en charge de Microsoft Windows Server 2012 R2.** Vous pouvez désormais sélectionner Windows Server 2012 R2 comme système d’exploitation cloud.
 
 ### 22 octobre 2013 ###
 
 Publication de la version préliminaire d’octobre 2013 du plug-in Azure pour Eclipse. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire de septembre 2013 :
 
-* **Prise en charge de la version 2.2 du Kit de développement logiciel (SDK) Azure**. La version préliminaire d’octobre 2013 du plug-in Azure pour Eclipse prend en charge le Kit de développement logiciel (SDK) Azure 2.2. Le plug-in continue de fonctionner avec le Kit de développement logiciel (SDK) Azure 2.1 et installe automatiquement le Kit de développement logiciel (SDK) Azure 2.2 si vous n’avez pas encore installé au moins le Kit de développement logiciel (SDK) Azure 2.1.
-* **Mise à jour 40 du package Azul Zulu OpenJDK**. Comme annoncé pour la version préliminaire de septembre 2013, le plug-in permet désormais d’utiliser directement un JDK tiers sur Azure, sans que vous deviez charger votre propre JDK. La mise à jour 40 du package Azul System Zulu OpenJDK v7 est disponible dans la publication d’octobre 2013. Elle s’ajoute à la mise à jour 25 déjà publiée.
-* **Lien de déploiement cloud dans le journal d’activité**. Dans le journal des activités Azure, si votre déploiement a l’état **Publié**, vous pouvez cliquer sur **Publié** puisqu’il s’agit d’un lien vers votre déploiement, lequel s’ouvre alors dans votre navigateur. (L’état **Publié** était précédemment étiqueté **En cours d’exécution**.)
-* **Sélection du système d’exploitation cible disponible au moment de la publication**. La boîte de dialogue **Publier sur Azure** contient un nouveau champ, **Système d’exploitation cible**, qui permet de définir votre système d’exploitation cible de façon plus détectable.
-* **Remplacer automatiquement le déploiement précédent**. La boîte de dialogue **Publier sur Azure** contient la nouvelle case à cocher **Remplacer automatiquement le déploiement précédent**. Si cette option est activée, votre nouveau déploiement remplace automatiquement le déploiement précédent lorsqu’il est publié. Vous ne rencontrez pas de problèmes « Conflit (409) » lors de la publication vers le même emplacement sans annulation préalable du déploiement précédent.
-* **Jetty 9 est désormais un serveur d’applications reconnu**. Si vous sélectionnez un répertoire d’installation de Jetty 9 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer Jetty 9 de façon automatisée, à l’instar des anciennes versions de Jetty figurant déjà dans la liste.
-* **Ajout d’un rôle à partir du menu contextuel Projet**. Le menu contextuel du projet **Azure** contient désormais un nouvel élément de menu, **Ajouter un rôle**, qui fournit un moyen plus rapide et plus détectable d’ajouter un rôle à votre projet Azure.
-* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java**. Elle est basée sur la version 0.4.6 de l’[API cliente Microsoft Azure][].
+* **Prise en charge de la version 2.2 du Kit de développement logiciel (SDK) Azure.** La version préliminaire d’octobre 2013 du plug-in Azure pour Eclipse prend en charge le Kit de développement logiciel (SDK) Azure 2.2. Le plug-in continue de fonctionner avec le Kit de développement logiciel (SDK) Azure 2.1 et installe automatiquement le Kit de développement logiciel (SDK) Azure 2.2 si vous n’avez pas encore installé au moins le Kit de développement logiciel (SDK) Azure 2.1.
+* **Mise à jour 40 du package Azul Zulu OpenJDK.** Comme annoncé pour la version préliminaire de septembre 2013, le plug-in permet désormais d’utiliser directement un JDK tiers sur Azure, sans que vous deviez charger votre propre JDK. La mise à jour 40 du package Azul System Zulu OpenJDK v7 est disponible dans la publication d’octobre 2013. Elle s’ajoute à la mise à jour 25 déjà publiée.
+* **Lien de déploiement cloud dans le journal d’activité.** Dans le journal des activités Azure, si votre déploiement a l’état **Publié**, vous pouvez cliquer sur **Publié** puisqu’il s’agit d’un lien vers votre déploiement, lequel s’ouvre alors dans votre navigateur. (L’état **Publié** était précédemment étiqueté **En cours d’exécution**.)
+* **Sélection du système d’exploitation cible disponible au moment de la publication.** La boîte de dialogue **Publier sur Azure** contient un nouveau champ, **Système d’exploitation cible**, qui permet de définir votre système d’exploitation cible de façon plus détectable.
+* **Remplacer automatiquement le déploiement précédent.** La boîte de dialogue **Publier sur Azure** contient la nouvelle case à cocher **Remplacer automatiquement le déploiement précédent**. Si cette option est activée, votre nouveau déploiement remplace automatiquement le déploiement précédent lorsqu’il est publié. Vous ne rencontrez pas de problèmes « Conflit (409) » lors de la publication vers le même emplacement sans annulation préalable du déploiement précédent.
+* **Jetty 9 est désormais un serveur d’applications reconnu.** Si vous sélectionnez un répertoire d’installation de Jetty 9 sur votre ordinateur dans l’onglet **Serveur** de la boîte de dialogue **Projet de déploiement Azure**, le plug-in le détecte maintenant automatiquement et peut déployer Jetty 9 de façon automatisée, à l’instar des anciennes versions de Jetty figurant déjà dans la liste.
+* **Ajout d’un rôle à partir du menu contextuel Projet.** Le menu contextuel du projet **Azure** contient désormais un nouvel élément de menu, **Ajouter un rôle**, qui fournit un moyen plus rapide et plus détectable d’ajouter un rôle à votre projet Azure.
+* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java.** Elle est basée sur la version 0.4.6 de l’[API cliente Microsoft Azure][].
 
 ### 25 septembre 2013 ###
 
 Publication de la version préliminaire de septembre 2013 du plug-in Azure pour Eclipse. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire d’août 2013 :
 
-* **Capacité à déployer le package Azul Zulu OpenJDK disponible sur Azure**. Une nouvelle option a été ajoutée lors de la spécification du JDK à utiliser avec votre déploiement Azure. En utilisant cette option, vous pouvez déployer un package JDK tiers directement sur le cloud Azure sans devoir charger le vôtre. Azul Systems fournit le premier package de ce type nommé Zulu et basé sur OpenJDK, qui peut désormais être déployé à l’aide de cette option.
-* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java**. Elle est basée sur la version 0.4.5 de l’[API cliente Microsoft Azure][].
+* **Capacité à déployer le package Azul Zulu OpenJDK disponible sur Azure.** Une nouvelle option a été ajoutée lors de la spécification du JDK à utiliser avec votre déploiement Azure. En utilisant cette option, vous pouvez déployer un package JDK tiers directement sur le cloud Azure sans devoir charger le vôtre. Azul Systems fournit le premier package de ce type nommé Zulu et basé sur OpenJDK, qui peut désormais être déployé à l’aide de cette option.
+* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java.** Elle est basée sur la version 0.4.5 de l’[API cliente Microsoft Azure][].
 
 ### 1 août 2013 ###
 
 Publication de la version préliminaire d’août 2013 du plug-in Azure pour Eclipse. Il s’agit d’une mise à jour accompagnant la publication du Kit de développement logiciel (SDK) Azure 2.1, qui est un composant requis téléchargé automatiquement lorsque vous installez le plug-in. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire de juillet 2013 :
 
-* **Suppression des options permettant d’inclure le JDK et le serveur d’applications locaux dans le cadre du package de déploiement**. Le téléchargement du JDK et du serveur d’applications à partir du stockage cloud au cours du déploiement est préférable à l’incorporation de ces composants dans le package, car leur téléchargement entraîne une taille de package de déploiement plus petite, des durées de déploiement plus courtes et des tâches de maintenance simplifiées. En conséquence, les options permettant d’inclure le JDK et le serveur d’applications dans le package de déploiement ont été supprimées. Les projets existants qui étaient configurés pour inclure le JDK et le serveur d’applications locaux dans le package de déploiement sont automatiquement convertis pour charger automatiquement le JDK et le serveur d’applications vers le stockage cloud.
-* **Prise en charge de la version 2.1 du Kit de développement logiciel (SDK) Azure**. La version préliminaire d’août 2013 du plug-in Azure pour Eclipse requiert le Kit de développement logiciel (SDK) Azure 2.1. N’utilisez pas la version préliminaire d’août 2013 avec les versions antérieures du Kit de développement logiciel (SDK) Azure, ni le Kit de développement logiciel (SDK) Azure 2.1 avec les versions antérieures du plug-in Azure pour Eclipse.
-* **Prise en charge de la version Kepler d’Eclipse**. En conséquence, Indigo est la nouvelle version IDE d’Eclipse requise minimale. Le plug-in Azure pour Eclipse n’est plus testé officiellement sur Helios.
+* **Suppression des options permettant d’inclure le JDK et le serveur d’applications locaux dans le cadre du package de déploiement.** Le téléchargement du JDK et du serveur d’applications à partir du stockage cloud au cours du déploiement est préférable à l’incorporation de ces composants dans le package, car leur téléchargement entraîne une taille de package de déploiement plus petite, des durées de déploiement plus courtes et des tâches de maintenance simplifiées. En conséquence, les options permettant d’inclure le JDK et le serveur d’applications dans le package de déploiement ont été supprimées. Les projets existants qui étaient configurés pour inclure le JDK et le serveur d’applications locaux dans le package de déploiement sont automatiquement convertis pour charger automatiquement le JDK et le serveur d’applications vers le stockage cloud.
+* **Prise en charge de la version 2.1 du Kit de développement logiciel (SDK) Azure.** La version préliminaire d’août 2013 du plug-in Azure pour Eclipse requiert le Kit de développement logiciel (SDK) Azure 2.1. N’utilisez pas la version préliminaire d’août 2013 avec les versions antérieures du Kit de développement logiciel (SDK) Azure, ni le Kit de développement logiciel (SDK) Azure 2.1 avec les versions antérieures du plug-in Azure pour Eclipse.
+* **Prise en charge de la version Kepler d’Eclipse.** En conséquence, Indigo est la nouvelle version IDE d’Eclipse requise minimale. Le plug-in Azure pour Eclipse n’est plus testé officiellement sur Helios.
 
 ### 3 juillet 2013 ###
 
 Publication de la version préliminaire de juillet 2013 du plug-in Azure pour Eclipse. Cette mise à jour comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire de mai 2013 :
 
-* **Possibilité de créer un compte de stockage**. Un bouton **Nouveau** a été ajouté à la boîte de dialogue **Ajouter un compte de stockage**. Cela vous permet de créer un compte de stockage dans le plug-in Eclipse sans avoir à vous connecter au portail de gestion Azure. (Pour utiliser cette fonctionnalité, vous devez posséder un abonnement Azure.) Pour plus d’informations sur la création d’un compte de stockage, consultez la rubrique [Pour créer un compte de stockage][].
-* **Nouvelle option (auto) de compte de stockage utilisée pour le déploiement automatique du JDK et du serveur et pour la mise en cache**. Lorsque vous utilisez l’option **Charger automatiquement** pour le JDK et le serveur d’applications, vous pouvez désormais spécifier **(auto)** pour l’URL et le compte de stockage à utiliser lors du chargement du JDK et du serveur d’applications ou lors de l’utilisation de la mise en cache Azure. Ces fonctionnalités utilisent alors automatiquement le même compte de stockage que celui que vous sélectionnez dans la boîte de dialogue **Publier sur Azure**. Le didacticiel [Création d’une application Hello World pour Azure dans Eclipse][] a été mis à jour pour utiliser la nouvelle option **(auto)**.
-* **Possibilité de définir vos points de terminaison de service Azure**. Spécifiez les points de terminaison de service qui déterminent si votre application est déployée sur et gérée par la plateforme globale Azure, sur Azure exploité par 21Vianet en Chine ou sur une plateforme Azure privée. Pour plus d’informations, consultez [Points de terminaison de service Azure][].
-* **Les déploiements à grande échelle peuvent spécifier une ressource de stockage local**. Si votre déploiement est trop volumineux pour être contenu dans le dossier approot par défaut, vous pouvez désormais spécifier une ressource de stockage local comme destination de déploiement pour votre JDK et votre serveur d’applications. Pour plus d’informations, consultez la page [Réalisation de déploiements volumineux][].
-* **Prise en charge des tailles de machines virtuelles Azure A6 et A7**. À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A6 et A7 à mémoire élevée. Pour plus d’informations sur ces tailles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
-* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java**. Elle est basée sur la version 0.4.4 de l’[API cliente Microsoft Azure][].
+* **Possibilité de créer un compte de stockage.** Un bouton **Nouveau** a été ajouté à la boîte de dialogue **Ajouter un compte de stockage**. Cela vous permet de créer un compte de stockage dans le plug-in Eclipse sans avoir à vous connecter au portail de gestion Azure. (Pour utiliser cette fonctionnalité, vous devez posséder un abonnement Azure.) Pour plus d’informations sur la création d’un compte de stockage, consultez la rubrique [Pour créer un compte de stockage][].
+* **Nouvelle option (auto) de compte de stockage utilisée pour le déploiement automatique du JDK et du serveur et pour la mise en cache.** Lorsque vous utilisez l’option **Charger automatiquement** pour le JDK et le serveur d’applications, vous pouvez désormais spécifier **(auto)** pour l’URL et le compte de stockage à utiliser lors du chargement du JDK et du serveur d’applications ou lors de l’utilisation de la mise en cache Azure. Ces fonctionnalités utilisent alors automatiquement le même compte de stockage que celui que vous sélectionnez dans la boîte de dialogue **Publier sur Azure**. Le didacticiel [Création d’une application Hello World pour Azure dans Eclipse][] a été mis à jour pour utiliser la nouvelle option **(auto)**.
+* **Possibilité de définir vos points de terminaison de service Azure.** Spécifiez les points de terminaison de service qui déterminent si votre application est déployée sur et gérée par la plateforme globale Azure, sur Azure exploité par 21Vianet en Chine ou sur une plateforme Azure privée. Pour plus d’informations, consultez [Points de terminaison de service Azure][].
+* **Les déploiements à grande échelle peuvent spécifier une ressource de stockage local.** Si votre déploiement est trop volumineux pour être contenu dans le dossier approot par défaut, vous pouvez désormais spécifier une ressource de stockage local comme destination de déploiement pour votre JDK et votre serveur d’applications. Pour plus d’informations, consultez la page [Réalisation de déploiements volumineux][].
+* **Prise en charge des tailles de machines virtuelles Azure A6 et A7.** À présent, vous pouvez déployer un service cloud vers les machines virtuelles de taille A6 et A7 à mémoire élevée. Pour plus d’informations sur ces tailles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure][].
+* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java.** Elle est basée sur la version 0.4.4 de l’[API cliente Microsoft Azure][].
 
 ### 1er mai 2013 ###
 
 Publication de la version préliminaire de mai 2013 du plug-in Azure pour Eclipse. Il s’agit d’une mise à jour majeure accompagnant la publication du Kit de développement logiciel (SDK) Azure 2.0, qui est un composant requis téléchargé automatiquement lorsque vous installez le plug-in. Cette version comprend de nouvelles fonctionnalités, des correctifs de bogues et certaines améliorations apportées à la convivialité qui s’appuient sur les commentaires des clients depuis la version préliminaire de février 2013 :
 
-* **Chargement automatique du JDK et du serveur d’applications vers le stockage Azure et déploiement de ces composants à partir du stockage Azure**. Nouvelle option qui permet de charger automatiquement le JDK et le serveur d’applications sélectionnés, au besoin, vers un compte de stockage Azure spécifié, et de déployer ces composants à partir de là, au lieu de les incorporer au package de déploiement ou de demander à l’utilisateur de les charger manuellement. Cette fonctionnalité souvent demandée peut améliorer considérablement la facilité de déploiement des composants serveur et JDK, notamment pour les utilisateurs débutants. Pour connaître la procédure pas à pas utilisant ces options, consultez le didacticiel [Création d’une application Hello World pour Azure dans Eclipse][].
-* **Suivi de compte de stockage centralisé et possibilité de référencer plus facilement les comptes de stockage (via une liste déroulante)**. Cela s’applique à plusieurs fonctionnalités qui reposent sur le stockage, comme le déploiement des composants JDK et serveur, et la mise en cache. Pour plus d’informations, consultez [Liste des comptes de stockage Azure][].
-* **Configuration de l’accès à distance simplifié dans l’Assistant Publication dans le cloud**. Il vous suffit de taper un nom d’utilisateur et un mot de passe pour activer l’accès à distance, ou de laisser ces champs vides pour laisser l’accès à distance désactivé.
-* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java**. Elle est basée sur la version 0.4.2 de l’[API cliente Microsoft Azure][].
-* **Prise en charge des sessions rémanentes sur Windows Server 2012**. Auparavant, les sessions rémanentes ne fonctionnaient que sur Windows Server 2008 R2 ; désormais, les deux cibles de système d’exploitation cloud prennent en charge l’affinité de session.
-* **Améliorations des performances de chargement de package**. Même lorsque le JDK et le serveur d’applications sont incorporés au package de déploiement, la partie chargement du processus de déploiement peut être environ deux fois plus rapide qu’avec les versions précédentes.
+* **Chargement automatique du JDK et du serveur d’applications vers le stockage Azure et déploiement de ces composants à partir du stockage Azure.** Nouvelle option qui permet de charger automatiquement le JDK et le serveur d’applications sélectionnés, au besoin, vers un compte de stockage Azure spécifié, et de déployer ces composants à partir de là, au lieu de les incorporer au package de déploiement ou de demander à l’utilisateur de les charger manuellement. Cette fonctionnalité souvent demandée peut améliorer considérablement la facilité de déploiement des composants serveur et JDK, notamment pour les utilisateurs débutants. Pour connaître la procédure pas à pas utilisant ces options, consultez le didacticiel [Création d’une application Hello World pour Azure dans Eclipse][].
+* **Suivi de compte de stockage centralisé et possibilité de référencer plus facilement les comptes de stockage (via une liste déroulante).** Cela s’applique à plusieurs fonctionnalités qui reposent sur le stockage, comme le déploiement des composants JDK et serveur, et la mise en cache. Pour plus d’informations, consultez [Liste des comptes de stockage Azure][].
+* **Configuration de l’accès à distance simplifié dans l’Assistant Publication dans le cloud.** Il vous suffit de taper un nom d’utilisateur et un mot de passe pour activer l’accès à distance, ou de laisser ces champs vides pour laisser l’accès à distance désactivé.
+* **Mise à jour de la bibliothèque Package des bibliothèques Azure pour Java.** Elle est basée sur la version 0.4.2 de l’[API cliente Microsoft Azure][].
+* **Prise en charge des sessions rémanentes sur Windows Server 2012.** Auparavant, les sessions rémanentes ne fonctionnaient que sur Windows Server 2008 R2 ; désormais, les deux cibles de système d’exploitation cloud prennent en charge l’affinité de session.
+* **Améliorations des performances de chargement de package.** Même lorsque le JDK et le serveur d’applications sont incorporés au package de déploiement, la partie chargement du processus de déploiement peut être environ deux fois plus rapide qu’avec les versions précédentes.
 
 ### 8 février 2013 ###
 
@@ -277,18 +285,20 @@ Publication de la version préliminaire CTP de décembre 2011 du plug-in Azure
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
-[Création d’une application Hello World pour Azure dans Eclipse][]
+[Création d'une application Hello World pour Azure dans Eclipse][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][].
+Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java][].
 
 <!-- URL List -->
 
 [page web d’Azul Systems correspondant à Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Points de terminaison de service Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Liste des comptes de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[kit de ressources Azure pour IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [propriétés des composants]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Réalisation de déploiements volumineux]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -317,4 +327,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

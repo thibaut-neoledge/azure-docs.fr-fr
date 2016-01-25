@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # Résoudre les problèmes d'installation de votre cluster de développement local
 
-Si vous rencontrez un problème en interagissant avec votre cluster de développement local, examinez les suggestions suivantes de résolution.
+Si vous rencontrez un problème en interagissant avec votre cluster de développement Azure Service Fabric local, examinez les suggestions suivantes de résolution.
 
 ## Échecs de configuration du cluster
 
@@ -37,15 +37,25 @@ Lors de l’exécution du script DevClusterSetup, une erreur de ce type peut s�
 
 #### Solution
 
-Fermez la fenêtre PowerShell actuelle et lancez une nouvelle fenêtre PowerShell en tant qu’administrateur. Vous devriez pouvoir exécuter le script.
+Fermez la fenêtre PowerShell active et ouvrez une nouvelle fenêtre PowerShell en tant qu’administrateur. Vous devriez pouvoir exécuter le script.
 
 ## Échecs de connexion au cluster
 
-### TypeInitializationException
+### Applets de commande PowerShell de Service Fabric non reconnues dans Azure PowerShell
 
 #### Problème
 
-Lors de la connexion au cluster dans PowerShell ou Service Fabric Explorer, un élément TypeInitializationException apparaît pour System.Fabric.Common.AppTrace.
+Si vous essayez d’exécuter l’une des applets de commande PowerShell de Service Fabric, par exemple `Connect-ServiceFabricCluster`, dans une fenêtre Azure PowerShell, l’applet de commande échoue avec un message indiquant qu’elle n’est pas reconnue. Cela est dû au fait qu’Azure PowerShell utilise la version 32 bits de Windows PowerShell (même sur les versions 64 bits du système d’exploitation), tandis que les applets de commande Service Fabric fonctionnent uniquement dans des environnements 64 bits.
+
+#### Solution
+
+Exécutez toujours les applets de commande Service Fabric directement à partir de Windows PowerShell.
+
+### Exception durant l’initialisation de type
+
+#### Problème
+
+Quand vous êtes connecté au cluster dans PowerShell, l’erreur TypeInitializationException apparaît pour System.Fabric.Common.AppTrace.
 
 #### Solution
 
@@ -66,13 +76,13 @@ Un appel à Connect-ServiceFabricCluster est mis en échec avec une erreur de ce
 
 #### Solution
 
-Fermez la fenêtre PowerShell actuelle et lancez une nouvelle fenêtre PowerShell en tant qu’administrateur. Vous devez être maintenant en mesure de vous connecter.
+Fermez la fenêtre PowerShell active et ouvrez une nouvelle fenêtre PowerShell en tant qu’administrateur. Vous devez être maintenant en mesure de vous connecter.
 
-### FabricConnectionDeniedException
+### Exception Connexion Fabric refusée
 
 #### Problème
 
-Lorsque vous procédez au débogage de Visual Studio, vous obtenez un élément FabricConnectionDeniedException.
+Pendant le débogage à partir de Visual Studio, vous obtenez une erreur FabricConnectionDeniedException.
 
 #### Solution
 
@@ -84,6 +94,6 @@ Assurez-vous de ne pas disposer de projets de service définis en tant que proje
 ## Étapes suivantes
 
 - [Comprendre votre cluster et résoudre les problèmes à l’aide des rapports d’intégrité système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

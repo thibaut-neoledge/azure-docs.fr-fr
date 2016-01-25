@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources et PowerShell
@@ -32,76 +32,59 @@ Vous pouvez facilement créer une machine virtuelle basée sur Windows à l'aide
 
 Procédez comme suit pour créer une machine virtuelle Windows en utilisant un modèle du Gestionnaire des ressources dans le référentiel de modèles Github avec Azure PowerShell.
 
-Entrez un nom de déploiement Azure, un nom de groupe de ressources et un emplacement de centre de données Azure, puis exécutez les commandes suivantes.
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureRmResourceGroup –Name $RGName –Location $locName
-	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Lorsque vous exécutez la commande **New-AzureRmResourceGroupDeployment**, vous êtes invité à entrer les valeurs des paramètres dans la section « parameters » du fichier JSON. Lorsque vous avez spécifié toutes les valeurs de paramètre, la commande crée le groupe de ressources et la machine virtuelle.
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureRmResourceGroup –Name $RGName –Location $locName
-	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Le résultat suivant doit s’afficher :
-
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: newsaacct
-	adminUsername: WinAdmin1
-	adminPassword: *********
-	dnsNameForPublicIP: contoso
-	VERBOSE: 10:56:59 AM - Template is valid.
-	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
-	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
-	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
-	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+Dans les commandes suivantes, entrez le nom que vous souhaitez utiliser pour le déploiement, le nom du nouveau groupe de ressources, ainsi que l’emplacement où la ressource doit être créée.
 
 
-	DeploymentName    : TestDeployment
-	ResourceGroupName : TestRG
-	ProvisioningState : Succeeded
-	Timestamp         : 4/28/2015 6:02:13 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-                    	Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     newsaacct
-	                    adminUsername    String                     WinAdmin1
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contoso
-	                    windowsOSVersion  String                     2012-R2-Datacenter
+		$deployName="<deployment name>"
+		$RGName="<resource group name>"
+		$locName="<Azure location, such as West US>"
+		$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+		New-AzureRmResourceGroup –Name $RGName –Location $locName
+		New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-	Outputs           :
 
-Vous disposez maintenant d'une nouvelle machine virtuelle Windows nommée MyWindowsVM dans votre nouveau groupe de ressources.
+Quand vous exécutez la commande **New-AzureRmResourceGroupDeployment**, vous êtes invité à entrer les valeurs des paramètres dans la section « parameters » du fichier JSON. Une fois que vous avez spécifié toutes les valeurs des paramètres, la commande crée le groupe de ressources et la machine virtuelle.
 
-## Ressources supplémentaires
+Le résultat suivant devrait s'afficher :
 
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation du Gestionnaire de ressources Azure](resource-group-overview.md)
+		cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+		Supply values for the following parameters:
+		(Type !? for Help.)
+		newStorageAccountName: newsaacct
+		adminUsername: WinAdmin1
+		adminPassword: *********
+		dnsNameForPublicIP: contoso
+		VERBOSE: 10:56:59 AM - Template is valid.
+		VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
+		VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+		VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
+		VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+		VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
 
-[Création d’une machine virtuelle Windows avec le Gestionnaire de ressources Azure et PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
+		DeploymentName    : TestDeployment
+		ResourceGroupName : TestRG
+		ProvisioningState : Succeeded
+		Timestamp         : 4/28/2015 6:02:13 PM
+		Mode              : Incremental
+		TemplateLink      :
+		Parameters        :
+											Name                   Type                       Value
+											===============        =========================  ==========
+											newStorageAccountName  String                     newsaacct
+											adminUsername          String                     WinAdmin1
+											adminPassword          SecureString
+											dnsNameForPublicIP     String                     contoso
+											windowsOSVersion       String                     2012-R2-Datacenter
+		Outputs           :
 
-[Créer des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
+## Étapes suivantes
 
-[Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
+Pour savoir comment gérer la machine virtuelle que vous venez de créer, passez en revue [Gérer des machines virtuelles à l’aide d’Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 
 | Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Dérivé de cloudAnchor dans Azure AD.|
+| msDS-ExternalDirectoryObjectID| X| | | Dérivé de cloudAnchor dans Azure AD. Nouveauté d’Exchange 2016.|
 | msExchArchiveStatus| X| | | Archive en ligne : permet aux clients d’archiver le courrier.|
 | msExchBlockedSendersHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
 | msExchSafeRecipientsHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
@@ -435,4 +435,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

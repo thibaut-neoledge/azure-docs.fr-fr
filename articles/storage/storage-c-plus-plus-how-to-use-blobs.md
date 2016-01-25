@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Utilisation du stockage d'objets blob (C++) | Microsoft Azure" 
-    description="Découvrez comment utiliser le service de stockage d’objets blob dans Azure. Les exemples sont écrits en C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Utilisation du stockage d'objets blob (C++) | Microsoft Azure"
+    description="Découvrez comment utiliser le service de stockage d’objets blob dans Azure. Les exemples sont écrits en C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Utilisation du stockage d'objets blob à partir de C++  
 
@@ -165,7 +165,7 @@ Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir u
 		}
 	}
 
-Pour plus d'informations sur les opérations de listage, consultez [Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md).
+Pour plus d’informations sur les opérations de listage, consultez [Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md).
 
 ## Téléchargement d’objets blob
 Pour télécharger des objets blob, commencez par récupérer une référence d’objet blob, puis appelez la méthode **download_to_stream**. L’exemple suivant utilise la méthode **download_to_stream** pour transférer les contenus d’objets blob vers un objet de flux pouvant être rendu persistant dans un fichier local.
@@ -238,8 +238,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -21,7 +21,7 @@ Ce document explique comment configurer des requêtes de base de données élast
 
 ![Requête sur plusieurs partitions][1]
 
-La fonctionnalité fait partie de l’[ensemble de fonctionnalités de base de données élastiques](sql-database-elastic-scale.md) d’Azure SQL.
+La fonctionnalité fait partie de l’[ensemble de fonctionnalités de base de données élastiques](sql-database-elastic-scale-introduction.md) d’Azure SQL.
  
 ## Création d’objets de base de données
 
@@ -241,4 +241,4 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

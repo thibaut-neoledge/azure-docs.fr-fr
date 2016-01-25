@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration de points de terminaison sur une machine virtuelle dans Azure"
+	pageTitle="Configurer des points de terminaison sur une machine virtuelle classique | Microsoft Azure"
 	description="Apprenez à configurer des points de terminaison dans le portail Azure Classic pour permettre la communication avec une machine virtuelle dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#Comment configurer des points de terminaison sur une machine virtuelle
+# Comment configurer des points de terminaison sur une machine virtuelle Azure classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Pour un déploiement Resource Manager, consultez [Prise en main de la configuration d’un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md) et [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
 
-Toutes les machines virtuelles créées dans Azure et appartenant au même service cloud ou réseau virtuel peuvent communiquer automatiquement entre elles à l'aide d'un canal réseau privé. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle.
+Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle.
 
-Lorsque vous créez une machine virtuelle dans le portail classique Azure, les points de terminaison pour le Bureau à distance, l’accès distant Windows PowerShell et Secure Shell (SSH) sont créés automatiquement. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
+Quand vous créez une machine virtuelle dans le portail Azure Classic, les points de terminaison courants, notamment ceux pour le Bureau à distance, l’accès distant Windows PowerShell et Secure Shell (SSH), sont généralement créés pour vous automatiquement selon le système d’exploitation que vous choisissez. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [À propos des groupes de sécurité réseau](virtual-networks-nsg.md)
-
-Notez que les groupes de sécurité réseau contrôlent l'accès à la machine virtuelle, mais ils ne fournissent pas les capacités de transmission de port. Pour exécuter la transmission de port, consultez l'article suivant :
-
-- [Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
-
-Chaque point de terminaison possède un port public et un port privé :
+Chaque point de terminaison possède un *port public* et un *port privé* :
 
 - Le port public est utilisé par l'équilibreur de charge Azure pour écouter le trafic entrant dans la machine virtuelle à partir d'Internet.
 - Le port privé est utilisé par la machine virtuelle pour écouter le trafic entrant, généralement destiné à une application ou à un service en cours d'exécution sur la machine virtuelle.
@@ -44,7 +36,7 @@ Après avoir créé un point de terminaison, vous pouvez utiliser une liste de c
 
 > [AZURE.NOTE]\: la configuration du pare-feu pour les machines virtuelles Azure est effectuée automatiquement pour les ports associés au Bureau à distance et à Secure Shell (SSH) ainsi que pour l'accès distant Windows PowerShell dans la plupart des cas. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison.
 
-##Création d’un point de terminaison
+## Création d’un point de terminaison
 
 1.	Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
 2.	Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.
@@ -56,7 +48,7 @@ Après avoir créé un point de terminaison, vous pouvez utiliser une liste de c
 5.	Sur la page **Ajouter un point de terminaison** à la machine virtuelle, choisissez le type de point de terminaison.
 
 	- Si vous créez un point de terminaison qui ne fait pas partie d’un jeu d’équilibrage de la charge, ou qui est le premier point de terminaison d’un nouveau jeu d’équilibrage de la charge, choisissez **Ajouter un point de terminaison autonome**, puis cliquez sur la flèche gauche.
-	- Sinon, choisissez **Ajouter un point de terminaison à un jeu d’équilibrage de la charge existant**, sélectionnez le nom du jeu d’équilibrage de la charge, puis cliquez sur la flèche gauche. Dans la page **Spécifier les détails du point de terminaison**, tapez un nom pour le point de terminaison, puis cochez la case pour créer le point de terminaison.
+	- Sinon, choisissez **Ajouter un point de terminaison à un jeu d'équilibrage de la charge existant**, sélectionnez le nom du jeu d'équilibrage de la charge, puis cliquez sur la flèche gauche. Dans la page **Spécifier les détails du point de terminaison**, tapez un nom pour le point de terminaison, puis cochez la case pour créer le point de terminaison.
 
 6.	Sur la page **Spécifier les détails du point de terminaison**, tapez un nom pour le point de terminaison dans **Nom**. Vous pouvez également choisir un nom de protocole réseau dans la liste, ce qui permet de renseigner les valeurs initiales pour les **Protocole**, **Port public** et **Port privé**.
 7.	Pour un point de terminaison personnalisé dans **Protocole**, choisissez **TCP** ou **UDP**.
@@ -68,9 +60,9 @@ Le nouveau point de terminaison est répertorié dans la page **Points de termin
 
 ![Création du point de terminaison réussie](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-Pour configurer ce paramètre à l’aide d’une applet de commande Azure PowerShell, consultez l’article [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+Pour configurer ce paramètre à l’aide d’une applet de commande Azure PowerShell, consultez l’article [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Si vous utilisez l’interface de ligne de commande Azure en mode Gestion des services, utilisez la commande **azure vm endpoint create**.
 
-##Gestion de l’ACL sur un point de terminaison
+## Gestion de l’ACL sur un point de terminaison
 
 Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL sur un point de terminaison peut restreindre le trafic basé sur l'adresse IP source. Suivez cette procédure pour ajouter, modifier ou supprimer l’ACL sur un point de terminaison.
 
@@ -100,4 +92,4 @@ Pour effectuer cette configuration avec une applet de commande Azure PowerShell,
 
 [Équilibrage de charge pour les services d’infrastructure Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

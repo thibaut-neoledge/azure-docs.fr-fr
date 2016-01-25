@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 
@@ -102,7 +102,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 1. Entrez create security group dans la zone de recherche, puis cliquez sur **Create Security Group**.<br><br> ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "Créer un groupe de sécurité")
  
 
-2. Exécutez la tâche Create Security Group. Sélectionnez Integration System Security Group—Unconstrained dans la liste déroulante Type of Tenanted Security Group pour créer un groupe de sécurité auquel des membres seront ajoutés de manière explicite. <br><br> ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "Créer un groupe de sécurité")
+2. Exécutez la tâche Create Security Group. Sélectionnez Integration System Security Group—Unconstrained dans la liste déroulante Type of Tenanted Security Group pour créer un groupe de sécurité auquel des membres seront ajoutés de manière explicite.<br><br> ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "Créer un groupe de sécurité")
  
 
 
@@ -136,13 +136,13 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
  
    
 
-1. Entrez domain security policies dans la zone de recherche, puis cliquez sur le lien, Domain Security Policies for Functional Area. <br><br> ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Stratégies de sécurité de domaine")  
+1. Entrez domain security policies dans la zone de recherche, puis cliquez sur le lien, Domain Security Policies for Functional Area.<br><br> ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Stratégies de sécurité de domaine")  
  
 
 2. Recherchez system et sélectionnez la zone fonctionnelle **System**. Cliquez sur **OK**. <br><br> ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Stratégies de sécurité de domaine")
 
 
-3. Dans la liste des stratégies de sécurité de la zone fonctionnelle System, développez Security Administration et sélectionnez la stratégie de sécurité de domaine, External Account Provisioning. <br><br> ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Stratégies de sécurité de domaine")
+3. Dans la liste des stratégies de sécurité de la zone fonctionnelle System, développez Security Administration et sélectionnez la stratégie de sécurité de domaine, External Account Provisioning.<br><br> ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Stratégies de sécurité de domaine")
 
 
 4. Cliquez sur **Edit Permissions**, puis, sur la page de dialogue **Edit Permissions**, ajoutez le nouveau groupe de sécurité à la liste des groupes de sécurité avec autorisations d’intégration **Get** et **Put**.<br><br> ![Modifier une autorisation](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Modifier une autorisation")
@@ -224,4 +224,4 @@ Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si v
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

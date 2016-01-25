@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
@@ -47,19 +47,19 @@ Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’u
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
-[Création d’une application Hello World pour Azure dans Eclipse][]
+[Création d'une application Hello World pour Azure dans Eclipse][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java][].
+Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java][].
 
 <!-- URL List -->
 
 [Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

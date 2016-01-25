@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -22,7 +22,7 @@
 
 Les étapes suivantes vous montrent comment créer et déployer une application JSP de base dans Azure à l’aide du kit de ressources Azure pour Eclipse. Un exemple JSP est présenté par souci de simplicité, mais des étapes très similaires conviennent également pour un servlet Java en ce qui concerne le déploiement d’Azure.
 
-L’application sera semblable à ce qui suit:
+L’application sera semblable à ce qui suit :
 
 ![][ic600360]
 
@@ -195,4 +195,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

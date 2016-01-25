@@ -25,7 +25,7 @@ Azure PowerShell est un module fournissant des applets de commande pour gérer A
 
 Ce guide part du principe que vous avez une certaine expérience en tant qu’utilisateur d’[Azure Storage](http://azure.microsoft.com/documentation/services/storage/) et de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Ce guide contient un certain nombre de scripts qui illustrent l'utilisation de PowerShell avec Azure Storage. Vous devez mettre à jour les variables du script en fonction de votre configuration avant d'exécuter chaque script.
 
-La première section de ce guide fournit un aperçu rapide d'Azure Storage et de PowerShell. Pour obtenir des informations et des instructions détaillées, commencez par les [Conditions préalables à l’utilisation d’Azure PowerShell avec Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
+La première section de ce guide fournit un aperçu rapide d'Azure Storage et de PowerShell. Pour obtenir des informations et des instructions détaillées, commencez par [Conditions préalables à l’utilisation d’Azure PowerShell avec Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
 
 ## Prise en main d'Azure Storage et de PowerShell en 5 minutes
@@ -39,7 +39,7 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 **Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
 1.	Téléchargez et installez [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-2.	Démarrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE) : sur votre ordinateur local, accédez au menu **Démarrer**. Tapez **Outils d’administration** et cliquez pour exécuter ce composant. Dans la fenêtre **Outils d'administration**, cliquez avec le bouton droit sur **Windows PowerShell ISE**, puis cliquez sur **Exécuter en tant qu'administrateur**.
+2.	Démarrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE) : sur votre ordinateur local, accédez au menu **Démarrer**. Tapez **outils d’administration** et cliquez pour exécuter ce composant. Dans la fenêtre **Outils d'administration**, cliquez avec le bouton droit sur **Windows PowerShell ISE**, puis cliquez sur **Exécuter en tant qu'administrateur**.
 3.	Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script.
 4.	Maintenant, voici un script simple qui affiche les commandes PowerShell de base pour accéder à Azure Storage. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local. Ensuite, le script définit l'abonnement Azure par défaut et crée un nouveau compte de stockage dans Azure. Ensuite, le script crée un nouveau conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
 5.	Dans la section de code suivante, sélectionnez le script entre les remarques **#begin** et **#end**. Appuyez sur Ctrl+C pour le copier dans le Presse-papiers.
@@ -118,7 +118,7 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 
 	- **$Location** : utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
 
-	- **$ContainerName** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
+	- **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
 
 	- **$ImageToUpload** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
 
@@ -138,7 +138,7 @@ Vous avez besoin d’un abonnement Azure et d’un compte pour exécuter les app
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
 
-Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell Azure, depuis la console Windows PowerShell standard ou depuis la console Windows PowerShell ISE. Par exemple, pour ouvrir une **console Azure PowerShell**, allez dans le menu Démarrer, tapez Microsoft Azure PowerShell, puis cliquez avec le bouton droit et cliquez sur Exécuter en tant qu’administrateur. Pour ouvrir **Windows PowerShell ISE**, allez dans le menu Démarrer, tapez « Outils d’administration », puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
+Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell Azure, depuis la console Windows PowerShell standard ou depuis la console Windows PowerShell ISE. Par exemple, pour ouvrir une **console Azure PowerShell**, allez dans le menu Démarrer, tapez Microsoft Azure PowerShell, puis cliquez avec le bouton droit et cliquez sur Exécuter en tant qu’administrateur. Pour ouvrir **Windows PowerShell ISE**, allez dans le menu Démarrer, tapez « outils d’administration », puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
 
 ## Gestion de comptes de stockage dans Azure
 
@@ -455,7 +455,7 @@ L'exemple suivant montre comment ajouter des entités à une table. L'exemple mo
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
     Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
-    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 
 #### Interrogation d'entités de table
 Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx). L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table Employees créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). L’appel de l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe Microsoft.WindowsAzure.Storage.Table.TableQuery crée un objet de requête. L'exemple recherche les entités ayant une colonne ID dont la valeur est 1, comme spécifié dans un filtre de chaîne. Pour plus d’informations, consultez [Interrogation de tables et d’entités](http://msdn.microsoft.com/library/azure/dd894031.aspx). Lorsque vous exécutez cette requête, il retourne toutes les entités qui correspondent aux critères du filtre.
@@ -537,7 +537,7 @@ Vous pouvez interroger et récupérer une file d'attente spécifique ou une list
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-Si vous appelez l’applet de commande [Get-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806377.aspx) sans paramètres, elle récupère une liste comprenant toutes les files d’attente.
+Si vous appelez l’applet de commande [Get-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806377.aspx) sans paramètres, il récupère une liste de toutes les files d’attente.
 
 ### Suppression d'une file d'attente
 Pour supprimer une file d'attente et tous les messages qu'elle contient, exécutez l'applet de commande Remove-AzureStorageQueue. L'exemple suivant montre comment supprimer une file d'attente spécifique à l'aide de l'applet de commande Remove-AzureStorageQueue.
@@ -571,7 +571,7 @@ L'exemple suivant montre comment ajouter un message à une file d'attente. Cet e
 
 
 #### Suppression du message suivant dans la file d'attente
-Votre code enlève un message d'une file d'attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), vous obtenez le message suivant dans une file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **DeleteMessage** juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **DeleteMessage** juste après le traitement du message.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -651,7 +651,7 @@ Un environnement Azure est un déploiement indépendant de Microsoft Azure, par 
 
 Pour utiliser Azure Storage avec AzureChinaCloud, vous devez créer un contexte de stockage associé à AzureChinaCloud. Suivez ces étapes pour commencer :
 
-1.	Exécutez l’applet de commande [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) pour afficher les environnements Azure disponibles :
+1.	Exécutez l’applet de commande [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) pour voir les environnements Azure disponibles :
 
     `Get-AzureEnvironment`
 
@@ -730,4 +730,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

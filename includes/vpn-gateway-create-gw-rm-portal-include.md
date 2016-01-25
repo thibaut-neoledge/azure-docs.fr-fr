@@ -1,10 +1,12 @@
-1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
-2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
-4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
-6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
-7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
-8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
-9. Click **Create**. You'll see the *Deploying Virtual network gateway* tile on the dashboard. Creating a gateway takes some time. There is a lot going on in the background. Plan for 15 minutes or more. You may need to refresh your portal page in order to see the completed status.
-10. After the gateway is created, you can view the IP address that has been assigned to it by looking at the Virtual Network in the portal. The gateway will appear as a connected device. You can view the name and the IP address assigned to the gateway.
+1. Dans le portail, accédez à **Nouveau**, puis sélectionnez **Parcourir**. Sélectionnez **Passerelles de réseau virtuel** dans la liste.
+2. Cliquez sur **Add**.
+3. Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle. 
+4. Dans **Réseau virtuel**, sélectionnez le réseau virtuel à connecter à cette passerelle.
+5. Dans les paramètres du réseau virtuel, donnez un nom à votre adresse IP publique dans **Adresse IP publique**. Notez qu’il ne vous est pas demandé d’entrer une adresse IP, celle-ci étant affectée dynamiquement. Vous devez plutôt entrer le nom de l’objet d’adresse IP auquel l’adresse sera affectée. 
+6. Dans **Type de réseau privé virtuel**, les choix proposés sont basés sur la stratégie et l’itinéraire. Veillez à sélectionner le type de passerelle VPN pris en charge par le scénario de configuration et, si votre configuration l’exige, par le périphérique de passerelle VPN que vous prévoyez d’utiliser.
+7. Dans **Groupe de ressources**, choisissez **Sélectionner** et indiquez le groupe de ressources dans lequel réside votre réseau virtuel, à moins que votre configuration ne nécessite un autre choix.
+8. Dans **Emplacement**, vérifiez que l’emplacement dans lequel se trouvent votre groupe de ressources et votre réseau virtuel est indiqué.
+9. Cliquez sur **Create**. La vignette *Déploiement d’une passerelle de réseau virtuel* s’affiche dans le tableau de bord. La création d’une passerelle prend du temps, car de nombreuses opérations sont réalisées en arrière-plan. Prévoyez 15 minutes ou plus. Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
+10. Une fois la passerelle créée, examinez Réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît comme un appareil connecté. Le nom et l’adresse IP affectés à la passerelle sont affichés.
+
+<!---HONumber=AcomDC_0114_2016-->

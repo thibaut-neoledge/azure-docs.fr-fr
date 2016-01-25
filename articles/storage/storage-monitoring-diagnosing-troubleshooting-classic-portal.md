@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -422,7 +422,7 @@ Si vous constatez un retard entre le moment où une application ajoute un messag
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Les métriques indiquent une augmentation de la valeur PercentThrottlingError
 
-Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’extensibilité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, consultez <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objectifs de performance et évolutivité d’Azure Storage</a>.
+Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage effectue cette opération afin de s’assurer qu’aucun client ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’évolutivité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, voir <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objectifs de performance et évolutivité d'Azure Storage</a>.
 
 Si la métrique **PercentThrottlingError** indique une augmentation du pourcentage de demandes qui échouent avec une erreur de limitation, vous devez enquêter sur un des deux scénarios suivants :
 
@@ -433,7 +433,7 @@ Une augmentation de la valeur **PercentThrottlingError** se produit souvent en m
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Augmentation provisoire de la valeur PercentThrottlingError
 
-Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Cela réduira la charge immédiate sur la partition et aidera votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, consultez <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Espace de noms Microsoft.WindowsAzure.Storage.RetryPolicies</a> sur MSDN.
+Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Cela réduira la charge immédiate sur la partition et aidera votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, voir <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Espace de noms Microsoft.WindowsAzure.Storage.RetryPolicies</a> sur MSDN.
 
 > [AZURE.NOTE]Vous pouvez également constater des pics de la valeur **PercentThrottlingError** qui ne coïncident pas avec des périodes de forte activité de l’application. La cause la plus probable est le déplacement de partitions, par le service de stockage, pour améliorer l’équilibrage de la charge.
 
@@ -488,7 +488,7 @@ Dans ce scénario, vous devez rechercher pourquoi le jeton SAS expire avant que 
 - Le paramètre de version dans la clé SAS (par exemple **sv=2012-02-12**) correspond-il à la version de la bibliothèque cliente de stockage que vous utilisez ? Vous devez toujours utiliser la dernière version de la bibliothèque cliente de stockage. Pour plus d’informations sur la gestion des versions du jeton SAS et les dépendances envers la version de la bibliothèque cliente, consultez <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Nouveauté de Microsoft Azure Storage</a>.
 - Si vous régénérez vos clés d’accès de stockage (cliquez sur **Gérer les clés d’accès** dans n’importe quelle page de votre compte de stockage sur le portail Azure Classic), cela peut invalider tous les jetons SAS existants. Un problème peut survenir si vous générez des jetons SAS avec une durée d'expiration longue pour les applications clientes dans le cache.
 
-Si vous utilisez la bibliothèque cliente de stockage pour générer des jetons SAS, il est facile de créer un jeton valide. Toutefois, si vous utilisez l’API REST de stockage et que vous créez des jetons SAS manuellement, vous devez lire attentivement la rubrique <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Délégation de l’accès avec une signature d’accès partagé</a> sur MSDN.
+Si vous utilisez la bibliothèque cliente de stockage pour générer des jetons SAS, il est facile de créer un jeton valide. Mais si vous utilisez l’API REST de stockage et créez des jetons SAS manuellement, vous devez lire avec attention la rubrique <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Délégation de l’accès avec une signature d’accès partagé</a> sur MSDN.
 
 ### <a name="the-client-is-receiving-404-messages"></a>Le client reçoit des messages HTTP 404 (Non trouvé)
 Si l’application client reçoit un message HTTP 404 (Non trouvé) du serveur, cela signifie que l’objet que le client tentait d’utiliser (tel qu’une entité, une table, un objet blob, un conteneur ou une file d’attente) n’existe pas dans le service de stockage. Il existe un certain nombre de raisons possibles à ce problème, dont :
@@ -510,7 +510,7 @@ Le journal côté client suivant, généré par la bibliothèque cliente de stoc
 ID de la demande|Opération
 ---|---
 07b26a5d-...|Méthode **DeleteIfExists** pour supprimer le conteneur de l'objet blob. Notez que cette opération inclut une demande **HEAD** pour vérifier l’existence du conteneur.
-e2d06d78…|Méthode **CreateIfNotExists** pour créer le conteneur de l'objet blob. Notez que cette opération inclut une demande **HEAD** qui vérifie l’existence du conteneur. La demande **HEAD** retourne un message 404, mais continue.
+e2d06d78…|Méthode **CreateIfNotExists** pour créer le conteneur de l'objet blob. Notez que cette opération inclut une demande **HEAD** qui vérifie l’existence du conteneur. La demande **HEAD** renvoie un message 404, mais continue.
 de8b1c3c-...|Méthode **UploadFromStream** pour créer l'objet blob. La demande **PUT** échoue avec un message 404.
 
 Entrées du journal :
@@ -617,7 +617,7 @@ Si vous utilisez un client JavaScript et que le service de stockage renvoie des 
 
 Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a>, qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
 
-Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage</a> sur MSDN.
+Pour contourner le problème JavaScript, vous devez configurer le service Partage des ressources cross-origin (CORS) pour le service de stockage auquel le client accède. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage</a> sur MSDN.
 
 L’exemple de code suivant montre comment configurer votre service d’objet blob afin de permettre l’exécution de JavaScript dans le domaine Contoso pour accéder à un objet blob dans votre service de stockage d’objets blob :
 
@@ -666,9 +666,9 @@ Chaque fois qu’elle crée des conteneurs, l’application cliente utilise des 
 
 La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme non réussies et réduisent la valeur de la métrique **PercentSucess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
 
-Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d’opérations qui s’exécutent avec succès, mais qui génèrent des codes d’état HTTP d’échec : - **ResourceNotFound** (Not Found 404), par exemple à partir d’une demande GET vers un objet blob qui n’existe pas. - **ResouceAlreadyExists** (Conflict 409), par exemple à partir d’une opération **CreateIfNotExist** où la ressource existe déjà. - **ConditionNotMet** (Not Modified 304), par exemple à partir d’une opération conditionnelle, comme quand un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
+Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d’opérations qui s’exécutent avec succès, mais qui génèrent des codes d’état HTTP d’échec : - **ResourceNotFound** (Not Found 404), par exemple, à partir d’une demande GET vers un objet blob qui n’existe pas. - **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d’une opération **CreateIfNotExist** où la ressource existe déjà. - **ConditionNotMet** (Not Modified 304), par exemple, à partir d’une opération conditionnelle, comme quand un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
 
-Vous trouverez une liste des codes d’erreur API REST courants retournés par les services de stockage à la page <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST communs</a>.
+Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST communs</a>.
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage
 
@@ -691,7 +691,7 @@ On utilise généralement un émulateur de stockage lors du développement et de
 
 #### <a name="feature-X-is-not-working"></a>La fonctionnalité « X » ne fonctionne pas dans l’émulateur de stockage
 
-L’émulateur de stockage ne prend pas en charge toutes les fonctionnalités des services de stockage Azure (par ex., le service de fichiers). Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Différences entre l’émulateur de stockage et Azure Storage Services</a> sur MSDN.
+L’émulateur de stockage ne prend pas en charge toutes les fonctionnalités des services de stockage Azure (par ex., le service de fichiers). Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Différences entre l’émulateur de stockage et les services Azure Storage</a> sur MSDN.
 
 Pour accéder à ces fonctions non prises en charge par l’émulateur de stockage, vous devez utiliser le service de stockage Azure dans le cloud.
 
@@ -915,4 +915,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

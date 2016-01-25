@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -36,10 +36,11 @@ La synchronisation hors connexion présente un certain nombre d’avantages :
 
 Les didacticiels suivants montrent comment ajouter la synchronisation hors connexion à vos clients mobiles à l’aide d’Azure Mobile Apps :
 
+* [Android : activer la synchronisation hors connexion]
 * [iOS : activer la synchronisation hors connexion]			
 * [Xamarin iOS : activer la synchronisation hors connexion]	
 * [Xamarin Android : activer la synchronisation hors connexion]
-* [Windows 8.1 : activer la synchronisation hors connexion]	
+* [Windows 8.1 : activer la synchronisation hors connexion]
 
 ## Qu’est-ce qu’une table de synchronisation ?
 
@@ -121,10 +122,11 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 
 <!-- Links -->
 
+[Android : activer la synchronisation hors connexion]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS : activer la synchronisation hors connexion]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS : activer la synchronisation hors connexion]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android : activer la synchronisation hors connexion]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

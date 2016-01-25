@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # Créer un cluster de calcul haute performance (HPC) dans les machines virtuelles Azure avec le script de déploiement du HPC Pack IaaS
@@ -36,10 +36,10 @@ Pour des informations générales sur la planification d’un cluster HPC Pack, 
 * **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affecteront le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
 
-* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou version ultérieure installé et configuré**. Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Le script s’exécute dans Azure Service Management.
+* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou version ultérieure installé et configuré**. Consultez [Installer et configurer Azure PowerShell](../powershell-install-configure.md). Le script s’exécute dans Azure Service Management.
 
 
-* **Script de déploiement du HPC Pack IaaS** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 du script.
+* **Script de déploiement du HPC Pack IaaS** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 du script.
 
 * **Fichier de configuration de script** : vous devez créer un fichier XML qui sera utilisé par le script pour configurer le cluster HPC. Pour obtenir plus d’informations et des exemples, consultez les sections appropriées, plus loin dans cet article.
 
@@ -69,13 +69,13 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 * **NoCleanOnFailure** (facultatif) : spécifie que les machines virtuelles Azure qui n’ont pas été correctement déployées ne soient pas supprimées. Vous devez supprimer manuellement ces machines virtuelles avant de réexécuter le script pour poursuivre le déploiement, sinon le déploiement peut échouer.
 
-* **PSSessionSkipCACheck** (facultatif) : pour chaque service cloud avec des machines virtuelles déployées par ce script, un certificat auto-signé est automatiquement généré par Azure, et toutes les machines virtuelles du service cloud utilisent ce certificat en tant que certificat Windows Remote Management (WinRM) par défaut. Pour déployer des fonctionnalités HPC dans ces machines virtuelles Azure, le script par défaut installe temporairement ces certificats dans le magasin Ordinateur local\\Autorités de certification racines de confiance de l’ordinateur client pour supprimer l’erreur de sécurité d’autorité de certification non approuvée pendant l’exécution du script ; les certificats sont supprimés lorsque le script se termine. Si ce paramètre est spécifié, les certificats ne sont pas installés sur l’ordinateur client et l’avertissement de sécurité est supprimé.
+* **PSSessionSkipCACheck** (facultatif) : pour chaque service cloud avec des machines virtuelles déployées par ce script, un certificat auto-signé est automatiquement généré par Azure, et toutes les machines virtuelles du service cloud utilisent ce certificat en tant que certificat Windows Remote Management (WinRM) par défaut. Pour déployer des fonctionnalités HPC dans ces machines virtuelles Azure, le script par défaut installe temporairement ces certificats dans le magasin Ordinateur local\\Autorités de certification racines de confiance de l’ordinateur client pour supprimer l’erreur de sécurité d’autorité de certification non approuvée pendant l’exécution du script ; les certificats sont supprimés quand le script se termine. Si ce paramètre est spécifié, les certificats ne sont pas installés sur l’ordinateur client et l’avertissement de sécurité est supprimé.
 
     >[AZURE.IMPORTANT]Ce paramètre n’est pas recommandé pour les déploiements de production.
 
 ### Exemple
 
-L’exemple suivant crée un nouveau cluster HPC Pack à l’aide du fichier de configuration MyConfigFile.xml et spécifie les informations d’identification d’administration pour l’installation du cluster.
+L’exemple suivant crée un nouveau cluster HPC Pack à l’aide du fichier de configuration *MyConfigFile.xml* et spécifie les informations d’identification d’administration pour l’installation du cluster.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -83,10 +83,9 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### Considérations supplémentaires
 
-* Le script utilise l’image de machine virtuelle HPC Pack dans Azure Marketplace pour créer le nœud principal du cluster. L’image actuelle est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
+* Le script utilise l’image de machine virtuelle HPC Pack dans Azure Marketplace pour créer le nœud principal du cluster. La dernière image est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
 
 * Le script peut éventuellement activer la soumission de travaux via le portail web HPC Pack ou l’API REST du HPC Pack.
-
 
 * Le script peut éventuellement exécuter des scripts de pré- et post-configuration personnalisés sur le nœud principal si vous souhaitez installer des logiciels supplémentaires ou configurer d’autres paramètres.
 
@@ -99,7 +98,7 @@ Le fichier de configuration pour le script de déploiement est un fichier XML. L
 
 ### Exemple 1
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée. L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans 3 services cloud et 3 comptes de stockage (c’est-à-dire, MyHPCCN-0001 à MyHPCCN-0005 dans MyHPCCNService01 et mycnstorage01, MyHPCCN-0006 à MyHPCCN0010 dans MyHPCCNService02 et mycnstorage02 et MyHPCCN-0011 à MyHPCCN-0012 dans MyHPCCNService03 et mycnstorage03). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée. L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans 3 services cloud et 3 comptes de stockage (c’est-à-dire, _MyHPCCN-0001_ à _MyHPCCN-0005_ dans _MyHPCCNService01_ et _mycnstorage01_ ; _MyHPCCN-0006_ à _MyHPCCN0010_ dans _MyHPCCNService02_ et _mycnstorage02_ ; et _MyHPCCN-0011_ à _MyHPCCN-0012_ dans _MyHPCCNService03_ et _mycnstorage03_). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 ### Exemple 2
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient 1 nœud principal, 1 serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et 5 nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités MyIBAffinityGroup et tous les autres services cloud sont créés dans le groupe d’affinités MyAffinityGroup. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient 1 nœud principal, 1 serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et 5 nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Tous les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 ### Exemple 3
 
-Le fichier de configuration suivant crée une nouvelle forêt de domaines et le déploiement d’un cluster HPC Pack qui a 1 nœud principal avec des bases de données locales et 20 nœuds de calcul Linux. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul Linux sont créés dans 4 services cloud et 4 comptes de stockage (c’est-à-dire MyLnxCN-0001 à MyHPCCN-0005 dans MyLnxCNService01 et mylnxstorage01, MyLnxCN-0006 à MyLnxCN-0010 dans MyLnxCNService02 et mylnxstorage02, MyLnxCN-0011 à MyLnxCN-0015 dans MyLnxCNService03 et mylnxstorage03 et MyLnxCN-0016 à MyLnxCN-0020 dans MyLnxCNService04 et mylnxstorage04). Les nœuds de calcul sont créés à partir d’une image Linux OpenLogic CentOS version 7.0.
+Le fichier de configuration suivant crée une nouvelle forêt de domaines et le déploiement d’un cluster HPC Pack qui a 1 nœud principal avec des bases de données locales et 20 nœuds de calcul Linux. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul Linux sont créés dans 4 services cloud et 4 comptes de stockage (c’est-à-dire _MyLnxCN-0001_ à _MyLnxCN-0005_ dans _MyLnxCNService01_ et _mylnxstorage01_ ; _MyLnxCN-0006_ à _MyLnxCN-0010_ dans _MyLnxCNService02_ et _mylnxstorage02_ ; _MyLnxCN-0011_ à _MyLnxCN-0015_ dans _MyLnxCNService03_ et _mylnxstorage03_ ; et _MyLnxCN-0016_ à _MyLnxCN-0020_ dans _MyLnxCNService04_ et _mylnxstorage04_). Les nœuds de calcul sont créés à partir d’une image Linux OpenLogic CentOS version 7.0.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un
 
 ### Exemple 5
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure AzureTemplate1. Un fichier de script s’exécutera sur le nœud principal après la configuration de ce dernier.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure _AzureTemplate1_. Un fichier de script s’exécutera sur le nœud principal après la configuration de ce dernier.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 * Essayez les outils de HPC Pack pour démarrer, arrêter, ajouter et supprimer des nœuds de calcul à partir d’un cluster que vous créez. Consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-node-manage.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/18/2015" 
+	ms.date="01/11/2016" 
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search
@@ -29,85 +29,30 @@ Une autre approche pour les développeurs .NET consiste à utiliser le Kit de d�
 > [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un [abonnement Azure](../includes/free-trial-note.md). Si vous n'êtes pas prêt à souscrire un abonnement d'essai, vous pouvez ignorer ce didacticiel et opter pour [Tester Azure App Service](https://tryappservice.azure.com/) à la place. Cette option de remplacement vous propose Azure Search avec une application Web ASP.NET gratuitement, une heure par session, sans abonnement obligatoire.
  
 <a id="sub-1"></a>
-## Démarrage avec le service gratuit
+## Créer un service Azure Search
 
 En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnement existant gratuitement lorsque vous choisissez le service partagé, ou à un tarif réduit lorsque vous choisissez des ressources dédiées.
 
-Les abonnés bénéficient automatiquement d'un accès gratuit à un service de recherche mutualisé et partagé pouvant être utilisé à des fins d'apprentissage, de tests de validation technique ou de projets de recherche de faible envergure. Inscrivez-vous pour accéder à la version gratuite :
+Les abonnés bénéficient automatiquement d'un accès gratuit à un service de recherche mutualisé et partagé pouvant être utilisé à des fins d'apprentissage, de tests de validation technique ou de projets de recherche de faible envergure.
 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com) à l’aide de votre abonnement existant. Notez que cette URL vous donne accès au portail. L’utilisation du portail est obligatoire. 
+Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement existant. Pour suivre des instructions pas-à-pas, consultez [Créer un service Azure Search dans le portail](search-create-service-portal.md).
 
-2. Cliquez sur **Nouveau** en haut de la page.
- 
-  	![][6]
+## Obtenir une clé API et l’URL du service
 
-3. Cliquez sur **Stockage + Données** | **Search**.
+Une fois le service créé, vous pouvez revenir aux paramètres de configuration pour obtenir l’URL et les clés API. Les connexions à votre service Search requièrent que vous disposiez de l'URL et d'une clé API pour authentifier l'appel. Voici comment trouver ces valeurs rapidement :
 
-	- Tapez le nom de service en minuscules à utiliser dans l'URL du service, sans espaces, et avec au maximum 15 caractères.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search approvisionnés pour votre abonnement.
+3. Sélectionnez le service que vous souhaitez utiliser.
+4.	Dans le tableau de bord du service, vous voyez des vignettes pour **PROPRIÉTÉS** et **CLÉS**, et des informations sur l'utilisation permettant de vérifier rapidement la façon dont les ressources sont utilisées. 
 
-	- Cliquez sur la flèche dans **Niveau de tarification** pour choisir un plan tarifaire. Choisissez **GRATUIT**, puis cliquez sur **CHOISIR** en bas de la page. La version gratuite offre une capacité suffisante pour essayer les didacticiels et écrire du code de validation technique, mais n'est pas destinée aux applications de production.
-
-	- Cliquez sur la flèche dans **Groupe de ressources** pour choisir un groupe existant ou en créer un. Les groupes de ressources sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
-
-	- Cliquez sur la flèche dans **Abonnement** si vous disposez de plusieurs abonnements et que vous voulez en utiliser un autre pour ce service de recherche.
-
-	- Cliquez sur la flèche dans **Emplacement** pour choisir une région de centre de données. Dans cette version préliminaire, vous pouvez choisir entre Ouest des États-Unis, Est des États-Unis, Europe du Nord et Asie du Sud-Est. Plus tard, lorsque d'autres régions seront en ligne, vous choisirez une région pour le service que vous créez. La distribution de ressources dans plusieurs centres de données n'est pas une configuration prise en charge pour la version préliminaire publique.
-
-4. Cliquez sur **CRÉER** pour approvisionner le service. Notez que **CRÉER** est activé uniquement après avoir renseigné toutes les valeurs requises.
-
-Attendez quelques minutes que le service soit créé. Vous pouvez revenir aux paramètres de configuration pour obtenir l'URL ou les clés API. Les connexions à votre service Search requièrent que vous disposiez de l'URL et d'une clé API pour authentifier l'appel. Voici comment trouver ces valeurs rapidement :
-
-14. Accédez à l'**Accueil** pour ouvrir le tableau de bord. Cliquez sur le service de recherche pour ouvrir le tableau de bord du service. 
-
-  	![][13]
-
-15.	Dans le tableau de bord du service, vous voyez des vignettes pour **PROPRIÉTÉS** et **CLÉS**, et des informations sur l'utilisation permettant de vérifier rapidement la façon dont les ressources sont utilisées.
-
-Passez au [Test des opérations de service](#sub-3) pour des informations sur la façon de se connecter au service au moyen de ces valeurs.
-
-<a id="sub-2"></a>
-## Passage à la recherche standard
-
-La recherche standard vous permet d'accéder à des ressources dédiées dans un centre de données Azure réservé à votre seul usage. Les charges de travail de recherche nécessitent à la fois des réplicas de stockage et de service. Lorsque vous vous inscrivez à une recherche standard, vous pouvez optimiser la configuration du service pour utiliser une plus grande partie de la ressource qui est la plus importante pour votre scénario.
-
-Le fait de disposer de davantage de ressources dédiées vous offre davantage de possibilités en matière de mise à l'échelle ainsi que de meilleures performances, mais pas de fonctionnalités supplémentaires. La recherche partagée et la recherche standard offrent toutes deux les mêmes fonctionnalités.
-
-Pour utiliser la recherche standard, créez un service Search, en choisissant le niveau de tarification Standard. Notez que la mise à niveau n'est pas une mise à niveau sur place de la version gratuite. Le passage à l'offre standard, avec son potentiel en matière de mise à l'échelle, requiert un nouveau service. Il vous faudra recharger les index et les documents utilisés par votre application de recherche.
-
-La configuration de ressources dédiées peut prendre du temps (15 minutes ou plus).
-
-**Étape 1 : créer un service avec un niveau de tarification défini sur Standard**
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de votre abonnement existant. 
-
-2. Cliquez sur **Nouveau** en bas de la page.
-
-4. Dans la galerie, cliquez sur **Stockage + Données** | **Recherche**.
-
-7. Définissez les paramètres de configuration du service, puis cliquez sur **CRÉER**
-
-8. dans **Niveau de tarification** pour sélectionner une option de tarification. Choisissez **STANDARD**, puis cliquez sur **CHOISIR** en bas de la page.
-
-**Étape 2 : ajuster les unités de recherche en fonction de l'échelle requise**
-
-La recherche standard commence avec un réplica et une partition, mais elle peut facilement être mise à l'échelle à nouveau à des niveaux de ressource plus élevés.
-
-1.	Une fois le service créé, revenez au tableau de bord des services, puis cliquez sur la vignette **Mettre à l'échelle**.
-
-2.	Utilisez les curseurs pour ajouter des réplicas, des partitions, ou les deux.
-
-Les réplicas et les partitions supplémentaires sont facturés en unités de recherche. Le nombre total d'unités de recherche requises pour prendre en charge une configuration de ressource particulière s'affiche sur la page, à mesure que vous ajoutez des ressources.
-
-Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](search-limits-quotas-capacity.md) pour savoir comment configurer des combinaisons de partitions et de réplicas.
-
- ![][15]
 
 <a id="sub-3"></a>
 ## Test des opérations de service
 
-La dernière étape de la configuration de Search consiste à confirmer que votre service est opérationnel et accessible à partir d'une application cliente. Cette procédure utilise Fiddler, disponible en tant que [téléchargement à partir de Telerik](http://www.telerik.com/fiddler), pour émettre des demandes HTTP et afficher les réponses. Avec Fiddler, vous pouvez tester l'API immédiatement, sans avoir à écrire du code.
+En guise d’étape de validation, testez si votre service est opérationnel et accessible à partir d’une application cliente. Cette procédure utilise Fiddler, disponible en tant que [téléchargement à partir de Telerik](http://www.telerik.com/fiddler), pour émettre des demandes HTTP et afficher les réponses. Avec Fiddler, vous pouvez tester l'API immédiatement, sans avoir à écrire du code.
 
-La procédure suivante fonctionne à la fois pour la recherche partagée et la recherche standard. Dans la procédure ci-dessous, vous allez créer un index, télécharger des documents, interroger l'index, puis interroger le système pour obtenir des informations de service.
+Dans la procédure ci-dessous, vous allez créer un index, télécharger des documents, interroger l'index, puis interroger le système pour obtenir des informations de service.
 
 ### Création d'un index
 
@@ -378,4 +323,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

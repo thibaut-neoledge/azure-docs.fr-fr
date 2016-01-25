@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Association d’un disque de données à une machine virtuelle Linux
@@ -22,13 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel. Cet article fait référence aux machines virtuelles créées à l'aide du modèle de déploiement classique.
+Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
 > [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, celle-ci possède un disque de système d'exploitation et un disque temporaire. **N’utilisez pas le disque temporaire pour stocker les données.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure. Le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, un disque de données peut être nommé par le noyau Linux par exemple en `/dev/sdc`, et les utilisateurs devront partitionner, formater et monter cette ressource. Consultez le [Guide de l’utilisateur de l’Agent Linux Azure][Agent] pour plus d’informations.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Initialisation d’un nouveau disque de données dans Linux
+
+Vous pouvez utiliser les mêmes instructions pour initialiser plusieurs disques de données en utilisant l’identificateur d’appareil approprié, comme indiqué ci-dessous.
 
 1. Connexion à la machine virtuelle. Pour plus d’informations, consultez la page [Connexion à une machine virtuelle exécutant Linux][Logon].
 
@@ -86,7 +88,7 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 	![Créer un appareil](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Lorsque vous y êtes invité, tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre.
+5. Lorsque vous y êtes invité, tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre. Sur certains systèmes, il est possible que les valeurs par défaut des premier et dernier secteurs s’affichent à la place de celles du cylindre. Vous pouvez choisir d’accepter ces valeurs par défaut.
 
 
 	![Créer une partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -105,7 +107,7 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 	![Écrire les modifications apportées au disque](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. Créez le système de fichiers sur la nouvelle partition. Par exemple, entrez la commande suivante, puis le mot de passe du compte :
+8. Créez le système de fichiers sur la nouvelle partition. Ajoutez le numéro de partition (1) à l’ID de l’appareil. Par exemple, entrez la commande suivante, puis le mot de passe du compte :
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -160,7 +162,9 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 	Si la commande `mount` génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte. Si des lecteurs de données ou partitions supplémentaires sont créés, vous devez également les ajouter séparément au fichier /etc/fstab.
 
-	Vous devez déverrouiller le lecteur à l'aide des commandes suivantes : # cd /datadrive # sudo chmod go+w /datadrive
+	Utilisez cette commande pour rendre le lecteur accessible en écriture :
+
+		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. S’il s’agit d’une occurrence courante, la plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait` qui permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
 
@@ -175,4 +179,4 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

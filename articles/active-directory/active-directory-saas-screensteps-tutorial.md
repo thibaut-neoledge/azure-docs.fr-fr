@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à ScreenSteps
@@ -111,7 +111,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
     2.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Log out URL**.
-    3.  Cliquez sur **Choose a file**, puis chargez le certificat téléchargé.
+    3.  Cliquez sur **Choisir un fichier**, puis chargez le certificat téléchargé.
     4.  Cliquez sur **Update**.
 
 11. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -167,4 +167,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

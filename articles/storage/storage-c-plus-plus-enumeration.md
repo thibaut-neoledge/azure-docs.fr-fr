@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Listage des ressources Azure Storage avec la bibliothèque cliente Microsoft Azure Storage pour C++ | Microsoft Azure" 
-    description="Apprenez à utiliser les API de listage de la bibliothèque cliente Microsoft Azure Storage pour C++ pour énumérer conteneurs, objets blob, files d'attente, tables et autres entités." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="Listage des ressources Azure Storage avec la bibliothèque cliente Microsoft Azure Storage pour C++ | Microsoft Azure"
+    description="Apprenez à utiliser les API de listage de la bibliothèque cliente Microsoft Azure Storage pour C++ pour énumérer conteneurs, objets blob, files d'attente, tables et autres entités."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Listage des ressources Azure Storage en C++
 
@@ -54,7 +54,7 @@ Il est donc impossible de lister tous les objets dans une même réponse. En rev
 
 La réponse à une opération de listage segmenté comporte les éléments suivants :
 
--	<i>\_segment</i>, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ; 
+-	<i>\_segment</i>, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ;
 -	*continuation\_token* (jeton de liaison), qui est transmis à l'appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
 
 Par exemple, un appel type destiné à lister tous les objets blob présents dans un conteneur peut ressembler à l'extrait de code suivant. Le code est disponible dans nos [exemples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp) :
@@ -75,15 +75,15 @@ Par exemple, un appel type destiné à lister tous les objets blob présents dan
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 Notez que le nombre de résultats retournés dans une page peut être contrôlé par le paramètre *max\_results* au niveau de la surcharge de chaque API, par exemple :
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 Si vous ne spécifiez pas le paramètre *max\_results*, le nombre de résultats retournés dans une seule page peut atteindre 5 000 résultats, soit la valeur maximale par défaut.
@@ -124,7 +124,7 @@ Vous avez tout intérêt à modifier votre code de façon à utiliser les API de
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -184,4 +184,4 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 -	[Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sous Linux
@@ -196,16 +196,7 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
 	* __Interface storm__ : utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur Storm.
 
-		1. [Créez un tunnel SSH vers le cluster et ouvrez l’interface utilisateur du web Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
-
-		2. Dans la liste des services, à gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __Storm UI__ dans __Quick Links__.
-
-
-			![Saisie de l’interface utilisateur Storm dans liens rapides](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			L’interface utilisateur de Storm s’affiche :
-
-			![l’interface utilisateur Storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. Ouvrez __https://CLUSTERNAME.azurehdinsight.net/stormui__ dans votre navigateur web, où CLUSTERNAME est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
 
 		3. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton __Rééquilibrer__. Saisissez le délai avant l’opération de rééquilibrage.
 
@@ -256,4 +247,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

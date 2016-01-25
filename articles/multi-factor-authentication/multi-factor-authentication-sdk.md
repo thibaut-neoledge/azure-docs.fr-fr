@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
@@ -33,7 +33,7 @@ Comme les API n'ont pas accès aux utilisateurs enregistrés dans Azure Active D
 
 ## Téléchargement du SDK Azure Multi-Factor Authentication 
 
-Vous pouvez télécharger le SDK Azure Multi-Factor Authentication de deux manières différentes. Les deux sont exécutées via le portail Azure. La première consiste à gérer le fournisseur d'authentification multifacteur directement. La seconde utilise les paramètres du service. La seconde option requiert un fournisseur d'authentification multifacteur ou une licence Azure AD Premium.
+Vous pouvez télécharger le SDK Azure Multi-Factor Authentication de deux manières différentes. Les deux sont exécutées via le portail Azure. La première consiste à gérer le fournisseur d'authentification multifacteur directement. La seconde utilise les paramètres du service. La seconde option exige un fournisseur d’authentification multifacteur ou une licence Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.
 
 
 ### Pour télécharger le SDK Azure Multi-Factor Authentication à partir du portail Azure
@@ -58,7 +58,7 @@ Vous pouvez télécharger le SDK Azure Multi-Factor Authentication de deux man
 3. Double-cliquez sur votre instance d'Azure AD.
 4. En haut de la page, cliquez sur **Configurer**
 5. Sous Authentification multifacteur, sélectionnez **Gérer les paramètres du service** ![Télécharger](./media/multi-factor-authentication-sdk/download2.png)
-6. Au bas de la page Paramètres du service, cliquez sur **Accéder au portail**. ![Télécharger](./media/multi-factor-authentication-sdk/download3.png)
+6. Au bas de la page Paramètres du service, cliquez sur **Accéder au portail**. ![Télécharger](./media/multi-factor-authentication-sdk/download3a.png)
 7. Une nouvelle page apparaît. En bas à gauche, cliquez sur SDK.
 8. Sélectionnez la langue souhaitée, puis cliquez sur l'un des liens de téléchargement associés.
 9. Enregistrez le fichier téléchargé.
@@ -191,4 +191,4 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 	    }
 	}
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -61,7 +61,7 @@ Félicitations. Vous avez correctement conçu et exécuté votre première appli
 ### Autres opérations de mise à l’échelle élastique
 
 1. **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est fournie via l’**outil de fractionnement/fusion**. Vous trouverez plus d’informations sur cet outil ici : [Présentation de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Coût
@@ -98,4 +98,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

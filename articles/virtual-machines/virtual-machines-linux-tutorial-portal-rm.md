@@ -20,11 +20,11 @@
 # Création d’une machine virtuelle exécutant Windows dans le portail Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -65,7 +65,7 @@ Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par dé
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]Vous pouvez également choisir l’authentification par nom d’utilisateur/mot de passe ici et saisir ces informations si vous ne souhaitez pas sécuriser votre session **ssh** par échange de clés publique et privée.
+	> [AZURE.NOTE]Vous pouvez également choisir l’authentification par nom d’utilisateur/mot de passe ici et saisir ces informations ici si vous ne souhaitez pas sécuriser votre session **ssh** par échange de clés publique et privée.
 
 2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d'autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l’image que vous choisissez. Une fois que vous avez terminé, cliquez sur ![sélectionner le bouton](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
 
@@ -138,4 +138,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

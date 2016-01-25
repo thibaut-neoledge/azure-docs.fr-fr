@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble de l’installation de Tâches de bases de données élastiques
+
 Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-overview.md) peuvent être installées à l’aide de PowerShell ou du portail Azure Classic. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
 Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
@@ -33,7 +34,7 @@ Si vous avez déjà installé **Tâches de bases de données élastiques** via l
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    Les fichiers **Tâches de bases de données élastiques** sont placés dans un dossier du répertoire local nommé **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** où *x.x.xxxx.x* correspond au numéro de version. Les applets de commande PowerShell (y compris les .dll clients requis) se trouvent dans le sous-répertoire **tools\\ElasticDatabaseJobs** et les scripts PowerShell d'installation, de mise à niveau et de désinstallation résident également dans le sous-répertoire **tools**.
+    Les fichiers **Tâches de bases de données élastiques** sont placés dans un dossier du répertoire local nommé **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** où *x.x.xxxx.x* correspond au numéro de version. Les applets de commande PowerShell (y compris les .dll clients requis) se trouvent dans le sous-répertoire **tools\\ElasticDatabaseJobs** et les scripts PowerShell d’installation, de mise à niveau et de désinstallation résident également dans le sous-répertoire **tools**.
 
 3. Accédez au sous-répertoire tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x en tapant cd tools, par exemple :
 
@@ -150,7 +151,7 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 
 ## Installez les composants de Tâches de bases de données élastiques à l'aide du portail
 
-Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécutée que sur un pool existant.
+Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécuté que sur un pool existant.
 
 
 **Durée estimée :** 10 minutes.
@@ -178,13 +179,13 @@ Si la désinstallation est nécessaire, supprimez le groupe de ressources. Consu
 
 ## Étapes suivantes
 
-Vérifiez que les informations d'identification disposant des droits appropriés pour l'exécution du script sont créées sur chaque base de données du groupe. Pour plus d'informations, consultez la rubrique [Ajouter des utilisateurs à toutes les bases de données de mon groupe de bases de données](sql-database-elastic-jobs-add-logins-to-dbs.md). Consultez [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
+Vérifiez que les informations d’identification disposant des droits appropriés pour l’exécution du script sont créées sur chaque base de données du groupe. Pour plus d’informations, consultez [Sécurisation de votre base de données SQL](sql-database-security.md) Consultez [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

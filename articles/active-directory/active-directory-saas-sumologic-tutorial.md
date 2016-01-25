@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à SumoLogic
@@ -106,7 +106,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte **Configuration Name**, entrez **Azure AD**.
     2.  Sélectionnez **Debug Mode**.
-    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur SumoLogic** de la boîte de dialogue, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
+    3.  Dans la page **Configurer l’authentification unique sur SumoLogic** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur**.
     4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur SumoLogic**, copiez la valeur **URL de la requête d’authentification** et collez-la dans la zone de texte **Authn Request URL**.
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
@@ -167,4 +167,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

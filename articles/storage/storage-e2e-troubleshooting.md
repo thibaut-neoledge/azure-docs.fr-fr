@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure Storage, AzCopy et Message Analyzer | Microsoft Azure" 
-	description="Didacticiel illustrant la résolution des problèmes de bout en bout avec Azure Storage Analytics, AzCopy et Microsoft Message Analyzer" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure Storage, AzCopy et Message Analyzer | Microsoft Azure"
+	description="Didacticiel illustrant la résolution des problèmes de bout en bout avec Azure Storage Analytics, AzCopy et Microsoft Message Analyzer"
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer 
@@ -60,7 +60,7 @@ Les exemples ci-dessous présentent un échantillon d'erreurs dans la plage 400 
 
 Notez que les listes ci-dessous sont loin d'être complètes. Pour plus d'informations sur les erreurs générales dans Azure Storage et sur les erreurs propres à chacun des services de stockage, consultez la page [Codes d'état et d'erreur](http://msdn.microsoft.com/library/azure/dd179382.aspx) sur MSDN.
 
-**Exemples de code d'état 404 (Introuvable)**
+**Exemples de code d’état 404 (Introuvable)**
 
 Se produit lorsqu'une opération de lecture sur un conteneur ou un objet blob échoue parce que l'objet blob ou le conteneur est introuvable.
 
@@ -205,7 +205,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 	- **Règles de couleur Azure Storage :** celles-ci permettent de définir des filtres spéciaux qui utilisent des styles de texte, de couleur et de police pour mettre en surbrillance les messages contenant des informations spécifiques dans une trace.
 	- **Graphiques Azure Storage :** il s’agit de représentations graphiques prédéfinies des données du journal du serveur. Notez que pour utiliser des graphiques Azure Storage à ce stade, vous pouvez uniquement charger le journal du serveur dans la grille d'analyse.
 	- **Analyseurs Azure Storage :** ceux-ci analysent les journaux du client, du serveur et HTTP d'Azure Storage pour les afficher dans la grille d'analyse.
-	- **Filtres d'Azure Storage :** il s'agit de critères prédéfinis que vous pouvez utiliser pour interroger vos données dans la grille d'analyse.
+	- **Filtres d’Azure Storage :** il s’agit de critères prédéfinis que vous pouvez utiliser pour interroger vos données dans la grille d’analyse.
 	- **Dispositions de vue Azure Storage :** il s'agit des dispositions de colonnes et des regroupements prédéfinis dans la grille d'analyse.
 4. Redémarrez Message Analyzer après avoir installé les éléments multimédias.
 
@@ -245,7 +245,7 @@ Les sections ci-dessous expliquent comment utiliser des vues avec des dispositio
 
 Les ressources de stockage de Message Analyzer incluent les dispositions de vue Azure Storage, qui sont des vues préconfigurées que vous pouvez utiliser pour afficher vos données avec des regroupements et des colonnes utiles dans différents scénarios. Vous pouvez également créer des dispositions de vue personnalisées et les enregistrer pour pouvoir les réutiliser.
 
-L'illustration ci-dessous présente le menu **Disposition de vue**, auquel vous pouvez accéder en sélectionnant **Disposition de vue** à partir du ruban de la barre d'outils. Les dispositions de vue Azure Storage sont regroupées sous le nœud **Azure Storage** dans le menu. Vous pouvez rechercher `Azure Storage` dans la zone de recherche pour filtrer les disposition de vue et afficher uniquement celles d'Azure Storage. Vous pouvez également sélectionner l'étoile en regard d'une disposition de vue pour l'ajouter aux Favoris et l'afficher au début du menu.
+L'illustration ci-dessous présente le menu **Disposition de vue**, auquel vous pouvez accéder en sélectionnant **Disposition de vue** à partir du ruban de la barre d'outils. Les dispositions de vue Azure Storage sont regroupées sous le nœud **Azure Storage** dans le menu. Vous pouvez rechercher `Azure Storage` dans la zone de recherche pour filtrer les disposition de vue et afficher uniquement celles d’Azure Storage. Vous pouvez également sélectionner l'étoile en regard d'une disposition de vue pour l'ajouter aux Favoris et l'afficher au début du menu.
 
 ![Menu Disposition de vue](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
@@ -273,10 +273,10 @@ Outre les règles de couleur Azure Storage, vous pouvez également définir et e
 
 Nous allons ensuite regrouper et filtrer les données de journal pour rechercher toutes les erreurs dans la plage 400.
 
-1. Recherchez la colonne **StatusCode** dans la grille d'analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Grouper**.
+1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Grouper**.
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId**. Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Sur le ruban de la barre d'outils, sélectionnez **Fenêtres d'outil**, puis **Filtre d'affichage**.
-2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d'affichage**, puis cliquez sur **Appliquer** :
+2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
 
 		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
@@ -364,7 +364,5 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Surveillance d'un compte de stockage](storage-monitor-storage-account.md)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

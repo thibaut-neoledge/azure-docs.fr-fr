@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -67,11 +67,11 @@ Les articles suivants expliquent comment utiliser la Boîte à outils Azure pour
 
 [Nouveautés du kit de ressources Azure pour Eclipse][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Azure avec Java][].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][].
 
 <!-- URL List -->
 
-[Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Propriétés du rôle Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Points de terminaison de service Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
@@ -93,4 +93,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Nouveautés du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

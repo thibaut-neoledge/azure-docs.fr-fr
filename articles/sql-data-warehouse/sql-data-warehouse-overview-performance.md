@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Vue d’ensemble des performances et de la mise à l’échelle
 En plaçant votre solution Data Warehouse dans le cloud, vous éliminez les problématiques matérielles de niveau inférieur. L’époque où vous deviez identifier les types de processeurs, le volume de mémoire et le type de stockage nécessaires à la satisfaction des besoins en performances de votre entrepôt de données est désormais révolue. Aujourd'hui, SQL Data Warehouse vous pose cette question : À quelle vitesse souhaitez-vous analyser vos données ?
@@ -69,7 +69,7 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 [performances et mise à l’échelle]: sql-data-warehouse-performance-scale.md
 [modèle concurrentiel]: sql-data-warehouse-develop-concurrency.md
 [tables de conception]: sql-data-warehouse-develop-table-design.md
-[associer une clé de distribution par hachage à votre table]: sql-data-warehouse-develop-hash-distribution-key
+[associer une clé de distribution par hachage à votre table]: sql-data-warehouse-develop-hash-distribution-key.md
 [statistiques pour améliorer les performances]: sql-data-warehouse-develop-statistics.md
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
@@ -77,4 +77,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

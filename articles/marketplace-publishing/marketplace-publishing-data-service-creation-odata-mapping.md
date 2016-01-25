@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Mappage d’un service web existant à OData via des le langage CSDL
@@ -72,11 +72,11 @@ Permet de définir des fonctions (SPROC) et des entités qui sont exposées via 
 > [AZURE.TIP]Cliquez sur la liste déroulante des **autres versions** et sélectionnez une version l’article ne s’affiche pas.
 
 ### EDM (Entry Data Model)
-- Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
+- Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
 [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
+- Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
 [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Types de données : [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
+- Types de données : [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
 [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Le diagramme suivant présente un flux de gauche à droite détaillé depuis lequel le client entre l’instruction OData (appel au service web du fournisseur de contenu) de récupération des résultats/données.
@@ -301,4 +301,4 @@ L’exemple suivant établit une connexion à un service qui expose une table ou
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016--->

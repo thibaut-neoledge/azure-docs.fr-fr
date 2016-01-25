@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 
@@ -93,19 +93,4 @@ Lors de l’exécution de la commande **azure group deployment create**, vous ê
 
 Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration de domaine Active Directory Domain Services à deux serveurs dans votre nouveau groupe de ressources.
 
-
-## Ressources supplémentaires
-
-[Déployer et gérer des machines virtuelles à l’aide de modèles Azure Resource Manager et d’Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
-
-[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

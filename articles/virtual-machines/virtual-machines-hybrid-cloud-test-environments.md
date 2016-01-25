@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Environnements de test de cloud hybride Azure
@@ -49,14 +49,8 @@ Le [serveur Office 365 DirSync dans un environnement de test de cloud hybride](
 Pour les organisations et les personnes ne disposant pas d’une connexion directe à Internet et d’une adresse IP publique, la [simulation d’environnement de test de cloud hybride](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) génère le réseau local simplifié dans un réseau virtuel Azure distinct et connecte les deux réseaux virtuels à l’aide d’une connexion VPN de réseau virtuel à réseau virtuel.
 
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Passez en revue les [instructions d’implémentation](virtual-machines-infrastructure-services-implementation-guidelines.md) pour concevoir un déploiement de production ou de développement/test personnalisé dans les services d’infrastructure Azure.
 
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

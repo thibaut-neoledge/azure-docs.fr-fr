@@ -3,7 +3,7 @@
 	description="Recherchez les articles qui décrivent l’installation du logiciel Oracle sur les machines virtuelles Azure Windows ou Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="01/12/2016"
+	ms.author="bbenz"/>
 
 # Logiciel Oracle hébergé sur des machines virtuelles Azure
 
@@ -56,4 +56,4 @@ La page [Configuration d’Oracle Data Guard pour Azure](virtual-machines-config
 
 La page [Configuration d’Oracle GoldenGate pour Azure](virtual-machines-configuring-oracle-goldengate.md) vous guide tout au long de l’installation des bases de données et des réplications.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/07/2016"
  ms.author="danlep"/>
 
 # Adapter automatiquement les ressources de calcul Azure dans un cluster HPC Pack en fonction de la charge de travail du cluster
@@ -27,12 +27,14 @@ Si vous déployez des nœuds « d’extension » Azure dans votre cluster HPC 
 
 ## Composants requis
 
-* **Cluster HPC Pack 2012 R2 Update 1 ou version ultérieure** - Le script **AzureAutoGrowShrink.ps1** est installé dans le dossier %CCP\_HOME%bin. Le nœud principal du cluster peut être déployé localement ou dans une machine virtuelle Azure. Pour prendre en main un nœud principal local et des nœuds « d’extension » Azure, consultez [Configurer un cluster hybride avec HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour déployer rapidement un cluster HPC Pack sur des machines virtuelles Azure, consultez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
+* **Cluster HPC Pack 2012 R2 Update 1 ou version ultérieure** - Le script **AzureAutoGrowShrink.ps1** est installé dans le dossier %CCP\_HOME%bin. Le nœud principal du cluster peut être déployé localement ou dans une machine virtuelle Azure. Pour prendre en main un nœud principal local et des nœuds « d’extension » Azure, consultez [Configurer un cluster hybride avec HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour déployer rapidement un cluster HPC Pack sur des machines virtuelles Azure, consultez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) ou utilisez un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+
+* **Azure PowerShell 0.8.12** : le script dépend actuellement de cette version spécifique d’Azure PowerShell. Si vous exécutez une version ultérieure sur le nœud principal, vous devrez peut-être passer à une version antérieure d’Azure PowerShell ([version 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi)) pour exécuter le script.
 
 * **Pour un cluster de nœuds d’extension Azure** : exécutez le script sur un ordinateur client où HPC Pack est installé ou sur le nœud principal. Si vous effectuez l’exécution sur un ordinateur client, définissez la variable $env:CCP\_SCHEDULER de manière à ce qu’elle pointe vers le nœud principal. Les nœuds « d’extension » Azure doivent déjà être ajoutés au cluster, mais ils peuvent être dans l’état Non déployé.
 
 
-* **Pour un cluster déployé sur des machines virtuelles Azure** : exécutez le script sur la machine virtuelle à nœud principal, car il repose sur les scripts **Start-HpcIaaSNode.ps1** et **Stop-HpcIaaSNode.ps1** qui sont installés sur cette machine. En outre, ces scripts nécessitent un certificat de gestion Azure ou un fichier de paramètres de publication (consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Assurez-vous que toutes les machines virtuelles à nœud de calcul dont vous avez besoin sont déjà ajoutées au cluster (elles peuvent être toutefois dans l’état Arrêté).
+* **Pour un cluster déployé sur des machines virtuelles Azure** : exécutez le script sur la machine virtuelle à nœud principal, car il repose sur les scripts **Start-HpcIaaSNode.ps1** et **Stop-HpcIaaSNode.ps1** qui sont installés sur cette machine. En outre, ces scripts nécessitent un certificat de gestion Azure ou un fichier de paramètres de publication (consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Vérifiez que toutes les machines virtuelles à nœud de calcul dont vous avez besoin sont déjà ajoutées au cluster. Elles peuvent être à l’état Arrêté.
 
 ## Syntaxe
 
@@ -102,4 +104,4 @@ L’exemple suivant configure les machines virtuelles à nœud de calcul Azure d
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

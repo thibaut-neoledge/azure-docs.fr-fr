@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -109,7 +109,7 @@ Bien que les appels d’API soient importants, les contraintes de réseau physiq
 
 ####Fonctionnalités réseau du client
 #####<a name="subheading2"></a>Débit
-Dans le cas de la bande passante, le problème est souvent dû aux capacités du client. Par exemple, bien qu’un seul compte de stockage puisse gérer un débit de 10 Gbits/s ou plus en entrée (voir [Objectifs d’extensibilité de bande passante](#sub1bandwidth)), la vitesse réseau d’une petite instance Rôle de travail Azure ne permet qu’un débit d’environ 100 Mbits/s. Dans le cas des instances Azure plus importantes, les cartes réseau présentent une capacité supérieure. Si vous avez besoin de limites réseau plus élevées à partir d’un seul ordinateur, vous devez donc envisager d’utiliser une instance plus grande ou davantage de machines virtuelles. Si vous accédez à un service de stockage à partir d’une application locale, alors la même règle s’applique : comprendre les capacités réseau du périphérique client et la connectivité réseau à l’emplacement de stockage Azure et l’améliorer selon vos besoins ou concevoir votre application conformément à ces capacités.
+Dans le cas de la bande passante, le problème est souvent dû aux capacités du client. Par exemple, bien qu'un seul compte de stockage puisse gérer un débit de 10 Gbits/s ou plus en entrée (voir [Objectifs d'évolutivité de bande passante](#sub1bandwidth)), la vitesse réseau d'une petite instance Rôle de travail Azure ne permet qu'un débit d'environ 100 Mbits/s. Dans le cas des instances Azure plus importantes, les cartes réseau présentent une capacité supérieure. Si vous avez besoin de limites réseau plus élevées à partir d’un seul ordinateur, vous devez donc envisager d’utiliser une instance plus grande ou davantage de machines virtuelles. Si vous accédez à un service de stockage à partir d’une application locale, alors la même règle s’applique : comprendre les capacités réseau du périphérique client et la connectivité réseau à l’emplacement de stockage Azure et l’améliorer selon vos besoins ou concevoir votre application conformément à ces capacités.
 
 #####<a name="subheading3"></a>Qualité de la liaison
 Comme c’est le cas pour toute utilisation du réseau, veuillez tenir compte du fait que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
@@ -176,7 +176,7 @@ Pour plus d’informations, consultez [Méthode ThreadPool.SetMinThreads](http:/
 ####<a name="subheading11"></a>Utilisation du nettoyage de la mémoire de .NET 4.5
 Utilisez .NET 4.5 ou version ultérieure pour que l’application cliente tire parti des améliorations de la fonctionnalité de nettoyage de la mémoire du serveur sur le plan des performances.
 
-Pour plus d’informations, consultez [Présentation des améliorations des performances de .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).
+Pour plus d'informations, consultez l'article [Présentation des améliorations des performances de .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).
 
 ###<a name="subheading12"></a>Parallélisme illimité
 Le parallélisme peut améliorer sensiblement les performances. Soyez toutefois prudent lorsque vous utilisez le parallélisme illimité (nombre de threads et/ou de demandes parallèles illimité) pour charger ou télécharger des données, ou lors de l’utilisation de plusieurs rôles de travail pour accéder à plusieurs partitions (conteneurs, files d’attente ou partitions de table) dans le même compte de stockage ou à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs d’extensibilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.
@@ -197,7 +197,7 @@ Les bibliothèques clientes peuvent faire la distinction entre les erreurs renou
 Pour plus d’informations sur les codes d’erreur de stockage, voir la page [Codes d’état et codes d’erreur](http://msdn.microsoft.com/library/azure/dd179382.aspx) sur le site web Microsoft Azure.
 
 ##Objets blob
-Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s’appliquent spécifiquement au service BLOB.
+Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service BLOB.
 
 ###Objectifs d’extensibilité propres aux objets blob
 ####<a name="subheading16"></a>Bande passante et opérations par objet blob
@@ -216,7 +216,7 @@ Nous attirons votre attention sur le fait que les copies effectuées au sein d�
 Pour plus d’informations, consultez [Copie d’un objet blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Utilisation d’AzCopy
-L’équipe Azure Storage a développé un outil en ligne de commande baptisé « AzCopy », destiné à faciliter le transfert en bloc de nombreux objets blob entre des comptes de stockage. Cet outil est optimisé pour ce scénario et peut générer des taux de transfert élevés. Il est vivement conseillé de l’utiliser pour les opérations de chargement, de téléchargement et de copie en bloc. Pour obtenir plus d’informations sur cet outil et le télécharger, cliquez [ici](storage-use-azcopy.md).
+L’équipe Azure Storage a développé un outil en ligne de commande baptisé « AzCopy », destiné à faciliter le transfert en bloc de nombreux objets blob entre des comptes de stockage. Cet outil est optimisé pour ce scénario et peut générer des taux de transfert élevés. Il est vivement conseillé de l’utiliser pour les opérations de chargement, de téléchargement et de copie en bloc. Pour obtenir plus d'informations sur cet outil et le télécharger, cliquez [ici](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Service Azure Import/Export
 Pour les très gros volumes de données (plus de 1 To), Azure Storage propose le service Import/Export qui permet de transférer et de télécharger des données à partir d’un stockage d’objets blob en expédiant des disques durs. Vous pouvez copier vos données sur un disque dur et l’envoyer à Microsoft en vue du transfert des données, ou envoyer un disque dur vierge à Microsoft en vue de leur téléchargement. Pour plus d’informations à ce sujet, cliquez [ici](storage-import-export-service.md). Cela peut se révéler bien plus pratique que de transférer un tel volume de données sur le réseau.
@@ -246,7 +246,7 @@ Azure Storage prend en charge deux types d’objet blob : *de pages* et *de bl
 Pour en savoir plus, voir [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tables
-Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s’appliquent spécifiquement au service de Table.
+Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service de Table.
 
 ###<a name="subheading24"></a>Objectifs d’extensibilité propres aux tables
 Outre les limitations de bande passante d’un compte de stockage complet, les tables possèdent leur propre limite d’extensibilité. Notez que le système équilibre la charge à mesure que le trafic augmente. Cependant, en cas de salves de trafic, il peut s’avérer impossible d’obtenir immédiatement ce volume de débit. En cas de pic de trafic, une limitation et/ou des délais d’attente risquent de se produire tandis que le service de stockage décharge automatiquement votre table. Une accélération progressive offre généralement de meilleurs résultats, dans la mesure où cela donne au système le temps d’équilibrer la charge de manière appropriée.
@@ -315,7 +315,7 @@ Une requête de partition récupère un jeu de données qui partagent une clé d
 Une requête de table récupère un jeu d’entités ne partageant pas une clé de partition commune. Les requêtes de ce type ne sont pas efficaces et il est conseillé de les éviter dans la mesure du possible.
 
 #####<a name="subheading31"></a>Densité des requêtes
-S’agissant de l’efficacité des requêtes, un autre facteur important est le nombre d’entités renvoyées par rapport au nombre d’entités analysées pour obtenir le jeu renvoyé. Si votre application effectue une requête de table avec un filtre pour une valeur de propriété partagée par seulement 1 % des données, la requête analyse 100 entités pour chaque entité renvoyée. Les objectifs d’extensibilité de table abordés précédemment sont liés au nombre d’entités analysées et non au nombre d’entités retournées : une densité de requête faible peut facilement générer un service de table qui limite votre application, car il convient d’analyser de nombreuses entités pour récupérer l’entité que vous recherchez. Pour savoir comment éviter ce problème, voir la section traitant de la [dénormalisation](#subheading34) ci-après.
+S’agissant de l’efficacité des requêtes, un autre facteur important est le nombre d’entités renvoyées par rapport au nombre d’entités analysées pour obtenir le jeu renvoyé. Si votre application effectue une requête de table avec un filtre pour une valeur de propriété partagée par seulement 1 % des données, la requête analyse 100 entités pour chaque entité renvoyée. Les objectifs d’extensibilité de table abordés précédemment sont liés au nombre d’entités analysées et non au nombre d’entités retournées : une densité de requête faible peut facilement générer un service de table qui limite votre application, car il convient d’analyser de nombreuses entités pour récupérer l’entité que vous recherchez. Pour savoir comment éviter ce problème, consultez la section traitant de la [dénormalisation](#subheading34) ci-après.
 
 #####Limitation du volume de données renvoyé
 ######<a name="subheading32"></a>Filtrage
@@ -334,7 +334,7 @@ Cette section décrit les pratiques éprouvées concernant la modification des e
 Dans Azure Storage, les transactions par lots sont connues sous le nom de transactions de groupe d’entités (ETG) ; toutes les opérations d’une ETG doivent être effectuées dans une partition unique d’une seule table. Lorsque cela s’avère possible, utilisez des ETG pour effectuer des opérations d’insertion, de mise à jour et de suppression par lots. Cela réduit le nombre d’allers-retours entre votre application cliente et le serveur, ainsi que le nombre de transactions facturables (une ETG est comptabilisée comme une seule transaction à des fins de facturation et peut contenir 100 opérations de stockage), et autorise les mises à jour atomiques (dans une ETG, toutes les opérations réussissent ou échouent). L’utilisation des ETG peut apporter des avantages non négligeables dans les environnements où les temps de latence sont élevés, tels que les appareils mobiles.
 
 #####<a name="subheading36"></a>Opération Upsert
-Lorsque cela s’avère possible, il est conseillé d’utiliser des opérations de table **Upsert**. Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces qu’une opération **Insert** et **Update** classique :
+Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert**. Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces qu’une opération **Insert** et **Update** classique :
 
 -	**InsertOrMerge** : utilisez cette opération lorsque vous souhaitez télécharger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
 -	**InsertOrReplace** : utilisez cette opération lorsque vous souhaitez télécharger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Ne l’utilisez que lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité téléchargée, car elle écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.
@@ -342,7 +342,7 @@ Lorsque cela s’avère possible, il est conseillé d’utiliser des opérations
 #####<a name="subheading37"></a>Stockage de séries de données dans une seule entité
 Parfois, une application stocke une série de données fréquemment nécessaires pour tout récupérer à la fois : par exemple, une application peut suivre l’utilisation du processeur au fil du temps pour tracer un graphique propagée des données à partir des dernières 24 heures. Une méthode consiste à disposer d’une entité de table par heure, chaque entité représentant alors une heure donnée et stockant l’utilisation du processeur au cours de cette période. Pour représenter ces données sur un graphique, l’application doit récupérer les entités qui contiennent les données des 24 dernières heures.
 
-Sinon, votre application peut stocker l’utilisation du processeur pour chaque heure sous la forme d’une propriété distincte d’une entité unique : pour mettre à jour chaque heure, votre application peut utiliser un seul appel **InsertOrMerge Upsert** pour mettre à jour la valeur de la dernière heure. Pour représenter les données sur un graphique, l’application doit récupérer une seule entité au lieu de 24, générant ainsi une requête très efficace (reportez-vous à la section traitant de l’[étendue de requête](#subheading30) ci-dessus).
+Sinon, votre application peut stocker l'utilisation du processeur pour chaque heure sous la forme d'une propriété distincte d'une entité unique : pour mettre à jour chaque heure, votre application peut utiliser un seul appel **InsertOrMerge Upsert** pour mettre à jour la valeur de la dernière heure. Pour représenter les données sur un graphique, l’application doit récupérer une seule entité au lieu de 24, générant ainsi une requête très efficace (reportez-vous à la section traitant de l’[étendue de requête](#subheading30) ci-dessus).
 
 #####<a name="subheading38"></a>Stockage de données structurées dans des objets blob
 Les données structurées donnent parfois l’impression qu’elles devraient être placées dans les tables. Cependant, les plages d’entités sont toujours récupérées ensemble et peuvent être insérées par lots. À cet égard, un fichier journal constitue un parfait exemple. Dans ce cas, vous pouvez regrouper plusieurs minutes de journalisation et les insérer. Vous récupérez alors plusieurs minutes de journalisation à la fois. Dans une optique de performances, il est préférable d’utiliser des objets blob plutôt que des tables, dans la mesure où vous pouvez réduire de manière significative le nombre d’objets écrits/renvoyés, ainsi que, généralement, le nombre de demandes qui doivent être effectuées.
@@ -362,13 +362,13 @@ Les performances et l’extensibilité des files d’attente diminuent quand la 
 ###<a name=subheading42"></a>Récupération par lots
 Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une seule opération. Cela contribue à réduire le nombre d’allers-retours avec l’application cliente, ce qui s’avère particulièrement utile pour les environnements où les temps de latence sont élevés, tels que les appareils mobiles.
 
-###<a name=subheading43"></a>Intervalle d’interrogation de file d’attente
+###<a name=subheading43"></a>Intervalle d'interrogation de file d'attente
 La plupart des applications interrogent une file d’attente pour les messages, ce qui peut représenter l’une des plus grandes sources de transactions pour cette application. Sélectionnez votre intervalle d’interrogation avec soin : une interrogation trop fréquente pourrait entraîner un rapprochement des objectifs d’extensibilité pour la file d’attente. Toutefois, à 200 000 transactions à 0,01 $ (au moment de la rédaction), un seul processeur interrogeant une fois par seconde pendant un mois reviendrait à moins de 15 cents. Le prix n’est donc généralement pas un facteur qui affecte le choix de l’intervalle d’interrogation.
 
 Pour plus d’informations relatives au coût, voir la page [Tarification-Stockage](http://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
-Vous pouvez utiliser l’opération **UpdateMessage** pour augmenter le délai d’expiration de l’invisibilité ou pour mettre à jour les informations d’état d’un message. Bien que l’opération **UpdateMessage** soit particulièrement puissante, n’oubliez pas que chacune d’elles est comptabilisée dans le cadre de l’objectif d’extensibilité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.
+Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.
 
 Pour plus d’informations, voir l’article [Modification du contenu d’un message en file d’attente](../storage-dotnet-how-to-use-queues/#change-contents).
 
@@ -382,4 +382,4 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

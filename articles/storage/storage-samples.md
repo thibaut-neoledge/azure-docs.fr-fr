@@ -1,24 +1,28 @@
 <properties
    pageTitle="Exemples relatifs à Microsoft Azure Storage | Microsoft Azure"
-   description="Affichez, téléchargez et exploitez les exemples relatifs à Microsoft Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++."
+   description="Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++."
    services="storage"
    documentationCenter="na"
    authors="tamram"
    manager="na"
-   editor="na" />
+   editor="tysonn" />
 <tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/01/2015"
+   ms.date="01/06/2016"
    ms.author="tamram" />
 
 # Exemples relatifs à Microsoft Azure Storage
 
 ## Vue d'ensemble
 Utilisez les liens ci-dessous pour afficher et télécharger des exemples d’utilisation de Microsoft Azure Storage.
+
+## Bibliothèque d’exemples de code Azure
+
+La [bibliothèque d’exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage) comprend des exemples relatifs à Azure Storage que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
 
 ## Exemples relatifs à .NET
 
@@ -81,4 +85,4 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 - [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
 - [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/14/2016"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur Lotus Domino
@@ -344,7 +344,7 @@ La base de données de réservation de ressources contient 3 types de documents
 - Ressource
 - Réservation
 
-Pour plus d’informations sur la configuration de la base de données de réservation de ressources, consultez [Configuration de la base de données de réservation de ressources](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html).
+Pour plus d’informations sur la configuration de la base de données de réservation de ressources, consultez [Configuration de la base de données de réservation de ressources](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Créer, mettre à jour et supprimer des documents Ressource**
 
@@ -477,15 +477,15 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 **Approche 1 : Étendre le schéma Lotus Domino**
 
-1. Créez une copie du modèle d’annuaire Domino <PUBNAMES.NTF> en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (vous ne devez pas personnaliser le modèle d’annuaire IBM Lotus Domino par défaut) :
-2. Ouvrez la copie du modèle d’annuaire Domino <CONTOSO.NTF> que vous venez de créer dans Domino Designer et suivez les étapes ci-après :
+1. Créez une copie du modèle d’annuaire Domino {PUBNAMES.NTF} en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (vous ne devez pas personnaliser le modèle d’annuaire IBM Lotus Domino par défaut) :
+2. Ouvrez la copie du modèle d’annuaire Domino {CONTOSO.NTF} que vous venez de créer dans Domino Designer et suivez les étapes ci-après :
     - Cliquez sur Shared Elements et développez Subforms.
-    - Double-cliquez sur le sous-formulaire $[ObjectName]InheritableSchema (où [ObjectName] est le nom de la classe d’objets structurelle par défaut, p. ex. : Person).
-    - Nommez l’attribut que vous souhaitez ajouter dans le schéma [MyPersonAttribute] et, en correspondance, créez un champ en sélectionnant le menu Create, puis Field dans le menu.
+    - Double-cliquez sur le sous-formulaire ${ObjectName}InheritableSchema (où {ObjectName} est le nom de la classe d’objets structurelle par défaut, p. ex. : Person).
+    - Nommez l’attribut que vous voulez ajouter dans le schéma {MyPersonAttribute} et, en correspondance, créez un champ en sélectionnant le menu Create, puis Field dans le menu.
     - Dans le champ ajouté, définissez les propriétés en sélectionnant le type, le style, la taille, la police et d’autres paramètres associés dans la fenêtre des propriétés du champ.
     - Laissez la valeur par défaut de l’attribut identique au nom donné à cet attribut (p. ex., si le nom de l’attribut est MyPersonAttribute, conservez ce nom pour la valeur par défaut).
-    - Enregistrez le sous-formulaire $[ObjectName]InheritableSchema avec les valeurs mises à jour.
-3. Remplacez le modèle d’annuaire Domino <PUBNAMES.NTF> par le nouveau modèle personnalisé [CONTOSO. NTF] en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+    - Enregistrez le sous-formulaire ${ObjectName}InheritableSchema avec les valeurs mises à jour.
+3. Remplacez le modèle d’annuaire Domino {PUBNAMES.NTF} par le nouveau modèle personnalisé {CONTOSO.NTF} en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Fermez l’administrateur Domino et ouvrez la console Domino pour redémarrer le service LDAP et recharger le schéma LDAP :
     - Dans la console Domino, insérez la commande sous **Domino Command** pour redémarrer le service LDAP - [Redémarrer la tâche LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Pour recharger le schéma LDAP, utilisez la commande « Tell LDAP » - « Tell LDAP ReloadSchema ».
@@ -494,8 +494,8 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 **Approche 2 : Créer une auxClass avec l’attribut personnalisé et l’associer à la classe d’objets**
 
-1. Créez une copie du modèle d’annuaire Domino [PUBNAMES.NTF] en suivant [cette procédure]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html (ne personnalisez jamais le modèle d’annuaire IBM Lotus Domino par défaut) :
-2. Ouvrez la copie du modèle d’annuaire Domino [CONTOSO.NTF] que vous venez de créer dans Domino Designer.
+1. Créez une copie du modèle d’annuaire Domino {PUBNAMES.NTF} en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (ne personnalisez jamais le modèle d’annuaire IBM Lotus Domino par défaut) :
+2. Ouvrez la copie du modèle d’annuaire Domino {CONTOSO.NTF} que vous venez de créer dans Domino Designer.
 3. Dans le volet de gauche, sélectionnez Shared Code, puis Subforms.
 4. Cliquez sur New Subform.
 5. Procédez comme suit pour spécifier les propriétés du nouveau sous-formulaire :
@@ -508,16 +508,16 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 6. Procédez comme suit pour ajouter un champ afin de définir la classe d’objets auxiliaire :
     - Ouvrez le sous-formulaire que vous venez de créer.
     - Sélectionnez Create, Field.
-    - En regard de Name dans l’onglet Basics de la boîte de dialogue Field, spécifiez le nom de votre choix, par exemple: [MyPersonTestAttribute].
+    - En regard de Name sous l’onglet Basics de la boîte de dialogue Field, spécifiez le nom de votre choix, par exemple : {MyPersonTestAttribute}.
     - Dans le champ ajouté, définissez les propriétés en sélectionnant le type, le style, la taille, la police et des propriétés associées.
     - Laissez la valeur par défaut de l’attribut identique au nom donné à cet attribut (p. ex., si le nom de l’attribut est MyPersonTestAttribute, conservez ce nom pour la valeur par défaut).
     - Enregistrez le sous-formulaire avec les valeurs mises à jour, puis procédez comme suit :
         - Dans le volet de gauche, sélectionnez Shared Code, puis Subforms.
         - Sélectionnez le nouveau sous-formulaire, puis choisissez Design, Design Properties.
         - Cliquez sur le troisième onglet à partir de la gauche, puis sélectionnez **Propagate this prohibition of design change**.
-7. Ouvrez le sous-formulaire $[ObjectName]ExtensibleSchema, (où [ObjectName] est le nom de la classe d’objets structurelle par défaut, p. ex., Person).
-8. Insérez un document Ressource et sélectionnez le sous-formulaire (que vous venez de créer, p. ex., TestSubform) et enregistrez le sous-formulaire $[ObjectName]ExtensibleSchema.
-9. Remplacez le modèle d’annuaire Domino [PUBNAMES.NTF] par le nouveau modèle personnalisé [CONTOSO. NTF] en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+7. Ouvrez le sous-formulaire ${ObjectName}ExtensibleSchema, (où {ObjectName} est le nom de la classe d’objets structurelle par défaut, p. ex., Person).
+8. Insérez un document Ressource et sélectionnez le sous-formulaire (que vous venez de créer, p. ex., TestSubform) et enregistrez le sous-formulaire ${ObjectName}ExtensibleSchema.
+9. Remplacez le modèle d’annuaire Domino {PUBNAMES.NTF} par le nouveau modèle personnalisé {CONTOSO.NTF} en suivant [cette procédure](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Fermez l’administrateur Domino et ouvrez la console Domino pour redémarrer le service LDAP et recharger le schéma LDAP :
     - Dans la console Domino, insérez la commande sous **Domino Command** pour redémarrer le service LDAP - [Redémarrer la tâche LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Pour recharger le schéma LDAP, utilisez la commande « Tell LDAP » - « Tell LDAP ReloadSchema ».
@@ -526,10 +526,10 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 **Approche 3 : Ajouter l’attribut personnalisé à la classe ExtensibleObject**
 
-1. Ouvrez un fichier [Schema.nsf] placé dans le répertoire racine.
+1. Ouvrez le fichier {Schema.nsf} placé dans le répertoire racine.
 2. Sélectionnez les classes d’objets LDAP dans le menu de gauche sous **All Schema Documents**, puis cliquez sur le bouton **Add Object class** :
-3. Fournissez le nom LDAP au format [###ExtensibleSchema] (où ### est le nom de l’objet de la classe d’objets structurelle par défaut, p. ex., Person) avec une référence à l’objet pour lequel vous souhaitez étendre le schéma. Par exemple, pour étendre le schéma pour la classe d’objets Personne, indiquez le nom LDAP [PersonExtensibleSchema].
-4. Indiquez un nom de classe d’objets supérieure pour lequel vous souhaitez étendre le schéma. Par exemple, pour étendre le schéma pour la classe d’objets Personne, indiquez le nom de la classe d’objets supérieure [dominoPerson] :
+3. Fournissez le nom LDAP au format {zzzExtensibleSchema} (où zzz est le nom de la classe d’objets structurelle par défaut, p. ex., Person) avec une référence à l’objet pour lequel vous souhaitez étendre le schéma. Par exemple, pour étendre le schéma pour la classe d’objets Person, indiquez le nom LDAP {PersonExtensibleSchema}.
+4. Indiquez un nom de classe d’objets supérieure pour lequel vous souhaitez étendre le schéma. Par exemple, pour étendre le schéma pour la classe d’objets Person, indiquez le nom de la classe d’objets supérieure [dominoPerson] :
 5. Indiquez un OID valide correspondant à la classe d’objets.
 6. Sélectionnez les attributs étendus ou personnalisés sous les champs Mandatory ou Optional Attribute Types selon les besoins :
 7. Après avoir ajouté les attributs requis à ExtensibleObjectClass, cliquez sur le bouton **Save & Close**.
@@ -539,4 +539,4 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

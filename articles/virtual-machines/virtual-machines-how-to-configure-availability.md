@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration d’un groupe à haute disponibilité pour des machines virtuelles | Microsoft Azure"
+	pageTitle="Configurer un groupe à haute disponibilité pour des machines virtuelles classiques | Microsoft Azure"
 	description="Configurez un groupe à haute disponibilité pour une machine virtuelle nouvelle ou existante dans le modèle de déploiement classique à l’aide du portail Azure Classic et d’Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Configuration d’un groupe à haute disponibilité pour des machines virtuelles dans le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Vous pouvez également configurer des groupes à haute disponibilité dans des déploiements Resource Manager.
 
 
 Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d’informations sur cette procédure, voir la rubrique [Gestion de la disponibilité des machines virtuelles][].
 
-Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d’informations sur les points de terminaison à charge équilibrée, voir la page [Équilibrage de charge pour les services d’infrastructure Azure][].
+Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d'informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure][].
 
-Vous pouvez placer des machines virtuelles dans un groupe à haute disponibilité en utilisant l’une des deux options suivantes :
+Dans le modèle de déploiement classique, vous pouvez placer des machines virtuelles dans un groupe à haute disponibilité en utilisant l’une des deux options suivantes :
 
 - [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité][]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
 - [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][].
 
->[AZURE.NOTE]Les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
+>[AZURE.NOTE]Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
 
 ## <a id="createset"> </a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.##
 
@@ -45,11 +45,11 @@ Pour utiliser le portail Azure Classic :
 
 3. Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
 
-4. Utilisez les deux premiers écrans pour sélectionner une image, un nom d’utilisateur et un mot de passe, et ainsi de suite. Pour en savoir plus, consultez la rubrique [Création d’une machine virtuelle exécutant Windows][].
+4. Utilisez les deux premiers écrans pour sélectionner une image, un nom d’utilisateur et un mot de passe, et ainsi de suite. Pour en savoir plus, consultez la rubrique [Création d'une machine virtuelle exécutant Windows][].
 
 5. Le troisième écran vous permet de configurer des ressources pour la mise en réseau, le stockage et la disponibilité. Effectuez les actions suivantes :
 
-	1. Utilisez le nom de service cloud approprié. Gardez la valeur **Créer un service cloud** activée (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l’URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d’isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité.
+	1. Utilisez le nom de service cloud approprié. Gardez la valeur **Créer un nouveau service cloud** activée (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l’URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d’isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité.
 
 	2. Sous **Région/Groupe d’affinités/Réseau virtuel**, sélectionnez un réseau virtuel si vous envisagez d’en utiliser un. **Important** : si vous souhaitez qu’une machine virtuelle utilise un réseau virtuel, vous devez l’associer au réseau virtuel lorsque vous la créez. Vous ne pouvez pas associer la machine virtuelle à un réseau virtuel après l’avoir créée. Pour en savoir plus, voir la page [Vue d’ensemble d’Azure Virtual Network][].
 
@@ -106,10 +106,10 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
 [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité]: #addmachine
 
-[Équilibrage de charge pour les services d’infrastructure Azure]: virtual-machines-load-balance.md
+[Équilibrage de charge pour les services d'infrastructure Azure]: virtual-machines-load-balance.md
 [Gestion de la disponibilité des machines virtuelles]: virtual-machines-manage-availability.md
-[Création d’une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
+[Création d'une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
 [Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

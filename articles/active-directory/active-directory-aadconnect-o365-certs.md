@@ -13,13 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 
 # Renouvellement des certificats de fédération pour Office 365 et Azure AD
 
 Si vous avez reçu un e-mail ou une notification du portail vous invitant à renouveler votre certificat pour Office 365, cet article vous explique comment procéder et éviter que le problème ne se reproduise. Ces informations reposent sur l’hypothèse que vous utilisez AD FS (services de fédération Active Directory) comme serveur de fédération.
+
+>[AZURE.IMPORTANT]N’oubliez pas que l’authentification à travers votre proxy peut échouer dans Windows Server 2012 ou Windows Server 2008 R2 après l’une des actions suivantes :
+>
+- Votre proxy renouvelle son jeton d’approbation après la substitution des certificats dans AD FS.
+- Vous avez remplacé manuellement vos certificats AD FS.
+>     
+Un correctif permettant de résoudre ce problème est disponible. Consultez [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446).
 
 ## Vérifier si une intervention de votre part est nécessaire
 
@@ -85,4 +92,4 @@ Vous devez alors voir apparaître deux certificats, dont l’un présente une da
 
 >[AZURE.NOTE]Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, voir l’article concernant la prise en charge de plusieurs domaines de premier niveau. Pour finir, vérifiez que tous les serveurs Proxy d’application Web sont mis à jour avec le correctif cumulatif de [mai 2014 pour Windows Server](http://support.microsoft.com/kb/2955164) ; dans le cas contraire, les proxys risquent de ne pas se mettre à jour avec le nouveau certificat, ce qui entraînera une panne.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

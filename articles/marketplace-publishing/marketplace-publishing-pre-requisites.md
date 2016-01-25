@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/06/2015"
+  ms.date="12/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # Conditions préalables générales pour créer une offre pour Azure Marketplace
@@ -45,9 +45,9 @@ Vous devez ensuite remplir les conditions préalables techniques de chaque type 
 
 | Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
 |-----|-----|-----|-----|
-| [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md) | Conditions préalables techniques des services de développement | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md) | [Conditions préalables techniques des services de développement](marketplace-publishing-dev-service-creation-prerequisites.md) | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

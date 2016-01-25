@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 # Utilisation du stockage de tables Azure à partir de Node.js
@@ -87,7 +87,7 @@ L’appel de **createTableIfNotExists** crée une nouvelle table avec le nom sp�
 		}
 	});
 
-`result` est `true` si une nouvelle table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
+`result` est `true` si une table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
 
 ### Filtres
 
@@ -448,4 +448,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec Storage]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

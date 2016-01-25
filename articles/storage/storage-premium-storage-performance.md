@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Azure Premium Storage : conception sous le signe de la haute performance
 
@@ -328,7 +328,7 @@ Téléchargez l’outil Iometer sur la machine virtuelle à partir de ce lien :
 
 *Spécifications d’accès* Les spécifications (taille d’E/S de la demande, % de lecture-écriture, % aléatoire/séquentiel) sont configurées à l’aide de l’onglet « Access Specifications » d’Iometer. Créez une spécification d’accès pour chacun des scénarios ci-dessous. Créez les spécifications d’accès et enregistrez-les avec un nom approprié du type RandomWrites\_8K, RandomReads\_8K. Sélectionnez la spécification correspondante lorsque vous exécutez le scénario de test.
 
-Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scénario d’E/S par seconde en écriture maximal, ![](media/storage-premium-storage-performance/image8.png)
+Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scénario d’E/S en écriture maximales. ![](media/storage-premium-storage-performance/image8.png)
 
 *Spécifications de test du taux maximal d’E/S par seconde* Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
 
@@ -422,7 +422,7 @@ directory=/mnt/nocache
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer un taux d’E/S par seconde maximal : Une profondeur de file d’attente élevée de 256. -Une petite taille de bloc de 8 Ko. -Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
 Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 produit un taux d’E/S par seconde maximal en écriture limité à 50 000 E/S par seconde. ![](media/storage-premium-storage-performance/image11.png)
@@ -526,8 +526,8 @@ En savoir plus sur Azure Premium Storage :
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 
-- [Meilleures pratiques relatives aux performances de SQL Server dans 
-- Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Meilleures pratiques relatives aux performances de SQL Server dans
+- Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

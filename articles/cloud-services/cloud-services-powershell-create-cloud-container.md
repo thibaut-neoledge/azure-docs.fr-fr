@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/13/2015"
    ms.author="cawa"/>
 
 # Utilisation d'une commande Azure PowerShell pour créer un conteneur de service cloud vide
-1. Installez la cmdlet Microsoft Azure PowerShell à partir de [Télécharger Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) : Pour obtenir des instructions complémentaires sur l'installation de la cmdlet Azure PowerShell et sur la connexion à votre abonnement Azure, reportez-vous à l'article [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
+1. Installez la cmdlet Microsoft Azure PowerShell à partir de [Télécharger Azure PowerShell](http://aka.ms/webpi-azps) : Ouvrez une invite de commandes PowerShell. Utilisez [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) pour vous connecter.
+
+> [AZURE.NOTE]Pour obtenir des instructions complémentaires sur l'installation de la cmdlet Azure PowerShell et sur la connexion à votre abonnement Azure, reportez-vous à l'article [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 
 2. Vous pouvez créer un conteneur de service cloud vide grâce à la cmdlet **New-AzureService**.
 
@@ -41,4 +43,4 @@ Get-help New-AzureService
     - Pour publier votre projet de service cloud dans Azure, reportez-vous à l'exemple de code **PublishCloudService.ps1** disponible dans l'article [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2015" 
 	ms.author="tdykstra"/>
 
 # Authentification pour les applications d'API et les applications mobiles dans Azure App Service
@@ -216,4 +216,4 @@ Cet article a décrit les services d'authentification fournis par Azure App Serv
 
 * [Obtention d’un jeton d’accès et appel de l’API SharePoint dans une app mobile](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

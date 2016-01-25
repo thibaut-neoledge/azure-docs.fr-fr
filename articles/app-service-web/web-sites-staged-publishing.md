@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Configurer des environnements intermédiaires pour les applications web dans Azure App Service
@@ -45,7 +45,7 @@ Chaque mode de plan App Service prend en charge un nombre différent d’emplace
 Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application web doit s’exécuter en mode **Standard** ou **Premium**.
 
 1. Dans le [portail Azure](https://portal.azure.com/), ouvrez le panneau de votre application web.
-2. Cliquez sur **Emplacements de déploiement**. Puis, dans le panneau **Emplacements de déploiement**, cliquez sur **Ajouter un emplacement**.
+2. Cliquez sur **Paramètres**, puis sur **Emplacements de déploiement**. Puis, dans le panneau **Emplacements de déploiement**, cliquez sur **Ajouter un emplacement**.
 
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 
@@ -259,4 +259,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

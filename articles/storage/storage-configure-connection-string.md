@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configuration d’une chaîne de connexion dans Azure Storage | Microsoft Azure" 
-	description="Configuration d’une chaîne de connexion à un compte de stockage Azure Une chaîne de connexion inclut les informations nécessaires pour authentifier l'accès par programme aux ressources dans un compte de stockage. La chaîne de connexion peut encapsuler la clé d'accès d’un compte que vous possédez, ou bien inclure une signature d'accès partagé pour accéder aux ressources d’un compte sans clé d'accès." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+	pageTitle="Configuration d’une chaîne de connexion dans Azure Storage | Microsoft Azure"
+	description="Configuration d’une chaîne de connexion à un compte de stockage Azure Une chaîne de connexion inclut les informations nécessaires pour authentifier l'accès par programme aux ressources dans un compte de stockage. La chaîne de connexion peut encapsuler la clé d'accès d’un compte que vous possédez, ou bien inclure une signature d'accès partagé pour accéder aux ressources d’un compte sans clé d'accès."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -52,13 +52,13 @@ Pour créer une chaîne de connexion à votre compte de stockage Azure, utilisez
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Par exemple, votre chaîne de connexion ressemble à l’exemple de chaîne de connexion suivant :
- 
+
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
 > [AZURE.NOTE]Azure Storage prend en charge HTTP et HTTPS au sein d’une chaîne de connexion, mais nous vous conseillons vivement d’utiliser HTTPS.
-    
+
 ## Création d’une chaîne de connexion vers un point de terminaison de stockage explicite
 
 Vous pouvez spécifier explicitement les points de terminaison de service dans votre chaîne de connexion si :
@@ -79,10 +79,10 @@ Vous devez spécifier au moins un point de terminaison de service, mais vous n�
 
 Lorsque vous spécifiez explicitement les points de terminaison de service dans la chaîne de connexion, vous disposez de deux possibilités pour la spécification de `credentials` dans la chaîne ci-dessus :
 
-- Vous pouvez spécifier le nom et la clé de compte : `AccountName=myAccountName;AccountKey=myAccountKey` 
+- Vous pouvez spécifier le nom et la clé de compte : `AccountName=myAccountName;AccountKey=myAccountKey`
 - Vous pouvez spécifier une signature d’accès partagé : `SharedAccessSignature=base64Signature`
 
-### Spécification d’un point de terminaison d’objet blob avec un nom de domaine personnalisé 
+### Spécification d’un point de terminaison d’objet blob avec un nom de domaine personnalisé
 
 Si vous avez enregistré un nom de domaine personnalisé utilisable avec le service BLOB, vous souhaiterez peut-être configurer explicitement le point de terminaison d’objet blob dans votre chaîne de connexion. La valeur du point de terminaison indiquée dans la chaîne de connexion est utilisée pour construire les URI de demande au service BLOB. Elle indique la forme de tous les URI renvoyés à votre code.
 
@@ -91,10 +91,10 @@ Par exemple, une chaîne de connexion à un point de terminaison d’objet blob 
 	DefaultEndpointsProtocol=https;
 	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
-	AccountKey=<account-key> 
+	AccountKey=<account-key>
 
 
-### Spécification d’un point de terminaison d’objet blob avec une signature d’accès partagé 
+### Spécification d’un point de terminaison d’objet blob avec une signature d’accès partagé
 
 Vous pouvez créer une chaîne de connexion avec des points de terminaison explicites pour accéder aux ressources de stockage via une signature d’accès partagé. Dans ce cas, vous pouvez spécifier la signature d’accès partagé dans le cadre de la chaîne de connexion, au lieu des informations d’identification de nom et de clé de compte. Le jeton de signature d'accès partagé encapsule des informations sur la ressource à laquelle vous devez accéder, la durée pendant laquelle elle est disponible et les autorisations accordées. Pour plus d’informations sur les signatures d’accès partagé, consultez la rubrique [Délégation d’accès avec une signature d’accès partagé](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -119,7 +119,4 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-
- 
-
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0114_2016--->

@@ -72,7 +72,7 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 
 * Vous pouvez exécuter plusieurs charges de travail Batch dans un seul compte Batch ou distribuer vos charges de travail entre plusieurs comptes Batch dans différentes régions Azure.
 
-* Si vous exécutez plusieurs charges de travail Batch à grande échelle, tenez compte des [limites et quotas du service Batch](batch-quota-limit.md) qui s’appliquent à votre abonnement Azure et à chaque compte Batch. Les quotas actuels sur le compte Batch apparaissent dans les propriétés du compte sur le portail en version préliminaire.
+* Si vous exécutez plusieurs charges de travail Batch à grande échelle, tenez compte des [limites et quotas du service Batch](batch-quota-limit.md) qui s’appliquent à votre abonnement Azure et à chaque compte Batch. Les quotas actuels sur le compte Batch apparaissent sur le portail dans les propriétés du compte.
 
 ## Étapes suivantes
 
@@ -84,4 +84,4 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

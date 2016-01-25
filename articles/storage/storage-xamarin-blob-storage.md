@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire) | Microsoft Azure" 
-	description="La bibliothèque cliente de stockage Azure pour Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel montre comment utiliser Xamarin pour créer une application Android qui utilise le stockage d’objets blob Azure." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire) | Microsoft Azure"
+	description="La bibliothèque cliente de stockage Azure pour Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel montre comment utiliser Xamarin pour créer une application Android qui utilise le stockage d’objets blob Azure."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
 
@@ -173,10 +173,10 @@ Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Az
 
 Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md) 
+[Introduction à Microsoft Azure Storage](storage-introduction.md)  
 [Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) 
 [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) 
 [Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)
 [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->
