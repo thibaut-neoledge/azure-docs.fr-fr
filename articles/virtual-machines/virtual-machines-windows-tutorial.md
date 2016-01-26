@@ -30,6 +30,10 @@ Ce didacticiel vous montre combien il est facile de créer une machine virtuelle
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
+<br>
+
+>[AZURE.TIP]Lors de l’utilisation du portail, si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez créer celui-ci avant ou pendant la création de la première machine virtuelle du groupe. Pour plus d’informations sur la création et l’utilisation des groupes à haute disponibilité, consultez la page [Gérer la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
+
 Vous pouvez également créer des machines virtuelles à l’aide de vos propres images, de modèles Resource Manager ou d’outils d’automatisation. Pour plus d’informations sur les différentes méthodes, voir [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -60,9 +64,9 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**.
 
-2. Saisissez le **Nom** choisi pour la machine virtuelle. Ce nom ne doit pas contenir de caractères spéciaux.
+2. Entrez le **Nom** de votre choix pour la machine virtuelle. Ce nom ne doit pas contenir de caractères spéciaux.
 
-3. Saisissez un **Nom d’utilisateur** d’administration, et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d’utilisateur et du mot de passe pour vous connecter à la machine virtuelle.**
+3. Entrez un **Nom d’utilisateur** d’administration, et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
 
 4. Si vous possédez plusieurs abonnements, indiquez celui associé à la nouvelle machine virtuelle ainsi qu’un **groupe de ressources** nouveau ou existant et l’**emplacement** d’un centre de données Azure.
 
@@ -83,7 +87,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 	![Capture d’écran affichant le résumé des options de configuration choisies pour la machine virtuelle Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression dans le menu Hub sous **Machines virtuelles**.
+8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu hub sous **Machines virtuelles**.
 
 ## Connexion à la machine virtuelle
 
@@ -112,6 +116,6 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 ## Étapes suivantes
 
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
-* Automatisez le déploiement et la gestion des machines virtuelles et charges de travail à l’aide des [modèles d’Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
+* Automatisez le déploiement et la gestion des machines virtuelles et des charges de travail à l’aide des [modèles d’Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

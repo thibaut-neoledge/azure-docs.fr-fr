@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -91,11 +91,11 @@ Pour obtenir des instructions sur le déploiement de votre solution dans différ
 
 ## Balises
 
-Resource Manager fournit une fonctionnalité de balisage vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Vous pouvez utiliser des balises lorsque vous disposez d’un ensemble complexe de groupes de ressources et de ressources et que vous souhaitez visualiser ces actifs de la façon qui vous semble la plus logique. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département.
+Resource Manager fournit une fonctionnalité de balisage vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Vous pouvez utiliser des balises lorsque vous disposez d’un ensemble complexe de groupes de ressources et de ressources et que vous souhaitez visualiser ces actifs de la façon qui vous semble la plus logique. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département. Sans balises, les utilisateurs de votre organisation peuvent créer plusieurs ressources qui peuvent s’avérer difficiles à identifier et à gérer plus tard. Par exemple, si vous souhaitez supprimer toutes les ressources d’un projet particulier, mais qu’elles n’ont pas été marquées pour celui-ci, vous devrez les rechercher manuellement. Le balisage peut constituer un moyen important de réduire les coûts inutiles dans votre abonnement.
 
 Les ressources ne doivent pas nécessairement appartenir au même groupe de ressources pour partager une balise. Vous pouvez créer votre propre taxonomie de balise pour vous assurer que tous les utilisateurs de votre organisation utiliseront des balises communes plutôt que d’appliquer par inadvertance des balises légèrement différentes (telles que « dépt » au lieu de « département »).
 
-Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md).
+Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md). Vous pouvez créer une [stratégie personnalisée](#manage-resources-with-customized-policies) qui requiert l’ajout de balises aux ressources pendant le déploiement.
 
 ## Contrôle d’accès
 
@@ -111,7 +111,7 @@ Pour connaître les meilleures pratiques, consultez [Questions de sécurité rel
 
 ## Gérer les ressources à l’aide de stratégies personnalisées
 
-Resource Manager vous permet de créer des stratégies personnalisées pour gérer vos ressources. Les types de stratégies que vous créez peuvent comporter des scénarios très variés : application d’une convention de dénomination à des ressources, limitation des régions pouvant héberger un type de ressource, demande d’une valeur de balise sur des ressources pour trier la facturation par service. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
+Resource Manager vous permet de créer des stratégies personnalisées pour gérer vos ressources. Les types de stratégie que vous créez peuvent comporter des scénarios très variés : application d’une convention de dénomination à des ressources, limitation des types et des instances de ressource pouvant être déployés, limitation des régions pouvant héberger un type de ressource ou demande d’une valeur de balise sur des ressources pour trier la facturation par service. Vous créez des stratégies pour vous aider à réduire les coûts et à assurer la cohérence de votre abonnement. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
 ## Couche de gestion cohérente
 
@@ -129,13 +129,13 @@ Azure Resource Manager prend en charge le partage des ressources cross-origin (C
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md).
+- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md)
 - Pour déployer le modèle créé, consultez [Déploiement de modèles](resource-group-template-deploy.md).
-- Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions liées aux modèles](./resource-group-template-functions.md).
+- Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md).
 - Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
 Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

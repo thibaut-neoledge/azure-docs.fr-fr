@@ -65,7 +65,7 @@ Quand le fichier est traité par le pipeline avec l’activité Hive d’HDInsig
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) sera écrite dans le fichier 000000\_0 dans le dossier month=1. De même, la deuxième sera écrite dans le fichier du dossier month=2 et la troisième sera écrite dans le fichier du dossier month=3.
+Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) sera écrite dans le fichier 000000_0 dans le dossier month=1. De même, la deuxième sera écrite dans le fichier du dossier month=2 et la troisième sera écrite dans le fichier du dossier month=3.
 
 ## Charger des fichiers dans Azure Storage pour le didacticiel
 En premier lieu, vous devez préparer le compte de stockage Azure et ses fichiers nécessaires pour commencer ce didacticiel.
@@ -77,7 +77,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ### Créer le fichier de script HQL 
 
-1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
+1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 		FROM WebLogsRaw
 
 ### Créer un exemple de fichier d’entrée
-Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\\adfgetstarted** avec le contenu suivant :
+Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\adfgetstarted** avec le contenu suivant :
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -209,7 +209,7 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’expl
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Répétez les deux étapes précédentes pour charger le fichier partitionweblogs.hql dans le dossier script du conteneur adfgetstarted. Voici la commande : 
+	1. Exécutez la commande suivante pour charger le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Voici la commande : 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur un des ongl
 - Visual Studio
 - Modèles Azure Resource Manager 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache des données Azure 
 
 	Un profil CDN est une collection de points de terminaison CDN. Chaque profil contient un ou plusieurs points de terminaison CDN. Une fois que vous avez créé un profil CDN, vous pouvez en créer un nouveau en utilisant l’origine que vous avez choisie.
 	
-	>[AZURE.NOTE]Un abonnement Azure unique est limité à quatre profils CDN. Chaque profil CDN est limité à quatre points de terminaison CDN.
+	>[AZURE.NOTE]Par défaut, un abonnement Azure unique est limité à quatre profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
 	>
 	> La tarification CDN est appliquée au niveau du profil CDN. Si vous souhaitez utiliser une combinaison de fonctionnalités CDN Standard et Premium, vous aurez besoin de plusieurs profils CDN.
 	
@@ -147,4 +147,4 @@ Microsoft Azure CDN peut être géré par le biais de la programmation à l’ai
 - [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
 - [Fournisseur de ressources CDN API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
