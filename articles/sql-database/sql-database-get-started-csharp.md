@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # Essayer la base de données SQL : Utiliser C&#x23; pour créer une base de données SQL avec la bibliothèque de base de données SQL pour .NET 
@@ -34,7 +34,7 @@ Vous allez essayer la base de données SQL en créant une base de données uniqu
 
 Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
-La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et une authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -89,7 +89,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Fournissez des informations sur votre application C# SQL.][7]
 
-6. Spécifiez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajoutez une URL de redirection pour votre application C# SQL.][8]
 
@@ -414,8 +414,7 @@ La commande C# suivante crée une base de données SQL de base si aucune base de
 ## Étapes suivantes
 Maintenant que vous avez essayé la base de données SQL et configuré une base de données avec C#, vous êtes prêt pour les articles suivants :
 
-- [Se connecter et interroger une base de données SQL avec C#](sql-database-connect-query.md)
-- [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 ## Ressources supplémentaires
 
@@ -436,4 +435,4 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

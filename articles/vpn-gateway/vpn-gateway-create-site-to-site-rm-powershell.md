@@ -25,10 +25,9 @@
 
 Cet article vous guidera dans la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local à l’aide du modèle de déploiement Azure Resource Manager. Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez. Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
 
-
 **À propos des modèles de déploiement Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Avant de commencer
 
@@ -46,8 +45,7 @@ Vous aurez besoin de la dernière version des applets de commande PowerShell Azu
 	
 [AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
-## 1. Connexion à votre abonnement 
-
+## 1\. Connexion à votre abonnement 
 
 Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -63,8 +61,7 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
-## 2. Créer un réseau virtuel et un sous-réseau de passerelle
+## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
 
 - Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle, vous pouvez passer d’emblée à **Étape 3 : Ajouter votre site local**. 
 - Si vous disposez déjà d’un réseau virtuel et que vous souhaitez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
@@ -74,7 +71,6 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 Utilisez l’exemple ci-dessous pour créer un réseau virtuel et un sous-réseau de passerelle. Remplacez les valeurs par les vôtres.
 
 Créez d’abord un groupe de ressources :
-
 	
 	New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
@@ -99,7 +95,7 @@ Si vous disposez déjà d’un réseau virtuel existant et que vous voulez y ajo
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3. Ajouter votre site local
+## 3\. Ajouter votre site local
 
 Dans un réseau virtuel, le *site local* fait généralement référence à votre emplacement local. Vous donnez à ce site un nom qui sera utilisé par Azure pour le référencer.
 
@@ -130,6 +126,8 @@ Ensuite, vous allez demander qu’une adresse IP publique soit allouée à votre
 Utilisez l’exemple PowerShell ci-dessous. La méthode d’allocation pour cette adresse doit être dynamique.
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+
+>[AZURE.NOTE]Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
 
 ## 5\. Créer la configuration de l’adressage IP de la passerelle
 
@@ -213,7 +211,6 @@ Si vous devez modifier les préfixes de votre site local, utilisez les instructi
 
 ### Ajouter ou supprimer des préfixes sans une connexion à la passerelle VPN
 
-
 - **Pour ajouter** d’autres préfixes d’adresses à un site local que vous avez créé, mais qui ne dispose pas encore d’une connexion à la passerelle VPN, utilisez l’exemple ci-dessous.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -228,7 +225,6 @@ Si vous devez modifier les préfixes de votre site local, utilisez les instructi
 ### Ajouter ou supprimer des préfixes avec une connexion à la passerelle VPN
 
 Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d'adresses IP contenues dans votre site local, vous devez effectuer les étapes suivantes dans l'ordre. Cela interrompra votre connexion VPN car vous devrez supprimer et recréer la passerelle. Toutefois, étant donné que vous avez demandé une adresse IP pour la connexion, vous n’aurez pas besoin de reconfigurer votre routeur VPN local, sauf si vous décidez de modifier les valeurs que vous avez déjà utilisées.
-
  
 1. Supprimez la connexion à la passerelle. 
 2. Modifiez les préfixes de votre site local. 
@@ -236,20 +232,18 @@ Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprim
 
 Vous pouvez utiliser l'exemple suivant comme référence.
 
-
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-	Remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+	Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-
 ## Étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

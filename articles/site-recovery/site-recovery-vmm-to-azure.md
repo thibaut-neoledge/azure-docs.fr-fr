@@ -131,7 +131,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 
 5. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez *Utiliser les paramètres proxy par défaut du système* pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
 
-	![Paramètres Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez entrer les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+	![Paramètres Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous utilisez effectivement un proxy personnalisé ou que votre proxy par défaut nécessite une authentification, vous devez entrer les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
 
@@ -171,9 +171,9 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
   
 #### Liste des paramètres de la ligne de commande utilisés pour l’installation
 
- - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve  
+ - **/Credentials** : paramètre obligatoire, qui spécifie l'emplacement auquel le fichier de clé d'inscription se trouve.  
  - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
- - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l’extension **.pfx**.
+ - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l'extension **.pfx**.
  - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
  - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
  - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
@@ -201,6 +201,13 @@ Installez l'agent Azure Recovery Services sur chaque serveur hôte Hyper-V situ�
 	![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure/ASRE2AVMM_AgentPrereqs.png)
 
 4. Sur la page **Paramètres d'installation**, indiquez où vous voulez installer l'agent et sélectionnez l'emplacement du cache dans lequel les métadonnées de sauvegarde seront installées. Cliquez ensuite sur <b>Installer</b>.
+5. Une fois l’installation terminée, cliquez sur le bouton **Fermer**.
+	
+	![Inscrire l’Agent MARS](./media/site-recovery-vmm-to-azure/MarsAgentRegister.png)
+
+>[AZURE.NOTE]Vous pouvez installer l’Agent Microsoft Azure Recovery Services à partir de la ligne de commande à l’aide de la commande suivante :
+>
+	marsagentinstaller.exe /q /nu
 
 ## Étape 6 : Configuration des paramètres de protection de cloud
 
@@ -310,7 +317,7 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 
 	![Créer un plan de récupération](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVMRP.png)
 
-Une fois qu’un plan de récupération a été créé, il apparaît dans la liste sous l’onglet **Plans de récupération**. Vous pouvez également ajouter [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les opérations de temps de basculement.
+Une fois qu’un plan de récupération a été créé, il apparaît dans la liste sous l’onglet **Plans de récupération**. Vous pouvez également ajouter des [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les actions de temps de basculement.
 
 ### Exécution d’un test de basculement
 
@@ -355,9 +362,9 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 ##<a id="next" name="next" href="#next"></a>Étapes suivantes
 <UL>
-<LI>Pour planifier et déployer Azure Site Recovery dans un environnement de production complet, consultez le <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guide de planification d’Azure Site Recovery</a> et le <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guide de déploiement d’Azure Site Recovery</a>.</LI>
+<LI>Pour planifier et déployer Azure Site Recovery dans un environnement de production complet, consultez le <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guide de planification d'Azure Site Recovery</a> et le <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guide de déploiement d'Azure Site Recovery</a>.</LI>
 
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

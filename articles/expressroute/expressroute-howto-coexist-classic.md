@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel
@@ -211,4 +211,4 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

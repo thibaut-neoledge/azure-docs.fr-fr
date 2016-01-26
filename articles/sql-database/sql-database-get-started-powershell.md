@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell 
@@ -135,11 +135,11 @@ Les détails de la base de données apparaissent une fois la base de données cr
 ## Étapes suivantes
 Une fois que vous avez créé une base de données SQL et effectué les tâches courantes d’installation de base de données, vous êtes prêt pour les opérations suivantes :
 
-- [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 
 ## Ressources supplémentaires
 
 - [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

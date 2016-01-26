@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
 
 Ce guide vous montre combien il est facile d’ajouter une protection à votre API principale en configurant des limites de débit et des stratégies de quota avec la gestion des API Azure.
 
-Ce didacticiel vous permet de créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API. Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
+Dans ce didacticiel, vous allez créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API en utilisant [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
 
->[AZURE.NOTE]Si vous disposez déjà d’un produit configuré et que vous souhaitez l’utiliser pour ce didacticiel, vous pouvez passer directement à la rubrique [Configuration de la limite de débit d’appels et des stratégies de quota][] et suivre le didacticiel à partir de là, en utilisant votre produit à la place de celui en version d’évaluation gratuite.
+Pour consulter des scénarios de limitation plus avancés utilisant les stratégies [limiter-fréquence-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) et [quota-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consultez l’article [Limitation de requêtes avancée avec la gestion des API Azure](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Pour créer un produit.
 
 Au cours de cette étape, vous allez créer un produit en version d'évaluation gratuite qui ne requiert pas d'approbation d'abonnement.
+
+>[AZURE.NOTE]Si vous disposez déjà d’un produit configuré et que vous souhaitez l’utiliser pour ce didacticiel, vous pouvez passer directement à la rubrique [Configuration de la limite de débit d’appels et des stratégies de quota][] et suivre le didacticiel à partir de là, en utilisant votre produit à la place de celui en version d’évaluation gratuite.
 
 Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
@@ -211,7 +213,7 @@ Cliquez sur **API** dans le menu supérieur, puis sélectionnez **API Echo**.
 
 ![Portail des développeurs][api-management-developer-portal-api-menu]
 
-Cliquez sur **Ressource GET**, puis sur **Ouvrir la console**.
+Cliquez sur **Ressource GET**, puis sur **Essayez-le**.
 
 ![Open console][api-management-open-console]
 
@@ -221,17 +223,17 @@ Conservez les valeurs de paramètres par défaut et sélectionnez votre clé d�
 
 >[AZURE.NOTE]Si vous possédez plusieurs abonnements, pensez à sélectionner la clé pour la **Version d’évaluation gratuite**, sinon, les stratégies configurées aux étapes précédentes ne seront pas effectives.
 
-Cliquez sur **HTTP Get**, puis affichez la réponse. Notez l'**État de réponse** **200 OK**.
+Cliquez sur **Envoyer**, puis affichez la réponse. Notez l'**État de réponse** **200 OK**.
 
 ![Operation results][api-management-http-get-results]
 
-Cliquez sur **HTTP Get** à un débit supérieur à la stratégie de limite de débit de 10 appels par minute. Une fois la stratégie de limite de débit dépassée, un état de réponse **429 Trop de requêtes** est renvoyé.
+Cliquez sur **Envoyer** à une fréquence supérieure à la stratégie de limite de fréquence de 10 appels par minute. Une fois la stratégie de limite de débit dépassée, un état de réponse **429 Trop de requêtes** est renvoyé.
 
 ![Operation results][api-management-http-get-429]
 
-Les zones **En-têtes de réponse** et le **Contenu de réponse** indiquent l’intervalle restant avant la réussite des nouvelles tentatives.
+Le **Contenu de réponse** indique l’intervalle restant avant la réussite des nouvelles tentatives.
 
-Lorsque la stratégie de limite de débit de 10 appels par minute est appliquée, les appels suivants échouent jusqu’à ce que 60 secondes se soient écoulées à partir du premier des 10 appels réussis vers le produit avant le dépassement de la limite de débit. Dans cet exemple, l’intervalle restant est de 43 secondes.
+Lorsque la stratégie de limite de débit de 10 appels par minute est appliquée, les appels suivants échouent jusqu’à ce que 60 secondes se soient écoulées à partir du premier des 10 appels réussis vers le produit avant le dépassement de la limite de débit. Dans cet exemple, l’intervalle restant est de 54 secondes.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -291,4 +293,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Débit limite d'appel]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Définir le quota d'utilisation]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

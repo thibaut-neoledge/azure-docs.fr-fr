@@ -193,7 +193,7 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’expl
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Accédez au dossier c:\adfgettingstarted et exécutez la commande suivante pour charger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé du compte de stockage.
+	3. Accédez au dossier c:\\adfgettingstarted et exécutez la commande suivante pour charger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé du compte de stockage.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’expl
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Répétez les deux étapes précédentes pour charger le fichier partitionweblogs.hql dans le dossier script du conteneur adfgetstarted. Voici la commande : 
+	1. Exécutez la commande suivante pour charger le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Voici la commande : 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur un des ongl
 - Visual Studio
 - Modèles Azure Resource Manager 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

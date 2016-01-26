@@ -42,7 +42,7 @@ Accès à distance comme VPN, RDG| |* |
 
 ## L’emplacement des utilisateurs
 
-Ensuite, selon l’emplacement des utilisateurs, nous pouvons déterminer la solution appropriée, que ce soit l’authentification multifacteur dans le cloud ou en local avec le serveur MFA.
+Ensuite, selon l’emplacement de nos utilisateurs, nous pouvons déterminer la solution appropriée à utiliser, que ce soit l’authentification multifacteur dans le cloud ou en local avec MFA Server.
 
 
 
@@ -81,4 +81,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="01/18/2016"
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
->Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 ##Vue d’ensemble 
 
@@ -51,7 +50,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 - Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. 
 	
-	Si vous n’avez pas de compte, vous pouvez créer un compte d’évaluation gratuite en quelques minutes. Pour plus d'informations, consultez la page [Version d’évaluation gratuite Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
+	Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 - Systèmes d’exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
 - .NET Framework 4.0 ultérieur
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
@@ -108,7 +107,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 3. Pour spécifier le nombre d’unités de diffusion en continu, cliquez sur l’onglet METTRE À L’ÉCHELLE, puis déplacez le curseur de **capacité réservée**.
 
-![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Sélectionnez **ENREGISTRER** pour enregistrer vos modifications.
 
@@ -130,12 +129,7 @@ L’allocation de nouvelles unités prend environ 20 minutes.
 
 4. Ouvrez le fichier App.config (ajoutez le fichier à votre projet s'il n'a pas été ajouté par défaut) et ajoutez une section *appSettings* au fichier. Définissez les valeurs pour le nom et la clé de votre compte Azure Media Services, comme illustré dans l’exemple suivant. Pour obtenir le nom du compte et les informations sur la clé, ouvrez le portail Azure Classic, sélectionnez votre compte Media Services, puis cliquez sur le bouton **GÉRER LES CLÉS**.
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -156,9 +150,9 @@ L’allocation de nouvelles unités prend environ 20 minutes.
 
 ##Se connecter au compte Media Services
 
-Quand vous utilisez Media Services avec .NET, vous devez utiliser la classe **CloudMediaContext** pour la plupart des tâches de programmation de Media Services : connexion au compte Media Services, création, mise à jour, accès et suppression des objets suivants : éléments multimédias, fichiers d’éléments multimédias, tâches, stratégies d’accès, localisateurs, etc.
+Lorsque vous utilisez Media Services avec .NET, vous devez utiliser la classe **CloudMediaContext** pour la plupart des tâches de programmation Media Services : connexion au compte Media Services, création, mise à jour, accès et suppression des objets suivants : éléments multimédia, fichiers multimédias, travaux, stratégies d'accès, localisateurs, etc.
 
-Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de la connexion dans le fichier App.config et comment créer l’objet **CloudMediaContext** pour se connecter à Media Services. Pour plus d’informations sur la connexion à Media Services, consultez [Connexion à Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l’objet **CloudMediaContext** pour se connecter à Media Services. Pour plus d’informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La fonction **Main** appelle des méthodes qui seront définies ultérieurement dans cette section.
 
@@ -213,14 +207,14 @@ La fonction **Main** appelle des méthodes qui seront définies ultérieurement 
 
 Dans Media Services, vous téléchargez (ou réceptionnez) vos fichiers numériques dans un élément multimédia. L’entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des fichiers de sous-titres codés (et les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu. Les fichiers de l'élément multimédia sont appelés **fichiers d'élément multimédia**.
 
-La méthode **UploadFile** définie ci-dessous appelle **CreateFromFile** (défini dans les extensions du Kit de développement logiciel (SDK) .NET). **CreateFromFile** crée un nouvel élément multimédia dans lequel le fichier source spécifié est chargé.
+La méthode **UploadFile** définie ci-dessous appelle **CreateFromFile** (défini dans les extensions du Kit de développement logiciel (SDK) .NET). **CreateFromFile** crée un nouvel élément multimédia dans lequel le fichier source spécifié est téléchargé.
 
-La méthode **CreateFromFile** prend **AssetCreationOptions**, qui vous permet de spécifier les options de création d’élément multimédia suivantes :
+La méthode **CreateFromFile** prend **AssetCreationOptions**, qui vous permet de spécifier les options de création suivantes :
 
 - **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.
 - **StorageEncrypted** : utilisez cette option pour chiffrer votre contenu localement à l’aide du chiffrement Advanced Encryption Standard (AES) 256 bits, qui est ensuite chargé sur Azure Storage, où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 - **CommonEncryptionProtected** : utilisez cette option quand vous chargez du contenu qui a déjà été chiffré et protégé avec la DRM Common Encryption ou PlayReady (par exemple Smooth Streaming protégé avec la DRM PlayReady).
-- **EnvelopeEncryptionProtected** : utilisez cette option quand vous chargez un contenu HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **EnvelopeEncryptionProtected** : utilisez cette option lorsque vous téléchargez un contenu au format TLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
 La méthode **CreateFromFile** vous permet également de spécifier un rappel pour indiquer la progression du chargement du fichier.
 
@@ -452,4 +446,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->
