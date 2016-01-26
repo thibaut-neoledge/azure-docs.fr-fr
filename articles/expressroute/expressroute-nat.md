@@ -25,7 +25,7 @@ Examinez la page [Circuits ExpressRoute et domaines de routage](expressroute-cir
 
 Le chemin d'homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut tous les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. La connectivité aux services Microsoft Azure sur l'homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Le trafic destiné à Microsoft Azure sur l'homologation publique doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. L'illustration suivante indique de façon sommaire comment configurer un NAT pour répondre à cette exigence.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png)
+![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### Pool d’adresses IP NAT et publications de routage
 
@@ -39,7 +39,7 @@ Il n'existe aucune restriction concernant la longueur du préfixe IP NAT publié
 
 Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prévoit la prise en charge de la connectivité bidirectionnelle sur l'homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. Avant d’arriver sur votre réseau, le trafic provenant des services de cloud Microsoft doit être configuré en SNAT. L'illustration suivante indique de façon sommaire comment configurer un NAT pour l’homologation Microsoft.
  
-![](./media/expressroute-nat/expressroute-nat-microsoft.png)
+![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 
 #### Trafic en provenance de votre réseau et destiné à Microsoft

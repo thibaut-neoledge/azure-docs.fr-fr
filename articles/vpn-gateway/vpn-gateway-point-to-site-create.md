@@ -27,7 +27,7 @@ Une configuration de point à site vous permet de créer individuellement une co
 
 Cet article s’applique aux connexions de passerelle VPN de point à site à un réseau virtuel créées en utilisant le **modèle de déploiement classique** (Gestion des services). Si vous souhaitez configurer une connexion point à site pour un réseau virtuel créé à l’aide de Resource Manager, consultez l’article [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ## À propos de la création d’une connexion point à site

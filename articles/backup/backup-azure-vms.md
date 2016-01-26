@@ -40,7 +40,8 @@ Le processus de détection doit toujours être exécuté en premier pour s’ass
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur **DÉCOUVRIR** en bas de la page. ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
+3. Cliquez sur **DÉCOUVRIR** en bas de la page. 
+    ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
 
     Le processus de découverte peut durer quelques minutes, le temps que les machines virtuelles soient affichées sous forme de tableau. Une notification affichée en bas de l’écran vous informe que le processus est en cours d’exécution.
 
@@ -59,7 +60,8 @@ Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Ba
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur **INSCRIRE** en bas de la page. ![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
+3. Cliquez sur **INSCRIRE** en bas de la page. 
+    ![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
 
 4. Dans le menu contextuel **Inscrire les éléments**, choisissez les machines virtuelles que vous souhaitez inscrire. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 

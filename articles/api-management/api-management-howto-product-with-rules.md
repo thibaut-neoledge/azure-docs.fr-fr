@@ -46,7 +46,8 @@ Cliquez sur **Ajouter un produit** pour afficher la boîte de dialogue **Ajouter
 
 Dans la zone **Titre**, saisissez **Version d’évaluation gratuite**.
 
-Dans la zone **Description**, saisissez le texte suivant : **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
+Dans la zone **Description**, saisissez le texte suivant : 
+**Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
 
 Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts peuvent être utilisés sans abonnement. Vérifiez que la case à cocher **Demander une approbation d’abonnement** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
