@@ -196,7 +196,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 ### Inscrire votre agent de build
 
 1.	Téléchargez agent.zip. Pour ce faire :
-    1.	Connectez-vous à votre projet d’équipe, par exemple ****https://[your-Team-Services-account-name].visualstudio.com**.
+    1.	Connectez-vous à votre projet d’équipe, par exemple **https://[your-Team-Services-account-name].visualstudio.com**.
 1.	Sélectionnez l’icône en forme d’engrenage dans l’angle supérieur droit de votre écran.
     1.	À partir du Panneau de configuration, sélectionnez l’onglet **Pools d’agents**.
     1.	Sélectionnez **Télécharger l’agent** pour télécharger le fichier agent.zip.
@@ -348,4 +348,4 @@ Pour en savoir plus sur l’intégration continue avec les applications de Servi
 - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
