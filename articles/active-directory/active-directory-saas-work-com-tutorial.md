@@ -132,7 +132,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com** de la boîte de dialogue, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Parcourir**.
     4.  Dans la zone de texte **Entity Id**, tapez ****https://salesforce-work.com**.
-5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
+    5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
     7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity Provider Login URL**.
     8.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Identity Provider Logout URL**.
@@ -207,4 +207,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

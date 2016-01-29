@@ -80,8 +80,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, *https://na2.replicon.com/company/saml2/sp-sso/post*).
-    2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL Replicon **AssertionConsumerService** (par exemple, *https://global.replicon.com/!/saml2/company/sso/post*).  
+    1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, **https://na2.replicon.com/company/saml2/sp-sso/post*).
+    2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL Replicon **AssertionConsumerService** (par exemple, **https://global.replicon.com/!/saml2/company/sso/post*).
 
         >[AZURE.NOTE]Vous pouvez obtenir l’URL à partir des métadonnées Replicon à :
         **https://global.replicon.com/!/saml2/\<CléDeVotreEntreprise>**.
@@ -156,4 +156,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

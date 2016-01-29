@@ -40,8 +40,8 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 || [Conditions techniques préalables de la machine virtuelle][link-single-vm-prereq] | [Conditions techniques préalables du service de développement](marketplace-publishing-dev-service-creation-prerequisites.md) | [Conditions techniques préalables du service de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions techniques préalables du modèle de solution](marketplace-publishing-solution-template-creation-prerequisites.md) | 
 ||[Guide de publication de l’image de machine virtuelle][link-single-vm] | [Guide de publication du service de développement](marketplace-publishing-dev-service-creation.md) | [Guide de publication du service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication du modèle de solution](marketplace-publishing-solution-template-creation.md) | 
 || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] 
-|| **Étape 3 : Envoyer votre offre dans l’environnement intermédiaire** | [Tester votre offre de machine virtuelle dans l’environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | [Tester votre offre de service de développement dans l’environnement intermédiaire](marketplace-publishing-dev-service-test-in-staging.md) | [Tester votre offre de service de données dans l’environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans l’environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) 
-|| **Étape 4 : Déployer votre offre sur le Marketplace** | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] |
+| **Étape 3 : Envoyer votre offre dans l’environnement intermédiaire** | [Tester votre offre de machine virtuelle dans l’environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | [Tester votre offre de service de développement dans l’environnement intermédiaire](marketplace-publishing-dev-service-test-in-staging.md) | [Tester votre offre de service de données dans l’environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans l’environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) 
+| **Étape 4 : Déployer votre offre sur le Marketplace** | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] |
 
 ## Support
 - [Obtenir de l’aide en tant qu’éditeur][suppt-general]
@@ -81,4 +81,4 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
