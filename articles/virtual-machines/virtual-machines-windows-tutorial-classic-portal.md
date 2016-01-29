@@ -53,4 +53,4 @@ Cette section vous montre comment utiliser l’option **À partir de la galerie*
 
 - Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique](storage-windows-attach-disk.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0114_2016-->
