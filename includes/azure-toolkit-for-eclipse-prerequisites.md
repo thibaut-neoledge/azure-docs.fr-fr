@@ -12,6 +12,8 @@ Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivan
 
 >[AZURE.NOTE]Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) sur Eclipse Marketplace.
 
+<br>
+
 > [AZURE.IMPORTANT]Si vous utilisez le kit de ressources Azure pour Eclipse sous Windows, le kit de ressources requiert l'installation du Kit de développement logiciel (SDK) Azure 2.7 ou version ultérieure. Vous avez deux options pour l'installation du Kit de développement logiciel (SDK) Azure :
 > 
 > * Vous pouvez télécharger et installer le Kit de développement logiciel (SDK) Azure à partir de [Web Platform Installer (WebPI)][].
@@ -19,4 +21,4 @@ Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivan
 > 
 > Notez que le Kit de développement logiciel (SDK) Azure est requis uniquement sous Windows.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
