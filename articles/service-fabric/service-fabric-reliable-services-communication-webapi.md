@@ -210,7 +210,7 @@ Il n’appartient pas à cet article de donner plus de détails sur le processus
 
 Dans cet article, nous utiliserons Katana comme hôte OWIN pour l'application de l'API Web. Katana est une implémentation hôte OWIN open source.
 
-> [AZURE.NOTE]Pour en savoir plus sur Katana, accédez au site [Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Pour obtenir un aperçu rapide de l’utilisation de Katana pour auto-héberger l’API Web, consultez [Utiliser OWIN pour auto-héberger une API Web ASP.NET 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
+> [AZURE.NOTE] Pour en savoir plus sur Katana, accédez au site [Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Pour obtenir un aperçu rapide de l’utilisation de Katana pour auto-héberger l’API Web, consultez [Utiliser OWIN pour auto-héberger une API Web ASP.NET 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 
 
 ## Configurer le serveur web
@@ -539,7 +539,7 @@ Maintenant que tous les composants sont en place, votre projet doit ressembler �
 Si ce n'est déjà fait, [configurez votre environnement de développement](service-fabric-get-started.md).
 
 
-Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre Événements de diagnostic, un message doit apparaître et indiquer que le serveur web s’est ouvert sur http://localhost:80/webapp/api.
+Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre Événements de diagnostic, un message doit apparaître et indiquer que le serveur web s’est ouvert sur **http://localhost:80/webapp/api**.
 
 
 ![Fenêtre Événements de diagnostic de Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)

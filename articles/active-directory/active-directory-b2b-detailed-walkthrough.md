@@ -3,6 +3,7 @@
    description="Azure Active Directory B2B prend en charge les relations interentreprises en permettant aux partenaires commerciaux d'accéder de façon sélective à vos applications d'entreprise"
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>

@@ -41,7 +41,7 @@ Le tableau suivant récapitule les fonctionnalités de nouvelle tentative pour l
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (avec stratégie de détection personnalisée) | Déclarative et par programme | Blocs de code | Personnalisée |
 **Topaz est le nom familier donné au bloc applicatif de gestion des erreurs temporaires inclus dans <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Vous pouvez utiliser une stratégie de détection personnalisée avec Topaz pour la plupart des types de services, comme décrit dans ce guide. Les stratégies par défaut pour Topaz sont indiquées dans la section [Stratégies du bloc applicatif de gestion des erreurs temporaires (Topaz)](#transient-fault-handling-application-block-topaz-strategies) à la fin de ce guide. Notez que le bloc est maintenant une infrastructure open source et n’est pas directement pris en charge par Microsoft.
 
-> [AZURE.NOTE]Pour la plupart des mécanismes de nouvelle tentative intégrés Azure, il n’existe actuellement aucune manière d’appliquer une autre stratégie de nouvelle tentative selon le type d’erreur ou d’exception au-delà de la fonctionnalité incluse dans la stratégie de nouvelle tentative. Par conséquent, la méthode la plus adaptée au moment de l’écriture du code consiste à configurer une stratégie qui offre les performances et la disponibilité moyennes optimales. Une façon d’ajuster la stratégie consiste à analyser les fichiers journaux pour déterminer le type d’erreurs temporaires qui se produisent. Par exemple, si la plupart des erreurs sont associées à des problèmes de connectivité réseau, vous pourriez tenter immédiatement une nouvelle tentative au lieu d’attendre un certain temps la première nouvelle tentative.
+> [AZURE.NOTE] Pour la plupart des mécanismes de nouvelle tentative intégrés Azure, il n’existe actuellement aucune manière d’appliquer une autre stratégie de nouvelle tentative selon le type d’erreur ou d’exception au-delà de la fonctionnalité incluse dans la stratégie de nouvelle tentative. Par conséquent, la méthode la plus adaptée au moment de l’écriture du code consiste à configurer une stratégie qui offre les performances et la disponibilité moyennes optimales. Une façon d’ajuster la stratégie consiste à analyser les fichiers journaux pour déterminer le type d’erreurs temporaires qui se produisent. Par exemple, si la plupart des erreurs sont associées à des problèmes de connectivité réseau, vous pourriez tenter immédiatement une nouvelle tentative au lieu d’attendre un certain temps la première nouvelle tentative.
 
 ## Instructions relatives aux nouvelles tentatives pour le stockage Azure
 
@@ -302,7 +302,7 @@ Pensez à commencer par les paramètres suivants pour les opérations liées aux
 | Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | Exponentielle | MaxRetryCount<br />MaxDelay | 3<br />750 ms | Tentative 1 - délai 0 s<br />Tentative 2 - délai 750 ms<br />Tentative 3 - délai 750 ms |
 | Arrière-plan<br /> ou lot | 30 secondes | Exponentielle | MaxRetryCount<br />MaxDelay | 5<br />12 secondes | Tentative 1 - délai 0 s<br />Tentative 2 - délai ~1 s<br />Tentative 3 - délai ~3 s<br />Tentative 4 - délai ~7 s<br />Tentative 5 - délai 12 s |
 
-> [AZURE.NOTE]Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
+> [AZURE.NOTE] Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
 
 ## Exemples (base de données SQL utilisant Entity Framework 6)
 
@@ -429,7 +429,7 @@ Pensez à commencer par les paramètres suivants pour les opérations liées aux
 | Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | FixedInterval | Nombre de tentatives<br />Intervalle avant nouvelle tentative<br />Première nouvelle tentative rapide | 3<br />500 ms<br />true | Tentative 1 - délai 0 s<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms |
 | Arrière-plan<br />ou lot | 30 secondes | ExponentialBackoff | Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation Delta<br />Première nouvelle tentative rapide | 5<br />0 s<br />60 s<br />2 s<br />false | Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
 
-> [AZURE.NOTE]Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
+> [AZURE.NOTE] Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
 
 ### Exemples (base de données SQL utilisant ADO.NET)
 

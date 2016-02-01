@@ -64,7 +64,18 @@ Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) s
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 3 janvier 2016 |--- | [1\.4.2](#1.4.2) | 6 octobre 2015 |--- | [1\.4.1](#1.4.1) | 6 octobre 2015 |--- | [1\.2.0](#1.2.0) | 6 août 2015 |--- | [1\.1.0](#1.1.0) | 9 juillet 2015 |--- | [1\.0.1](#1.0.1) | 25 mai 2015 |--- | [1\.0.0](#1.0.0) | 7 avril 2015 |--- | 0.9.4-version préliminaire | 14 janvier 2015 | 29 février 2016 | 0.9.3-version préliminaire | 9 décembre 2014 | 29 février 2016 | 0.9.2-version préliminaire | 25 novembre 2014 | 29 février 2016 | 0.9.1-version préliminaire | 23 septembre 2014 | 29 février 2016 | 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
+| [1\.5.0](#1.5.0) | 3 janvier 2016 |--- 
+| [1\.4.2](#1.4.2) | 6 octobre 2015 |--- 
+| [1\.4.1](#1.4.1) | 6 octobre 2015 |--- 
+| [1\.2.0](#1.2.0) | 6 août 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
+| [1\.0.1](#1.0.1) | 25 mai 2015 |--- 
+| [1\.0.0](#1.0.0) | 7 avril 2015 |--- 
+| 0.9.4-version préliminaire | 14 janvier 2015 | 29 février 2016 
+| 0.9.3-version préliminaire | 9 décembre 2014 | 29 février 2016
+| 0.9.2-version préliminaire | 25 novembre 2014 | 29 février 2016 
+| 0.9.1-version préliminaire | 23 septembre 2014 | 29 février 2016 
+| 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

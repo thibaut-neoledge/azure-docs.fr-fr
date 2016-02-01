@@ -86,58 +86,59 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ArcGIS en tant qu’administrateur.
 
-6.  Cliquez sur **Edit Settings**.
+6.  Cliquez sur **Modifier les paramètres**.
 
     ![Modifier les paramètres](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Modifier les paramètres")
 
-7.  Cliquez sur **Security**.
+7.  Cliquez sur **Sécurité**.
 
     ![Sécurité](./media/active-directory-saas-arcgis-tutorial/IC784743.png "Sécurité")
 
-8.  Sous **Enterprise Logins**, cliquez sur **Set Identity Provider**.
+8.  Sous **Connexions de l’entreprise**, cliquez sur **Définir le fournisseur d’identité**.
 
     ![Connexions de l’entreprise](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Connexions de l’entreprise")
 
-9.  Dans la page de configuration **Set Identity Provider**, procédez comme suit :
+9.  Dans la page de configuration **Définir le fournisseur d’identité**, procédez comme suit :
 
     ![Définir le fournisseur d’identité](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Définir le fournisseur d’identité")
 
     1.  Dans la zone de texte Nom, tapez le nom de votre organisation.
-    2.  Pour **Metadata for the Enterprise Identity Provider will be supplied using**, sélectionnez **A File**.
-    3.  Pour télécharger votre fichier de métadonnées, cliquez sur **Choose file**.
-    4.  Cliquez sur **Set Identity Provider**.
+    2.  Pour **Les métadonnées du fournisseur d’identité d’entreprise seront fournies en utilisant**, sélectionnez **Un fichier**.
+    3.  Pour télécharger votre fichier de métadonnées, cliquez sur **Choisir un fichier**.
+    4.  Cliquez sur **Définir le fournisseur d’identité**.
 
 10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
 
-Pour permettre aux utilisateurs Azure AD de se connecter à ArcGIS, vous devez les approvisionner dans ArcGIS. En l’occurrence, cet approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à ArcGIS, vous devez les approvisionner dans ArcGIS.  
+En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
 1.  Connectez-vous à votre locataire **ArcGIS**.
 
-2.  Cliquez sur **Invite Members**.
+2.  Cliquez sur **Inviter des membres**.
 
     ![Inviter des membres](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Inviter des membres")
 
-3.  Sélectionnez **Add members automatically without sending an email**, puis cliquez sur **Next**.
+3.  Sélectionnez **Ajouter des membres automatiquement sans envoyer de courrier électronique**, puis cliquez sur **Suivant**.
 
     ![Ajouter des membres automatiquement](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Ajouter des membres automatiquement")
 
-4.  Dans la page de boîte de dialogue **Members**, procédez comme suit :
+4.  Dans la page de boîte de dialogue **Membres**, procédez comme suit :
 
     ![Ajouter et vérifier](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Ajouter et vérifier")
 
     1.  Entrez le **prénom**, le **nom** et l’**adresse de messagerie** d’un compte AAD valide que vous voulez approvisionner
-    2.  Cliquez sur **Add And Review**.
+    2.  Cliquez sur **Ajouter et vérifier**.
 
-5.  Passez en revue les données que vous avez entrées, puis cliquez sur **Add Members**.
+5.  Passez en revue les données que vous avez entrées, puis cliquez sur **Ajouter des membres**.
 
     ![Ajouter un membre](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Ajouter un membre")
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par ArcGIS pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par ArcGIS pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
 

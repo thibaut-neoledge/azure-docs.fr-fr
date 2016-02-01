@@ -64,7 +64,9 @@ Cette section décrit l’activation de l’intégration d’application pour Jo
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
+Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -109,7 +111,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Paramètres d’authentification unique](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Paramètres d’authentification unique")
 
     1.  Sélectionnez **SAML Enabled**.
-    2.  Cliquez sur **New**.
+    2.  Cliquez sur **Nouveau**.
 
 12. Dans la boîte de dialogue **SAML Single Sign-On Setting Edit**, procédez comme suit :
 
@@ -117,7 +119,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte **Name**, attribuez un nom à votre configuration.
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jobscience** de la boîte de dialogue, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **Entity Id**, tapez ****https://salesforce-jobscience.com**.
+    3.  Dans la zone de texte **Entity Id**, tapez **https://salesforce-jobscience.com**.
 4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
@@ -129,7 +131,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Mon domaine](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mon domaine")
 
-14. Dans la section **Login Page Branding** de la page **My Domain**, cliquez sur **Edit**.
+14. Dans la section **Personnalisation de la page de connexion** de la page **Mon domaine**, cliquez sur **Edit**.
 
     ![Personnalisation de la page de connexion](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Personnalisation de la page de connexion")
 
@@ -171,7 +173,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
     ![Modification de l’utilisateur](./media/active-directory-saas-jobscience-tutorial/IC784371.png "Modification de l’utilisateur")
 
     1.  Indiquez le prénom, le nom, l’alias, l’adresse de messagerie, le nom d’utilisateur et le surnom de l’utilisateur Azure AD que vous souhaitez approvisionner, dans les zones de texte correspondantes.
-    2.  Cliquez sur **Save**.
+    2.  Cliquez sur **Enregistrer**.
 
     >[AZURE.NOTE]Le titulaire du compte Azure AD reçoit alors un message électronique qui contient un lien pour confirmer le compte avant qu’il soit activé.
 

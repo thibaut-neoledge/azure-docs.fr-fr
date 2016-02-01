@@ -41,7 +41,7 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 4. Installez Azure PowerShell (version 0.7.4 ou ultérieure) comme indiqué dans [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 5. Exécutez le script suivant pour activer l'extension RemoteDebug. Remplacez les chemins d’accès et les données personnelles par les vôtres, notamment le nom de l'abonnement, le nom du service et l'empreinte numérique.
 
-	>[AZURE.NOTE]Ce script est configuré pour Visual Studio 2015. Si vous utilisez Visual Studio 2013, modifiez les affectations `$referenceName` et `$extensionName` ci-dessous pour utiliser `RemoteDebugVS2013` (au lieu de `RemoteDebugVS2015`).
+	>[AZURE.NOTE] Ce script est configuré pour Visual Studio 2015. Si vous utilisez Visual Studio 2013, modifiez les affectations `$referenceName` et `$extensionName` ci-dessous pour utiliser `RemoteDebugVS2013` (au lieu de `RemoteDebugVS2015`).
 
 	<pre>
 Add-AzureAccount

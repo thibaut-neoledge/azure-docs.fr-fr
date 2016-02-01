@@ -64,7 +64,9 @@ Cette section décrit l’activation de l’intégration d’applications pour C
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configuration de l’authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Cisco Webex avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Cisco Webex avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Dans le cadre de cette procédure, vous devez créer un certificat codé en base 64.  
+Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -89,11 +91,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Cisco Webex en tant qu’administrateur.
 
-6.  Dans le menu situé en haut, cliquez sur **Site Administration**.
+6.  Dans le menu situé en haut, cliquez sur **Administration du site**.
 
     ![Administration du site](./media/active-directory-saas-cisco-webex-tutorial/IC777621.png "Administration du site")
 
-7.  Dans la section **Manage Site**, cliquez sur **SSO Configuration**.
+7.  Dans la section **Gérer le site**, cliquez sur **Configuration de l’authentification unique**.
 
     ![Configuration de l’authentification unique](./media/active-directory-saas-cisco-webex-tutorial/IC777622.png "Configuration de l’authentification unique")
 
@@ -107,13 +109,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez le certificat codé en base 64 dans le Bloc-notes, puis copiez son contenu.
-    4.  Cliquez sur **Import SAML Metadata**, puis collez votre certificat codé en base 64.
-    5.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex** de la boîte de dialogue, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer for SAML (IdP ID)**.
-    6.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Customer SSO Service Login URL**.
-    7.  Dans la liste **NameID Format**, sélectionnez **Email address**.
+    4.  Cliquez sur **Importer les métadonnées SAML**, puis collez votre certificat codé en base 64.
+    5.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex** de la boîte de dialogue, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Émetteur pour SAML (ID d’IdP)**.
+    6.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion au service d’authentification unique du client**.
+    7.  Dans la liste **Format NameID**, sélectionnez **Adresse de messagerie**.
     8.  Dans la zone de texte **AuthnContextClassRef**, tapez **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**.
-    9.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Customer SSO Service Logout URL**.
-    10. Cliquez sur **Update**.
+    9.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion du service d’authentification unique du client**.
+    10. Cliquez sur **Mettre à jour**.
 
 9.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Cisco Webex**, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
@@ -126,7 +128,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cisco Webex, vous de
 
 1.  Connectez-vous à votre locataire **Cisco Webex**.
 
-2.  Accédez à **Manage Users > Add User**.
+2.  Accédez à **Gérer les utilisateurs > Ajouter un utilisateur**.
 
     ![Ajouter des utilisateurs](./media/active-directory-saas-cisco-webex-tutorial/IC777625.png "Ajouter des utilisateurs")
 
@@ -134,7 +136,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cisco Webex, vous de
 
     ![Ajouter un utilisateur](./media/active-directory-saas-cisco-webex-tutorial/IC777626.png "Ajouter un utilisateur")
 
-    1.  Dans la zone **Account Type**, sélectionnez **Host**.
+    1.  Dans la zone **Type de compte**, sélectionnez **Hôte**.
     2.  Tapez les informations d’un utilisateur Azure AD existant dans les zones de texte suivantes : **Prénom, Nom**, **Nom d’utilisateur**, **Adresse de messagerie**, **Mot de passe**, **Confirmer le mot de passe**.
     3.  Cliquez sur **Add**.
 

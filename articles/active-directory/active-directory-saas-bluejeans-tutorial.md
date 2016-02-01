@@ -86,33 +86,33 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **BlueJeans** en tant qu’administrateur.
 
-6.  Accédez à **ADMIN > Group Settings > Security**.
+6.  Accédez à **ADMIN > Paramètres du groupe > Sécurité**.
 
     ![Administrateur](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administrateur")
 
-7.  Dans la section **Security**, procédez comme suit :
+7.  Dans la section **Sécurité**, procédez comme suit :
 
     ![Authentification unique SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Authentification unique SAML")
 
-    1.  Sélectionnez **SAML Single Sign On**.
-    2.  Sélectionnez **Enable automatic provisioning**.
+    1.  Sélectionnez **Authentification unique SAML**.
+    2.  Sélectionnez **Activer l’approvisionnement automatique**.
 
 8.  Poursuivez en procédant comme suit :
 
     ![Chemin d’accès du certificat](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Chemin d’accès du certificat")
 
-    1.  Cliquez sur **Choose File**, puis chargez le certificat téléchargé.
+    1.  Cliquez sur **Choisir un fichier**, puis chargez le certificat téléchargé.
     2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur BlueJeans**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion**.
-    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur BlueJeans**, copiez la valeur **Modifier l’URL de mot de passe** et collez-la dans la zone de texte **Password Change URL**.
+    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur BlueJeans**, copiez la valeur **Modifier l’URL de mot de passe** et collez-la dans la zone de texte **Modifier l’URL de mot de passe**.
     4.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur BlueJeans**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion**.
 
 9.  Poursuivez en procédant comme suit :
 
     ![Enregistrer les modifications](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Enregistrer les modifications")
 
-    1.  Dans la zone de texte **User id**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Dans la zone de texte **E-mail**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-3.  Cliquez sur **Enregistrer les modifications**.
+    1.  Dans la zone de texte **ID utilisateur**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  Dans la zone de texte **E-mail**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    3.  Cliquez sur **Enregistrer les modifications**.
 
 10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -125,13 +125,13 @@ Pour permettre aux utilisateurs Azure AD de se connecter à BlueJeans, vous deve
 
 1.  Connectez-vous à votre site d’entreprise **BlueJeans** en tant qu’administrateur.
 
-2.  Accédez à **ADMIN > Manage Users > Add User**.
+2.  Accédez à **ADMIN > Gérer les utilisateurs > Ajouter un utilisateur**.
 
     ![Administrateur](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Administrateur")
 
-    >[AZURE.IMPORTANT]L’onglet **Add User** est disponible uniquement si, sous l’onglet **Security**, l’option **Enable automatic provisioning** est décochée.
+    >[AZURE.IMPORTANT]L’onglet **Ajouter un utilisateur** est disponible uniquement si, sous l’onglet **Sécurité**, l’option **Activer l’approvisionnement automatique** est désactivée.
 
-3.  Dans la section **Add User**, procédez comme suit :
+3.  Dans la section **Ajouter un utilisateur**, procédez comme suit :
 
     ![Ajouter un utilisateur](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Ajouter un utilisateur")
 

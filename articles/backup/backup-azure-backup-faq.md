@@ -97,7 +97,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données est comme indiqué ci-dessous pour les différents systèmes d’exploitation.
 
-|N° |	Système d’exploitation |	Taille maximale de la source de données |
+|N|	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
 |2| Windows 8 ou version ultérieure| 54 400 Go|
