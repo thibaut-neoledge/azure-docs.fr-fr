@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
-# Kit de développement logiciel (SDK) Azure pour .NET 2.8 et 2.8.1
+# Kit de développement logiciel (SDK) Azure pour .NET 2.8, 2.8.1 et 2.8.2
 
-##Vue d'ensemble
+##Vue d’ensemble
  
-Cet article contient les notes de publication (qui incluent les problèmes connus et les dernières modifications) pour le Kit de développement logiciel (SDK) Azure .NET versions 2.8 et 2.8.1.
+Cet article contient les notes de publication (qui incluent les problèmes connus et les dernières modifications) du Kit de développement logiciel (SDK) Azure .NET versions 2.8, 2.8.1 et 2.8.2.
 
 Pour obtenir une liste complète des nouvelles fonctionnalités et mises à jour disponibles dans cette version, consultez l’annonce relative au [Kit de développement logiciel (SDK) 2.8 pour Visual Studio 2013 et Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -37,7 +37,7 @@ Pour obtenir une liste complète des nouvelles fonctionnalités et mises à jour
 
 ####Problèmes connus
 
-Le Kit de développement logiciel (SDK) Azure 2.8 pour .NET vous permet de créer des packages de services cloud .NET 4.5.2. Toutefois, .NET Framework 4.5.2 ne sera pas installé sur les images de système d’exploitation invité par défaut avant la publication du système d’exploitation invité de janvier 2016. Avant cela, .NET Framework 4.5.2 sera disponible via une version de système d’exploitation invité distincte, celle de novembre 2015-02. Consultez la page [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services-guestos-update-matrix.md). Une fois l’image de novembre 2015-02 publiée, vous pourrez choisir d’utiliser cette image en mettant à jour votre fichier .cscfg. Dans le fichier de configuration du service, définissez l’attribut osVersion de l’élément ServiceConfiguration sur la chaîne WA-GUEST-OS-4.26\_201511-02. Si vous choisissez d'utiliser cette image, vous n'obtiendrez plus de mises à jour automatiques pour le système d'exploitation invité. Pour obtenir les mises à jour automatiques, osVersion doit avoir la valeur « * » et .NET 4.5.2 est disponible uniquement par le biais des mises à jour automatiques en janvier 2016.
+Le Kit de développement logiciel (SDK) Azure 2.8 pour .NET vous permet de créer des packages de services cloud .NET 4.5.2. Toutefois, .NET Framework 4.5.2 ne sera pas installé sur les images de système d’exploitation invité par défaut avant la publication du système d’exploitation invité de janvier 2016. Avant cela, .NET Framework 4.5.2 sera disponible via une version de système d’exploitation invité distincte, celle de novembre 2015-02. Consultez la page [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Une fois l’image de novembre 2015-02 publiée, vous pourrez choisir d’utiliser cette image en mettant à jour votre fichier .cscfg. Dans le fichier de configuration du service, définissez l’attribut osVersion de l’élément ServiceConfiguration sur la chaîne WA-GUEST-OS-4.26\_201511-02. Si vous choisissez d'utiliser cette image, vous n'obtiendrez plus de mises à jour automatiques pour le système d'exploitation invité. Pour obtenir les mises à jour automatiques, osVersion doit avoir la valeur « * » et .NET 4.5.2 est disponible uniquement par le biais des mises à jour automatiques en janvier 2016.
 
 ###Azure Data Factory
 
@@ -84,7 +84,13 @@ Pour plus d’informations, consultez la page relative au [Kit de développement
 2. Les utilisateurs Python peuvent rencontrer des problèmes de débogueur. L’équipe technique déploie un correctif à cet effet mais si des utilisateurs sont confrontés à de tels problèmes, contactez Microsoft sur les forums, sur le blog d’annonce ou dans les commentaires des notes de version. 
 3. Dans certaines régions (par exemple, l’Inde du Sud), les clients sont confrontés à des erreurs d’approvisionnement d’App Service. Cela est conforme au cadre du portail. Les clients qui rencontrent ce problème peuvent utiliser le portail Azure pour demander l’accès à publier dans ces zones géographiques. L’approvisionnement doit fonctionner lorsqu’ils demandent l’accès à ces régions. 
 
+##Kit de développement logiciel (SDK) Azure pour .NET 2.8.2
 
+Après avoir installé les outils de la version 2.8.2, les clients peuvent rencontrer le problème ci-dessous.
+
+- Si vous utilisez Windows 10 et que vous n’avez pas installé Internet Explorer, vous pouvez obtenir l’erreur « Internet Explorer est introuvable ». Pour résoudre ce problème, installez Internet Explorer à l’aide de la boîte de dialogue Ajouter/Supprimer des composants Windows.
+
+Si vous rencontrez ce problème, utilisez la fonctionnalité Envoyer un sourire pour le signaler.
 ##Autres mises à jour
 
 Pour les autres mises à jour, consultez [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
@@ -95,4 +101,4 @@ Pour les autres mises à jour, consultez [Billet d’annonce du Kit de développ
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # Connexion à une base de données SQL à l’aide de SQL Server Management Studio dans Azure RemoteApp
@@ -137,7 +137,7 @@ Lorsque vous accédez à un utilisateur dans Azure Active Directory, vous pouvez
 
 Après avoir effectué toutes les étapes ci-dessus, vous serez en mesure d’exécuter le client Azure RemoteApp et de vous connecter avec un utilisateur affecté. SSMS est présenté comme étant l’une de vos applications, et vous pouvez l’exécuter comme s’il était installé sur votre ordinateur avec un accès à Azure SQL Server.
 
-Pour plus d’informations sur l’établissement d’une connexion avec la base de données SQL, consultez la page [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md).
+Pour plus d’informations sur l’établissement d’une connexion avec la base de données SQL, consultez la page [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 
 
 C’est tout pour le moment. Vous n’avez plus qu’à l’utiliser !
@@ -152,4 +152,4 @@ C’est tout pour le moment. Vous n’avez plus qu’à l’utiliser !
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

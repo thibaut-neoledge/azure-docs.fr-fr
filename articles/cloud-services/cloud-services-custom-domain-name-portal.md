@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs pourront accéder à votre application via une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
 
@@ -28,13 +28,11 @@ Toutefois, vous pouvez également exposer votre application sur votre propre nom
 
 Avez-vous déjà compris ce que sont les enregistrements CNAME et A ? [Passer l’explication](#add-a-cname-record-for-your-custom-domain).
 
-> [AZURE.NOTE]Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour les sites Web, consultez la rubrique [Configuration d’un nom de domaine personnalisé pour une application Web Azure App Service](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez la rubrique [Configuration d’un nom de domaine personnalisé pour un compte de stockage Azure](../storage/storage-custom-domain-name.md).
+> [AZURE.NOTE]Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez [cette page](../storage/storage-custom-domain-name.md).
 
 <p/>
 
-
-> [AZURE.TIP]
-> Soyez opérationnel plus rapidement ! Utilisez la nouvelle [procédure pas à pas](http://support.microsoft.com/kb/2990804) d’Azure ! L’association d’un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou Sites Web Azure deviennent un jeu d’enfant.
+> [AZURE.TIP]Soyez opérationnel plus rapidement ! Utilisez la nouvelle [procédure pas à pas](http://support.microsoft.com/kb/2990804) d’Azure ! L’association d’un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou Sites Web Azure deviennent un jeu d’enfant.
 
 ## Présentation des enregistrements CNAME et A
 
@@ -44,15 +42,13 @@ Bien que fonctionnant différemment, les enregistrements CNAME (ou enregistremen
 
 Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com** ou **www.contoso.com**, à un nom de domaine canonique. Dans ce cas, le nom de domaine canonique est le nom de domaine **[myapp].cloudapp.net** de votre application hébergée Azure. Une fois créé, l’enregistrement CNAME émet un alias pour **[myapp].cloudapp.net**. L’entrée CNAME devient automatiquement l’adresse IP de votre service **[myapp].cloudapp.net**. Ainsi, même si l’adresse IP du service cloud change, vous n’avez aucune action à effectuer.
 
-> [AZURE.NOTE]
-> Certains bureaux d’enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu’un enregistrement CNAME est utilisé (par exemple, www.contoso.com) et non un nom racine (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME](http://en.wikipedia.org/wiki/CNAME_record) ou le document [Noms de domaine IETF - Implémentation et spécification](http://tools.ietf.org/html/rfc1035).
+> [AZURE.NOTE]Certains bureaux d’enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu’un enregistrement CNAME est utilisé (par exemple, www.contoso.com) et non un nom racine (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME](http://en.wikipedia.org/wiki/CNAME_record) ou le document [Noms de domaine IETF - Implémentation et spécification](http://tools.ietf.org/html/rfc1035).
 
 ### Enregistrement A
 
 Un enregistrement *A* associe un domaine, tel que **contoso.com** ou **www.contoso.com**, ou un *nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, **.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
-> [AZURE.NOTE]
-> L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
+> [AZURE.NOTE]L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
 >
 > De façon assez pratique, l’adresse IP d’un emplacement de déploiement donné (de production ou intermédiaire) est conservée lors du basculement entre les déploiements intermédiaires et de production ou lors de l’exécution de la mise à niveau sur place d’un déploiement existant. Pour plus d’informations sur ces actions, consultez la rubrique [Gestion des services cloud](cloud-services-how-to-manage.md).
 
@@ -91,8 +87,7 @@ Par exemple, l’enregistrement CNAME suivant renvoie tout le trafic de **www.co
 | ------------------------- | -------------------- |
 | www | contoso.cloudapp.net |
 
-> [AZURE.NOTE]
-> Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.cloudapp.net). Le processus de transfert est donc invisible pour l’utilisateur final.
+> [AZURE.NOTE]Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.cloudapp.net). Le processus de transfert est donc invisible pour l’utilisateur final.
 
 > L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que *.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une entrée de **redirection d’URL** ou de **transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
 
@@ -136,13 +131,12 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 
 Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
->[AZURE.WARNING]
->Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](..\virtual-network\virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
+>[AZURE.WARNING]Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](../virtual-network/virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
 
 ## Étapes suivantes
 
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
-* [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+* [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
@@ -150,11 +144,11 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
-[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [portail Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

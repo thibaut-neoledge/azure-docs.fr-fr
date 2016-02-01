@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d’une machine virtuelle personnalisée dans Azure | Microsoft Azure"
-	description="Découvrez comment créer une machine virtuelle personnalisée à partir du portail Azure Classic à l’aide du modèle de déploiement classique."
+	pageTitle="Création d'une machine virtuelle Windows personnalisée | Microsoft Azure"
+	description="Découvrez comment créer une machine virtuelle Windows personnalisée à partir du portail Azure Classic à l'aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
-#Création d’une machine virtuelle personnalisée
+	
+# Création d’une machine virtuelle personnalisée exécutant Windows
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
@@ -34,6 +35,10 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 > [AZURE.IMPORTANT]Si vous souhaitez que la machine virtuelle utilise un réseau virtuel pour pouvoir vous y connecter directement par le nom d'hôte ou configurer des connexions entre différents emplacements, veillez à spécifier le réseau virtuel lors de la création de la machine virtuelle. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](virtual-networks-overview.md).
 
+
+## Création de la machine virtuelle
+
+
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

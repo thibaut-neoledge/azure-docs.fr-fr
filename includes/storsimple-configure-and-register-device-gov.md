@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Les versions suivantes doivent apparaître :
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Les versions suivantes doivent apparaître : - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Exécutez l’applet de commande suivante pour confirmer que la mise à jour du microprogramme a été appliquée correctement :
 
@@ -108,22 +105,19 @@
  
 13. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier maintenant. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir trois des éléments suivants : caractères en minuscules, en majuscules, numériques et spéciaux.
 
-	<br/>
-![Inscription de l’appareil StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+	<br/>![Inscription de l’appareil StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’[étape 2 : obtention de la clé d’inscription](storsimple-get-service-registration-key-gov.md). Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
+14. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’[étape 2 : obtention de la clé d’inscription](#step-2-get-the-service-registration-key). Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
 
       >[AZURE.NOTE]Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Si vous avez entré tous les paramètres réseau (adresse IP pour Data 0, masque de sous-réseau et passerelle), vos entrées sont conservées.
 
 	![Progression de l’inscription de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
+15. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](storsimple-security.md) pour plus d’informations sur cette clé.
 	
 	![Inscription de l’appareil StorSimple 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Pour copier le texte à partir de la fenêtre de console de série, sélectionnez-le simplement. Vous devez ensuite pouvoir le coller dans le Presse-papiers ou dans un éditeur de texte.
-      > 
-      > N’utilisez PAS Ctrl + C pour copier la clé de chiffrement de données de service. Cette combinaison de touches ferme l’Assistant Installation. Par conséquent, le mot de passe administrateur de l’appareil n’est pas modifié et l’appareil rétablit le mot de passe par défaut.
+      >[AZURE.IMPORTANT]Pour copier le texte à partir de la fenêtre de console de série, sélectionnez-le simplement. Vous devez ensuite pouvoir le coller dans le Presse-papiers ou dans un éditeur de texte. > > N’utilisez PAS Ctrl + C pour copier la clé de chiffrement de données de service. Cette combinaison de touches ferme l’Assistant Installation. Par conséquent, le mot de passe administrateur de l’appareil n’est pas modifié et l’appareil rétablit le mot de passe par défaut.
 
 16. Quittez la console en série.
 
@@ -134,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Si l'appareil est toujours hors ligne après quelques minutes, vous devez vous assurer que le réseau de pare-feu a été configuré conformément à la [configuration réseau requise pour votre appareil StorSimple] (https://msdn.microsoft.com/library/dn772371.aspx). Si vous ne bénéficiez d'aucune prise en charge HTTP 1.1 , vérifiez le port 9354 afin de vous assurer qu'il est ouvert pour les communications sortantes. Ce port est utilisé pour la communication entre le service StorSimple Manager et votre appareil StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Présentation du contrôle d’intégrité de Service Fabric
@@ -334,4 +334,4 @@ Le modèle d’intégrité est très utilisé pour la surveillance et le diagnos
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

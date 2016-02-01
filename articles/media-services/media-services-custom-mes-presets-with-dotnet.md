@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter le code qui génère des miniatures.
 
+>[AZURE.NOTE]Le paramètre **SceneChangeDetection** dans la présélection qui suit ne peut avoir pour valeur que vrai si vous rédigez du code pour une vidéo à débit binaire unique. Si vous codez pour une vidéo à débit binaire multiple et définissez **SceneChangeDetection** sur true, l’encodeur renverra une erreur.
+
+
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
 Assurez-vous d’examiner la section [Considérations](media-services-custom-mes-presets-with-dotnet.md#considerations).
@@ -230,7 +233,7 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -418,7 +421,7 @@ Les considérations suivantes s'appliquent :
 	- La configuration par défaut est « Start:{Best} ».
 - Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-##<a id="trim_video"></a>Rogner une vidéo (extrait)
+##<a id="trim_video"></a>Rognage d’une vidéo (extrait)
 
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
@@ -664,7 +667,7 @@ Pour découper vos vidéos, vous pouvez effectuer l’une des présélections ME
 	  </Outputs>
 	</Preset>
 
-##<a id="overlay"></a>Créer une superposition
+##<a id="overlay"></a>Création d’une superposition
 
 Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
@@ -815,7 +818,7 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	  </Outputs>
 	</Preset>
 
-##<a id="silent_audio"></a>Insérer une piste audio en mode silencieux quand l’entrée ne comporte pas de son
+##<a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
 
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
@@ -886,4 +889,4 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

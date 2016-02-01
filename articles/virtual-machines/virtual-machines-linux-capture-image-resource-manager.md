@@ -50,7 +50,7 @@ Pour effectuer d’autres personnalisations, vous devrez vous connecter à la ma
 
 	Cette commande essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération effectue les tâches suivantes :
 
-	- supprime toutes les clés de l’hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
+	- supprime toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
 	- efface la configuration de Nameserver dans /etc/resolv.conf ;
 	- supprime le mot de passe `root` de l’utilisateur de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
 	- supprime les baux du client DHCP mis en cache ;
@@ -193,11 +193,11 @@ Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 Exécutez ensuite une commande similaire à la suivante :
 
 	azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
-	
+
 Pour obtenir d’autres options de commande supplémentaires, exécutez `azure help vm create`.
 
 ## Étapes suivantes
 
 Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

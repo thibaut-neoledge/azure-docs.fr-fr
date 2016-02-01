@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Création d'une copie d'une base de données SQL Azure à l'aide de PowerShell" 
+    pageTitle="Création d'une copie d'une base de données SQL Azure à l'aide de PowerShell | Microsoft Azure" 
     description="Création d'une copie d'une base de données SQL Azure à l'aide de PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -61,7 +61,7 @@ Pour sélectionner l'abonnement, vous avez besoin de votre identifiant ou de vot
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l'abonnement que vous voulez utiliser affiche **IsCurrent: True**.
+Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
 
 
 ## Configurer les variables en fonction de votre environnement
@@ -136,7 +136,7 @@ Après l'exécution de **Start-AzureSqlDatabaseCopy**, vous pouvez vérifier l'�
 
 ## Étapes suivantes
 
-- [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 - [Exporter la base de données vers un fichier BACPAC](sql-database-export-powershell.md)
 
 
@@ -146,4 +146,4 @@ Après l'exécution de **Start-AzureSqlDatabaseCopy**, vous pouvez vérifier l'�
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

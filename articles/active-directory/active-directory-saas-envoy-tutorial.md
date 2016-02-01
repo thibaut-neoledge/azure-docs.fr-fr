@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Envoy | Microsoft Azure" 
     description="Apprenez à utiliser Envoy avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Envoy
   
@@ -64,7 +64,7 @@ Cette section décrit l'activation de l'intégration d’applications pour Envoy
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Envoy avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l'authentification unique pour Envoy oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Envoy avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l'authentification unique pour Envoy oblige à récupérer une valeur d’empreinte dans un certificat. Si vous n'êtes pas familiarisé avec cette procédure, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -111,7 +111,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Envoy Suite**, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **Identity Provider HTTP SAML URL**.
     3.  Cliquez sur **Save changes**.
 
-10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -129,10 +129,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-envoy-tutorial/IC776787.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-envoy-tutorial/IC767830.png "Oui")
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

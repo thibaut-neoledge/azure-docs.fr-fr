@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Création et déploiement d'un service cloud
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Le portail Azure Classic vous permet de créer et de déployer un service cloud de deux manières : **Création rapide** et **Création personnalisée**.
 
@@ -68,7 +68,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Nouveau**>**Calculer**>**Service cloud**>**Création rapide**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. Dans **URL**, entrez un nom de sous-domaine à utiliser dans l'URL publique pour accéder au service cloud dans les déploiements de production. Le format de l’URL des déploiements de production est le suivant : http://*myURL*.cloudapp.net.
 
@@ -76,20 +76,20 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 4. Cliquez sur **Create Cloud Service**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	Vous pouvez surveiller l'état du processus dans la zone de message en bas de la fenêtre.
 
 	La zone **Cloud Services** s'affiche, avec le nouveau service cloud. Lorsque l'état passe à Created, la création du service cloud s'est effectuée correctement.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Téléchargement d’un certificat pour un service cloud
 
 1. Dans le [portail Azure Classic](http://manage.windowsazure.com/), cliquez sur **Services cloud**, sur le nom du service cloud, puis sur **Certificats**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Cliquez sur **Télécharger un certificat** ou sur **Télécharger**.
@@ -100,11 +100,11 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 5. Cliquez sur **OK** (coche).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	Vous pouvez consulter l'état du téléchargement dans la zone de message, comme illustré ci-dessous. Une fois le téléchargement terminé, le certificat est ajouté à la table. Dans la zone de message, cliquez sur OK pour fermer le message.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## Déploiement d’un service cloud
 
@@ -124,11 +124,11 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 6. Cliquez sur **OK** (coche) pour lancer le déploiement du service cloud.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	Vous pouvez surveiller l'état du déploiement dans la zone de message. Cliquez sur OK pour masquer le message.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Vérifier la réussite du déploiement
 
@@ -138,7 +138,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 2. Sous **quick glance**, cliquez sur l'URL du site pour ouvrir le service cloud dans un navigateur Web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
@@ -150,4 +150,4 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

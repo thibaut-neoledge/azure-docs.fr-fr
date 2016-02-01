@@ -49,7 +49,7 @@ Une définition de paramètre dans des Runbook de flux de travail PowerShell a l
      )
 ```
 
->[AZURE.NOTE] Lorsque vous définissez des paramètres, si vous ne spécifiez pas l’attribut **Mandatory**, par défaut, le paramètre est considéré comme facultatif. De même, si vous définissez une valeur par défaut pour un paramètre dans des Runbook de flux de travail PowerShell, il est traité par PowerShell comme un paramètre facultatif, indépendamment de la valeur de l’attribut **Mandatory**.
+>[AZURE.NOTE]Lorsque vous définissez des paramètres, si vous ne spécifiez pas l’attribut **Mandatory**, par défaut, le paramètre est considéré comme facultatif. De même, si vous définissez une valeur par défaut pour un paramètre dans des Runbook de flux de travail PowerShell, il est traité par PowerShell comme un paramètre facultatif, indépendamment de la valeur de l’attribut **Mandatory**.
 
 En guise d’exemple, nous allons configurer les paramètres d’entrée pour un Runbook de flux de travail PowerShell qui renvoie des détails sur des machines virtuelles, soit une machine virtuelle unique, soit toutes les machines virtuelles au sein d’un service. Ce Runbook comporte deux paramètres, comme illustré dans la capture d’écran ci-dessous : le nom de la machine virtuelle et le nom du service.
 
@@ -98,17 +98,9 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
 
 4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureVM** :
 
-    * **Parameter1:** 
-    Name--VMName, 
-    Type--String, 
-    Mandatory--No
+    * **Parameter1:** Name--VMName, Type--String, Mandatory--No
 
-    * **Parameter2:** 
-    Name--VMNameServiceName, 
-    Type--String, 
-    Mandatory--No, 
-    Default value--Custom,
-    Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
+    * **Parameter2:** Name--VMNameServiceName, Type--String, Mandatory--No, Default value--Custom, Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
 
 5. Une fois les paramètres ajoutés, cliquez sur **OK**. Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
 
@@ -122,7 +114,7 @@ Un Runbook peut être démarré de plusieurs façons : via l’interface utilis
 
 - **Démarrer un Runbook publié à l’aide du portail Azure et affecter des paramètres**
 
-Lorsque vous [démarrez le Runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), le panneau **Démarrer le Runbook** s’ouvre, dans lequel vous pouvez configurer des valeurs pour les paramètres que vous venez de créer.
+Lorsque vous [démarrez le Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le Runbook** s’ouvre. Vous pouvez y configurer des valeurs pour les paramètres que vous venez de créer.
 
 ![Démarrer à l’aide du portail](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -131,7 +123,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 ![Bulle d'aide](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE] Les paramètres de type String prennent en charge les valeurs de chaîne **vides**. La valeur **[EmptyString]** dans la zone du paramètre d’entrée a pour effet de transmettre une chaîne vide au paramètre. De même, les paramètres de type String ne prennent pas en charge la transmission de valeurs **Null**. Si vous ne transmettez pas de valeur au paramètre de type String, PowerShell interprète sa valeur comme null.
+>[AZURE.NOTE]Les paramètres de type String prennent en charge les valeurs de chaîne **vides**. La valeur **[EmptyString]** dans la zone du paramètre d’entrée a pour effet de transmettre une chaîne vide au paramètre. De même, les paramètres de type String ne prennent pas en charge la transmission de valeurs **Null**. Si vous ne transmettez pas de valeur au paramètre de type String, PowerShell interprète sa valeur comme null.
 
 - **Démarrer un Runbook publié à l’aide d’applets de commande PowerShell et affecter des paramètres**
 
@@ -139,8 +131,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
     **Exemple :**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -150,13 +141,12 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
     **Exemple :**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE] Lorsque vous démarrez un Runbook à l’aide d’applets de commande PowerShell, un paramètre par défaut, **MicrosoftApplicationManagementStartedBy**, est créé avec la valeur **PowerShell**. Vous pouvez afficher ce paramètre dans le panneau de **détails du travail**.
+>[AZURE.NOTE]Lorsque vous démarrez un Runbook à l’aide d’applets de commande PowerShell, un paramètre par défaut, **MicrosoftApplicationManagementStartedBy**, est créé avec la valeur **PowerShell**. Vous pouvez afficher ce paramètre dans le panneau de **détails du travail**.
 
 - **Démarrer un Runbook à l’aide d’un Kit de développement logiciel (SDK) et affecter des paramètres**
 
@@ -279,4 +269,4 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 - Pour modifier un Runbook textuel, voir [Modification des Runbook textuels](automation-edit-textual-runbook.md).
 - Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

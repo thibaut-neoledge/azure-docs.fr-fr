@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des journaux des opérations et de service dans Stream Analytics | Microsoft Azure" 
+	pageTitle="Débogage à l'aide des journaux des opérations et de service dans Stream Analytics | Microsoft Azure" 
 	description="Comment utiliser les journaux des opérations Stream Analytics" 
 	keywords="journaux de service"
 	services="stream-analytics" 
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Présentation des journaux des opérations et de service dans Stream Analytics
+# Débogage des travaux Stream Analytics à l'aide des journaux des opérations et de service
 
 Tous les services Azure fournissent des messages de journalisation opérationnelle aux utilisateurs pour enregistrer les détails relatifs aux opérations de gestion. Dans Azure Stream Analytics, ces informations peuvent être utilisées à des fins de débogage, comme les messages sur l'affichage de l'état d'une tâche, la progression de la tâche et l'échec pour suivre la progression d'une tâche au fil du temps, depuis son démarrage, jusqu'à son traitement et sa sortie.
 
@@ -90,10 +90,10 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

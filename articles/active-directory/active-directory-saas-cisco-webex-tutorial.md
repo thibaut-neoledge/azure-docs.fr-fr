@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Cisco Webex | Microsoft Azure" 
     description="Apprenez à utiliser Cisco Webex avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Cisco Webex
 
@@ -64,9 +64,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configuration de l’authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Cisco Webex avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez créer un certificat codé en base 64.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Cisco Webex avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -103,7 +101,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configuration de l’authentification unique web fédérée](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Configuration de l’authentification unique web fédérée")
 
-    1.  Dans la liste **Federation Protocol**, sélectionnez **SAML 2.0**.
+    1.  Dans la liste **Protocole de fédération**, sélectionnez **SAML 2.0**.
     2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
@@ -137,7 +135,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cisco Webex, vous de
     ![Ajouter un utilisateur](./media/active-directory-saas-cisco-webex-tutorial/IC777626.png "Ajouter un utilisateur")
 
     1.  Dans la zone **Account Type**, sélectionnez **Host**.
-    2.  Tapez les informations d’un utilisateur Azure AD existant dans les zones de texte suivantes : **First name, Last name**, **User name**, **Email**, **Password** et **Confirm Password**.
+    2.  Tapez les informations d’un utilisateur Azure AD existant dans les zones de texte suivantes : **Prénom, Nom**, **Nom d’utilisateur**, **Adresse de messagerie**, **Mot de passe**, **Confirmer le mot de passe**.
     3.  Cliquez sur **Add**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Cisco Webex pour approvisionner des comptes d’utilisateur Azure Active Directory.
@@ -154,10 +152,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

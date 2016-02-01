@@ -29,28 +29,7 @@ Pour inscrire une source de données, il vous suffit de lancer l’outil d’ins
 Une fois la source de données inscrite, le catalogue effectue le suivi de son emplacement et indexe ses métadonnées. Ainsi, les utilisateurs peuvent rechercher, parcourir et détecter la source de données et utiliser son emplacement pour se connecter à l'aide de l'application ou de l'outil de leur choix.
 
 ## Sources prises en charge
-Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l'inscription des sources de données et des types d'objet suivants :
-
-* Tables et vues du moteur de base de données SQL Server
-* Tables et vues de la base de données Oracle
-* Dimensions multidimensionnelles, mesures et indicateurs clés de performances SQL Server Analysis Services
-* Tables tabulaires SQL Server Analysis Services
-* Rapports SQL Server Reporting Services
-* Objets blob et répertoires d’Azure Storage
-* Azure Data Lake Store
-* Fichiers et répertoires HDFS
-* Tables Apache Hive
-* Vues et tables Teradata
-* Fichiers et répertoires d’Azure Data Lake Store
-* Tables et vues MySQL
-
-> [AZURE.NOTE]La prise en charge de SQL Server inclut également la base de données SQL Microsoft Azure et Microsoft Azure SQL Data Warehouse
-
-<br/>
-
-> [AZURE.NOTE]La prise en charge de SQL Server Reporting Services concerne uniquement les serveurs en mode natif : le mode SharePoint n'est pas encore pris en charge
-
-<br/>
+Reportez-vous au [DSR Data Catalog](data-catalog-dsr.md) pour obtenir la liste des sources de données actuellement prises en charge. <br/>
 
 
 ## Métadonnée structurelle
@@ -61,7 +40,7 @@ Pour tous les objets, ces métadonnées structurelles incluent l’emplacement d
 ## Métadonnée descriptive
 En plus des métadonnées structurelles de base extraites de la source de données, l'outil d'inscription des sources de données extrait des métadonnées descriptives. Pour SQL Server Analysis Services et SQL Server Reporting Services, ces métadonnées sont extraites des propriétés de description exposées par ces services. Pour SQL Server, ce sont les valeurs fournies à l'aide de la propriété étendue ms\_description qui sont extraites. Pour la base de données Oracle, l'outil d’inscription des sources de données extrait la colonne COMMENTS de la vue ALL\_TAB\_COMMENTS.
 
-En plus des métadonnées descriptives extraites de la source de données, les utilisateurs peuvent saisir des métadonnées descriptives à l’aide de l’outil d’inscription des sources de données. Les utilisateurs peuvent ajouter des balises et peuvent identifier des experts pour les objets en cours d'inscription. Toutes ces métadonnées descriptives ainsi que les métadonnées structurelles sont copiées vers le service **Azure Data Catalog**.
+En plus des métadonnées descriptives extraites de la source de données, les utilisateurs peuvent saisir des métadonnées descriptives à l’aide de l’outil d’inscription des sources de données. Les utilisateurs peuvent ajouter des balises et peuvent identifier des experts pour les objets en cours d'inscription. Toutes ces métadonnées descriptives sont copiées vers le service **Azure Data Catalog** ainsi que les métadonnées structurelles.
 
 ## Avec les aperçus instantanés
 
@@ -90,11 +69,11 @@ Ces statistiques sont ensuite copiées dans le catalogue avec les métadonnées 
 
 ## Mise à jour des inscriptions
 
-L’inscription d’une source de données permet sa découverte dans **Azure Data Catalog** à l’aide des métadonnées et de l’aperçu facultatif extraits lors de l’inscription. Si la source de données doit être mise à jour dans le catalogue (par exemple, si le schéma d'un objet a changé, ou si les tables initialement exclues doivent être incluses, ou si un utilisateur souhaite mettre à jour les données incluses dans les aperçus), l'outil d'inscription des sources de données peut être réexécuté.
+L’inscription d’une source de données rend celle-ci détectable dans **Azure Data Catalog** à l’aide des métadonnées et de l’aperçu facultatif extraits lors de l’inscription. Si la source de données doit être mise à jour dans le catalogue (par exemple, si le schéma d'un objet a changé, ou si les tables initialement exclues doivent être incluses, ou si un utilisateur souhaite mettre à jour les données incluses dans les aperçus), l'outil d'inscription des sources de données peut être réexécuté.
 
 La réinscription d’une source de données déjà inscrite aboutit à une opération de fusion de type « upsert » : les objets existants sont actualisés, tandis que les nouveaux objets sont créés de toute pièce. Toutes les métadonnées fournies par les utilisateurs via le portail **Azure Data Catalog** sont conservées.
 
 ## Résumé
 L’inscription d’une source de données auprès d’**Azure Data Catalog** facilite la découverte et la compréhension, et consiste à copier les métadonnées descriptives et structurelles de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et découverte à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

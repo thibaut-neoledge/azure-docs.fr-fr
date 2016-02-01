@@ -117,15 +117,15 @@ Pour vérifier la version de l’agent de machine virtuelle sur les machines vir
 ## Résoudre les problèmes de capture instantanée de machine virtuelle
 La sauvegarde de machine virtuelle émet une commande de capture instantanée à destination du stockage sous-jacent. Le fait de ne pas avoir accès au stockage ou tout retard dans l’exécution d’une tâche de capture instantanée peut faire échouer la sauvegarde. Voici les causes possibles de l’échec d’une tâche de capture instantanée.
 
-1. Accès réseau au stockage bloqué par l’utilisation du groupe de sécurité réseau<br> Découvrez plus en détail comment [activer l’accès réseau](backup-azure-vms-prepare.md#2-network-connectivity) au stockage en utilisant une liste d’adresses IP approuvées ou à travers un serveur proxy. 
-2.  Les machines virtuelles sur lesquelles la sauvegarde SQL Server est configurée peuvent occasionner des retards dans les tâches de capture instantanée. <br> Par défaut, la sauvegarde de machine virtuelle émet une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuels qui exécutent des serveurs SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, cela peut occasionner des retards d’exécution des captures instantanées. Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée. 
+1. Accès réseau au stockage bloqué par l’utilisation du groupe de sécurité réseau<br> Découvrez plus en détail comment [activer l’accès réseau](backup-azure-vms-prepare.md#2-network-connectivity) au stockage en utilisant une liste d’adresses IP approuvées ou à travers un serveur proxy.
+2.  Les machines virtuelles sur lesquelles la sauvegarde SQL Server est configurée peuvent occasionner des retards dans les tâches de capture instantanée. <br> Par défaut, la sauvegarde de machine virtuelle émet une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuels qui exécutent des serveurs SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, cela peut occasionner des retards d’exécution des captures instantanées. Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée.
 
 	```
 	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
-3.  État de la machine virtuelle rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. <br> Si vous avez arrêté la machine virtuelle dans RDP, retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle sur le portail à l’aide de l’option « Arrêter » dans le tableau de bord de la machine virtuelle. 
-4.  Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps.<br> Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud. 
+3.  État de la machine virtuelle rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. <br> Si vous avez arrêté la machine virtuelle dans RDP, retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle sur le portail à l’aide de l’option « Arrêter » dans le tableau de bord de la machine virtuelle.
+4.  Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps.<br> Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud.
 5.  Forte sollicitation du processeur/de la mémoire sur la machine virtuelle.<br> Si la machine virtuelle sollicite fortement le processeur (utilisation supérieure à 90 %) ou la mémoire, la tâche de capture instantanée est mise en file d’attente, et le retard qui en résulte débouche sur une expiration de délai. En pareille situation, essayez de procéder à des sauvegardes à la demande.
 
 <br>
@@ -149,4 +149,6 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
     - Si vous des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic. Les étapes du déploiement d’un serveur proxy HTTP sont expliquées [ici](backup-azure-vms-prepare.md#2-network-connectivity).
     - Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès à Internet à partir du proxy HTTP.
 
-<!---HONumber=AcomDC_0114_2016-->
+>[AZURE.NOTE]Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. Pour plus d’informations sur la définition d’une adresse IP privée interne statique, cliquez [ici](virtual-networks-reserved-private-ip.md).
+
+<!---HONumber=AcomDC_0121_2016-->

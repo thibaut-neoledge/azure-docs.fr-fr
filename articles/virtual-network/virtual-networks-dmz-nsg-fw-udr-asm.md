@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Résolution des problèmes de démarrage des rôles | Microsoft Azure"
    description="Vous trouverez ici quelques raisons fréquentes aux problèmes de démarrage d’un rôle Cloud Service. Nous vous présentons également des solutions à ces problèmes."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Résolution des problèmes de démarrage des rôles Cloud Service
@@ -22,7 +22,7 @@ Voici des solutions à quelques problèmes courants liés à des rôles Azure Cl
 
 ## Contacter le Support technique Azure
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
 
 Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -165,4 +165,6 @@ Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez 
 
 Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-issue&service=cloud-services) liés aux services cloud.
 
-<!---HONumber=AcomDC_1203_2015-->
+Pour savoir comment résoudre le problème des rôles de service Cloud à l’aide des données de diagnostic d’ordinateur Azure PaaS, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
+<!---HONumber=AcomDC_0121_2016-->

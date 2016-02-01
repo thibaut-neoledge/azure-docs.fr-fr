@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/19/2016"
 	ms.author="ddove; sidneyh"/>
 
 # Créer et gérer des tâches de bases de données SQL élastiques avec le portail (version préliminaire)
@@ -115,4 +115,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

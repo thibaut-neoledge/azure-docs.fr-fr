@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Vue d'ensemble des fonctionnalités d'Azure Batch
 
 Cet article fournit une vue d’ensemble de base des fonctionnalités API principales du service Azure Batch. Si vous développez une solution informatique distribuée à l’aide des API [Batch REST][batch_rest_api] ou [Batch .NET][batch_net_api], vous allez utiliser un certain nombre d’entités et de fonctionnalités présentées ci-dessous.
 
-> [AZURE.TIP]Pour obtenir une présentation technique plus détaillée, consultez la rubrique [Vue d'ensemble technique d'Azure Batch](batch-technical-overview.md).
+> [AZURE.TIP]Pour obtenir une présentation technique générale du service Batch, consultez l’article [Concept de base d’Azure Batch](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flux de travail du service Batch
 
@@ -61,6 +61,8 @@ Lorsque vous utilisez le service Azure Batch, vous profiterez des ressources sui
 	- [Tâche du gestionnaire de travaux](#jobmanagertask)
 
 	- [Tâches de préparation et lancement](#jobpreprelease)
+
+	- [Tâches multi-instances](#multiinstance)
 
 - [JobSchedule](#jobschedule)
 
@@ -145,10 +147,9 @@ Une tâche est une unité de calcul associée à un travail et exécutée sur un
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
 - [Tâche de démarrage](#starttask)
-
 - [Tâche du gestionnaire de travaux](#jobmanagertask)
-
 - [Tâches de préparation et lancement](#jobmanagertask)
+- [Tâches multi-instances](#multiinstance)
 
 #### <a name="starttask"></a>Tâche de démarrage
 
@@ -188,6 +189,18 @@ Btach fournit la tâche de préparation de travail pour le programme d’install
 Les tâches de préparation et de validation vous permettent de spécifier une ligne de commande à exécuter lorsque la tâche est appelée et offrent des fonctionnalités telles que le téléchargement de fichiers, l’exécution élevée, les variables d’environnement personnalisées, la durée maximale d’exécution, le nombre de nouvelles tentatives et la période de rétention de fichier.
 
 Pour plus d’informations sur les tâches de préparation de travail et de validation, consultez [Exécuter les tâches de préparation de travail et de validation sur les nœuds de calcul Azure Batch](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Tâches multi-instances
+
+Une [tâche multi-instance][rest_multiinstance] est une tâche qui est configurée pour s’exécuter simultanément sur plusieurs nœuds de calcul. Avec des tâches multi-instances, vous pouvez activer des scénarios de calcul haute performance, comme MPI (Message Passing Interface), qui requièrent un groupe de nœuds de calcul alloués ensemble pour traiter une seule et même charge de travail.
+
+Dans Batch, vous créez une tâche multi-instance en spécifiant des paramètres multi-instances pour une [tâche](#task) normale. Ces paramètres incluent le nombre de nœuds de calcul pour exécuter la tâche, une ligne de commande pour la tâche principale (la « commande d’application »), une commande de coordination et une liste de fichiers de ressources communes pour chaque tâche.
+
+Lorsque vous soumettez une tâche comportant des paramètres multi-instances pour un travail, le service Batch effectue les opérations suivantes :
+
+1. Il crée automatiquement une tâche principale et un nombre suffisant de tâches subordonnées qui s’exécutent ensemble sur le nombre total de nœuds que vous avez spécifiés. Le service Batch planifie ensuite l’exécution de ces tâches sur les nœuds qui téléchargent d’abord les fichiers de ressources communes que vous avez spécifiés.
+2. Une fois ces fichiers téléchargés, la commande de coordination est exécutée par la tâche principale et les tâches subordonnées. Cette commande de coordination lance généralement un service en arrière-plan (tel que `smpd.exe` de [MS-MPI][msmpi]), et vérifie que les nœuds sont prêts à traiter les messages entre les nœuds.
+3. Lorsque la commande de coordination a été effectuée avec succès par la tâche principale et toutes les tâches subordonnées, la ligne de commande de la tâche (la « commande d’application ») est exécutée uniquement par la tâche principale, qui démarre généralement une application MPI personnalisée qui traite votre charge de travail sur les nœuds. Par exemple, dans un scénario MPI de Windows, vous exécutez généralement votre application MPI avec `mpiexec.exe` de [MS-MPI][msmpi] à l’aide de la commande d’application.
 
 ### <a name="jobschedule"></a>Travaux planifiés
 
@@ -332,6 +345,7 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +356,7 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +366,9 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/fr-FR/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Contacter le support Microsoft
@@ -30,7 +30,7 @@ Procédez comme suit pour créer une demande de support.
 
 #### Création d’une demande de support
 
-1. Une demande de support peut être créée par le biais du [Portail Azure Classic](http://manage.windowsazure.com/). Dans le [portail](http://manage.windowsazure.com/), cliquez sur votre **nom de compte**, puis sur **Contact Microsoft Support**.
+1. Une demande de support peut être créée par le biais du [Portail Azure Classic](https://manage.windowsazure.com/). Dans le [portail classique](https://manage.windowsazure.com/), cliquez sur votre **nom de compte**, puis sur **Contact Microsoft Support**.
 
 	![Contacter le support MS via le Portail de gestion](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -76,4 +76,4 @@ Procédez comme suit pour démarrer une session de support :
 
 > [AZURE.IMPORTANT]Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

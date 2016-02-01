@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour afficher et gérer les tâches StorSimple
@@ -63,7 +63,7 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 
 #### Pour afficher les détails d’une tâche
 
-1. Sur la page **Tâches**, affichez les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
+1. Dans la page **Tâches**, affichez la ou les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
 
 2. Sélectionnez une tâche.
 
@@ -93,4 +93,4 @@ Cette tâche est à présent annulée.
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

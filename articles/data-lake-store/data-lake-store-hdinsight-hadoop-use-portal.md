@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
@@ -25,7 +25,9 @@
 
 Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
 
-* **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
+* **Pour les clusters Hadoop (Windows et Linux)**, le Data Lake Store n’est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
+
+* **Pour les clusters Storm (Windows et Linux)**, le Data Lake Store peut être utilisé pour écrire des données à partir d’une topologie Storm. Le Data Lake Store peut également servir à stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.
 
 * **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire.
 
@@ -128,6 +130,47 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 
 Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier que le cluster HDInsight peut accéder aux données dans Azure Data Lake Store. Pour ce faire, nous allons exécuter quelques requêtes hive ayant pour cible Data Lake Store.
 
+### Pour un cluster Linux
+
+1. Ouvrez le panneau du cluster que vous venez d'approvisionner, puis cliquez sur **Tableau de bord**. Vous accédez alors à Ambari pour le cluster Linux. En accédant à Ambari, vous êtes invité à vous authentifier sur le site : Saisissez l’administrateur (administrateur par défaut), le nom du compte et le mot de passe que vous avez utilisés lors de la création du cluster.
+
+	![Tableau de bord du cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Tableau de bord du cluster")
+
+	Vous pouvez également accéder directement à Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur Web (où **CLUSTERNAME** est le nom de votre cluster HDInsight).
+
+2. Ouvrez la vue Hive. Sélectionnez l’ensemble de carrés dans le menu de la page (en regard du lien **Admin** et du bouton à droite de la page) pour répertorier les vues disponibles. Sélectionnez la vue **Hive**.
+
+	![Sélection des vues ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
+
+3. Une page similaire à celle ci-dessous doit s'afficher :
+
+	![Image de la page de vue hive, contenant une section de l’éditeur de requête](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
+
+4. Dans la section **Éditeur de requête** de la page, collez l’instruction HiveQL suivante dans la feuille de calcul :
+
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
+
+5. Cliquez sur le bouton **Exécuter** au bas de l’**Éditeur de requête** pour démarrer la requête. Une section **Résultats du processus de requête** doit apparaître en dessous de l’**Éditeur de requête** et afficher des informations sur la tâche.
+
+6. Une fois la requête terminée, la section **Résultats du processus de requête** affiche les résultats de l’opération. Les informations suivantes devraient s’afficher dans l’onglet **Résultats** :
+
+7. Lancez la requête suivante pour vérifier que la table a été créée.
+
+		SHOW TABLES;
+
+	L’onglet **Résultats** doit afficher les éléments suivants :
+
+		hivesampletable
+		vehicles
+
+	**vehicles** est la table que vous avez créée précédemment. **hivesampletable** est un exemple de table disponible dans tous les clusters HDInsight par défaut.
+
+8. Vous pouvez également exécuter une requête pour récupérer des données de la table **vehicles**.
+
+		SELECT * FROM vehicles LIMIT 5;
+
+### Pour un cluster Windows
+
 1. Ouvrez le panneau du cluster que vous venez d'approvisionner, puis cliquez sur **Tableau de bord**.
 
 	![Tableau de bord du cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Tableau de bord du cluster")
@@ -152,20 +195,42 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 		SHOW TABLES;
 
-	Cliquez sur Afficher les détails correspondant à cette requête. Le résultat doit afficher les éléments suivants :
+	Cliquez sur **Afficher les détails** correspondant à cette requête. Le résultat doit afficher les éléments suivants :
 
 		hivesampletable
 		vehicles
 
 	**vehicles** est la table que vous avez créée précédemment. **hivesampletable** est un exemple de table disponible dans tous les clusters HDInsight par défaut.
 
-5. Vous pouvez également exécuter une requête pour récupérer des données de **vehicles**.
+5. Vous pouvez également exécuter une requête pour récupérer des données de la table **vehicles**.
 
 		SELECT * FROM vehicles LIMIT 5;
+
 
 ## Accéder à Data Lake Store avec les commandes HDFS
 
 Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data Lake Store, vous pouvez utiliser les commandes de l'interpréteur de commandes HDFS pour accéder au magasin.
+
+### Pour un cluster Linux
+
+Dans cette section, vous allez utiliser SSH dans le cluster et exécuter les commandes HDFS. Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+Une fois connecté, utilisez la commande du système de fichiers HDFS suivante pour répertorier les fichiers dans le Data Lake Store.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+Le fichier que vous avez téléchargé dans Data Lake Store doit y figurer.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Store, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
+
+
+### Pour un cluster Windows
 
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
@@ -198,7 +263,9 @@ Pour les clusters HBase, vous pouvez utiliser des comptes Data Lake Store comme 
 
 Pour obtenir des instructions sur l'ajout d'un principal du service à un système de fichiers Data Lake Store, consultez [Configurer le principal du service pour qu'il accède au système de fichiers Data Lake Store](#acl).
 
+## Utiliser Data Lake Store dans une topologie Storm
 
+Vous pouvez utiliser le Data Lake Store pour écrire des données à partir d’une topologie Storm. Pour obtenir des instructions sur la réalisation de ce scénario, consultez la page [Utilisation d’Azure Data Lake Store avec Apache Storm à l’aide de HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Voir aussi
 
@@ -207,4 +274,4 @@ Pour obtenir des instructions sur l'ajout d'un principal du service à un systè
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

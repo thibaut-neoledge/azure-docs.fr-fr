@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Boomi | Microsoft Azure" 
     description="Apprenez à utiliser Boomi avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Boomi
 
@@ -90,7 +90,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Paramétrage](./media/active-directory-saas-boomi-tutorial/IC790828.png "Paramétrage")
 
-7.  Cliquez sur **SSO Options**.
+7.  Cliquez sur**Options d’authentification unique**.
 
     ![Options d’authentification unique](./media/active-directory-saas-boomi-tutorial/IC790829.png "Options d’authentification unique")
 
@@ -104,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     4.  Dans **Federation Id Location**, sélectionnez **Federation Id is in NameID element of the Subject**.
     5.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -144,10 +144,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-boomi-tutorial/IC790834.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-boomi-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

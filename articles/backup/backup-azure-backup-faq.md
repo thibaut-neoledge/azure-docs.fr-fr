@@ -71,7 +71,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 - Flux compressé : non pris en charge, ignoré
 - Flux partiellement alloué : non pris en charge, ignoré
 
-**Q13. Quelle est la taille minimale requise du dossier du cache ?** <br/> R13. La taille du dossier du cache est déterminée par la quantité de données que vous sauvegardez. En général, 10 à 15 % de l’espace requis pour le stockage de données est alloué au dossier du cache.
+**Q13. Quelle est la taille minimale requise du dossier du cache ?** <br/> R13. La taille du dossier du cache est déterminée par la quantité de données que vous sauvegardez. En général, 5 % de l’espace requis pour le stockage de données est alloué au dossier du cache.
 
 **Q14. Comment empêcher les données d’un serveur spécifique d’être récupérées par d’autres serveurs de mon organisation ?**<br/> R14. Tous les serveurs inscrits dans le même archivage sont en mesure de récupérer les données sauvegardées par d’autres serveurs qui utilisent la même phrase secrète. Si vous voulez que la récupération ne concerne que certains serveurs de votre organisation, vous devez utiliser une phrase secrète distincte pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
@@ -97,7 +97,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données est comme indiqué ci-dessous pour les différents systèmes d’exploitation.
 
-|N|	Système d’exploitation |	Taille maximale de la source de données |
+|N° |	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
 |2| Windows 8 ou version ultérieure| 54 400 Go|
@@ -123,7 +123,7 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 **Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Oui, la structure de rétention Azure Backup vous permet une flexibilité complète dans la définition de la stratégie de rétention selon vos besoins.
 
-**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18 h. <br/>
+**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18 h 00. <br/>
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -166,8 +166,8 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 	| Chemin d’accès au Registre | Clé de Registre | Valeur |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
 
 
 + Démarrez le service OBEngine en exécutant la commande ci-après dans une invite de commandes avec élévation de privilèges :
@@ -176,4 +176,4 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

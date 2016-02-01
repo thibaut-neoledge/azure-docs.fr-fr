@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="10/14/2015"
+   ms.date="01/13/2016"
    ms.author="cawa"/>
 
 # Création d'un conteneur de service cloud avec Visual Studio
@@ -33,4 +33,4 @@ Pour afficher l'**Explorateur de serveurs** dans Visual Studio, choisissez **Aff
 Maintenant que vous disposez d'un conteneur de service cloud, vous pouvez [créer et déployer](cloud-services-how-to-create-deploy.md) un service cloud.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

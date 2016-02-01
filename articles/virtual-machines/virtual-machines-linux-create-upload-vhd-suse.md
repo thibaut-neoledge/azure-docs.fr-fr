@@ -179,4 +179,8 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Nov15_HO4-->
+## Étapes suivantes
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel SUSE Linux .vhd pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous utilisez Azure et téléchargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 dans [ce guide](virtual-machines-linux-create-upload-vhd.md).
+ 
+
+<!---HONumber=AcomDC_0121_2016-->

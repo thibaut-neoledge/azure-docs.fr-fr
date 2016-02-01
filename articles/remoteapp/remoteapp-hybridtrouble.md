@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@ Si vous rencontrez des problèmes lors de la création de votre collection, ou s
 ## Votre image n'est pas valide ##
 Si vous voyez un message similaire à « GoldImageInvalid » lorsque vous attendez qu'Azure configure votre collection, cela signifie que votre image de modèle ne répond pas aux [exigences définies pour l'image](remoteapp-imagereqs.md). Donc, lisez ces [exigences](remoteapp-imagereqs.md), corrigez votre image et essayez de créer à nouveau votre collection.
 
-## Votre réseau virtuel utilise-t-il le tunneling forcé ? ##
-RemoteApp ne prend actuellement pas en charge les réseaux virtuels sur lesquels le tunneling forcé est activé. Si vous avez besoin de cette fonction, contactez l'[équipe RemoteApp](mailto:remoteappforum@microsoft.com).
 
-Une fois votre demande approuvée, assurez-vous que les ports suivants sont ouverts sur le sous-réseau que vous avez choisi pour Azure RemoteApp et les machines virtuelles du sous-réseau. Les machines virtuelles sur vos sous-réseaux doivent également pouvoir accéder aux URL mentionnées dans la section sur les groupes de sécurité réseau.
-
-Sortant : TCP : 443, TCP : 10101-10175
 
 ## Votre réseau virtuel comporte-t-il des groupes de sécurité réseau ? ##
 Si vous avez défini des groupes de sécurité réseau sur le sous-réseau que vous utilisez pour votre collection, assurez-vous que les URL suivantes sont accessibles à partir de votre sous-réseau :
@@ -84,4 +79,4 @@ Vérifiez que les détails du domaine fournis sont valides et que le contrôleur
 
 Le nom de domaine que vous avez créé ou ajouté doit être un nom de domaine interne (et non pas votre nom de domaine Azure AD) et doit être au format DNS pouvant être résolu (contoso.local). Par exemple, vous avez un nom interne Active Directory (contoso.local) et un UPN Active Directory (contoso.com) : vous devez utiliser le nom interne lorsque vous créez votre collection.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

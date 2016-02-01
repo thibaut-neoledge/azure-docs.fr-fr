@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Affichage rapports d’intégrité de Service Fabric
@@ -839,4 +839,4 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

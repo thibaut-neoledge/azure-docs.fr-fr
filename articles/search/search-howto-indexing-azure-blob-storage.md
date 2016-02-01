@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
 
-Depuis un certain temps déjà, les clients Azure Search sont en mesure d’indexer automatiquement certaines sources de données couramment utilisées à l’aide des indexeurs pour [Base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) et [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
-
-Nous complétons aujourd’hui ces fonctionnalités par la prise en charge de l’indexation des documents stockés dans Azure Blob Storage. De nombreux clients nous ont demandé de simplifier l’indexation des documents stockés dans des objets blob, tels que les fichiers PDF, les documents Office ou les pages HTML. Jusqu’à présent, cette opération impliquait l’écriture de code personnalisé pour l’extraction du texte, ainsi que l’ajout des documents à un index Azure Search.
+Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF ou Office) stockés dans le stockage d’objets blob Azure. Le nouvel indexeur d’objets blob Azure Search rend ce processus rapide et transparent.
 
 > [AZURE.IMPORTANT]Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
@@ -203,9 +201,10 @@ Vous pouvez ajouter des propriétés de métadonnées à un objet blob pour cont
 Nom de la propriété | Valeur de la propriété | Explication
 --------------|----------------|------------
 AzureSearch\_Skip | "true" | Demande à l’indexeur d’objets blob d’ignorer complètement l’objet blob ; aucune extraction de métadonnées ou de contenu ne sera tentée. Cela se révèle utile lorsque vous souhaitez ignorer certains types de contenu, ou quand un objet blob spécifique échoue à plusieurs reprises et interrompt le processus d’indexation.
+AzureSearch\_SkipContent | "true" | Indique à l’indexeur d’objets blob de seulement indexer les métadonnées et d’ignorer l’extraction du contenu de l’objet blob. Cela est utile si le contenu de l’objet blob n’est pas intéressant, mais que vous souhaitez néanmoins indexer les métadonnées attachées à cet objet blob.
 
 ## Aidez-nous à améliorer Azure Search
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

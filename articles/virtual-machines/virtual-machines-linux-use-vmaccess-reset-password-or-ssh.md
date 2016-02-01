@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Réinitialisation du mot de passe de la machine virtuelle Linux avec l’interface de ligne de commande Azure | Microsoft Azure"
-	description="Utilisation de l’extension VMAccess à partir du portail Azure Classic ou de l’interface de ligne de commande pour réinitialiser les mots de passe et clés SSH, ainsi que les configurations SSH de machine virtuelle Linux, et supprimer des comptes d’utilisateurs."
+	pageTitle="Réinitialisation des mots de passe de machine virtuelle Linux et ajout d'utilisateurs à partir de l'interface CLI Azure | Microsoft Azure"
+	description="Utilisation de l'extension VMAccess à partir du portail Azure ou de la CLI pour réinitialiser les mots de passe et les clés SSH, les configurations SSH de la machine virtuelle Linux, ajouter et supprimer des comptes d'utilisateurs, et vérifier la cohérence des disques."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# Réinitialisation d’un mot de passe ou de SSH pour les machines virtuelles Linux #
+# Réinitialisation de l'accès, gestion des utilisateurs et vérification des disques avec l'extension Azure VMAccess Extension pour Linux#
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de gestionnaire de ressources.
 
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Azure pour réinitialiser le mot de passe ou la clé SSH, ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Linux sur Azure en raison d'un mot de passe oublié, d'une clé SSH (Secure Shell) incorrecte ou d'un problème lié à la configuration SSH, utilisez le portail Azure ou l'extension VMAccessForLinux avec l'interface de ligne de commande Azure pour réinitialiser le mot de passe ou la clé SSH, corriger la configuration SSH et vérifier la cohérence des disques.
 
 ## Portail Azure
 
@@ -61,6 +61,8 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 + [Réinitialisation de la configuration SSH](#sshconfigresetcli)
 + [Suppression d’un utilisateur](#deletecli)
 + [Affichage de l’état de l’extension VMAccess](#statuscli)
++ [Vérification de la cohérence des disques ajoutés](#checkdisk)
++ [Réparation des disques ajoutées sur votre VM Linux](#repairdisk)
 
 ### <a name="pwresetcli"></a>Réinitialisation du mot de passe
 
@@ -149,8 +151,36 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 
 	azure vm extension get
 
+### <a name='checkdisk'<</a>Vérification de la cohérence des disques ajoutés
 
-## Utilisation d’Azure PowerShell
+Pour exécuter la commande fsck sur tous les disques de votre machine virtuelle Linux, vous devez effectuer les opérations suivantes :
+
+Étape 1 : Créez un fichier nommé PublicConf.json avec ces éléments. Vérifiez que le disque prend une valeur booléenne pour vérifier les disques attachés à votre machine virtuelle ou non.
+
+    {   
+    "check_disk": "true"
+    }
+
+Étape 2 : Exécutez cette commande, en remplaçant les valeurs d'espace réservé.
+
+   azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+### <a name='repairdisk'></a>Réparation des disques ajoutées sur votre machine virtuelle Linux
+
+Pour réparer les disques qui ne se montent pas ou dont la configuration de montage présente des erreurs, utilisez l'extension VMAccess pour réinitialiser la configuration de montage sur votre machine virtuelle Linux.
+
+Étape 1 : Créez un fichier nommé PublicConf.json avec ces éléments.
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+Étape 2 : Exécutez cette commande, en remplaçant les valeurs d'espace réservé.
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+## Utilisation d'Azure PowerShell
 
 Utilisez l’applet de commande **Set-AzureVMExtension** pour effectuer les modifications autorisées par VMAccess. Dans tous les cas, démarrez en utilisant le nom du service cloud et le nom de la machine virtuelle pour obtenir l’objet de machine de virtuelle et le stocker dans une variable.
 
@@ -179,6 +209,8 @@ Exécutez ensuite les tâches suivantes :
 + [Réinitialisation de la configuration SSH](#config)
 + [Suppression d’un utilisateur](#delete)
 + [Affichage de l’état de l’extension VMAccess](#status)
++ [Vérification de la cohérence des disques ajoutés](#checkdisk)
++ [Réparation des disques ajoutées sur votre VM Linux](#repairdisk)
 
 ### <a name="password"></a>Réinitialisation du mot de passe
 
@@ -252,6 +284,25 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>Vérification de la cohérence des disques ajoutés
+
+Pour vérifier la cohérence de vos disques avec l'utilitaire fsck, exécutez les commandes suivantes.
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>Réparation des disques ajoutées sur votre VM Linux
+
+Pour réparer des disques avec l'utilitaire fsck, exécutez les commandes suivantes.
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## Ressources supplémentaires
 
@@ -266,4 +317,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: virtual-machines-extensions-features.md
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

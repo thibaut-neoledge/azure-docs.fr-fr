@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuration de SSL pour un service cloud | Microsoft Azure" 
+	pageTitle="Configuration de SSL pour un service cloud (classique) | Microsoft Azure" 
 	description="Découvrez comment spécifier un point de terminaison HTTPS pour un rôle web et télécharger un certificat SSL pour sécuriser votre application." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configuration de SSL pour une application dans Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
-> [AZURE.NOTE]Les procédures de cette tâche s'appliquent à Azure Cloud Services. Pour Sites Web Azure, consultez la page [Configuration d'un certificat SSL pour un site Web Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Les procédures décrites dans cette tâche s’appliquent à Azure Cloud Services ; pour App Services, consultez [cette page](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Cette tâche utilise un déploiement de production. Les informations concernant le déploiement intermédiaire sont fournies à la fin de cette rubrique.
 
@@ -67,7 +67,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
         ...
         </WebRole>
 
-    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d’informations, consultez [Association d’un certificat à un service].
+    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve.
 
 2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
@@ -160,4 +160,4 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

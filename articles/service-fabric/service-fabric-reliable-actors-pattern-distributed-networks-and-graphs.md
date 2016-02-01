@@ -16,19 +16,21 @@
    ms.date="09/29/2015"
    ms.author="claudioc"/>
 
-# Modèle de conception Acteurs fiables : réseaux distribués et graphiques
-Les Acteurs fiables Service Fabric constituent une solution naturelle pour la modélisation de solutions complexes impliquant des relations et la modélisation de ces relations sous forme d'objets.
+# Modèle de conception Reliable Actors : réseaux distribués et graphiques
+Le modèle de programmation Azure Service Fabric Reliable Actors constitue une solution naturelle pour la modélisation de solutions complexes impliquant des relations et pour la modélisation de ces relations sous forme d’objets.
 
-![][1]
+![Modélisation Azure Service Fabric Reliable Actors][1]
 
-Comme le montre le diagramme, il est facile de modéliser un utilisateur en tant qu'instance d'acteur (nœud dans le réseau). Par exemple, le « flux des amis » (parfois appelé problème de « l'abonné ») permet aux utilisateurs d'afficher les mises à jour du statut des personnes auxquelles est sont connectées, comme dans Facebook et Twitter. Le modèle Actor permet d'aborder le problème de la matérialisation. Nous pouvons alimenter le flux des amis au moment de l'événement, en mettant à jour le flux des amis au moment où une mise à jour est publiée, comme illustré ci-dessous :
+Comme le montre le diagramme ci-dessus, modéliser un utilisateur en tant qu’instance d’acteur (nœud dans le réseau) est facile. Par exemple, le « flux des amis » (parfois appelé problème de « l’abonné ») permet aux utilisateurs d’afficher les mises à jour du statut des personnes auxquelles ils sont connectés, comme dans Facebook et Twitter.
 
-![][2]
+Le modèle Reliable Actors propose une approche souple du problème de matérialisation. Nous pouvons alimenter le flux des amis au moment de l’événement, en mettant à jour le flux des amis au moment où une mise à jour est publiée, comme illustré ci-dessous :
+
+![Modèle Reliable Actors et remplissage du flux des amis][2]
 
 
-## Exemple de code Smart Cache – Flux d'amis de réseau social (heure de l'événement)
+## Exemple de code Smart Cache – Flux d’amis de réseau social (heure de l’événement)
 
-Exemple de code alimentant le flux des amis :
+Exemple de code pour alimenter le flux des amis :
 
 ```csharp
 public interface ISocialPerson : IActor
@@ -122,9 +124,13 @@ public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 }
 ```
 
-Nous pouvons également modéliser nos acteurs afin de compiler le flux d'amis au niveau de la minuterie de la requête, en d'autres termes lorsque l'utilisateur demande le flux de ses amis. Une autre méthode consiste à matérialiser le flux d'amis sur une minuterie, par exemple, toutes les 5 minutes. Ou bien, nous pouvons optimiser le modèle et combiner le traitement de l'heure de l'événement et de l'heure de la requête grâce à un modèle basé sur un minuteur en fonction des habitudes de l'utilisateur, par exemple la fréquence à laquelle il se connecte ou publie une mise à jour. Lors de la modélisation d'un acteur dans un réseau social, il faut également tenir compte des « super utilisateurs », les utilisateurs comptant des millions d'abonnés. Les développeurs doivent modéliser l'état et le comportement de ces utilisateurs différemment pour répondre à la demande. De même, vous pouvez également modéliser une activité qui connecte de nombreux acteurs de l'utilisateur à un seul acteur d'activité (hub and spoke). Les discussions de groupe ou l'hébergement d'un jeu en sont deux exemples. Prenons l'exemple du groupe de discussion ; plusieurs participants créer un acteur de groupe de discussion capable de distribuer les messages d'un participant au groupe, comme dans l'exemple ci-dessous :
+Vous pouvez également modéliser les acteurs afin de compiler le flux d’amis au niveau de la minuterie de la requête, quand l’utilisateur demande le flux des amis. Vous pouvez également matérialiser le flux des amis sur une minuterie (par exemple, toutes les cinq minutes). Ou bien, vous pouvez optimiser le modèle et combiner le traitement de l’heure de l’événement et de l’heure de la requête grâce à un modèle basé sur un minuteur en fonction des habitudes de l’utilisateur, par exemple la fréquence à laquelle il se connecte ou publie une mise à jour.
 
-## Exemple de code Smart Cache – GroupChat
+Quand vous modélisez un acteur dans un réseau social, vous devez également tenir compte des « super utilisateurs » (utilisateurs comptant des millions d’abonnés). Les développeurs doivent modéliser l’état et le comportement de ces utilisateurs différemment pour répondre à la demande plus importante.
+
+De même, vous pouvez également modéliser une activité qui connecte de nombreux acteurs de l’utilisateur à un seul acteur d’activité (hub and spoke). La conversation de groupe et l’hébergement de jeu sont deux exemples. Prenons l’exemple de la conversation de groupe. Plusieurs participants créent un acteur de conversation de groupe capable de distribuer les messages d’un participant au groupe, comme illustré dans l’exemple ci-dessous :
+
+## Exemple de code Smart Cache : conversation de groupe
 
 ```csharp
 public interface IGroupChat : IActor
@@ -202,18 +208,18 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-Ce code ne fait qu'exploiter la capacité Reliable Actors pour permettre à n'importe quel acteur de contacter n'importe quel autre acteur du cluster par ID et de communiquer avec lui sans avoir à se soucier du positionnement, de l'adressage, de la mise en cache, de la messagerie, de la sérialisation ou du routage.
+Cette approche s’appuie sur la capacité du modèle Reliable Actors à permettre à tout acteur de résoudre n’importe quel autre acteur du cluster d’après son ID. Ils peuvent communiquer sans avoir à se soucier du placement, de l’adressage, de la mise en cache, de la messagerie, de la sérialisation ou du routage.
 
 ## Étapes suivantes
-[Modèle : Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
+[Modèle : cache intelligent](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Modèle : Gestion des ressources](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Modèle : gestion des ressources](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Modèle : composition d'un service avec état](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
+[Modèle : composition d’un service avec état](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
 [Modèle : Internet des objets](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Modèle : Calcul distribué](service-fabric-reliable-actors-pattern-distributed-computation.md)
+[Modèle : calcul distribué](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
 [Quelques anti-modèles](service-fabric-reliable-actors-anti-patterns.md)
 
@@ -224,4 +230,4 @@ Ce code ne fait qu'exploiter la capacité Reliable Actors pour permettre à n'im
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

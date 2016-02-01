@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Modification des paramètres de l’interface réseau DATA 0 sur votre périphérique StorSimple
@@ -24,7 +24,7 @@ Votre appareil Microsoft Azure StorSimple dispose de six interfaces réseau, d
 Après avoir lu ce didacticiel, vous pourrez :
 
 - Modification des paramètres réseau de DATA 0 via l'Assistant Installation
-- Modification des paramètres réseau de DATA 0 via l’applet de commande `Set-HcsNetInterface`
+- Modifier les paramètres réseau de DATA 0 via l’applet de commande `Set-HcsNetInterface`
 
 
 ## Modification des paramètres réseau de DATA 0 via l’Assistant Installation
@@ -35,7 +35,6 @@ Vous pouvez reconfigurer les paramètres réseau de DATA 0 en vous connectant �
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
 
 2.  À l’invite de commandes, tapez :
-
 
 	`Invoke-HcsSetupWizard`
 
@@ -70,6 +69,7 @@ Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet
 ## Étapes suivantes
 
 - Pour configurer les interfaces réseau autres que DATA 0, utilisez la [page Configurer du portail Azure Classic](storsimple-modify-device-config.md). 
+
 - Si vous rencontrez des problèmes lors de la configuration de vos interfaces réseau, consultez la page [Résolution des problèmes de déploiement](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

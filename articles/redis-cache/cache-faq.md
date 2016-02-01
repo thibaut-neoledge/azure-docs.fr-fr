@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -134,6 +134,46 @@ Dans la plupart des cas, les valeurs par défaut du client sont suffisantes. Vou
 		-	Définissez la propriété `ClientName` de chaque multiplexeur pour faciliter le diagnostic. 
 		-	Cela permet d’obtenir une latence optimisée par `ConnectionMultiplexer`.
 
+<a name="threadpool"></a>
+## Informations importantes sur la croissance du pool de threads
+
+Le pool de threads CLR comporte deux types de threads : « Worker » et « I/O Completion Port » (IOCP).
+
+-	Les threads Worker sont utilisés notamment pour le traitement des méthodes `Task.Run(…)` ou `ThreadPool.QueueUserWorkItem(…)`. Ces threads sont également utilisés par différents composants dans le CLR lorsqu’une tâche doit être effectuée sur un thread en arrière-plan.
+-	Les threads IOCP sont utilisés dans le cas d’E/S asynchrones (lecture à partir du réseau, par exemple).  
+
+Le pool de threads fournit de nouveaux threads Worker ou IOCP à la demande (sans aucune limitation) jusqu’à ce qu’il atteigne le paramètre « Minimum » pour chaque type de thread. Par défaut, le nombre minimal de threads est défini sur le nombre de processeurs d’un système.
+
+Une fois que le nombre de threads existants (occupés) atteint le nombre « minimal » de threads, le pool de threads limite le taux d’injection des nouveaux threads à hauteur d’un thread toutes les 500 millisecondes. Autrement dit, si votre système reçoit une rafale de tâches nécessitant un thread IOCP, la tâche sera traitée très rapidement. Toutefois, si le nombre de tâches est supérieur au paramètre « Minimum » configuré, le traitement de certaines tâches sera retardé car le ThreadPool attendra l’une ou l’autre des conditions suivantes :
+
+1. Un thread existant se libère pour traiter la tâche.
+1. Aucun thread existant ne se libère pendant 500 ms, auquel cas un nouveau thread est créé.
+
+En fait, cela signifie que lorsque le nombre de threads occupés est supérieur au nombre minimum de threads, vous devrez probablement subir un délai de 500 ms avant que le trafic réseau ne soit traité par l’application. Il est également important de noter que lorsqu’un thread existant reste inactif pendant plus de 15 secondes (d’après mes souvenirs), il sera nettoyé et ce cycle de croissance et de diminution peut se répéter.
+
+Observons cet exemple de message d’erreur de StackExchange.Redis (build 1.0.450 ou version ultérieure) ; vous voyez que les statistiques de pool de threads s’affichent désormais (voir les détails IOCP et WORKER ci-dessous).
+
+	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+Dans l’exemple ci-dessus, vous pouvez voir que 6 threads sont occupés pour le thread IOCP et que le système est configuré pour autoriser au minimum 4 threads. Dans ce cas, le client subirait probablement deux retards de 500 ms car 6 > 4.
+
+Notez que StackExchange.Redis peut atteindre les délais d’expiration si la croissance des threads IOCP ou WORKER est limitée.
+
+### Recommandation
+
+Par conséquent, nous recommandons fortement aux clients de définir la valeur de configuration minimale pour les threads IOCP et WORKER sur une valeur supérieure à la valeur par défaut. Il est impossible de recommander une valeur unique car une valeur parfaitement adaptée à une application sera certainement trop élevée ou trop faible pour une autre application. Ce paramètre peut également avoir un impact sur les performances d’autres composants d’applications complexes, ce qui signifie que chaque client doit ajuster ce paramètre en fonction de ses besoins spécifiques. Le mieux est de commencer à 200 ou 300, puis de tester et d’ajuster cette valeur en fonction des besoins.
+
+Configuration de ce paramètre :
+
+-	Dans ASP.NET, utilisez le [paramètre de configuration « minIoThreads »][] sous l’élément de configuration `<processModel>` dans le fichier web.config. Si vous travaillez à l’intérieur de sites Web Azure, ce paramètre n’est pas exposé via les options de configuration. Vous pouvez toutefois le définir par programmation (voir ci-dessous) à partir de votre méthode Application\_Start dans global.asax.cs.
+
+> **Remarque importante :** la valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur*. Par exemple, si vous utilisez un ordinateur 4 cœurs et que vous souhaitez définir votre paramètre minIOThreads sur 200 au moment de l’exécution, vous utiliseriez `<processModel minIoThreads="50"/>`.
+
+-	En dehors d’ASP.NET, utilisez l’API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
+
 <a name="cache-redis-commands"></a>
 ## Quels sont les points à prendre en compte en ce qui concerne les commandes Redis les plus courantes ?
 
@@ -167,7 +207,7 @@ Pour obtenir des instructions sur le téléchargement des outils Redis, consulte
 <a name="cache-commands"></a>
 ## Comment exécuter des commandes Redis ?
 
-Vous pouvez utiliser les commandes répertoriées dans [Redis commands](http://redis.io/commands#), à l’exception de celles répertoriées dans [Commandes Redis non prises en charge dans le cache Redis Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Vous disposez de plusieurs options pour exécuter des commandes Redis.
+Vous pouvez utiliser les commandes répertoriées dans [Commandes Redis](http://redis.io/commands#), à l’exception de celles répertoriées dans [Commandes Redis non prises en charge dans le Cache Redis Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Vous disposez de plusieurs options pour exécuter des commandes Redis.
 
 -	Si vous avez un cache Standard ou Premium, vous pouvez exécuter les commandes Redis à l’aide de la [console Redis](cache-configure.md#redis-console). Elle offre un moyen sécurisé d’exécuter des commandes Redis dans le portail Azure.
 -	Vous pouvez aussi utiliser les outils en ligne de commande Redis. Pour ce faire, effectuez les étapes suivantes.
@@ -210,12 +250,12 @@ Le Cache Azure propose actuellement trois offres :
 >
 >Nous annulerons la prise en charge de la création de nouveaux In-Role Cache dans la première version du Kit de développement logiciel (SDK) Azure qui sera lancée après le 1er février 2016. Les clients pourront ouvrir des projets existants possédant des In-Role Cache.
 >
->Pendant cette période, nous encourageons tous les clients du Service de cache géré et du service In-Role Cache à migrer vers le Cache Redis Azure. Le Cache Redis Azure fournit plus de fonctionnalités et une meilleure valeur globale. Pour plus d’informations sur la migration, consultez la page web de documentation [Migrer un Service de cache géré vers le Cache Redis Azure](cache-migrate-to-redis.md).
+>Pendant cette période, nous encourageons tous les clients du Service de cache géré et du service In-Role Cache à migrer vers le Cache Redis Azure. Le Cache Redis Azure fournit plus de fonctionnalités et une meilleure valeur globale. Pour plus d’informations sur la migration, visitez la page web de documentation [Migrer un Service de cache géré vers le Cache Redis Azure](cache-migrate-to-redis.md).
 >
 >Si vous avez des questions, [contactez-nous](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
 
 ### Cache Redis Azure
-Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau Premium](cache-premium-tier.md) propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, les réseaux virtuels et la persistance, avec un contrat SLA de 99,9 %.
+Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau Premium](cache-premium-tier-intro.md) propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, les réseaux virtuels et la persistance, avec un contrat SLA de 99,9 %.
 
 Le Cache Redis Azure permet aux clients d’utiliser un cache Redis sécurisé et dédié, géré par Microsoft. Avec cette offre, vous pouvez exploiter toutes les fonctionnalités et l’écosystème fournis par Redis, ainsi que la fiabilité des services d’hébergement et de surveillance Microsoft.
 
@@ -231,4 +271,6 @@ Le Service de cache géré ne sera plus opérationnel à partir du 30 novembre 
 ### In-Role Cache
 In-Role Cache ne sera plus opérationnel à partir du 30 novembre 2016.
 
-<!---HONumber=AcomDC_1223_2015-->
+[paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+
+<!---HONumber=AcomDC_0121_2016-->

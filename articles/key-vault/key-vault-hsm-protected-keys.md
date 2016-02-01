@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -22,6 +22,8 @@
 Pour une meilleure garantie, lorsque vous utilisez le coffre de clés Azure, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Ce scénario est souvent appelé *Apportez votre propre clé * ou désigné par l’acronyme BYOK. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Le coffre de clés Azure utilise la famille nShield de modules HSM de Thales pour protéger vos clés.
 
 Utilisez les informations présentes dans cette rubrique pour planifier, générer, puis transférer vos propres clés protégées par HSM à utiliser avec Azure clé de coffre.
+
+Cette fonctionnalité n’est pas disponible pour Azure en Chine.
 
 >[AZURE.NOTE]Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](key-vault-whatis.md).
 >
@@ -58,8 +60,8 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 
 |Prérequis|Plus d’informations|
 |---|---|
-|Abonnement à Azure|Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour la version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/)|
-|Un coffre de clés Azure qui prend en charge des modules de sécurité matériels|Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs du coffre de clés Azure](http://azure.microsoft.com/pricing/details/key-vault/).|
+|Abonnement à Azure|Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour la version d’évaluation gratuite](../../../../pricing/free-trial)|
+|Un coffre de clés Azure qui prend en charge des modules de sécurité matériels|Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs du coffre de clés Azure](../../../../pricing/details/key-vault/).|
 |Modules de sécurité matérielle, cartes à puces et logiciel d’assistance de Thales|Vous devez disposer d’un accès au module de sécurité matérielle Thales et quelques notions sur les modules de sécurité matérielle d’HSM. Voir [Modules de sécurité matérielle Thales](https://www.thales-esecurity.com/msrms/buy) pour obtenir une liste des modèles compatibles ou acheter un module de sécurité matérielle si vous n’en n’avez pas encore.|
 |Les matériels et le logiciel suivants :<ol><li> une station de travail x64 hors ligne avec système d’exploitation Windows 7 minimum et un logiciel Thales nShield version 11.50 minimum.<br/><br/>Si la station de travail exécute Windows 7, vous devez installer [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet avec système d’exploitation Windows 7 minimum.</li><li>Une clé USB ou un autre support de stockage amovible avec au moins 16 Mo d’espace libre.</li></ol>|Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Cependant, cette modification n’est pas appliquée par programmation.<br/><br/>Notez que dans la procédure qui suit, cette station de travail est désignée comme une station de travail déconnectée.</p></blockquote><br/>En outre, si votre clé locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger les outils et télécharger la clé locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Notez que dans la procédure qui suit, la station de travail est désignée comme une station de travail connectée à Internet.</p></blockquote><br/>|
 
@@ -97,9 +99,9 @@ Ne fermez pas la fenêtre Azure PowerShell.
 
 ###Étape 1.3 : Téléchargez le jeu d’outils BYOK pour Azure clé de coffre
 
-Accédez au centre de téléchargement Microsoft Download Center et [téléchargez l’ensemble d’outils BYOK du coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45345) correspondant à votre région :
+Accédez au centre de téléchargement Microsoft Download Center et [téléchargez l’ensemble d’outils BYOK du coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45345) correspondant à votre région géographique ou à votre instance d’Azure :
 
-|Région|Nom du package|Package de hachage SHA-256|
+|Région géographique ou instance d’Azure|Nom du package|Package de hachage SHA-256|
 |---|---|---|
 |Amérique du Nord|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |Europe|KeyVault-BYOK-outils-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -107,6 +109,7 @@ Accédez au centre de téléchargement Microsoft Download Center et [télécharg
 |Amérique latine|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |Japon|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 |Australie|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
+|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
 
 Pour valider l’intégrité de votre jeux d’outils BYOK, dans votre session Azure PowerShell, utilisez l’applet de commande [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -173,7 +176,7 @@ Cette étape est facultative, mais recommandée afin que vous puissiez valider l
 
 Pour valider le package téléchargé :
 
-1.	Exécutez le script verifykeypackage.py en rattachant une des valeurs suivantes, selon votre région :
+1.	Exécutez le script verifykeypackage.py en rattachant une des valeurs suivantes, selon votre région géographique ou votre instance d’Azure :
 	- Pour l’Amérique du Nord :
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -192,6 +195,9 @@ Pour valider le package téléchargé :
 	- Pour l’Australie :
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+	- Pour [Azure Government](../../../../features/gov/), qui utilise l’instance du gouvernement américain d’Azure :
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]Le logiciel Thales inclut un python dans %NFAST\_HOME%\\python\\bin
 
@@ -229,7 +235,7 @@ Pour cette quatrième étape, procédez comme suit sur la station de travail dé
 
 ###Étape 4.1 : Créez une copie de votre clé avec des autorisations réduites
 
-Pour limiter les autorisations sur votre clé, dans l’invite de commande, exécutez l’une des opérations suivantes, en fonction de votre région :
+Pour limiter les autorisations sur votre clé, dans l’invite de commande, exécutez l’une des opérations suivantes, en fonction de votre région géographique ou de votre instance d’Azure :
 
 - Pour l’Amérique du Nord :
 
@@ -249,6 +255,9 @@ Pour limiter les autorisations sur votre clé, dans l’invite de commande, exé
 - Pour l’Australie :
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
+- Pour [Azure Government](../../../../features/gov/), qui utilise l’instance du gouvernement américain d’Azure :
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
 quand vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**Étape 3.3 : créer une clé** de l’opération [Générer votre clé](#step-3-generate-your-key).
 
@@ -270,7 +279,7 @@ quand vous exécutez cette commande, remplacez contosokey par la valeur spécifi
 
 ###Étape 4.3 : chiffrer votre clé à l’aide clé de Microsoft Exchange
 
-Exécutez l’une des commandes suivantes, selon votre région :
+Exécutez l’un des commandes suivantes, en fonction de votre région géographique ou de votre instance d’Azure :
 
 - Pour l’Amérique du Nord :
 
@@ -290,6 +299,9 @@ Exécutez l’une des commandes suivantes, selon votre région :
 - Pour l’Australie :
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Pour [Azure Government](../../../../features/gov/), qui utilise l’instance du gouvernement américain d’Azure :
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
@@ -313,8 +325,9 @@ Pour l’opération finale, sur la station de travail connectée à Internet, ut
 
 Si le téléchargement réussit, les propriétés de la clé que vous venez de créer s’afficheront.
 
+
 ##Étapes suivantes
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

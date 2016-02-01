@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/13/2016"
    ms.author="v-sharos" />
 
 # Mettre à jour votre appareil StorSimple 8000 Series
@@ -38,7 +38,7 @@ Les mises à jour ordinaires s’effectuent sans interruption du service et peuv
 
 - Pour plus de détails sur l’installation de mises à jour périodiques par le biais du portail Azure Classic, consultez [Installation de mises à jour périodiques via le portail Azure Classic(#install-regular-updates-via-the-azure-classic-portal).
 
-- Vous pouvez également installer les mises à jour ordinaires via Windows PowerShell pour StorSimple Pour plus de détails, consultez [Installation de mises à jour périodiques via Windows PowerShell pour StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
+- Vous pouvez également installer les mises à jour ordinaires via Windows PowerShell pour StorSimple Pour des informations détaillées, consultez la page [Installer les mises à jour ordinaires via Windows PowerShell pour StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### Mises à jour en mode Maintenance
 
@@ -119,4 +119,4 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 - En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour administrer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

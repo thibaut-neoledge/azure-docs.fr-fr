@@ -196,7 +196,8 @@ Vous trouverez ci-dessous un exemple illustrant comment déchiffrer, modifier et
 
 ## Étapes suivantes
 
-- Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

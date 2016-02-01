@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
 
@@ -45,7 +45,7 @@ Les modèles **Mobile Apps** ont été mis à jour afin de refléter le dernier 
 
 ###Service Bus 
 
-Résolutions de bogue et améliorations générales. Pour plus d’informations sur les mises à jour et sur les fonctionnalités, voir les notes de publication du dernier [NuGet Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Résolutions de bogue et améliorations générales. Pour plus d’informations sur les mises à jour et sur les fonctionnalités, voir les notes de publication du dernier [package NuGet Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ###Outils HDInsight 
 
@@ -104,7 +104,7 @@ Si vous utilisez un projet de groupe de ressources Azure issu d’une version pr
 
 ###Outils d’Azure Data Factory pour Visual Studio 
 
-Présentation des **outils d’Azure Data Factory** pour Visual Studio. La liste ci-dessous répertorie les fonctionnalités activées. Pour plus d’informations, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=617530).
+Introduction des **outils d’Azure Data Factory** pour Visual Studio. La liste ci-dessous répertorie les fonctionnalités activées. Pour plus d’informations, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=617530).
 
 - **Création basée sur un modèle** : sélectionnez des modèles reposant sur des cas d’utilisation, des modèles de déplacement des données ou des modèles de traitement des données pour déployer une solution d’intégration de données de bout en bout et commencer à utiliser rapidement Data Factory. 
 - **Intégration à l’Explorateur de solutions pour la création et le déploiement d’entités Data Factory** : créez et déployez des pipelines et des entités associées sous la forme de projets Visual Studio. 
@@ -159,4 +159,4 @@ Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

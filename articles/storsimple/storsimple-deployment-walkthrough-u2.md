@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Déploiement de votre appareil StorSimple local (Update 2)
@@ -212,9 +212,9 @@ La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme
 
 #### Mise à jour de votre appareil
 
-1.	Dans la page **Démarrage rapide** de l'appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
 
-2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l'option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**.
+2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**.
 
 3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
@@ -239,9 +239,9 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 
 ## Étapes suivantes
 
-Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
+- Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 
-Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
+- Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

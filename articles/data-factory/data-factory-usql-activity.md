@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Exécution d'un script U-SQL sur Azure Data Lake Analytics à partir de la fabrique d'Azure Data Factory 
@@ -56,7 +56,45 @@ subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement 
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
 
-   
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+
+ 
+| Type d’utilisateur | Expire après |
+| :-------- | :----------- | 
+| Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données de l’utilisateur. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données de l’utilisateur. | <p> Valeur maximale de 90 jours si l’utilisateur exécute des tranches en fonction de sa source de service lié OAuth au moins une fois tous les 14 jours. </p><p>Au cours des 90 jours attendus, dès lors que l’utilisateur n’a pas exécuté de tranches en fonction de cette source pendant une période de 14 jours, les informations d’identification expirent immédiatement 14 jours après la dernière tranche.</p> | 
+
+Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
+
+  
+### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Consultez les rubriques [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+ 
  
 ## Activité U-SQL Data Lake Analytics 
 
@@ -219,4 +257,4 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

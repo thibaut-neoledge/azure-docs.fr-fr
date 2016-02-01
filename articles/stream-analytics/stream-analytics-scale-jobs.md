@@ -17,7 +17,7 @@
 	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux #
+# Mise à l'échelle des travaux Stream Analytics pour augmenter le débit de traitement des données #
 
 Découvrez comment régler les tâches d’analyse et calculer des *unités de diffusion en continu* pour Stream Analytics et comment mettre à l’échelle des tâches Stream Analytics en configurant des partitions d’entrée, en réglant la définition des requêtes d’analyse et en définissant les unités de diffusion en continu d’une tâche.
 
@@ -237,7 +237,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## Étapes suivantes ##
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
@@ -265,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

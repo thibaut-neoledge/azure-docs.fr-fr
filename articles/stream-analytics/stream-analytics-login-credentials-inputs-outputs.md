@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Rotation des informations d’identification
+#Rotation des informations d'identification pour les entrées et les sorties dans des travaux Stream Analytics
 
 ##Résumé
 Actuellement, Azure Stream Analytics n’autorise pas le remplacement des informations d’identification d’une entrée/sortie pendant l’exécution du travail.
@@ -142,7 +142,7 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
@@ -194,4 +194,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

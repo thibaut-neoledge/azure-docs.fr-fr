@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Jive | Microsoft Azure" 
     description="Apprenez à utiliser Jive avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Jive
 
@@ -84,4 +84,4 @@ La capture d’écran suivante présente un exemple de la boîte de dialogue ass
   
 Vous pouvez maintenant créer un compte de test, attendre 10 minutes, puis vérifier la synchronisation du compte à Jive.com.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

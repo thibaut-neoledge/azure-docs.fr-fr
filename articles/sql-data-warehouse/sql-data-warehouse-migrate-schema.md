@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre schéma vers SQL Data Warehouse#
@@ -115,7 +115,7 @@ Au lieu du paramètre...
 - **table** : appliquez une conversion vers des tables temporaires ;
 - **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
 - **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
-- **uniqueidentifier** : utilisez le paramètre « varbinary (8) » ;
+- **uniqueidentifier**, utilisez la valeur « varbinary(16) » ou « varchar(36) » selon le format d'entrée (binaire ou caractère) de vos valeurs. Si le format d'entrée est basé sur les caractères, une optimisation est possible. En convertissant du format caractère à binaire, vous pouvez réduire le stockage de la colonne de plus de 50 %. Dans les tables très volumineuses, cette optimisation peut être bénéfique.
 - **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
 - **xml** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances. Fractionner sur plusieurs colonnes si nécessaire.
 
@@ -145,4 +145,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

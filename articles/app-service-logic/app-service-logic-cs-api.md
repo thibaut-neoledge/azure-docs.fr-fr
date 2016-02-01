@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application API C#"
-   description="Application API C#"
+   pageTitle="Exécuter des expressions C# dans une application API C# dans une application logique | Microsoft Azure"
+   description="Application API C# ou connecteur"
    services="app-service\logic"
    documentationCenter=".net"
    authors="jeffhollan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="jehollan"/>
 
 #Application API C#
@@ -35,9 +35,9 @@ Pour utiliser l’application API C#, vous devez commencer par en créer une ins
 ###Déclencheur
 Vous pouvez créer un déclencheur que le service Application logique interrogera (selon un intervalle que vous définissez). Si ce déclencheur renvoie une valeur différente de `false`, l’application logique s’exécute. Dans le cas contraire, elle attend le prochain intervalle d’interrogation pour vérifier la réponse renvoyée.
 
-Les entrées du déclencheur sont les suivantes : - **Expression C#** - Il s’agit de l’expression qui sera évaluée. Elle sera appelée à l’intérieur d’une fonction et doit renvoyer la valeur `false` lorsque vous ne souhaitez pas que l’application logique s’exécute, ou toute autre valeur pour que l’application logique s’exécute. Vous ne pourrez pas utiliser le contenu de la réponse dans les actions de l’application logique.
+Les entrées du déclencheur sont les suivantes : - **Expression C#** - Il s’agit de l’expression qui est évaluée. Elle est appelée à l’intérieur d’une fonction et doit renvoyer la valeur `false` lorsque vous ne souhaitez pas que l’application logique s’exécute, ou toute autre valeur pour que l’application logique s’exécute. Vous pouvez utiliser le contenu de la réponse dans les actions de l’application logique.
 
-Par exemple, vous pouvez utiliser un déclencheur simple qui n’exécutera votre application logique qu’entre les 15 et les 30 premières minutes de chaque heure :
+Par exemple, vous pouvez utiliser un déclencheur simple qui n’exécute votre application logique qu’entre les 15 et les 30 premières minutes de chaque heure :
 
 ```
 var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
@@ -47,7 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 De la même façon, vous pouvez spécifier une action à exécuter.
 
-Les entrées de l’action sont les suivantes : - **Expression C#** - Il s’agit de l’expression qui sera évaluée. Vous devez inclure l’instruction `return` pour obtenir un contenu quel qu’il soit. - **Objet(s) de contexte** - Objet de contexte facultatif pouvant être transmis dans le déclencheur. Vous pouvez définir autant de propriétés que vous le souhaitez, mais la base doit être un élément JObject `{ ... }`, et les objets peuvent être référencés dans le script par le biais du nom de clé (la valeur est transmise sous la forme d’un élément JToken correspondant au nom). - **Bibliothèques** - Groupe facultatif de fichiers .dll à inclure dans la compilation du script. Ce groupe utilise la structure ci-après et fonctionne mieux à côté d’un connecteur de stockage d’objets blob avec le fichier .dll en guise de sortie :
+Les entrées de l’action sont les suivantes : - **Expression C#** - Il s’agit de l’expression qui est évaluée. Vous devez inclure l’instruction `return` pour obtenir un contenu quel qu’il soit. - **Objet(s) de contexte** - Objet de contexte facultatif pouvant être transmis dans le déclencheur. Vous pouvez définir autant de propriétés que vous le souhaitez, mais la base doit être un élément JObject `{ ... }`, et les objets peuvent être référencés dans le script par le biais du nom de clé (la valeur est transmise sous la forme d’un élément JToken correspondant au nom). - **Bibliothèques** - Groupe facultatif de fichiers .dll à inclure dans la compilation du script. Ce groupe utilise la structure ci-après et fonctionne mieux à côté d’un connecteur de stockage d’objets blob avec le fichier .dll en guise de sortie :
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -105,4 +105,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

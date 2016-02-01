@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -151,7 +151,7 @@ Avant de commencer, tenez compte des informations suivantes :
 
 ## Mise en cache dans Azure Multi-Factor Authentication
 
-La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. Cette fonctionnalité est principalement utilisée lorsque les systèmes locaux, comme un VPN, envoient plusieurs demandes de vérification alors que la première demande est toujours en cours. Ceci permet aux demandes suivantes de réussir automatiquement après que l'utilisateur a réussi la vérification en cours. Notez que la mise en cache n'est pas destinée à être utilisée pour les connexions à
+La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. Cette fonctionnalité est principalement utilisée lorsque les systèmes locaux, comme un VPN, envoient plusieurs demandes de vérification alors que la première demande est toujours en cours. Ceci permet aux demandes suivantes de réussir automatiquement après que l'utilisateur a réussi la vérification en cours. Notez que la mise en cache n’est pas destinée à être utilisée pour les connexions à Azure AD.
 
 
 ### Pour configurer la mise en cache dans Azure Multi-Factor Authentication
@@ -351,4 +351,4 @@ Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez res
 <li>Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs d’interrompre l'authentification multifacteur pour qu’un appareil puisse être mémorisé**.</li>
 ![Interrompre les appareils](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Définir le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.</li> <li>Cliquez sur Enregistrer.</li> <li>Cliquez sur Fermer.</li>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

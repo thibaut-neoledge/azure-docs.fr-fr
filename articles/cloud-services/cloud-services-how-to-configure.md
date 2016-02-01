@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Configuration des services cloud
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 Vous pouvez configurer les paramètres les plus couramment utilisés pour un service cloud dans le portail Azure Classic. Ou, si vous voulez mettre à jour directement vos fichiers de configuration, téléchargez un fichier de configuration de service pour le mettre à jour, puis chargez-le et mettez à jour le service cloud avec les modifications de la configuration. Dans les deux cas, les mises à jour de la configuration sont transmises à toutes les instances de rôle.
 
@@ -86,4 +86,4 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 * [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

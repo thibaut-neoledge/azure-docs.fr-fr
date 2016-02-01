@@ -194,7 +194,7 @@ Vous devez entrer un mot de passe pour authentifier un appareil StorSimple avec 
 
 #### Pour modifier le mot de passe expiré
 
-1. Sur le portail Azure Classic, démarrez le service StorSimple Manager.
+1. Dans le portail Azure Classic, démarrez le service StorSimple Manager.
 
 2. Cliquez sur **Appareils** > **Configurer** pour l’appareil.
 
@@ -263,4 +263,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

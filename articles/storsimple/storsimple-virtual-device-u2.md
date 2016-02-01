@@ -25,7 +25,6 @@
 ##Vue d’ensemble
 L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes.
 
- 
 
 #### Comparaison des modèles d’appareils virtuels
 
@@ -80,7 +79,7 @@ Les sections suivantes décrivent les conditions préalables à la configuration
 
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
-- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d'informations sur les [régions qui prennent actuellement en charge le stockage Premium](https://azure.microsoft.com/regions/#services).
+- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d'informations sur les [régions qui prennent actuellement en charge le stockage Premium](https://azure.microsoft.com/regions/#services).
 - Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide ou si le serveur DNS n'est pas en mesure de résoudre correctement les adresses IP, la création de l'appareil virtuel échoue.
 - Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
 - Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
@@ -104,7 +103,7 @@ Apportez les mises à jour suivantes à votre service Azure StorSimple avant de 
 
 Assurez-vous de disposer des informations suivantes avant de commencer :
 
-- Votre compte avec les informations d’identification d’accès au portail Azure.
+- Votre compte avec les informations d'identification d'accès au portail Azure Classic.
 
 - Une copie de la clé de chiffrement de données de service de votre appareil physique.
 
@@ -126,8 +125,7 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
-[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 
@@ -145,7 +143,7 @@ Ce paramètre contient les informations d’identification que votre appareil vi
 
 Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Windows et permet aux administrateurs de gérer les sauvegardes de votre appareil StorSimple sous la forme d’instantanés cloud ou locaux.
 
->[AZURE.NOTE] Pour l’appareil virtuel, l’ordinateur hôte Windows est une machine virtuelle Azure.
+>[AZURE.NOTE]Pour l’appareil virtuel, l’ordinateur hôte Windows est une machine virtuelle Azure.
 
 Lorsque vous configurez un appareil dans le Gestionnaire d’instantanés StorSimple, vous devez fournir l’adresse IP et le mot de passe de l’appareil StorSimple pour authentifier votre appareil de stockage. Pour obtenir la procédure détaillée, consultez la rubrique [Configuration du mot de passe de gestionnaire d'instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -168,7 +166,7 @@ Procédez comme suit pour configurer la gestion à distance de l’appareil virt
 
 Après avoir activé la gestion à distance dans la page de configuration de l’appareil StorSimple, vous pouvez utiliser l’accès distant Windows PowerShell pour vous connecter à l’appareil virtuel à partir d’une autre machine virtuelle située dans le même réseau virtuel. Par exemple, vous pouvez vous connecter à partir de la machine virtuelle que vous avez configurée et utilisée pour vous connecter à iSCSI. Dans la plupart des déploiements, vous avez déjà ouvert un point de terminaison public pour accéder à votre machine virtuelle hôte que vous pouvez utiliser pour accéder à l’appareil virtuel.
 
->[AZURE.WARNING] **Pour renforcer la sécurité, nous vous recommandons d’utiliser le protocole HTTPS lors de la connexion aux points de terminaison et de supprimer ces derniers à la fin de la session à distance PowerShell.**
+>[AZURE.WARNING]**Pour renforcer la sécurité, nous vous recommandons d’utiliser le protocole HTTPS lors de la connexion aux points de terminaison et de supprimer ces derniers à la fin de la session à distance PowerShell.**
 
 Vous devez respecter les procédures de la rubrique [Connexion à distance à votre appareil StorSimple](storsimple-remote-connect.md) afin de configurer la communication à distance pour votre appareil virtuel.
 
@@ -192,7 +190,7 @@ Les sections suivantes présentent les différences que vous rencontrez lorsque 
 
 Comme il s’agit d’un appareil logiciel uniquement, la maintenance de l’appareil virtuel est minime par rapport à la maintenance de l’appareil physique. Vous disposez des options suivantes :
 
-- **Mises à jour logicielles** – Vous pouvez afficher la date de dernière mise à jour du logiciel, ainsi que les messages d’état de mise à jour. Vous pouvez utiliser le bouton **Rechercher les mises à jour** en bas de la page pour effectuer une recherche manuelle des nouvelles mises à jour. Si les mises à jour sont disponibles, cliquez sur **Installer les mises à jour**. Étant donné qu’il n’y a qu’une interface sur l’appareil virtuel, cela signifie qu’il y aura une brève interruption de service lors de l’application des mises à jour. L’appareil virtuel s’arrête et redémarre (si nécessaire) pour appliquer les mises à jour publiées. Pour une procédure pas à pas, consultez la rubrique [Mise à jour de votre appareil](storsimple-update-device.md#install-regular-updates-via-the-management-portal).
+- **Mises à jour logicielles** – Vous pouvez afficher la date de dernière mise à jour du logiciel, ainsi que les messages d’état de mise à jour. Vous pouvez utiliser le bouton **Rechercher les mises à jour** en bas de la page pour effectuer une recherche manuelle des nouvelles mises à jour. Si les mises à jour sont disponibles, cliquez sur **Installer les mises à jour**. Étant donné qu’il n’y a qu’une interface sur l’appareil virtuel, cela signifie qu’il y aura une brève interruption de service lors de l’application des mises à jour. L’appareil virtuel s’arrête et redémarre (si nécessaire) pour appliquer les mises à jour publiées. Pour une procédure pas à pas, consultez la rubrique [Mise à jour de votre appareil](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
 - **Package de prise en charge** – Vous pouvez créer et télécharger un package de prise en charge pour aider le support Microsoft à résoudre les problèmes que vous rencontrez avec votre appareil virtuel. Pour une procédure pas à pas, consultez la rubrique [Création et gestion d’un package de support](storsimple-create-manage-support-package.md).
 
 ### Comptes de stockage d’un appareil virtuel
@@ -215,7 +213,7 @@ La désactivation d’un appareil virtuel entraîne les actions suivantes :
 
 - Les instantanés cloud créés pour l’appareil virtuel sont conservés.
 
-Pour une procédure pas à pas, consultez la rubrique [Désactivation de votre appareil](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Pour une procédure pas à pas, consultez [Désactivation et suppression de votre appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
 Dès que l’appareil virtuel est indiqué comme désactivé dans la page du service StorSimple Manager, vous pouvez le supprimer de la liste des appareils de la page **Appareils**.
 
@@ -248,7 +246,7 @@ Pour une procédure pas à pas, consultez la rubrique [Basculement vers un appar
 
 Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais dans votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent à être facturés.
 
-Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de désactiver ou supprimer l’appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez la rubrique [Désactivation d’un appareil](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de désactiver ou supprimer l’appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d'informations, consultez [Désactiver et supprimer un appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Arrêt d’un appareil virtuel](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -260,4 +258,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

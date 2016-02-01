@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Services liés de calcul
@@ -258,7 +258,7 @@ apiKey | L'API du modèle d'espace de travail publié. | Oui
 
 
 ## Service lié Analytique Azure Data Lake
-Créez un service lié **Azure Data Lake Analytics** pour lier un service de calcul Azure Data Lake Analytics à une fabrique de données Azure avant d’utiliser l’[activité U-SQL Data Lake Analytics](data-factory-usql-activity.md) dans un pipeline.
+Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure avant d’utiliser l’[activité U-SQL Analytique Data Lake](data-factory-usql-activity.md) dans un pipeline.
 
 L’exemple suivant présente la définition JSON pour le service lié Analytique Azure Data Lake.
 
@@ -285,14 +285,53 @@ Propriété | Description | Requis
 Type | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui
 accountName | Nom du compte du service Analytique Azure Data Lake. | Oui
 dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake. | Non
-autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur Data Factory et une fois la connexion OAuth effectuée. | Oui
+autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. | Oui
 subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé).
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
 
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+
+ 
+| Type d’utilisateur | Expire après |
+| :-------- | :----------- | 
+| Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données de l’utilisateur. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données de l’utilisateur. | <p> Valeur maximale de 90 jours si l’utilisateur exécute des tranches en fonction de sa source de service lié OAuth au moins une fois tous les 14 jours. </p><p>Au cours des 90 jours attendus, dès lors que l’utilisateur n’a pas exécuté de tranches en fonction de cette source pendant une période de 14 jours, les informations d’identification expirent immédiatement 14 jours après la dernière tranche.</p> | 
+
+Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
+
+### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
+Le code suivant permet de générer les valeurs des propriétés **sessionId** et **authorization**.
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Consultez les rubriques [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+ 
 
 ## Service lié Azure SQL
 
 Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

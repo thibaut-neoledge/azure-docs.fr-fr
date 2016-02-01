@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
 Cet article traite des principales considérations à garder à l’esprit lors de la planification de votre infrastructure de sauvegarde de machines virtuelles (VM). Si vous avez [préparé votre environnement](backup-azure-vms-prepare.md), il s’agit de l’étape à suivre avant de passer à la [sauvegarde de vos machines virtuelles](backup-azure-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -120,4 +120,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Résoudre les problèmes de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

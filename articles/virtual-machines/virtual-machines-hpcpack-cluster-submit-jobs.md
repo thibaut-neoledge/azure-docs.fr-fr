@@ -13,24 +13,22 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/14/2016"
  ms.author="danlep"/>
 
-# Envoyer des travaux HPC à partir d’un ordinateur local vers un cluster HPC Pack dans Azure
+# Envoyer des travaux HPC à partir d'un ordinateur local vers un cluster HPC Pack déployé dans Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Cet article vous montre comment configurer un ordinateur client local sous Windows pour exécuter les outils de soumission de travaux HPC Pack qui communiquent avec un cluster HPC Pack dans Azure via HTTPS. Cela permet aux différents utilisateurs de cluster d’envoyer facilement des travaux à un cluster HPC Pack cloud sans avoir à se connecter directement à la machine virtuelle du nœud principal pour lancer les outils de soumission de travaux.
+Cet article vous montre comment configurer un ordinateur client local sous Windows pour exécuter les outils de soumission de travaux HPC Pack qui communiquent avec un cluster HPC Pack dans Azure via HTTPS. Cela permet aux différents utilisateurs de cluster d'envoyer facilement des travaux à un cluster HPC Pack cloud sans avoir à se connecter directement à la machine virtuelle du nœud principal ni d'accéder à un abonnement Azure pour lancer les outils de soumission de travaux.
 
 ![Envoyer un travail vers un cluster dans Azure][jobsubmit]
 
 ## Composants requis
 
-* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : vous pouvez utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) ou un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) pour déployer le nœud principal et le cluster, ou vous pouvez déployer le cluster manuellement dans Azure comme vous le feriez pour un cluster local. Vous aurez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
+* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d'utiliser des outils automatisés, tels qu'un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) ou un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) pour déployer le nœud principal et le cluster. Vous aurez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 
-    Si vous avez déployé manuellement le nœud principal, assurez-vous que le point de terminaison HTTPS est configuré dans la machine virtuelle. Si tel n’est pas le cas, configurez-en un. Consultez [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
-
-* **Support d’installation du HPC Pack** : le package d’installation gratuit de la dernière version du HPC Pack (HPC Pack 2012 R2) est disponible dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Veillez à sélectionner la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
+* **Support d’installation du HPC Pack** : le package d’installation gratuit de la dernière version du HPC Pack (HPC Pack 2012 R2) est disponible dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
 
 * **Ordinateur client** : vous aurez besoin d’un ordinateur client Windows ou Windows Server qui peut exécuter des utilitaires clients HPC Pack (voir [Configuration requise](https://technet.microsoft.com/library/dn535781.aspx)). Si vous souhaitez uniquement utiliser le portail web de HPC Pack ou l’API REST pour envoyer des travaux, vous pouvez utiliser l’ordinateur client de votre choix.
 
@@ -41,7 +39,7 @@ Pour activer une interface REST afin d’envoyer des travaux au cluster via HTTP
 
 Pour obtenir des procédures détaillées, consultez [Installer les composants web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Si vous utilisez le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster, vous pouvez éventuellement installer et configurer les composants web dans le cadre du déploiement.
+>[AZURE.TIP]Certains modèles de démarrage rapide Azure installent et configurent automatiquement les composants web. Si vous utilisez le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster, vous pouvez éventuellement installer et configurer les composants web dans le cadre du déploiement.
 
 **Pour installer les composants web**
 
@@ -66,7 +64,7 @@ Pour obtenir des procédures détaillées, consultez [Installer les composants w
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. Lorsque vous êtes invité à sélectionner un certificat, choisissez le certificat qui correspond au nom DNS public du nœud principal (CN=&lt;*NomDnsNœudPrincipal*&gt;.cloudapp.net).
+4. Lorsque vous êtes invité à sélectionner un certificat, choisissez le certificat qui correspond au nom DNS public du nœud principal. Par exemple, si vous utilisez le script de déploiement HPC Pack IaaS pour créer le cluster, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Si vous utilisez un modèle de démarrage rapide Azure, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
     >[AZURE.NOTE]Vous devez sélectionner ce certificat pour envoyer des travaux ultérieurement au nœud principal à partir d’un ordinateur local. Ne sélectionnez pas ou ne configurez pas un certificat qui correspond au nom d’ordinateur du nœud principal dans le domaine Active Directory (par exemple, CN=*MyHPCHeadNode.HpcAzure.local*).
 
@@ -84,7 +82,7 @@ Pour obtenir des procédures détaillées, consultez [Installer les composants w
 
 ## Étape 2 : Installer les utilitaires clients HPC Pack sur un ordinateur local
 
-Si vous ne l’avez pas déjà fait, téléchargez une version compatible des fichiers d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) sur l’ordinateur client. Au début de l’installation, choisissez l’option d’installation des utilitaires du client HPC Pack.
+Si vous ne l'avez pas déjà fait, téléchargez les fichiers d'installation (installation complète) de HPC Pack à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) sur l'ordinateur client. Au début de l’installation, choisissez l’option d’installation des utilitaires du client HPC Pack.
 
 Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la machine virtuelle du nœud principal, vous devez également exporter un certificat à partir du nœud principal et l’installer sur l’ordinateur client. Vous aurez besoin du certificat au format .CER.
 
@@ -94,7 +92,7 @@ Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la mach
 
 2. Dans l’arborescence de la console, développez **Certificats – Ordinateur Local**, puis **Personnel**, et cliquez sur **Certificats**.
 
-3. Localisez le certificat que vous avez configuré pour les composants web HPC Pack à l’[Étape 1 : Installer et configurer les composants web sur le nœud principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (par exemple, &lt;NomDnsNœudPrincipal&gt;.cloudapp.net).
+3. Localisez le certificat que vous avez configuré pour les composants web HPC Pack à l'[Étape 1 : Installer et configurer les composants web sur le nœud principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (par exemple, CN=&lt;HeadNodeDnsName&gt;.cloudapp.net).
 
 4. Cliquez avec le bouton droit sur le certificat, cliquez sur **Toutes les tâches**, puis sur **Exporter**.
 
@@ -112,7 +110,7 @@ Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la mach
 
 3. Dans le Gestionnaire de certificats, développez **Certificats – Utilisateur actuel**, puis **Autorités de certification racines de confiance**, cliquez avec le bouton droit sur **Certificats**, cliquez sur **Toutes les tâches**, puis sur **Importer**.
 
-4. Dans l’Assistant Importation de certificat, cliquez sur **Suivant** et suivez les étapes pour importer le certificat que vous avez exporté à partir du nœud principal.
+4. Dans l'Assistant Importation de certificat, cliquez sur **Suivant** et suivez les étapes pour importer le certificat que vous avez exporté à partir du nœud principal vers le magasin racine des autorités de certification approuvées.
 
 
 
@@ -126,17 +124,19 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 **Pour exécuter des commandes d’envoi de travail sur l’ordinateur client**
 
 
-1. Sur l’ordinateur client, démarrez une invite de commandes.
+1. Sur l'ordinateur client, démarrez une invite de commandes.
 
-2. Tapez un exemple de commande. Par exemple, pour répertorier tous les travaux sur le cluster, tapez ce qui suit.
+2. Tapez un exemple de commande. Par exemple, pour répertorier tous les travaux sur le cluster, tapez une commande semblable à l'une des options suivantes, selon le nom DNS complet du nœud principal :
 
     ```
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
+
+    job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
-    
+
     >[AZURE.TIP]Utilisez le nom DNS complet du nœud principal, et non l’adresse IP, dans l’URL du planificateur. Si vous spécifiez l’adresse IP, vous verrez une erreur du type : « Le certificat de serveur doit utiliser une chaîne de confiance valide ou être placé dans le magasin racine de confiance ».
 
-3. Quand vous y êtes invité, tapez le nom d’utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l’administrateur de cluster HPC ou d’un autre utilisateur de cluster que vous avez configuré. Vous pouvez choisir de stocker les informations d’identification localement pour effectuer d’autres opérations.
+3. Quand vous y êtes invité, tapez le nom d'utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l'administrateur de cluster HPC ou d'un autre utilisateur de cluster que vous avez configuré. Vous pouvez choisir de stocker les informations d’identification localement pour effectuer d’autres opérations.
 
     Une liste de travaux s’affiche.
 
@@ -149,22 +149,24 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 
     b. Cliquez sur **Informations d’identification Windows**, puis sur **Ajouter des informations d’identification génériques**.
 
-    c. Spécifiez l’adresse Internet https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler et fournissez le nom d’utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l’administrateur du cluster HPC ou d’un autre utilisateur du cluster que vous avez configuré.
+    c. Spécifiez l'adresse Internet (par exemple https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler)) et fournissez le nom d'utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l'administrateur du cluster HPC ou d'un autre utilisateur du cluster que vous avez configuré.
 
 2. Sur l’ordinateur client, démarrez le Gestionnaire de travaux HPC.
 
-3. Dans la boîte de dialogue **Sélectionner le nœud principal**, tapez l’URL du nœud principal dans Azure au format https://&lt;HeadNodeDnsName&gt;.cloudapp.net.
+3. Dans la boîte de dialogue **Sélectionner le nœud principal**, tapez l'URL du nœud principal dans Azure (par exemple, https://&lt;HeadNodeDnsName&gt;.cloudapp.net ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com)).
 
     Le Gestionnaire de travaux HPC s’ouvre et affiche une liste de travaux sur le nœud principal.
 
 **Pour utiliser le portail web exécuté sur le nœud principal**
 
-1. Démarrez un navigateur web sur l’ordinateur client et tapez l’adresse suivante :
+1. Ouvrez un navigateur web sur l'ordinateur client et tapez une des options suivantes, selon le nom DNS complet du nœud principal :
 
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
+
+    https://<HeadNodeDnsName>.<region>cloudapp.azure.com/HpcPortal
     ```
-2. Dans la boîte de dialogue de sécurité qui s’affiche, tapez les informations d’identification de domaine de l’administrateur de cluster HPC. (Vous pouvez également ajouter d’autres utilisateurs de cluster dans des rôles différents. Pour plus d’informations, consultez [Gestion des utilisateurs de cluster](https://technet.microsoft.com/library/ff919335.aspx).)
+2. Dans la boîte de dialogue de sécurité qui s’affiche, tapez les informations d’identification de domaine de l’administrateur de cluster HPC. (Vous pouvez également ajouter d’autres utilisateurs de cluster dans des rôles différents. Consultez [Gestion des utilisateurs du cluster](https://technet.microsoft.com/library/ff919335.aspx).)
 
     Le portail web s’ouvre sur l’affichage de liste de travaux.
 
@@ -180,10 +182,10 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 
 * Vous pouvez également envoyer des travaux au cluster Azure avec l’[API REST du HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* Si vous voulez envoyer un cluster à partir d’un client Linux, consultez l’exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
+* Si vous voulez envoyer un cluster à partir d'un client Linux, consultez l'exemple Python dans le [Kit de développement logiciel (SDK) et l'exemple de code HPC Pack 2012 R2](https://www.microsoft.com/download/details.aspx?id=41633).
 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

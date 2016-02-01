@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Didacticiel : Azure Stream Analytics et intégration de Machine Learning Azure | Microsoft Azure" 
+	pageTitle="Didacticiel : Analyse du sentiment à l'aide d'Azure Stream Analytics et Azure Machine Learning | Microsoft Azure" 
 	description="Tirer parti des fonctions définies par l’utilisateur et de l’apprentissage machine dans les travaux d’analyse de flux"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# Didacticiel : Présentation de Stream Analytics et intégration de Machine Learning #
+# Didacticiel : Analyse des sentiments à l'aide de Stream Analytics et Machine Learning #
 
 Ce didacticiel est conçu pour vous aider à configurer rapidement un travail Stream Analytics simple avec l’intégration de Machine Learning. Nous allons mettre à profit un modèle d’analyse de sentiment Machine Learning de la galerie Analytique Cortana pour analyser la diffusion des données de texte et détermine l’évaluation du sentiment en temps réel. Il s’agit d’un didacticiel qui permet de comprendre les scénarios tels que l’analyse de sentiments en temps réel de la diffusion en continu des données twitter, l’analyse des enregistrements de conversation client grâce au personnel du support technique, aux commentaires sur les forums/blogs/vidéos et de nombreux autres scénarios d’évaluation prédictive en temps réel.
   
@@ -150,4 +150,4 @@ Vous pouvez également observer les mesures liées à la fonction Azure Machine 
 
     ![affichage du moniteur ml du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

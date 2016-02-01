@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -70,6 +70,7 @@ Sur l’écran Connexion à Azure AD, entrez un compte et un mot de passe d’ad
 
 ![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+Si vous recevez une erreur et que vous avez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Pages de la section Synchronisation
 
@@ -105,11 +106,11 @@ Mon propre attribut|Cette option vous permet de sélectionner votre propre attri
 ### Filtrage de synchronisation basé sur les groupes
 Le filtrage de la fonctionnalité Groupes vous permet d’exécuter un pilote réduit où seul un petit sous-ensemble d’objets doit être créé dans Azure AD et Office 365. Pour utiliser cette fonctionnalité, créez un groupe dans votre version d’Active Directory, puis ajoutez les utilisateurs et groupes à synchroniser avec Azure AD en tant que membres directs. Vous pouvez ajouter et supprimer ultérieurement des utilisateurs à ce groupe pour tenir à jour la liste des objets présents dans Azure AD. Les objets que vous voulez synchroniser doivent tous être un membre direct du groupe. Celui-ci comprend des utilisateurs, des groupes, des contacts et des ordinateurs/appareils. L’appartenance à des groupes imbriqués n’est pas résolue ; un membre de groupe doit inclure uniquement le groupe lui-même et pas ses membres.
 
-Pour utiliser cette fonctionnalité, le chemin personnalisé comporte cette page : ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+Pour utiliser cette fonctionnalité, le chemin d’accès personnalisé comporte cette page : ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]Cette fonctionnalité est uniquement destinée à prendre en charge un déploiement pilote et ne doit pas être utilisée dans un déploiement de production véritable.
 
-Dans un véritable déploiement de production, il va être difficile de maintenir un seul groupe avec tous les objets à synchroniser. Vous avez plutôt intérêt à utiliser l’une des méthodes décrites dans [Configurer le filtrage](active-directory-aadconnectsync-configure-filtering.md).
+Dans un véritable déploiement de production, il va être difficile de maintenir un seul groupe avec tous les objets à synchroniser. Il est préférable que vous utilisiez l’une des méthodes décrites dans [Configurer le filtrage](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Fonctionnalités facultatives
 
@@ -121,7 +122,7 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 
 Fonctionnalités facultatives | Description
 -------------------    | ------------- |
-Déploiement Exchange hybride |La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange locales et dans Azure grâce à la synchronisation d’un jeu d’[attributs](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) spécifique d’Azure AD Connect dans votre annuaire local.
+Déploiement Exchange hybride |La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange locales et dans Azure grâce à la synchronisation d’un jeu d’[attributs](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) spécifique d’Azure AD Connect dans votre annuaire local.
 Application Azure AD et filtrage des attributs|En activant l’application Azure AD et le filtrage des attributs, l’ensemble des attributs synchronisés peut être adapté à un ensemble spécifique dans une page à venir de l’Assistant. Deux pages de configuration supplémentaires s’ouvrent dans l’Assistant.  
 Synchronisation du mot de passe | Vous pouvez activer cette option si vous avez sélectionné la fédération comme solution de connexion. La synchronisation de mot de passe peut ensuite servir d’option de sauvegarde. Pour plus d’informations, consultez [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
 Écriture différée du mot de passe|En activant l’écriture différée du mot de passe, les modifications de mot de passe provenant d’Azure AD Connect sont réécrites dans votre annuaire local. Pour plus d’informations, consultez [Prise en main de la gestion de mot de passe](active-directory-passwords-getting-started.md).
@@ -250,4 +251,4 @@ Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’
 
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -39,6 +39,7 @@ Service | Sécurisation des travaux, données et tables dans Data Lake Analytics
 Service | Déplacement de la sortie d’un travail vers SQL Data Warehouse à l’aide de Data Factory |1 | en cours | [@mumian](https://github.com/mumian) | 
 Outils | Utilisation des outils de diagnostic | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | Expliquez les techniques permettant d’effectuer des jointures basé sur une plage | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | Options d’authentification ADLS | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ Plusieurs possibilités vous sont données pour fournir des commentaires sur le 
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

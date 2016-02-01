@@ -1,9 +1,10 @@
 
-| Ressource | Limite logicielle 
---- | ---
-| Points de terminaison CND | 50
-| Domaines personnalisés par client| 16
+Ressource | Limite logicielle
+---------|-----------
+Profils CDN | 4
+Points de terminaison CDN par profil | 10
+Domaines personnalisés par point de terminaison | 10 
 
-Vous pouvez demander la mise à jour des limites logicielles en ouvrant un ticket de support.
+Demander une mise à jour des limites logicielles de votre abonnement en ouvrant un ticket de support.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

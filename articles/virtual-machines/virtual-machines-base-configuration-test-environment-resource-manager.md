@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/14/2016"
 	ms.author="josephd"/>
 
 # Environnement de test de configuration de base avec Azure Resource Manager
@@ -58,7 +58,7 @@ Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE]Les jeux de commandes suivants définissent font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Connectez-vous à votre compte.
 
@@ -158,6 +158,8 @@ Ensuite, configurez DC1 comme contrôleur de domaine et serveur DNS pour le dom
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
+Notez que ces commandes peuvent prendre quelques minutes.
+
 Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 
 1.	Dans le portail Azure, cliquez sur **Machines virtuelles**, puis sur la machine virtuelle **DC1**.
@@ -169,12 +171,15 @@ Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
-Ensuite, créez un compte utilisateur dans Active Directory qui sera utilisé pour la connexion aux ordinateurs membres du domaine CORP. Exécutez les commandes suivantes une par une à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
+Ensuite, créez un compte utilisateur dans Active Directory qui sera utilisé pour la connexion aux ordinateurs membres du domaine CORP. Exécutez cette commande à partir d'une invite de commandes Windows PowerShell de niveau administrateur.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-Notez que les premiers résultats de la commande vous invitent à fournir le mot de passe du compte utilisateur1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, choisissez un mot de passe fort. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
+Notez que cette commande vous invite à fournir le mot de passe du compte User1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, *choisissez un mot de passe fort*. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
+
+Ensuite, configurez le nouveau compte User1 en tant qu'administrateur d'entreprise. Exécutez cette commande à partir d'une invite de commandes Windows PowerShell de niveau administrateur.
+
+	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Fermez la session Bureau à distance avec DC1 et reconnectez-vous en utilisant le compte CORP\\User1.
 
@@ -291,7 +296,7 @@ Votre configuration de base dans Azure est maintenant prête pour le développem
 
 ## Étape suivante
 
-- Utilisez cela comme base pour générer l’[environnement de test de cloud hybride simulé](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- [Ajout d'une nouvelle machine virtuelle](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) au sous-réseau de réseau d'entreprise, par exemple une MV exécutant Microsoft SQL Server.
 
 
 ## <a id="costs"></a>Réduction des coûts des machines virtuelles de l’environnement de test dans Azure
@@ -321,4 +326,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

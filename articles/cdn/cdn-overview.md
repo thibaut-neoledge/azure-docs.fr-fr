@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -49,6 +49,7 @@ Le niveau Standard de CDN inclut les fonctionnalités suivantes :
 - Équilibrage de la charge
 - Protection DDOS
 - [Purge rapide](cdn-purge-endpoint.md)
+- [Préchargement de ressources](cdn-preload-endpoint.md)
 - [Gestion via l’API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 
 - [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md)
 - [Rapports HTTP avancés](cdn-advanced-http-reports.md)
-- [Statistiques en temps réel](cdn-read-time-stats.md)
+- [Statistiques en temps réel](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Vue d’ensemble des certificats pour Azure Cloud Services
-Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous décrit comment les [créer](#create) et les [déployer](#deploy) dans Azure.
+Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates) lorsque vous utilisez le portail Azure Classic et non ARM). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous décrit comment les [créer](#create) et les [déployer](#deploy) dans Azure.
 
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce point. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud.
 
@@ -31,7 +31,7 @@ Vous pouvez charger les certificats de service dans le portail Azure Classic pa
 Les certificats de service peuvent être gérés séparément de vos services et par différentes personnes. Par exemple, un développeur peut charger un package de services qui fait référence à un certificat précédemment chargé dans Azure par un responsable informatique. Un responsable informatique peut gérer et renouveler ce certificat en modifiant la configuration du service sans avoir à charger un nouveau package de services. Ceci est rendu possible par le fait que le nom logique du certificat et le nom et l’emplacement de son magasin sont spécifiés dans le fichier de définition de service, alors que l’empreinte numérique du certificat est spécifiée dans le fichier de configuration de service. Pour mettre à jour le certificat, il est uniquement nécessaire de charger un nouveau certificat et de modifier la valeur d’empreinte numérique dans le fichier de configuration de service.
 
 ## Que sont les certificats de gestion ?
-Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
+Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par le portail Azure Classic. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
 
 >[AZURE.WARNING]Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
 
@@ -80,4 +80,4 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 >[AZURE.NOTE]Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

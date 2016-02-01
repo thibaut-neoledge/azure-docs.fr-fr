@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/14/2016"
 	ms.author="jgao"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -28,7 +28,7 @@ Vous pouvez installer R sur n’importe quel type de cluster (Hadoop, Storm, HBa
 
 - [Installation et utilisation de R sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 - [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight
-- [Personnalisation d’un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l'aide d’actions de script
+- [Personnaliser un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l’aide d’actions de script
 - [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## Qu'est-ce que R ?
@@ -102,7 +102,7 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 
 - [Installation et utilisation de R sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 - [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight
-- [Personnalisation d’un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l'aide d’actions de script
+- [Personnaliser un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l’aide d’actions de script
 - [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md)
 - [Installation et utilisation de Spark sur les clusters HDInsight][hdinsight-install-spark] : exemple d’action de script sur l'installation de Spark
 - [Installation de Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md) : exemple d’action de script sur l'installation de Giraph
@@ -113,4 +113,4 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

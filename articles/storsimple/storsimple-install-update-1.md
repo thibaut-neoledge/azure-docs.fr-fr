@@ -47,7 +47,6 @@ Selon la version en cours d’exécution sur votre appareil, vous pouvez déterm
 ## Préparation des mises à jour
 Vous devez effectuer les étapes suivantes avant d’analyser et d’appliquer la mise à jour :
 
-
 1. Prenez un instantané cloud des données de l’appareil.
 
 2. Assurez-vous que les adresses IP fixes du contrôleur sont routables et peuvent se connecter à Internet. Ces adresses IP fixes seront utilisées pour mettre en service les mises à jour sur votre appareil. Vous pouvez tester cette fonctionnalité en exécutant l’applet de commande suivante sur chaque contrôleur à partir de l’interface Windows PowerShell de l’appareil :
@@ -152,4 +151,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

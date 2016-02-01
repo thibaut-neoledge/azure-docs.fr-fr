@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile | Microsoft Azure" 
     description="Apprenez à utiliser Citrix ShareFile avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -98,7 +98,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Cliquez sur **Enable SAML**.
     2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **ID d’entité**, puis collez-la dans la zone de texte **Your IDP Issuer/ Entity ID**.
-    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
+    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
     4.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix ShareFile**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
     5.  Cliquez sur **Change** en regard du champ **X.509 Certificate**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure AD. ![Paramètres de base](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Paramètres de base")
 
@@ -141,10 +141,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

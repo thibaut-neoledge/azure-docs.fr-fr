@@ -27,11 +27,11 @@
    - Passerelle
    - Adresse IP du serveur DNS principal
     
-		Notez que le système valide les paramètres réseau après chaque étape du processus.
+		Note that the system is validating network settings after each step in the process.
    
-      >[AZURE.NOTE] Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Vérifiez la connectivité du réseau sur Data 0 », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
+      >[AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Vérifiez la connectivité du réseau sur Data 0 », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
-8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](../articles/storsimple/storsimple-configure-web-proxy.md).
+8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](storsimple-configure-web-proxy.md).
 
 9. Configurez un serveur NTP principal pour votre appareil. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud. Vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet. Si ce n’est pas possible, spécifiez un serveur NTP interne.
  
@@ -45,7 +45,7 @@
 
 	![Inscription de l’appareil StorSimple 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
-12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
+12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](storsimple-security.md) pour plus d’informations sur cette clé.
 	
 	![Inscription de l’appareil StorSimple 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)
 
@@ -60,12 +60,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-	Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
-	      
-	Si le périphérique est toujours déconnecté après quelques minutes, vous devez vous assurer que votre réseau de pare-feu a été configuré comme décrit dans la [configuration requise du réseau pour votre périphérique StorSimple](../articles/storsimple/storsimple-system-requirements.md).
-	
-	Si vous ne disposez pas d'une prise en charge HTTP 1.1, assurez-vous que le port 9354 est ouvert pour la communication sortante. Ce port est utilisé pour assurer la communication entre le service StorSimple Manager et votre appareil StorSimple
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+      
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

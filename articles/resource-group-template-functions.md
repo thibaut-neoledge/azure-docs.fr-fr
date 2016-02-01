@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Expressions de modèle Resource Manager | Microsoft Azure"
+   pageTitle="Fonctions des modèles Resource Manager | Microsoft Azure"
    description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Expressions de modèle Azure Resource Manager
+# Fonctions des modèles Azure Resource Manager
 
-Cette rubrique décrit toutes les expressions que vous pouvez utiliser dans un modèle Azure Resource Manager.
+Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
 
-Les expressions de modèle et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon. Lors de l’évaluation, l’expression préservera la casse, sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les expressions sont évaluées.
+Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon. Lors de l'évaluation, la fonction préservera la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les fonctions sont évaluées.
 
-## Expressions numériques
+## Fonctions numériques
 
-Resource Manager vous offre les expressions ci-après pour travailler avec des entiers :
+Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
 - [ajouter](#add)
 - [copyIndex](#copyindex)
@@ -157,9 +157,9 @@ Retourne la soustraction des deux entiers fournis.
 | operand2 | Oui | Nombre à soustraire.
 
 
-## Expressions de chaîne
+## Fonctions de chaîne
 
-Resource Manager vous offre les expressions ci-après pour travailler avec des chaînes :
+Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@ L'exemple suivant montre comment utiliser la fonction base64.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combine plusieurs valeurs de chaîne et retourne la valeur de chaîne obtenue. Cette fonction peut prendre n'importe quel nombre d'arguments.
+Combine plusieurs valeurs et retourne le résultat concaténé. Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
 
-L'exemple suivant montre comment combiner plusieurs valeurs pour en retourner une seule.
+L’exemple suivant montre comment combiner plusieurs valeurs pour retourner au final une chaîne concaténée.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+L’exemple suivant montre comment combiner deux tableaux.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Fonctions de tableau
 
+Resource Manager fournit les fonctions ci-après pour travailler avec des valeurs de tableau :
 
-## Expressions de valeur de déploiement
+Pour combiner plusieurs tableaux en un seul tableau, utilisez [concat](#concat).
 
-Resource Manager offre les expressions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
+Pour obtenir le nombre d’éléments dans un tableau, utilisez [longueur](#length).
+
+Pour diviser une valeur de chaîne en tableau de valeurs de chaîne, utilisez [fractionnement](#split).
+
+## Fonctions de valeur de déploiement
+
+Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Expressions de ressource](#resource-expressions).
+Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -449,7 +472,7 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
-Cette expression retourne l’objet passé au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
+Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
 
     {
         "name": "",
@@ -528,9 +551,9 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 
 
-## Expressions de ressource
+## Fonctions de ressource
 
-Resource Manager offre les expressions ci-après pour l’obtention des valeurs de ressource :
+Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
 - [listkeys](#listkeys)
 - [fournisseurs](#providers)
@@ -539,7 +562,7 @@ Resource Manager offre les expressions ci-après pour l’obtention des valeurs 
 - [resourceId](#resourceid)
 - [subscription](#subscription)
 
-Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel, consultez [Expressions de valeur de déploiement](#deployment-value-expressions).
+Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel, consultez [Fonctions de valeur de déploiement](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@ Permet à une expression de dériver sa valeur de l'état d'exécution d'une aut
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
-En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
+En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
 L’exemple ci-après référence un compte de stockage déployé dans le même modèle.
 
@@ -634,7 +657,7 @@ Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, 
 		}
 	}
 
-Si vous voulez maintenant spécifier directement la version d’API dans votre modèle, vous pouvez utiliser l’expression **providers** et récupérer une des valeurs, comme la version la plus récente, comme indiqué ci-dessous.
+Si vous voulez maintenant spécifier directement la version d’API dans votre modèle, vous pouvez utiliser la fonction [providers](#providers) et récupérer une des valeurs, comme la version la plus récente, comme indiqué ci-dessous.
 
     "outputs": {
 		"BlobUri": {
@@ -767,6 +790,6 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Différences dans le langage Transact-SQL Azure SQL Database.
@@ -58,7 +58,6 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - Schémas de base de données
 - Messagerie de base de données
 - DATABASEPROPERTY (utilisez plutôt DATABASEPROPERTYEX)
-- Transactions distribuées
 - Connexions EXECUTE AS
 - Chiffrement : gestion extensible de clés
 - Gestion des événements : événements, notifications d’événements, notifications de requête
@@ -107,4 +106,4 @@ La référence sur Transact-SQL comprend des rubriques relatives aux versions de
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

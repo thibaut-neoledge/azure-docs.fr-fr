@@ -91,7 +91,8 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 ## Étapes suivantes
 
 - En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md).
+
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Jobscience | Microsoft Azure" 
     description="Apprenez à utiliser Jobscience avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Jobscience
   
@@ -64,9 +64,7 @@ Cette section décrit l’activation de l’intégration d’application pour Jo
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
-Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -117,7 +115,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Paramètre d’authentification unique SAML](./media/active-directory-saas-jobscience-tutorial/IC784365.png "Paramètre d’authentification unique SAML")
 
-    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.
+    1.  Dans la zone de texte **Name**, attribuez un nom à votre configuration.
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jobscience** de la boîte de dialogue, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
     3.  Dans la zone de texte **Entity Id**, tapez ****https://salesforce-jobscience.com**.
 4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
@@ -160,7 +158,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
     ![Paramétrage](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Paramétrage")
 
-3.  Accédez à **Manage Users > Users**.
+3.  Accédez à **Manage Users > Users**.
 
     ![Utilisateurs](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Utilisateurs")
 
@@ -168,7 +166,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
     ![Tous les utilisateurs](./media/active-directory-saas-jobscience-tutorial/IC784370.png "Tous les utilisateurs")
 
-5.  Dans la page **Edit User**, procédez comme suit :
+5.  Dans la boîte de dialogue **Edit User**, procédez comme suit :
 
     ![Modification de l’utilisateur](./media/active-directory-saas-jobscience-tutorial/IC784371.png "Modification de l’utilisateur")
 
@@ -197,4 +195,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

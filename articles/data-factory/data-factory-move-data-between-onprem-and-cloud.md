@@ -108,8 +108,8 @@ Outre les points ci-dessus, vous devez également vous assurer que Microsoft Azu
 ### Symptômes possibles des erreurs liées au pare-feu et au serveur proxy :
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle de gestion des données ne peut pas se connecter à Azure Data Factory pour s’authentifier. Reportez-vous à la section ci-dessus pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
-1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2. Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lors de l’affichage de journaux d’événements Windows, sous « Observateur d’événements » > « Journaux d’applications et de services » > « Passerelle de gestion des données », des messages d’erreur apparaissent, tels que « Impossible de se connecter au serveur distant » ou « Un composant de la passerelle de gestion des données ne répond plus et va redémarrer automatiquement. Nom du composant : Passerelle. »
+1.	Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
+2.	Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lors de l’affichage de journaux d’événements Windows, sous « Observateur d’événements » > « Journaux d’applications et de services » > « Passerelle de gestion des données », des messages d’erreur apparaissent, tels que « Impossible de se connecter au serveur distant » ou « Un composant de la passerelle de gestion des données ne répond plus et va redémarrer automatiquement. Nom du composant : Passerelle. »
 
 ## Résolution des problèmes de passerelle :
 Pour plus d’informations, vous pouvez consulter les journaux de la passerelle contenus dans les journaux des événements Windows. Vous les trouverez à l'aide de **l'Observateur d'événements** Windows sous **Journaux des applications et des services** > **Passerelle de gestion des données**. Lors de la résolution des problèmes liés à la passerelle, recherchez des événements de type erreur dans l’Observateur d’événements.
@@ -165,7 +165,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 	> 
 	> Si vous utilisez Chrome, accédez à [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot clé « ClickOnce», choisissez l’une des extensions ClickOnce, puis installez-la.
 	>  
-	> Vous devez en faire autant pour Firefox (installez un complément). Par exemple, vous pouvez en installer un à partir d’[ici](https://addons.mozilla.org/firefox/addon/fxclickonce/).
+	> Vous devez en faire autant pour Firefox (installez un complément). Cliquez sur le bouton **Menu Ouvrir** dans la barre d’outils (**trois lignes horizontales** en haut à droite), cliquez sur **Modules complémentaires**, effectuez une recherche avec le mot-clé « ClickOnce », choisissez l’une des extensions de ClickOnce et installez le programme.
 
 	![Passerelle - Panneau Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -424,7 +424,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -628,8 +628,7 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Flux de données pour la copie à l’aide de la passerelle de gestion des données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données global et un résumé des opérations servant à la copie à l’aide de la passerelle de données : 
-![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Voici un flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure](http://portal.azure.com)ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Le développeur des données utilise le panneau « Services liés » afin de définir un nouveau service lié pour un magasin de données local à l’aide de la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l'application de configuration des informations d’identification comme indiqué dans la procédure étape par étape pour spécifier les types d'authentification et les informations d’identification. La boîte de dialogue de l’application de configuration des informations d'identification communiquera avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d'identification.
@@ -638,4 +637,4 @@ Voici un flux de données global et un résumé des opérations servant à la co
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

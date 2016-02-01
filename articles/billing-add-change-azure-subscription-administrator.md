@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="genli"/>
 
 # Ajout ou modification de rôles d’administrateur Azure
@@ -64,6 +64,6 @@ Seul l’administrateur de compte peut modifier l’administrateur de services p
 
 ## Modification de l’administrateur de compte
 
-Pour transférer la propriété du compte Azure vers un autre, consultez [Transfert d’un abonnement Azure](../billing-subscription-transfer.md).
+Pour transférer la propriété du compte Azure vers un autre, consultez [Transfert d’un abonnement Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

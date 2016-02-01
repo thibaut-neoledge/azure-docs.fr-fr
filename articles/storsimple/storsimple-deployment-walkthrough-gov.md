@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal
@@ -82,10 +82,10 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | | Interface réseau : Adresses IP fixes de contrôleur Data 0 | Ces adresses IP doivent être routables vers Internet.</br>Adresse IP fixe de contrôleur 0 :</br>Adresse IP fixe de contrôleur 1 :|
 | | | | |
 | **Paramètres d'interface réseau supplémentaires** | Interface réseau : Data 1</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
 | | Interface réseau : Data 4</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
 | | | | |
 | **Création d’un conteneur de volumes** | Nom du conteneur de volumes : | nom du conteneur | |
 | | Compte Azure Storage : | nom et clé d'accès du compte de stockage à associer à ce conteneur de volume | |
@@ -201,9 +201,9 @@ Procédez comme suit sur votre hôte Windows Server.
 
 > - Pour une haute disponibilité de votre solution StorSimple, nous vous recommandons de configurer MPIO sur vos serveurs hôtes (facultatif) avant de configurer iSCSI. La configuration de MPIO sur les serveurs hôtes permet de s'assurer que les serveurs peuvent tolérer une panne de liaison, de réseau ou d'interface.
 
-> - Pour obtenir les instructions d’installation et de configuration de MPIO et d’iSCSI sur l’hôte Windows Server, consultez [Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
+> - Pour obtenir les instructions d'installation et de configuration de MPIO et d'iSCSI sur l'hôte Windows Server, consultez [Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
 
-> - Pour obtenir les instructions d’installation et de configuration de MPIO et d’iSCSI sur un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux StorSimple](storsimple-configure-mpio-linux.md).
+> - Pour obtenir les instructions d'installation et de configuration de MPIO et d'iSCSI sur un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux StorSimple](storsimple-configure-mpio-on-linux.md).
 
 Si vous décidez de ne pas configurer MPIO, procédez comme suit pour monter, initialiser et formater vos volumes StorSimple sur un hôte Windows Server.
 
@@ -244,9 +244,9 @@ La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme
 
 #### Mise à jour de votre appareil
 
-1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l’appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
 2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**. 
-3.	Une tâche de mise à jour est créée. Surveillez l’état de la mise à jour en accédant à **Tâches**.
+3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
 	> [AZURE.NOTE]Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L’état ne passe à 100 % que lorsque la tâche de mise à jour est terminée. Il n’existe aucun état en temps réel du processus de mise à jour.
 
@@ -268,15 +268,15 @@ Procédez comme suit, dans Microsoft Azure Government Portal, pour créer une s
 
 La solution MPIO (Multipath I/O) est une fonctionnalité facultative qui n’est pas installée sur Windows Server par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Pour obtenir les instructions d’installation de la solution MPIO, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Pour obtenir les instructions d’installation de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-linux.md).
+Pour obtenir les instructions d'installation et de configuration de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-on-linux.md).
 
 > [AZURE.NOTE]La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
 
 ## Étapes suivantes
 
-Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
+- Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 
-Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
+- Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

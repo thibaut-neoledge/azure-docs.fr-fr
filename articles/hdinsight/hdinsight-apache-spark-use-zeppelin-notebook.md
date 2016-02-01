@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Utilisation de blocs-notes Zeppelin avec un cluster Spark sur HDInsight (Linux)
 
 Découvrez comment installer des blocs-notes Zeppelin sur des clusters Spark et comment utiliser les blocs-notes Zeppelin.
+
+> [AZURE.IMPORTANT]Le bloc-notes Zeppelin pour le cluster Spark sur HDInsight permet simplement d’illustrer l’utilisation de Zeppelin dans un environnement Azure HDInsight Spark. Si vous souhaitez utiliser des ordinateurs portables pour travailler avec HDInsight Spark, nous vous recommandons d’utiliser plutôt des blocs-notes Jupyter. Les blocs-notes Jupyter fournissent également des options de noyau différentes, telles que Scala, et continuent à bénéficier d’améliorations de fonctionnalités. Pour obtenir des instructions sur l’utilisation des blocs-notes Jupyter avec HDInsight Spark, consultez la rubrique [Exécuter des requêtes Spark SQL à l’aide d’un bloc-notes Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Configuration requise :**
 
@@ -37,7 +39,7 @@ Découvrez comment installer des blocs-notes Zeppelin sur des clusters Spark et 
 
 ## Installez Zeppelin dans le cadre de la création de clusters
 
-Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Le script personnalisé pour installer Zeppelin sur un cluster Spark est disponible à l'adresse ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark est disponible à l’adresse ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Utilisation du portail Azure
 
@@ -328,4 +330,4 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

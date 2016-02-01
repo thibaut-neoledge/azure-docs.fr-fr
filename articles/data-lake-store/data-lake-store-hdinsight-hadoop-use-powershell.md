@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Créer des clusters HDInsight avec Azure Data Lake Store à l'aide de PowerShell | Azure" 
    description="Utiliser Azure PowerShell pour créer et utiliser les clusters HDInsight Hadoop avec Azure Data Lake" 
-   services="data-lake" 
+   services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
    manager="paulettm" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -249,6 +249,38 @@ Dans cette section, nous créons un cluster HDInsight Hadoop. Pour cette version
 
 Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier que le cluster HDInsight peut accéder à Data Lake Store. Pour ce faire, nous allons exécuter un exemple de tâche Hive qui crée une table avec les exemples de données que vous avez téléchargés précédemment dans votre Data Lake Store.
 
+### Pour un cluster Linux
+
+Dans cette section, vous allez utiliser SSH dans le cluster et exécuter l’exemple de requête Hive. Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+1. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
+
+    	hive
+
+2. À l’aide de l’interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **vehicles** à l’aide des exemples de données du Data Lake Store :
+
+		DROP TABLE vehicles;
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+		SELECT * FROM vehicles LIMIT 10;
+
+	Le résultat doit ressembler à ce qui suit :
+
+		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+
+
+### Pour un cluster Windows
+
 Utilisez les applets de commande suivantes pour exécuter la requête Hive. Dans cette requête, nous créons une table à partir des données de Data Lake Store, puis nous exécutons une requête SELECT sur la table créée.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
@@ -290,11 +322,30 @@ Le résultat de la tâche se présente ainsi :
 	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-	
-
 ## Accéder à Data Lake Store avec les commandes HDFS
 
 Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data Lake Store, vous pouvez utiliser les commandes de l'interpréteur de commandes HDFS pour accéder au magasin.
+
+### Pour un cluster Linux
+
+Dans cette section, vous allez utiliser SSH dans le cluster et exécuter les commandes HDFS. Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+Une fois connecté, utilisez la commande du système de fichiers HDFS suivante pour répertorier les fichiers dans le Data Lake Store.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+Le fichier que vous avez téléchargé dans Data Lake Store doit y figurer.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Store, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
+
+
+### Pour un cluster Windows
 
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
@@ -306,7 +357,7 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 
 	Lorsque vous y êtes invité, entrez les informations d'identification que vous avez fournies à l'utilisateur du bureau à distance.
 
-4. Dans la session à distance, lancez Windows PowerShell et utilisez les commandes du système de fichiers HDFS pour lister les fichiers dans Azure Data Lake.
+4. Dans la session à distance, lancez Windows PowerShell et utilisez les commandes du système de fichiers HDFS pour lister les fichiers dans Azure Data Lake Store.
 
 	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
@@ -316,7 +367,7 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers sur Azure Data Lake, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
+	Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Store, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
 
 ## Voir aussi
 
@@ -325,4 +376,4 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

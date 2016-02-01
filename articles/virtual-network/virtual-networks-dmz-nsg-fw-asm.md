@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # Exemple 2 : Créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
@@ -45,7 +45,7 @@ Pour créer l’environnement :
   2.	Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
   3.	Exécuter le script dans PowerShell
 
-**Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier XML de configuration réseau.
+**Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
 Une fois que le script s’exécute correctement, les opérations post-script qui suivent doivent être exécutées ;
 
@@ -553,7 +553,7 @@ Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien v
 	</NetworkConfiguration>
 
 #### Exemples de scripts d’application
-Si vous souhaitez installer un exemple de script d’application et d’autres exemples de réseau de périmètre DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
+Si vous souhaitez installer un exemple de script d’application et d’autres exemples de réseau de périmètre DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Zone DMZ entrante avec NSG"
@@ -566,4 +566,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

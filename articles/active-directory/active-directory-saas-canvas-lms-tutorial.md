@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Canvas LMS | Microsoft Azure" 
     description="Apprenez à utiliser Canvas LMS avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Canvas LMS
 
@@ -99,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Intégration actuelle](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Intégration actuelle")
 
     1.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Canvas** de la boîte de dialogue, copiez la valeur **ID d’entité**, puis collez-la dans la zone de texte **IdP Entity ID**.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Canvas**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Log On URL**.
+    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Canvas**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
     3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Canvas**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Log Out URL**.
     4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Canvas**, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans la zone de texte **Change Password Link**.
     5.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.  
@@ -125,7 +125,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Canvas, vous devez l
 
     ![Canevas](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Canevas")
 
-3.  Cliquez sur **Users**.
+3.  Cliquez sur **Utilisateurs**.
 
     ![Utilisateurs](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Utilisateurs")
 
@@ -163,4 +163,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
@@ -29,7 +29,7 @@ Cet article vous guide tout au long des étapes de création d’un circuit Expr
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md) et aux [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
 ## Pour créer et approvisionner un circuit ExpressRoute
@@ -162,7 +162,7 @@ Cet article vous guide tout au long des étapes de création d’un circuit Expr
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de services et Status indique l’état du côté de Microsoft. Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être utilisé.
+	*ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service et Status indique l’état du côté de Microsoft. Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être utilisé.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -322,10 +322,10 @@ Notez que vous devez dissocier tous les réseaux virtuels du circuit ExpressRout
 
 Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
 
-Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur *not provisioned* - non approvisionné) avant que vous n’exécutiez l’applet de commande ci-dessus, nous annulerons l’approvisionnement du circuit et cesserons la facturation.
+Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état d'approvisionnement du fournisseur de services affiche la valeur *not provisioned* (non approvisionné)) avant que vous n'exécutiez l'applet de commande ci-dessus, nous annulerons l'approvisionnement du circuit et cesserons la facturation.
 
 ## Étapes suivantes
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

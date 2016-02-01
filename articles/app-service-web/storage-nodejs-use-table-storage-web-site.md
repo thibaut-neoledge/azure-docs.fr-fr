@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Application Web Node.js avec le service de Table Azure"
-	description="Ce didacticiel vous explique comment utiliser le service de Table Azure pour stocker les données d'une application Node.hs hébergée dans Azure App Service Web Apps."
+	description="Ce didacticiel vous explique comment utiliser le service Azure Table pour stocker les données d’une application Node.hs hébergée dans Azure App Service Web Apps."
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/20/2016"
 	ms.author="robmcm"/>
-
-
 
 # Application Web Node.js avec le service de Table Azure
 
@@ -41,7 +39,6 @@ Voici l’application finalisée :
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-
 ## Composants requis
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
@@ -49,7 +46,6 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 * [node] version 0.10.24 ou supérieure
 
 * [Git]
-
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -293,7 +289,7 @@ Un *contrôleur* gère les requêtes HTTP et génère la réponse HTML.
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -500,8 +496,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Cette commande lance un navigateur et accède à la page de téléchargement. Si vous y êtes invité, connectez-vous avec le compte associé à votre abonnement Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
+	<!-- ![The download page][download-publishing-settings] -->Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
 
 2. Entrez la commande suivante pour importer les paramètres :
 
@@ -599,12 +594,13 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Interface de ligne de commande Azure]
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+
+<!-- URLs -->
 
 [Créer et déployer une application web Node.js dans Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
-
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -623,6 +619,9 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 
 [Azure Portal]: https://portal.azure.com
 
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+ 
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
@@ -631,13 +630,9 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
 [portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-
 [go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

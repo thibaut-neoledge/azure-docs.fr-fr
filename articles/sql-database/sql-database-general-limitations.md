@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Consignes et limitations générales de base de données SQL Azure
@@ -32,12 +32,6 @@ Cette rubrique fournit des instructions et présente les limitations générales
 ## Agents/tâches SQL Server
 
 La base de données SQL Microsoft Azure ne prend pas en charge l’Agent ou les tâches SQL Server. Vous pouvez toutefois exécuter l’agent SQL Server sur votre serveur SQL local et vous connecter à la base de données SQL Microsoft Azure.
-
-## Transactions
-
-La base de données SQL Azure ne prend pas en charge les transactions distribuées, c’est-à-dire les transactions qui affectent plusieurs ressources. Pour plus d’informations, consultez [Transactions distribuées (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). Entre deux basculements, la base de données SQL peut ne pas conserver les valeurs d’horodatage non validées de la base de données actuelle (DBTS).
-
-> [AZURE.NOTE]Dans certaines situations, une transaction peut être automatiquement promue vers une transaction distribuée. Pour plus d’informations, consultez [Intégration de System.Transactions à SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
 
 ## Prise en charge du classement SQL Server
 
@@ -69,4 +63,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

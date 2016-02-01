@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc" />
 
 # Liaison d’un réseau virtuel à des circuits ExpressRoute
@@ -29,7 +29,7 @@ Cet article vous donne une vue d'ensemble de la façon de lier des réseaux virt
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. 
 	- Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de service de connectivité. 
@@ -150,4 +150,4 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
