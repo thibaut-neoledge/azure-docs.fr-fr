@@ -163,7 +163,7 @@ L'étape finale consiste à ajouter une action qui charge un tweet vers un fichi
 
 5. Cliquez sur la coche verte pour enregistrer les paramètres du connecteur.
 
-5. Maintenant que la conception est terminée, cliquez sur **Mode Code** en haut à gauche du concepteur. Notez qu’il s’agit du code JSON qui définit le flux de travail que vous venez de créer dans le concepteur. Nous examinerons ce code en détail dans la [rubrique suivante][Use logic app features].
+5. Maintenant que la conception est terminée, cliquez sur **Mode Code** en haut à gauche du concepteur. Notez qu’il s’agit du code JSON qui définit le flux de travail que vous venez de créer dans le concepteur. Nous examinerons ce code en détail dans la [rubrique suivante](Use logic app features).
 
 6. Cliquez sur le bouton **OK** en bas de l’écran, puis sur le bouton **Créer**.
 
@@ -188,4 +188,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

@@ -117,7 +117,7 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
