@@ -30,7 +30,7 @@ Ce didacticiel montre comment utiliser un backend cloud ([Azure Mobile Apps](app
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un [compte Azure actif](http://azure.microsoft.com/pricing/free-trial/).
+* Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un PC avec [Visual Studio Community 2013] ou version ultérieure.
 
@@ -69,4 +69,4 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016--->

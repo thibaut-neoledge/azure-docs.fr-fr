@@ -89,7 +89,7 @@ Vous pouvez également gérer les espaces de noms et les entités de messagerie 
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
-    > [AZURE.IMPORTANT]choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+    > [AZURE.IMPORTANT] choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
 6.	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
@@ -402,7 +402,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
 ## Préparation de votre application en vue de son déploiement sur azure
 
-Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels]. Pour plus d’informations sur le déploiement de l’application vers un site web Azure, consultez la page [Déploiement d’une application web ASP.NET vers un site web Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l’application sur un service cloud Azure.
+Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels]. Pour plus d’informations sur le déploiement de l’application vers un site web Azure, consultez la page [Déploiement d’une application web ASP.NET vers un site web Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l’application sur un service cloud Azure.
 
 Pour déployer votre application sur un service cloud, vous ajoutez un projet de déploiement de service cloud à la solution. Le projet de déploiement contient des informations de configuration qui sont nécessaires pour exécuter correctement l'application sur le cloud.
 
@@ -610,4 +610,4 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # Utilisation du service Azure Service Bus Relay
 
-Cet article montre comment utiliser le service Service Bus Relay. Les exemples sont écrits en C# et utilisent l'API Windows Communication Foundation (WCF) avec les extensions contenues dans l'assembly Service Bus, qui fait partie du Kit de développement logiciel (SDK) Microsoft Azure .NET. Pour plus d'informations sur Service Bus Relay, consultez la vue d’ensemble [Messagerie par relais Service Bus](service-bus-relay-overview.md).
+Cet article montre comment utiliser le service Service Bus Relay. Les exemples sont écrits en C# et utilisent l’API WCF (Windows Communication Foundation) avec les extensions contenues dans l’assembly Service Bus. Pour plus d'informations sur Service Bus Relay, consultez la vue d’ensemble [Messagerie par relais Service Bus](service-bus-relay-overview.md).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -39,7 +39,7 @@ Avant d'utiliser Service Bus Relay dans Azure, vous devez créer un espace de no
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [Portail Azure Classic][].
+1.  Connectez-vous au [portail Azure Classic][].
 
 2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
@@ -53,7 +53,7 @@ Pour créer un espace de noms de service :
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
-	> [AZURE.IMPORTANT]choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+	> [AZURE.IMPORTANT] choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
 6.	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
@@ -75,7 +75,7 @@ Afin d'exécuter des opérations de gestion, comme la création d'une connexion 
 
 ## Obtention du package NuGet Service Bus
 
-Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
+Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) constitue le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
 
 Pour installer le package NuGet dans votre application, procédez comme suit :
 
@@ -265,17 +265,13 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
 
 Maintenant que vous avez appris les principes de base du service Service Bus Relay, consultez ces liens pour en savoir plus.
 
-- [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Présentation de l’architecture d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 - Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Portail Azure Classic]: http://manage.windowsazure.com
+  [portail Azure Classic]: http://manage.windowsazure.com
   [Authentification par signature d'accès partagé avec Service Bus]: service-bus-shared-access-signature-authentication.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [vue d’ensemble des exemples Service Bus]: service-bus-samples.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

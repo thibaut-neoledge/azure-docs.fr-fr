@@ -30,9 +30,9 @@
 
 ![Vidéo disponible](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui montre comment monter, initialiser et formater un volume StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+Pour visionner une vidéo qui montre comment monter, initialiser et formater un volume StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

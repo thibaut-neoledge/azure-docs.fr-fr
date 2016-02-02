@@ -61,7 +61,7 @@ Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de do
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT]Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « FirstDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple en votrenomFirstDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	> [AZURE.IMPORTANT] Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « FirstDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple en votrenomFirstDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 	> 
 	> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
@@ -86,7 +86,7 @@ Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabri
 	    	}
 		}
 
-	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez [Affichage, copie et régénération de clés d’accès de stockage](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez [Affichage, copie et régénération de clés d’accès de stockage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2. Dans Azure PowerShell, accédez au dossier ADFGetStarted.
 3. Vous pouvez utiliser l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer un service lié. Cette applet de commande et d’autres applets de commande Data Factory que vous utilisez dans ce didacticiel vous obligent à transmettre des valeurs aux paramètres *ResourceGroupName* et *DataFactoryName*. Vous pouvez également utiliser **Get-AzureRmDataFactory** pour obtenir un objet **DataFactory** et passer l’objet sans devoir taper *ResourceGroupName* et *DataFactoryName* chaque fois que vous exécutez une applet de commande. Exécutez la commande suivante pour affecter le résultat de l’applet de commande **Get-AzureRmDataFactory** à une variable **$df**.
@@ -130,6 +130,15 @@ Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre f
 	| TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression. |
 	| linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight. |
 
+	Notez les points suivants :
+	
+	- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+	- Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
+	- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
+	
+		Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+
+	Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
 2. Exécutez l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer le service lié nommé HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -217,7 +226,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 
 1. Créez un fichier JSON nommé MyFirstPipelinePSH.json dans le dossier C:\\ADFGetStarted avec le contenu suivant :
 
-	> [AZURE.IMPORTANT]Dans le code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
+	> [AZURE.IMPORTANT] Dans le code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -342,4 +351,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

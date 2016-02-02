@@ -41,7 +41,7 @@ Voici une capture d'écran de l'application terminée :
 
 Ce didacticiel nécessite XCode et [Xamarin Studio] pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. L'exemple s'exécute sur iOS 5.0 et les versions plus récentes.
 
-> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -89,7 +89,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
-	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier TodoService.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
+	> [AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier TodoService.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
 4. De retour dans le [Portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItems**.
 
@@ -141,4 +141,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

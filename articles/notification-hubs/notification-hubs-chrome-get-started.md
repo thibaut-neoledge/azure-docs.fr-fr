@@ -40,7 +40,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les Notifica
 
 Suivez scrupuleusement les didacticiels de la section Étapes suivantes afin d’apprendre à utiliser les hubs de notification pour accéder à des utilisateurs et des groupes d’appareils spécifiques.
 
->[AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
@@ -453,7 +453,7 @@ Pour découvrir un exemple d’envoi de notifications depuis un serveur principa
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à votre application Chrome.
+Dans cet exemple simple, vous avez envoyé des notifications à votre application Chrome. 
 En savoir plus sur Notification Hubs dans la [Vue d’ensemble de Notification Hubs].
 Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notification des utilisateurs via Azure Notification Hubs]. Pour segmenter vos utilisateurs par groupes d’intérêt, consultez la page [Dernières nouvelles via Azure Notification Hubs].
 
@@ -496,4 +496,4 @@ Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notific
 [Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

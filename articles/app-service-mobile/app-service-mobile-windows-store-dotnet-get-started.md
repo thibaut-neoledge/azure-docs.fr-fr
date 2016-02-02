@@ -19,7 +19,7 @@
 #Créer une application Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
+&nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
@@ -32,11 +32,11 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
->[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ##Créer un serveur principal d'applications mobiles Azure
 
@@ -48,7 +48,7 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 
 ## Configurer le projet de serveur
 
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[AZURE.INCLUDE [app-service-mobile-Configure-New-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ##Télécharger et exécuter le projet client
 
@@ -74,11 +74,9 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
 ##Étapes suivantes
 
-* [Ajouter l’authentification à votre application ](app-service-mobile-windows-store-dotnet-get-started-users.md) 
-<br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajouter l’authentification à votre application ](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajouter les notifications push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md) 
-<br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
+* [Ajouter les notifications push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -87,4 +85,4 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016--->

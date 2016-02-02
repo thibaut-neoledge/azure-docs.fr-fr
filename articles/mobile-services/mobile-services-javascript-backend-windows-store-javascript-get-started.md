@@ -26,7 +26,7 @@ Ce didacticiel montre comment ajouter un service de backend cloud à une applica
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express pour Windows]
 
 ## Création d’un service mobile
@@ -68,7 +68,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
    	Cela vous permet de parcourir les données insérées par l'application dans la table.
 
->[AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier default.js et permet d’accéder au service mobile pour exécuter une requête et insérer des données.
+>[AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier default.js et permet d’accéder au service mobile pour exécuter une requête et insérer des données.
 
 ## Étapes suivantes
 Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mobile Services pour HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
@@ -89,4 +89,4 @@ Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mob
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

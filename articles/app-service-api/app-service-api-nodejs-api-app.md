@@ -86,7 +86,7 @@ Vous devez exécuter les commandes ci-dessous à l’aide de la ligne de command
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@ Dans cette section, nous allons examiner le processus de création d’une appli
 
 Le dépôt GitHub à partir duquel vous avez cloné le code source n’est pas le même que celui où vous pousserez le code pour le déploiement. L’exemple de dépôt GitHub contenait l’état de « Démarrage » du code, et maintenant que vous avez généré automatiquement l’état de « Fin » du code, vous devrez pousser ce code uniquement dans le dépôt Git associé à votre application API. La première étape consiste à créer votre application API à l’aide du portail Azure.
 
-1. Accédez au [Portail Azure](http://portal.azure.com). 
+1. Accédez au [Portail Azure](https://portal.azure.com/). 
 
 1. Créez une application API.
 
@@ -243,4 +243,4 @@ Grâce aux fonctionnalités intégrées de remise continue fournies par Azure Ap
 
 À partir de cet exemple, vous pourriez ajouter du code aux gestionnaires pour stocker vos données dans une base de données ou sur le disque de votre instance d’application API. Maintenant que le déploiement continu est configuré, pour étendre ou changer les fonctionnalités de votre application API, il vous suffit de modifier et de pousser votre code vers votre dépôt Git.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -21,12 +21,12 @@
 -[Azure Classic PowerShell](application-gateway-ssl.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 
- Il est possible de configurer une passerelle Azure Application Gateway pour terminer la session SSL (Secure Sockets Layer) au niveau de la passerelle afin d’éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie également l’installation du serveur principal et la gestion de l’application web.
+ Il est possible de configurer une passerelle Azure Application Gateway pour terminer la session SSL (Secure Sockets Layer) au niveau de la passerelle afin d’éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
 
 ## Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vous allez créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
@@ -93,9 +93,9 @@ Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe 
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d’une passerelle Application Gateway utiliseront le même groupe de ressources.
+Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
 
-Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
+Dans l'exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l'emplacement « West US ».
 
 ## Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
 
@@ -131,7 +131,7 @@ Crée une ressource IP publique « publicIP01 » dans le groupe de ressources
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Crée une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarrera, elle sélectionnera une adresse IP à partir du sous-réseau configuré et acheminera le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilisera une adresse IP unique.
+Crée une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarrera, elle sélectionnera une adresse IP à partir du sous-réseau configuré et acheminera le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilisera une adresse IP unique.
 
 ### Étape 2 :
 
@@ -182,7 +182,7 @@ Crée la règle d’acheminement d’équilibrage de charge nommée « rule01 
 
 Configure la taille d’instance de la passerelle Application Gateway.
 
->[AZURE.NOTE]La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
+>[AZURE.NOTE]  La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
 
 ## Créer une passerelle Application Gateway avec New-AzureApplicationGateway
 
@@ -199,4 +199,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,7 +25,7 @@
 
 Le didacticiel de cet article vous aide à comprendre rapidement comment utiliser le service Azure Data Factory. Ce didacticiel crée une fabrique de données Azure et un pipeline dans la fabrique de données pour copier des données d'un stockage d'objets blob Azure dans une base de données SQL Azure.
 
-> [AZURE.NOTE]Pour obtenir une présentation détaillée du service Data Factory, consultez l'article [Présentation d'Azure Data Factory][data-factory-introduction].
+> [AZURE.NOTE] Pour obtenir une présentation détaillée du service Data Factory, consultez l'article [Présentation d'Azure Data Factory][data-factory-introduction].
 
 ##Configuration requise pour le didacticiel
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
@@ -88,9 +88,9 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [portail Azure](http://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
+	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [portail Azure](https://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
 
-	**Si Visual Studio 2013 est installé sur votre ordinateur :** dans le [portail Azure](http://portal.azure.com), cliquez sur le hub **PARCOURIR** situé à gauche, puis sur **Serveurs SQL**, sélectionnez ensuite votre base de données, puis cliquez sur le bouton **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
+	**Si Visual Studio 2013 est installé sur votre ordinateur :** dans le [portail Azure](https://portal.azure.com), cliquez sur le hub **PARCOURIR** situé à gauche, puis sur **Serveurs SQL**, sélectionnez ensuite votre base de données, puis cliquez sur le bouton **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
 
 
 Effectuez les actions suivantes :
@@ -111,4 +111,4 @@ Effectuez les actions suivantes :
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

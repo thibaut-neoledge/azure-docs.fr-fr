@@ -62,7 +62,7 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 	 
 	![Nom de la fabrique de données indisponible][image-data-factory-name-not-available]
 	
-	> [AZURE.NOTE]Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+	> [AZURE.NOTE] Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
 9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante :
@@ -79,7 +79,6 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 
 	![Vignette Créer et déployer][image-author-deploy-tile]
 
-	Pour obtenir une présentation détaillée de Data Factory Editor, consultez la rubrique [Data Factory Editor][data-factory-editor].
 	 
 5. Dans l’**éditeur**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Stockage Azure** dans le menu déroulant. Le modèle JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans le volet droit.
 
@@ -151,7 +150,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 	- **linkedServiceName** a la valeur **StorageLinkedService**. Vous avez créé ce service lié à l'étape 2.
 	- **folderPath** a la valeur du conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
 	- Le **type** de format a la valeur **TextFormat**.
-	- Il existe deux champs dans le fichier texte, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
+	- Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
 	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**) ; ainsi, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. 
 	
 
@@ -327,7 +326,7 @@ Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller 
 	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l'**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
     
 
-	-  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+	-  Vous mettez à jour l’état de la tranche manuellement, par exemple à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
 	-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
  
 	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
@@ -398,7 +397,6 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -461,4 +459,4 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

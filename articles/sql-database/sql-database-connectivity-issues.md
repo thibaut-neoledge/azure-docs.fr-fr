@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Actions permettant de remédier aux pertes de connexion temporaires| Microsoft Azure"
-	description="Actions permettant de dépanner, de diagnostiquer et d’éviter des erreurs de connexion et d’autres erreurs temporaires lors de l’interaction avec la base de données SQL Azure."
+	pageTitle="Corriger une erreur de connexion SQL, erreur temporaire | Microsoft Azure"
+	description="Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Base de données SQL Azure."
+	keywords="connexion SQL,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
@@ -17,54 +18,45 @@
 	ms.author="daleche"/>
 
 
-# Résoudre les erreurs transitoires et de connexion à la base de données SQL
+# Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires de Base de données SQL
 
-
-Cette rubrique décrit comment empêcher, dépanner, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre programme client rencontre lorsqu’il interagit avec la base de données SQL Azure.
-
+Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## Erreurs temporaires
 
+Une erreur temporaire s’explique par une cause sous-jacente qui se résout d’elle-même en peu de temps. Les erreurs temporaires surviennent de temps en temps lorsque le système Azure réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. Durant cette reconfiguration, vous pouvez connaître des problèmes de connectivité avec Base de données SQL Azure.
 
-Une erreur temporaire est une erreur dont la cause sous-jacente se résout rapidement elle-même. Une des causes des défaillances temporaires est souvent que le système Azure rapidement réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. Durant cette reconfiguration, les connexions à la base de données SQL Azure peuvent être perdues.
-
-
-Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par l’envoi d’une exception **SqlException**. La propriété **Number** peut être comparée à la liste des erreurs temporaires au début de la rubrique : [Messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md).
-
+Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException**. La propriété **Number** peut être comparée à la liste des erreurs temporaires au début de la rubrique : [Codes d’erreur SQL pour les applications clientes Base de données SQL](sql-database-develop-error-messages.md).
 
 ### Connexion ou commande
 
-
-Lorsqu’une erreur temporaire se produit pendant une tentative de connexion, la connexion doit être retentée après un délai de quelques secondes.
-
-
-Lorsqu’une erreur temporaire se produit pendant une commande de requête SQL, cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
+Vous allez procéder à une nouvelle tentative de connexion SQL ou la réétablir en fonction des éléments suivants : * **Une erreur temporaire se produit lors d’une tentative de connexion **: la tentative de connexion doit être renouvelée après une attente de plusieurs secondes. * **Une erreur temporaire se produit pendant une commande de requête SQL** : la commande ne doit pas être réessayée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-## Logique de nouvelle tentative pour les erreurs temporaires.
+## Logique de nouvelle tentative pour les erreurs temporaires
 
 
-Les programmes client qui rencontrent occasionnellement une erreur temporaire sont plus solides lorsqu’ils contiennent un programme de nouvelle tentative.
+Les programmes clients qui rencontrent occasionnellement une erreur temporaire sont plus solides lorsqu’ils contiennent une logique de nouvelle tentative.
 
 
-Lorsque votre programme communique avec la base de données SQL Azure via un logiciel intermédiaire tiers, renseignez-vous auprès du fournisseur pour savoir s’il contient une logique de nouvelle tentative pour les temporaires.
+Si votre programme communique avec Base de données SQL Azure via un intergiciel (middleware) tiers, renseignez-vous auprès du fournisseur pour savoir s’il contient une logique de nouvelle tentative pour les erreurs temporaires.
 
 
 ### Principes de nouvelle tentative
 
 
-- Une tentative d’ouverture de connexion doit être retentée si l’erreur est une erreur temporaire.
+- Une tentative d’ouverture de connexion doit être renouvelée si l’erreur est temporaire.
 
 
-- Une instruction SQL SELECT qui échoue à la suite d’une erreur temporaire ne doit pas être retentée directement.
+- Une instruction SQL SELECT qui échoue avec une erreur temporaire ne doit pas être retentée directement.
  - Au lieu de cela, établir une nouvelle connexion et relancer l’instruction SELECT.
 
 
-- Lorsqu’une instruction SQL UPDATE échoue à la suite d’une erreur temporaire, une nouvelle connexion doit être établie avant la nouvelle tentative de mise à jour.
+- Si une instruction SQL UPDATE échoue avec une erreur temporaire, une nouvelle connexion doit être établie avant que l’instruction UPDATE ne soit retentée.
  - La logique de nouvelle tentative doit s’assurer que la transaction de base de données est complètement terminée ou que la transaction a été annulée.
 
 
@@ -108,40 +100,25 @@ Pour tester la logique de nouvelle tentative, vous devez simuler ou provoquer un
 ### Test par le biais de la déconnexion du réseau
 
 
-Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. L’erreur sera la suivante : 
-- **SqlException.Number** = 11001 
-- Message : « hôte inconnu »
+Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. L’erreur sera la suivante : **SqlException.Number** = 11001 - Message : « hôte inconnu »
 
 
 Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
 
 
-Pour concrétiser cela, vous pouvez débrancher votre ordinateur du réseau avant lancer votre programme. Votre programme reconnaît alors un paramètre d’exécution qui fait en sorte que le programme : 
-1. Ajoute temporairement 11001 à sa liste d’erreurs à considérer comme provisoire. 
-2. Tente sa première connexion comme d’habitude. 
-3. Une fois l’erreur détectée, supprime 11001 de sa liste. 
-4. Affiche un message indiquant à l’utilisateur de connecter l’ordinateur au réseau. 
- -Interrompt la suite de l’exécution en utilisant la méthode **Console.ReadLine** ou une boîte de dialogue avec un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau. 
- 5. Essaie de nouveau de se connecter, et attend la réussite.
+Pour concrétiser cela, vous pouvez débrancher votre ordinateur du réseau avant lancer votre programme. Votre programme reconnaît alors un paramètre d’exécution qui fait en sorte que le programme : 1. Ajoute temporairement 11001 à sa liste d’erreurs à considérer comme provisoire. 2. Tente sa première connexion comme d’habitude. 3. Une fois l’erreur détectée, supprime 11001 de sa liste. 4. Affiche un message indiquant à l’utilisateur de connecter l’ordinateur au réseau. -Interrompt la suite de l’exécution en utilisant la méthode **Console.ReadLine** ou une boîte de dialogue avec un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau. 5. Essaie de nouveau de se connecter, et attend la réussite.
 
 
 ### Teste en fournissant un nom de base de données mal orthographié au moment de la connexion
 
 
-Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur renvoyée sera :
-- **SqlException.Number** = 18456 
-- Message : « Échec de la connexion pour l’utilisateur ’WRONG_MyUserName’.»
+Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur renvoyée sera :- **SqlException.Number** = 18456 - Message : « Échec de la connexion pour l’utilisateur ’WRONG\_MyUserName’.»
 
 
 Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
 
 
-Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d’exécution, qui fait en sorte que le programme 
-1. Ajoute temporairement 18456 à sa liste d’erreurs à prendre en compte comme provisoire. 
-2. Ajoute volontairement ’WRONG_’ au nom d’utilisateur. 
-3. Une fois l’erreur détectée, supprime 18456 de la liste. 
-4. Supprime ’WRONG_’ du nom d’utilisateur. 
-5. Essaie de nouveau de se connecter, et attend la réussite.
+Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d’exécution, qui fait en sorte que le programme 1. Ajoute temporairement 18456 à sa liste d’erreurs à prendre en compte comme provisoire. 2. Ajoute volontairement ’WRONG\_’ au nom d’utilisateur. 3. Une fois l’erreur détectée, supprime 18456 de la liste. 4. Supprime ’WRONG\_’ du nom d’utilisateur. 5. Essaie de nouveau de se connecter, et attend la réussite.
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -149,7 +126,7 @@ Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d�
 ## Connexion : chaîne de connexion
 
 
-La chaîne de connexion nécessaire à la connexion à la base de données SQL Azure est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure](http://portal.azure.com/).
+La chaîne de connexion nécessaire à la connexion à la base de données SQL Azure est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure](https://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -159,7 +136,7 @@ La chaîne de connexion nécessaire à la connexion à la base de données SQL A
 ### Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 
 
-Si votre programme client se connecte à la base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure afin de tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
+Si votre programme client se connecte à Base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure afin de pouvoir tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -189,7 +166,7 @@ Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à 
 - Appel de méthode mySqlConnection.Open
 - Appel de méthode mySqlConnection.Execute
 
-Il existe une subtilité. Si une erreur temporaire se produit pendant que votre *requête* est en cours d’exécution, votre objet **SqlConnection** ne reprend pas l’opération de connexion, et ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
+Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécution de votre *requête*, votre objet **SqlConnection** ne retente pas l’opération de connexion, et ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
 
 
 #### Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application ?
@@ -203,7 +180,7 @@ Supposons que votre application possède une logique de nouvelle tentative perso
 ## Connexion : adresse IP
 
 
-Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour ce faire, vous devez modifier les paramètres du pare-feu via le [portail Azure](http://portal.azure.com/).
+Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour ce faire, vous devez modifier les paramètres du pare-feu via le [portail Azure](https://portal.azure.com/).
 
 
 Si vous oubliez de configurer l’adresse IP, votre programme échouera en envoyant un message d’erreur pratique indiquant l’adresse IP nécessaire.
@@ -212,8 +189,7 @@ Si vous oubliez de configurer l’adresse IP, votre programme échouera en envoy
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Pour plus d’informations, consultez:
-[Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
+Pour plus d’informations, consultez [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -247,19 +223,16 @@ Pour obtenir des informations générales sur la configuration des ports et l’
 ## Connexion : ADO.NET 4.6.1
 
 
-Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à la base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
+Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à Base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
 
 
-ADO.NET 4.6.1 : 
-- ajoute la prise en charge du protocole TDS 7.4. Cela inclut des améliorations de connexion au-delà de ceux dans 4.0. 
-- Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
+ADO.NET 4.6.1 : ajoute la prise en charge du protocole TDS 7.4. Cela inclut des améliorations de connexion au-delà de ceux dans 4.0. Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
 
 
 Lorsque vous utilisez un objet de connexion à partir d’un pool de connexions, nous conseillons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. La réouverture d’une connexion n’est pas aussi coûteuse que la création d’une nouvelle connexion.
 
 
-Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. 
-- Depuis novembre 2015, vous pouvez [télécharger ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis novembre 2015, vous pouvez [télécharger ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -270,9 +243,7 @@ Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons
 Si votre programme ne peut pas se connecter à la base de données SQL Azure, une option de diagnostic consiste à essayer de se connecter à un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
 
 
-Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants :
- - SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET.
- - sqlcmd.exe, qui se connecte à l’aide d’[ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants : - SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET. - sqlcmd.exe, qui se connecte à l’aide d’[ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Une fois connecté, faites un test avec une courte requête SQL SELECT.
@@ -286,10 +257,7 @@ Une fois connecté, faites un test avec une courte requête SQL SELECT.
 Supposons que vous soupçonnez que les tentatives de connexion échouent en raison de problèmes de port. Depuis votre ordinateur, vous pouvez exécuter un utilitaire qui génère des rapports sur les configurations de port.
 
 
-Sous Linux, les utilitaires suivants peuvent s’avérer utiles : 
-- `netstat -nap` 
-- `nmap -sS -O 127.0.0.1` 
-- (remplacez la valeur de l’exemple par votre adresse IP).
+Sous Linux, les utilitaires suivants peuvent s’avérer utiles : - `netstat -nap` - `nmap -sS -O 127.0.0.1` - (remplacez la valeur de l’exemple par votre adresse IP).
 
 
 Sous Windows, l’utilitaire [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) peut s’avérer utile. Voici une exécution de l’exemple qui demandé l’état d’un port sur un serveur de base de données SQL Azure, et qui a été exécuté sur un ordinateur portable :
@@ -324,8 +292,7 @@ Un problème intermittent est parfois mieux diagnostiqué par la détection d’
 Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pourrez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par la base de données SQL Azure elle-même.
 
 
-Enterprise Library 6 (EntLib60) offre des classes gérées .NET afin de faciliter la journalisation : 
-- [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) offre des classes gérées .NET afin de faciliter la journalisation : - [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -338,7 +305,7 @@ Voici certaines instructions Transact-SQL SELECT qui permettent d’interroger l
 
 | Interrogation de journaux | Description |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment sur les événements à l’origine de défaillances transitoires ou de problèmes de connectivité.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start\_time** ou **end\_time** et les données relatives au moment où votre programme a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment sur les événements à l’origine d’erreurs temporaires ou de problèmes de connectivité.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start\_time** ou **end\_time** et les données relatives au moment où votre programme client a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | L’écran [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) agrège des nombres de différents types d’événements, pour permettre des diagnostics supplémentaires.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
 
 
@@ -392,22 +359,19 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service Azure SQL Database. Vous pouvez rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut aider en visitant dans un premier temps : 
-- [Enterprise Library 6 – avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service Azure SQL Database. Vous pouvez rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut aider en visitant dans un premier temps : - [Enterprise Library 6 – avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine dans lequel EntLib60 peut s’avérer utile : 
-- [4 - la persévérance, le secret de toutes les victoires : utilisation du bloc d’application de gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine dans lequel EntLib60 peut s’avérer utile : - [4 Persévérance, secret de la réussite : Utilisation du bloc applicatif de gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un court exemple de code C# qui utilise EntLib60 dans sa logique de nouvelle tentative est disponible à l’adresse : 
-- [Exemple de code : logique de nouvelle tentative Enterprise Library 6 en C# pour la connexion à la base de données SQL](sql-database-develop-entlib-csharp-retry-windows.md)
+Un court exemple de code C# qui utilise EntLib60 dans sa logique de nouvelle tentative est disponible à l’adresse : - [Exemple de code : logique de nouvelle tentative Enterprise Library 6 en C# pour la connexion à la base de données SQL](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-> [AZURE.NOTE]Le code source pour EntLib60 est disponible au public en [téléchargement](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.
+> [AZURE.NOTE] Le code source pour EntLib60 est disponible au public en [téléchargement](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.
 
 
-### Classes EntLib60 pour les défaillances temporaires et la nouvelle tentative
+### Classes EntLib60 pour les erreurs temporaires et les nouvelles tentatives
 
 
 Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
@@ -456,8 +420,7 @@ Voici des liens vers des informations sur EntLib60 :
 - Le bloc de journalisation extrait les fonctionnalités issues de la destination de journalisation de façon que le code d’application soit cohérent, quels que soient l’emplacement et le type du magasin de journalisation cible.
 
 
-Pour plus de détails, consultez
-[5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+Pour plus de détails, consultez [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### Code source de la méthode EntLib60 IsTransient
@@ -543,4 +506,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

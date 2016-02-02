@@ -27,7 +27,7 @@ Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBa
 
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight](hdinsight-hbase-tutorial-get-started.md)
  
-> [AZURE.NOTE]HBase (version 0.98.0) peut uniquement être utilisé avec des clusters HDInsight 3.1 sur HDInsight (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
+> [AZURE.NOTE] HBase (version 0.98.0) peut uniquement être utilisé avec des clusters HDInsight 3.1 sur HDInsight (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
 
 La vidéo suivante montre le même contenu :
 
@@ -40,7 +40,7 @@ La vidéo suivante montre le même contenu :
 
 Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Une station de travail** avec Visual Studio 2013 : pour obtenir des instructions, consultez [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Créer un cluster HBase
@@ -53,7 +53,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 1. Connectez-vous au [portail Azure][azure-management-portal].
 2. Cliquez sur **Nouveau** dans le coin inférieur gauche, puis sur **Services de données** > **HDInsight** > **HBase**.
 
-	>[AZURE.NOTE]Vous pouvez également utiliser l’option **Création personnalisée**.
+	>[AZURE.NOTE] Vous pouvez également utiliser l’option **Création personnalisée**.
 3. Renseignez les champs **Nom du cluster**, **Taille du cluster**, Mot de passe utilisateur HTTP et **Compte de stockage**.
 
 	![Créer un cluster HBase dans HDInsight][img-hdinsight-hbase-cluster-quick-create]
@@ -62,13 +62,13 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 	Un compte de stockage Azure est nécessaire pour utiliser le processus de création HBase par défaut. Consultez la page [Création d’un compte de stockage Azure][azure-create-storageaccount] pour en créer un. L’option Création personnalisée permet de créer un compte de stockage avec le processus de création de cluster.
 
-	> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+	> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
 	> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 
 4. Cliquez sur **Créer un cluster HDInsight** en bas à droite pour créer le cluster HBase.
 
->[AZURE.NOTE]Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
+>[AZURE.NOTE] Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
 
 ## Utilisation de l’interpréteur de commandes HBase
 Actuellement, il existe deux méthodes pour accéder à HBase. Cette section couvre l’utilisation de l’interpréteur de commandes HBase. La section suivante décrit l’utilisation du Kit de développement logiciel (SDK) .NET.
@@ -140,7 +140,7 @@ Un exemple de fichier de données a été téléchargé dans un conteneur d’ob
 
 Vous pouvez créer un fichier texte et le télécharger sur votre propre compte de stockage si vous le souhaitez. Pour obtenir des instructions, consultez la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight][hdinsight-upload-data].
 
-> [AZURE.NOTE]Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
+> [AZURE.NOTE] Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
 
 1. Dans votre session RDP, cliquez sur le raccourci **Ligne de commande Hadoop** sur le Bureau.
 2. Modifiez le répertoire :
@@ -365,4 +365,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

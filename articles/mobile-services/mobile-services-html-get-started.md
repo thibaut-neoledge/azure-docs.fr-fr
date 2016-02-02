@@ -48,7 +48,7 @@ Les éléments suivants sont requis pour suivre ce didacticiel :
 	Vous pouvez utiliser n'importe quel serveur Web pour héberger l'application, mais les serveurs précédents sont les seuls pris en charge par les scripts téléchargés.
 
 + Un navigateur web qui prend en charge le HTML5
-+ Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
@@ -82,7 +82,7 @@ Dans cette section, vous allez créer une application HTML connectée à votre a
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste **Autoriser les demandes à partir des noms d'hôte**. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+	> [AZURE.IMPORTANT] Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste **Autoriser les demandes à partir des noms d'hôte**. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Hébergement et exécution de votre application HTML
 
@@ -94,7 +94,7 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
-	> [AZURE.NOTE]Sur un ordinateur Windows, appuyez sur la touche `R` quand PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
+	> [AZURE.NOTE] Sur un ordinateur Windows, appuyez sur la touche `R` quand PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
 
 	Ceci démarre un serveur Web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
 
@@ -106,7 +106,7 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 
    	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier page.js et permet d’accéder au service mobile pour exécuter une requête et insérer des données.
+	> [AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier page.js et permet d’accéder au service mobile pour exécuter une requête et insérer des données.
 
 4. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis cliquez sur la table **TodoItems**.
 
@@ -154,4 +154,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

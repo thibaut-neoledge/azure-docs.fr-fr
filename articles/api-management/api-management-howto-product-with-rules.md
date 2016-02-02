@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/15/2016"
+	ms.date="01/27/2016"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
 
 Ce guide vous montre combien il est facile d’ajouter une protection à votre API principale en configurant des limites de débit et des stratégies de quota avec la gestion des API Azure.
 
-Dans ce didacticiel, vous allez créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API en utilisant [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
+Dans ce didacticiel, vous allez créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API en utilisant les stratégies consistant à [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et à [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
 
 Pour consulter des scénarios de limitation plus avancés utilisant les stratégies [limiter-fréquence-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) et [quota-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consultez l’article [Limitation de requêtes avancée avec la gestion des API Azure](api-management-sample-flexible-throttling.md).
 
@@ -28,7 +28,7 @@ Pour consulter des scénarios de limitation plus avancés utilisant les stratég
 
 Au cours de cette étape, vous allez créer un produit en version d'évaluation gratuite qui ne requiert pas d'approbation d'abonnement.
 
->[AZURE.NOTE]Si vous disposez déjà d’un produit configuré et que vous souhaitez l’utiliser pour ce didacticiel, vous pouvez passer directement à la rubrique [Configuration de la limite de débit d’appels et des stratégies de quota][] et suivre le didacticiel à partir de là, en utilisant votre produit à la place de celui en version d’évaluation gratuite.
+>[AZURE.NOTE] Si vous disposez déjà d’un produit configuré et que vous souhaitez l’utiliser pour ce didacticiel, vous pouvez passer directement à la rubrique [Configuration de la limite de débit d’appels et des stratégies de quota][] et suivre le didacticiel à partir de là, en utilisant votre produit à la place de celui en version d’évaluation gratuite.
 
 Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
@@ -46,8 +46,7 @@ Cliquez sur **Ajouter un produit** pour afficher la boîte de dialogue **Ajouter
 
 Dans la zone **Titre**, saisissez **Version d’évaluation gratuite**.
 
-Dans la zone **Description**, saisissez le texte suivant : 
-**Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
+Dans la zone **Description**, saisissez le texte suivant : **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
 
 Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts peuvent être utilisés sans abonnement. Vérifiez que la case à cocher **Demander une approbation d’abonnement** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
@@ -196,7 +195,7 @@ Sélectionnez **Version d’évaluation gratuite**, puis cliquez sur **S’abonn
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE]Dans ce didacticiel, l’option permettant plusieurs abonnements simultanés est désactivée pour le produit en version d’évaluation gratuite. Dans le cas contraire, vous auriez été invité à nommer l’abonnement, comme indiqué dans l’exemple suivant.
+>[AZURE.NOTE] Dans ce didacticiel, l’option permettant plusieurs abonnements simultanés est désactivée pour le produit en version d’évaluation gratuite. Dans le cas contraire, vous auriez été invité à nommer l’abonnement, comme indiqué dans l’exemple suivant.
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -222,7 +221,7 @@ Conservez les valeurs de paramètres par défaut et sélectionnez votre clé d�
 
 ![Subscription key][api-management-select-key]
 
->[AZURE.NOTE]Si vous possédez plusieurs abonnements, pensez à sélectionner la clé pour la **Version d’évaluation gratuite**, sinon, les stratégies configurées aux étapes précédentes ne seront pas effectives.
+>[AZURE.NOTE] Si vous possédez plusieurs abonnements, pensez à sélectionner la clé pour la **Version d’évaluation gratuite**, sinon, les stratégies configurées aux étapes précédentes ne seront pas effectives.
 
 Cliquez sur **Envoyer**, puis affichez la réponse. Notez l'**État de réponse** **200 OK**.
 
@@ -294,4 +293,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Débit limite d'appel]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Définir le quota d'utilisation]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

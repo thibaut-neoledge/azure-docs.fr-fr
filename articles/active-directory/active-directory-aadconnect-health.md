@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud
@@ -92,7 +92,7 @@ Le tableau suivant contient une liste des conditions requises à satisfaire avan
 | Prérequis | Description|
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health est une fonctionnalité d’Azure AD Premium qui nécessite Azure AD Premium. </br></br>Pour plus d’informations, consultez [Prise en main d’Azure AD Premium](active-directory-get-started-premium.md).</br></br>Pour démarrer une période d’évaluation gratuite de 30 jours, consultez [Démarrer une période d’évaluation.](https://azure.microsoft.com/trial/get-started-active-directory/)|.
-|Vous devez être un administrateur général de votre instance Azure AD pour activer (créer) Azure AD Connect Health|Par défaut, seuls les administrateurs généraux sont en mesure d’activer (de créer), d’accéder à toutes les informations et d’effectuer toutes les opérations au sein d’Azure AD Connect Health. Pour plus d’informations, consultez la section [Administration de votre annuaire Azure AD](active-directory-administer.md). <br><br> À l’aide du contrôle d’accès en fonction du rôle, vous pouvez accorder l’accès à Azure AD Connect Health à d’autres utilisateurs dans votre organisation. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle pour Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>** Important : ** le compte que vous utilisez lors de l’installation des agents doit être un compte professionnel ou d’organisation. Il ne peut pas s’agir d’un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](sign-up-organization.md)|
+|Vous devez être un administrateur général de votre instance Azure AD pour activer (créer) Azure AD Connect Health|Par défaut, seuls les administrateurs généraux sont en mesure d’activer (de créer), d’accéder à toutes les informations et d’effectuer toutes les opérations au sein d’Azure AD Connect Health. Pour plus d’informations, consultez la section [Administration de votre annuaire Azure AD](active-directory-administer.md). <br><br> À l’aide du contrôle d’accès en fonction du rôle, vous pouvez accorder l’accès à Azure AD Connect Health à d’autres utilisateurs dans votre organisation. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle pour Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Important :** Le compte que vous utilisez lors de l’installation des agents doit être un compte professionnel ou d’organisation <!--school account--> et il ne peut pas s’agir d’un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](sign-up-organization.md)|
 |Pour AD FS, l’audit AD FS doit être activé pour exécuter l’analyse de l’utilisation.| Si vous prévoyez d’utiliser Analyse de l’utilisation avec AD FS, l’audit AD FS doit être activé. </br></br>Voir [Installation de l’agent Azure AD Connect Health pour AD FS.](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 |Satisfaire aux conditions requises de l’agent Azure AD Connect Health|Consultez le tableau ci-dessous pour les conditions requises spécifiques de l’agent.
 
@@ -123,4 +123,4 @@ Pour commencer, effectuez l’une des actions suivantes :
 * [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

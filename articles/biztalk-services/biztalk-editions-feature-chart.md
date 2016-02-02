@@ -201,7 +201,7 @@ Inclut NRR et le téléchargement des messages suivis</td>
 </tr>
 </table>
 
-> [AZURE.NOTE]Pour résister aux risques de pannes, la haute disponibilité nécessite plusieurs machines virtuelles dans une seule unité BizTalk.
+> [AZURE.NOTE] Pour résister aux risques de pannes, la haute disponibilité nécessite plusieurs machines virtuelles dans une seule unité BizTalk.
 
 
 ## FAQ
@@ -225,7 +225,7 @@ Le service d'adaptateur BizTalk est utilisé par un service Azure BizTalk. Le se
 
 #### Qu’est-ce que le « Transfert de données des connexions hybrides (Go) par unité » ? Est-ce qu’il s’agit d’un transfert par minute/heure/jour/semaine/mois ? Que se passe-t-il lorsque la limite est atteinte ?
 
-Le coût de connexion hybride par unité dépend de l'édition de BizTalk Services. En bref, les coûts dépendent de la quantité de données que vous transférez. Par exemple, un transfert quotidien de 10 Go de données est moins cher qu'un transfert quotidien de 100 Go. Utilisez le [Calcul des coûts](http://azure.microsoft.com/pricing/calculator/?scenario=full) de BizTalk Services déterminer les coûts spécifiques. En règle générale, les limites sont appliquées quotidiennement. Si vous dépassez la limite, tout surcoût est facturé au prix de 1 $ par Go.
+Le coût de connexion hybride par unité dépend de l'édition de BizTalk Services. En bref, les coûts dépendent de la quantité de données que vous transférez. Par exemple, un transfert quotidien de 10 Go de données est moins cher qu'un transfert quotidien de 100 Go. Utilisez le [Calcul des coûts](https://azure.microsoft.com/pricing/calculator/?scenario=full) de BizTalk Services déterminer les coûts spécifiques. En règle générale, les limites sont appliquées quotidiennement. Si vous dépassez la limite, tout surcoût est facturé au prix de 1 $ par Go.
 
 #### Lorsque je crée un contrat dans BizTalk Services, pourquoi y-a-t-il deux ponts au lieu d'un ?
 
@@ -259,4 +259,4 @@ Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisi
 - [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

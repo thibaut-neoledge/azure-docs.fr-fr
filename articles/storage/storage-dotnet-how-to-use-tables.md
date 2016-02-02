@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comment utiliser le stockage de tables à partir de .NET | Microsoft Azure"
-	description="Utilisez Table storage pour stocker des données non structurées, sans schéma. Table storage est un magasin de clés/d’attributs NoSQL. La bibliothèque cliente de stockage pour .NET fournit des API pour la création et la suppression de tables, ainsi que pour l’insertion, la mise à jour, la suppression et l’interrogation des données."
+	pageTitle="Prise en main du stockage de tables Azure à l’aide de .NET | Microsoft Azure"
+	description="Stockez des données non structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL de Microsoft. Commencez par des opérations simples de stockage de tables, notamment la création et la suppression de tables, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/24/2016"
 	ms.author="tamram"/>
 
 
-# Utilisation du stockage de tables à partir de .NET
+# Prise en main du stockage de tables Azure à l’aide de .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## Vue d’ensemble
 
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de tables Azure. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent la création et la suppression d'une table, ainsi que l'utilisation d'entités de table.
+Le stockage de tables Azure est un service qui stocke des données NoSQL non structurées dans le cloud. Le stockage de tables est un magasin de clés/attributs doté d’une conception sans schéma. Comme le stockage de tables est sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L'accès aux données est rapide et peu coûteux pour tous les types d'applications. Normalement, le stockage de tables est considérablement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
+
+Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d'adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Vous pouvez stocker un nombre quelconque d'entités dans une table, et un compte de stockage peut contenir un nombre quelconque de tables, jusqu'à la limite de capacité du compte de stockage.
+
+Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de tables Azure, notamment la création et la suppression d’une table, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données des tables.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -440,4 +444,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

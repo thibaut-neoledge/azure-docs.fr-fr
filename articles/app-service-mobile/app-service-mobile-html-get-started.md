@@ -23,7 +23,7 @@
 &nbsp;  
 <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Merci de votre patience.
+>[AZURE.IMPORTANT] Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Merci de votre patience.
 
 ##Vue d'ensemble
 
@@ -39,11 +39,11 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d'un backend Mobile App
 
@@ -103,7 +103,7 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
-	> [AZURE.NOTE]Sur un ordinateur Windows, appuyez sur la touche `R` quand PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
+	> [AZURE.NOTE] Sur un ordinateur Windows, appuyez sur la touche `R` quand PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
 
 	Ceci démarre un serveur Web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
 
@@ -115,7 +115,7 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 
    	Ceci envoie une demande POST vers le nouveau backend Mobile App hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem dans le schéma Mobile App. Les éléments stockés dans la table sont renvoyés par le service et les données sont affichées dans la deuxième colonne de l'application.
 
-	> [AZURE.TIP]Vous pouvez vérifier le code qui se trouve dans le fichier app.js et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
+	> [AZURE.TIP] Vous pouvez vérifier le code qui se trouve dans le fichier app.js et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -127,4 +127,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_0128_2016-->

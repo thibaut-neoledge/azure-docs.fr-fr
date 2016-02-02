@@ -32,13 +32,13 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
  
 * [Visual Studio Community 2013] ou version ultérieure. Si vous installez Visual Studio Community 2013, installez [Xamarin] séparément. Vous pouvez installer les outils Xamarin en même temps que Visual Studio 2015.
 
 * Un Mac sur lequel sont installés [Xcode] 7.0 ou version ultérieure et [Xamarin Studio]. Si vous envisagez de créer votre application sur un ordinateur Windows à l’aide de Visual Studio, vous devez quand même avoir accès à un Mac en réseau pour effectuer cette opération.
  
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Créer un serveur principal d'applications mobiles Azure
 
@@ -105,7 +105,8 @@ Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, pu
 
 Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d’application mobile et les données sont affichées dans la liste.
 
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]
+Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 ##(Facultatif) Exécuter le projet Android
 
@@ -128,7 +129,8 @@ Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, pu
 
 Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d’application mobile et les données sont affichées dans la liste.
 
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]
+Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 
 ##(Facultatif) Exécuter le projet Windows
@@ -149,7 +151,8 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 
 ![][12]
 	
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]
+Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -179,4 +182,4 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016--->

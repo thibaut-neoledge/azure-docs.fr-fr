@@ -18,6 +18,6 @@
 
 ![Vidéo disponible](./media/storsimple-create-volume-container/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui montre comment créer un conteneur de volumes dans votre solution StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+Pour visionner une vidéo qui montre comment créer un conteneur de volumes dans votre solution StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

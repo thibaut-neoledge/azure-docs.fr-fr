@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Andro
 
 Le projet de démarrage rapide téléchargé contient le Kit de développement logiciel (SDK) Azure Mobile Services pour Android.
 
-> [AZURE.IMPORTANT]Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Création d’un service mobile
@@ -70,7 +70,7 @@ Dans cette section, vous allez créer une application Android connectée à votr
 4. Cliquez sur **Create TodoItem table** pour créer une table permettant de stocker les données d'application.
 
 
-5. Téléchargez maintenant votre application en appuyant sur le bouton **Télécharger**.
+5. Téléchargez alors votre application en appuyant sur le bouton **Télécharger**.
 
 ## Exécution de votre application Android
 
@@ -97,4 +97,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

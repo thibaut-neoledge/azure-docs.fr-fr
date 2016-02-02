@@ -26,6 +26,6 @@
 
 ![Vidéo disponible](./media/storsimple-create-volume/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui montre comment créer un volume StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Pour visionner une vidéo qui montre comment créer un volume StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

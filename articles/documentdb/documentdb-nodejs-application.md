@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
@@ -44,7 +44,7 @@ Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement
 
 ## <a name="_Toc395783176"></a>Configuration requise
 
-> [AZURE.TIP]Ce didacticiel Node.js part du principe que vous avez déjà utilisé Node.js et Sites Web Azure.
+> [AZURE.TIP] Ce didacticiel Node.js part du principe que vous avez déjà utilisé Node.js et Sites Web Azure.
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
@@ -183,8 +183,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. 
-> Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 		
 3. Enregistrez et fermez le fichier **docdbUtils.js**.
 
@@ -397,7 +396,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = config;
 
-3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH\_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
+3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH\_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](https://portal.azure.com) :
 
 4. Enregistrez et fermez le fichier **config.js**.
  
@@ -458,8 +457,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 
 
-	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. 
-	Enregistrez et fermez ce fichier **layout.jade**.
+	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. Enregistrez et fermez ce fichier **layout.jade**.
 
 4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
@@ -503,9 +501,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Ce code étend la mise en page et fournit du contenu pour l'espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
 	
-	Dans cette mise en page, nous avons créé deux fichiers HTML. 
-	Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. 
-	Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
+	Dans cette mise en page, nous avons créé deux fichiers HTML. Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
@@ -573,4 +569,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

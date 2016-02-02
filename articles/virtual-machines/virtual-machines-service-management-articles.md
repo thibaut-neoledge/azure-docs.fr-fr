@@ -42,7 +42,6 @@
 
 [Création d’une machine virtuelle personnalisée exécutant Linux à l’aide de l’interface de ligne de commande Azure (Azure CLI)](virtual-machines-linux-create-custom.md)
 
-[Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Planification
 
@@ -152,4 +151,4 @@
 
 [Informations de référence sur l’API REST de la gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

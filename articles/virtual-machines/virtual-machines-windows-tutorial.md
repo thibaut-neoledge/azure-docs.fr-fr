@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Créer une machine virtuelle exécutant Windows dans le portail Azure | Microsoft Azure"
-	description="Apprenez à créer une machine virtuelle Azure ou un ordinateur virtuel exécutant Windows à partir d’Azure Marketplace dans le portail Azure"
-	keywords="machine virtuelle azure, créer une machine virtuelle, ordinateur virtuel, configuration d’une machine virtuelle"
+	pageTitle="Créer une machine virtuelle Windows dans le portail Azure | Microsoft Azure"
+	description="Découvrir comment créer une machine virtuelle Azure ou un ordinateur virtuel à l’aide d’Azure Marketplace dans le portail Azure"
+	keywords="machine virtuelle Windows,créer une machine virtuelle,ordinateur virtuel,configuration d’une machine virtuelle"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Créer une machine virtuelle exécutant Windows dans le portail Azure#
+# Créer une machine virtuelle Windows dans le portail Azure#
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
@@ -26,13 +26,13 @@
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
-Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure, et ce, en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure en quelques minutes dans le portail Azure. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 <br>
 
->[AZURE.TIP]Lors de l’utilisation du portail, si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez créer celui-ci avant ou pendant la création de la première machine virtuelle du groupe. Pour plus d’informations sur la création et l’utilisation des groupes à haute disponibilité, consultez la page [Gérer la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
+>[AZURE.TIP] Lors de l’utilisation du portail, si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez créer celui-ci avant ou pendant la création de la première machine virtuelle du groupe. Pour plus d’informations sur la création et l’utilisation des groupes à haute disponibilité, consultez la page [Gérer la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
 
 Vous pouvez également créer des machines virtuelles à l’aide de vos propres images, de modèles Resource Manager ou d’outils d’automatisation. Pour plus d’informations sur les différentes méthodes, voir [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,7 +44,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Sélectionner l’image de la machine virtuelle
+## Sélectionner l’image de machine virtuelle Windows
 
 1. Connectez-vous au portail Azure.
 
@@ -52,13 +52,13 @@ Voici une procédure pas à pas de ce didacticiel.
 
 	![Capture d’écran affichant les images de machines virtuelles Azure disponibles dans la version préliminaire du portail](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]Pour rechercher d’autres images, cliquez sur **Marketplace**, puis recherchez ou filtrez les éléments disponibles.
+	>[AZURE.TIP] Pour rechercher d’autres images, cliquez sur **Marketplace**, puis recherchez ou filtrez les éléments disponibles.
 
 3. Sur la page **Windows Server 2012 R2 Datacenter**, sous **Sélectionner un modèle de déploiement**, sélectionnez **Gestionnaire de ressources**. Cliquez sur **Create**.
 
 	![Capture d’écran affichant le modèle de déploiement à sélectionner pour une machine virtuelle Azure](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## Création d'une machine virtuelle
+## Créer la machine virtuelle Windows
 
 Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par défaut d’Azure pour la majeure partie de la configuration et créer rapidement la machine virtuelle.
 
@@ -77,7 +77,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 	![Capture d’écran affichant les tailles de machine virtuelle Azure que vous pouvez sélectionner](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
 3. Cliquez sur **Paramètres** pour voir les paramètres de stockage et de mise en réseau pour la nouvelle machine virtuelle. Pour une première machine virtuelle, vous pouvez généralement accepter les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle qui le prend en charge, vous pouvez essayer Premium Storage en sélectionnant **Premium (SSD)** sous **Type de disque**.
 
@@ -89,11 +89,11 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu hub sous **Machines virtuelles**.
 
-## Connexion à la machine virtuelle
+## Vous connecter à la machine virtuelle Windows
 
 Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter afin de gérer ses paramètres et les applications qui s’exécuteront dessus.
 
->[AZURE.NOTE]Pour des conseils concernant les exigences et le dépannage, consultez [Connexion d'une machine virtuelle Azure à l'aide de RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Pour des conseils concernant les exigences et le dépannage, consultez [Connexion d'une machine virtuelle Azure à l'aide de RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
 
@@ -116,6 +116,6 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 ## Étapes suivantes
 
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
-* Automatisez le déploiement et la gestion des machines virtuelles et des charges de travail à l’aide des [modèles d’Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
+* Automatisez le déploiement et la gestion des machines virtuelles et des charges de travail à l’aide des [modèles d’Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

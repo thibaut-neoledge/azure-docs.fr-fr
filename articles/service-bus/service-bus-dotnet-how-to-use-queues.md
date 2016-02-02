@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
@@ -26,13 +26,9 @@ Cet article décrit l’utilisation des files d’attente Service Bus. Les exemp
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Configuration de l'application pour l'utilisation de Service Bus
-
-Lorsque vous créez une application qui fait appel à Service Bus, vous devez ajouter une référence à l'assembly Service Bus et inclure les espaces de noms correspondants.
-
 ## Ajout du package NuGet Service Bus
 
-Le package **NuGet** Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
+Le package [**NuGet** Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) est le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
 
 Pour installer le package NuGet dans votre application, procédez comme suit :
 
@@ -146,7 +142,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-> [AZURE.NOTE]Vous pouvez utiliser la méthode [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) sur les objets [NamespaceManager][] pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
+> [AZURE.NOTE] Vous pouvez utiliser la méthode [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) sur les objets [NamespaceManager][] pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
 
 ## Envoi de messages à une file d'attente
 
@@ -183,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Les files d’attente Service Bus prennent en charge [une taille de message maximale de 256 Ko](service-bus-quotas.md) (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Si le partitionnement est activé, la limite supérieure est plus élevée. Pour plus d’informations, consultez [Partitionnement des entités de messagerie](service-bus-partitioning.md).
+Les files d’attente Service Bus prennent en charge [une taille de message maximale de 256 Ko](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Si le partitionnement est activé, la limite supérieure est plus élevée. Pour plus d’informations, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
 
 ## Réception des messages d’une file d’attente
 
@@ -243,7 +239,7 @@ Si l’application subit un incident après le traitement du message, mais avant
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
 -   Pour en savoir plus sur les entités de messagerie Service Bus, consultez [Files d’attente, rubriques et abonnements.][].
--   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus avec le [didacticiel .NET sur la messagerie répartie Service Bus][].
+-   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [didacticiel .NET sur la messagerie répartie Service Bus][].
 -   Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
 
   [Portail Azure Classic]: http://manage.windowsazure.com
@@ -259,4 +255,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

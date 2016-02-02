@@ -30,7 +30,7 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 - **Puis-je essayer ce service gratuitement ?** Oui. Une version d'évaluation gratuite est disponible pendant 30 jours. Après la fin de l'essai, vous pouvez passer à un compte payant (que vous pouvez utiliser en production) ou arrêter d'utiliser le service. Commencez votre évaluation gratuite en accédant à [manage.windowsazure.com](http://manage.windowsazure.com) et créez une instance de RemoteApp. Avec la version d'évaluation gratuite, vous pouvez créer deux instances de RemoteApp avec 10 utilisateurs par instance. N'oubliez pas que cette version d'évaluation n'est utilisable que pendant 30 jours.
 ## Détails de l’abonnement Azure RemoteApp ##
 
-- **Quelles sont les limites du service ?** Pour en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp, consultez [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
+- **Quelles sont les limites du service ?** Pour en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp, voir [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
 - **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. 
 - **Combien coûte RemoteApp ?** Consultez les [tarifs détaillés d'Azure RemoteApp](../../../pricing/details/remoteapp/).
 - **Un type de collection coûte-t-il plus qu’un autre ?** Oui, il le peut, selon les besoins de votre collection. Une collection hybride nécessite une connexion d’Azure RemoteApp à votre réseau local. Si vous utilisez un itinéraire réseau virtuel/Express, il est sans coût supplémentaire. Toutefois, si vous utilisez un nouveau réseau virtuel Azure et une passerelle ou ExpressRoute, vous êtes facturé pour la [passerelle VPN](../../../pricing/details/vpn-gateway) ou [ExpressRoute](../../../pricing/details/expressroute/). Ce coût (détaillé dans les liens) s’ajoute à votre coût mensuel Azure RemoteApp.
@@ -89,7 +89,7 @@ Pour des informations sur le client, notamment une procédure d’installation d
 
 
 - **Quel est le plan de prise en charge pour RemoteApp ?** La gestion de la facturation et des abonnements est fournie gratuitement. Le support technique est disponible via les [plans de service Azure](../../../support/plans/). Vous pouvez également bénéficier du support gratuit de la communauté via notre [forum de discussion Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
-- **Comment envoyer des commentaires ?** Visitez le [forum prévu à cet effet](http://feedback.azure.com/forums/247748-azure-remoteapp).
+- **Comment envoyer des commentaires ?** Visitez le [forum prévu à cet effet](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 - **À qui puis-je m'adresser pour en savoir plus sur Azure RemoteApp ?** Outre notre [forum de discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), qui est l'endroit idéal pour poser des questions, vous pouvez participer au webinaire hebdomadaire [Demandez aux experts](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), qui aborde tout ce qui concerne RemoteApp.
 - **Qu'en est-il de la documentation RemoteApp ?** Merci d'avoir posé la question. Outre le contenu du volet d'aide du portail (cliquez simplement sur le symbole **?** d'une page du portail), les articles suivants vous expliquent tout ce que vous devez savoir sur RemoteApp :
 	- **Mise en route**
@@ -108,10 +108,10 @@ Pour des informations sur le client, notamment une procédure d’installation d
 		- [Ajout d'utilisateurs](remoteapp-user.md)
 		- [Meilleures pratiques pour la configuration et l'utilisation de RemoteApp](remoteapp-bestpractices.md)	
 
-	Vidéos Nous vous proposons également un certain nombre de vidéos sur RemoteApp. Certaines présentent le service ([Présentation d'Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) et d'autres vous guident dans le déploiement ([Déploiement cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) et [Déploiement hybride](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Consultez-les !
+	Vidéos Nous vous proposons également un certain nombre de vidéos sur RemoteApp. Certaines présentent le service ([Présentation d'Azure RemoteApp](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) et d'autres vous guident dans le déploiement ([Déploiement cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) et [Déploiement hybride](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Consultez-les !
 
  
 ### Vos commentaires nous aideront à mieux vous servir 
-Saviez-vous qu'en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l'article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
+Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comment utiliser le stockage de files d’attente à partir de .NET | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage de files d’attente pour créer et supprimer des files d’attente, et insérer, lire, obtenir et supprimer les messages en file d’attente."
+	pageTitle="Prise en main du stockage de files d’attente Azure à l’aide de .NET | Microsoft Azure"
+	description="Envoyez et recevez des messages de façon asynchrone entre les composants d’application à l’aide du stockage de files d’attente Azure. Commencez par des opérations simples de stockage de files d’attente, notamment la création et la suppression de files d’attente, et l’ajout, la lecture et la suppression des messages de file d’attente."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# Utilisation du stockage de files d’attente à partir de .NET
+# Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage des files d’attente Azure. Les exemples ont été écrits en code C# et utilisent le client de stockage Azure pour .NET. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
+Le stockage de files d’attente Azure est un service qui fournit des files d’attente de messagerie dans le cloud. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d'attente offre une solution de messagerie fiable pour la communication asynchrone entre les composants d'application, qu'ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
+
+Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de files d’attente Azure. Les scénarios traités sont les suivants : création et suppression de files d’attente, et ajout, lecture et suppression des messages de file d’attente.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

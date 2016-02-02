@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="01/24/2016"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -30,7 +30,7 @@ Application Insights prend en charge les applications Java exécutées sur Linu
 Vous devez avoir :
 
 * Oracle JRE 1.6 ou version ultérieure ou Zoulou JRE 1.6 ou version ultérieure
-* Un abonnement [Microsoft Azure](http://azure.microsoft.com/). (Vous pouvez commencer par l'[essai gratuit](http://azure.microsoft.com/pricing/free-trial/).)
+* Un abonnement [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l'[essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
 
 *Si vous disposez d’une application web déjà active, vous pouvez suivre la procédure alternative destinée à [ajouter le Kit de développement logiciel (SDK) au moment de l’exécution dans le serveur web](app-insights-java-live.md). Cette alternative évite la régénération du code, mais ne vous permet pas d’écrire du code pour effectuer le suivi de l’activité des utilisateurs.*
 
@@ -117,7 +117,7 @@ Ajouter manuellement le Kit de développement logiciel :
  * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre cet élément si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
- * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) et remplacez les anciens Kits.
+ * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) et remplacez les anciens Kits.
  * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).
 
 
@@ -282,7 +282,7 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la vignette **Serveurs** afin d’afficher un ensemble de compteurs de performances.
+Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -364,7 +364,7 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 
 ## Tests web de disponibilité
 
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste pour cliquer sur Disponibilité.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste vers le bas pour cliquer sur Disponibilité.
 
 ![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -398,4 +398,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

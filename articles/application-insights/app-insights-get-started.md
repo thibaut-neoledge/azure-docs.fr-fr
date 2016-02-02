@@ -29,7 +29,7 @@ Pour l’instant, nous prenons en charge les applications iOS, Android et Window
 
 Commencez par choisir certains points d’entrée du diagramme suivant dans l’ordre de votre choix. Suivez le chemin d’accès qui vous convient.
 
-Application Insights fonctionne par l’ajout d’un kit de développement logiciel (SDK) à votre application, qui envoie la télémétrie au [portail Azure](http://portal.azure.com). Il existe différents Kits de développement logiciel (SDK) pour les nombreuses combinaisons de plateformes, de langages et d’IDE pris en charge.
+Application Insights fonctionne par l’ajout d’un kit de développement logiciel (SDK) à votre application, qui envoie la télémétrie au [portail Azure](https://portal.azure.com). Il existe différents Kits de développement logiciel (SDK) pour les nombreuses combinaisons de plateformes, de langages et d’IDE pris en charge.
 
 Vous aurez besoin d’un compte [Microsoft Azure](http://azure.com). Vous disposez peut-être déjà d’un accès à un compte de groupe par le biais de votre entreprise, à moins que vous préfériez obtenir un compte de paiement à l’utilisation. Application Insights a un niveau Gratuit, vous n’avez donc pas besoin de payer tant que votre application n’est pas populaire. Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -74,4 +74,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

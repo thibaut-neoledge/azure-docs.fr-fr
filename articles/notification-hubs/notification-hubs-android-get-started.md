@@ -38,7 +38,7 @@ Le code complet de ce didacticiel est disponible sur GitHub [ici](https://github
 Ce didacticiel requiert les éléments suivants :
 
 + Android Studio, que vous pouvez télécharger depuis <a href="http://go.microsoft.com/fwlink/?LinkId=389797">le site Android</a>.
-+ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications Android.
@@ -129,9 +129,9 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 	    private static Boolean isVisible = false;
 
 
-	Veillez à mettre à jour les trois espaces réservés :
-	* **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment depuis le projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail Azure Classic].
+	Veillez à mettre à jour les trois espaces réservés : 
+	* **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment depuis le projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). 
+	* **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail Azure Classic]. 
 	* **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
 
 
@@ -204,7 +204,7 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 
 8. Android n’affichant pas de notifications, vous devez écrire votre propre récepteur. Dans **AndroidManifest.xml**, ajoutez l'élément ci-après dans l'élément `<application>`.
 
-	> [AZURE.NOTE]Remplacez l’espace réservé par votre nom de package.
+	> [AZURE.NOTE] Remplacez l’espace réservé par votre nom de package.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -550,4 +550,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

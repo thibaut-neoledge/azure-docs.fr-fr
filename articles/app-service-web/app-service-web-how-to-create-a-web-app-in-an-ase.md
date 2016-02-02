@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # Créer une application web dans un environnement App Service
@@ -22,7 +22,7 @@
 
 Ce didacticiel explique comment créer des applications web et des plans App Service dans un [environnement App Service](app-service-app-service-environment-intro.md) (ASE).
 
-> [AZURE.NOTE]Si vous voulez apprendre à créer une application web mais pas spécialement dans un environnement App Service, consultez [Créer une application web .NET](web-sites-dotnet-get-started.md) ou l’un des didacticiels associés pour d’autres langages et infrastructures.
+> [AZURE.NOTE] Si vous voulez apprendre à créer une application web mais pas spécialement dans un environnement App Service, consultez [Créer une application web .NET](web-sites-dotnet-get-started.md) ou l’un des didacticiels associés pour d’autres langages et infrastructures.
 
 ## Configuration requise
 
@@ -118,4 +118,4 @@ Après avoir créé votre application web et votre plan App Service, il peut êt
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

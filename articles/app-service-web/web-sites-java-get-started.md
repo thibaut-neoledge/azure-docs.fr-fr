@@ -27,7 +27,7 @@
 
 Ce didacticiel vous explique comment créer une [application web Java dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide du [portail Azure](https://portal.azure.com/). Le portail Azure est une interface web que vous pouvez utiliser pour gérer les ressources Azure.
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service][]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -35,13 +35,14 @@ Ce didacticiel vous explique comment créer une [application web Java dans Azu
 
 Vous pouvez utiliser différentes méthodes pour configurer une application Java dans une application web App Service.
 
-1. Utiliser un modèle à partir d’Azure Marketplace
+1. Créer une application, puis configure les **paramètres de l’application**
+
+	App Service fournit plusieurs versions de Tomcat et Jetty configurées par défaut. Si l’application que vous allez héberger doit fonctionner avec l’une des versions intégrées, cette méthode de configuration d’un conteneur web sera la plus simple à utiliser lorsque vous voulez simplement télécharger un fichier war dans un conteneur web. Pour cette méthode, créez une application dans le portail Azure et accédez au panneau **Paramètres de l’application** pour choisir votre version de Java ainsi que le conteneur web Java souhaité. Lorsque vous utilisez cette méthode, Java et le conteneur web sont tous les deux exécutés à partir des fichiers de programme. Les autres méthodes placent le conteneur et éventuellement, la machine virtuelle Java dans l’espace disque. Lorsque vous utilisez ce modèle, vous ne disposez pas d’un accès en modification dans cette partie du système de fichiers, ce qui signifie par exemple que vous ne pouvez pas configurer le fichier *server.xml* ou placer des fichiers de bibliothèque dans le dossier */lib*. Pour plus d’informations, consultez la section [Créer et configurer une application web Java](#appsettings) de ce didacticiel.
+	
+2. Utiliser un modèle à partir d’Azure Marketplace
 
 	Azure Marketplace contient des modèles permettant de créer et configurer automatiquement des applications web Java avec les conteneurs web Tomcat ou Jetty. Les conteneurs web définis par les modèles sont configurables. Pour plus d’informations, consultez la section [Utiliser un modèle Java à partir d’Azure Marketplace](#marketplace) de ce didacticiel.
  
-1. Créer une application, puis configure les **paramètres de l’application**
-
-	App Service fournit plusieurs versions de Tomcat et Jetty configurées par défaut. Si l’application que vous allez héberger doit fonctionner avec l’une des versions intégrées, cette méthode de configuration d’un conteneur web sera la plus simple à utiliser, mais vous ne disposerez pas des capacités de configuration des autres méthodes. Pour cette méthode, créez une application dans le portail Azure et accédez au panneau **Paramètres de l’application** pour choisir votre version de Java ainsi que le conteneur web Java souhaité. Lorsque vous utilisez cette méthode, l’application s’exécute à partir du disque dur local utilisé par le processus de travail pour héberger l’application. Celui-ci n’utilise pas l’espace disque du client. Lorsque vous utilisez ce modèle, vous ne disposez pas d’un accès en modification dans cette partie du système de fichiers, ce qui signifie par exemple que vous ne pouvez pas configurer le fichier *server.xml* ou placer des fichiers de bibliothèque dans le dossier */lib*. Pour plus d’informations, consultez la section [Créer et configurer une application web Java](#appsettings) de ce didacticiel.
   
 3. Créer une application, puis copier et modifier manuellement les fichiers de configuration
 
@@ -53,6 +54,59 @@ Vous pouvez utiliser différentes méthodes pour configurer une application Java
 	* Vous souhaitez utiliser une version de Java qui n’est pas pris en charge dans App Service et voulez la télécharger vous-même.
 
 	Dans ces cas-là, vous pouvez créer une application à l’aide du portail Azure et fournir ensuite manuellement les fichiers d’exécution appropriés. Dans ce cas, les fichiers seront comptabilisés par rapport à vos quotas d’espace de stockage associé à votre plan App Service. Pour plus d’informations, consultez [Charger une application web Java personnalisée dans Azure](https://acom-sandbox.azurewebsites.net/fr-FR/documentation/articles/web-sites-java-custom-upload/).
+
+## <a name="portal"></a> Créer et configurer une application web Java
+
+Cette section explique comment créer une application web et la configurer pour Java à l’aide du panneau **Paramètres de l’application** du portail.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+2. Cliquez sur **Nouveau > Web + Mobile > Application web**.
+
+	![](./media/web-sites-java-get-started/newwebapp.png)
+
+4. Entrez un nom pour l’application web dans la zone **Application web**.
+
+	Ce nom doit être unique dans le domaine azurewebsites.net, car l’URL de l’application web sera {nom}.azurewebsites.net. Si le nom que vous entrez n’est pas unique, un point d’exclamation rouge s’affiche dans la zone de texte.
+
+5. Sélectionnez un **Groupe de ressources** ou créez-en un.
+
+	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
+
+6. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
+
+	Pour plus d’informations sur les plans App Service, consultez [Présentation des plans d’Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
+
+7. Cliquez sur **Create**.
+
+	![](./media/web-sites-java-get-started/newwebapp2.png)
+ 
+8. Une fois l’application web créée, cliquez sur **Applications web > {votre application web}**.
+ 
+	![](./media/web-sites-java-get-started/selectwebapp.png)
+
+9. Dans le panneau **Application web**, cliquez sur **Paramètres**.
+
+10. Cliquez sur **Paramètres de l’application**.
+
+11. Sélectionnez la **version Java** souhaitée.
+
+12. Sélectionnez la **version Java mineure** souhaitée. Si vous sélectionnez **La plus récente**, votre application utilisera la dernière version mineure disponible dans App Service pour cette version majeure de Java. L’élément le **plus récent** est unique pour les applications Java créées à partir de **Paramètres d’Application**. Si vous créez votre application Java à partir de la galerie, vous devez gérer votre propre conteneur et les modifications de la machine virtuelle Java.
+
+12. Sélectionnez le **conteneur web** souhaité. Si vous sélectionnez un nom de conteneur qui commence par **La plus récente**, votre application sera maintenue à la dernière version de cette version majeure du conteneur web disponible dans App Service.
+
+	![](./media/web-sites-java-get-started/versions.png)
+
+13. Cliquez sur **Enregistrer**.
+
+	Dans quelques instants, votre application web basculera sur Java et sera configurée pour utiliser le conteneur sélectionné.
+
+14. Cliquez sur **Applications web > {votre nouvelle application web}**.
+
+15. Cliquez sur l’**URL** afin d’accéder au nouveau site.
+
+	La page web confirme que vous avez créé une application web basée sur Java.
+
 
 ## <a name="marketplace"></a> Utiliser un modèle Java à partir d’Azure Marketplace
 
@@ -112,57 +166,6 @@ Cette section vous montre comment utiliser Microsoft Azure Marketplace pour cr
 
 Maintenant que vous avez créé l’application web avec un conteneur d’applications, consultez la section [Étapes suivantes](#next-steps) pour accéder aux informations concernant le chargement de votre application dans l’application web.
 
-## <a name="portal"></a> Créer et configurer une application web Java
-
-Cette section explique comment créer une application web et la configurer pour Java à l’aide du panneau **Paramètres de l’application** du portail.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-
-2. Cliquez sur **Nouveau > Web + Mobile > Application web**.
-
-	![](./media/web-sites-java-get-started/newwebapp.png)
-
-4. Entrez un nom pour l’application web dans la zone **Application web**.
-
-	Ce nom doit être unique dans le domaine azurewebsites.net, car l’URL de l’application web sera {nom}.azurewebsites.net. Si le nom que vous entrez n’est pas unique, un point d’exclamation rouge s’affiche dans la zone de texte.
-
-5. Sélectionnez un **Groupe de ressources** ou créez-en un.
-
-	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
-
-6. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
-
-	Pour plus d’informations sur les plans App Service, consultez [Présentation des plans d’Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-7. Cliquez sur **Create**.
-
-	![](./media/web-sites-java-get-started/newwebapp2.png)
- 
-8. Une fois l’application web créée, cliquez sur **Applications web > {votre application web}**.
- 
-	![](./media/web-sites-java-get-started/selectwebapp.png)
-
-9. Dans le panneau **Application web**, cliquez sur **Paramètres**.
-
-10. Cliquez sur **Paramètres de l’application**.
-
-11. Sélectionnez la **version Java** souhaitée.
-
-12. Sélectionnez la **version Java mineure** souhaitée. Si vous sélectionnez **La plus récente**, votre application utilisera la dernière version mineure disponible dans App Service pour cette version majeure de Java.
-
-12. Sélectionnez le **conteneur web** souhaité. Si vous sélectionnez un nom de conteneur qui commence par **La plus récente**, votre application sera maintenue à la dernière version de cette version majeure du conteneur web disponible dans App Service.
-
-	![](./media/web-sites-java-get-started/versions.png)
-
-13. Cliquez sur **Enregistrer**.
-
-	Dans quelques instants, votre application web basculera sur Java et sera configurée pour utiliser le conteneur sélectionné.
-
-14. Cliquez sur **Applications web > {votre nouvelle application web}**.
-
-15. Cliquez sur l’**URL** afin d’accéder au nouveau site.
-
-	La page web confirme que vous avez créé une application web basée sur Java.
 
 ## Étapes suivantes
 
@@ -176,4 +179,4 @@ Pour plus d’informations sur le développement des applications Java dans Azu
 
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

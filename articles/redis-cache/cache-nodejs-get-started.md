@@ -43,8 +43,7 @@ Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez 
 
   ![][1]
 
-Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>
-  .redis.cache.windows.net`. Cliquez sur **Create**.
+Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.windows.net`. Cliquez sur **Create**.
 
   ![][2]
 
@@ -53,29 +52,22 @@ Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>
 
   ![][4]
 
+## Ajouter un élément au cache et le récupérer
 
-  ## Activer le point de terminaison non SSL
+```js
+var redis = require("redis");
 
+// Add your cache name and access key.
+var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-  Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela active le port non SSL pour le cache. Le client node\_redis ne prend pas en charge le SSL.
+client.set("foo", "bar", function(err, reply) {
+  console.log(reply);
+});
 
-  ![][3]
-
-
-  ## Ajouter un élément au cache et le récupérer
-
-  var redis = require("redis");
-
-  // Ajouter votre clé d’accès et le nom de votre cache. var client = redis.createClient(6379,’<name>.redis.cache.windows.net’, {auth\_pass: ’<key>’ });
-
-	client.set("foo", "bar", function(err, reply) {
-	    console.log(reply);
-	});
-
-	client.get("foo",  function(err, reply) {
-	    console.log(reply);
-	});
-
+client.get("foo",  function(err, reply) {
+  console.log(reply);
+});
+```
 
 Output:
 
@@ -97,4 +89,4 @@ Output:
 
 [Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->
