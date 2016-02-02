@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Utilisez le service StorSimple Manager pour afficher et gérer les tâches StorSimple (Mise à jour 2)
@@ -77,7 +77,7 @@ Pour annuler une tâche en cours d’exécution, procédez comme suit.
 
 ### Pour annuler une tâche
 
-1. Dans la page **Tâches**, affichez la ou les tâches en cours d'exécution que vous voulez annuler en exécutant une requête avec les filtres appropriés.
+1. Dans la page **Tâches**, affichez les tâches en cours d’exécution que vous voulez annuler en exécutant une requête avec les filtres appropriés.
 
 1. Sélectionnez la tâche.
 
@@ -89,8 +89,8 @@ Cette tâche est à présent annulée.
 
 ## Étapes suivantes
 
-- Découvrez comment [gérer vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
+- En savoir plus sur la [gestion de vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

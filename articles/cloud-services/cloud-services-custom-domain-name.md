@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 
 Lorsque vous créez une service cloud, Azure l'attribue à un sous-domaine de cloudapp.net. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs pourront accéder à votre application via une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
@@ -138,6 +138,7 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 | @ | 137\.135.70.239 |
 
 
+
 Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
 >[AZURE.WARNING]
@@ -146,7 +147,7 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 ## Étapes suivantes
 
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
-* [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+* [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
@@ -165,4 +166,4 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

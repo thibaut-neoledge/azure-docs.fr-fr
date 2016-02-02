@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -67,7 +67,7 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
 * Vous pouvez également inspecter des points de données individuels à la source pendant le débogage :
  * Si vous exécutez votre application en mode débogage dans Visual Studio, les points de données sont enregistrés dans la fenêtre Sortie. 
  * Pour afficher les points de données clients, ouvrez le volet de débogage de votre navigateur (généralement, F12), puis ouvrez l’onglet Réseau.
-
+* Le débit de données est (par défaut) réduit par [échantillonnage adaptatif](app-insights-sampling). Autrement dit, lorsque l’utilisation de votre application augmente, le taux de télémétrie n’augmente pas autant que vous pouviez le penser.
 
 ### Dépassement
 
@@ -85,6 +85,8 @@ Le graphique au bas du panneau de tarification illustre le volume des points de 
 ![Au bas du panneau de tarification](./media/app-insights-pricing/03-allocation.png)
 
 Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier et cliquez sur (+) pour obtenir des informations sur une période.
+
+Le graphique affiche le volume de données qui arrive au niveau du service Application Insights, après l’[échantillonnage](app-insights-sampling).
 
 
 ## Débit de données
@@ -114,7 +116,7 @@ En cas de limitation, vous en êtes informé par un avertissement.
 
 *Comment puis-je réduire le volume de données envoyé par mon application ?*
 
-* Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. À partir du Kit de développement logiciel (SDK) ASP.NET 2.0.0-beta3, l’échantillonnage adaptatif est activé par défaut.
+* Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. L’échantillonnage adaptatif est activé par défaut dans le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.0.0-bêta 3.
 * [Désactivez les collecteurs de données de télémétrie](app-insights-configuration-with-applicationinsights-config.md) dont vous n’avez pas besoin.
 
 
@@ -123,7 +125,7 @@ En cas de limitation, vous en êtes informé par un avertissement.
 Si vous rencontrez les seuils de limitation, voici quelques opérations à effectuer :
 
 * Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche.
-* Désactivez les modules de collecte dont vous n’avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
+* Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
@@ -164,4 +166,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/13/2016"
+   ms.date="01/18/2016"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -29,6 +29,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 
 
 ## Nouvelles mises à jour
+
+###### **18 janvier 2015**
+Le déploiement du SE invité du mois de janvier commence le 18 janvier 2016, et devrait être publié le 12 février 2016.
 
 ###### **4 janvier 2016**
 Le déploiement du système d’exploitation invité de 201511-02 de novembre a été publié le 4 janvier 2016. Cette version du système d'exploitation n'étant pas définie comme système d'exploitation par défaut pour la mise à jour automatique, le délai d’approvisionnement du déploiement du système d’exploitation invité de 201511-02 de novembre devrait être légèrement plus long.
@@ -179,6 +182,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.28 | WA-GUEST-OS-4.28\_201601-01 | Prévu le 12 février 2016 | Mise à jour lors de la publication de la version 4.30 | TBD |
 | 4\.27 | WA-GUEST-OS-4.27\_201512-01 | 12 janvier 2016 | Mise à jour à l’occasion de la publication de la version 4.29 | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 4.28 | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 4.28 | TBD |
@@ -209,6 +213,7 @@ Prend en charge .NET 4.0, 4.5
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.35 | WA-GUEST-OS-3.35\_201601-01 | Prévu le 12 février 2016 | Mise à jour lors de la publication de la version 3.37 | TBD |
 | 3\.34 | WA-GUEST-OS-3.34\_201512-01 | 12 janvier 2016 | Mise à jour lors de la publication de la version 3.36 | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 3.35 | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 3.35 | TBD |
@@ -240,6 +245,7 @@ Prend en charge .NET 3.5, 4.0
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.47 | WA-GUEST-OS-2.47\_201601-01 | 12 février 2016 | Mise à jour lors de la publication de la version 2.49 | TBD |
 | 2\.46 | WA-GUEST-OS-2.46\_201512-01 | 12 janvier 2016 | Mise à jour lors de la publication de la version 2.48 | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 janvier 2016 | Mise à jour lors de la publication de la version 2.47 | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 décembre 2015 | Mise à jour lors de la publication de la version 2.47 | TBD |
@@ -408,4 +414,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

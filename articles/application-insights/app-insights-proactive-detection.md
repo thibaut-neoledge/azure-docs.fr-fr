@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights : détection proactive
@@ -37,12 +37,12 @@ Les anomalies de ce type, qui sont très difficiles à détecter par la simple i
 
 Vous n’avez pas à définir de seuils ni à configurer des règles. Des algorithmes d’apprentissage automatique (« Machine Learning ») et d’exploration de données sont utilisés pour détecter les schémas anormaux.
 
-La détection proactive est en version préliminaire et n’est pas encore disponible pour tous les utilisateurs d’Application Insights. Si vous souhaitez l'essayer, veuillez contacter AppInsightsML@microsoft.com et nous vous aiderons à la configurer.
+Nous sommes impatients de recevoir vos commentaires. Faites-nous savoir en quoi la détection proactive vous aide, dans quelle mesure nous pouvons l’améliorer et quelles sont les fonctionnalités supplémentaires que vous souhaitez nous voir ajouter. Vous pouvez nous fournir vos commentaires via Envoyer un sourire/Envoyer un smiley mécontent dans le portail ou en nous envoyant un e-mail à AppInsightsML@microsoft.com.
 
 ## À propos de l’alerte proactive
 
 * *Pourquoi ai-je reçu ce courrier électronique ?*
- * La détection proactive a analysé la télémétrie que votre application a envoyée à Application Insights et a détecté un problème de performances dans votre application.
+ * La détection proactive a analysé la télémétrie que votre application a envoyée à Application Insights et a détecté un problème de performances dans votre application. 
 * *La notification signifie-t-elle obligatoirement que mon application rencontre un problème ?*
  * Non. Il s’agit simplement d’une suggestion pour vous amener à examiner un élément de plus près. 
 * *Que dois-je faire ?*
@@ -56,7 +56,7 @@ La détection proactive est en version préliminaire et n’est pas encore dispo
 * *Quels types d'anomalies sont détectées ?*
  * Des anomalies qui vous prendraient beaucoup de temps à vérifier. Par exemple, de faibles performances dans une combinaison spécifique de l'emplacement, de l'heure et de la plate-forme.
 * *Analysez-vous toutes les données collectées par Application Insights ?*
- * Pas à l'heure actuelle. Actuellement, nous analysons le délai de réponse des demandes et le temps de chargement des pages. L’analyse de mesures supplémentaires sera bientôt disponible. 
+ * Pas à l'heure actuelle. Actuellement, nous analysons le temps de réponse des demandes, le temps de réponse des dépendances et le temps de chargement des pages. L’analyse de mesures supplémentaires sera bientôt disponible. 
 * *Puis-je créer mes propres règles de détection d’anomalies ?*
  * Pas encore. Mais vous pouvez :
  * [configurer des alertes](app-insights-alerts.md) qui vous indiquent qu'une métrique dépasse un seuil ;
@@ -124,13 +124,13 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
  
     Actuellement, ils sont envoyés aux personnes qui ont un [accès en écriture à la ressource Application Insights](app-insights-resources-roles-access-control.md).
 
-    Vous pouvez aussi modifier la liste des destinataires dans le panneau de détection proactive.
+    Vous pouvez également modifier les paramètres de la liste des destinataires dans le panneau Détection proactive.
 * *Je ne souhaite pas recevoir tous ces messages.*
- * Ceux-ci sont limités à un par jour. Vous n’obtiendrez pas plusieurs fois le même message.
+ * Ils sont limités à un par jour et concernent le problème le plus pertinent sur lequel nous n’avons pas encore établi de rapport. Vous n’obtiendrez pas plusieurs fois le même message.
 * *Si je ne fais rien, vais-je recevoir un rappel ?*
- * Non, vous ne recevez qu’un message pour chaque problème.
+ * Non, vous ne recevez qu’un message pour chaque problème. 
 * *J’ai perdu le courrier électronique Où puis-je trouver les notifications dans le portail ?*
- * Dans la vue d'ensemble Application Insights de votre application, cliquez sur la mosaïque **Détection proactive**. 
+ * Dans la vue d'ensemble Application Insights de votre application, cliquez sur la mosaïque **Détection proactive**. Vous serez en mesure de retrouver toutes les notifications jusqu’à 7 jours dans le passé.
 
 
 ## Articles connexes
@@ -141,4 +141,4 @@ Il existe un site web plein de conseils sur l’amélioration des temps de charg
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

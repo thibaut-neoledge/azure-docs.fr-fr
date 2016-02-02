@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier le routage pour un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -395,4 +395,4 @@ Ensuite, liez un réseau virtuel à un circuit ExpressRoute. Vous pouvez utilise
 
 -  Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

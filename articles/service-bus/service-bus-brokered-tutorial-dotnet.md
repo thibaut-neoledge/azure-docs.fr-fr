@@ -31,13 +31,13 @@ Voici quelques étapes d'administration et conditions préalables que vous devez
 
 ### Créer un espace de noms de service et obtenir une clé SAP
 
-1. Pour créer un espace de noms de service, suivez les étapes décrites dans la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
-1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom d’espace de noms que vous avez créé à l’étape précédente.
+1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom de l’espace de noms que vous avez créé à l’étape précédente.
 
 1. Cliquez sur **Configurer**.
 
-1. Dans la section du **générateur de signature d’accès partagé**, notez la clé primaire associée à la stratégie **RootManagerSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
+1. Dans la section du **générateur de signature d'accès partagé**, notez la clé primaire associée à la stratégie **RootManagerSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
 L’étape suivante consiste à créer un projet Visual Studio et à écrire deux fonctions d’assistance qui chargent une liste délimitée par des virgules de messages dans un objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortement typé.
 
@@ -161,7 +161,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 
 ### Créer une fonction qui charge la liste des messages
 
-1. En dehors de `Main()`, définissez une méthode `GenerateMessages()` qui prend l’objet **DataTable** renvoyé par `ParseCSVFile()` puis charge la table dans une liste fortement typée de messages répartis. La méthode renvoie alors l’objet **List**, comme dans l’exemple suivant. 
+1. En dehors de `Main()`, définissez une méthode `GenerateMessages()` qui prend l’objet **DataTable** renvoyé par `ParseCSVFile()` puis charge la table dans une liste fortement typée de messages répartis. La méthode renvoie alors l’objet **List**, comme dans l'exemple suivant. 
 
 	```
 	static List<BrokeredMessage> GenerateMessages(DataTable issues)
@@ -228,7 +228,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	}
 	```
 
-1. Dans `Main()`, directement sous l’appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
+1. Dans `Main()`, directement sous l'appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
 
 	```
 	public static void Main(string[] args)
@@ -418,7 +418,7 @@ Dans cette étape, vous créez une file d'attente, puis envoyez les messages con
 	QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
 	```
 
-1. Puis ajoutez le code qui parcourt en boucle la liste des messages répartis que vous avez créée précédemment, envoyant ainsi chaque message à la file d'attente. Ajoutez le code suivant directement après l’instruction `CreateQueueClient()` de l’étape précédente :
+1. Puis ajoutez le code qui parcourt en boucle la liste des messages répartis que vous avez créée précédemment, envoyant ainsi chaque message à la file d'attente. Ajoutez le code suivant directement après l’instruction `CreateQueueClient()` de l'étape précédente :
 	
 	```
 	// Send messages
@@ -642,7 +642,7 @@ Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution
 
 ## Étapes suivantes
 
-Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités de messagerie répartie Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie relayée](service-bus-messaging-overview.md/#Relayed-messaging) Service Bus, consultez le [didacticiel sur la messagerie relayée Service Bus](service-bus-relay-tutorial.md).
+Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités de messagerie répartie Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie relayée](service-bus-messaging-overview.md#Relayed-messaging) Service Bus, consultez le [didacticiel sur la messagerie relayée Service Bus](service-bus-relay-tutorial.md).
 
 Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/service-bus/), consultez les rubriques qui suivent.
 
@@ -652,4 +652,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

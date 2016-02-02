@@ -27,7 +27,7 @@ Le stockage d’objets blob Azure est une solution de stockage à la fois robust
 
 Le stockage de données dans le stockage d’objets blob vous permet de supprimer les clusters HDInsight servant aux calculs, sans perte de données utilisateur.
 
-> [AZURE.NOTE]La syntaxe **asv://* n’est pas prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées à un cluster HDInsight version 3.0 qui utilisent explicitement la syntaxe **asv://* sont vouées à l’échec. Vous devez plutôt utiliser la syntaxe **wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe « wasb:// » pour adresser les ressources.
+> [AZURE.NOTE]La syntaxe **asv://* n’est pas prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe **asv://* échoueront. Vous devez plutôt utiliser la syntaxe **wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe « wasb:// » pour adresser les ressources.
 
 > HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
@@ -106,7 +106,7 @@ Si vous avez [installé et configuré l’interface de ligne de commande Azure](
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]Le paramètre `--type` indique la méthode de réplication du compte de stockage. Pour plus d'informations, consultez [Réplication Azure Storage](../storage-redundancy.md). N'utilisez pas ZRS, car ZRS ne prend en charge d'objets blob de pages, de fichiers, de tables ou de files d'attente.
+> [AZURE.NOTE]Le paramètre `--type` indique la méthode de réplication du compte de stockage. Pour plus d'informations, consultez [Réplication Azure Storage](../storage/storage-redundancy.md). N'utilisez pas ZRS, car ZRS ne prend en charge d'objets blob de pages, de fichiers, de tables ou de files d'attente.
 
 Vous devez spécifier la région géographique dans laquelle se trouve le compte de stockage. Vous devez créer le compte de stockage dans la région où vous envisagez de créer votre cluster HDInsight.
 
@@ -282,7 +282,9 @@ Pour plus d'informations, consultez les pages suivantes :
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
+* [Utiliser des signatures d’accès partagé Azure Storage pour restreindre l’accès aux données avec HDInsight][hdinsight-use-sas]
 
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: ../install-configure-powershell.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
@@ -297,4 +299,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

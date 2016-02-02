@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs pourront accéder à votre application via une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
 
@@ -28,7 +28,8 @@ Toutefois, vous pouvez également exposer votre application sur votre propre nom
 
 Avez-vous déjà compris ce que sont les enregistrements CNAME et A ? [Passer l’explication](#add-a-cname-record-for-your-custom-domain).
 
-> [AZURE.NOTE]Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour les sites Web, consultez la rubrique [Configuration d’un nom de domaine personnalisé pour une application Web Azure App Service](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez la rubrique [Configuration d’un nom de domaine personnalisé pour un compte de stockage Azure](../storage/storage-custom-domain-name.md).
+> [AZURE.NOTE]
+> Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez [cette page](../storage/storage-custom-domain-name.md).
 
 <p/>
 
@@ -137,12 +138,12 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
 >[AZURE.WARNING]
->Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](..\virtual-network\virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
+> Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](../virtual-network/virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
 
 ## Étapes suivantes
 
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
-* [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+* [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
@@ -150,11 +151,11 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
-[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [portail Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

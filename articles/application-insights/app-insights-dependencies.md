@@ -38,6 +38,8 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
  * Azure DocumentDb, table, stockage d’objets blob et file d’attente
 * Java
  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
+* Pages web
+ * Appels AJAX
 
 Là encore, vous pouvez écrire vos propres appels au kit de développement logiciel (SDK) pour surveiller d’autres dépendances.
 
@@ -129,4 +131,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio" />
 
 # Publier une offre dans Azure Marketplace
@@ -32,16 +32,16 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 
 > [AZURE.NOTE]Avant de commencer à publier dans Azure Marketplace, vous devez être pré-approuvé. Ce n’est pas le cas pour les éditeurs de service de données.
 
-||Image de machine virtuelle |Services de développement | Service de données | Modèle de solution |
-|---|---|---|---|---|
-| **Obtenir une approbation préalable** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
-| **Étape 1 : Enregistrer votre compte de développeur** | [Compte de développeur Microsoft : création et inscription][link-accts] | [Compte de développeur Microsoft : création et inscription][link-accts] | [Compte de développeur Microsoft: création et inscription][link-accts] | [Compte de développeur Microsoft : création et inscription][link-accts] |
-|**Étape 2 : Créer votre offre**| [Conditions préalables générales non techniques](marketplace-publishing-pre-requisites.md)| [Conditions préalables générales non techniques](marketplace-publishing-pre-requisites.md)| [Conditions préalables générales non techniques](marketplace-publishing-pre-requisites.md)| [Conditions préalables générales non techniques](marketplace-publishing-pre-requisites.md)|
-|| [Conditions techniques préalables de la machine virtuelle][link-single-vm-prereq] | [Conditions techniques préalables du service de développement](marketplace-publishing-dev-service-creation-prerequisites.md) | [Conditions techniques préalables du service de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions techniques préalables du modèle de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[Guide de publication de l’image de machine virtuelle][link-single-vm] | [Guide de publication du service de développement](marketplace-publishing-dev-service-creation.md) | [Guide de publication du service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication du modèle de solution](marketplace-publishing-solution-template-creation.md) |
+||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
+|----|----|----|----|----|
+| **Obtenir une pré-approbation** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
+| **Étape 1 : Enregistrer votre compte développeur** | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] |
+|**Étape 2 : Créer votre offre**| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)|
+|| [Conditions préalables techniques des machines virtuelles][link-single-vm-prereq] | Conditions préalables techniques des services de développement | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[Guide de publication de l’image de machine virtuelle][link-single-vm] | Guide de publication de service de développeur | [Guide de publication de service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
 || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
-| **Étape 3 : Envoyer votre offre dans l’environnement intermédiaire** | [Tester votre offre de machine virtuelle dans l’environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | [Tester votre offre de service de développement dans l’environnement intermédiaire](marketplace-publishing-dev-service-test-in-staging.md) | [Tester votre offre de service de données dans l’environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans l’environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Étape 4 : Déployer votre offre sur le Marketplace** | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] | [Déployer votre offre sur le Marketplace][link-pushprod] |
+| **Étape 3 : Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans un environnement intermédiaire | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Étape 4 :Déployer votre offre sur Marketplace** | [Déployer votre offre sur Marketplace][link-pushprod] | [Déployer votre offre sur Marketplace][link-pushprod] | [Déployer votre offre sur Marketplace][link-pushprod] | [Déployer votre offre sur Marketplace][link-pushprod] |
 
 ## Support
 - [Obtenir de l’aide en tant qu’éditeur][suppt-general]
@@ -81,4 +81,4 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

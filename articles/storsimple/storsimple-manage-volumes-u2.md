@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
@@ -23,7 +23,7 @@
 
 Ce didacticiel explique comment utiliser le service StorSimple Manager pour créer et gérer des volumes sur l’appareil StorSimple et l’appareil virtuel StorSimple avec la mise à jour Update 2 installée.
 
-Le service StorSimple Manager est une extension du portail Azure qui vous permet de gérer votre solution StorSimple à partir d’une seule interface Web. Outre la gestion des volumes, vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services StorSimple, afficher et gérer les appareils, afficher les alertes, ainsi que pour afficher et gérer les stratégies de sauvegarde et le catalogue de sauvegarde.
+Le service StorSimple Manager est une extension du portail Azure Classic qui vous permet de gérer votre solution StorSimple à partir d’une seule interface Web. Outre la gestion des volumes, vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services StorSimple, afficher et gérer les appareils, afficher les alertes, ainsi que pour afficher et gérer les stratégies de sauvegarde et le catalogue de sauvegarde.
 
 ## Types de volume
 
@@ -165,7 +165,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
     > [AZURE.NOTE]Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
 
-6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure affiche un message de mise à jour du volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
+6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
 
@@ -280,8 +280,9 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 ## Étapes suivantes
 
 - Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
+
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

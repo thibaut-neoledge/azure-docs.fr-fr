@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Activité de procédure stockée SQL Server
 
-Vous pouvez utiliser l’activité de procédure stockée SQL Server dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour appeler une procédure stockée dans une base de données **SQL Azure** ou un entrepôt **Azure SQL Data Warehouse**. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+Vous pouvez utiliser l’activité de procédure stockée SQL Server dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour appeler une procédure stockée dans l’un des magasins de données suivants.
+
+
+- Base de données SQL Azure 
+- Azure SQL Data Warehouse  
+- Base de données SQL Server dans votre machine virtuelle d’entreprise ou Azure. Vous devez installer la passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales ou des sources de données hébergées dans des machines virtuelles Azure à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md). 
+
+Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 ## Syntaxe
 	{
@@ -81,8 +88,8 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 	
 ### Créer une fabrique de données  
 4. Après la connexion au [portail Azure](http://portal.azure.com/), procédez comme suit :
-	1.	Cliquez sur **Nouveau**dans le menu de gauche. 
-	2.	Cliquez sur **Données + analyse** dans le panneau **Nouveau**.
+	1.	Cliquez sur **NOUVEAU** dans le menu de gauche. 
+	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Données + analyse**.
 4.	Dans le panneau **Nouvelle fabrique de données**, entrez **SProcDF** dans le champ Nom. Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
@@ -198,4 +205,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

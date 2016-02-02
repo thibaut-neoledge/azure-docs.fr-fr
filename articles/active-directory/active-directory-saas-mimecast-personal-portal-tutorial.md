@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Mimecast Personal Portal | Microsoft Azure" 
     description="Apprenez à utiliser Mimecast Personal Portal avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Mimecast Personal Portal
   
@@ -115,13 +115,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     7.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, supprimez la première (« *--* ») et la dernière ligne (« * --* »), copiez le contenu restant dans le Presse-papiers, puis collez-le dans la zone de texte **Identity Provider Certificate (Metadata)**.
+    8.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, supprimez la première (« *--* ») et la dernière ligne («* --* »), copiez le contenu restant dans le Presse-papiers, puis collez-le dans la zone de texte **Identity Provider Certificate (Metadata)**.
     9.  Sélectionnez **Allow Single Sign On**.
     10. Cliquez sur **Enregistrer**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -142,7 +142,7 @@ Vous devez enregistrer un domaine avant de pouvoir créer des utilisateurs.
 
     ![Enregistrer un nouveau domaine](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.png "Enregistrer un nouveau domaine")
 
-4.  Après avoir créé votre nouveau domaine, cliquez sur **New Address**.
+4.  Après avoir créé votre domaine, cliquez sur **New Address**.
 
     ![Nouvelle adresse](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.png "Nouvelle adresse")
 
@@ -150,7 +150,7 @@ Vous devez enregistrer un domaine avant de pouvoir créer des utilisateurs.
 
     ![Enregistrer](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Enregistrer")
 
-    1.  Tapez l’adresse électronique, le nom global, le mot de passe et sa confirmation pour un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Email Address**, **Global Name**, **Password** et **Confirm Password**.
+    1.  Tapez l’adresse électronique, le nom global, le mot de passe et sa confirmation pour un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Email Address**, **Global Name**, **Password** et **Confirm Password**.
     2.  Cliquez sur **Enregistrer**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur, fourni par Mimecast Personal Portal, pour approvisionner des comptes d’utilisateur AAD.
@@ -173,4 +173,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

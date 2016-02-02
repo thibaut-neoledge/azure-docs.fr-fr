@@ -54,37 +54,12 @@ L’édition Standard d’**Azure Data Catalog** prend en charge jusqu’à 100
 
 ## Q : Quels sont les types de sources et de ressources de données pris en charge ?
 
-Dans la version préliminaire, **Azure Data Catalog** prend en charge les bases de données relationnelles SQL Server (y compris Azure SQL DB) et les bases de données SQL Server Analysis Services (multidimensionnelles et tabulaires), ainsi que SQL Server Reporting Services (en mode natif uniquement) et Oracle Database.
-
-Lors de l’aperçu, **Azure Data Catalog** prend en charge l’inscription et la détection des types de ressources suivants :
-
-- Table SQL Server
-- Vue SQL Server
-- Dimension SQL Server Analysis Services
-- Mesure SQL Server Analysis Services
-- Indicateur de performance clé de SQL Server Analysis Services
-- Table SQL Server Analysis Services
-- Rapport SQL Server Reporting Services  
-- Table de base de données Oracle
-- Vue de base de données Oracle
-- Azure Storage Blob
-- Répertoire de stockage Azure
-- Fichier HDFS
-- Répertoire HDFS
-- Table Teradata
-- Vue Teradata
-
-Outre les ressources répertoriées ci-dessus, **Azure Data Catalog** prend en charge la détection des conteneurs de ressources de données suivants :
-
-- Base de données SQL Server
-- Oracle Database
-- Cluster HDFS
-- Base de données Teradata
+Reportez-vous au [DSR Data Catalog](data-catalog-dsr.md) pour obtenir la liste des sources de données actuellement prises en charge.
 
 
 ## Q : Comment demander la prise en charge d’une autre source de données ?
 
-Les demandes de fonctionnalités et d’autres commentaires peuvent être envoyés via le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Les demandes de fonctionnalités et d’autres commentaires peuvent être envoyés dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q : Comment effectuer mes premiers pas avec Azure Data Factory ?
 
@@ -117,7 +92,7 @@ Après avoir inscrit des ressources auprès d’**Azure Data Catalog**, il peut
 
 ## Q : Comment annoter et enrichir les métadonnées pour mes ressources de données inscrites ?
 
-La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail **Azure Data Catalog**, puis à entrer les valeurs des métadonnées dans le volet des propriétés ou du schéma de l’objet sélectionné.
+La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail **Azure Data Catalog**, puis à entrer les valeurs des métadonnées dans le volet des propriétés ou du schéma de l'objet sélectionné.
 
 Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs fournies dans le service de publication **Azure Data Catalog** s’appliqueront à toutes les ressources en cours d’inscription à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour ajouter des annotations supplémentaires, sélectionnez le bouton **Afficher Portail** sur le dernier écran de l’application de publication **Azure Data Catalog**.
 
@@ -138,7 +113,7 @@ Dans la version préliminaire d’**Azure Data Catalog**, il n’existe aucun c
 Utilisez le forum **Azure Data Catalog** pour signaler des problèmes, partager des informations et poser des questions. Le forum se trouve à l’adresse http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##Q : Azure Data Catalog fonctionne-t-il avec cette autre source de données qui m'intéresse ?
-Nous travaillons activement à l’ajout de sources de données supplémentaires à **Azure Data Catalog**. S’il existe une source de données que vous souhaitez voir prise en charge, veuillez la suggérer (ou faites part de votre accord si elle a déjà été suggérée) dans le forum [Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Nous travaillons activement à l’ajout de sources de données supplémentaires à **Azure Data Catalog**. S'il existe une source de données que vous souhaitez voir prise en charge, veuillez la suggérer (ou faites part de votre accord si elle a déjà été suggérée) dans le forum [Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q : Comment Azure Data Catalog est-il lié au catalogue de données dans Power BI pour Office 365 ?
 
@@ -172,4 +147,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

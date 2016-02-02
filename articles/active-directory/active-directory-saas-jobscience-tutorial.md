@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Jobscience | Microsoft Azure" 
     description="Apprenez à utiliser Jobscience avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Jobscience
   
@@ -111,15 +111,15 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
     ![Paramètres d’authentification unique](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Paramètres d’authentification unique")
 
     1.  Sélectionnez **SAML Enabled**.
-    2.  Cliquez sur **New**.
+    2.  Cliquez sur **Nouveau**.
 
 12. Dans la boîte de dialogue **SAML Single Sign-On Setting Edit**, procédez comme suit :
 
     ![Paramètre d’authentification unique SAML](./media/active-directory-saas-jobscience-tutorial/IC784365.png "Paramètre d’authentification unique SAML")
 
-    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.
+    1.  Dans la zone de texte **Name**, attribuez un nom à votre configuration.
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jobscience** de la boîte de dialogue, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **Entity Id**, tapez ****https://salesforce-jobscience.com**.
+    3.  Dans la zone de texte **Entity Id**, tapez **https://salesforce-jobscience.com**.
 4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
@@ -131,7 +131,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Mon domaine](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mon domaine")
 
-14. Dans la section **Login Page Branding** de la page **My Domain**, cliquez sur **Edit**.
+14. Dans la section **Personnalisation de la page de connexion** de la page **Mon domaine**, cliquez sur **Edit**.
 
     ![Personnalisation de la page de connexion](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Personnalisation de la page de connexion")
 
@@ -160,7 +160,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
     ![Paramétrage](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Paramétrage")
 
-3.  Accédez à **Manage Users > Users**.
+3.  Accédez à **Manage Users > Users**.
 
     ![Utilisateurs](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Utilisateurs")
 
@@ -168,12 +168,12 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
     ![Tous les utilisateurs](./media/active-directory-saas-jobscience-tutorial/IC784370.png "Tous les utilisateurs")
 
-5.  Dans la page **Edit User**, procédez comme suit :
+5.  Dans la boîte de dialogue **Edit User**, procédez comme suit :
 
     ![Modification de l’utilisateur](./media/active-directory-saas-jobscience-tutorial/IC784371.png "Modification de l’utilisateur")
 
     1.  Indiquez le prénom, le nom, l’alias, l’adresse de messagerie, le nom d’utilisateur et le surnom de l’utilisateur Azure AD que vous souhaitez approvisionner, dans les zones de texte correspondantes.
-    2.  Cliquez sur **Save**.
+    2.  Cliquez sur **Enregistrer**.
 
     >[AZURE.NOTE]Le titulaire du compte Azure AD reçoit alors un message électronique qui contient un lien pour confirmer le compte avant qu’il soit activé.
 
@@ -197,4 +197,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

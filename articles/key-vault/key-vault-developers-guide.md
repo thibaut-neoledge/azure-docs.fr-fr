@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="01/19/2016"
    ms.author="bruceper" />
 
 # Guide du développeur de coffre de clés Azure
@@ -25,7 +25,7 @@ Vous pouvez, sous réserve d'autorisation, exécuter les opérations suivantes :
 
 - Gérer les clés de chiffrement à l'aide d'opérations [Créer](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importer](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Mettre à jour](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Supprimer](https://msdn.microsoft.com/library/azure/dn903611.aspx) entre autres
 
-- Gérer les secrets à l'aide de [Obtenir](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Update] (https://msdn.microsoft.com/library/azure/dn986818.aspx, [Supprimer](https://msdn.microsoft.com/library/azure/dn903613.aspx) et d'autres opérations
+- Gérer les secrets à l’aide de [Obtenir](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Mettre à jour](https://msdn.microsoft.com/library/azure/dn986818.aspx), [Supprimer](https://msdn.microsoft.com/library/azure/dn903613.aspx) et d’autres opérations
 
 - Utiliser des clés de chiffrement avec les opérations [Signe](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Vérifier](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) et [Chiffrer](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Déchiffrer](https://msdn.microsoft.com/library/azure/dn878097.aspx)
 
@@ -37,7 +37,8 @@ Le système de gestion de coffre de clés pour les programmeurs se compose de pl
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[Documentation du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentation du Kit de développement logiciel (SDK) Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Package du Kit de développement logiciel (SDK) .NET](https://azure.microsoft.com/fr-FR/documentation/api/)|[Package du Kit de développement logiciel (SDK) Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 ## Gestion des coffres de clés
 
@@ -65,4 +66,4 @@ Les articles suivants fournissent des conseils spécifiques à des tâches :
 
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fournit des fonctionnalités étendues pour Azure Key Vault.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Azure" 
     description="Apprenez à utiliser Central Desktop avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Central Desktop
 
@@ -83,7 +83,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
     -   Dans la zone de texte **URL de connexion à Central Desktop**, tapez l’URL de votre locataire Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
     -   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, *http://contoso.centraldesktop.com*).
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configurer l’URL de l’application")
 
@@ -93,32 +93,32 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 5.  Connectez-vous à votre locataire **Central Desktop**.
 
-6.  Accédez à **Settings**, cliquez sur **Advanced**, puis sur **Single Sign On**.
+6.  Accédez à **Paramètres**, cliquez sur **Avancé**, puis sur **Authentification unique**.
 
     ![Paramétrage - Avancé](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Paramétrage - Avancé")
 
-7.  Dans la page **Single Sign On Settings**, procédez comme suit :
+7.  Dans la page **Paramètres de l’authentification unique**, procédez comme suit :
 
     ![Paramètres d’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Paramètres d’authentification unique")
 
-    1.  Sélectionnez **Enable SAML v2 Single Sign On**.
-    2.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **SSO URL**.
-    3.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **SSO Login URL**.
-    4.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **SSO Logout URL**.
+    1.  Sélectionnez **Activer l’authentification unique SAMLv2**.
+    2.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **URL de SSO**.
+    3.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion à SSO**.
+    4.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion de SSO**.
 
-8.  Dans la section **Message Signature Verification Method**, procédez comme suit :
+8.  Dans la section **Méthode de vérification de signature de message**, procédez comme suit :
 
     ![Méthode de vérification de signature de message](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Méthode de vérification de signature de message")
 
-    1.  Sélectionnez **Certificate**.
-    2.  Dans la liste **SSO Certificate**, sélectionnez **RSH SHA256**.
-    3.  Créez un fichier texte à partir du certificat téléchargé, copiez le contenu du fichier texte et collez-le dans le champ **SSO Certificate**.  
+    1.  Sélectionnez **Certificat**.
+    2.  Dans la liste **Certificat SSO**, sélectionnez **RSH SHA256**.
+    3.  Créez un fichier texte à partir du certificat téléchargé, copiez le contenu du fichier texte et collez-le dans le champ **Certificat SSO**.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    4.  Sélectionnez **Display a link to your SAMLv2 login page**.
+    4.  Sélectionnez **Afficher un lien vers votre page de connexion SAMLv2**.
 
-9.  Cliquez sur **Update**.
+9.  Cliquez sur **Mettre à jour**.
 
 10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -131,17 +131,17 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
 1.  Connectez-vous à votre locataire Central Desktop.
 
-2.  Accédez à **People > Internal Members**.
+2.  Accédez à **Personnes > Membres internes**.
 
-3.  Cliquez sur **Add Internal Members**.
+3.  Cliquez sur **Ajouter des membres internes**.
 
     ![Personnes](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "Personnes")
 
-4.  Dans la zone de texte **Email Address of New Members**, tapez un compte AAD à approvisionner, puis cliquez sur **Next**.
+4.  Dans la zone de texte **Adresses de messagerie des nouveaux membres**, tapez un compte AAD à approvisionner, puis cliquez sur **Suivant**.
 
     ![Adresses de messagerie des nouveaux membres](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Adresses de messagerie des nouveaux membres")
 
-5.  Cliquez sur **Add Internal member(s)**.
+5.  Cliquez sur **Ajouter des membres internes**.
 
     ![Ajouter un membre interne](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "Ajouter un membre interne")
 
@@ -161,10 +161,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

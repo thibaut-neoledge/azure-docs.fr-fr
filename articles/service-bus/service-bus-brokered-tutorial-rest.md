@@ -25,7 +25,7 @@ La première étape consiste à créer l’espace de noms de service et à obten
 
 ### Créer un espace de noms et obtenir une clé secrète partagée
 
-1. Pour plus d’informations sur la création d’un espace de noms de service, voir la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh690931.aspx) dans la section [Gestion des espaces de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh690928.aspx).
+1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
 1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom de l’espace de noms que vous avez créé à l’étape précédente.
 
@@ -270,7 +270,7 @@ L’étape suivante consiste à écrire une méthode qui utilise la commande HTT
 
 ### Création d’une rubrique
 
-Collez le code suivant directement après le code `ReceiveAndDeleteMessage()` que vous avez ajouté à l’étape précédente :
+Collez le code suivant directement après le code `ReceiveAndDeleteMessage()` que vous avez ajouté à l'étape précédente :
 
 ```
 // Using an HTTP PUT request.
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 Pour en savoir plus, voir les articles suivants :
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Concepts de base d’Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Concepts de base d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Didacticiel REST sur Service Bus Relay](service-bus-relay-rest-tutorial.md)
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

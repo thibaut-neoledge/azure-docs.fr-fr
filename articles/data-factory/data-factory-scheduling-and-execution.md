@@ -475,7 +475,7 @@ L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
 	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
@@ -518,7 +518,7 @@ Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d
 
 Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d’utilisation
 ------------- | ----------- | ------------ | ------------------------
-WindowStart | Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours | activité | <ol><li>Spécifier des requêtes de sélection de données. Consultez les articles connexes référencés dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).</li><li>Passer des paramètres à un script Hive (exemple ci-dessus).</li>
+WindowStart | Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours | activité | <ol><li>Spécifier des requêtes de sélection de données. Consulter les articles de connecteur référencés dans l’article [activités de déplacement des données](data-factory-data-movement-activities.md). </li><li>Passer des paramètres des scripts de Hive (exemple ci-dessus).</li>
 WindowEnd | Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours | activité | Identique à ce qui précède.
 SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | <ol><li>Spécifier les chemins de dossier et noms de fichier dynamiques en cas d’utilisation d’un [objet blob Azure](data-factory-azure-blob-connector.md) et de [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collection d’entrées d’activité.</li></ol>
 SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | identique à ce qui précède. 
@@ -577,12 +577,12 @@ Texte | Format(X) | X : variable de chaîne | Met en forme le texte.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Quand vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** pour la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
+> [AZURE.NOTE]Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
   
 
 ## Examen approfondi de la dépendance de données
 
-Pour générer une tranche de jeu de données en exécutant une activité, Data Factory utilise le **modèle de dépendance** pour déterminer les relations entre les jeux de données consommés par une activité et les jeux de données générés par une activité.
+Pour générer une tranche de jeu de données en exécutant une activité, Data Factory utilise le **modèle de dépendance** pour déterminer les relations entre le jeu de données consommées par une activité et le jeu de données généré par une activité.
 
 L’intervalle de temps des jeux de données d’entrée requis pour générer la tranche de jeu de données de sortie s’appelle la **période de dépendance**.
 
@@ -678,4 +678,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

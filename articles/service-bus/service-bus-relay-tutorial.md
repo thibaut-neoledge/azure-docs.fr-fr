@@ -17,7 +17,7 @@
 
 # Didacticiel sur la messagerie par relais Service Bus
 
-Ce didacticiel vous montre comment créer une application cliente et un service Service Bus simple à l’aide des fonctionnalités « relais » Service Bus. Pour obtenir le didacticiel correspondant, qui explique comment générer une application utilisant les fonctionnalités de messagerie « répartie » Service Bus ou des fonctionnalités de messagerie asynchrone, voir le [didacticiel sur la messagerie répartie Service Bus](https://msdn.microsoft.com/library/hh367512.aspx). Pour obtenir un didacticiel similaire utilisant la [messagerie répartie](service-bus-messaging-overview.md/#Brokered-messaging) Service Bus, consultez le [didacticiel sur la messagerie répartie Service Bus](https://msdn.microsoft.com/library/hh367512.aspx).
+Ce didacticiel vous montre comment créer une application cliente et un service Service Bus simple à l’aide des fonctionnalités « relais » Service Bus. Pour obtenir un didacticiel correspondant utilisant la [messagerie répartie](service-bus-messaging-overview.md#Brokered-messaging) Service Bus, consultez le [didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md).
 
 Ce didacticiel vous offre une présentation des étapes requises pour créer une application client Service Bus et une application service. À l’instar de leurs homologues WCF, un service est une construction qui expose un ou plusieurs points de terminaison, chacun d’entre eux exposant une ou plusieurs opérations de service. Le point de terminaison de service spécifie une adresse où le service peut être trouvé, une liaison contenant les informations qu’un client doit communiquer avec le service et le contrat qui définit la fonctionnalité fournie par le service à ses clients. La principale différence entre un service WCF et un service Service Bus est que le point de teminaison est exposé dans le cloud en non localement sur votre ordinateur.
 
@@ -31,15 +31,15 @@ Toutes les rubriques de cette section supposent que vous utilisez Visual Studio 
 
 La première étape consiste à créer l’espace de noms de service Service Bus et obtenir une clé de signature d’accès partagé (SAP). Un espace de noms de service fournit une limite d’application pour chaque application exposée via Service Bus. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
-Pour créer un espace de noms, suivez les étapes décrites dans la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
->[AZURE.NOTE]Vous n’avez pas à utiliser le même espace de noms pour les applications client et le service.
+	>[AZURE.NOTE]Vous n’avez pas à utiliser le même espace de noms pour les applications client et le service.
 
 1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom d’espace de noms du service que vous avez créé à l’étape précédente.
 
 2. Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé par défaut pour votre espace de noms de service.
 
-3. Notez la clé primaire de la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
+3. Notez la clé primaire de la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papier. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
 ## Définition d’un contrat de service WCF à utiliser avec Service Bus
 
@@ -100,7 +100,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 
 	Un canal est l’objet WCF par le biais duquel l’hôte et le client se transmettent des informations. Par la suite , vous allez écrire du code par rapport au canal pour reprendre les informations entre les deux applications.
 
-1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur F6 pour confirmer que votre travail est correct.
+1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur F6 pour confirmer si votre travail est correct.
 
 ### Exemple
 
@@ -218,7 +218,7 @@ La création d’un service Service Bus nécessite la création au préalable du
 	Le point de terminaison définit l’emplacement où le client recherchera l’application hôte. Plus tard, le didacticiel utilise cette étape pour créer une URI qui expose entièrement l’hôte via Service Bus. La liaison déclare que nous utilisons TCP comme protocole pour communiquer avec Service Bus.
 
 
-1. Directement après l’élément `<services>`, ajoutez l’extension de liaison suivante :
+1. Directement après l’élément `<services>`, ajoutez l’extension de liaison suivante :
  
 	```
 	<extensions>
@@ -273,7 +273,7 @@ Cette étape explique comment exécuter un service Service Bus de base.
 
 ### Pour créer les informations d’identification de Service Bus
 
-1. Ajoutez une référence au projet dans Microsoft.ServiceBus.dll : consultez [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
+1. Ajoutez une référence à Microsoft.ServiceBus.dll au projet : consultez [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
 
 	>[AZURE.NOTE]Lorsque vous utilisez un compilateur de ligne de commande, vous devez également fournir le chemin d’accès aux assemblages.
 
@@ -833,7 +833,7 @@ Assurez-vous que le service est en cours d’exécution avant de démarrer le cl
 
 ## Étapes suivantes
 
-Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités « relais ». Pour obtenir un didacticiel similaire utilisant la [messagerie répartie](service-bus-messaging-overview.md/#Brokered-messaging) Service Bus, consultez le [Didacticiel .NET sur la messagerie répartie Service Bus](https://msdn.microsoft.com/library/hh367512.aspx).
+Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités « relais ». Pour obtenir un didacticiel similaire utilisant la [messagerie répartie](service-bus-messaging-overview.md#Brokered-messaging) Service Bus, consultez le [Didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md).
 
 Pour en savoir plus sur Service Bus, consultez les rubriques qui suivent.
 
@@ -843,4 +843,4 @@ Pour en savoir plus sur Service Bus, consultez les rubriques qui suivent.
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

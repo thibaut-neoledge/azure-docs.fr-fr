@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copie d'une base de données SQL Azure"
+	pageTitle="Copie d’une base de données SQL Azure | Microsoft Azure"
 	description="Création d'une copie d'une base de données SQL Azure"
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -84,7 +84,7 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 
 ## Étapes suivantes
 
-- [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 - [Exporter la base de données vers un fichier BACPAC](sql-database-export.md)
 
 
@@ -101,4 +101,4 @@ Ouvrez le panneau SQL Database de la base de données que vous voulez copier :
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

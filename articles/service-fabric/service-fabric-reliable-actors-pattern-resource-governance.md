@@ -16,25 +16,29 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Modèle de conception Acteurs fiables : gestion des ressources
+# Modèle de conception Reliable Actors : gestion des ressources
 
-Ce modèle et les scénarios associés sont facilement identifiables par les développeurs (entreprises ou autres) qui disposent de ressources limitées sur site ou dans le cloud qu'ils ne peuvent pas mettre immédiatement à l'échelle, ou qui souhaitent transférer des applications et des données volumineuses vers le cloud.
+Ce modèle et les scénarios associés sont facilement identifiables par les développeurs (entreprises ou autres) qui disposent de ressources limitées localement ou dans le cloud qu’ils ne peuvent pas mettre immédiatement à l’échelle. Ils sont également connus des développeurs qui souhaitent transférer des applications et des données volumineuses vers le cloud.
 
-Dans l'entreprise, ces ressources limitées, telles que des bases de données, s'exécutent sur du matériel avec une augmentation d'échelle. Toute personne disposant d'une longue expérience en entreprise sait qu'il s'agit d'une situation courante sur site. Même à l'échelle du cloud, nous avons vu cette situation se produire lorsqu'un service cloud a tenté de dépasser la limite de connexions 64K TCP entre un tuple adresse/port, ou lorsque vous tentez de vous connecter à une base de données en cloud qui limite le nombre de connexions simultanées.
+Dans l’entreprise, ces ressources limitées, telles que des bases de données, s’exécutent sur du matériel avec une augmentation d’échelle. Toute personne disposant d’une longue expérience en entreprise sait qu’il s’agit d’une situation courante localement. Même à l’échelle du cloud, les développeurs voient cette situation se produire quand un service cloud tente de dépasser la limite de 64 000 connexions TCP entre un tuple adresse/port. Cette situation se produit également en cas de tentative de connexion à une base de données en cloud qui limite le nombre de connexions simultanées.
 
-En général, dans le passé, ce problème était résolu en utilisant des intergiciels à base de messages ou à l'aide de mécanismes personnalisés de regroupement et en façade. Ces situations sont difficiles à gérer, en particulier lorsque nous devons mettre à l'échelle le niveau intermédiaire tout en conservant le bon nombre de connexions. C'est un système fragile et complexe.
+Dans le passé, ce problème était généralement résolu en utilisant des intergiciels à base de messages ou à l’aide de mécanismes personnalisés de regroupement et en façade. Ces situations sont toutefois difficiles à gérer, en particulier quand vous devez mettre à l’échelle le niveau intermédiaire tout en conservant le bon nombre de connexions. C’est une solution fragile et complexe.
 
-En fait, comme le modèle Smart Cache, ce modèle couvre plusieurs scénarios et s'adresse aux clients qui possèdent déjà de systèmes opérationnels avec des ressources limitées. Ils créent des systèmes où ils doivent faire monter en charge non seulement les services, mais également leur état en mémoire ainsi que l'état persistant dans un stockage stable.
+Comme le modèle Smart Cache, ce modèle couvre plusieurs scénarios et s’adresse aux clients qui possèdent déjà des systèmes opérationnels avec des ressources limitées. Leurs systèmes doivent faire monter en charge non seulement des services, mais également leur état en mémoire, ainsi que l’état persistant dans un stockage stable.
 
 Le diagramme ci-dessous illustre ce scénario :
 
-![][1]
+![Acteurs sans état, partitionnement et ressources limitées][1]
 
-## Modélisation de scénarios de mise en cache avec des acteurs
+## Modéliser des scénarios de mise en cache avec des acteurs
 
-Essentiellement, nous modélisons l'accès à des ressources avec un ou plusieurs acteurs qui agissent comme des proxies (une connexion, par exemple) vers une ressource ou un groupe de ressources. Vous pouvez ensuite gérer directement la ressource par le biais d'acteurs individuels ou utiliser un acteur de coordination qui gère les acteurs de la ressource. Pour plus de clarté, nous étudierons le besoin fréquent de devoir travailler sur un niveau de stockage partitionné pour des questions de performances et d'évolutivité. Notre première option est plutôt basique : nous pouvons utiliser une fonction statique pour mapper et résoudre nos acteurs aux ressources en aval. Une telle fonction peut retourner, par exemple, une chaîne de connexion avec un résultat donné. Nous pouvons librement choisir comment implémenter cette fonction. Bien entendu, cette approche présente ses propres inconvénients comme une affinité statique qui complique beaucoup le repartitionnement des ressources ou le remappage d'un acteur à des ressources. Voici un exemple très simple dans lequel nous utilisons une arithmétique modulaire pour déterminer le nom de la base de données en utilisant la valeur userID et une région pour identifier le serveur de la base de données.
+Vous pouvez modéliser l’accès à des ressources à l’aide d’un ou plusieurs acteurs qui agissent comme des proxys vers une ressource ou un groupe de ressources (une connexion, par exemple). Vous pouvez ensuite gérer la ressource directement par le biais d’acteurs individuels ou utiliser un acteur de coordination qui gère les acteurs de la ressource.
 
-## Exemple de code de gestion des ressources – résolution statique
+Pour rendre ce concept plus clair, nous étudierons le besoin fréquent de travailler sur un niveau de stockage partitionné pour des questions de performances et d’évolutivité. Votre première option est plutôt basique. Vous pouvez utiliser une fonction statique pour mapper et résoudre nos acteurs aux ressources en aval. Une telle fonction peut, par exemple, retourner une chaîne de connexion avec un résultat donné. Vous pouvez choisir comment implémenter cette fonction. Toutefois, cette approche présente des inconvénients, comme une affinité statique qui complique le repartitionnement des ressources ou le remappage des acteurs à des ressources.
+
+Voici un exemple simple. Nous effectuons un traitement arithmétique modulaire pour déterminer le nom de la base de données en utilisant **userId**, et nous utilisons **region** pour identifier le serveur de la base de données.
+
+### Exemple de code de gestion des ressources : résolution statique
 
 ```csharp
 private static string _connectionString = "none";
@@ -50,13 +54,17 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Simple mais pas très flexible. Examinons maintenant une approche plus avancée et plus utile. Tout d'abord, nous modélisons l'affinité entre des ressources physiques et des acteurs. Cette opération s'effectue via un acteur appelé Résolveur qui comprend le mappage entre les utilisateurs, les partitions logiques et les ressources physiques. Le résolveur conserve ses données dans un magasin persistant, mais elles sont mises en cache pour simplifier la recherche. Comme nous l'avons vu dans l'exemple du taux de change plus tôt dans le modèle Smart Cache, le résolveur peut récupérer de façon proactive les toutes dernières informations à l'aide d'un minuteur. Une fois que l'acteur utilisateur résout la ressource qu'il doit utiliser, il la met en cache dans une variable locale appelée \_resolution et l'utilise pendant sa durée de vie. Nous avons choisi une résolution basée sur la recherche (illustrée ci-dessous) plutôt qu'un hachage simple ou un hachage par plage en raison de la flexibilité qu'elle offre pour des opérations comme la montée/descente en charge ou le déplacement d'un utilisateur d'une ressource à une autre.
+C’est simple, mais pas très flexible. Examinons maintenant une approche plus avancée et plus utile.
 
-![][2]
+Tout d’abord, modélisez l’affinité entre des ressources physiques et des acteurs. Cette opération s’effectue via un acteur appelé **résolveur**. Ce dernier comprend le mappage entre les utilisateurs, les partitions logiques et les ressources physiques. Il conserve ses données dans un magasin persistant, mais elles sont mises en cache pour simplifier la recherche. Comme indiqué dans l’[exemple du taux de change dans le modèle Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md), un résolveur peut récupérer de façon proactive les toutes dernières informations à l’aide d’un minuteur. Une fois que l’acteur utilisateur résout la ressource qu’il doit utiliser, il la met en cache dans une variable locale appelée **\_resolution** et l’utilise pendant sa durée de vie.
 
-Dans l'illustration ci-dessus, nous constatons que l'acteur B23 résout tout d'abord sa ressource (également appelée resolution) — DB1 puis la met en cache. Les opérations suivantes peuvent maintenant utiliser la résolution mise en cache pour accéder à la ressource limitée. Comme les acteurs prennent en charge une exécution dans un seul thread, les développeurs n'ont plus à se soucier de l'accès simultané à la ressource. Les acteurs User et Resolver ressemblent à ceci :
+Nous avons choisi une résolution basée sur la recherche (illustrée ci-dessous) plutôt qu’un hachage simple ou un hachage par plage en raison de la flexibilité qu’elle offre pour les opérations. Parmi celles-ci citons la montée ou descente en charge ou le déplacement d’un utilisateur d’une ressource à une autre.
 
-## Exemple de code de gestion des ressources – Résolveur
+![Solution de recherche avec résolveur][2]
+
+Dans l’illustration ci-dessus, vous pouvez constater que l’acteur B23 résout tout d’abord sa ressource (résolution) **DB1**, puis la met en cache. Les opérations suivantes peuvent maintenant utiliser la résolution mise en cache pour accéder à la ressource limitée. Comme les acteurs prennent en charge une exécution dans un seul thread, les développeurs n'ont plus à se soucier de l'accès simultané à la ressource. L’exemple de code suivant illustre les acteurs utilisateur et résolveur.
+
+### Exemple de code de gestion des ressources : résolveur
 
 ```csharp
 public interface IUser : IActor
@@ -99,7 +107,7 @@ public class User : StatefulActor<UserState>, IUser
 }
 ```
 
-Gestion des ressources – exemple de résolveur
+#### Gestion des ressources : exemple de résolveur
 
 ```csharp
 public interface IResolver : IActor
@@ -141,15 +149,17 @@ public class Resolver : StatefulActor<ResolverState>, IResolver
 }
 ```
 
-## Accès aux ressources avec une capacité limitée
+## Accès aux ressources qui ont une capacité limitée
 
-Examinons maintenant un autre exemple ; l'accès exclusif à des ressources précieuses comme des bases de données, des comptes de stockage et des systèmes de fichiers avec une capacité de débit limitée. Notre scénario est le suivant : nous aimerions traiter des événements à l'aide d'un acteur appelé EventProcessor, qui est responsable du traitement et de la persistance de l'événement, dans ce cas un fichier .CSV pour plus de simplicité. Même si nous pouvons suivre l'approche de partitionnement décrite ci-dessus pour monter en charge nos ressources, nous devons toujours traiter les problèmes de concurrence. C'est pourquoi nous avons choisi un exemple basé sur un fichier pour illustrer ce point particulier car l'écriture dans un fichier unique à partir de plusieurs acteurs entraîne des problèmes d'accès simultané. Pour résoudre le problème, nous avons introduit un autre acteur appelé EventWriter qui est propriétaire exclusif des ressources limitées. Voici une illustration de ce scénario :
+Examinons maintenant un autre exemple : l’accès exclusif à des ressources précieuses, comme des bases de données, des comptes de stockage et des systèmes de fichiers, qui ont une capacité de débit limitée. Dans ce scénario, nous voulons traiter les événements à l’aide d’un acteur appelé EventProcessor. Cet acteur est responsable du traitement et de la persistance de l’événement, dans ce cas un fichier .csv pour plus de simplicité. Nous pouvons suivre l’approche de partitionnement décrite ci-dessus pour monter en charge vos ressources, mais nous devons toujours traiter les problèmes d’accès simultané. Nous avons choisi un exemple basé sur un fichier pour illustrer ce point, car l’écriture dans un fichier unique à partir de plusieurs acteurs entraîne des problèmes d’accès simultané. Pour résoudre ce problème, nous introduisons un autre acteur, appelé EventWriter, qui est propriétaire exclusif des ressources limitées. Voici une illustration de ce scénario :
 
-![][3]
+![Écriture et traitement d’événements avec EventWriter et EventProcessor][3]
 
-Nous définissons les acteurs EventProcessor comme « Travailleurs sans état », ce qui permet au runtime de les faire évoluer dans le cluster en fonction des besoins. Par conséquent, nous n'avons pas utilisé tous les identificateurs dans l'illustration ci-dessus pour ces acteurs. En d'autres termes, les acteurs sans état constituent un pool de travailleurs géré par le runtime. Dans l'exemple de code ci-dessous, l'acteur EventProcessor effectue deux opérations : il détermine tout d'abord l'élément EventWriter (et par conséquent la ressource) à utiliser et appelle l'acteur choisi pour écrire l'événement traité. Pour plus de simplicité, nous choisissons Type d'événement comme identificateur de l'acteur EventWriter. En d'autres termes, il n'y aura qu'un seul EventWriter pour ce type d'événement fournissant un accès à thread unique et exclusif à la ressource.
+Nous définissons les acteurs EventProcessor en tant que workers sans état, ce qui permet au runtime de les faire évoluer dans le cluster en fonction des besoins. Notez que nous n’avons pas utilisé tous les identificateurs dans l’illustration ci-dessus pour ces acteurs. Les acteurs sans état constituent un pool de workers géré par le runtime.
 
-## Exemple de code de gestion des ressources – Event Processor
+Dans l’exemple de code ci-dessous, l’acteur EventProcessor effectue deux opérations. Tout d’abord, il détermine l’élément EventWriter (donc, la ressource) à utiliser, puis il appelle l’acteur choisi pour écrire l’événement traité. Pour plus de simplicité, nous avons choisi le type d’événement comme identificateur de l’acteur EventWriter. Ainsi, il n’y a qu’un seul EventWriter pour ce type d’événement, et il fournit un accès à thread unique et exclusif à la ressource.
+
+### Exemple de code de gestion des ressources : EventProcessor
 
 ```csharp
 public interface IEventProcessor : IActor
@@ -176,8 +186,9 @@ public class EventProcessor : StatelessActor, IEventProcessor
 }
 ```
 
-Examinons maintenant l'acteur EventWriter. Il ne fait pas véritablement grand-chose en dehors de contrôler l'accès exclusif à la ressource limitée, le fichier dans ce cas, et d'écrire les événements.
-## Exemple de code de gestion des ressources – Event Writer
+Examinons maintenant l’acteur EventWriter. Essentiellement, il contrôle l’accès exclusif à la ressource limitée, le fichier dans ce cas, et y écrit les événements.
+
+### Exemple de code de gestion des ressources : EventWriter
 
 ```csharp
 public interface IEventWriter : IActor
@@ -220,8 +231,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
  }
 ```
 
-N'avoir qu'un seul acteur responsable de la ressource nous permet d'ajouter des fonctionnalités telles que la mise en mémoire tampon. Nous pouvons mettre en mémoire tampon les événements entrants et écrire ces événements régulièrement à l'aide d'un minuteur ou lorsque la mémoire tampon est saturée. Voici un exemple simple basé sur un minuteur :
-## Exemple de code de gestion des ressources – Event Writer
+En ayant un seul acteur responsable de la ressource, vous pouvez ajouter des fonctionnalités telles que la mise en mémoire tampon. Vous pouvez mettre en mémoire tampon les événements entrants et écrire ces événements régulièrement à l’aide d’un minuteur ou quand la mémoire tampon est saturée. Voici un exemple de code simple basé sur un minuteur :
+
+### Exemple de code de gestion des ressources : EventWriter avec mémoire tampon
 
 ```csharp
 [DataMember]
@@ -282,9 +294,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Bien que le code ci-dessus fonctionne correctement, les clients ne savent pas si leur événement est bien arrivé au magasin sous-jacent. Pour autoriser la mise en mémoire tampon et permettre aux clients de suivre l'état de leur requête, nous proposons l'approche suivante qui indique aux clients d'attendre que l'événement soit écrit dans le fichier .CSV :
+Le code ci-dessus fonctionne correctement, mais les clients ne savent pas si leur événement est bien arrivé au magasin sous-jacent. Pour autoriser la mise en mémoire tampon et fournir aux clients des informations sur l’état de leur requête, l’approche suivante permet aux clients d’attendre que l’événement soit écrit dans le fichier .csv.
 
-## Exemple de code de gestion des ressources – Traitement par lots asynchrone
+### Exemple de code de gestion des ressources : traitement par lots asynchrone
 
 ```csharp
 public class AsyncBatchExecutor
@@ -323,9 +335,11 @@ public class AsyncBatchExecutor
 }
 ```
 
-Nous utiliserons cette classe pour créer et gérer une liste de tâches non terminées (pour bloquer des clients) et les finaliser en une seule fois après avoir écrit les événements mis en mémoire tampon dans le stockage. Dans la classe EventWriter, nous devons faire trois choses : marquer la classe acteur comme Reentrant, renvoyer le résultat de SubmitNext() et réinitialiser notre minuterie. Le code modifié se présente comme suit :
+Nous utiliserons cette classe pour créer et gérer une liste de tâches non terminées (pour bloquer des clients). Nous les finaliserons en une seule fois après avoir écrit les événements mis en mémoire tampon dans le stockage.
 
-## Exemple de code de gestion des ressources – Mise en mémoire tampon avec traitement par lots asynchrone
+Dans la classe EventWriter, nous devons faire trois choses : marquer la classe acteur comme reentrant, renvoyer le résultat de **SubmitNext()** et réinitialiser notre minuterie. Consultez le code modifié ci-dessous.
+
+### Exemple de code de gestion des ressources : mise en mémoire tampon avec traitement par lots asynchrone
 
 ```csharp
 public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
@@ -387,38 +401,38 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Cela semble facile ? C'est le cas. Mais cette facilité cache la puissance de l'entreprise. Avec cette architecture, nous obtenons :
+La facilité de cette approche cache la puissance de l’entreprise. À l’aide de cette architecture, vous obtenez :
 
-* Un adressage des ressources indépendant de l'emplacement.
-* Une taille de pool ajustable simplement basée sur la modification du nombre d'acteurs qui agissent au nom d'une ressource.
-* Une utilisation du pool coordonnée côté client (voir illustration) ou côté serveur (imaginez un acteur unique devant chacun des pools présentés dans l'image).
-* Un ajout évolutif de pools (il suffit d'ajouter les acteurs qui représentent la nouvelle ressource).
-* Un acteur (comme nous l'avons démontré plus haut) peut mettre en cache les résultats à partir d'une ressource principale à la demande ou effectuer une pré-mise en cache à l'aide d'un minuteur sans que cela n’affecte la ressource principale.
-* Une distribution asynchrone efficace.
-* Un environnement de codage familier à tout développeur et pas seulement aux spécialistes en intergiciels.
+* un adressage des ressources indépendant de l’emplacement ;
+* une taille de pool ajustable simplement basée sur la modification du nombre d’acteurs qui agissent au nom d’une ressource ;
+* une utilisation du pool coordonnée côté client (voir illustration) ou côté serveur (imaginez un acteur unique devant chacun des pools présentés dans l’image) ;
+* un ajout évolutif de pools (il suffit d’ajouter les acteurs qui représentent la nouvelle ressource) ;
+* des acteurs qui peuvent mettre en cache les résultats à partir de ressources principales à la demande ou effectuer une pré-mise en cache à l’aide d’un minuteur, comme démontré précédemment (cela réduit le besoin d’accès aux ressources principales) ;
+* une distribution asynchrone efficace ;
+* un environnement de codage familier à tout développeur et pas seulement aux spécialistes en intergiciels.
 
-Ce modèle est très courant dans les scénarios où des développeurs doivent travailler avec des ressources limitées ou bâtir de vastes systèmes avec montée en charge.
+Ce modèle est courant dans les scénarios où des développeurs doivent travailler avec des ressources limitées. Il est également fréquent parmi les développeurs qui bâtissent de vastes systèmes avec montée en charge.
 
 
 ## Étapes suivantes
 
-[Modèle : Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
+[Modèle : cache intelligent](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Modèle : Réseaux distribués et graphiques](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Modèle : réseaux distribués et graphiques](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Modèle : Composition d'un service avec état](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
+[Modèle : composition d’un service avec état](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
 [Modèle : Internet des objets](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Modèle : Calcul distribué](service-fabric-reliable-actors-pattern-distributed-computation.md)
+[Modèle : calcul distribué](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
 [Quelques anti-modèles](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction à Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

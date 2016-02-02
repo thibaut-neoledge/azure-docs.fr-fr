@@ -196,7 +196,7 @@ Avant de commencer à raccorder votre appareil, vous devez disposer des élémen
 - Câbles série fournis
 - Convertisseur de série USB avec le pilote approprié installé sur votre ordinateur (si nécessaire)
 - 4 adaptateurs QSFP-SFP+ fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
-- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
+- [Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### Branchement des câbles d’alimentation et SAS
 
@@ -262,9 +262,9 @@ Gardez à l’esprit la disponibilité et les performances élevées :
 
 - Dans la mesure du possible, configurez une paire d’interface réseau pour l’accès au cloud (1 GbE) et une autre paire pour iSCSI (10 GbE recommandé) sur chaque contrôleur. 
 
-- Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents. Pour plus d’informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+- Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents. Pour plus d’informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d’informations, consultez [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d’informations, consultez [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Branchement des câbles de port série
 
@@ -298,4 +298,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

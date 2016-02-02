@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
@@ -192,9 +192,9 @@ Avant de commencer le câblage de votre appareil, vous devez disposer des élém
 
 - Convertisseur de série USB avec le pilote approprié installé sur votre ordinateur (si nécessaire)
 
-- 4 adaptateurs QSFP-SFP+ fournis à utiliser avec les interfaces réseau 10 GbE
+- 4 adaptateurs QSFP-SFP+ fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
 
-- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+- [Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Branchement des câbles d’alimentation
@@ -259,9 +259,9 @@ Gardez à l’esprit la disponibilité et les performances élevées :
 
 - Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents.
 
-Pour plus d'informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+Pour plus d’informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d'informations, consultez [Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d’informations, consultez [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
     
 
    
@@ -291,4 +291,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

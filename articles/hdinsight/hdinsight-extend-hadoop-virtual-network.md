@@ -76,12 +76,20 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 
     Si vous voulez utiliser HDInsight sur un réseau virtuel qui bloque le trafic Internet, procédez comme suit :
 
-    1.	Créez un sous-réseau dans le réseau virtuel. Ce sous-réseau sera utilisé par HDInsight.
-
-    2.	Définissez une table de routage et créez une route définie par l’utilisateur (UDR) pour le sous-réseau, qui autorise une connectivité Internet entrante et sortante. Vous pouvez faire cela en utilisant des routes *. Ceci va permettre une connectivité Internet seulement pour les ressources situées sur le sous-réseau. Pour plus d’informations sur l’utilisation de routes définies par l’utilisateur, consultez https://azure.microsoft.com/fr-FR/documentation/articles/virtual-networks-udr-overview/ et https://azure.microsoft.com/fr-FR/documentation/articles/virtual-networks-udr-how-to/.
+    1. Créez un sous-réseau dans le réseau virtuel. Par défaut, le nouveau sous-réseau sera en mesure de communiquer avec Internet. Cela permet à HDInsight d’être installé sur ce sous-réseau. Étant donné que le nouveau sous-réseau se trouve dans le même réseau virtuel que les sous-réseaux sécurisés, il peut également communiquer avec les ressources installées.
     
-    3.	Quand vous créez le cluster HDInsight, sélectionnez le sous-réseau créé à l’étape 1. Ceci déploie le cluster dans le sous-réseau qui a un accès Internet.
+    2. Vous pouvez vérifier qu’il n’y a aucune table d’itinéraires ni aucun groupe de sécurité réseau spécifiques associés au sous-réseau en utilisant les instructions PowerShell suivantes. Remplacez __VIRTUALNETWORKNAME__ avec votre nom de réseau virtuel, remplacez __GROUPNAME__ avec le nom du groupe de ressources qui contient le réseau virtuel, puis remplacez __SUBNET__ avec le nom du sous-réseau.
+        
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
+            $vnet.Subnets | Where-Object Name -eq "SUBNET"
+            
+        Dans les résultats, notez que __NetworkSecurityGroup__ et __RouteTable__ sont tous deux `null`.
+    
+    2. Créez le cluster HDInsight. Lorsque vous configurez les paramètres de réseau virtuel pour le cluster, sélectionnez le sous-réseau créé à l’étape 1.
 
+    > [AZURE.NOTE]Les étapes ci-dessus supposent que vous n’avez pas restreint les communications avec les adresses IP _au sein de la plage d’adresses IP de réseau virtuel_. Dans le cas contraire, vous devrez peut-être modifier ces restrictions pour permettre la communication avec le nouveau sous-réseau.
+
+    Pour plus d’informations sur les groupes de sécurité réseau, voir [Présentation des groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md). Pour plus d’informations sur le contrôle du routage dans un réseau virtuel Azure, voir [Itinéraires définis par l’utilisateur et transfert IP](../virtual-network/virtual-networks-udr-overview.md).
 
 Pour plus d’informations sur l’approvisionnement d’un cluster HDInsight sur un réseau virtuel, consultez la page [Approvisionnement des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 
@@ -191,4 +199,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

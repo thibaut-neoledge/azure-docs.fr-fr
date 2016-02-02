@@ -24,11 +24,13 @@
 
 Vous pouvez utiliser Azure Resource Manager pour créer et gérer des hubs Azure IoT de façon programmée. Ce didacticiel vous montre comment utiliser un modèle de gestionnaire de ressources pour créer un hub IoT à partir d'un programme C#.
 
+> [AZURE.NOTE]Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Microsoft Visual Studio 2015.
 - Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
-- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
+- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou une version ultérieure.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -40,11 +42,11 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 3. Dans le gestionnaire de packages NuGet, activez **INCLURE LA VERSION PRÉLIMINAIRE** et recherchez **Microsoft.Azure.Management.Resources**. Sélectionnez la version **2.18.11-preview**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS** cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter les licences.
 
-4. Dans le Gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Sélectionnez la version **2.19.208020213**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
+4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Sélectionnez la version **2.19.208020213**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
 
-5. Dans le Gestionnaire de packages NuGet, recherchez **Microsoft.Azure.Common**. Sélectionnez la version **2.1.0**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter les licences.
+5. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.Azure.Common**. Sélectionnez la version **2.1.0**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
-6. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
+6. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
 
     ```
     using System;
@@ -57,7 +59,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
     
-7. Dans Program.cs, ajoutez les variables statiques suivantes en remplaçant les valeurs des espaces réservés. Vous avez noté les éléments **ApplicationId**, **SubscriptionId**, **TenantId** et **Password** précédemment dans ce didacticiel. **Nom du groupe de ressources** est le nom du groupe de ressources que vous utiliserez pour créer le hub IoT ; il peut s’agit d’un groupe de ressources existant ou nouveau. **Nom du hub IoT** est le nom du hub IoT que vous allez créer, par exemple **MonHubIoT**. **Nom du déploiement** est le nom du déploiement, par exemple **Déploiement\_01**.
+7. Dans Program.cs, ajoutez les variables statiques suivantes en remplaçant les valeurs des espaces réservés. Vous avez noté les éléments **ApplicationId**, **SubscriptionId**, **TenantId** et **Password** précédemment dans ce didacticiel. **Nom du groupe de ressources** est le nom du groupe de ressources que vous utiliserez pour créer le hub IoT ; il peut s’agit d’un groupe de ressources existant ou nouveau. **Nom du hub IoT** est le nom du hub IoT que vous allez créer, par exemple **MonHubIoT**. **Deployment name** est le nom du déploiement, par exemple **Déploiement\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -157,9 +159,9 @@ Utilisez un modèle JSON pour créer un hub IoT dans votre groupe de ressources.
 
 [AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
 
-## Générer et exécuter l'application
+## Terminer et exécuter l’application
 
-Vous pouvez maintenant finaliser l'application en appelant les méthodes **CreateIoTHub** et **ShowIoTHubKeys** avant de la générer et de l’exécuter.
+Vous pouvez maintenant terminer l’application en appelant les méthodes **CreateIoTHub** et **ShowIoTHubKeys** avant sa génération et son exécution.
 
 1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
@@ -173,9 +175,9 @@ Vous pouvez maintenant finaliser l'application en appelant les méthodes **Creat
 
 3. Cliquez sur **DÉBOGUER** puis **DÉMARRER LE DÉBOGAGE** pour exécuter l'application. Le déploiement peut prendre plusieurs minutes.
 
-4. Vous pouvez vérifier que votre application a ajouté le nouveau hub IoT en vous rendant sur le [portal][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
+4. Vous pouvez vérifier que votre application a ajouté le nouveau IoT Hub en accédant au [portail][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE]Cet exemple d'application ajoute un hub IoT S1 Standard qui vous sera facturé. Vous pouvez supprimer le hub IoT via le [portail][lnk-azure-portal] ou à l'aide de l’applet de commande PowerShell **Remove-AzureRmResource** lorsque vous avez terminé.
+> [AZURE.NOTE]Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous sera facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub par le biais du [portail][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
 
 ## Étapes suivantes
 
@@ -189,4 +191,4 @@ Vous pouvez maintenant finaliser l'application en appelant les méthodes **Creat
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

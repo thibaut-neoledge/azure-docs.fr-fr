@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Règles BizTalk"
-   description="Cette rubrique traite des fonctionnalités de règles BizTalk et fournit des instructions sur leur utilisation"
+   pageTitle="En savoir plus et créer une application API Règles BizTalk dans votre application logique | Microsoft Azure"
+   description="Cette rubrique traite des fonctionnalités du connecteur Règles BizTalk et fournit des instructions sur son utilisation."
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/28/2015"
+   ms.date="01/19/2016"
    ms.author="andalmia"/>
 
 #Règles BizTalk
@@ -98,7 +98,7 @@ Utilisons maintenant des règles d'entreprise pour implémenter cette logique m�
 4. Cliquez sur le bouton *Créer* ![Alt text][3]
 1. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :  
 	1. Nom : donnez un nom à votre application API de règles.
-	1. Plan App Service : sélectionnez ou créez un plan App Service
+	1. Plan d'hébergement d'application : sélectionnez ou créez un plan d'hébergement web.
 	1. Niveau de tarification : choisissez le niveau de tarification où doit résider cette application.
 	1. Groupe de ressources : sélectionnez ou créez le groupe de ressources où doit résider cette application.
 	2. Abonnement : sélectionnez l'abonnement souhaité
@@ -113,7 +113,8 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
 
    ![Alt text][4]
 
-2\. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche 3. Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire. Deux types de définitions de vocabulaire sont actuellement prises en charge : les définitions littérales et XML.
+2. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche 3. Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire. 
+Deux types de définitions de vocabulaire sont actuellement prises en charge : les définitions littérales et XML.
 
 ##Définition littérale
 1.	Après un clic sur « Ajouter », un nouveau panneau « Ajouter une définition » s'ouvre. Entrez les valeurs suivantes.
@@ -121,10 +122,10 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
   2.	Description : ce champ est facultatif.
   3.	Type de définition : deux types sont pris en charge. Pour cet exemple, choisissez Littéral.
   4.	Type de données : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données sont pris en charge : 
-  	i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") 
-	ii. Booléen : peut être vrai ou faux 
-	iii. Nombre : peut être n’importe quel nombre décimal 
-	iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\\PM.  
+   i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") 
+   ii. Booléen : peut être vrai ou faux 
+   iii. Nombre : peut être n’importe quel nombre décimal 
+   iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\PM.  
   5. Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. Vous pouvez entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé *to*. Pa exemple, vous pouvez entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
   6. Sélectionnez *OK*.
 
@@ -140,7 +141,7 @@ Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées sui
 ### Ajouter en bloc
 Les étapes ci-dessus décrivent l'expérience de création de définitions de vocabulaire. Une fois créées, les définitions de vocabulaire sont affichées sous forme de liste. Il existe des exigences pour pouvoir générer plusieurs définitions à partir du même schéma au lieu de répéter chaque fois les étapes ci-dessus. La fonctionnalité « Ajouter en bloc » est très utile dans ce cas. 
 Un clic sur « Ajouter en bloc » vous permet d'accéder à un nouveau panneau. La première étape consiste à sélectionner le schéma pour lequel vous voulez créer plusieurs définitions. Un nouveau panneau s'ouvre, dans lequel vous pouvez choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau.
-La propriété XPATHS est maintenant déverrouillée. Un clic dessus ouvre la Visionneuse de schéma, où vous pouvez sélectionner plusieurs nœuds. 
+La propriété XPATHS est maintenant déverrouillée. La sélection de cette option ouvre la Visionneuse de schéma, où vous pouvez sélectionner plusieurs nœuds. 
 Les noms des définitions créées correspondent par défaut au nom du nœud sélectionné. Vous pouvez toujours les modifier après la création.
 
 ![Alt text][7]
@@ -148,14 +149,14 @@ Les noms des définitions créées correspondent par défaut au nom du nœud sé
 ##Création d'une stratégie
 Une fois que le développeur a créé les vocabulaires nécessaires, il incombe normalement à l'analyste d'entreprise de créer des stratégies d'entreprise via le portail Azure.  
 	1.	Dans l'application de règles créée figure une thématique Stratégie. Un clic dessus permet à l'utilisateur d'accéder à la page de création de stratégie.  
-	2.	Cette page affiche la liste des stratégies de cette application de règles. Pour ajouter une nouvelle stratégie, il suffit à l'utilisateur de taper un nom de stratégie et d'appuyer sur la touche Tab. Plusieurs stratégies peuvent résider dans une même application API de règles.  
-	3.	Un clic sur la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles.  
+	2. Cette page affiche la liste des stratégies de cette application de règles. L'analyste peut ajouter une nouvelle stratégie en tapant un nom de stratégie et en appuyant sur la touche de tabulation deux fois. Plusieurs stratégies peuvent résider dans une même application API de règles. 
+	3. La sélection de la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles. 
 	![Alt text][8] 
-	4.	Cliquez sur « Ajouter nouveau » pour ajouter une nouvelle règle. Un nouveau panneau s'affiche.
+	4. Sélectionnez « Ajouter » pour ajouter une règle. Un nouveau panneau s'affiche.
 
 ##Création de règles
 Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). 
-La zone Condition peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge :  
+La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge : 
 1. 	And : opérateur conditionnel  
 2. 	Or : opérateur conditionnel  
 3. 	does_not_exist  
@@ -181,11 +182,11 @@ La zone Action(Then) peut contenir plusieurs instructions, une par ligne, pour c
 6.	null  
 7.	update  
 
-Les zones de condition et d'action offrent des fonctionnalités Intellisense pour aider les utilisateurs à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. 
+Les zones de condition et d'action offrent des fonctionnalités Intellisense pour vous aider à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. 
 ![Alt text][9]
 
 ##Chaînage avant explicite
-Les règles BizTalk prennent en charge le chaînage avant explicite. Cela signifie que si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :  
+Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants : 
    1.	update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
    2.	Halt : ce mot clé arrête toutes les exécutions de règles.
 
@@ -233,7 +234,7 @@ Voici un exemple de la façon dont il est possible d’utiliser cette API en C#
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
 
-Notez que les paramètres de sécurité de l’application API Règles ci-dessus ont la valeur « Public Anon ». Cela peut être défini à partir de l’application API à l’aide de - Tous les paramètres -> Paramètres de l’application -> Niveau d’accès
+Notez que les paramètres de sécurité de l’application API Règles ci-dessus ont la valeur « Public Anon ». Cela peut être défini à partir de l’application API dans - Tous les paramètres -> Paramètres de l’application -> Niveau d’accès.
 
 ![Alt text][11]
 
@@ -253,4 +254,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

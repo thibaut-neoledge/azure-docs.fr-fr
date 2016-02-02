@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Comment ajouter des entrées de données à des tâches Stream Analytics | Microsoft Azure" 
+	pageTitle="Ajout d'entrées de données à des tâches Stream Analytics | Microsoft Azure" 
 	description="Ajout d’entrées à des tâches Stream Analytics | segment du parcours d’apprentissage."
 	keywords="entrée de données, données de diffusion en continu"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 />
 
 
-# Comment ajouter des entrées de données de diffusion en continu à des tâches Stream Analytics
+# Ajout d'entrées de données de diffusion en continu à des tâches Stream Analytics
 
 Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs entrées de données, chacune d’entre elles définissant une connexion à une source de données existante. Comme les données sont envoyées à la source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel en tant que données de diffusion en continu. Stream Analytics propose une intégration de pointe aux [Event Hubs Azure](http://azure.microsoft.com/services/event-hubs/) et au [stockage d'objets blob Azure](./storage/storage-dotnet-how-to-use-blobs.md) externes et internes à l'abonnement de tâche. Il existe deux types d’entrées dans Stream Analytics : les flux de données et les données de référence.
 
@@ -74,10 +74,10 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -44,6 +44,9 @@ Cet article suppose que vous avez déjà installé un système d'exploitation O
 
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
+- Assurez-vous que le `Addons`référentiel est activé. Modifiez le fichier `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), modifiez la ligne `enabled=0` à `enabled=1` sous **[ol6\_addons]** ou **[ol7\_addons]** dans ce fichier.
+
+
 ##Oracle Linux 6.4+
 Vous devez suivre des étapes de configuration spécifiques dans le système d'exploitation afin que la machine virtuelle fonctionne sur Azure.
 
@@ -222,4 +225,4 @@ La préparation d’une machine virtuelle Oracle Linux 7 pour Azure est trè
 
 15.  Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

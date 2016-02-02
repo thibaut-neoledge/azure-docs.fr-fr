@@ -138,7 +138,7 @@ Segments quotidiens qui démarrent à 6h au lieu de minuit, la valeur par défau
 
 Dans ce cas, la valeur SliceStart est décalée de 6 heures et sera égale à 6h.
 
-Pour un planning de 12 mois (fréquence = mois ; intervalle = 12), la valeur offset : 60.00:00:00 signifie chaque année le 2 mars ou le 3 mars (60 jours à partir du début de l'année si style = StartOfInterval), selon si l'année en cours est une année bissextile ou non.
+Pour un planning de 12 mois (fréquence = mois ; intervalle = 12), la valeur offset : 60.00:00:00 signifie chaque année le 1er ou le 2 mars (60 jours à partir du début de l’année si style = StartOfInterval), selon si l’année en cours est une année bissextile ou non.
 
 
 
@@ -208,4 +208,4 @@ Si vous avez besoin d’exécuter un pipeline tous les mois à une date et une h
 	  }
 	}
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

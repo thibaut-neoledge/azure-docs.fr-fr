@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à AirWatch | Microsoft Azure" 
     description="Apprenez à utiliser AirWatch avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à AirWatch
 
@@ -64,7 +64,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ai
     ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur AirWatch avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur AirWatch avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -127,15 +127,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Attribut](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribut")
 
-    1.  Dans la zone de texte **Object Identifier**, tapez ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  Dans la zone de texte **Username**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  Dans la zone de texte **Display Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  Dans la zone de texte **First Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  Dans la zone de texte **Last Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6.  Dans la zone de texte **Email**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1.  Dans la zone de texte **Object Identifier**, tapez **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    2.  Dans la zone de texte **Username**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  Dans la zone de texte **Display Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  Dans la zone de texte **First Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  Dans la zone de texte **Last Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  Dans la zone de texte **Email**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
     7.  Cliquez sur **Enregistrer**.
 
-14. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+14. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -159,7 +159,7 @@ Pour se connecter à AirWatch, les utilisateurs d'Azure AD doivent être approvi
     ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Ajouter un utilisateur")
 
     1.  Tapez le nom d’utilisateur, le mot de passe, la confirmation du mot de passe, le prénom, le nom et l’adresse électronique du compte Azure Active Directory valide que vous souhaitez approvisionner dans les champs correspondants, à savoir, **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name** et **Email Address**.
-    2.  Cliquez sur **Enregistrer**.
+    2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur AirWatch fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
 
@@ -181,4 +181,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

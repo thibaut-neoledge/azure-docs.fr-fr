@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple
@@ -100,7 +100,7 @@ Pour chaque interface réseau, les paramètres suivants sont affichés :
 
 - **Passerelle** : il s’agit de la passerelle par défaut que cette interface doit utiliser quand elle tente de communiquer avec les nœuds situés dans le même espace d’adressage IP (sous-réseau). La passerelle par défaut doit se trouver dans le même espace d’adressage (sous-réseau) que l’adresse IP de l’interface, ce qui est détermine par le masque de sous-réseau.
 
-- **Adresse IP fixe** : ce champ n’est disponible que pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l’appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L’adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
+- **Adresse IP fixe** : ce champ est seulement disponible pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l’appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L’adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
 
 Vous pouvez reconfigurer le contrôleur 0 et le contrôleur 1 par le biais du portail Azure Classic.
 
@@ -129,4 +129,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

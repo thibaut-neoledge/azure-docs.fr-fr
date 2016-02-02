@@ -13,24 +13,20 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/13/2016"
  ms.author="danlep"/>
 
 # Configurer un cluster Windows RDMA avec HPC Pack et des instances A8 et A9 pour exécuter des applications MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de gestionnaire de ressources.
 
 
-Cet article vous montre comment configurer un cluster Windows RDMA dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et [des instances de taille A8 et A9 nécessitant beaucoup de ressources système](virtual-machines-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des instances Windows Server de taille A8 et A9 pour exécuter une implémentation MPI prise en charge, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
-
->[AZURE.NOTE]Azure Windows RDMA est actuellement pris en charge avec des applications MPI qui utilisent l’interface Microsoft Network Direct pour communiquer entre les instances A8 et A9.
->
-> Azure fournit également des instances A10 et A11 nécessitant beaucoup de ressources système, avec des fonctionnalités de traitement identiques aux instances A8 et A9, mais sans connexion à un réseau de serveur principal RDMA. Pour exécuter des charges de travail MPI dans Azure, vous obtenez généralement des performances optimales avec les instances A8 et A9.
+Cet article vous montre comment configurer un cluster Windows RDMA dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et [des instances de taille A8 et A9 nécessitant beaucoup de ressources système](virtual-machines-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des instances Windows Server de taille A8 et A9 pour s'exécuter dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d'accès direct à la mémoire à distance (RDMA).
 
 Si vous souhaitez exécuter des charges de travail MPI sur des machines virtuelles Linux qui accèdent au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 
-## Options de déploiement de cluster Windows HPC
-Microsoft HPC Pack est un outil recommandé pour créer des clusters HPC Windows Server dans Azure. Dans le cas d’une utilisation avec des instances A8 et A9, HPC Pack est un moyen efficace pour exécuter des applications Windows MPI qui accèdent au réseau RDMA dans Azure. HPC Pack comprend un environnement d’exécution pour l’implémentation Microsoft de MPI pour Windows.
+## Options de déploiement de cluster HPC Pack
+Microsoft HPC Pack est un outil recommandé pour créer des clusters HPC Windows Server dans Azure. Dans le cas d’une utilisation avec des instances A8 et A9, HPC Pack est un moyen efficace pour exécuter des applications Windows MPI qui accèdent au réseau RDMA dans Azure. HPC Pack comprend un environnement d'exécution pour l'implémentation Microsoft de MPI pour Windows (MSMPI).
 
 Cet article présente deux scénarios pour déployer les instances A8 et A9 en cluster avec Microsoft HPC Pack.
 
@@ -53,13 +49,17 @@ Cet article présente deux scénarios pour déployer les instances A8 et A9 en
 
 À partir d’un cluster HPC Pack existant, ajoutez des ressources de calcul supplémentaires dans les instances de rôle de travail Azure (nœuds Azure) en cours d’exécution dans un service cloud (PaaS). Cette fonctionnalité, également appelée « Intégration à Azure » à partir de HPC Pack, prend en charge une plage de tailles d’instances de rôle de travail. Pour utiliser des instances nécessitant beaucoup de ressources système, spécifiez simplement une taille A8 ou A9 lors de l’ajout de nœuds Azure.
 
-Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir d’un cluster existant (généralement local). Utilisez des procédures similaires pour ajouter des instances de rôle de travail à un nœud principal HPC Pack déployé dans une machine virtuelle Azure.
+Voici les considérations et les étapes pour l'intégration aux instances Azure A8 ou A9 à partir d'un cluster existant (généralement local). Utilisez des procédures similaires pour ajouter des instances de rôle de travail à un nœud principal HPC Pack déployé dans une machine virtuelle Azure.
 
 >[AZURE.NOTE]Pour obtenir un didacticiel sur l’intégration à Azure avec HPC Pack, consultez [Configurer un cluster hybride avec HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Tenez compte des considérations dans les étapes suivantes qui s’appliquent spécifiquement aux nœuds Azure de taille A8 et A9.
 
 ![Intégration à Azure][burst]
 
+### Considérations sur l'utilisation des instances A8 et A9
 
+* **Nœuds proxy** : dans chaque déploiement d'intégration à Azure avec les instances nécessitant beaucoup de ressources système, HPC Pack déploie automatiquement un minimum de 2 instances de taille A8 comme nœuds proxy, en plus des instances de rôle de travail Azure que vous spécifiez. Les nœuds proxy utilisent des cœurs qui sont affectés à l’abonnement et occasionnent des frais avec les instances de rôle de travail Azure.
+
+### Étapes
 
 4. **Déployer et configurer un nœud principal HPC Pack 2012 R2**
 
@@ -67,11 +67,11 @@ Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir
 
 5. **Configurer un certificat de gestion dans l’abonnement Azure**
 
-    Configurez un certificat pour sécuriser la connexion entre le nœud principal et Azure. Pour connaître les options et les procédures, consultez [Scénarios pour configurer le certificat de gestion Azure pour HPC Pack](http://technet.microsoft.com/library/gg481759.aspx).
+    Configurez un certificat pour sécuriser la connexion entre le nœud principal et Azure. Pour connaître les options et les procédures, consultez [Scénarios pour configurer le certificat de gestion Azure pour HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Pour les déploiements de test, HPC Pack installe un certificat Microsoft HPC Azure Management par défaut que vous pouvez télécharger rapidement dans votre abonnement Azure.
 
 6. **Créer un nouveau service cloud et un compte de stockage**
 
-    Utilisez le portail Azure Classic pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances nécessitant beaucoup de ressources système sont disponibles. (N’associez pas le service cloud et le compte de stockage à un groupe d’affinités existant utilisé pour d’autres déploiements.)
+    Utilisez le portail Azure Classic pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances nécessitant beaucoup de ressources système sont disponibles.
 
 7. **Créer un modèle de nœud Azure**
 
@@ -98,25 +98,39 @@ Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir
     Lorsque vous avez terminé l’exécution des travaux, déconnectez les nœuds et utilisez l’action **Arrêter** dans HPC Cluster Manager.
 
 
-### Considérations supplémentaires
 
-* **Nœuds proxy** : dans chaque déploiement d’intégration à Azure avec les instances nécessitant beaucoup de ressources système, HPC Pack déploie automatiquement un minimum de 2 instances de taille A8 supplémentaires comme nœuds proxy, en plus des instances de rôle de travail Azure que vous spécifiez. Pour plus d’informations, consultez [Définir le nombre de nœuds Proxy Azure](https://technet.microsoft.com/library/jj899633.aspx). Les nœuds proxy utilisent des cœurs qui sont affectés à l’abonnement et occasionnent des frais avec les instances de rôle de travail Azure.
-
-* **Virtual Network** : HPC Pack ne prend actuellement pas en charge la configuration d’un réseau VPN de point à site pour les déploiements PaaS.
 
 
 ## Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
 
-Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de calcul de cluster sur des machines virtuelles jointes à un domaine Active Directory dans un réseau virtuel Azure. Le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) automatise une grande partie de ce processus et fournit des options de déploiement flexibles, notamment la possibilité de spécifier une machine virtuelle de taille A8 ou A9 pour les nœuds de cluster. La procédure suivante vous guide pour utiliser cette méthode de déploiement automatisé. Vous pouvez également déployer le cluster avec le modèle de déploiement Resource Manager à l’aide d’un modèle de démarrage rapide Azure. Pour les déploiements de test, vous pouvez également déployer le domaine Active Directory, la machine virtuelle du nœud principal, les machines virtuelles du nœud de calcul et d’autres parties de l’infrastructure de clusters HPC Pack dans Azure. Consultez [Options de cluster HPC avec Microsoft HPC Pack dans Azure](virtual-machines-hpcpack-cluster-options.md).
+Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de calcul de cluster sur des machines virtuelles jointes à un domaine Active Directory dans un réseau virtuel Azure. HPC Pack fournit un certain nombre d'[options de déploiement sur les machines virtuelles Azure](virtual-machines-hpcpack-cluster-options.md), y compris les scripts de déploiement automatisé et les modèles de démarrage rapide Microsoft Azure. Par exemple, les considérations et les étapes ci-dessous vous guident pour l'utilisation du [script de déploiement IaaS HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) pour automatiser la majeure partie de ce processus.
 
 ![Cluster sur les machines virtuelles Azure][iaas]
 
+### Considérations sur l'utilisation des instances A8 et A9
+
+* **Virtual Network** : spécifiez un réseau virtuel dans une région dans laquelle les instances A8 et A9 sont disponibles.
+
+
+* **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul de taille A8 ou A9.
+
+
+* **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul A8 et A9 dans un autre service cloud.
+
+
+* **Taille du nœud principal** : lors de l’ajout de machines virtuelles à nœud de calcul de la taille A8 ou A9, envisagez une taille d’au moins A4 (très grande) pour le nœud principal.
+
+* **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA.
+
+* **Configuration du réseau de clusters** : le script de déploiement configure automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est obligatoire pour tous les déploiements de clusters HPC Pack dans les machines virtuelles, y compris ceux des nœuds de calcul de taille A8 ou A9. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
+
+### Étapes
 
 1. **Créer un nœud principal de cluster et des machines virtuelles à nœud de calcul en exécutant le script de déploiement de HPC Pack IaaS sur un ordinateur client**
 
- Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
+    Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
- Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un Cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md). Pour déployer les nœuds de calcul de taille A8 et A9, consultez les considérations supplémentaires, plus loin dans cet article.
+    Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un Cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md). Pour déployer les nœuds de calcul de taille A8 et A9, consultez les considérations supplémentaires, plus loin dans cet article.
 
 2. **Mettre en ligne les nœuds de calcul pour exécuter des travaux**
 
@@ -130,23 +144,8 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
 
     Lorsque vous avez terminé l’exécution des travaux, déconnectez les nœuds dans HPC Cluster Manager. Puis, utilisez les outils de gestion Azure pour les arrêter.
 
-### Considérations supplémentaires pour l’exécution du script de déploiement de cluster
-* **Virtual Network** : spécifiez un réseau virtuel dans une région dans laquelle les instances A8 et A9 sont disponibles.
 
 
-* **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul de taille A8 ou A9.
-
-
-* **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul A8 et A9 dans un autre service cloud.
-
-
-* **Taille du nœud principal** : lors de l’ajout de machines virtuelles à nœud de calcul de la taille A8 ou A9, envisagez une taille d’au moins A4 (très grande) pour le nœud principal.
-
-
-* **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA. Consultez [Extensions et fonctionnalités des machines virtuelles Azure](virtual-machines-extensions-features.md).
-
-
-* **Configuration du réseau de clusters** : le script de déploiement configure automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est obligatoire pour tous les déploiements de clusters HPC Pack dans les machines virtuelles, y compris ceux des nœuds de calcul de taille A8 ou A9. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
 
 ## Exécuter des applications MPI sur des instances A8 et A9
 
@@ -154,13 +153,13 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
 
 Pour vérifier un déploiement HPC Pack des instances nécessitant beaucoup de ressources système, exécutez la commande Pack HPC **mpipingpong** sur le cluster. **mpipingpong** envoie des paquets de données entre des nœuds associés de façon répétée pour calculer la latence et les mesures et statistiques de débit sur le réseau d’application RDMA. Cet exemple montre un modèle classique pour l’exécution d’un travail MPI (dans ce cas, **mpipingpong**) à l’aide de la commande de cluster **mpiexec**.
 
-Cet exemple suppose que vous avez ajouté des nœuds Azure dans une configuration de type « intégration à Azure » ([scénario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS)) dans cet article). Si vous avez déployé HPC Pack sur un cluster de machines virtuelles Azure, vous devez modifier la syntaxe de commande pour spécifier un autre groupe de nœuds et définir des variables d’environnement supplémentaires pour diriger le trafic réseau vers le réseau RDMA.
+Cet exemple suppose que vous avez ajouté des nœuds Azure dans une configuration de type « intégration à Azure » ([scénario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS) dans cet article). Si vous avez déployé HPC Pack sur un cluster de machines virtuelles Azure, vous devez modifier la syntaxe de commande pour spécifier un autre groupe de nœuds et définir des variables d’environnement supplémentaires pour diriger le trafic réseau vers le réseau RDMA.
 
 
 Pour exécuter mpipingpong sur le cluster :
 
 
-1. Sur le nœud principal ou sur un ordinateur client correctement configuré, ouvrez une fenêtre de commande.
+1. Sur le nœud principal ou sur un ordinateur client correctement configuré, ouvrez une invite de commande.
 
 2. Pour estimer la latence entre les paires de nœuds dans un déploiement d’intégration à Azure de 4 nœuds, tapez la commande suivante afin de soumettre un travail pour exécuter mpipingpong avec une petite taille de paquet et un grand nombre d’itérations :
 
@@ -172,9 +171,9 @@ Pour exécuter mpipingpong sur le cluster :
 
     Si vous avez déployé le cluster HPC Pack déployé sur les machines virtuelles Azure, spécifiez un groupe de nœuds qui contient des machines virtuelles à nœud de calcul déployées dans un même service cloud et modifiez la commande **mpiexec** comme suit :
 
-  ```
-  job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
-  ```
+    ```
+    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
+    ```
 
 3. Lorsque le travail est terminé, pour afficher le résultat (dans ce cas, la sortie de la tâche 1 du travail), tapez la commande suivante :
 
@@ -201,9 +200,9 @@ Pour exécuter mpipingpong sur le cluster :
 5. Une fois le travail terminé, pour afficher le résultat (dans ce cas, la sortie de la tâche 1 du travail), tapez la commande suivante :
 
     ```
-    task view &lt;JobID&gt;.1
+    task view <JobID>.1
     ```
-    
+
   La sortie indiquera des résultats de débit semblables à ceci :
 
   ![Débit ping pong][pingpong2]
@@ -227,7 +226,7 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 
 * Pour exécuter des applications MPI sur des instances Azure, enregistrez chaque application MPI sur les instances avec le pare-feu Windows en exécutant la commande **hpcfwutil**. Cela permet aux communications MPI d’avoir lieu sur un port affecté dynamiquement par le pare-feu.
 
-    >[AZURE.NOTE]Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d’informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
+    >[AZURE.NOTE]Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d'informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632.aspx).
 
 
 
@@ -237,7 +236,7 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 * Les travaux MPI ne peuvent pas s’exécuter sur des instances Azure déployées dans différents services cloud (par exemple, dans des déploiements d’intégration à Azure avec différents modèles de nœud ou des nœuds de calcul dans des machines virtuelles Azure déployés dans plusieurs services cloud). Si vous avez plusieurs déploiements de nœuds Azure démarrés avec différents modèles de nœud, le travail MPI doit s’exécuter sur un seul ensemble de nœuds Azure.
 
 
-* Lorsque vous ajoutez des nœuds Azure à votre cluster et que vous les mettez en ligne, le service de planification de travaux HPC essaie immédiatement de démarrer les travaux sur les nœuds. Si seulement une partie de votre charge de travail peut s’exécuter sur Azure, assurez-vous de mettre à jour ou de créer des modèles de projet pour définir les types de travaux qui peuvent s’exécuter sur Azure. Par exemple, pour vous assurer que les travaux soumis avec un modèle de travail s’exécutent uniquement sur des nœuds Azure, ajoutez la propriété Node Groups au modèle de travail et sélectionnez AzureNodes comme valeur requise. Pour créer des groupes personnalisés pour vos nœuds Azure, vous pouvez utiliser l’applet de commande Add-HpcGroup HPC PowerShell.
+* Lorsque vous ajoutez des nœuds Azure à votre cluster et que vous les mettez en ligne, le service de planification de travaux HPC essaie immédiatement de démarrer les travaux sur les nœuds. Si seulement une partie de votre charge de travail peut s’exécuter sur Azure, assurez-vous de mettre à jour ou de créer des modèles de projet pour définir les types de travaux qui peuvent s’exécuter sur Azure. Par exemple, pour vous assurer que les travaux soumis avec un modèle de travail s’exécutent uniquement sur des nœuds Azure, ajoutez la propriété Node Groups au modèle de travail et sélectionnez AzureNodes comme valeur requise. Pour créer des groupes personnalisés pour vos nœuds Azure, utilisez l'applet de commande Add-HpcGroup HPC PowerShell.
 
 
 ## Étapes suivantes
@@ -250,4 +249,4 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

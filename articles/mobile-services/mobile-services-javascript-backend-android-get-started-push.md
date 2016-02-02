@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -32,7 +32,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 ## Exemple de code
-Pour afficher le code source terminé, vous pouvez y accéder [ici](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
+Pour afficher le code source terminé, cliquez [ici](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
 
 ## Activation de Google Cloud Messaging
 
@@ -156,4 +156,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

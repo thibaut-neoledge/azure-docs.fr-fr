@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Remarques sur les Acteurs fiables pour la sérialisation de type d'acteur"
-   description="Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et l'état des Acteurs fiables Service Fabric"
+   pageTitle="Remarques sur Reliable Actors pour la sérialisation de type d’acteur | Microsoft Azure"
+   description="Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et les états Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,11 +18,11 @@
 
 # Remarques sur la sérialisation de type des Acteurs fiables Service Fabric
 
-Certains aspects importants doivent être pris en compte lors de la définition des interfaces et de l'état de l'acteur : les types doivent être sérialisables en contrat de données. Pour plus d'informations sur les contrats de données, consultez [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
+Vous devez prendre en compte certains aspects importants quand vous définissez les interfaces et l’état d’un acteur. Les types doivent être sérialisables en contrat de données. Pour plus d’informations sur les contrats de données, consultez [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Types utilisés dans les interfaces d'acteur
+## Types d’interface d’acteur
 
-Les arguments de toutes les méthodes et le type de résultat de la tâche retournée par chaque méthode définie dans l'[interface d'acteur](service-fabric-reliable-actors-introduction.md#actors) doivent être sérialisables en contrat de données. Cela s'applique également aux arguments des méthodes définies dans les [interfaces d'événement d'acteur](service-fabric-reliable-actors-events.md#actor-events). (Les méthodes d'interface d'événement d'acteur retournent toujours la valeur nulle). Par exemple, si l'interface `IVoiceMail` définit une méthode en tant que :
+Les arguments de toutes les méthodes, ainsi que les types de résultat des tâches retournées par chaque méthode telle que définie dans l’[interface d’acteur](service-fabric-reliable-actors-introduction.md#actors), doivent être sérialisables en contrat de données. Cela s’applique également aux arguments des méthodes définies dans les [interfaces d’événement d’acteur](service-fabric-reliable-actors-events.md#actor-events). (Les méthodes d’interface d’événement d’acteur retournent toujours la valeur nulle.) Par exemple, si l'interface `IVoiceMail` définit une méthode en tant que :
 
 ```csharp
 
@@ -49,9 +49,9 @@ public class Voicemail
 
 ```
 
-## Classe d'état d'acteur
+## Classe d’état d’acteur
 
-L'état d'acteur doit être sérialisable en contrat de données. Par exemple, si nous avons une définition de classe d'acteur qui ressemble à :
+L’état d’acteur doit être sérialisable en contrat de données. Par exemple, une définition de classe d’acteur peut ressembler à ceci :
 
 ```csharp
 
@@ -61,7 +61,7 @@ public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 
 ```
 
-La classe d'état va être définie avec la classe et ses membres annotés avec les attributs DataContract et DataMember respectivement.
+La classe d’état va être définie avec la classe et ses membres annotés avec les attributs **DataContract** et **DataMember**, respectivement.
 
 ```csharp
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

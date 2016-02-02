@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 1/14/2016 -->
 
 >[AZURE.NOTE]Lorsque vous modifiez la configuration RBS de l’adaptateur StorSimple pour SharePoint, vous devez être connecté avec un compte utilisateur appartenant au groupe Domain Admins. En outre, vous devez accéder à la page de configuration à partir d’un navigateur s’exécutant sur le même hôte que l’Administration centrale.
 
@@ -46,7 +46,7 @@
 
     2. Recherchez le chemin d’accès UNC que vous avez configuré. Assurez-vous que la structure de répertoire RBS a été créée et qu’elle contient l’objet téléchargé.
 
-6. (Facultatif) Vous pouvez utiliser l’applet de commande PowerShell Microsoft RBS `Migrate()` incluse avec SharePoint pour migrer le contenu des objets BLOB existants vers le périphérique StorSimple. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS dans SharePoint 2013][6] ou [Migration du contenu vers ou à partir de RBS (SharePoint Foundation 2010)][7].
+6. (Facultatif) Vous pouvez utiliser l’applet de commande Microsoft RBS `Migrate()` PowerShell inclus avec SharePoint pour migrer le contenu des objets BLOB existants vers l’appareil StorSimple. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS dans SharePoint 2013][6] ou [Migration du contenu vers ou à partir de RBS (SharePoint Foundation 2010)][7].
 
 7. (Facultatif) Sur les installations de test, vous pouvez vérifier que les objets BLOB ont été déplacés hors de la base de données de contenu comme suit :
 
@@ -104,4 +104,4 @@
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

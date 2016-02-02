@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à Coupa | Microsoft Azure" 
     description="Apprenez à utiliser Coupa avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Coupa
 
@@ -95,7 +95,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Coupa (par exemple, « *http://company.Coupa.com*”).
     2.  Ouvrez votre fichier de métadonnées Coupa téléchargé, puis copiez la valeur **AssertionConsumerService index/URL**.
     3.  Dans la zone de texte **URL de réponse Coupa**, collez la valeur **AssertionConsumerService index/URL**.
-    4.  Cliquez sur **Next**.
+    4.  Cliquez sur **Suivant**.
 
 8.  Dans la page **Configurer l’authentification unique sur Coupa**, pour télécharger votre fichier de métadonnées, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
 
@@ -161,4 +161,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

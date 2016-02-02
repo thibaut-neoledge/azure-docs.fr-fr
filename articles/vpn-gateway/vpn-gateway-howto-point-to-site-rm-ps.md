@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configurer une connexion de passerelle VPN point à site à un réseau virtuel Azure | Microsoft Azure"
-   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion VPN point à site. Cette configuration est utile si vous avez besoin d’une connexion intersite à partir d’un emplacement distant sans utiliser de périphérique VPN. Elle peut également être utilisée avec des configurations réseau hybrides. Cet article contient des instructions PowerShell pour les réseaux virtuels qui ont été créés à l’aide du modèle de déploiement de Resource Manager."
+   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion VPN point à site. Cette configuration est utile si vous avez besoin d'une connexion intersite à partir d'un emplacement distant sans utiliser de périphérique VPN. Elle peut également être utilisée avec des configurations réseau hybrides. Cet article contient des instructions PowerShell pour les réseaux virtuels qui ont été créés à l’aide du modèle de déploiement de Resource Manager."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2016"
+   ms.date="01/19/2016"
    ms.author="cherylmc" />
 
 # Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 Une configuration de point à site vous permet de créer individuellement une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur client. Le démarrage de la connexion à partir de l’ordinateur client permet d’établir une connexion VPN. Une connexion point à site est une excellente solution lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, par exemple depuis votre domicile ou une conférence, ou lorsque seuls quelques clients doivent se connecter à un réseau virtuel. Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner. Pour plus d’informations sur les connexions de point à site, consultez la page [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) et [À propos des connexions intersites](vpn-gateway-cross-premises-options.md).
 
-Cet article s’applique aux réseaux virtuels et aux passerelles VPN créés à l’aide du modèle de déploiement d’**Azure Resource Manager**. Si vous souhaitez configurer une connexion point à site pour un réseau virtuel créé à l’aide de Service Management (également connu sous le nom de modèle de déploiement classique), consultez [cet article](vpn-gateway-point-to-site-create.md).
+Cet article s’applique aux réseaux virtuels et aux passerelles VPN créés à l’aide du modèle de déploiement d’**Azure Resource Manager**. Si vous souhaitez configurer une connexion point à site pour un réseau virtuel créé à l'aide de Service Management (également connu sous le nom de modèle de déploiement classique), consultez [Configuration d'une connexion VPN de point à site vers un réseau virtuel](vpn-gateway-point-to-site-create.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -34,18 +34,18 @@ Dans ce scénario, vous allez créer un réseau virtuel avec une connexion point
 
 Nous allons utiliser les valeurs suivantes pour cette configuration :
 
-- Nom = **TestVNet** , utilisant les espaces d’adressage 192.168.0.0/16 et 10.254.0.0/16. Notez que vous pouvez utiliser plusieurs espaces d’adressage pour un réseau virtuel.
-- Nom du sous-réseau = **FrontEnd**, utilisant 192.168.1.0/24
-- Nom du sous-réseau = **BackEnd**, utilisant 10.254.1.0/24
-- Nom du sous-réseau = **GatewaySubnet**, utilisant 192.168.200.0/24. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne. 
-- Pool d’adresses des clients VPN : 172.16.201.0/24. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion point à site reçoivent une adresse IP de ce pool.
-- Abonnement = Vérifiez que vous disposez de l’abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources = **TestRG**
-- Emplacement = **East US**
-- Serveur DNS = Adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
-- Nom de passerelle = **GW**
-- Nom d’adresse IP publique = **GWIP**
-- Type de VPN = **RouteBased**
+- Nom : **TestVNet**, utilisant les espaces d'adressage **192.168.0.0/16** et **10.254.0.0/16**. Notez que vous pouvez utiliser plusieurs espaces d’adressage pour un réseau virtuel.
+- Nom du sous-réseau : **FrontEnd**, utilisant **192.168.1.0/24**
+- Nom du sous-réseau : **BackEnd**, utilisant **10.254.1.0/24**
+- Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne. 
+- Pool d'adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion point à site reçoivent une adresse IP de ce pool.
+- Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
+- Groupe de ressources : **TestRG**
+- Emplacement : **East US**
+- Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
+- Nom de passerelle : **GW**
+- Nom d'adresse IP publique : **GWIP**
+- Type de VPN : **RouteBased**
 
 
 ## Avant tout chose
@@ -58,7 +58,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 
 ## Configurer une connexion point à site pour Azure
 
-1. Dans la console PowerShell, connectez-vous à votre compte Azure. Cette applet de commande vous invite à saisir vos informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l’applet de commande télécharge vos paramètres de compte pour qu’ils soient reconnus par Azure PowerShell.
+1. Dans la console PowerShell, connectez-vous à votre compte Azure. Cette applet de commande vous invite à saisir vos informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -106,7 +106,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 
 8. Spécifiez les variables pour le réseau virtuel que vous venez de créer.
 
-		$vnet   = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 
 9. Demandez une adresse IP publique attribuée dynamiquement. Cette adresse IP est nécessaire au bon fonctionnement de la passerelle. Vous connecterez ultérieurement la passerelle à la configuration IP de passerelle.
@@ -114,7 +114,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour connaître les instructions à suivre pour créer un certificat racine auto-signé à l’aide de *makecert*, reportez-vous à la section située à la fin de cet article. Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine.
+10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour obtenir des instructions sur la création d'un certificat racine auto-signé à l'aide de *makecert*, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine.
 	
 	Ci-après figure un exemple de ce à quoi il ressemble. La difficulté du chargement des données de certificat public tient au fait que vous devez copier et coller la chaîne entière sans espaces. Dans le cas contraire, le chargement ne fonctionne pas. Vous devez utiliser votre propre fichier .cer de certificat pour cette étape. N’essayez pas de copier et coller l’exemple ci-dessous.
 
@@ -127,7 +127,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 
 ## Configuration de client
 
-Chaque client qui se connecte à Azure à l’aide d’une connexion point à site doit remplir deux conditions : le client VPN doit être configuré pour se connecter, et il doit disposer d’un certificat client installé. Des packages de configuration de client VPN sont disponibles pour les clients Windows. Pour plus d’informations, consultez le [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
+Chaque client qui se connecte à Azure à l’aide d’une connexion point à site doit remplir deux conditions : le client VPN doit être configuré pour se connecter, et il doit disposer d’un certificat client installé. Des packages de configuration de client VPN sont disponibles pour les clients Windows. Pour plus d'informations, consultez le [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. Téléchargez le package de configuration du client VPN. Dans cette étape, utilisez l’exemple suivant pour télécharger le package de configuration du client.
 
@@ -137,7 +137,7 @@ Chaque client qui se connecte à Azure à l’aide d’une connexion point à si
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Générez et installez les certificats clients (*.pfx) créés à partir du certificat racine sur les ordinateurs clients. Vous pouvez choisir la méthode d’installation qui vous est familière. Si vous utilisez un certificat racine auto-signé et que vous ne savez pas comment procéder, vous pouvez vous reporter aux instructions indiquées à la fin de cet article.
+2. Générez et installez les certificats clients (*.pfx) créés à partir du certificat racine sur les ordinateurs clients. Vous pouvez choisir la méthode d’installation qui vous est familière. Si vous utilisez un certificat racine auto-signé et que vous ne savez pas comment effectuer cette opération, vous pouvez consulter [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md).
 
 3. Pour vous connecter à votre réseau virtuel, sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous venez de créer. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**. Un message contextuel faisant référence à l’utilisation du certificat peut s’afficher. Le cas échéant, cliquez sur **Continuer** pour utiliser des privilèges élevés.
 
@@ -162,60 +162,73 @@ Chaque client qui se connecte à Azure à l’aide d’une connexion point à si
 			Default Gateway.................:
 			NetBIOS over Tcpip..............: Enabled
 
-## Pour créer un certificat racine auto-signé à l’aide de makecert
+## Pour ajouter ou supprimer un certificat racine
 
-Makecert est l’une des méthodes permettant de créer un certificat racine auto-signé. Les étapes ci-dessous vous guident tout au long de la procédure.
+Les certificats sont utilisés pour authentifier les clients VPN pour les VPN point à site. La procédure suivante vous guidera dans l'ajout et la suppression des certificats racine.
 
-1. Sur un ordinateur exécutant Windows 10, téléchargez et installez le Kit de développement logiciel Windows 10 à partir de [ce lien](https://dev.windows.com/fr-FR/downloads/windows-10-sdk).
+### Ajout d'un certificat racine
 
-2. Après l’installation, vous trouvez l’utilitaire makecert.exe dans ce chemin d’accès : C:\\Program Files (x86)\\Windows Kits\\10\\bin<arch>.
-		
-	Exemple :
-	
-		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
+Vous pouvez ajouter jusqu'à 20 certificats racine dans Azure. Suivez les étapes ci-dessous pour ajouter un certificat racine.
 
-3. Créez et installez un certificat racine dans le magasin de certificats personnels sur votre ordinateur. L’exemple ci-dessous illustre la création d’un fichier *.cer* correspondant que vous chargerez plus tard. Exécutez la commande suivante en tant qu’administrateur, où *RootCertificateName* est le nom que vous souhaitez utiliser pour le certificat.
+1. Créez et préparez le nouveau certificat racine pour le téléchargement.
 
-	Remarque : l’exécution de l’exemple suivant sans aucune modification entraîne la création d’un certificat racine et du fichier *RootCertificateName.cer* correspondant. Vous trouverez le fichier .cer dans le répertoire à partir duquel vous avez exécuté la commande. Le certificat se trouve dans votre dossier Certificates : Current User\\Personal\\Certificates.
+		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
+		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-    	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
+2. Téléchargez le nouveau certificat racine. Notez que vous ne pouvez ajouter qu'un seul certificat racine à la fois.
 
-	>[AZURE.NOTE]Comme vous avez créé un certificat racine permettant de générer des certificats clients, il peut être utile d'exporter ce certificat avec sa clé privée et de l'enregistrer à un emplacement sûr à partir duquel il pourra être récupéré.
+		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
 
-## Pour générer un certificat client à partir d’un certificat racine auto-signé
+3. Vous pouvez vérifier que le nouveau certificat a été correctement ajouté à l'aide de l'applet de commande suivante.
 
-Les étapes ci-dessous vous aideront à générer un certificat client à partir d’un certificat racine auto-signé, puis à l’exporter et à l’installer.
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-### Générer un certificat client
+### Suppression d'un certificat racine
 
-Les étapes ci-dessous vous guident dans la génération d’un certificat client à partir d’un certificat racine auto-signé. Vous pouvez générer plusieurs certificats clients à partir d’un même certificat racine. Chaque certificat client peut alors être exporté et installé sur l’ordinateur client.
+Vous pouvez supprimer un certificat racine à partir d'Azure. Lorsque vous supprimez un certificat racine, les certificats clients qui ont été générés à partir du certificat racine ne pourront plus se connecter à Azure via une connexion point à site avant d'avoir installé un certificat client qui est généré à partir d'un certificat racine valide dans Azure.
 
-1. Sur l’ordinateur que vous avez utilisé pour créer le certificat racine auto-signé, ouvrez une invite de commandes en tant qu’administrateur.
-2. Accédez à l’emplacement où vous souhaitez enregistrer le fichier de certificat client. *RootCertificateName* fait référence au certificat racine auto-signé que vous avez généré. Si vous exécutez l’exemple suivant (en remplaçant « RootCertificateName » par le nom de votre certificat racine), cette opération entraînera la création d’un certificat client nommé « ClientCertificateName » dans votre magasin de certificats Personnel.
-3. Tapez la commande suivante :
+1. Supprimez un certificat racine.
 
-    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-4. Tous les certificats sont stockés sur votre ordinateur, dans votre dossier Certificates : Current User\\Personal\\Certificates store. Vous pouvez générer autant de certificats clients que nécessaire d’après cette procédure.
+ 
+2. Utilisez l'applet de commande suivante pour vérifier que le certificat a été supprimé avec succès.
 
-### Exporter et installer un certificat client
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-L’installation d’un certificat client sur chaque ordinateur que vous souhaitez connecter au réseau virtuel est une étape obligatoire. Les étapes ci-dessous vont vous guider dans l’installation du certificat client manuellement.
+## Gestion de la liste des certificats clients révoqués
 
-1. Pour exporter un certificat client, utilisez *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. L’Assistant Exportation de certificat s’ouvre.
-2. Dans l’Assistant, cliquez sur **Suivant**, sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
-3. Dans la page **Format de fichier d’exportation**, vous pouvez laisser les valeurs par défaut sélectionnées. Cliquez ensuite sur **Suivant**.  
-4. Dans la page **Sécurité**, vous devez protéger la clé privée. Si vous choisissez d’utiliser un mot de passe, veillez à enregistrer ou à mémoriser celui que vous définissez pour ce certificat, puis cliquez sur **Suivant**.
-5. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
-6. Cliquez sur **Terminer** pour exporter le certificat.	
-3. Recherchez le fichier *.pfx* et copiez-le sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* à installer. Laissez la zone **Emplacement du magasin** définie en tant qu’**Utilisateur actuel**, puis cliquez sur **Suivant**.
-4. N’apportez aucune modification à la page **Fichier à importer**. Cliquez sur **Next**.
-5. Dans la page **Protection de clé privée**, entrez le mot de passe du certificat si vous en avez utilisé un, ou vérifiez que le principal de sécurité qui installe le certificat est correct, puis cliquez sur **Suivant**.
-6. Dans la page **Magasin de certificats**, laissez l’emplacement par défaut, puis cliquez sur **Suivant**.
-7. Cliquez sur **Terminer**. Dans la page **Avertissement de sécurité** relative à l’installation du certificat, cliquez sur **Oui**. Le certificat est désormais importé.
+Vous pouvez révoquer des certificats clients. La liste de révocation de certificat vous permet de refuser sélectivement la connexion point à site en fonction des certificats clients individuels. Tandis que la suppression d'un certificat racine à partir d'Azure révoque l'accès pour tous les certificats clients généré/signés par le certificat racine révoqué, la révocation d'un certificat client vous permet de supprimer l'accès d'un certificat particulier. La pratique courante consiste à utiliser le certificat racine pour gérer l'accès au niveaux de l'équipe ou de l'organisation, tout en utilisant des certificats clients révoqués pour le contrôle d'accès précis des utilisateurs individuels.
+
+### Révocation d'un certificat client
+
+1. Obtenez l'empreinte numérique du certificat du client à révoquer.
+
+		$RevokedClientCert1 = "ClientCert1"
+		$RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+
+2. Ajoutez l'empreinte numérique à la liste d'empreintes numériques révoquées.
+
+		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+3. Vérifiez que l'empreinte numérique a été ajoutée à la liste de révocation de certificats. Vous devez ajouter une empreinte numérique à la fois.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+
+### Réactivation d'un certificat client
+
+Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique de la liste des certificats clients révoqués.
+
+1.  Supprimez l'empreinte numérique de la liste d'empreintes numériques de certificats clients révoqués.
+
+		Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+2. Vérifiez si l'empreinte numérique est supprimée de la liste de révocation.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## Étapes suivantes
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

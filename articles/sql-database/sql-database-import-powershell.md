@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell" 
+    pageTitle="Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell | Microsoft Azure" 
     description="Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell
@@ -142,7 +142,7 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 
 ## Étapes suivantes
 
-- [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 
 
@@ -153,4 +153,4 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

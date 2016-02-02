@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Préparer votre environnement pour la sauvegarde des machines virtuelles Azure
 Avant de sauvegarder une machine virtuelle Azure, vous devez remplir ces conditions préalables requises pour préparer votre environnement. Si vous l’avez déjà fait, vous pouvez démarrer la [sauvegarde de vos machines virtuelles](backup-azure-vms.md). Sinon, exécutez les étapes ci-dessous pour vérifier que votre environnement est prêt.
@@ -178,7 +178,7 @@ L’extension de sauvegarde est installée si la machine virtuelle est en cours 
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](http://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
-  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
+  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
   - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration de l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -195,4 +195,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

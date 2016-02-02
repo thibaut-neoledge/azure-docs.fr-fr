@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,14 +25,14 @@ CDN peut être activé pour votre origine via le portail de gestion Azure. Plusi
 
 Un profil CDN est une collection de points de terminaison CDN. Chaque profil contient un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d'autres critères.
 
-> [AZURE.NOTE]Un abonnement Azure unique est limité à quatre profils CDN. Chaque profil CDN est limité à quatre points de terminaison CDN.
+> [AZURE.NOTE]Par défaut, un abonnement Azure unique est limité à quatre profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
 >
 > La tarification CDN est appliquée au niveau du profil CDN. Si vous souhaitez utiliser une combinaison de fonctionnalités CDN Standard et Premium, vous aurez besoin de plusieurs profils CDN.
 
 
 **Pour créer un profil CDN**
 
-1. Dans le [portail de gestion Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l’angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
+1. Dans le [portail de gestion Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l'angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
 
     Le panneau du nouveau profil CDN s'affiche.
     
@@ -54,7 +54,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 **Pour créer un point de terminaison CDN pour votre compte de stockage**
 
-1. Dans le [portail de gestion Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. S’il est introuvable, vous le trouverez en cliquant sur **Parcourir**, sur **Profils CDN** et sur le profil auquel vous voulez ajouter le point de terminaison.
+1. Dans le [portail de gestion Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. Dans le cas contraire, vous le trouverez en cliquant sur **Parcourir**, puis **Profils CDN** et en cliquant sur le profil auquel vous voulez ajouter le point de terminaison.
 
     Le panneau du profil CDN s'affiche.
     
@@ -101,4 +101,4 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

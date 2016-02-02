@@ -3,12 +3,19 @@
    description="Cette procédure simple permet de sauvegarder un Windows Server ou un ordinateur client Windows sur Azure. Vous pouvez sauvegarder des fichiers et dossiers Windows dans le cloud en quelques étapes simples."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="sauvegarde de windows server ; sauvegarder windows server"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/19/2016"
+	 ms.author="jimpark;"/>
 
 # Sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure
 Cette procédure simple perme de sauvegarder facilement des dossiers et fichiers Microsoft Azure. Si vous ne l’avez pas déjà fait, effectuez la [configuration requise](backup-configure-vault.md#before-you-start) pour préparer votre environnement pour la sauvegarde de votre machine Windows avant de continuer.
@@ -45,4 +52,4 @@ Cette procédure simple perme de sauvegarder facilement des dossiers et fichiers
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

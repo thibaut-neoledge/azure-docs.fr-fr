@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 01/15/2016-->
 
-#### Pour installer Update 1.2 à partir du portail Azure
+#### Pour installer Update 1.2 à partir du portail Azure Classic
 
 1. Dans la page du service StorSimple, sélectionnez votre appareil. Accédez à **Appareils** > **Maintenance**.
 
@@ -65,4 +65,4 @@
 
 > [AZURE.NOTE]Dans certains cas, le message indiquant que les mises à jour du mode Maintenance sont disponibles peut s'afficher 24 heures après que les mises à jour du mode Maintenance aient été correctement appliquées sur l'appareil.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

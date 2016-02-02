@@ -20,6 +20,20 @@
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
+## SE invité janvier
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+| MS16-003 | [3125540] | Mise à jour de sécurité cumulative pour JScript et VBScript | 2\.47 | 12 janvier 2015 |
+| MS16-005 | [3124584] | Mise à jour de sécurité pour Windows Kernel Mode Drivers pour résoudre une exécution de code à distance | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+| MS16-007 | [3124901] | Mise à jour de sécurité pour Microsoft Windows pour résoudre l’exécution de code à distance | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+| MS16-008 | [3124605] | Mise à jour de sécurité du noyau pour résoudre une élévation de privilèges | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+| Révision de l’avis de sécurité Microsoft | [2755801] | Mise à jour pour les vulnérabilités d’Adobe Flash Player dans Internet Explorer (Package de base de connaissances : TBD) - espace réservé de l’avis | 4\.28, 3.35 | 12 janvier 2015 |
+| Avis de sécurité Microsoft | [3109853] | Mise à jour pour l’amélioration de l’interopérabilité de TLS | 4\.28, 3.35 | 12 janvier 2015 |
+| Avis de sécurité Microsoft | [3123479] | Désapprobation de l’algorithme de hachage SHA-1 pour le programme de certificat racine Microsoft | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+| Avis de sécurité Microsoft | [2736233] | Mises à jour pour les Kill Bits ActiveX | 4\.28, 3.35, 2.47 | 12 janvier 2015 |
+
 ## SE invité décembre
 
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -176,7 +190,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>**Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
@@ -211,6 +225,15 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
@@ -354,4 +377,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

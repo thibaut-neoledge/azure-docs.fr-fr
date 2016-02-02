@@ -61,7 +61,9 @@ Nous allons vous guider pas à pas dans un exemple de scénario : un administra
 	1. Choisissez **Bloquer l’accès quand l’utilisateur n’est pas au travail** pour empêcher complètement les utilisateurs d’accéder à Azure RemoteApp hors de l’environnement réseau que vous spécifiez.
 	2. Cliquez sur l’option ci-dessous pour définir les plages d’adresses IP qui constituent votre « réseau approuvé ». Tous les éléments figurant en dehors de celles-ci seront rejetées.
 
-5.	Testez votre configuration en lançant le client Azure RemoteApp à partir d’une adresse IP non comprise dans la plage spécifiée. Une fois que vous vous êtes connecté avec vos informations d’identification Azure AD, un message semblable à ce qui suit doit s’afficher : ![Accès refusé à Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
+5.	Testez votre configuration en lançant le client Azure RemoteApp à partir d’une adresse IP non comprise dans la plage spécifiée. Une fois que vous vous êtes connecté avec vos informations d’identification Azure AD, un message semblable à ce qui suit doit s’afficher :
+
+![Accès refusé à Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### Futures fonctionnalités d’accès conditionnel 
@@ -98,7 +100,7 @@ Azure RemoteApp prend en charge deux types de déploiement de collection dans 
 
 -	Non joint à un domaine : les autres ressources du réseau virtuel sont dans la ligne de mire des applications. Par exemple, ce type peut servir à connecter des applications à une base de données SQL qui utilise l’authentification SQL (les applications authentifient l’utilisateur directement dans la base de données).
 
--	Joint à un domaine : les machines virtuelles utilisées par Azure RemoteApp sont jointes à un contrôleur de domaine dans le réseau virtuel. Cela est utile si les applications doivent s’authentifier auprès d’un contrôleur de domaine Windows pour accéder à une ressource principale. ![Collection jointe à un domaine dans Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
+-	Joint à un domaine : les machines virtuelles utilisées par Azure RemoteApp sont jointes à un contrôleur de domaine dans le réseau virtuel. Cela s’avère utile lorsque les applications doivent s’authentifier auprès d’un contrôleur de domaine Windows pour accéder à une ressource principale. ![Collection jointe à un domaine dans Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
  
 ### Comment créer une connexion sécurisée entre Azure et mon environnement local
 Plusieurs options de configuration permettent de connecter vos environnements Azure et local. Une vue d’ensemble des options est disponible ici.
@@ -108,4 +110,4 @@ Avec Azure RemoteApp, vous devez d’abord configurer votre réseau virtuel et 
 ## La solution complète
 Le diagramme ci-dessous illustre la solution complète dans laquelle nous avons créé un canal d’accès sécurisé de l’utilisateur final, via Azure RemoteApp (ARA), à la ressource principale. ![Sécuriser Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png) Dans l’étape 1, nous avons sélectionné les utilisateurs et créé des règles d’accès qui régissent l’accès à Azure RemoteApp. Dans l’exemple ci-dessous, nous autorisons uniquement l’accès aux utilisateurs qui travaillent à partir du réseau d’entreprise. Les utilisateurs qui ne remplissent pas cette condition ne peuvent pas accéder du tout à l’environnement Azure RemoteApp. Dans l’étape 2, nous avons exposé la ressource principale uniquement via la configuration VNet (réseau virtuel)/VPN que nous contrôlons. Azure RemoteApp a été placé dans le même réseau virtuel. Le résultat final est que la ressource est uniquement accessible via l’environnement Azure RemoteApp.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

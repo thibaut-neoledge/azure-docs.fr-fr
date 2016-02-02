@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
@@ -39,7 +39,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Liaison de réseaux virtuels à des circuits ExpressRoute - vous pouvez lier des réseaux virtuels à votre circuit ExpressRoute. Suivez les instructions [pour lier des réseaux virtuels](expressroute-howto-linkvnets-classic.md) à votre circuit. Ces réseaux virtuels peuvent figurer dans le même abonnement Azure que le circuit ExpressRoute, ou dans un autre abonnement.
+5. Liaison de réseaux virtuels à des circuits ExpressRoute - vous pouvez lier des réseaux virtuels à votre circuit ExpressRoute. Suivez les instructions [pour lier des réseaux virtuels](expressroute-howto-linkvnet-arm.md) à votre circuit. Ces réseaux virtuels peuvent figurer dans le même abonnement Azure que le circuit ExpressRoute, ou dans un autre abonnement.
 
 
 ## États d’approvisionnement du circuit ExpressRoute
@@ -117,8 +117,8 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 
 - Configurez votre connexion ExpressRoute.
 
-	- [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md)
-	- [Configuration du routage](expressroute-howto-routing-classic.md)
-	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
+	- [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md)
+	- [Configuration du routage](expressroute-howto-routing-arm.md)
+	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

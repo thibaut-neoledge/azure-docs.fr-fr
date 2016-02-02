@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer | Microsoft Azure"
-   description="Service Fabric Explorer est un outil GUI pratique, dédié à l’inspection et à la gestion d’applications cloud et de nœuds dans un cluster Microsoft Azure Service Fabric."
+   pageTitle="Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer | Microsoft Azure"
+   description="Service Fabric Explorer est un outil web dédié à l’inspection et à la gestion des applications cloud et des nœuds dans un cluster Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
-   ms.author="jesseb"/>
+   ms.date="01/13/2016"
+   ms.author="seanmck"/>
 
 # Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -56,7 +56,7 @@ Dans l’exemple ci-dessous, l’application **MyApp** est constituée de deux s
 
 L’affichage des nœuds montre la disposition physique du cluster. Vous pouvez identifier les applications ayant déployé du code sur un nœud donné. Plus particulièrement, vous pouvez voir les réplicas en cours d’exécution sur ce nœud.
 
-## Exécution d’actions à l’aide de Service Fabric Explorer
+## Actions
 
 Service Fabric Explorer offre un moyen rapide d’appeler des actions sur les nœuds, les applications et les services au sein de votre cluster.
 
@@ -64,9 +64,22 @@ Par exemple, pour supprimer une instance d’application, choisissez simplement 
 
 ![Suppression d’une application dans Service Fabric Explorer][sfx-delete-application]
 
-Étant donné que de nombreuses actions sont irréversibles, vous devrez confirmer votre intention pour pouvoir effectuer l'action.
+Le tableau suivant répertorie les actions disponibles pour chaque entité :
 
->[AZURE.NOTE]Toutes les actions accessibles par le biais de Service Fabric Explorer le sont également par l’intermédiaire de PowerShell ou d’une API REST, ce qui vous permet d’activer Automation.
+| **Entité** | **Action** | **Description** |
+| ------ | ------ | ----------- |
+| Type d’application | Type de mise hors service | Supprime le package d’application du magasin d’images du cluster. Exige la suppression préalable de toutes les applications de ce type. |
+| Application | Supprimer l’application | Supprime l’application, y compris tous ses services et leur état (le cas échéant). |
+| Service | Supprimer le service | Supprime le service et son état (le cas échéant). |
+| Nœud | Activer | Active le nœud. |
+|| Désactiver (pause) | Suspend le nœud dans son état actuel. Les services continuent à s’exécuter mais Service Fabric ne déplace rien de manière proactive, sauf si un déplacement est nécessaire pour éviter une panne ou une incohérence des données. Cette action est généralement utilisée pour activer les services de débogage sur un nœud spécifique afin de veiller à ce qu’ils ne se déplacent pas pendant l’inspection. |
+|| Désactiver (redémarrage) | Déplace en toute sécurité tous les services en mémoire d’un nœud et ferme les services persistants. Généralement utilisé quand les processus hôtes ou la machine ont besoin d’être redémarrés. |
+|| Désactiver (suppression de données) | Ferme en toute sécurité tous les services en cours d’exécution sur le nœud après avoir généré suffisamment de réplicas de réserve. Généralement utilisé quand un nœud (ou au moins son stockage) est définitivement mis hors service. |
+|| Supprimer l’état du nœud | Supprime la connaissance des réplicas d’un nœud du cluster. Généralement utilisé quand un nœud déjà défaillant est considéré comme irrécupérable. |
+
+Étant donné que de nombreuses actions sont irréversibles, vous devrez peut-être confirmer votre intention pour pouvoir effectuer l’action.
+
+>[AZURE.TIP]Toutes les actions accessibles par le biais de Service Fabric Explorer le sont également par l’intermédiaire de PowerShell ou d’une API REST, ce qui vous permet d’activer Automation.
 
 
 
@@ -101,4 +114,4 @@ Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster séc
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -50,7 +50,7 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
     -	Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
     -	L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez temporairement une valeur d’espace réservé, par exemple, `http://DirectorySearcher`. Nous remplacerons cette valeur ultérieurement.
 -	Une fois l’inscription terminée, AAD affecte un identificateur client unique à votre application. Copiez cette valeur à partir de l’onglet **Configurer**, car vous en aurez besoin dans les sections suivantes.
-- Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Pour l’application Azure Active Directory, ajoutez l’autorisation **Accéder au répertoire de l’organisation** sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
+- Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Pour l’application Azure Active Directory, ajoutez l’autorisation **Accéder au répertoire en tant qu’utilisateur connecté** sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## *2. Installation et configuration de la bibliothèque ADAL*
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, vous devez lui fournir des informations concernant l’inscription de votre application. - Commencez par ajouter la bibliothèque ADAL au projet DirectorySearcher à l’aide de la console du gestionnaire de package.
@@ -67,6 +67,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
+- Générez la solution en vous assurant que toutes les références de package sont restaurées. Si des packages sont manquants, ouvrez le Gestionnaire de package NuGet et restaurez les packages.
 - Exécutez l’application et copiez la valeur de `redirectUri` à part lorsque le point d’arrêt est atteint. Le résultat suivant doit s’afficher :
 
 ```
@@ -85,8 +86,7 @@ public MainPage()
 {
     ...
 
-    // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
-    authContext = AuthenticationContext.CreateAsync(authority).GetResults();
+    authContext = new AuthenticationContext(authority);
 }
 ```
 
@@ -147,4 +147,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

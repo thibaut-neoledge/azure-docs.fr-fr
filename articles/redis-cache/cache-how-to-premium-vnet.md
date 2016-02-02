@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="sdanie"/>
 
 # Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
@@ -31,7 +31,7 @@ La configuration de la prise en charge du réseau virtuel s’effectue dans le p
 
 ![Création d’un cache Redis][redis-cache-new-cache-menu]
 
-Pour configurer la prise en charge de réseau virtuel, commencez par sélectionner l’un des caches **Premium** dans le panneau **Choisir un niveau tarifaire**.
+Pour configurer la prise en charge de réseau virtuel, sélectionnez d’abord l’un des caches **Premium** dans le panneau **Choisir un niveau tarifaire**.
 
 ![Choisir un niveau tarifaire][redis-cache-premium-pricing-tier]
 
@@ -78,15 +78,23 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 
 ## Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
 
-La liste suivante présente des erreurs de configuration courantes qui peuvent empêcher le bon fonctionnement du Cache Redis Azure.
+Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports du tableau suivant sont utilisés. Si ces ports sont bloqués, le cache risque de ne pas fonctionner correctement. Le blocage d’un ou plusieurs de ces ports constitue le problème de configuration le plus courant lorsque vous utilisez le Cache Redis Azure dans un réseau virtuel.
 
--	Absence d’accès à DNS. Les instances de Cache Redis Azure dans un réseau virtuel doivent pouvoir accéder à DNS pour que certaines parties du système de surveillance et d’exécution du cache fonctionnent. Si l’instance de cache n’a pas accès à DNS, la surveillance est désactivée et le cache ne fonctionne pas correctement.
--	Blocage des ports TCP utilisés par les clients pour se connecter à Redis, c’est-à-dire 6379 ou 6380.
--	Blocage ou interception du trafic HTTPS sortant à partir du réseau virtuel. Le Cache Redis Azure utilise le trafic HTTPS sortant vers les services Azure, notamment le service de stockage.
--	Machines virtuelles d’instance de rôle Redis incapables de communiquer entre elles à l’intérieur du sous-réseau. Les instances de rôle Redis doivent être autorisées à communiquer entre elles à l’aide du protocole TCP sur n’importe lequel des ports utilisés (qui peuvent être soumis à modification, mais doivent au moins correspondre à tous les ports utilisés dans le fichier CSDEF Redis).
--	Impossibilité pour l’équilibreur de charge Azure de se connecter aux machines virtuelles Redis sur le port TCP/HTTP 16001. Le Cache Redis Azure dépend de la sonde d’équilibreur de charge Azure par défaut pour déterminer quelles instances de rôle sont actives. La sonde d’équilibreur de charge Azure par défaut envoie une requête ping à l’Agent invité Azure sur le port 16001. Seules les instances de rôle qui répondent à la requête ping sont placées en rotation pour recevoir le trafic transféré par l’équilibrage de charge. Quand aucune instance n’est en rotation, car les requêtes ping échouent à cause du blocage des ports, l’équilibrage de charge n’accepte aucune connexion TCP entrante.
--	Blocage du trafic web de l’application cliente utilisé pour la validation de la clé publique SSL. Les clients de Redis (sur le réseau virtuel) doivent pouvoir envoyer du trafic HTTP à l’Internet public pour télécharger des certificats d’autorité de certification et des listes de révocation de certificat pour effectuer la validation de certificat SSL quand ils utilisent le port 6380 pour se connecter à Redis et procéder à l’authentification de serveur SSL.
--	Impossibilité pour l’équilibreur de charge Azure de se connecter aux machines virtuelles Redis dans un cluster via TCP sur le port les 1300x (13 000, 13001, etc.) ou 1500x (15000, 15001, etc.). Les réseaux virtuels sont configurés dans le fichier csdef avec une sonde d’équilibreur de charge pour ouvrir ces ports. L’équilibreur de charge Azure doit être autorisé par les groupes de sécurité réseau. Les groupes de sécurité réseau par défaut effectuent cette opération à l’aide de la balise AZURE\_LOADBALANCER. L’équilibreur de charge Azure a une seule adresse IP statique de 168.63.126.16. Pour plus d’informations, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](../virtual-network/virtual-networks-nsg.md).
+| Port(s) | Direction | Protocole de transfert | Objectif | Adresse IP distante |
+|-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
+| 80, 443 | Règle de trafic sortant | TCP | Dépendances Redis sur Azure Storage/l’infrastructure à clé publique (Internet) | * |
+| 53 | Règle de trafic sortant | TCP/UDP | Dépendances Redis sur le DNS (Internet/réseau virtuel) | * |
+| 6379, 6380 | Trafic entrant | TCP | Communication client avec Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 8443 | Entrant/sortant | TCP | Détail d’implémentation de Redis | VIRTUAL\_NETWORK |
+| 8500 | Trafic entrant | TCP/UDP | Équilibrage de charge Azure | AZURE\_LOADBALANCER |
+| 10221-10231 | Entrant/sortant | TCP | Détail d’implémentation de Redis (peut restreindre le point de terminaison distant à VIRTUAL\_NETWORK) | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 13000-13999 | Trafic entrant | TCP | Communication client avec les clusters Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 15000-15999 | Trafic entrant | TCP | Communication client avec les clusters Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 16001 | Trafic entrant | TCP/UDP | Équilibrage de charge Azure | AZURE\_LOADBALANCER |
+| 20226 | Entrant+sortant | TCP | Détail d’implémentation des clusters Redis | VIRTUAL\_NETWORK |
+
+
+
 
 ## Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
 
@@ -117,4 +125,4 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

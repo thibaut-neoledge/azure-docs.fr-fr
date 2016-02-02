@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/07/2015"
+   ms.date="01/16/2016"
    ms.author="ganesr" />
 
 # Liaison de réseaux virtuels à des circuits ExpressRoute
@@ -137,4 +137,4 @@ Vous pouvez libérer une autorisation en supprimant la connexion entre le circui
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

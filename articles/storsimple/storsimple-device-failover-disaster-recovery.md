@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -77,9 +77,13 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.** 1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante. 1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
-1. Une fois le basculement terminé, accédez à la page **Appareils**.
+	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
+
+	1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+
+1. Un travail de basculement est créé, qui peut être contrôlé via la page **Travaux**. Si le conteneur de volumes sur lequel vous avez basculé possède des volumes locaux, vous verrez les travaux de restauration individuels pour chaque volume local (et non pour les volumes à plusieurs niveaux) dans le conteneur. Ces tâches de restauration peuvent prendre un certain temps. Il est probable que le travail de basculement se termine plus tôt. Notez que ces volumes auront des garanties locales uniquement une fois les travaux de restauration terminés. Une fois le basculement terminé, accédez à la page **Appareils**.
 
 	1. Sélectionnez l’appareil qui a été utilisé en tant qu’appareil cible pour le processus de basculement.
 
@@ -153,12 +157,9 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 
 ## Étapes suivantes
 
-Après avoir effectué un basculement, vous devrez peut-être :
+- Après avoir effectué un basculement, vous devrez peut-être [désactiver ou supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
-- [Désactiver votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-Pour plus d'informations sur l'utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+- Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0121_2016-->

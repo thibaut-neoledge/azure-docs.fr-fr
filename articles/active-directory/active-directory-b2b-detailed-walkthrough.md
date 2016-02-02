@@ -3,6 +3,7 @@
    description="Azure Active Directory B2B prend en charge les relations interentreprises en permettant aux partenaires commerciaux d'accéder de façon sélective à vos applications d'entreprise"
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -34,7 +35,7 @@ Une fois les invitations aux utilisateurs partenaires envoyées, nous pouvons le
 
 4. Alice recevra l'e-mail suivant. ![E-mail d'invitation pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clique sur le lien et elle est invitée à accepter l'invitation et à se connecter à l'aide de ses informations d'identification professionnelles. Si Alice n'est pas dans l'annuaire Azure AD, elle est invitée à s'inscrire. ![Inscription après invitation pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Alice clique sur le lien, et elle est invitée à accepter l’invitation et à se connecter à l’aide de ses informations d’identification professionnelles. Si Alice n'est pas dans l'annuaire Azure AD, elle est invitée à s'inscrire. ![Inscription après invitation pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice est redirigée vers le volet d'accès à l'application, qui est vide jusqu'à ce qu'elle ait accès aux applications. ![Panneau d'accès pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
@@ -76,7 +77,7 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Fonctionnement](active-directory-b2b-how-it-works.md)
 - [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
-- [Modifications de l'attribut d'objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limites actuelles de l'aperçu](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

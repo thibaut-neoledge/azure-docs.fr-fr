@@ -16,13 +16,15 @@
      ms.date="11/23/2015"
      ms.author="dobett"/>
 
-# Didacticiel : créer un IoT Hub à l’aide d’un programme C#
+# Didacticiel : Créer un hub IoT à l'aide d'un programme C#
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
 Vous pouvez utiliser l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api] pour créer et gérer des IoT Hubs Azure par programme. Ce didacticiel vous montre comment utiliser l’API REST du fournisseur de ressources pour créer un IoT Hub à partir d’un programme C#.
+
+> [AZURE.NOTE]Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -38,9 +40,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans le gestionnaire de packages NuGet, sélectionnez l’option **Inclure la version préliminaire** et recherchez **Microsoft.Azure.Management.Resources**. Sélectionnez la version **2.18.11-preview**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
+3. Dans le gestionnaire de packages NuGet, activez **INCLURE LA VERSION PRÉLIMINAIRE** et recherchez **Microsoft.Azure.Management.Resources**. Sélectionnez la version **2.18.11-preview**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS** cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter les licences.
 
-4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Sélectionnez la version **2.19.208020213**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter la licence.
+4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Sélectionnez la version **2.19.208020213**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
 
 5. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.Azure.Common**. Sélectionnez la version **2.1.0**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
@@ -172,9 +174,9 @@ Vous pouvez maintenant terminer l’application en appelant les méthodes **Crea
     Console.ReadLine();
     ```
     
-2. Cliquez sur **Générer**, puis sur **Générer la solution**. Corrigez les éventuelles erreurs.
+2. Cliquez sur **BUILD** puis sur **BUILD SOLUTION**. Corrigez les éventuelles erreurs.
 
-3. Cliquez sur **Déboguer**, puis sur **Démarrer le débogage** pour exécuter l’application. Le déploiement peut prendre plusieurs minutes.
+3. Cliquez sur **DÉBOGUER** puis **DÉMARRER LE DÉBOGAGE** pour exécuter l'application. Le déploiement peut prendre plusieurs minutes.
 
 4. Vous pouvez vérifier que votre application a ajouté le nouveau IoT Hub en accédant au [portail][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
 
@@ -192,4 +194,4 @@ Vous pouvez maintenant terminer l’application en appelant les méthodes **Crea
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Amélioration de la continuité des activités avec les paires régionales Azure"
-	description="Utilisez les paires régionales pour maintenir la résilience des applications dans le cas d’échecs des centres de données."
-	services="multiple"
+	pageTitle="Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure | Microsoft Azure"
+	description="Les paires régionales d’Azure permettent de maintenir la résilience des applications en cas de défaillance des centres de données."
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
     ms.service="backup"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="01/12/2016"
+    ms.author="raynew"/>
 
-# Amélioration de la disponibilité à l’aide des paires régionales Azure
+# Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
-## Explication sur les régions jumelées Azure
+## Régions jumelées : définition
 
 Azure fonctionne dans plusieurs zones géographiques à travers le monde. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique qui contient un ou plusieurs centres de données.
 
@@ -43,6 +43,7 @@ Figure 1 – Diagramme de paire régionale Azure
 | Brésil | Sud du Brésil (1) | États-Unis - partie centrale méridionale |
 | Australie | Est de l’Australie | Sud-est de l’Australie|
 | Gouvernement américain | Gouvernement américain - Iowa | Gouvernement américain - Virginie |
+| Inde | Inde centrale | Inde du Sud |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
@@ -50,7 +51,7 @@ Tableau 1 - Mise en correspondance des paires régionales Azure
 
 Nous vous recommandons de répliquer les charges de travail sur les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité d’Azure. Par exemple, les mises à jour planifiées du système Azure sont déployées séquentiellement (pas en même temps) entre les régions jumelées. Cela signifie que même dans les rares cas de mise à jour défectueuse, les deux régions ne sont pas affectées simultanément. En outre, dans l’éventualité d’une défaillance générale, la récupération d’au moins une région de chaque paire est prioritaire.
 
-## Exemple de paire régionale
+## Exemple de régions jumelées
 La Figure 2 ci-dessous montre une application hypothétique qui utilise les régions jumelées pour la récupération d’urgence. Les numéros verts mettent en surbrillance les activités entre les régions de trois services Azure (de stockage, de calcul et de base de données) et comment ils sont configurés pour répliquer les régions. Les avantages uniques du déploiement entre les régions jumelées sont mis en surbrillance par les nombres en orange.
 
 
@@ -70,7 +71,7 @@ Conformément à la figure 2.
 
 ![4Vert](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager (ARM)** - ARM offre par nature une isolation logique des composants de gestion de service entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
 
-## Avantages d’une région jumelée
+## Avantages des régions jumelées
 Conformément à la figure 2.
 
 ![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Isolation physique** – Quand cela est possible, Azure préfère une séparation de 483 kilomètres (300 miles) au moins entre les centres de données d’une paire régionale, même si ce n’est pas pratique, voire impossible dans toutes les régions géographiques. La séparation physique du centre de données réduit la probabilité de catastrophes naturelles, de troubles civils, de coupures de courant ou de pannes de réseau physique affectant les deux régions en même temps. L’isolation est soumise aux contraintes géographiques (étendue, disponibilité de l’infrastructure réseau et de l’alimentation, réglementations, etc.).
@@ -84,4 +85,4 @@ Conformément à la figure 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -57,7 +57,7 @@ Gardez à l’esprit les considérations de sécurité suivantes lorsque vous ut
 
 - L’appareil virtuel est sécurisé via votre abonnement Microsoft Azure. Cela signifie que si vous utilisez l’appareil virtuel et que votre abonnement Azure est compromis, les données stockées sur votre appareil virtuel sont également vulnérables.
 
-- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
+- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le Portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
 
 - L’appareil virtuel est hébergé dans le centre de données Microsoft Azure.
 
@@ -70,7 +70,7 @@ Les sections suivantes vous aideront à vous préparer à utiliser l’appareil 
 
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
-- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet.md). 
+- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 
 - Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide, la création de l’appareil virtuel échoue.
 - Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
 
@@ -97,7 +97,7 @@ Apportez les mises à jour suivantes à votre service Azure StorSimple avant de 
 Assurez-vous de disposer des informations suivantes avant de commencer :
 
 
-- Vous disposez d’un compte avec les informations d’identification d’accès au portail Azure Classic.
+- Vous disposez d’un compte avec les informations d’identification d’accès au Portail Azure Classic.
 
 - Vous disposez des informations d’identification d’accès au compte de stockage Azure.
 
@@ -118,7 +118,7 @@ Après avoir créé un réseau virtuel, configuré un service StorSimple Manager
 
 Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
-1.  Dans le portail Azure Classic, accédez au service **StorSimple Manager**.
+1.  Dans le Portail Azure Classic, accédez au service **StorSimple Manager**.
 
 2. Accédez à la page **Appareils**. Cliquez sur **Créer un appareil virtuel** en bas de la page **Appareils**.
 
@@ -137,7 +137,7 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 	4. **Sous-réseau** – Sous-réseau du réseau virtuel pour une utilisation avec l’appareil virtuel.
 
-	5. **Compte de stockage pour la création de l’appareil virtuel** – Compte de stockage qui contiendra l’image de l’appareil virtuel lors de l’approvisionnement et hébergera les disques de l’appareil virtuel après l’approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l’appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste.
+	5. **Compte de stockage pour la création de l'appareil virtuel** – Compte de stockage qui contiendra l'image de l'appareil virtuel lors de l'approvisionnement et hébergera les disques de l'appareil virtuel après l'approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l’appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste.
 
     >[AZURE.NOTE]L’appareil virtuel ne peut fonctionner qu’avec les comptes de stockage Azure. Les autres fournisseurs de services cloud tels qu’Amazon, HP et OpenStack (pris en charge pour l’appareil physique) ne sont pas pris en charge pour l’appareil virtuel StorSimple.
 	
@@ -370,7 +370,7 @@ Le processus de basculement commence. Lorsque le basculement est terminé, accé
 
 Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais dans votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent à être facturés.
 
-Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez [Désactiver un appareil](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d'informations, consultez [Désactiver et supprimer un appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Arrêt de l’appareil virtuel StorSimple
 
@@ -384,12 +384,12 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 1. Connectez-vous à la version classique du portail Azure.
 
-- Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
+2. Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 
-- Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de la machine virtuelle.
+3. Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de la machine virtuelle.
 
 ## Étapes suivantes
 
 Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -65,10 +65,10 @@ La solution Update 2 présente les nouvelles fonctionnalités suivantes :
 
 Le tableau suivant récapitule les problèmes qui ont été résolus dans Updates 2.
 
-| No. | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| N° | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfaces réseau | Après une mise à niveau vers Update 1, le service StorSimple Manager a signalé que les ports Data2 et Data3 ont échoué sur un contrôleur. Ce problème est à présent résolu. | Oui | Non |
-| 2 | Mises à jour | Après une mise à niveau vers Update 1, des alertes d'alarme sonore se sont produites dans le portail Azure sur plusieurs appareils. Ce problème est à présent résolu. | Oui | Non |
+| 2 | Mises à jour | Après une mise à niveau vers Update 1, des alertes d'alarme sonore se sont produites dans le portail Azure Classic sur plusieurs appareils. Ce problème est à présent résolu. | Oui | Non |
 | 3 | Authentification OpenStack | Lorsque vous utilisiez OpenStack comme fournisseur de services cloud, vous pouviez recevoir une erreur indiquant que la chaîne d'authentification cloud était trop longue. Ce problème a été résolu. | Oui | Non |
 
 
@@ -76,7 +76,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 Le tableau suivant récapitule les problèmes connus de cette version.
 
-| No. | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 2 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |
@@ -113,4 +113,4 @@ Cette version met à jour le pilote et le microprogramme du disque sur votre app
 
 Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouveaux appareils virtuels devront être créés.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

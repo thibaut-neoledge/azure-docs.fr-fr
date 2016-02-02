@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Causes courantes de recyclage des rôles de service cloud | Microsoft Azure"
    description="Le recyclage soudain d’un rôle de service cloud peut entraîner d’importants temps d'arrêt. Voici quelques problèmes courants entraînant le recyclage des rôles, qui peuvent vous aider à réduire les temps d’arrêt."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Problèmes courants provoquant le recyclage des rôles
@@ -36,7 +36,7 @@ Avant de générer et de mettre en package votre application, vérifiez les él�
 - Si vous utilisez Visual studio, assurez-vous que la propriété **Copie locale** est définie sur **True** pour chaque assembly référencé dans votre projet ne faisant pas partie du Kit de développement logiciel (SDK) Azure ni du .NET Framework.
 
 - Assurez-vous que le fichier **web.config** ne fait aucune référence à des assemblys inutilisés dans l’élément **compilation**.
- 
+
 - La propriété **Build Action** de chaque fichier .cshtml est définie sur **Content**. Cela garantit que les fichiers s'affichent correctement dans le package et permet à d'autres fichiers référencés d'apparaître dans le package.
 
 
@@ -66,8 +66,8 @@ Si l’application utilise les diagnostics Azure, votre fichier de configuration
 Pour vous assurer que votre paramètre `DiagnosticsConnectionString` est correct avant de déployer votre package d'application dans Azure, vérifiez les éléments suivants :
 
 - Le paramètre `DiagnosticsConnectionString` pointe vers un compte de stockage valide dans Azure. Par défaut, ce paramètre pointe vers le compte de stockage émulé, et vous devez donc modifier explicitement ce paramètre avant de déployer votre package d'application. Si vous ne modifiez pas ce paramètre, une exception est générée lorsque l'instance de rôle tente de démarrer le moniteur de diagnostic. L'instance de rôle risque alors d’être recyclée indéfiniment.
-  
-- La chaîne de connexion est spécifiée dans le [format](storage-configure-connection-string.md) ci-dessous (le protocole doit être spécifié en tant que HTTPS). Remplacez *MyAccountName* par le nom de votre compte de stockage et *MyAccountKey* par votre clé d’accès :
+
+- La chaîne de connexion est spécifiée dans le [format](../storage/storage-configure-connection-string.md) ci-dessous (le protocole doit être spécifié en tant que HTTPS). Remplacez *MyAccountName* par le nom de votre compte de stockage et *MyAccountKey* par votre clé d’accès :
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -83,7 +83,9 @@ Pour exécuter un rôle web sous SSL, vous devez vous assurer que votre certific
 
 ## Étapes suivantes
 
-Affichez plus d’[articles de dépannage](..\?tag=top-support-issue&service=cloud-services) pour les services cloud.
+Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-issue&service=cloud-services) liés aux services cloud.
+
+Affichez plus de scénarios de recyclage des rôles (voir la [série du blog de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)).
 
 
 
@@ -93,4 +95,4 @@ Affichez plus d’[articles de dépannage](..\?tag=top-support-issue&service=clo
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -20,7 +20,19 @@
 # Préparation d'une machine virtuelle Red Hat pour Azure
 Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Les versions de RHEL couvertes dans cet article sont 6.7, 7.1 et 7.2, et les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM et VMWare. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) et [Exécution RHEL sous Azure](https://access.redhat.com/articles/1989673).
 
+[Préparer une machine virtuelle RHEL 6.7 à partir du Gestionnaire Hyper-V](#rhel67hyperv)
 
+[Préparer une machine virtuelle RHEL 7.1/7.2 à partir du Gestionnaire Hyper-V](#rhel7xhyperv)
+
+[Préparer une machine virtuelle RHEL 6.7 à partir de KMV](#rhel67kvm)
+
+[Préparer une machine virtuelle RHEL 7.1/7.2 à partir de KMV](#rhel7xkvm)
+
+[Préparer une machine virtuelle RHEL 6.7 à partir de VMWare](#rhel67vmware)
+
+[Préparer une machine virtuelle RHEL 7.1/7.2 à partir de VMWare](#rhel7xvmware)
+
+[Préparer une machine virtuelle RHEL 7.1/7.2 à partir d'un fichier Kickstart](#rhel7xkickstart)
 
 
 ##Préparation d'une image à partir du Gestionnaire Hyper-V 
@@ -39,8 +51,8 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 - Lorsque vous utilisez qemu-img pour convertir les images de disque au format VHD, notez qu'un bogue connu touche la version 2.2.1 et versions supérieures de qemu-img. Celui-ci entraîne un formatage incorrect du disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures.
 
+### <a id="rhel67hyperv"> </a>Préparer une machine virtuelle RHEL 6.7 à partir du Gestionnaire Hyper-V###
 
-###RHEL 6.7
 
 1.	Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -134,7 +146,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 16.	Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-###RHEL 7.1/7.2
+### <a id="rhel7xhyperv"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir du Gestionnaire Hyper-V###
 
 1.  Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -214,7 +226,9 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 
 ##Préparation d'une image à partir de KVM 
-###RHEL 6.7
+
+### <a id="rhel67kvm"> </a>Préparer une machine virtuelle RHEL 6.7 à partir de KMV###
+
 
 1.	Téléchargez l'image KVM de RHEL 6.7 depuis le site web de Red Hat.
 
@@ -303,7 +317,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
+14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -335,7 +349,8 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1/7.2
+### <a id="rhel7xkvm"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir de KMV###
+
 
 1.	Téléchargez l’image KVM de RHEL 7.1 (ou 7.2) à partir du site web de Red Hat, nous allons utiliser RHEL 7.1 comme l’exemple présenté ici.
 
@@ -487,7 +502,10 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 - Lors de la création du disque dur virtuel, sélectionnez **Stocker le disque virtuel en un seul fichier**.
 
-###RHEL 6.7
+
+
+### <a id="rhel67vmware"> </a>Préparer une machine virtuelle RHEL 6.7 à partir de VMWare###
+
 1.	Exécutez la commande suivante pour désinstaller NetworkManager :
 
          # sudo rpm -e --nodeps NetworkManager
@@ -588,7 +606,8 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1/7.2
+
+### <a id="rhel7xvmware"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir de VMWare###
 
 1.	Créez un fichier nommé **network** dans le répertoire /etc/sysconfig/ contenant le texte suivant :
 
@@ -692,7 +711,10 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 
 ##Préparation automatique à partir d'un fichier ISO Kickstart
-###RHEL 7.1/7.2
+
+
+### <a id="rhel7xkickstart"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir d'un fichier Kickstart###
+
 
 1.	Créez le fichier Kickstart avec le contenu ci-dessous et enregistrez le fichier. Pour plus d’informations sur l’installation de Kickstart, reportez-vous au [Guide d’installation Kickstart](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -842,6 +864,8 @@ le problème est aléatoire. Toutefois, il se produit plus souvent lors d'opéra
 
 
 ## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Red Hat Enterprise Linux .vhd pour créer des machines virtuelles dans Azure. Pour plus d’informations sur les hyperviseurs certifiés pour l’exécution de Red Hat Enterprise Linux, visitez le [site web de Red Hat](https://access.redhat.com/certified-hypervisors).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Red Hat Enterprise Linux .vhd pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous utilisez Azure et téléchargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 dans [ce guide](virtual-machines-linux-create-upload-vhd.md).
+ 
+Pour plus d’informations sur les hyperviseurs certifiés pour l’exécution de Red Hat Enterprise Linux, visitez le [site web de Red Hat](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

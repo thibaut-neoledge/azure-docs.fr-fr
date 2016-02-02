@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Gestion de vos contrôleurs d’appareil StorSimple
@@ -121,7 +121,7 @@ Pour arrêter ou redémarrer un contrôleur sur votre appareil StorSimple à par
 
 Cette section vous explique comment arrêter un appareil StorSimple en cours d’exécution ou défaillant à partir d’un ordinateur distant. Un appareil est désactivé dès lors que les contrôleurs d’appareil sont arrêtés. L’arrêt d’un appareil est effectué lorsque l’appareil a été physiquement déplacé ou mis hors service.
 
-> [AZURE.IMPORTANT]Avant d’arrêter l’appareil, vérifiez l’intégrité des composants de l’appareil. Accédez à **Appareils > Maintenance > Statut matériel** et vérifiez que les LED de tous les composants sont au vert. Un appareil en bon état de fonctionnement aura un état vert. Si votre appareil est sur le point d’être arrêté pour procéder au remplacement d’un composant défaillant, vous verrez s’afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs.
+> [AZURE.IMPORTANT]Avant d’arrêter l’appareil, vérifiez l’intégrité des composants de l’appareil. Accédez à **Appareils > Maintenance > État du matériel** et assurez-vous que l’état des LED des composants est vert. Un appareil en bon état de fonctionnement aura un état vert. Si votre appareil est sur le point d’être arrêté pour procéder au remplacement d’un composant défaillant, vous verrez s’afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs.
 
 #### Pour arrêter un appareil StorSimple
 
@@ -189,7 +189,7 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **A.** Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
 
-- **Redémarrer le contrôleur actif** : un message vous avertit que la poursuite de l’opération entraîne une interruption temporaire du service, et vous invite à confirmer l’opération.
+- **Redémarrer le contrôleur actif** : un message vous indiquera que la poursuite de l'opération entraînera une interruption temporaire du service, et vous serez invité à confirmer l’opération.
 
 - **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraîne une interruption du service, et que vous devez appuyer sur le bouton d’alimentation d’au moins un des contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
 
@@ -221,4 +221,4 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 - Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

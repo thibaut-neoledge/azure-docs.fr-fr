@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Microsoft Azure AD | Microsoft Azure"
-   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Microsoft Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
+   pageTitle="Azure AD Connect : Mettre à niveau à partir de l’outil de synchronisation Windows Azure AD (DirSync) | Microsoft Azure"
+   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (DirSync) vers Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="shoatman;billmath"/>
 
-# Mise à niveau de la synchronisation Microsoft Azure Active Directory (DirSync) vers Azure AD Connect
+# Mise à niveau de la synchronisation Windows Azure Active Directory (DirSync) vers Azure AD Connect
 
 Cette documentation vous aidera à mettre à niveau votre installation DirSync existante vers Azure AD Connect.
 
@@ -93,7 +93,7 @@ Des étapes supplémentaires sont nécessaires dans les cas suivants :
     - Si vous utilisez SQL Server Express et que vous avez moins de 50 000 objets, l'écran suivant s'affiche : ![Analyse terminée, mise à niveau à partir de la synchronisation d’annuaires prête](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - Si vous utilisez un serveur SQL complet pour DirSync, la page suivante s'affiche : ![Analyse terminée, mise à niveau à partir de la synchronisation d’annuaires prête](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/> Les informations concernant le serveur de base de données SQL Server existant utilisé par DirSync s'affichent. Apportez des modifications, si nécessaire. Cliquez sur **Suivant** pour continuer l'installation.
     - Si vous avez plus de 50 000 objets, l'écran suivant s'affiche : ![Analyse terminée, mise à niveau à partir de la synchronisation d’annuaires prête](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/> Pour procéder à une mise à niveau sur place, cochez la case en regard du message : **Continuez à mettre à niveau DirSync sur cet ordinateur.** Pour effectuer plutôt un [déploiement en parallèle](#parallel-deployment), exportez les paramètres de la configuration DirSync et les déplacer vers le nouveau serveur.
-5. Indiquez le mot de passe du compte que vous utilisez actuellement pour vous connecter à Azure AD. Il doit s'agir du compte actuellement utilisé par DirSync. ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
+5. Indiquez le mot de passe du compte que vous utilisez actuellement pour vous connecter à Azure AD. Il doit s’agir du compte actuellement utilisé par DirSync. ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png) Si vous recevez une erreur et que vous avez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Indiquez un compte d'administrateur d'entreprise pour Active Directory. ![Entrez vos informations d'identification ADDS.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. Vous êtes prêt à passer à la configuration. Lorsque vous cliquez sur **Mettre à niveau**, DirSync est désinstallé et Azure AD Connect est configuré et lance la synchronisation. ![Prêt à configurer](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
@@ -143,14 +143,14 @@ Lorsque vous installez Azure AD Connect sur un nouveau serveur, il suppose que
 	- Une instance de SQL Server (par défaut, Azure AD Connect installe SQL Server 2012 Express). N'utilisez pas la même instance de base de données que celle de votre serveur DirSync.
 	- Un compte de service utilisé pour la connexion à SQL Server (si votre base de données SQL Server est distante, ce compte doit être un compte de service du domaine). Ces options s'affichent dans cet écran : ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Cliquez sur **Next**.
-8. Sur la page **Prêt pour la configuration**, laissez la case **Démarrez le processus de synchronisation dès que la configuration est terminée** cochée. Le serveur sera en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode). Les modifications ne seront donc pas exportées vers Azure AD pour l'instant.
+8. Sur la page **Prêt pour la configuration**, laissez la case **Démarrez le processus de synchronisation dès que la configuration est terminée** cochée. Le serveur sera en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode), donc les modifications ne seront pas exportées vers Azure AD pour l'instant.
 9. Cliquez sur **Installer**.
 
 >[AZURE.NOTE]La synchronisation entre Windows Server Active Directory et Azure Active Directory commence mais aucune modification n'est exportée vers Azure AD. Les modifications ne peuvent être exportées activement que par un seul outil de synchronisation à la fois. Il s'agit du [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Vérifiez qu'Azure AD Connect est prêt à commencer la synchronisation
 
-Afin de vérifier qu'Azure AD Connect est prêt à prendre le relais de DirSync, vous devrez ouvrir le gestionnaire **Synchronization Service Manager** dans le groupe **Azure AD Connect** du menu Démarrer.
+Afin de vérifier qu'Azure AD Connect est prêt à prendre le relais de la synchronisation d'annuaires, vous devrez ouvrir le gestionnaire **Synchronization Service Manager** dans le groupe **Azure AD Connect** du menu Démarrer.
 
 Dans l'application, vous devez afficher l'onglet **Opérations**. Sous cet onglet, vérifiez que les opérations suivantes ont été effectuées :
 
@@ -169,8 +169,8 @@ Une fois ces 4 opérations effectuées, sans erreur, et si vous êtes satisfait 
 
 ### Désinstallation de DirSync (ancien serveur)
 
-- Dans **Programmes et fonctionnalités**, recherchez l'**outil de synchronisation Microsoft Azure Active Directory**
-- Désinstallez l'**outil de synchronisation Microsoft Azure Active Directory**
+- Dans **Programmes et fonctionnalités**, recherchez l’**outil de synchronisation Microsoft Azure Active Directory**.
+- Désinstallez l’**outil de synchronisation Microsoft Azure Active Directory**.
 - Notez que la désinstallation peut prendre jusqu'à 15 minutes.
 
 Une fois DirSync désinstallé, aucun serveur actif n'exporte vers Azure AD. L'étape suivante doit être terminée pour que les modifications dans votre Active Directory local continuent à être synchronisées avec Azure AD.
@@ -193,8 +193,8 @@ Les éléments suivants doivent s’afficher :
 Azure AD Connect est maintenant votre serveur actif.
 
 ## Étapes suivantes
-Notez que, lorsqu'Azure AD Connect est installé, vous pouvez [vérifier l'installation et affecter des licences ](active-directory-aadconnect-whats-next.md).
+Notez que lorsque vous avez Azure AD Connect installé, vous pouvez [vérifier l'installation et affecter des licences ](active-directory-aadconnect-whats-next.md).
 
-En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

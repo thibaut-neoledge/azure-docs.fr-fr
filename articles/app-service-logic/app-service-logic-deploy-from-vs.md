@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déploiement depuis Visual Studio" 
+	pageTitle="Déployer à partir de Visual Studio | Microsoft Azure" 
 	description="Créez un projet dans Visual Studio pour gérer votre application logique." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/19/2016"
 	ms.author="stepsic"/>
 	
 # Déploiement depuis Visual Studio
@@ -27,23 +27,23 @@ Vous devez avoir installé la version 2.7 du kit de développement logiciel (SD
 
 ## Création d’un projet
 
-1. Accédez au menu **Fichier** et sélectionnez **Nouveau** > **Projet** (ou accédez à **Ajouter** puis sélectionnez **Nouveau projet** pour l'ajouter à une solution existante) ![Menu Fichier](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Accédez au menu **Fichier** et sélectionnez **Nouveau** > **Projet** (ou accédez à **Ajouter**, puis sélectionnez **Nouveau projet** pour l’ajouter à une solution existante) : ![Menu Fichier](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
 2. Dans la boîte de dialogue, recherchez **Cloud**, puis sélectionnez **Groupe de ressources Azure**. Entrez un **Nom** puis cliquez sur **OK**. ![Ajouter un nouveau projet](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Vous devez maintenant choisir entre **Application logique** ou **Application logique + application API**. Si vous choisissez **Application logique**, vous devez pointer vers des API existantes. Si vous choisissez **Application logique + application API** vous pouvez également créer simultanément une application API vide. ![Sélection du modèle Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Vous devez maintenant choisir entre **Application logique** ou **Application logique + application API**. Si vous choisissez **Application logique**, vous devez pointer vers des API existantes. Si vous choisissez **Application logique + application API** vous pouvez également créer simultanément une application API vide. ![Sélection du modèle Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-4. Une fois que vous avez sélectionné votre **modèle**, cliquez sur **OK**.
+4. Une fois que vous avez sélectionné votre **modèle**, appuyez sur **OK**.
 
-Maintenant, votre projet d'application logique est ajouté à votre solution. Vous devez voir le déploiement dans l'Explorateur de solutions : ![Déploiement](./media/app-service-logic-deploy-from-vs/deployment.png)
+Maintenant, votre projet d’application logique est ajouté à votre solution. Vous devez voir le déploiement dans l'Explorateur de solutions : ![Déploiement](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configuration de votre application logique
 
-Une fois que vous avez un projet, vous pouvez modifier la définition de votre application logique à l’intérieur de Visual Studio. Cliquez sur le fichier JSON dans l’Explorateur de solutions. Une définition d'espace réservé s’affiche : remplissez-la avec la logique de votre application.
+Une fois que vous avez un projet, vous pouvez modifier la définition de votre application logique à l’intérieur de Visual Studio. Cliquez sur le fichier JSON dans l’Explorateur de solutions. Une définition d’espace réservé s’affiche : vous pouvez la remplir avec la logique de votre application.
 
-Il est recommandé d'utiliser des **paramètres** tout au long de votre définition. Cela sera utile si vous souhaitez procéder à un déploiement dans un environnement de développement et de production. Dans ce cas, vous devez placer l’intégralité de la configuration propre à un environnement dans fichier `.param` et utiliser les paramètres au lieu des chaînes réelles.
+Il est recommandé d'utiliser des **paramètres** tout au long de votre définition. Cela est utile si vous souhaitez procéder à un déploiement dans un environnement de développement et de production. Dans ce cas, vous devez placer l’intégralité de la configuration propre à un environnement dans fichier `.param` et utiliser les paramètres au lieu des chaînes réelles.
 
-Actuellement, Visual Studio n’a pas de concepteur JSON intégré, donc si vous souhaitez utiliser une interface graphique (au lieu de l’écriture JSON), vous devez utiliser le portail Azure.
+Actuellement, Visual Studio ne dispose pas de concepteur JSON intégré. Si vous souhaitez utiliser une interface graphique (au lieu de l’écriture JSON), vous devez donc utiliser le portail Azure.
 
 Si vous avez déjà créé une application logique dans le portail Azure et que vous souhaitez l’archiver dans le contrôle de code source, trois possibilités s’offrent à vous : - Accéder au **mode Code** dans le portail et copier la définition ; - Utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) Logic Apps pour obtenir la définition - Utiliser [Azure Resource Manager PowerShell](../powershell-azure-resource-manager.md), tout particulièrement la commande [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) pour télécharger la définition.
 
@@ -53,16 +53,16 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 1. Cliquez avec le bouton droit sur le déploiement dans l'Explorateur de solutions, puis accédez à **Déployer** > **Nouveau déploiement...** ![Nouveau déploiement](./media/app-service-logic-deploy-from-vs/newdeployment.png)
 
-2. Vous serez invité à vous connecter à votre abonnement Azure.
+2. Vous êtes invité à vous connecter à votre abonnement Azure.
 
 3. Vous devez maintenant choisir les détails du groupe de ressources dans lequel vous souhaitez déployer l'application logique. ![Déploiement vers un groupe de ressources](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
     Veillez à sélectionner les fichiers de modèle et de paramètres correspondant le groupe de ressources (par exemple si vous procédez au déploiement dans un environnement de production, choisissez le fichier de paramètres de production).
     
-4. L'état du déploiement s'affiche dans la fenêtre **Sortie** (vous devrez peut-être choisir **Configuration Azure**. ![Sortie](./media/app-service-logic-deploy-from-vs/output.png)
+4. L’état du déploiement s’affiche dans la fenêtre **Sortie** (vous devrez peut-être choisir **Approvisionnement Azure**). ![Sortie](./media/app-service-logic-deploy-from-vs/output.png)
 
-À l'avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions. Notez que si vous modifiez directement la définition dans le portail Azure, ces modifications seront remplacées pendant votre prochain déploiement à partir de Visual Studio.
+À l’avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions. Notez que si vous modifiez directement la définition dans le portail Azure, ces modifications seront remplacées lors de votre prochain déploiement à partir de Visual Studio.
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en utilisant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [PowerShell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

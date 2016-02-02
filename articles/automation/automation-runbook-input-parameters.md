@@ -107,7 +107,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
     Name--VMNameServiceName, 
     Type--String, 
     Mandatory--No, 
-    Default value--Custom,
+    Default value--Custom, 
     Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
 
 5. Une fois les paramètres ajoutés, cliquez sur **OK**. Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
@@ -122,7 +122,7 @@ Un Runbook peut être démarré de plusieurs façons : via l’interface utilis
 
 - **Démarrer un Runbook publié à l’aide du portail Azure et affecter des paramètres**
 
-Lorsque vous [démarrez le Runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), le panneau **Démarrer le Runbook** s’ouvre, dans lequel vous pouvez configurer des valeurs pour les paramètres que vous venez de créer.
+Lorsque vous [démarrez le Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le Runbook** s’ouvre. Vous pouvez y configurer des valeurs pour les paramètres que vous venez de créer.
 
 ![Démarrer à l’aide du portail](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -279,4 +279,4 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 - Pour modifier un Runbook textuel, voir [Modification des Runbook textuels](automation-edit-textual-runbook.md).
 - Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

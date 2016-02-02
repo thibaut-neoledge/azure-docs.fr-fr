@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="01/19/2016" 
 	ms.author="awills"/>
  
 # Notes de publication du Kit de développement logiciel (SDK) : Application Insights
@@ -29,8 +29,9 @@ Voici les notes de publication détaillées et les instructions de mise à jour 
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Windows Phone et Windows Store C#|VB](app-insights-release-notes-windows.md)
 * [Windows Phone et Store C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
+* [Visual Studio Tools](app-insights-release-notes-vsix.md)
 * [autres plateformes](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updates/?service=application-insights) qui résument les améliorations principales qui ont été apportées au service Application Insights.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

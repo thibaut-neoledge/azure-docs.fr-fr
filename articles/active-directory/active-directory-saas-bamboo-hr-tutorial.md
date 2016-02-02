@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à BambooHR | Microsoft Azure" 
     description="Apprenez à utiliser BambooHR avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
@@ -67,7 +67,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur BambooHR avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -94,22 +94,22 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
     ![Authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Authentification unique")
 
     1.  Cliquez sur **Applications**.
-    2.  Dans le menu des applications sur la gauche, cliquez sur **Single Sign-On**.
-    3.  Cliquez sur **SAML Single Sign-On**.
+    2.  Dans le menu des applications sur la gauche, cliquez sur **Authentification unique**.
+    3.  Cliquez sur **Authentification unique SAML**.
 
-7.  Dans la section **SAML Single Sign-On**, procédez comme suit :
+7.  Dans la section **Authentification unique SAML**, procédez comme suit :
 
     ![Authentification unique SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Authentification unique SAML")
 
     1.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL de connexion d’authentification unique**.
-2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
     4.  Cliquez sur **Enregistrer**.
 
-8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -121,13 +121,13 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 1.  Connectez-vous à votre site **BambooHR** en tant qu’administrateur.
 
-2.  Dans la barre d’outils située en haut, cliquez sur **Settings**.
+2.  Dans la barre d’outils située en haut, cliquez sur **Paramètres**.
 
     ![Paramètre](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Paramètre")
 
-3.  Cliquez sur **Overview**.
+3.  Cliquez sur **Aperçu**.
 
-4.  Dans le volet de navigation de gauche, accédez à **Security > Users**.
+4.  Dans le volet de navigation de gauche, accédez à **Sécurité > Utilisateurs**.
 
 5.  Tapez le nom d’utilisateur, le mot de passe et l’adresse de messagerie d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
 
@@ -147,10 +147,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

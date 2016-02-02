@@ -153,7 +153,12 @@ Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attr
 Pour configurer un groupe en tant que groupe « Responsable »
 --------------------------------------------------------------------------------
 1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**.
-2. Tapez la règle avec la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}*
+2. Tapez la règle avec la syntaxe suivante : Collaborateurs directs de *Collaborateurs directs de {ID\_utilisateur\_du\_responsable}*. Exemple de règle valide pour Collaborateurs directs : 
+
+Collaborateurs directs de « 62e19b97-8b3d-4d4a-a106-4ce66896a863 »
+
+où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable.. L’ID objet se trouve dans le portail d’administration AAD, dans l’onglet Profil de la page Utilisateur de l’utilisateur qui est responsable.
+
 3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Notez que le remplissage initial du groupe peut prendre quelques minutes.
 
 
@@ -168,4 +173,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->
