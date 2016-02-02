@@ -20,6 +20,7 @@
 #Générer des requêtes dans Azure Search en utilisant .NET
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -62,4 +63,4 @@ Dans le premier appel, nous recherchons tous les documents contenant les termes 
 
 Le deuxième appel utilise une expression OData $filter, équivalant à la catégorie « Luxury ». Celle-ci limite la recherche pour ne renvoyer que les documents dont le champ de catégorie correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData, consultez [Syntaxe des expressions OData pour Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

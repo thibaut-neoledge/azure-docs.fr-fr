@@ -158,7 +158,7 @@ Afin que Woodgrove puisse déployer la réplication et conserver les adresses IP
 
 ### Option 2 : adresses IP modifiées
 
-Cette approche semble être la plus courante et signifie que l'adresse IP de chaque machine virtuelle qui bascule sera modifiée. Le principal inconvénient de cette approche est que votre infrastructure réseau doit savoir que les adresses IP ont été modifiées et que les entrées DNS seront typiquement modifiées ou supprimées via le réseau, de même que les entrées mises en cache dans les tables de réseau. Cela peut entraîner un temps d'arrêt selon la façon dont l'infrastructure DNS est configurée. Ces problèmes peuvent être atténués en utilisant des valeurs TTL faibles dans le cas d'applications intranet et en utilisant [Azure Traffic Manager avec Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) pour les applications basées sur internet.
+Cette approche semble être la plus courante et signifie que l'adresse IP de chaque machine virtuelle qui bascule sera modifiée. Le principal inconvénient de cette approche est que votre infrastructure réseau doit savoir que les adresses IP ont été modifiées et que les entrées DNS seront typiquement modifiées ou supprimées via le réseau, de même que les entrées mises en cache dans les tables de réseau. Cela peut entraîner un temps d'arrêt selon la façon dont l'infrastructure DNS est configurée. Ces problèmes peuvent être atténués en utilisant des valeurs TTL faibles dans le cas d'applications intranet et en utilisant [Azure Traffic Manager avec Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) pour les applications basées sur internet.
 
 #### Exemple : adresses IP modifiées
 
@@ -177,17 +177,17 @@ Examinons ce scénario avec un exemple comprenant un troisième site à partir d
 - Les machines virtuelles mettront à jour le serveur DNS qu'elles utilisent après leur démarrage. Les entrées DNS doivent généralement être modifiées ou supprimées du réseau, et es entrées mises en cache dans les tables de réseau doivent être mises à jour ou supprimées. Il n’est donc pas rare d’avoir des temps d'arrêt pendant que ces modifications ont lieu. Cela peut être atténuée par :
 
 	- L’utilisation de valeurs TTL faibles pour les applications intranet.
-	- L’utilisation d’[Azure Traffic Manager avec Site Recovery] (http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ pour les applications basées sur internet).
+	- L’utilisation d’[Azure Traffic Manager avec Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ pour les applications basées sur Internet/).
 	- L’utilisation du script suivant dans votre plan de récupération pour mettre à jour le serveur DNS afin de garantir une mise à jour en temps voulu (le script n'est pas requis si l'inscription DNS dynamique est configurée)
 
     [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### Exemple : basculement vers Azure
 
-Le [billet de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) sur l’installation de l'infrastructure réseau pour Azure en tant que récupération d'urgence de Site Recovery explique comment configurer l'infrastructure réseau Azure sans que la conservation des adresses IP ne soit nécessaire. Il commence par décrire l'application, puis explique comment configurer la mise en réseau localement et dans Azure. Le billet se termine par les instructions pour exécuter un test de basculement et un test de basculement planifié.
+Le [billet de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) sur l’installation de l'infrastructure réseau pour Azure en tant que récupération d'urgence de Site Recovery explique comment configurer l'infrastructure réseau Azure sans que la conservation des adresses IP ne soit nécessaire. Il commence par décrire l'application, puis explique comment configurer la mise en réseau localement et dans Azure. Le billet se termine par les instructions pour exécuter un test de basculement et un test de basculement planifié.
 
 ## Étapes suivantes
 
 [Découvrir](site-recovery-network-mapping.md) comment Site Recovery mappe les réseaux source et cible.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

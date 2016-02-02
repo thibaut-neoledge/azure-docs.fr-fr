@@ -38,7 +38,7 @@ Pour configurer les homologations, vous pouvez utiliser des adresses IP privées
  - Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30. 
 	 - Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
 	 - Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
-	 - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) soit valide.  
+	 - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.  
 
 #### Exemple pour l'homologation privée
 
@@ -48,8 +48,8 @@ a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft
 
 Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
 
-- 192.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
-- 192.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
+- 192\.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
+- 192\.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
 
 ### Adresses IP pour homologations publiques Azure et Microsoft
 
@@ -59,7 +59,7 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
 - Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30. 
 	- Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
 	- Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
-	- Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) soit valide.
+	- Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres répertoriés ci-dessous.
 
@@ -147,7 +147,7 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 
 Tous les routages publiés par Microsoft seront marqués avec la valeur de communauté appropriée.
 
->[AZURE.IMPORTANT]Les préfixes globaux seront marqués avec une valeur de communauté appropriée et seront publiés uniquement lorsque le module complémentaire Premium ExpressRoute est activé.
+>[AZURE.IMPORTANT] Les préfixes globaux seront marqués avec une valeur de communauté appropriée et seront publiés uniquement lorsque le module complémentaire Premium ExpressRoute est activé.
 
 
 Par ailleurs, Microsoft marquera également des préfixes basés sur le service auquel ils appartiennent. Cela s'applique uniquement à l'homologation Microsoft. Le tableau ci-dessous fournit un mappage d’un service à la valeur de communauté BGP.
@@ -163,7 +163,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 ### Manipulation des préférences de routage
 
-Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez configurer une paire de sessions BGP par homologation afin de garantir que les conditions requises pour le [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) sont remplies. Vous pouvez toutefois configurer votre réseau pour préférer un lien plutôt qu’un autre en vous appuyant sur les techniques de manipulation de routage BGP standard. Vous pouvez appliquer différentes préférences locales BGP à chaque lien afin de favoriser un chemin d'accès plutôt qu’un autre de votre réseau vers Microsoft. Vous pouvez ajouter l’attribut AS-PATH aux publications de routage pour forcer le flux de trafic de Microsoft vers votre réseau.
+Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez configurer une paire de sessions BGP par homologation afin de garantir que les conditions requises pour le [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) sont remplies. Vous pouvez toutefois configurer votre réseau pour préférer un lien plutôt qu’un autre en vous appuyant sur les techniques de manipulation de routage BGP standard. Vous pouvez appliquer différentes préférences locales BGP à chaque lien afin de favoriser un chemin d'accès plutôt qu’un autre de votre réseau vers Microsoft. Vous pouvez ajouter l’attribut AS-PATH aux publications de routage pour forcer le flux de trafic de Microsoft vers votre réseau.
 
 ## Étapes suivantes
 
@@ -173,4 +173,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

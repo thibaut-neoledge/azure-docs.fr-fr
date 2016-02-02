@@ -32,7 +32,7 @@ Cet article vous guide lors des étapes de création, de configuration, de déma
 
 ## Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
@@ -54,20 +54,20 @@ Les valeurs sont :
 
 ## Créer une passerelle Application Gateway
 
-Pour créer une passerelle Application Gateway :
+Pour créer une passerelle d’application :
 
-1. Créez une ressource Application Gateway.
-2. Créez un fichier XML de configuration ou un objet de configuration
+1. Créez une ressource de passerelle d’application.
+2. Créez un fichier XML de configuration ou un objet de configuration.
 3. Validez la configuration de la ressource Application Gateway nouvellement créée.
 
->[AZURE.NOTE]Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, accédez à l’article [Création d’une passerelle d’application avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-classic-ps.md). Consultez [sondes personnalisées et contrôle d’intégrité](application-gateway-probe-overview.md) pour plus d’informations.
+>[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, accédez à l’article [Création d’une passerelle d’application avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-classic-ps.md). Consultez [sondes personnalisées et contrôle d’intégrité](application-gateway-probe-overview.md) pour plus d’informations.
 
 
 ### Créer une ressource Application Gateway
 
 Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
-L’exemple suivant illustre la création d’une passerelle Application Gateway à l’aide d’un réseau virtuel appelé « testvnet1 » et d’un sous-réseau appelé « subnet-1 ».
+L’exemple suivant illustre la création d’une passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
 
 
 	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -98,7 +98,7 @@ Pour valider la création de la passerelle, vous pouvez utiliser l’applet de c
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir Small, Medium ou Large.
+>[AZURE.NOTE]  La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir Small, Medium ou Large.
 
 
  Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
@@ -160,7 +160,7 @@ Copiez le texte suivant dans le Bloc-notes.
 
 Modifiez les valeurs entre parenthèses pour les éléments de configuration. Enregistrez le fichier avec l’extension .xml.
 
->[AZURE.IMPORTANT]L’élément de protocole Http ou Https est sensible à la casse.
+>[AZURE.IMPORTANT] L’élément de protocole Http ou Https est sensible à la casse.
 
 L’exemple suivant montre comment utiliser un fichier de configuration pour configurer une passerelle Application Gateway pour équilibrer la charge du trafic HTTP sur le port public 80 et envoyer le trafic réseau au port 80 principal entre deux adresses IP.
 
@@ -225,7 +225,7 @@ Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de c
 
 L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle Application Gateway. Après avoir créé l’objet de configuration, vous devez utiliser la commande **Set-AzureApplicationGateway** pour valider la configuration dans la ressource Application Gateway créée précédemment.
 
->[AZURE.NOTE]Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création de chaque élément définit le Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) qui sera utilisé.
+>[AZURE.NOTE] Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création de chaque élément définit le Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) qui sera utilisé.
 
 ### Étape 1
 
@@ -331,7 +331,7 @@ Validez l’objet de configuration dans la ressource Application Gateway à l’
 Une fois la passerelle configurée, utilisez l’applet de commande **Start-AzureApplicationGateway** pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-> [AZURE.NOTE]L’exécution de l’applet de commande **Start-AzureApplicationGateway** peut prendre jusqu’à 15 à 20 minutes.
+> [AZURE.NOTE] L’exécution de l’applet de commande **Start-AzureApplicationGateway** peut prendre jusqu’à 15 à 20 minutes.
 
 
 
@@ -414,4 +414,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

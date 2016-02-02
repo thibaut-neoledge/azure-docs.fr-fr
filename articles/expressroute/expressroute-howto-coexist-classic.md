@@ -20,7 +20,7 @@
 
 La possibilité de configurer des connexions VPN de site à site et ExpressRoute présente plusieurs avantages. Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute, ou utiliser des VPN de site à site pour vous connecter à des sites qui ne font pas partie de votre réseau, mais qui sont connectés via ExpressRoute. Dans cet article, nous décrirons les étapes de configuration des deux scénarios. Cet article s’applique aux connexions créées à l’aide du mode de déploiement classique.
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT] Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 
 Les circuits ExpressRoute doivent être préconfigurés avant que vous suiviez les instructions ci-dessous. Assurez-vous que vous avez suivi les guides [Créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et [Configurer le routage](expressroute-howto-routing-classic.md) avant de suivre les étapes ci-dessous.
@@ -46,7 +46,7 @@ Vous pouvez configurer votre réseau là où certains sites se connectent direct
 
 ![Coexister](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
->[AZURE.NOTE]Vous ne pouvez pas configurer un réseau virtuel comme un routeur de transit.
+>[AZURE.NOTE] Vous ne pouvez pas configurer un réseau virtuel comme un routeur de transit.
 
 ## Création et configuration
 
@@ -67,7 +67,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute qui coexisteront.
 
-1. Vérifiez que vous disposez de la dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+1. Vérifiez que vous disposez de la dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](https://azure.microsoft.com/downloads/).
 
 2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -142,13 +142,13 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
 7. Créez une entité de passerelle VPN de site local. Cette commande ne configure pas votre passerelle VPN locale. Elle vous permet d’indiquer les paramètres de la passerelle locale, par exemple l’adresse IP publique et l’espace d’adressage local afin que la passerelle VPN Azure puisse s’y connecter.
 
-	> [AZURE.IMPORTANT]Le site local du réseau privé virtuel de site à site n’est pas défini dans le fichier netcfg. Vous devez utiliser cette applet de commande pour spécifier les paramètres du site local. Vous ne pouvez pas le définir à l’aide du portail Azure Classic ou du fichier netcfg.
+	> [AZURE.IMPORTANT] Le site local du réseau privé virtuel de site à site n’est pas défini dans le fichier netcfg. Vous devez utiliser cette applet de commande pour spécifier les paramètres du site local. Vous ne pouvez pas le définir à l’aide du portail Azure Classic ou du fichier netcfg.
 
 	Utilisez l’exemple suivant en remplaçant les valeurs par les vôtres.
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	> [AZURE.NOTE]Si votre réseau local possède plusieurs itinéraires, vous pouvez tous les transmettre sous la forme d’un tableau. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE] Si votre réseau local possède plusieurs itinéraires, vous pouvez tous les transmettre sous la forme d’un tableau. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	Pour récupérer les paramètres de la passerelle de réseau virtuel, y compris l’ID de passerelle et l’adresse IP publique, utilisez l’applet de commande `Get-AzureVirtualNetworkGateway`. Consultez l’exemple qui suit.
@@ -179,7 +179,7 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 **Avant de commencer la configuration :** Vérifiez que vous disposez de suffisamment d’adresses IP restantes dans votre réseau virtuel pour que vous puissiez augmenter la taille du sous-réseau de passerelle.
 
-1. Téléchargez la toute dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+1. Téléchargez la toute dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](https://azure.microsoft.com/downloads/).
 
 2. Supprimez la passerelle VPN de site à site existante. Utilisez l’applet de commande suivante en remplaçant les valeurs par les vôtres.
 
@@ -211,4 +211,4 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

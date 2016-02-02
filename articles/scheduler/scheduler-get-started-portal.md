@@ -31,7 +31,7 @@ La première fois que vous ouvrez le portail Azure Classic, l’onglet **Tous le
 
 2.  Cliquez sur **App Services** > **Créer** > **Scheduler**, puis sur **Création personnalisée**. <br /><br /> ![][2]
 
-3.  Dans **Collection de travaux**, sélectionnez le nom de la collection de travaux sous la liste déroulante **Collection de travaux**. Si vous n’avez de collection de travaux à laquelle ajouter le travail, sélectionnez **Créer** et entrez le nom de votre nouvelle collection de travaux.<br /><br /> ![][3]
+3.  Dans **Collection de travaux**, sélectionnez le nom de la collection de travaux existants sous la liste déroulante **Collection de travaux**. Si vous n'avez de collection de travaux existante à laquelle ajouter le travail, sélectionnez **Créer** et entrez un nom pour identifier votre nouvelle collection de travaux.<br /><br /> ![][3]
 
 4.  Dans **Région**, sélectionnez la région géographique de la collection de travaux.
 
@@ -229,7 +229,7 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 
  [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
 
- [Informations de référence sur l’API REST de Scheduler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST de Scheduler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell de Scheduler](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,6 +20,7 @@
 # Générer des requêtes dans Azure Search à l’aide d’appels REST
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -66,4 +67,4 @@ Rechercher la totalité de l’index et ordonner en fonction d’un champ spéci
 
 Une demande de requête réussie entraîne un Code d’état « 200 OK » et les résultats de recherche se trouvent au format JSON dans le corps de réponse. Pour plus d’informations, consultez la section « Réponse » de [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

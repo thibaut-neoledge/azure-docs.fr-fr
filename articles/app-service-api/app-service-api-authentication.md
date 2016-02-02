@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Authentification et autorisation pour API Apps dans Azure App Service
@@ -74,6 +74,8 @@ Dans le [portail Azure](https://portal.azure.com/), vous sélectionnez l’optio
 Pour les options 1 et 2, activez l’**authentification App Service** puis, dans la liste déroulante **Action à entreprendre lorsque la demande n’est pas authentifiée**, choisissez **Connecter** ou **Autoriser la requête (aucune action)**. Si vous choisissez **Se connecter**, vous devez sélectionner un fournisseur d’authentification et le configurer.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+Pour plus d’informations sur la procédure de configuration de l’authentification, consultez l’article [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Cet article s’applique aux applications API et aux applications mobiles, et fait référence à des articles relatifs à d’autres fournisseurs d’authentification.
  
 ## <a id="internal"></a> Authentification du compte de service
 
@@ -91,7 +93,10 @@ Pour plus d’informations sur la gestion de l’authentification des clients mo
   
 ## Plus d’informations
 
-Pour plus d’informations sur l’authentification et l’autorisation dans Azure App Service, consultez [Extension de l’authentification/autorisation App Service](/blog/announcing-app-service-authentication-authorization/).
+Pour en savoir plus sur l’authentification et l’autorisation dans Azure App Service, consultez les ressources suivantes :
+
+* [Extension de l’authentification/autorisation App Service](/blog/announcing-app-service-authentication-authorization/)
+* [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (inclut des liens vers d’autres fournisseurs d’authentification en haut de la page). 
 
 Pour plus d’informations sur OAuth 2.0, OpenID Connect et les jetons web JSON (JWT), consultez les ressources suivantes :
 
@@ -113,4 +118,4 @@ Si vous suivez la série des didacticiels de prise en main pour ASP.NET et API A
 
 Pour plus d’informations sur l’utilisation du nœud et Java dans Azure App Service, consultez le [Centre de développement Node.js](/develop/nodejs/) et le [centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

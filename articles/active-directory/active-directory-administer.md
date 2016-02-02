@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Administration de votre annuaire Azure AD | Microsoft Azure"
-	description="Cette rubrique explique ce qu’est un client Azure AD et comment gérer un annuaire Azure AD"
+	description="Explique ce qu’est un client Azure AD et comment gérer Azure depuis Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Administration de votre annuaire Azure AD
@@ -27,7 +27,7 @@ Dans le contexte du cloud, un client peut être défini comme un client ou une o
 
 Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure AD. De la même manière qu’un immeuble de bureaux d’entreprise est un élément d’actif sûr propre à votre organisation, un annuaire Azure AD est également conçu pour être un élément d’actif sûr pour les seuls besoins de votre organisation. Par son architecture, Azure AD isole les données et les informations d’identité des clients, ce qui évite tout risque de brassage. Autrement dit, les utilisateurs et les administrateurs d’un annuaire Azure AD ne peuvent pas accéder aux données d’un autre annuaire par accident ou malveillance.
 
-![][1]
+![Gérer Azure Active Directory][1]
 
 ## Comment puis-je obtenir un annuaire Azure AD ?
 
@@ -40,7 +40,8 @@ Azure AD fournit l’annuaire principal et les fonctionnalités de gestion d’
 
 Quand vous vous inscrivez à ces services cloud Microsoft, vous obtenez un annuaire Azure AD. Vous pouvez créer des annuaires supplémentaires en fonction des besoins. Par exemple, vous pouvez mettre à jour votre premier annuaire en tant qu’annuaire de production, puis créer un autre annuaire pour les tests ou l’environnement intermédiaire.
 
-> [AZURE.NOTE]Une fois inscrit au premier service, nous vous recommandons d’utiliser le compte d’administrateur associé à votre organisation au moment de vous inscrire à d’autres services cloud Microsoft.
+> [AZURE.NOTE]
+Une fois inscrit au premier service, nous vous recommandons d’utiliser le compte d’administrateur associé à votre organisation au moment de vous inscrire à d’autres services cloud Microsoft.
 
 Quand vous vous inscrivez à un service cloud Microsoft, vous êtes invité à fournir des détails sur votre organisation et sur l’inscription de son nom de domaine Internet. C’est sur la base de ces informations qu’est créée une nouvelle instance d’annuaire Azure AD pour votre organisation. Ce même annuaire sert à authentifier les tentatives de connexion quand vous vous abonnez à plusieurs services cloud Microsoft.
 
@@ -115,7 +116,8 @@ De même, sachez qu’à la différence des autres ressources Azure, vos annuair
 ## Comment puis-je supprimer un annuaire Azure AD ?
 Un administrateur général peut supprimer un annuaire Azure AD à partir du portail. Quand un annuaire est supprimé, toutes les ressources qu’il contient sont également supprimées ; vous devez donc vous assurer que vous n’avez pas besoin de l’annuaire avant de le supprimer.
 
-> [AZURE.NOTE]Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
+> [AZURE.NOTE]
+Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 
 ### Conditions qui doivent être remplies pour supprimer un annuaire Azure AD
 
@@ -127,7 +129,8 @@ Les conditions à remplir sont les suivantes :
 - Aucune application ne doit se trouver dans l’annuaire. Elles doivent toutes être supprimées avant de pouvoir supprimer l’annuaire.
 - L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un annuaire auquel un autre utilisateur a associé un abonnement. Pour associer votre abonnement à un autre annuaire, connectez-vous au portail de gestion Azure et cliquez sur **Paramètres** dans le volet de navigation gauche. Puis au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Pour plus d’informations sur les abonnements Azure, consultez la page [Comment sont associés les abonnements Azure et Azure AD ?](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
+    > [AZURE.NOTE]
+    Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 
 - L’annuaire ne doit être lié à aucun fournisseur d’authentification Multi-Factor Authentication.
 
@@ -145,4 +148,4 @@ Les conditions à remplir sont les suivantes :
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

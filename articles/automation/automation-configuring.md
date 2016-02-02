@@ -25,7 +25,7 @@ Lorsque vous démarrez Azure Automation pour la première fois, vous devez crée
 
 Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer les services Azure dans n’importe quelle région. L’existence de stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique constitue la raison principale de création de comptes Automation dans différentes régions.
 
->[AZURE.NOTE]Les comptes Automation et les ressources qu'ils contiennent, créés avec la version d'évaluation du portail Azure, ne sont pas accessibles dans le portail Azure. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
+>[AZURE.NOTE] Les comptes Automation et les ressources qu'ils contiennent, créés avec la version d'évaluation du portail Azure, ne sont pas accessibles dans le portail Azure. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
 >
 >Les comptes Automation créés avec le portail Azure peuvent être gérés soit par le portail, soit par le jeu d'applets de commande. Une fois que le compte est créé, la façon de créer et de gérer des ressources au sein du compte n'importe pas. Si vous envisagez de continuer à utiliser le portail Azure, vous devez alors l'utiliser au lieu d'utiliser le portail d'évaluation Azure pour créer des comptes Automation.
 
@@ -37,7 +37,7 @@ Un compte Automation peut être suspendu s’il existe un problème avec votre c
 
 Lorsque vous accédez aux ressources Azure à l’aide des [applets de commande Azure](http://msdn.microsoft.com/library/azure/jj554330.aspx), vous devez fournir l’authentification à votre abonnement Azure. Dans Azure Automation, cela se fait par le biais d’un compte professionnel dans Azure Active Directory, que vous configurez en tant qu’administrateur pour votre abonnement. Vous pouvez ensuite créer des [informations d’identification](http://msdn.microsoft.com/library/dn940015.aspx) pour ce compte utilisateur et l’utiliser avec [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) dans votre Runbook.
 
->[AZURE.NOTE]Les comptes Microsoft, anciennement appelés LiveID, ne peuvent pas être utilisés avec Azure Automation.
+>[AZURE.NOTE] Les comptes Microsoft, anciennement appelés LiveID, ne peuvent pas être utilisés avec Azure Automation.
 
 ## Création d’un nouvel utilisateur Azure Active Directory pour gérer un abonnement Azure
 
@@ -62,7 +62,7 @@ Un compte Automation est un conteneur pour vos ressources Azure Automation. Il f
 
 3. Dans le panneau **Ajouter un compte Automation**, configurez les détails de votre compte Automation.
 
->[AZURE.NOTE]Lorsqu’un compte Automation est créé avec le portail Azure en version préliminaire, le compte et toutes ses ressources associées ne sont pas ramenés au portail de gestion classique.
+>[AZURE.NOTE] Lorsqu’un compte Automation est créé avec le portail Azure en version préliminaire, le compte et toutes ses ressources associées ne sont pas ramenés au portail de gestion classique.
 
 Vous trouverez ci-dessous la liste des paramètres à configurer :
 
@@ -76,7 +76,7 @@ Vous trouverez ci-dessous la liste des paramètres à configurer :
 
 ![Créer un compte](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]Lorsqu’un compte Automation créé à l’aide du portail de gestion classique est [déplacé vers un groupe de ressources différent](../resource-group-move-resources.md) à l’aide du portail Azure en version préliminaire, le compte Automation ne sera plus disponible dans le portail Azure classique, car les comptes Azure Resource Manager ne sont pas pris en charge dans le portail de gestion classique.
+>[AZURE.NOTE] Lorsqu’un compte Automation créé à l’aide du portail de gestion classique est [déplacé vers un groupe de ressources différent](../resource-group-move-resources.md) à l’aide du portail Azure en version préliminaire, le compte Automation ne sera plus disponible dans le portail Azure classique, car les comptes Azure Resource Manager ne sont pas pris en charge dans le portail de gestion classique.
 
 
 
@@ -91,7 +91,7 @@ Vous pouvez récupérer les informations d’identification dans un Runbook à l
 Vous devez répéter ces lignes après tout [point de contrôle](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) dans votre Runbook. Si le Runbook est interrompu, puis reprend avec un autre collaborateur, ce dernier doit s’authentifier à nouveau.
 
 ## Articles connexes
-- [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

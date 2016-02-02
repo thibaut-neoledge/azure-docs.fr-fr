@@ -42,11 +42,11 @@ Ce didacticiel requiert les éléments suivants :
 + Un appareil compatible iOS 8 (ou version ultérieure)
 + Un abonnement au programme pour développeurs iOS
 
-   >[AZURE.NOTE]En raison des exigences de configuration requise pour les notifications push, vous devez déployer et tester les notifications push sur un appareil compatible iOS (iPhone ou iPad) au lieu du simulateur iOS.
+   >[AZURE.NOTE] En raison des exigences de configuration requise pour les notifications push, vous devez déployer et tester les notifications push sur un appareil compatible iOS (iPhone ou iPad) au lieu du simulateur iOS.
 
 Vous devez terminer ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Notification Hubs - Activer les notifications Push Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -88,7 +88,7 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
 4. Téléchargez la [version 1.2.4 du kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
 
-	>[AZURE.NOTE]Le kit de développement logiciel Notification Hubs ne prend pas en charge le bitcode sur Xcode7. Vous devez définir **Activer le bitcode** sur **Non** dans les **Options de build** de votre projet.
+	>[AZURE.NOTE] Le kit de développement logiciel Notification Hubs ne prend pas en charge le bitcode sur Xcode7. Vous devez définir **Activer le bitcode** sur **Non** dans les **Options de build** de votre projet.
 
    	![][10]
 
@@ -436,7 +436,7 @@ Si vous souhaitez envoyer des notifications à l’intérieur d’une applicatio
 11. Générez le projet et vérifiez qu’il ne présente pas d’erreurs.
 
 
-> [AZURE.NOTE]Si vous rencontrez une erreur de génération dans Xcode7 sur le support bitcode, vous devez modifier les « paramètres de Build » -> « Activer Bitcode » (ENABLE\_BITCODE) en indiquant « NON » dans Xcode. Le kit de développement logiciel Notification Hubs ne prend pas en charge bitcode.
+> [AZURE.NOTE] Si vous rencontrez une erreur de génération dans Xcode7 sur le support bitcode, vous devez modifier les « paramètres de Build » -> « Activer Bitcode » (ENABLE\_BITCODE) en indiquant « NON » dans Xcode. Le kit de développement logiciel Notification Hubs ne prend pas en charge bitcode.
 
 Vous trouverez toutes les charges de notification possibles dans le [Guide de programmation des notifications locales et push] d’Apple.
 
@@ -502,10 +502,10 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Utilisation de Notification Hubs pour transmettre des notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
 
-[Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guide de programmation des notifications locales et push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

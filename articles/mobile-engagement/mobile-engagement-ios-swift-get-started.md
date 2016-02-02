@@ -34,11 +34,11 @@ Ce didacticiel requiert les éléments suivants :
 + Le [kit de développement logiciel (SDK) iOS Mobile Engagement]
 + Le certificat de notification push (.p12) que vous pouvez obtenir dans votre Centre de développement Apple
 
-> [AZURE.NOTE]Ce didacticiel utilise Swift version 2.0.
+> [AZURE.NOTE] Ce didacticiel utilise Swift version 2.0.
 
 Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications iOS.
 
-> [AZURE.IMPORTANT]L’exécution de ce didacticiel est obligatoire si vous souhaitez effectuer tous les autres didacticiels Mobile Engagement pour les applications iOS. Pour cela, vous devez avoir un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.IMPORTANT] L’exécution de ce didacticiel est obligatoire si vous souhaitez effectuer tous les autres didacticiels Mobile Engagement pour les applications iOS. Pour cela, vous devez avoir un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
 
@@ -66,7 +66,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 	![][2]
 
-5. Ouvrez l’onglet `Build Phases` et dans le menu `Link Binary With Libraries`, ajoutez les infrastructures, comme indiqué ci-dessous :
+5. Ouvrez l’onglet `Build Phases` et dans le menu `Link Binary With Libraries`, ajoutez les infrastructures, comme indiqué ci-dessous. **REMARQUE** Vous devez inclure `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` :
 
 	![][3]
 
@@ -209,4 +209,4 @@ Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

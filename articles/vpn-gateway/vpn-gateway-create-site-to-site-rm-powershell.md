@@ -27,7 +27,7 @@ Cet article vous guidera dans la création d’un réseau virtuel et d’une con
 
 **À propos des modèles de déploiement Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Avant de commencer
 
@@ -37,7 +37,7 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 - Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 	
-- Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Installer les modules PowerShell
 
@@ -45,7 +45,7 @@ Vous aurez besoin de la dernière version des applets de commande PowerShell Azu
 	
 [AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
-## 1. Connexion à votre abonnement 
+## 1\. Connexion à votre abonnement 
 
 Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -61,7 +61,7 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-## 2. Créer un réseau virtuel et un sous-réseau de passerelle
+## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
 
 - Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle, vous pouvez passer d’emblée à **Étape 3 : Ajouter votre site local**. 
 - Si vous disposez déjà d’un réseau virtuel et que vous souhaitez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
@@ -95,7 +95,7 @@ Si vous disposez déjà d’un réseau virtuel existant et que vous voulez y ajo
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3. Ajouter votre site local
+## 3\. Ajouter votre site local
 
 Dans un réseau virtuel, le *site local* fait généralement référence à votre emplacement local. Vous donnez à ce site un nom qui sera utilisé par Azure pour le référencer.
 
@@ -119,7 +119,7 @@ Pour ajouter un site local avec plusieurs préfixes d'adresses :
 Parfois, les préfixes de votre site local changent. Les étapes à suivre pour modifier vos préfixes d'adresses IP varient selon que vous avez créé une connexion à la passerelle VPN. Consultez [Modifier des préfixes d’adresses IP de votre site local](#to-modify-ip-address-prefixes-for-a-local-site).
 
 
-## 4. Demander une adresse IP publique pour la passerelle
+## 4\. Demander une adresse IP publique pour la passerelle
 
 Ensuite, vous allez demander qu’une adresse IP publique soit allouée à votre passerelle VPN du réseau virtuel Azure. Il ne s’agit pas de l’adresse IP affectée à votre périphérique VPN, mais de celle qui est affectée à la passerelle VPN Azure elle-même. Vous ne pouvez pas spécifier l’adresse IP que vous voulez utiliser, car elle est allouée dynamiquement à votre passerelle. Vous utilisez cette adresse IP lors de la configuration de votre périphérique VPN local pour la connexion à la passerelle.
 
@@ -127,9 +127,9 @@ Utilisez l’exemple PowerShell ci-dessous. La méthode d’allocation pour cett
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
->[AZURE.NOTE]Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
+>[AZURE.NOTE] Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
 
-## 5. Créer la configuration de l’adressage IP de la passerelle
+## 5\. Créer la configuration de l’adressage IP de la passerelle
 
 La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple ci-dessous pour créer la configuration de votre passerelle.
 
@@ -137,7 +137,7 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6. Créer la passerelle
+## 6\. Créer la passerelle
 
 Dans cette étape, vous allez créer la passerelle de réseau virtuel. Notez que la création d’une passerelle peut durer un certain temps. Souvent 20 minutes, voire plus.
 
@@ -148,7 +148,7 @@ Utilisez les valeurs suivantes :
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## 7. Configuration de votre périphérique VPN
+## 7\. Configuration de votre périphérique VPN
 
 À ce stade, vous aurez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Vous pouvez aussi vous reporter à [Périphériques VPN](http://go.microsoft.com/fwlink/p/?linkid=615099) pour plus d’informations.
 
@@ -156,7 +156,7 @@ Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, uti
 
 	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## 8. Créer la connexion VPN
+## 8\. Créer la connexion VPN
 
 Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer les valeurs pas les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN.
 
@@ -167,7 +167,7 @@ Créez ensuite la connexion VPN de site à site entre votre passerelle de résea
 
 Après un bref délai, la connexion sera établie.
 
-## 9. Vérifier une connexion VPN
+## 9\. Vérifier une connexion VPN
 
 À ce stade, les connexions VPN de site à site créées avec Resource Manager ne sont pas visibles dans la version préliminaire du portail. Vous pouvez néanmoins vérifier que votre connexion a abouti en exécutant la commande *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Nous proposerons prochainement à cet effet une applet de commande, avec la possibilité d'afficher votre connexion dans la version préliminaire du portail.
 
@@ -246,4 +246,4 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

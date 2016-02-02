@@ -41,11 +41,11 @@ Une fois que vous avez terminé le didacticiel Node.js, utilisez les boutons de 
 
 Commençons dès maintenant !
 
-## Composants requis
+## Configuration requise pour le didacticiel Node.js
 
 Vérifiez que vous disposez des éléments suivants :
 
-- Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](http://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
+- Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
 - [Node.js](https://nodejs.org/) version v0.10.29 ou supérieure.
 
 ## Étape 1 : créer un compte DocumentDB
@@ -76,7 +76,7 @@ Ouvrez ```config.js``` dans l’éditeur de texte de votre choix.
 
 Ensuite, créez un objet vide intitulé ```config```, puis définissez les propriétés ```config.endpoint``` et ```config.authKey``` pour votre point de terminaison et votre clé d’autorisation DocumentDB. Ces deux configurations se trouvent dans le [portail Azure](https://portal.azure.com).
 
-![Capture d’écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
+![Didacticiel Node.js : capture d’écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés - Base de données de nœud][keys]
 
     var config = {}
 
@@ -182,7 +182,7 @@ Ensuite, nous allons utiliser les éléments ```config.endpoint``` et ```config.
 
 Maintenant que vous êtes connecté à un compte DocumentDB, jetons un œil à l’utilisation de ressources DocumentDB.
 
-## Étape 5 : Création d’une base de données
+## Étape 5 : Création d’une base de données de nœud
 Vous pouvez créer une [base de données](documentdb-resources.md#databases) à l’aide de la fonction [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents partitionné entre les collections. Ajoutez une fonction pour la création de votre base de données dans le fichier app.js avec l’élément ```id``` spécifié dans l’objet ```config```. Nous allons commencer par nous assurer qu’une base de données avec le même ID ```FamilyRegistry``` n’existe pas déjà. Si elle existe, nous allons retourner cette base de données au lieu d’en créer une.
 
     var getOrCreateDatabase = function(callback) {
@@ -212,7 +212,7 @@ Vous pouvez créer une [base de données](documentdb-resources.md#databases) à 
 
 ##<a id="CreateColl"></a>Étape 6 : Création d’une collection  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** crée une collection S1, ce qui a des conséquences tarifaires. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** crée une collection S1, ce qui a des conséquences tarifaires. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Vous pouvez créer une [collection](documentdb-resources.md#collections) à l’aide de la fonction [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. La collection nouvellement créée est mappée à un [niveau de performance S1](documentdb-performance-levels.md). Ajoutez une fonction pour la création de votre collection dans le fichier app.js avec l’élément ```id``` spécifié dans l’objet ```config```. Là encore, nous allons nous assurer qu’une collection avec le même ID ```FamilyCollection``` n’existe pas déjà. Si elle existe, nous allons retourner cette collection au lieu d’en créer une.
 
@@ -276,7 +276,7 @@ Ensuite, ajoutez une fonction à app.js pour créer les documents contenant les 
 
 Félicitations ! Vous disposez désormais des fonctions de création d’une base de données, d’une collection et de documents dans DocumentDB !
 
-![Diagramme illustrant la relation hiérarchique entre le compte, la base de données, la collection et les documents](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Didacticiel Node.js : diagramme illustrant la relation hiérarchique existant entre le compte, la base de données, la collection et les documents - Base de données de nœud](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>Étape 8 : Interrogation des ressources DocumentDB
 
@@ -302,11 +302,11 @@ DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies su
 
 Le schéma suivant montre comment la syntaxe de requête SQL de DocumentDB est appelée sur la collection que vous avez créée.
 
-![Diagramme illustrant l'étendue et la signification de la requête](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
+![Didacticiel Node.js : diagramme illustrant l’étendue et la signification de la requête - Base de données de nœud](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 Le mot clé [FROM](documentdb-sql-query.md/#from-clause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
-##<a id="DeleteDatabase"></a>Étape 9 : Suppression de la base de données.
+##<a id="DeleteDatabase"></a>Étape 9 : Suppression de la base de données de nœud
 
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.). Vous pouvez supprimer la base de données en ajoutant l’extrait de code suivant.
 
@@ -419,7 +419,7 @@ La sortie de votre application de prise en main doit s’afficher. La sortie doi
 
 Félicitations ! Vous avez créé et terminé le didacticiel Node.js et disposez à présent de votre première application de console DocumentDB !
 
-##<a id="GetSolution"></a> Obtenir la solution complète
+##<a id="GetSolution"></a> Obtenir la solution du didacticiel Node.js complète
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
 -   [Un compte DocumentDB][documentdb-create-account].
@@ -442,4 +442,4 @@ Ensuite, dans le fichier ```config.js```, mettez à jour les valeurs config.endp
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

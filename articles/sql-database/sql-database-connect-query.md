@@ -2,7 +2,7 @@
 	pageTitle="Se connecter à la base de données SQL avec une requête C# | Microsoft Azure"
 	description="Écrivez un programme en C# pour interroger et vous connecter à une base de données SQL. Informations sur les adresses IP, chaînes de connexion, connexion sécurisée et Visual Studio gratuit."
 	services="sql-database"
-	keywords="requête de base de données c#, requête c#, connexion à une base de données"
+	keywords="requête de base de données c#, requête c#, se connecter à une base de données, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -36,7 +36,7 @@ Cet article décrit chaque étape pour les utilisateurs qui découvrent la base 
 Pour exécuter l’exemple de code de requête C#, vous devez disposer des éléments suivants :
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données de démonstration **AdventureWorksLT** sur le service de base de données SQL Azure.
@@ -46,7 +46,7 @@ Pour exécuter l’exemple de code de requête C#, vous devez disposer des élé
 - Visual Studio 2013 Update 4 (ou version ultérieure). Microsoft propose désormais Visual Studio Community *gratuitement*.
  - [Visual Studio Community, téléchargement](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Plus d’options gratuites Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](http://portal.azure.com/) vous guide dans l’installation de Visual Studio.
+ - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](https://portal.azure.com/) vous guide dans l’installation de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Pour exécuter l’exemple de code de requête C#, vous devez disposer des élé
 Si vous devez installer Visual Studio, vous pouvez :
 
 - Installer Visual Studio Community gratuitement en accédant dans votre navigateur aux pages web de produit Visual Studio qui fournissent des téléchargements gratuits et d’autres options
-- Laissez le [portail Azure](http://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
+- Laissez le [portail Azure](https://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
 
 
 ### Visual Studio via le portail Azure
 
 
-1. Connectez-vous par le biais du [portail Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Connectez-vous par le biais du [portail Azure](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Cliquez sur **PARCOURIR* TOUT** > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
 
@@ -85,7 +85,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 
 9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
 
-10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
+10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
  - Sélectionnez **Authentification SQL Server** et non **Authentification Windows**.
  - N’oubliez pas de spécifier votre base de données **AdventureWorksLT** (**Options** > **Propriétés de connexion** dans la boîte de dialogue).
 
@@ -95,7 +95,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 ## Étape 2 : Créer un projet dans Visual Studio
 
 
-Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le code C# > Windows > **Application console**.
+Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le code C# > Windows > **Application console**.
 
 
 1. Cliquez sur **Fichier** > **Nouveau** > **Projet**. La boîte de dialogue *** s’affiche.
@@ -127,7 +127,7 @@ Notre exemple de code C# utilise l’assembly .NET Framework **System.Configurat
 ## Étape 4 : Obtenir la chaîne de connexion
 
 
-Utilisez le [portail Azure](http://portal.azure.com/) pour copier la chaîne de connexion nécessaire pour la connexion à la base de données SQL.
+Utilisez le [portail Azure](https://portal.azure.com/) pour copier la chaîne de connexion nécessaire pour la connexion à la base de données SQL.
 
 Votre première utilisation permettra de connecter Visual Studio à votre base de données SQL Azure **AdventureWorksLT**.
 
@@ -141,7 +141,7 @@ Votre première utilisation permettra de connecter Visual Studio à votre base 
 1. Dans Visual Studio, ouvrez le fichier App.config à partir du volet Explorateur de solutions.
 
 2. Ajoutez l’élément **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;**, comme indiqué dans l’exemple de code App.config suivant.
- - Remplacez *{your\_placeholders}* par vos valeurs réelles :
+ - Remplacez *{vos\_espaces\_réservés}* par vos valeurs réelles :
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -178,7 +178,7 @@ Votre première utilisation permettra de connecter Visual Studio à votre base 
 	![Collez l’exemple de code de requête C#.][40-VSProgramCsOverlay]
 
 2. Remplacez l’ensemble du code de démarrage dans Program.cs en collant l’exemple de code C# suivant.
- - Si vous souhaitez un exemple de code plus court, vous pouvez affecter l’ensemble de la chaîne de connexion en tant que littéral pour la variable **SQLConnectionString**. Ensuite, vous pouvez effacer les deux méthodes **GetConnectionStringFromExeConfig** et **GatherPasswordFromConsole**.
+ - Si vous souhaitez un exemple de code plus court, vous pouvez affecter la chaîne de connexion entière en tant que littéral pour la variable **SQLConnectionString**. Ensuite, vous pouvez effacer les deux méthodes **GetConnectionStringFromExeConfig** et **GatherPasswordFromConsole**.
 
 
 ```
@@ -305,7 +305,7 @@ namespace ConnectAndQuery_Example
 Nous essayons de préserver la concision de l’exemple de code C#. Toutefois, nous avons ajouté du code pour lire un fichier de configuration afin de traiter plusieurs demandes de clients tels que vous. Nous admettons que les programmes de qualité de production doivent utiliser des fichiers de configuration au lieu de littéraux codés en dur dans le fichier .exe.
 
 
-> [AZURE.WARNING]Afin de préserver la concision du code, dans cet exemple aux fins de formation, nous avons choisi de ne pas inclure de code pour la gestion des exceptions et la logique de nouvelle tentative. Toutefois, vos programmes de production qui interagissent avec une base de données cloud doivent inclure les deux.
+> [AZURE.WARNING] Afin de préserver la concision du code, dans cet exemple aux fins de formation, nous avons choisi de ne pas inclure de code pour la gestion des exceptions et la logique de nouvelle tentative. Toutefois, vos programmes de production qui interagissent avec une base de données cloud doivent inclure les deux.
 >
 > Vous trouverez [ici](sql-database-develop-csharp-retry-windows.md) un lien vers un exemple de code contenant la logique de nouvelle tentative.
 
@@ -316,7 +316,7 @@ Nous essayons de préserver la concision de l’exemple de code C#. Toutefois, n
 Votre programme C# client ne peut pas se connecter à la base de données SQL avant que l’adresse IP de l’ordinateur client ait été ajoutée dans le pare-feu de la base de données SQL. Votre programme échouera avec un message d’erreur pratique indiquant l’adresse IP nécessaire.
 
 
-Vous pouvez utiliser le [portail Azure](http://portal.azure.com/) pour ajouter l’adresse IP.
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour ajouter l’adresse IP.
 
 
 
@@ -358,4 +358,4 @@ Pour plus d’informations, voir <br/> [Procédure : configuration des paramèt
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

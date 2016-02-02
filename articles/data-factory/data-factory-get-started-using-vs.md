@@ -35,12 +35,12 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes à l'aide de Visual 
 ## Créer et déployer des entités Data Factory à l’aide de Visual Studio 
 
 ### Conditions préalables
-Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
 
 ### Procédure pas à pas
 
 #### Créer le projet Visual Studio 
-1. Lancez **Visual Studio 2013**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s'afficher.  
+1. Lancez **Visual Studio 2013**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s’afficher.  
 2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory**, puis cliquez sur **Projet Data Factory vide**. Si le modèle DataFactory n’est pas affiché, fermez Visual Studio, installez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, puis rouvrez Visual Studio.  
 
 	![Boîte de dialogue Nouveau projet](./media/data-factory-get-started-using-vs/new-project-dialog.png)
@@ -56,7 +56,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 
 ##### Créer le service lié Azure Storage
 
-4. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.      
+4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.      
 5. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**. 
 
 	![Nouveau service lié](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
@@ -76,7 +76,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 
 
 ### créer des tables d'entrée et de sortie
-À l'étape précédente, vous avez créé les services liés **AzureStorageLinkedService1** et **AzureSqlLinkedService1** pour lier un compte de stockage Azure et une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Dans cette étape, vous allez définir les deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données référencés respectivement par AzureStorageLinkedService1 et AzureSqlLinkedService1. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous devez spécifier la table SQL qui stocke les données de sortie.
+À l’étape précédente, vous avez créé les services liés **AzureStorageLinkedService1** et **AzureSqlLinkedService1** pour lier un compte de stockage Azure et une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Dans cette étape, vous allez définir les deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d’entrée/sortie qui sont stockées dans les magasins de données référencés par AzureStorageLinkedService1 et AzureSqlLinkedService1, respectivement. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous devez spécifier la table SQL qui stocke les données de sortie.
 
 #### Création de la table d’entrée
 
@@ -116,7 +116,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 
 #### Création de la table de sortie
 
-11. Dans l'**Explorateur de solutions**, cliquez à nouveau avec le bouton droit sur **Tables**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
+11. À nouveau dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Tables**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 12. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **SQL Azure**, puis cliquez sur **Ajouter**. 
 13. Remplacez le texte JSON par le texte JSON suivant, puis enregistrez le fichier **AzureSqlTableLocation1.json**.
 
@@ -146,7 +146,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 		}
 
 #### Création du pipeline 
-Jusqu’à présent, vous avez créé des services liés et des tables d’entrée/sortie. À présent, vous allez créer un pipeline pourvu d'une **activité de copie** pour copier des données d'objets blob Azure vers la base de données SQL Azure.
+Jusqu’à présent, vous avez créé des services liés et des tables d’entrée/sortie. À présent, vous allez créer un pipeline pourvu d’une **activité de copie** pour copier des données de la base de données d’objets blob Azure vers la base de données SQL Azure.
 
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Pipelines**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.  
@@ -199,9 +199,9 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 
 #### Publier/Déployer des entités Data Factory
   
-18. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sur **Publier**. 
+18. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. 
 19. Si la boîte de dialogue **Connectez-vous à votre compte Microsoft** s'affiche, entrez vos informations d'identification pour le compte qui dispose de l'abonnement Azure, puis cliquez sur **Se connecter**.
-20. La boîte de dialogue suivante doit s'afficher :
+20. La boîte de dialogue suivante doit s’afficher :
 
 	![Boîte de dialogue Publier](./media/data-factory-get-started-using-vs/publish.png)
 
@@ -209,10 +209,11 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 	1. Sélectionnez l'option **Créer une fabrique de données**.
 	2. Entrez **VSTutorialFactory** comme **Nom**.  
 	
-		> [AZURE.NOTE]Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez une erreur au sujet du nom de la fabrique de données pendant la publication, modifiez le nom de la fabrique de données (par exemple, votrenomVSTutorialFactory) et renouvelez la publication. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+		> [AZURE.NOTE]  
+		Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez une erreur au sujet du nom de la fabrique de données pendant la publication, modifiez le nom de la fabrique de données (par exemple, votrenomVSTutorialFactory) et renouvelez la publication. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 		> 
 		> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
-	3. Sélectionnez l’abonnement correct dans le champ **Abonnement**. 
+	3. Sélectionnez l’abonnement approprié pour le champ **Abonnement**. 
 	4. Sélectionnez le **groupe de ressources** pour la fabrique de données à créer. 
 	5. Sélectionnez la **région** pour la fabrique de données. 
 	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. 
@@ -224,7 +225,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure**, puis **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L'état de cette opération s'affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner Exporter la fabrique de données vers le nouveau projet pour créer un projet Visual Studio basé sur une fabrique de données existante. ![Exporter la fabrique de données vers un projet Visual Studio](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Mettre à jour des outils Data Factory pour Visual Studio
@@ -236,4 +237,4 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) pour obtenir des instructions sur l’utilisation du portail Azure et surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automat
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-- abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous <a href="/pricing/free-trial/" target="_blank">[inscrire pour un essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+- abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous <a href="/pricing/free-trial/" target="_blank">[inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - Un [compte Automation](automation-configuring.md) pour y stocker le Runbook.
 - Une machine virtuelle Azure. Nous arrêterons et démarrerons cet ordinateur afin qu'il ne soit pas en production.
 - [Un nom d’utilisateur Azure AD et une ressource d’informations d’identification Automation](automation-configuring.md) pour l’authentification auprès des ressources Azure. Cet utilisateur doit avoir l'autorisation de démarrer et arrêter la machine virtuelle.
@@ -39,8 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
-1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation.
-La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
+1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation. La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks.<br> ![Contrôle des Runbooks](media/automation-first-runbook-textual/runbooks-control.png)
 2. Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook**.
 3. Nommez le runbook *MyFirstRunbook-Workflow*.
@@ -125,4 +124,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 - [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 - [Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

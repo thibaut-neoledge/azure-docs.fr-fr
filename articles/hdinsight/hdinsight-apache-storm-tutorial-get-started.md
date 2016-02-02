@@ -23,13 +23,13 @@
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Microsoft Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de Big Data en temps réel.
 
-> [AZURE.NOTE]Les étapes décrites dans cet article créent un cluster HDInsight Windows. Pour savoir comment créer un cluster Storm sur HDInsight sous Linux, consultez le [Didacticiel Apache Storm : prise en main de l’exemple Storm Starter à l’aide de l’analyse de données sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
+> [AZURE.NOTE] Les étapes décrites dans cet article créent un cluster HDInsight Windows. Pour savoir comment créer un cluster Storm sur HDInsight sous Linux, consultez le [Didacticiel Apache Storm : prise en main de l’exemple Storm Starter à l’aide de l’analyse de données sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Composants requis
 
 Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel Storm Apache :
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Créer un cluster Storm
 
@@ -49,7 +49,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 5. Pour __Groupe de ressources__, sélectionnez l’entrée de manière à afficher la liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également sélectionner __Créer un nouveau__, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
 
-	> [AZURE.NOTE]Cette entrée correspond par défaut à l’un des groupes de ressources existants, si l’un d’eux est disponible.
+	> [AZURE.NOTE] Cette entrée correspond par défaut à l’un des groupes de ressources existants, si l’un d’eux est disponible.
 
 6. Sélectionnez __Informations d’identification__, puis entrez une valeur dans les champs __Nom de connexion au cluster__ et __Mot de passe de connexion au cluster__. Enfin, utilisez __Sélectionner__ pour définir les informations d’identification. Le Bureau à distance ne sera pas utilisé dans ce document, vous pouvez donc laisser cette option désactivée.
 
@@ -59,7 +59,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	![Panneau Source de données](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau __Source de données__.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau __Source de données__.
 
 	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __nom de stockage__ et la __clé d’accès__ d’un compte de stockage existant.
 
@@ -69,7 +69,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	- __Emplacement__ : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
-		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définit également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
+		> [AZURE.IMPORTANT] La sélection de l’emplacement de la source de données par défaut définit également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
 
 	- __Sélectionner__ : utilisez cette option pour enregistrer la configuration de la source de données.
 
@@ -89,7 +89,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le Tableau d’accueil](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour vérifier le processus d’approvisionnement.
+	> [AZURE.NOTE] La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du Tableau d’accueil, ou l’entrée __Notifications__ à gauche de la page pour vérifier le processus d’approvisionnement.
 
 ## Exécution d’un exemple Starter Storm sur HDInsight
 
@@ -103,7 +103,7 @@ Le tableau de bord se trouve dans **https://&lt;clustername>.azurehdinsight.net/
 
 ![Portail Azure avec un lien vers le tableau de bord Storm](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
-> [AZURE.NOTE]Quand vous vous connectez au tableau de bord, vous devez entrer un nom d’utilisateur et un mot de passe. Il s’agit du nom de l’administrateur (**admin**) et du mot de passe utilisé lors de la création du cluster.
+> [AZURE.NOTE] Quand vous vous connectez au tableau de bord, vous devez entrer un nom d’utilisateur et un mot de passe. Il s’agit du nom de l’administrateur (**admin**) et du mot de passe utilisé lors de la création du cluster.
 
 Une fois le tableau de bord Storm chargé, le formulaire **Envoi de la topologie** s’affichera.
 
@@ -128,7 +128,7 @@ Procédez comme suit pour exécuter un exemple Storm Starter :
 
 	![Bouton Envoyer et résultats de l'entrée Statistiques Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
-	> [AZURE.NOTE]Les résultats n’indiquent pas que la topologie est terminée : **une topologie Storm, une fois démarrée, s’exécute jusqu’à ce que vous l’arrêtiez.** La topologie de statistiques génère des phrases aléatoires tout en conservant le décompte du nombre de fois qu’elle rencontre chaque mot, jusqu’à ce que vous l’arrêtiez.
+	> [AZURE.NOTE] Les résultats n’indiquent pas que la topologie est terminée : **une topologie Storm, une fois démarrée, s’exécute jusqu’à ce que vous l’arrêtiez.** La topologie de statistiques génère des phrases aléatoires tout en conservant le décompte du nombre de fois qu’elle rencontre chaque mot, jusqu’à ce que vous l’arrêtiez.
 
 ### <a id="monitor"></a>Analyse de la topologie
 
@@ -140,7 +140,7 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	Dans la page ci-dessus, vous pouvez voir la durée pendant laquelle la topologie a été active, ainsi que le nombre de processus de travail, d’exécuteurs et de tâches actuellement utilisés.
 
-	> [AZURE.NOTE]La colonne **Nom** contient le nom convivial fourni précédemment via le champ**Paramètres supplémentaires**.
+	> [AZURE.NOTE] La colonne **Nom** contient le nom convivial fourni précédemment via le champ**Paramètres supplémentaires**.
 
 4. Sous **Résumé de la topologie**, sélectionnez l’entrée **Statistiques** située dans la colonne **Nom**. Vous obtenez plus d’informations sur la topologie.
 
@@ -150,7 +150,7 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	* **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
-		> [AZURE.NOTE]La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
+		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
 	* **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
 
@@ -176,7 +176,7 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	* **Statistiques du spout/bolt** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
-		> [AZURE.NOTE]La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
+		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
 	* **Statistiques d’entrée** (bolt uniquement) : informations sur les composants qui produisent des données consommées par le bolt.
 
@@ -223,7 +223,7 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 	Utilisez la commande « jar » pour extraire le code source ou les documents Java. Par exemple, « jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar ».
 
-	> [AZURE.NOTE]Les documents Java sont composés de pages Web. Lorsque vous les avez extraits, utilisez un navigateur pour afficher le fichier **index.html**.
+	> [AZURE.NOTE] Les documents Java sont composés de pages Web. Lorsque vous les avez extraits, utilisez un navigateur pour afficher le fichier **index.html**.
 
 	Pour accéder à ces exemples, vous devez activer le bureau à distance pour le cluster Storm sur HDInsight, puis copier les fichiers à partir de **%STORM\_HOME%\\contrib**.
 
@@ -239,4 +239,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

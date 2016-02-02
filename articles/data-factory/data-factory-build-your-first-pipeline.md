@@ -26,7 +26,7 @@
 
 Cet article vous permet de créer votre première fabrique de données Azure.
 
-> [AZURE.NOTE]Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).
+> [AZURE.NOTE] Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
 ## Vue d’ensemble du didacticiel
 Ce didacticiel présente les étapes nécessaires à la création et à l’exécution de votre première fabrique de données. Vous allez créer un pipeline dans la fabrique de données, qui transforme/traite les données d’entrée pour produire des données de sortie.
@@ -34,7 +34,7 @@ Ce didacticiel présente les étapes nécessaires à la création et à l’exé
 ## Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
+1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
 
 2.	**Stockage Azure** : dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker les données. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -65,7 +65,7 @@ Quand le fichier est traité par le pipeline avec l’activité Hive d’HDInsig
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) sera écrite dans le fichier 000000_0 dans le dossier month=1. De même, la deuxième sera écrite dans le fichier du dossier month=2 et la troisième sera écrite dans le fichier du dossier month=3.
+Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) sera écrite dans le fichier 000000\_0 dans le dossier month=1. De même, la deuxième sera écrite dans le fichier du dossier month=2 et la troisième sera écrite dans le fichier du dossier month=3.
 
 ## Charger des fichiers dans Azure Storage pour le didacticiel
 En premier lieu, vous devez préparer le compte de stockage Azure et ses fichiers nécessaires pour commencer ce didacticiel.
@@ -77,7 +77,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ### Créer le fichier de script HQL 
 
-1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
+1. Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 		FROM WebLogsRaw
 
 ### Créer un exemple de fichier d’entrée
-Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\adfgetstarted** avec le contenu suivant :
+Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\\adfgetstarted** avec le contenu suivant :
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -185,7 +185,7 @@ Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\
 
 ### Charger le fichier d’entrée et le fichier HQL dans votre stockage d’objets blob Azure
 
-Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’explorateur de stockage Azure, CloudXPlorer de ClumsyLeaf Software) pour effectuer cette tâche. Cette section explique comment utiliser l’outil AzCopy.
+Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’[Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), CloudXPlorer de ClumsyLeaf Software) pour effectuer cette tâche. Cette section explique comment utiliser l’outil AzCopy.
 	 
 2. Pour préparer le stockage Azure en vue du didacticiel, procédez comme suit :
 	1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [dernière version Preview](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
@@ -193,11 +193,11 @@ Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’expl
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Accédez au dossier c:\adfgettingstarted et exécutez la commande suivante pour charger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé du compte de stockage.
+	3. Accédez au dossier c:\\adfgettingstarted et exécutez la commande suivante pour charger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé du compte de stockage.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **partitionweblogs.hql** de votre disque local vers le dossier **inputdata** du conteneur.
+		> [AZURE.NOTE] La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **partitionweblogs.hql** de votre disque local vers le dossier **inputdata** du conteneur.
 	
 	5. Une fois que le fichier a été chargé, vous voyez une sortie d’AzCopy similaire à la suivante.
 	
@@ -222,4 +222,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur un des ongl
 - Visual Studio
 - Modèles Azure Resource Manager 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de .NET | Microsoft Azure"
-	description="Découvrez le stockage d’objets blob Azure et comment créer un conteneur, et charger, télécharger, répertorier et supprimer un contenu d’objet blob."
+	pageTitle="Prise en main du stockage d’objets blob Azure à l’aide de .NET | Microsoft Azure"
+	description="Stockez des données de fichier dans le cloud avec le stockage d’objets blob Azure. Commencez par des opérations simples de stockage d’objets blob, notamment la création d’un conteneur, puis le chargement et le téléchargement de contenu des objets blob, l’établissement de listes correspondantes et la suppression de ce contenu."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 
-# Utilisation du stockage d’objets blob à partir de .NET
+# Prise en main du stockage d’objets blob Azure à l’aide de .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Vue d'ensemble
 
-Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. La bibliothèque cliente de stockage est un kit de développement logiciel qui simplifie l’interaction avec l’API de stockage d’objets blobs REST. Les scénarios traités dans ce guide incluent le **téléchargement**, la **liste**, le **chargement** et la **suppression** d’objets blobs et devraient vous prendre environ une heure. Si vous souhaitez visionner une vidéo de prise en main, consultez [Introduction à Azure Storage en cinq minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/). Vous pouvez également lire [Prise en main d’Azure Storage en cinq minutes](storage-getting-started-guide.md).
+Le stockage d’objets blob Azure est un service qui stocke les données de fichier dans le cloud. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est parfois appelé stockage d’objets.
+
+Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage d’objets blob Azure. Les scénarios traités incluent le chargement, la création de listes, le téléchargement et la suppression d’objets blob. Le suivi de ce didacticiel ne prend pas plus d’une heure.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,6 +40,7 @@ Ce guide explique le déroulement des scénarios courants dans le cadre de l’u
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Déclarations d’espace de noms
+
 Ajoutez les déclarations d’espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
 
     using Microsoft.WindowsAzure;
@@ -365,4 +368,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

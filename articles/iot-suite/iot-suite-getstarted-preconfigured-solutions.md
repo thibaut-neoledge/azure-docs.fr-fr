@@ -2,13 +2,14 @@
 	pageTitle="Prise en main des solutions préconfigurées | Microsoft Azure"
 	description="Suivez ce didacticiel pour apprendre à déployer une solution préconfigurée Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Ce didacticiel montre comment configurer la solution préconfigurée de *surveil
 
 Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
-> [AZURE.NOTE]Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk_free_trial].
+> [AZURE.NOTE]  Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk_free_trial].
 
 ## Configurer la solution préconfigurée de surveillance à distance
 
@@ -159,4 +160,4 @@ Maintenant que vous avez créé une solution préconfigurée opérationnelle, vo
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

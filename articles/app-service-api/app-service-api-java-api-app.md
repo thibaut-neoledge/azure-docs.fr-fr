@@ -25,7 +25,7 @@ Ce didacticiel explique comment créer une application Java et comment la déplo
 ## Composants requis
 
 1. Le [kit 8 de développeur Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (ou version ultérieure)
-1. Un abonnement payant ou une [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) [Microsoft Azure](https://azure.microsoft.com)
+1. Un abonnement payant ou une [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) [Microsoft Azure](https://azure.microsoft.com/)
 1. [Maven](https://maven.apache.org/) doit être installé sur votre ordinateur de développement
 1. Git doit être installé sur votre ordinateur de développement. 
 
@@ -254,7 +254,7 @@ Dans cette section, vous allez remplacer l’implémentation côté serveur du c
 ## Publication du résultat dans Azure App Service
 Dans cette section, vous allez apprendre à créer une nouvelle application API App à l’aide du portail Azure, à préparer cette dernière pour l’hébergement d’applications Java et à déployer le fichier WAR récemment créé dans Azure App Service pour exécuter votre nouvelle application API.
 
-1. Créez une nouvelle application API dans le [portail Azure](http://portal.azure.com) en cliquant sur l’élément de menu **Nouveau -> Web + Mobile -> Application API**.
+1. Créez une nouvelle application API dans le [portail Azure](https://portal.azure.com/) en cliquant sur l’élément de menu **Nouveau -> Web + Mobile -> Application API**.
 	
 	![Créer une nouvelle API App](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@ Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code
 
 Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

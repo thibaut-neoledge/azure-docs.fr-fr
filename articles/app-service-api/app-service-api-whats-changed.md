@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # App Service API Apps : les nouveautés
@@ -21,7 +21,7 @@
 À l’occasion de l’événement Connect() de novembre 2015, un certain nombre d’améliorations ont été [annoncées](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) pour Azure App Service. Parmi celles-ci figurent les modifications sous-jacentes apportées à API Apps pour assurer une meilleure conformité avec Mobile Apps et Web Apps, réduire le nombre de concepts et améliorer les performances de déploiement et d’exécution. À compter du 30 novembre 2015, les applications API que vous créerez à partir du portail de gestion Azure ou des outils les plus récents reflèteront ces modifications. Cet article décrit ces modifications et explique comment redéployer les applications existantes pour profiter des fonctionnalités.
 
 
-> [AZURE.NOTE]La version préliminaire initiale d’API Apps prenait en charge deux scénarios principaux : (1) les API personnalisées pour une utilisation dans Logic Apps ou vos propres clients et (2) l’API Marketplace (souvent des connecteurs SaaS) pour une utilisation dans Logic Apps. Cet article porte sur le premier scénario : les API personnalisées. Pour les API Marketplace, une expérience améliorée du concepteur Logic Apps et une base de connectivité sous-jacente seront introduites début 2016. Les API Marketplace existantes restent disponibles dans le concepteur Logic Apps.
+> [AZURE.NOTE] La version préliminaire initiale d’API Apps prenait en charge deux scénarios principaux : (1) les API personnalisées pour une utilisation dans Logic Apps ou vos propres clients et (2) l’API Marketplace (souvent des connecteurs SaaS) pour une utilisation dans Logic Apps. Cet article porte sur le premier scénario : les API personnalisées. Pour les API Marketplace, une expérience améliorée du concepteur Logic Apps et une base de connectivité sous-jacente seront introduites début 2016. Les API Marketplace existantes restent disponibles dans le concepteur Logic Apps.
 
 ## Évolution des fonctionnalités
 Les principales fonctionnalités d’API Apps (authentification, CORS et métadonnées d’API) ont été directement transférées dans App Service. Du fait de cette évolution, les fonctionnalités sont disponibles dans Web Apps, Mobile Apps et API Apps. En fait, les trois partagent le même type de ressource **Microsoft.Web/sites** dans Resource Manager. La passerelle API Apps n’est plus utile ni fournie avec API Apps. De même, l’utilisation de la Gestion des API Azure s’en trouve simplifiée dans la mesure où seule subsiste la passerelle Gestion des API.
@@ -30,7 +30,7 @@ Les principales fonctionnalités d’API Apps (authentification, CORS et métado
 
 L’un des principes de conception phares de la mise à jour d’API Apps est la possibilité de fournir une API en l’état, dans le langage de votre choix. Si votre API est déjà déployée en tant qu’application web ou application mobile*, vous n’avez pas besoin de redéployer votre application pour tirer parti des nouvelles fonctionnalités.
 
-> [AZURE.NOTE]*Si vous utilisez actuellement la version préliminaire d’API Apps, vous trouverez des conseils de migration détaillés ci-dessous.
+> [AZURE.NOTE] *Si vous utilisez actuellement la version préliminaire d’API Apps, vous trouverez des conseils de migration détaillés ci-dessous.
 
 ### Authentification
 Les fonctionnalités d’authentification clé en main existantes d’API Apps, Mobile Services/Apps et Web Apps ont été unifiées et sont accessibles dans un panneau d’authentification unique Azure App Service dans le portail de gestion. Pour obtenir une présentation des services d’authentification d’App Service, consultez l’article relatif à l’[extension de la fonctionnalité d’authentification/autorisation d’App Service](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
@@ -79,7 +79,7 @@ Avec la rationalisation des types App Service, la publication est aussi unifiée
 
 ![Publication API Apps](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-Pour en savoir plus sur le kit de développement logiciel SDK 2.8.1, lisez l’annonce sur [ce billet de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
+Pour en savoir plus sur le SDK 2.8.1, lisez l’annonce sur [ce billet de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
 
 Vous pouvez aussi importer manuellement le profil de publication à partir du portail de gestion pour activer la publication. Cependant, Cloud Explorer, la génération de code et la sélection/création d’applications API nécessitera le SDK 2.8.1 ou une version ultérieure.
 
@@ -122,7 +122,7 @@ L’ancien modèle API Apps proposait des API qui permettaient de découvrir pen
 Le concepteur Logic Apps proposera une intégration particulièrement transparente au nouveau modèle API Apps début 2016. Ceci dit, le connecteur HTTP intégré à Logic Apps peut appeler n’importe quel point de terminaison HTTP et il prend en charge l’authentification du principal du service, qui est aussi prise en charge en mode natif par les services d’authentification App Service. Découvrez comment utiliser une API hébergée par App Service dans Logic Apps en consultant l’article [Utilisation de votre API personnalisée hébergée sur App Service avec Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ### <a id="documentation"></a> Documentation de l’ancien modèle d’applications API
-Certains articles [azure.microsoft.com](https://azure.microsoft.com) écrits au sujet de l’ancien modèle API Apps ne s’appliquent pas au nouveau modèle et vont être supprimés du site. Leurs URL seront redirigées vers l’élément équivalent le plus proche fonctionnant avec le nouveau modèle, mais vous aurez toujours accès aux anciens articles dans le [référentiel de documentation GitHub d’azure.microsoft.com](https://github.com/Azure/azure-content). La plupart des articles que vous pourriez souhaiter consulter se trouve dans le dossier [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Voici des liens directs vers quelques-uns des sujets susceptibles de vous être utiles si vous utilisez une version plus ancienne d’API apps ou si vous créez de nouvelles applications d’API de connecteur depuis Marketplace.
+Certains articles [azure.microsoft.com](https://azure.microsoft.com/) écrits au sujet de l’ancien modèle API Apps ne s’appliquent pas au nouveau modèle et vont être supprimés du site. Leurs URL seront redirigées vers l’élément équivalent le plus proche fonctionnant avec le nouveau modèle, mais vous aurez toujours accès aux anciens articles dans le [référentiel de documentation GitHub d’azure.microsoft.com](https://github.com/Azure/azure-content). La plupart des articles que vous pourriez souhaiter consulter se trouve dans le dossier [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Voici des liens directs vers quelques-uns des sujets susceptibles de vous être utiles si vous utilisez une version plus ancienne d’API apps ou si vous créez de nouvelles applications d’API de connecteur depuis Marketplace.
 
 * [Vue d’ensemble de l’authentification](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
 * [Protéger une application API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
@@ -141,4 +141,4 @@ Pour en savoir plus, lisez les articles de la [section Documentation de l’API 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

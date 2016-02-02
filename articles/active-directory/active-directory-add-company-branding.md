@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="01/26/2016" 
 	ms.author="MarkVi"/>
 
 # Ajout d’une marque de société aux pages de connexion et du volet d’accès
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - La promotion de la marque de société est une fonctionnalité disponible uniquement si vous avez effectué une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-- Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Beaucoup d’entreprises souhaitent appliquer une même apparence à tous leurs sites web et à tous les services qu’elles gèrent afin que les utilisateurs ne soient pas trop déroutés chaque fois qu’ils doivent utiliser ces différents sites. Azure Active Directory offre cette possibilité en vous permettant de personnaliser l’apparence des pages web côté utilisateur final pour qu’elles reprennent le logo et la palette de couleurs de votre entreprise :
 
@@ -80,7 +80,8 @@ Logo de bannière | Affiché en haut à droite de la page. Remplace le logo qu�
 Grande illustration/couleur d’arrière-plan | Affichée à gauche de la page. Remplace l’image qu’affiche normalement le site auquel vos utilisateurs se connectent. La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante ou lorsque l’écran est très étroit.
 Texte de la page de connexion | S’affiche au-dessus du pied de page, lorsque vous devez transmettre des informations à vos utilisateurs avant qu’ils ne se connectent avec leur compte professionnel ou scolaire. Par exemple, vous pouvez mentionner le numéro de téléphone de votre support technique ou une mention légale.
 
-> [AZURE.NOTE]Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un Logo de bannière mais aucune grande illustration, la page de connexion affiche votre logo et l’illustration du site de destination (autrement dit, l’image d’autoroute de Californie d’Office 365).
+> [AZURE.NOTE]
+Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un Logo de bannière mais aucune grande illustration, la page de connexion affiche votre logo et l’illustration du site de destination (autrement dit, l’image d’autoroute de Californie d’Office 365).
 
 Vous pouvez également traduire tous les éléments de cette page. Une fois que vous avez configuré un jeu d’éléments de personnalisation « par défaut », vous pouvez configurer d’autres versions avec différents paramètres régionaux. Vous pouvez également combiner différents éléments. Vous pouvez par exemple afficher :
 
@@ -185,4 +186,4 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

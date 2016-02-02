@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création, gestion ou suppression d’un compte de stockage | Microsoft Azure"
-	description="Créez un compte de stockage, gérez vos clés d’accès ou supprimez un compte de stockage dans le portail Azure."
+	pageTitle="Création, gestion ou suppression d’un compte de stockage dans le portail Azure | Microsoft Azure"
+	description="Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le portail Azure. En savoir plus sur les comptes de stockage standard et Premium."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/26/2016"
 	ms.author="robinsh"/>
 
 
@@ -39,11 +39,11 @@ La facturation de l’utilisation d’Azure Storage est basée sur votre compte 
 - Les transactions font références à toutes les opérations de lecture et d'écriture vers Azure Storage.
 - L'acheminement des données fait référence aux données transférées hors d'une région Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n'est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d'application, vous êtes facturé pour l'acheminement des données (pour les services Azure, vous pouvez grouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais d'acheminement des données).  
 
-La page [Tarification Azure](http://azure.microsoft.com/pricing/details/#storage) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](http://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données.
+La page [Tarification Azure](https://azure.microsoft.com/pricing/details/#storage) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données.
 
 Pour plus d’informations sur la capacité et les objectifs de performance du compte de stockage, consultez la page [Objectifs d’évolutivité et de performances d’Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-> [AZURE.NOTE]Lorsque vous créez une machine virtuelle Azure, un compte de stockage est créé automatiquement pour vous sur le lieu de déploiement si vous ne disposez pas déjà de ce type de compte à cet emplacement. Il n’est donc pas nécessaire de suivre les étapes ci-dessous pour créer un compte de stockage pour vos disques de machines virtuelles. Le nom du compte de stockage dépend du nom de la machine virtuelle. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+> [AZURE.NOTE] Lorsque vous créez une machine virtuelle Azure, un compte de stockage est créé automatiquement pour vous sur le lieu de déploiement si vous ne disposez pas déjà de ce type de compte à cet emplacement. Il n’est donc pas nécessaire de suivre les étapes ci-dessous pour créer un compte de stockage pour vos disques de machines virtuelles. Le nom du compte de stockage dépend du nom de la machine virtuelle. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Points de terminaison d’un compte de stockage
 
@@ -73,7 +73,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 4. Entrez un nom pour votre compte de stockage.
 
-	> [AZURE.NOTE]Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+	> [AZURE.NOTE] Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 	>  
 	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail Azure indique si le nom du compte de stockage sélectionné est déjà utilisé.
 
@@ -89,7 +89,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 7. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utiliser le portail Azure pour gérer des ressources Azure](../resource-group-portal.md).
+8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utiliser le portail Azure pour gérer des ressources Azure](../azure-portal/resource-group-portal.md).
 
 9. Sélectionnez l’emplacement géographique de votre compte de stockage.
 
@@ -99,7 +99,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE]Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d'informations, consultez le [didacticiel sur les signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d'informations, consultez le [didacticiel sur les signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Afficher et copier les clés d’accès de stockage
 
@@ -109,7 +109,7 @@ Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de s
 
 Nous vous recommandons de modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
 
-> [AZURE.WARNING]La régénération des clés d’accès a une incidence sur les machines virtuelles, les services de médias et toutes les applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
+> [AZURE.WARNING] La régénération des clés d’accès a une incidence sur les machines virtuelles, les services de médias et toutes les applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
 
 **Machines virtuelles** : si votre compte de stockage contient des machines virtuelles en cours d'exécution, vous devez redéployer toutes les machines virtuelles après avoir régénéré les clés d'accès. Pour éviter le redéploiement, arrêtez les machines virtuelles avant de régénérer les clés d'accès.
 
@@ -131,12 +131,27 @@ Voici le processus de rotation de vos clés d’accès de stockage :
 
 Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
 
-> [AZURE.WARNING]Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
+> [AZURE.WARNING] Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
+
+Pour supprimer un compte de stockage qui est associé à une machine virtuelle Azure, vous devez tout d’abord vous assurer que tous les disques des machines virtuelles ont été supprimés. Si vous ne commencez pas par supprimer les disques des machines virtuelles, vous voyez un message d’erreur semblable au suivant lorsque vous essayez de supprimer votre compte de stockage :
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+Pour supprimer un disque de machine virtuelle, procédez comme suit dans le portail Azure Classic :
+
+1. Accédez au [portail Azure Classic](https://manage.windowsazure.com).
+2. Accédez à l’onglet Virtual Machines.
+3. Cliquez sur l’onglet Disques.
+4. Sélectionnez votre disque de données, puis cliquez sur Supprimer le disque.
+5. Pour supprimer des images de disque, accédez à l’onglet Images et supprimez les images qui sont stockées dans le compte.
+
+Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur Azure Storage, consultez la documentation de référence Azure Storage sur [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
+- [Réplication Azure Storage](storage-redundancy.md)
+- [Configurer une chaîne de connexion dans Azure Storage](storage-configure-connection-string.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@ Azure Batch vous permet d'exécuter des applications de calculs complexes paral
 
 ## Cas d'utilisation
 
-Batch est un service géré pour le *traitement par lots* ou le *Batch Computing* et l’exécution d’un grand nombre de tâches similaires afin d’obtenir les résultats souhaités. Batch Computing est un modèle courant pour les organisations qui traitent, transforment et analysent de grandes quantités de données, de manière planifiée ou à la demande, dans des domaines tels que les services financiers et l’ingénierie.
+Batch est un service géré pour le *traitement par lots* ou le *Batch Computing* et l’exécution d’un grand nombre de tâches similaires afin d’obtenir les résultats souhaités. Batch Computing est un modèle courant pour les organisations qui traitent, transforment et analysent de grandes quantités de données, de manière planifiée ou à la demande, dans des domaines tels que les services financiers et l’ingénierie.
 
 Le service Batch fonctionne bien avec des applications ou charges de travail intrinsèquement parallèles, qui se prêtent à l’exécution de tâches en parallèle sur plusieurs ordinateurs. Voir la Figure 1.
 
@@ -52,7 +52,7 @@ Consultez [Présentation de la fonction Azure Batch](batch-api-basics.md) pour 
 
 ### Comptes dont vous aurez besoin
 
-+ **Compte et abonnement Azure** : si vous ne possédez pas de compte, vous pouvez activer les [avantages de votre abonnement MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou obtenir un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
++ **Compte et abonnement Azure** : si vous ne possédez pas de compte, vous pouvez activer les [avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou obtenir un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 + **Compte Batch** : utilisez le nom et l’URL d’un compte Batch et une clé d’accès comme informations d’identification lorsque vous effectuez des appels de l’API Batch. Toutes vos ressources Batch, telles que les nœuds de calcul, les pools, les travaux et les tâches, sont associées à un compte Batch. Une des méthodes qui permet de créer un compte Batch et de gérer les clés d’accès pour le compte consiste à utiliser le [portail Azure](batch-account-create-portal.md).
 
@@ -103,4 +103,4 @@ La figure 2 illustre un flux de travail qui utilise une application cliente .NE
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

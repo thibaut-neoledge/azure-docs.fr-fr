@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Didacticiel ASP.NET MVC pour DocumentDB : développement d’applications Web | Microsoft Azure" 
-	description="Exécutez ce didacticiel ASP.NET MVC pour créer une application web MVC à l’aide de DocumentDB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure." 
+	description="Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide de DocumentDB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC." 
 	keywords="didacticiel asp.net mvc, développement d’application web, application web mvc, didacticiel mvc asp net étape par étape"
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -18,7 +18,7 @@
 	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Développement d’une application web avec ASP.NET MVC et DocumentDB.
+#<a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’une application web avec DocumentDB.
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -32,7 +32,7 @@ Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure
 
 Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni par Azure pour stocker des données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure.
 
-> [AZURE.TIP]Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
+> [AZURE.TIP] Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
 
 ## <a name="_Toc395637760"></a>Conditions préalables à l’exécution de ce didacticiel de base de données
 
@@ -52,8 +52,7 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>
-Voyons à présent comment créer une application ASP.NET MVC de A à Z.
+<br/>Voyons à présent comment créer une application ASP.NET MVC de A à Z.
 
 ## <a name="_Toc395637762"></a>Étape 2 : création d'une application ASP.NET MVC
 
@@ -398,7 +397,7 @@ La première chose à faire ici est d'ajouter une classe qui contient toute la l
     	    }
     	}
 
-	> [AZURE.TIP]Au moment de créer une collection DocumentCollection, vous pouvez fournir un paramètre RequestOptions facultatif pour OfferType, ce qui vous permet de spécifier le niveau de performance de la nouvelle collection. Si ce paramètre n'est pas transmis, le type d'offre par défaut est utilisé. Pour plus d'informations sur les types d'offre DocumentDB, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+	> [AZURE.TIP] Au moment de créer une collection DocumentCollection, vous pouvez fournir un paramètre RequestOptions facultatif pour OfferType, ce qui vous permet de spécifier le niveau de performance de la nouvelle collection. Si ce paramètre n'est pas transmis, le type d'offre par défaut est utilisé. Pour plus d'informations sur les types d'offre DocumentDB, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 
 3. Nous allons lire certaines valeurs de la configuration. Pour cela, ouvrez le fichier **Web.config** de votre application et ajoutez les lignes suivantes sous la section `<AppSettings>`.
 	
@@ -455,7 +454,7 @@ Ouvrez ***App\_Start\\RouteConfig.cs***. Recherchez la ligne commençant par «�
 
 Ce code indique maintenant à ASP.NET MVC que vous n'avez pas spécifié de valeur dans l'URL pour contrôler le comportement de routage qui, au lieu de **Home**, utilise **Item** comme contrôleur et **Index** comme vue.
 
-Maintenant, si vous exécutez l’application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour renvoyer tous les éléments non terminés à la vue **Views**\\**Item**\\**Index**.
+Maintenant, si vous exécutez l’application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour renvoyer tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
 
 Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
 
@@ -634,4 +633,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

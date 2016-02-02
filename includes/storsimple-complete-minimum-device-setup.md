@@ -23,7 +23,7 @@
 4. Dans la page **Interfaces réseau**, entrez les adresses IP fixes pour les contrôleurs 0 et 1. Si l’interface du réseau DATA 0 est configurée pour le protocole IPv4, les adresses IP fixes doivent être fournies au format IPv4. Si vous avez fourni un préfixe pour la configuration du protocole IPv6, ces champs sont automatiquement remplis par des adresses IP fixes.
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - Les adresses IP fixes des contrôleurs doivent être disponibles au sein du sous-réseau accessible par l'adresse IP de l’appareil.
  	> - Les adresses IP fixes du contrôleur sont utilisées pour traiter les mises à jour de l’appareil. Par conséquent, les adresses IP fixes doivent pouvoir être acheminées et capables de se connecter à Internet.
@@ -32,10 +32,10 @@
 
 5. Cliquez ensuite sur l'icône en forme de coche ![Icône en forme de coche StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Vous revenez à la page **Démarrage rapide** de l'appareil.
 
- >[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
+ >[AZURE.NOTE] Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
 ![Vidéo disponible](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui montre comment effectuer l’installation minimale de l’appareil, cliquez [ici](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Pour visionner une vidéo qui montre comment effectuer l’installation minimale de l’appareil, cliquez [ici](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,12 +30,12 @@
    - Adresse IP du serveur DNS principal
    - Adresse IP du serveur NTP principal
    
-      >[AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
+      >[AZURE.NOTE] Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
 8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](storsimple-configure-web-proxy.md). Si vous rencontrez des problèmes au cours de cette étape, reportez-vous aux instructions pour la résolution des problèmes pour les [Erreurs lors de la configuration du proxy web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
-      >[AZURE.NOTE]Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Tous les paramètres que vous avez appliqués avant l’émission de cette commande sont conservés.
+      >[AZURE.NOTE] Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Tous les paramètres que vous avez appliqués avant l’émission de cette commande sont conservés.
 
 9. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier pour les sessions ultérieures. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en minuscules, en majuscules, numériques et spéciaux.
 
@@ -53,7 +53,7 @@
 
 12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr.
 	
-	> [AZURE.WARNING]Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager. Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
+	> [AZURE.WARNING] Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager. Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
 
      ![Inscription de l’appareil StorSimple 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -68,12 +68,12 @@
    
     ![Page Appareils StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.IMPORTANT]Une fois que le périphérique est en ligne, branchez les câbles réseau que vous aviez déconnectés au début de cette étape.
+      >[AZURE.IMPORTANT] Une fois que le périphérique est en ligne, branchez les câbles réseau que vous aviez déconnectés au début de cette étape.
 
 Une fois que l’appareil est inscrit correctement et n’est pas en ligne, vous pouvez exécuter la commande `Test-HcsmConnection -Verbose` pour vous assurer que la connectivité réseau est intègre. Pour plus d’informations sur l’utilisation détaillée de cette applet de commande, référez-vous au [Guide de référence des applets de commande Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
 ![Vidéo disponible](./media/storsimple-configure-and-register-device/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

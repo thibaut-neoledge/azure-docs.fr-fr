@@ -26,13 +26,13 @@
 
 Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide de Hive. Pour obtenir des informations générales sur HBase, consultez la page [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
 
-> [AZURE.NOTE]Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur les clusters Windows, consultez [Prise en main d’Apache HBase avec Hadoop dans HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+> [AZURE.NOTE] Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur les clusters Windows, consultez [Prise en main d’Apache HBase avec Hadoop dans HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
 
 ###Composants requis
 
 Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - PuTTY et PuTTYGen pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
@@ -61,7 +61,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 	- **Source de données** : créez un nouveau compte de stockage Azure ou sélectionnez un compte de stockage Azure existant à utiliser comme système de fichiers par défaut pour le cluster. L’emplacement du compte de stockage par défaut détermine l’emplacement du cluster. Le compte de stockage par défaut et le cluster doivent se situer dans le même datacenter.
 	- **Niveaux de tarification de nœud** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
 
-		> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez créer un cluster qui contient au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+		> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster qui contient au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
 		> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 
@@ -69,7 +69,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 4. Cliquez sur **Create**.
 
->[AZURE.NOTE]Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
+>[AZURE.NOTE] Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
 
 ## Utilisation de l’interpréteur de commandes HBase
 
@@ -86,7 +86,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 **Pour utiliser l’interpréteur de commandes HBase**
 
->[AZURE.NOTE]Les étapes indiquées ici s’appliquent à un ordinateur Windows. Pour savoir comment se connecter à un cluster HDInsight Linux à partir de Linux, Unix ou OS X, consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X (version préliminaire)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Ouvrez **PuTTY**. Consultez la section Composants requis au début de l’article. 2. Si vous avez fourni une clé SSH quand vous avez créé votre compte d’utilisateur pendant le processus de création, vous devez effectuer l’étape suivante pour sélectionner la clé privée à utiliser pour l’authentification auprès du cluster :
+>[AZURE.NOTE] Les étapes indiquées ici s’appliquent à un ordinateur Windows. Pour savoir comment se connecter à un cluster HDInsight Linux à partir de Linux, Unix ou OS X, consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X (version préliminaire)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Ouvrez **PuTTY**. Consultez la section Composants requis au début de l’article. 2. Si vous avez fourni une clé SSH quand vous avez créé votre compte d’utilisateur pendant le processus de création, vous devez effectuer l’étape suivante pour sélectionner la clé privée à utiliser pour l’authentification auprès du cluster :
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -121,7 +121,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 	Comme il n’y a qu’une seule ligne, les résultats sont les mêmes que lors de l’utilisation de la commande d’analyse.
 
-	Pour plus d’informations sur le schéma de la table Hbase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
+	Pour plus d'informations sur le schéma de la table Hbase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
 
 
 6. Quittez l’interpréteur de commandes.
@@ -148,7 +148,7 @@ Un exemple de fichier de données a été téléchargé dans un conteneur d’ob
 
 Vous pouvez créer un fichier texte et le télécharger sur votre propre compte de stockage si vous le souhaitez. Pour obtenir des instructions, consultez la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight][hdinsight-upload-data].
 
-> [AZURE.NOTE]Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
+> [AZURE.NOTE] Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
 
 1. Ouvrez **PuTTY** et connectez-vous au cluster. Consultez les instructions de la procédure précédente.
 3. Exécutez la commande suivante pour transformer le fichier de données en StoreFiles et le stocker sur un chemin d’accès relatif spécifié par Dimporttsv.bulk.output :
@@ -185,7 +185,7 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Cette 
 
 ## Utilisation des API REST HBase à l’aide de Curl
 
-> [AZURE.NOTE]Lorsque vous utilisez Curl ou toute autre communication REST avec WebHCat, vous devez authentifier les demandes en fournissant le nom d'utilisateur et le mot de passe de l'administrateur du cluster HDInsight. Vous devez également utiliser le nom du cluster dans l’URI (Uniform Resource Identifier) utilisé pour envoyer les demandes au serveur.
+> [AZURE.NOTE] Lorsque vous utilisez Curl ou toute autre communication REST avec WebHCat, vous devez authentifier les demandes en fournissant le nom d'utilisateur et le mot de passe de l'administrateur du cluster HDInsight. Vous devez également utiliser le nom du cluster dans l’URI (Uniform Resource Identifier) utilisé pour envoyer les demandes au serveur.
 >
 > Pour les commandes de cette section, remplacez **USERNAME** par l’utilisateur à authentifier sur le cluster et **PASSWORD** par le mot de passe du compte d’utilisateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
 >
@@ -312,4 +312,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

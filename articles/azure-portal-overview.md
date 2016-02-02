@@ -24,7 +24,7 @@ Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos
 
 ## Avant de commencer
 
-Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel. Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui. Une fois abonné, vous pourrez accéder au portail à l’adresse [https://portal.azure.com].
+Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel. Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui. Une fois abonné, vous pourrez accéder au portail à l’adresse [https://portal.azure.com].
 
 ## Comment créer une ressource
 
@@ -70,7 +70,7 @@ Azure préconfigure les panneaux de vos ressources. Toutefois, vous avez la poss
 
 ## Comment obtenir de l'aide
 
-Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte une page d'aide qui peut vous aider à trouver la solution appropriée. En fonction de votre [plan de support](http://azure.microsoft.com/support/plans/), vous pouvez également créer des tickets de support directement depuis le portail. Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie depuis le portail. Vous pouvez accéder aux pages d'aide en cliquant sur Parcourir -> Aide + support.
+Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte une page d'aide qui peut vous aider à trouver la solution appropriée. En fonction de votre [plan de support](https://azure.microsoft.com/support/plans/), vous pouvez également créer des tickets de support directement depuis le portail. Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie depuis le portail. Vous pouvez accéder aux pages d'aide en cliquant sur Parcourir -> Aide + support.
 
 ![Aide et support][HelpSupport]
 
@@ -78,7 +78,7 @@ Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte 
 
 Passons en revue ce que vous avez appris dans ce didacticiel :- Vous avez vu comment vous inscrire, comment obtenir un abonnement et accéder au portail. - Vous avez vu comment naviguer dans le portail et comment créer et parcourir des ressources. - Vous avez vu comment créer une ressource et parcourir les ressources existantes. - Vous avez vu la structure et la gestion des panneaux et comment gérer de façon cohérente les différents types de ressources. - Vous avez vu comment personnaliser le portail pour afficher les informations qui vous intéressent. - Vous avez vu comment contrôler l'accès aux ressources à l'aide du contrôle d'accès en fonction du rôle (RBAC). - Vous avez vu comment obtenir de l'aide.
 
-Le portail Microsoft Azure simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](http://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](http://feedback.azure.com/forums/223579-azure-preview-portal) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
+Le portail Microsoft Azure simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](https://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](https://feedback.azure.com/forums/223579-azure-preview-portal/) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Le portail Microsoft Azure simplifie grandement la création et la gestion de vo
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -111,9 +111,10 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 ```
 
 
-## Rubriques connexes
+## Voir aussi
 
 * [Surveiller les applications Azure Cloud Services avec Application Insights](app-insights-cloudservices.md)
-* [Envoyer des diagnostics Azure vers Application Insights](app-insights-azure-diagnostics.md).
+* [Envoyer des diagnostics Azure vers Application Insights.](app-insights-azure-diagnostics.md)
+* [Automatisation de la configuration des alertes](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

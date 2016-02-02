@@ -24,7 +24,7 @@ Le Status Monitor de Visual Studio Application Insights vous permet de diagnosti
 
 ![Exemples de graphiques](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP]Des articles distincts sont consacrés à l’instrumentation des [applications web J2EE en direct](app-insights-java-live.md) et les [services cloud Azure](app-insights-cloudservices.md).
+> [AZURE.TIP] Des articles distincts sont consacrés à l’instrumentation des [applications web J2EE en direct](app-insights-java-live.md) et les [services cloud Azure](app-insights-cloudservices.md).
 
 
 Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web IIS :
@@ -99,7 +99,7 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ## Affichage des données de télémétrie relatives aux performances
 
-Connectez-vous au [portail Azure](http://portal.azure.com), accédez à Application Insights et ouvrez la ressource que vous avez créée.
+Connectez-vous au [portail Azure](https://portal.azure.com), accédez à Application Insights et ouvrez la ressource que vous avez créée.
 
 ![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -136,7 +136,7 @@ Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et ob
 
 ## Échantillonnage
 
-Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage](app-insights-sampling.md).
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 
 ## Résolution de problèmes
@@ -220,4 +220,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

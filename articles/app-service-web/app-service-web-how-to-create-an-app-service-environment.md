@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Comment créer un environnement App Service #
@@ -47,7 +47,7 @@ L’expérience de création d’un ASE comporte un ensemble de valeurs par déf
 - pool de travail avec 2 ressources de calcul P1
 - adresse IP unique à utiliser pour IP SSL
 
-Il s’agit de la taille minimale pour un ASE. La taille P2 ou supérieure est requise pour les pools frontaux. Veillez à sélectionner l’abonnement dans lequel se trouvera l’ASE. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
+La taille P2 ou supérieure est requise pour les pools frontaux. Veillez à sélectionner l’abonnement dans lequel se trouvera l’ASE. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
 
 ![][1]
 
@@ -155,4 +155,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

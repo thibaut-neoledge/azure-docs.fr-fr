@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure IoT Hub | Microsoft Azure"
+	pageTitle="Prise en main avec Azure IoT Hub pour C# | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure IoT Hub avec C#."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
      ms.date="12/14/2015"
      ms.author="dobett"/>
 
-# Didacticiel : prise en main d’Azure IoT Hub
+# Prise en main d’Azure IoT Hub pour .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -40,7 +40,7 @@ Ce didacticiel vous explique les procédures suivantes :
 * **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE]L’article [Kits de développement logiciel (SDK) IoT Hub][lnk-hub-sdks] fournit des informations sur les différents Kits de développement logiciels que vous pouvez utiliser pour générer les applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> [AZURE.NOTE] L’article [Kits de développement logiciel (SDK) IoT Hub][lnk-hub-sdks] fournit des informations sur les différents Kits de développement logiciels que vous pouvez utiliser pour générer les applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
@@ -106,14 +106,6 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 - [Traiter les messages des appareils vers le cloud][lnk-process-d2c-tutorial] montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
 - [Téléchargement de fichiers à partir d’appareils][lnk-upload-tutorial], qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
-Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants :
-
-* [Vue d’ensemble d’IoT Hub][lnk-hub-overview]
-* [Guide du développeur IoT Hub][lnk-hub-dev-guide]
-* [Concevoir votre solution IoT Hub][lnk-hub-guidance]
-* [Langages et plateformes d’appareils pris en charge][lnk-supported-devices]
-* [Centre de développement Azure IoT][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
@@ -128,14 +120,9 @@ Vous trouverez d’autres informations sur le IoT Hub dans les articles suivants
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

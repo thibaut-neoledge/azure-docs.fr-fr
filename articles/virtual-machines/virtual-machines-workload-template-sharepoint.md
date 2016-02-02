@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Déployer des batteries de serveurs avec des modèles Azure Resource Manager
@@ -31,7 +31,7 @@ Pour une batterie de base SharePoint Server 2013, un modèle Resource Manag
 
 Vous pouvez exécuter le modèle avec le portail Azure, Azure PowerShell ou l’interface de ligne de commande Azure.
 
-> [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace au niveau du portail Azure.
+> [AZURE.NOTE] Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace au niveau du portail Azure.
 
 ### Portail Azure
 
@@ -41,7 +41,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 6.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 7.	Cliquez sur **Create**.
@@ -50,7 +50,7 @@ Selon le modèle, la génération de la charge de travail par Azure peut prendre
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **AzureRMResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -103,7 +103,7 @@ Pour une batterie de base SharePoint Server 2013 à haute disponibilité, un 
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace au niveau du portail Azure.
+> [AZURE.NOTE] Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace au niveau du portail Azure.
 
 ### Portail Azure
 
@@ -113,7 +113,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 5.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 6.	Cliquez sur **Create**.
@@ -122,7 +122,7 @@ Selon le modèle, la génération de la charge de travail par Azure peut prendre
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **AzureRMResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -170,20 +170,8 @@ Lors de l’exécution de la commande **azure group deployment create**, vous ê
 Une fois que l’exécution du modèle est terminée, vous disposez d’une nouvelle batterie SharePoint Server 2013 à neuf serveurs dans votre nouveau groupe de ressources.
 
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure d’Azure.
 
-[Déployer et gérer des machines virtuelles à l’aide de modèles Azure Resource Manager et d’Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
-
-[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

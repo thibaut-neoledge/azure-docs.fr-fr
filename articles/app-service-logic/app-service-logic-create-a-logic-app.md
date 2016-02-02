@@ -40,7 +40,7 @@ Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [C
 
 1. Connectez-vous au portail Azure.
 
-2. Cliquez sur [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) dans l'écran d'accueil et recherchez Twitter (ou [cliquez ici](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Cliquez sur [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) dans l'écran d'accueil et recherchez Twitter (ou [cliquez ici](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Sélectionnez le **Connecteur Twitter** et cliquez sur **Créer**. Vous obtenez une vue pour tous vos paramètres. Vous pouvez conserver le nom **Connecteur Twitter**.
 4. Sélectionnez **Paramètres de package** : vous devrez entrer ici les informations de votre application Twitter. Vous pouvez configurer une application gratuite en suivant ces étapes :
@@ -70,7 +70,7 @@ Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [C
 
 10. Cliquez sur **Create**. L'étape de déploiement peut prendre une minute ou deux.
 
-11. Répétez cette procédure avec [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Répétez cette procédure avec [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Démarrer l'application logique
 
@@ -122,7 +122,7 @@ Les actions correspondent à ce que fait votre flux de travail. Vous pouvez avoi
 
 	![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]Le bouton **Autoriser** utilise la sécurité OAUTH pour la connexion à des services SaaS, comme Twitter. Pour plus d'informations sur OAUTH, consultez [Sécurité OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] Le bouton **Autoriser** utilise la sécurité OAUTH pour la connexion à des services SaaS, comme Twitter. Pour plus d'informations sur OAUTH, consultez [Sécurité OAUTH](app-service-logic-oauth-security.md).
 
 3. Cliquez sur **Rechercher des tweets** puis, dans **Spécifier une requête**, tapez quelque chose comme `#MicrosoftAzure` et cliquez sur la coche verte.
 
@@ -188,4 +188,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

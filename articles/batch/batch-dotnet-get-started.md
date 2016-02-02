@@ -28,7 +28,7 @@ Cet article repose sur l’hypothèse que vous disposez d’une connaissance pra
 
 ### Comptes
 
-- **Compte Azure** : si vous n’avez pas encore souscrit d’abonnement Azure, vous pouvez créer un compte d’essai gratuit en quelques minutes à partir de la page d’[évaluation gratuite d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Compte Azure** : si vous n’avez pas encore souscrit d’abonnement Azure, vous pouvez créer un compte d’essai gratuit en quelques minutes à partir de la page d’[évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Compte Batch** : une fois que vous disposez d’un abonnement Azure, [créez et gérez un compte Azure Batch](batch-account-create-portal.md).
 - **Compte de stockage** : voir la section *Créer un compte de stockage* de l’article [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
@@ -88,7 +88,7 @@ Les informations d’identification de votre compte Batch et de votre compte de 
 
 Une fois le projet mis à jour avec vos informations d’identification, cliquez avec le bouton droit sur la solution dans l’*Explorateur de solutions*, puis cliquez sur **Générer la solution**. Si vous y êtes invité, confirmez la restauration de tous les packages NuGet.
 
-> [AZURE.TIP]Si les packages NuGet ne sont pas restaurés automatiquement ou que vous obtenez des erreurs découlant d’un échec de la restauration des packages, assurez-vous que le [Gestionnaire de packages NuGet][nuget_packagemgr] est installé, puis activez le téléchargement des packages manquants. Pour plus d’informations sur le téléchargement des packages, voir l’article [Enabling Package Restore During Build][nuget_restore] (en anglais).
+> [AZURE.TIP] Si les packages NuGet ne sont pas restaurés automatiquement ou que vous obtenez des erreurs découlant d’un échec de la restauration des packages, assurez-vous que le [Gestionnaire de packages NuGet][nuget_packagemgr] est installé, puis activez le téléchargement des packages manquants. Pour plus d’informations sur le téléchargement des packages, voir l’article [Enabling Package Restore During Build][nuget_restore] (en anglais).
 
 Dans les sections suivantes, nous répertorions et décrivons en détail les différentes étapes suivies par notre exemple d’application pour traiter une charge de travail dans le service Batch. Nous vous invitons à vous référer à la solution ouverte dans Visual Studio à mesure que vous progressez dans la lecture de cet article, car certaines lignes de code de cet exemple ne sont pas expliquées ici.
 
@@ -148,7 +148,7 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 
 Une fois les conteneurs créés, l’application peut charger les fichiers destinés à être utilisés par les tâches.
 
-> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) L’article  offre un bon aperçu de l’utilisation des conteneurs et des objets blob Azure Storage, et doit constituer l’une de vos premières lectures lorsque vous commencez à travailler avec Batch.
+> [AZURE.TIP] [How to use Blob storage from .NET]L’article (./../storage/storage-dotnet-how-to-use-blobs.md) offre un bon aperçu de l’utilisation des conteneurs et des objets blob Azure Storage, et doit constituer l’une de vos premières lectures lorsque vous commencez à travailler avec Batch.
 
 ## Étape 2 : charger les fichiers d’application de tâche et les fichiers de données
 
@@ -234,7 +234,7 @@ Les signatures d’accès partagé sont des chaînes qui, lorsqu’elles font pa
 
 - **SAP de conteneur** : une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* d’Azure Storage. Pour ce faire, TaskApplication utilise une signature d’accès partagé de conteneur qui fournit un accès en écriture au conteneur dans le chemin d’accès lors du chargement du fichier. L’obtention de la signature d’accès partagé de conteneur s’effectue de la même façon que pour la signature d’accès partagé d’objet blob ; dans DotNetTutorial, vous découvrirez que la méthode d’assistance `GetContainerSasUrl` appelle [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] pour exécuter cette tâche. Vous en saurez plus sur la façon dont TaskApplication utilise la signature d’accès partagé de conteneur à l’étape 6 ci-après, « Surveiller les tâches ».
 
-> [AZURE.TIP]Pour plus d’informations sur la sécurisation de l’accès aux données dans votre compte de stockage, consultez la série en deux parties sur les signatures d’accès partagé, [Partie 1 : présentation du modèle SAP](./../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Pour plus d’informations sur la sécurisation de l’accès aux données dans votre compte de stockage, consultez la série en deux parties sur les signatures d’accès partagé, [Partie 1 : présentation du modèle SAP](./../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md).
 
 ## Étape 3 : créer le pool Batch
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Lorsque vous créez un pool avec [CreatePool][net_pool_create], vous spécifiez un certain nombre de paramètres comme le nombre de nœuds de calcul, la [taille des nœuds](./../cloud-services/cloud-services-sizes-specs.md) et le [système d’exploitation](./../cloud-services/cloud-services-guestos-update-matrix.md) des nœuds.
 
-> [AZURE.IMPORTANT]Les ressources de calcul dans Batch vous sont facturées. Afin de réduire les coûts, vous pouvez abaisser la valeur du paramètre `targetDedicated` à 1 avant d’exécuter l’exemple.
+> [AZURE.IMPORTANT] Les ressources de calcul dans Batch vous sont facturées. Afin de réduire les coûts, vous pouvez abaisser la valeur du paramètre `targetDedicated` à 1 avant d’exécuter l’exemple.
 
 Outre ces propriétés de nœuds physiques, vous pouvez spécifier une tâche [StartTask][net_pool_starttask] pour le pool. La tâche StartTask s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage d’un nœud. StartTask se révèle particulièrement utile pour l’installation d’applications sur les nœuds de calcul avant l’exécution de tâches. Par exemple, si vos tâches traitent des données à l’aide de scripts Python, vous pouvez utiliser une tâche StartTask pour installer Python sur les nœuds de calcul.
 
@@ -296,7 +296,7 @@ Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’el
 
 Vous pouvez également noter que l’extrait de code ci-dessus utilise deux variables d’environnement dans la propriété *CommandLine* de StartTask : `%AZ_BATCH_TASK_WORKING_DIR%` et `%AZ_BATCH_NODE_SHARED_DIR%`. Chaque nœud de calcul au sein d’un pool Batch est automatiquement configuré avec un certain nombre de variables d’environnement propres à Batch, auxquelles tous les processus exécutés par une tâche ont accès.
 
-> [AZURE.TIP]Pour plus d’informations sur les variables d’environnement disponibles sur les nœuds de calcul d’un pool Batch, ainsi que sur les répertoires de travail de tâche, voir les sections **Paramètres d’environnement des tâches** et **Fichiers et répertoires** de l’article [Vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Pour plus d’informations sur les variables d’environnement disponibles sur les nœuds de calcul d’un pool Batch, ainsi que sur les répertoires de travail de tâche, voir les sections **Paramètres d’environnement des tâches** et **Fichiers et répertoires** de l’article [Vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md).
 
 ## Étape 4 : créer un travail Batch
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]Lors de l’accès aux variables d’environnement telles que `%AZ_BATCH_NODE_SHARED_DIR%` ou de l’exécution d’une application introuvable dans l’élément `PATH` du nœud, les lignes de commande de tâche doivent commencer par le préfixe `cmd /c` afin d’exécuter explicitement l’interpréteur de commandes et de lui demander de prendre fin après avoir effectué votre commande. Ceci n’est pas nécessaire si vos tâches exécutent une application dans le CHEMIN D’ACCÈS du nœud (comme *robocopy.exe* ou *powershell.exe*), et qu’aucune variable d’environnement n’est utilisée.
+> [AZURE.IMPORTANT] Lors de l’accès aux variables d’environnement telles que `%AZ_BATCH_NODE_SHARED_DIR%` ou de l’exécution d’une application introuvable dans l’élément `PATH` du nœud, les lignes de commande de tâche doivent commencer par le préfixe `cmd /c` afin d’exécuter explicitement l’interpréteur de commandes et de lui demander de prendre fin après avoir effectué votre commande. Ceci n’est pas nécessaire si vos tâches exécutent une application dans le CHEMIN D’ACCÈS du nœud (comme *robocopy.exe* ou *powershell.exe*), et qu’aucune variable d’environnement n’est utilisée.
 
 Dans la boucle `foreach` de l’extrait de code ci-dessus, vous pouvez remarquer que la ligne de commande de la tâche est construite de façon à transmettre trois arguments à *TaskApplication.exe* :
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]L’appel de `DownloadBlobsFromContainerAsync` dans l’application *DotNetTutorial* indique que les fichiers doivent être téléchargés dans votre dossier `%TEMP%`. Vous pouvez modifier cet emplacement de sortie.
+> [AZURE.NOTE] L’appel de `DownloadBlobsFromContainerAsync` dans l’application *DotNetTutorial* indique que les fichiers doivent être téléchargés dans votre dossier `%TEMP%`. Vous pouvez modifier cet emplacement de sortie.
 
 ## Étape 8 : supprimer les conteneurs
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]N’oubliez pas que les ressources de calcul vous sont facturées et que la suppression des pools inutilisés vous aidera donc à réduire les coûts. Tenez compte du fait que la suppression d’un pool supprime tous les nœuds de calcul de ce pool, et que toutes les données sur les nœuds seront irrécupérables une fois le pool supprimé.
+> [AZURE.IMPORTANT] N’oubliez pas que les ressources de calcul vous sont facturées et que la suppression des pools inutilisés vous aidera donc à réduire les coûts. Tenez compte du fait que la suppression d’un pool supprime tous les nœuds de calcul de ce pool, et que toutes les données sur les nœuds seront irrécupérables une fois le pool supprimé.
 
 ## Exécuter l’exemple *DotNetTutorial*
 
@@ -680,4 +680,4 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flux de travail de la solution Batch (diagramme minimal)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

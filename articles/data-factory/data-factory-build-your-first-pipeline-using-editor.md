@@ -34,10 +34,10 @@ Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.co
 ## Étape 1 : Créer la fabrique de données
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
-1.	Une fois connecté au [portail Azure](http://portal.azure.com/), procédez comme suit :
+1.	Une fois connecté au [portail Azure](https://portal.azure.com/), procédez comme suit :
 	1.	Cliquez sur **NOUVEAU** dans le menu de gauche. 
 	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
-	3.	Cliquez sur **Fabrique de données** dans le panneau **Analyse des données**.
+	3.	Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
 
 		![Panneau Créer](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
@@ -45,14 +45,14 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
 
 	![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « GetStartedDF » n’est pas disponible**, changez le nom de la fabrique de données (par exemple en votrenomGetStartedDF), puis réessayez de la créer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	> [AZURE.IMPORTANT] Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « GetStartedDF » n’est pas disponible**, changez le nom de la fabrique de données (par exemple en votrenomGetStartedDF), puis réessayez de la créer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 	>  
 	> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
 3.	Sélectionnez l’**abonnement Azure** où vous voulez que la fabrique de données soit créée.
 4.	Sélectionnez un **groupe de ressources** existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé : **ADFGetStartedRG**.    
 5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
-6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau d’accueil** du portail Azure comme suit :   
+6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau d’accueil** du portail Azure, comme suit :   
 
 	![État de la création de la fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Félicitations ! Vous avez créé votre première fabrique de données. Une fois la fabrique de données créée, vous verrez la page correspondante indiquant son contenu. 	
@@ -80,12 +80,11 @@ Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabri
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **StorageLinkedService** doit apparaître dans l’arborescence sur la gauche. 
-   	![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **StorageLinkedService** doit apparaître dans l’arborescence sur la gauche. ![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Créer le service lié Azure HDInsight
-Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre fabrique de données. Le cluster HDInsight est automatiquement créé lors de l’exécution, puis supprimé une fois le traitement effectué et au terme du délai d’inactivité spécifié. Vous pouvez utiliser votre propre cluster HDInsight au lieu d’utiliser un cluster HDInsight à la demande. Pour plus d’informations, consultez [Services de calcul liés](data-factory-compute-linked-services.md).
+Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre fabrique de données. Le cluster HDInsight est automatiquement créé lors de l’exécution, puis supprimé une fois le traitement effectué et au terme du délai d’inactivité spécifié.
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez l’option **Cluster HDInsight à la demande**.
 
@@ -113,6 +112,16 @@ Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre f
 	| ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud. | 
 	| TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression. |
 	| linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight. |
+
+	Notez les points suivants :
+	
+	- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+	- Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
+	- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
+	
+		Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+
+	Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations.
 3. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié. 
 4. Confirmez que vous voyez s’afficher **StorageLinkedService** et **HDInsightOnDemandLinkedService** dans l’arborescence à gauche de l’écran.
 
@@ -205,7 +214,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 	![bouton Nouveau pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1.
 
-	> [AZURE.IMPORTANT]Dans le code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
+	> [AZURE.IMPORTANT] Dans le code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -250,7 +259,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 		    }
 		}
  
-	Dans l’extrait de code JSON, créez un pipeline qui se compose d’une seule activité utilisant Hive pour traiter des données sur un cluster HDInsight.
+	Dans l'extrait de code JSON, vous créez un pipeline qui se compose d'une seule activité utilisant Hive pour traiter des données sur un cluster HDInsight.
 	
 	Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **StorageLinkedService**) et dans un dossier **script** du conteneur **adfgetstarted**.
 
@@ -289,12 +298,11 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 11. Cliquez sur **X** pour fermer le panneau **AzureBlobInput**. 
 12. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
 
-	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quand le traitement est terminé, l’état du segment devient **Prêt**.  
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
+	>[AZURE.IMPORTANT] La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
-	>[AZURE.IMPORTANT]La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
-
-	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.
  
@@ -314,4 +322,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
   
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

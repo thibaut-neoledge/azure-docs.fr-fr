@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure et que vous souhaitez essayer Applicat
 
 La ressource Application Insights est l’endroit où les données de performance et d’utilisation de votre page s’affichent. (Si vous avez déjà créé une ressource, pour collecter les données de votre serveur Web par exemple, ignorez cette étape.)
 
-Connectez-vous au [portail Azure](http://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 Si vous avez déjà défini la surveillance pour le côté serveur de votre application, vous aurez déjà une ressource :
 
@@ -125,7 +125,7 @@ Cliquez sur un graphique pour voir les autres métriques que vous pouvez affiche
 
 ![](./media/app-insights-javascript/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE]Les métriques peuvent uniquement être affichées selon certaines combinaisons. Lorsque vous sélectionnez une métrique, celles qui lui sont incompatibles sont désactivées.
+> [AZURE.NOTE] Les métriques peuvent uniquement être affichées selon certaines combinaisons. Lorsque vous sélectionnez une métrique, celles qui lui sont incompatibles sont désactivées.
 
 
 
@@ -150,7 +150,7 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE]Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE] Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
 
 > [En savoir plus sur la recherche de diagnostic](app-insights-diagnostic-search.md)
 
@@ -187,4 +187,4 @@ Si votre application est déjà active, vous pouvez toujours ajouter des donnée
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

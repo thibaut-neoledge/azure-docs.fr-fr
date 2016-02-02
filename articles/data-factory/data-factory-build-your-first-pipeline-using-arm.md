@@ -41,7 +41,7 @@ Outre les conditions préalables répertoriées dans la rubrique Vue d’ensembl
 
 Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
 
-> [AZURE.IMPORTANT]Changez les valeurs des variables **storageAccountName** et **storageAccountKey**. Changez également **dataFactoryName**, car le nom doit être unique.
+> [AZURE.IMPORTANT] Changez les valeurs des variables **storageAccountName** et **storageAccountKey**. Changez également **dataFactoryName**, car le nom doit être unique.
 
 Le modèle vous permet de créer les entités suivantes de la fabrique de données.
 
@@ -213,6 +213,15 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 	}
 
 
+Notez les points suivants :
+
+- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+- Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
+- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
+
+	Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+
+Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations.
 
 ## Étape 2 : Déployer des entités Data Factory à l’aide du modèle ARM
 
@@ -226,11 +235,9 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 
 ## Surveiller le pipeline
  
-1.	Après la connexion au [portail Azure](http://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. 
-		![Parcourir tout -> Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Après la connexion au [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. ![Parcourir tout -> Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Dans le panneau **Fabriques de données**, cliquez sur la fabrique de données (**TutorialFactoryARM**) que vous avez créée.	
-2.	Dans le panneau **Fabrique de données** de votre fabrique de données, cliquez sur **Diagramme**. 
-		![Vignette du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	Dans le panneau **Fabrique de données** de votre fabrique de données, cliquez sur **Diagramme**. ![Vignette du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	Dans la **Vue de diagramme**, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 	
 	![Vue du diagramme](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -243,4 +250,4 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/16/2015" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # Utilisation d’Azure AD Connect Health pour la synchronisation
@@ -55,4 +55,4 @@ Cette fonctionnalité fournit une représentation graphique du nombre de modific
 * [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

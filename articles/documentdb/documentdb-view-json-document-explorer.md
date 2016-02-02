@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/28/2015"
 	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB #
 
-Cet article fournit une vue d’ensemble de l’Explorateur de documents [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui vous permet d’afficher, de modifier, de créer et de télécharger des documents JSON avec DocumentDB.
+Cet article fournit une vue d’ensemble de l’Explorateur de documents [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui vous permet d’afficher, de modifier, de créer et de télécharger des documents JSON avec DocumentDB.
 
 Ce didacticiel vous permettra de pouvoir répondre aux questions suivantes :
 
@@ -56,7 +56,7 @@ L'Explorateur de documents vous permet de créer, modifier et supprimer facileme
 
 	![Capture d’écran de la commande Enregistrer de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE]Si vous ne fournissez pas de propriété « id », l'Explorateur de documents en ajoute automatiquement une et génère un GUID comme valeur d'ID.
+	> [AZURE.NOTE] Si vous ne fournissez pas de propriété « id », l'Explorateur de documents en ajoute automatiquement une et génère un GUID comme valeur d'ID.
 
 - Si vous avez déjà des données issues de fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage Azure Table, Amazon DynamoDB, HBase ou autres collections DocumentDB, vous pouvez utiliser les [outils de migration de données](documentdb-import-data.md) DocumentDB pour importer rapidement vos données.
 
@@ -84,7 +84,7 @@ L'Explorateur de documents vous permet de créer, modifier et supprimer facileme
 
 	![Capture d’écran de la vue des propriétés de document dans l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de documents affiche la valeur dans un format GMT lisible.
+	> [AZURE.NOTE] La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de documents affiche la valeur dans un format GMT lisible.
 
 ##<a id="Navigate"></a>Options de navigation et paramètres avancés de l’Explorateur de documents##
 
@@ -99,7 +99,7 @@ L’Explorateur de documents prend en charge un certain nombre d’options de na
 
 	![Capture d’écran du Panneau de paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
-	> [AZURE.NOTE]Après avoir modifié les paramètres de l’Explorateur de documents, vous devez cliquer sur la commande **Actualiser** pour appliquer les nouveaux paramètres. Ces paramètres ne seront conservés que dans la session de navigateur actuelle.
+	> [AZURE.NOTE] Après avoir modifié les paramètres de l’Explorateur de documents, vous devez cliquer sur la commande **Actualiser** pour appliquer les nouveaux paramètres. Ces paramètres ne seront conservés que dans la session de navigateur actuelle.
 	
 3. Vous pouvez utiliser les zones de liste déroulante **Base de données** et **Collection** pour modifier facilement la collection à partir de laquelle les documents sont affichés actuellement sans avoir à fermer, puis à relancer l’Explorateur de documents.
 
@@ -112,7 +112,7 @@ L’Explorateur de documents prend en charge un certain nombre d’options de na
 	![Capture d’écran de l’Explorateur de documents avec les résultats filtrés](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]La fonctionnalité de filtre de l’Explorateur de documents filtre uniquement l’ensemble de documents ***actuellement*** chargé et n’exécute pas de requête sur la collection actuellement sélectionnée.
+	> [AZURE.IMPORTANT] La fonctionnalité de filtre de l’Explorateur de documents filtre uniquement l’ensemble de documents ***actuellement*** chargé et n’exécute pas de requête sur la collection actuellement sélectionnée.
 
 5. Pour actualiser la liste des documents chargés par l’Explorateur de documents, cliquez simplement sur la commande **Actualiser** en haut du panneau.
 
@@ -130,7 +130,7 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 
 	![Capture d’écran du processus d’ingestion en bloc de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
 
-	> [AZURE.NOTE]L'Explorateur de documents prend actuellement en charge jusqu'à 100 documents JSON par opération de téléchargement.
+	> [AZURE.NOTE] L'Explorateur de documents prend actuellement en charge jusqu'à 100 documents JSON par opération de téléchargement.
 
 3. Une fois que vous êtes satisfait de votre sélection, cliquez sur le bouton **Télécharger**. Les documents sont automatiquement ajoutés à la grille de l'Explorateur de documents et les résultats du téléchargement sont affichés à mesure que l'opération progresse. Les échecs d'importation sont signalés pour chaque fichier.
 
@@ -145,4 +145,4 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

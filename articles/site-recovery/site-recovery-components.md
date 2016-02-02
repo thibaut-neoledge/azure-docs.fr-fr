@@ -49,7 +49,7 @@ Microsoft Azure | **Serveur de configuration **: machine virtuelle A3 Azure st
 
 Dans ce scénario, des communications peuvent se produire entre une connexion VPN et les ports internes du réseau Azure (à l’aide d’Azure ExpressRoute ou d’un réseau VPN de site à site) ou entre une connexion Internet sécurisée et les points de terminaison public mappés du service cloud Azure pour les machines virtuelles des serveurs cibles maîtres et de configuration.
 
-Le service Mobilité s’exécutant sur les machines protégées envoie les données de réplication au serveur de traitement et envoie les métadonnées de réplication au serveur de configuration. Le serveur de traitement communique avec le serveur de configuration pour les informations de gestion et de contrôle. Il envoie des informations de réplication au serveur cible maître puis optimise et envoie les données répliquées au serveur cible maître.
+Le service Mobilité s’exécutant sur les machines protégées envoie les données de réplication vers le serveur de processus ainsi que les métadonnées de réplication vers le serveur de configuration. Le serveur de processus communique avec le serveur de configuration pour les informations de gestion et de contrôle. Il envoie des informations de réplication au serveur cible maître puis optimise et envoie les données répliquées au serveur cible maître.
 
 ## Réplication de machines virtuelles Hyper-V dans Azure (avec VMM)
 
@@ -155,4 +155,4 @@ Dans ce scénario, les modifications de la réplication différentielle sont env
 
 [Préparer le déploiement](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->
