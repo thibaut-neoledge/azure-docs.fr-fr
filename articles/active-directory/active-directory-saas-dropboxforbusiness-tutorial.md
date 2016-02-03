@@ -107,7 +107,8 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
      5\.2. Dans le portail Azure, dans la page **Configurer l’authentification unique sur Dropbox for Business** de la boîte de dialogue, copiez la valeur **URL de page de connexion**, puis collez-la dans la zone de texte **URL de connexion**.
 
 
-     5\.3. Créez un fichier **codé en base 64** à partir du certificat téléchargé.[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+     5\.3. Créez un fichier **codé en base 64** à partir du certificat téléchargé.
+	>[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5\.4. Cliquez sur **Choisir un certificat**, puis recherchez votre **fichier de certificat codé en base 64**.
@@ -186,4 +187,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0121_2016--->
