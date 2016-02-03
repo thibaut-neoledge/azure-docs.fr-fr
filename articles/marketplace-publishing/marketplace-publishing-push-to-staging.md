@@ -146,7 +146,7 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 
 ||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
 |----|----|----|----|----|
-| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans un environnement intermédiaire |(marketplace-publishing-dev-service-test-in-staging.md)| [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans un environnement intermédiaire | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

@@ -83,7 +83,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
     ![Configurer l’URL de l’application](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurer l’URL de l’application")
 
     1.  Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application NetDocuments (par exemple : « **https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-2.  Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.  
+	2.  Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.  
 
         >[AZURE.NOTE]Vous trouverez la valeur correcte à la fin de la boîte de dialogue **Federated Identity** (voir la capture d’écran de l’étape 9).
 
@@ -158,4 +158,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

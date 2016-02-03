@@ -97,7 +97,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-kudos-tutorial/IC787807.png "Authentification unique")
 
     1.  Dans la page **Configurer l’authentification unique sur Kudos** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign on URL**.
-2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+	2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -154,4 +154,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
