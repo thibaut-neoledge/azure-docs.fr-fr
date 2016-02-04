@@ -16,7 +16,7 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à Egnyte
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte.
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte.  
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
@@ -79,7 +79,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant "**https://company.egnyte.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant "*https://company.egnyte.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurer l’URL de l’application")
 
@@ -108,7 +108,7 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
     1.  Pour **Single sign-on authentication**, sélectionnez **SAML 2.0**.
     2.  Pour **Identity provider**, sélectionnez **AzureAD**.
     3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte** de la boîte de dialogue, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity provider login URL**.
-4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity provider entity ID**.
+    4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity provider entity ID**.
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
@@ -123,7 +123,8 @@ Si cette procédure ne vous est pas familière, consultez [Conversion d’un cer
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à Egnyte, les utilisateurs d’Azure AD doivent être approvisionnés dans Egnyte. Dans le cas de Egnyte, l’approvisionnement est une tâche manuelle.
+Pour se connecter à Egnyte, les utilisateurs d’Azure AD doivent être approvisionnés dans Egnyte.  
+Dans le cas de Egnyte, l’approvisionnement est une tâche manuelle.
 
 ###Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
