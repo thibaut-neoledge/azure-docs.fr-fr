@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à Jobscience
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Jobscience. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Jobscience.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Jobscience pour lequel l’authentification unique est activée
@@ -94,7 +95,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Jobscience**, tapez votre URL selon le modèle suivant "**http://company.my.salesforce.com*", puis cliquez sur **Suivant**.
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Jobscience**, tapez votre URL selon le modèle suivant "*http://company.my.salesforce.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configurer l’URL de l’application")
 
@@ -120,7 +121,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
     1.  Dans la zone de texte **Name**, attribuez un nom à votre configuration.
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jobscience** de la boîte de dialogue, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
     3.  Dans la zone de texte **Entity Id**, tapez **https://salesforce-jobscience.com**.
-4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
+    4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
     7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Jobscience**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity Provider Login URL**.
@@ -147,10 +148,12 @@ Pour obtenir l’URL d’authentification unique initiée par le fournisseur de 
 
 ![Contrôles de sécurité](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Contrôles de sécurité")
   
-Cliquez sur le profil d’authentification unique créé à l’étape précédente. Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, **https://companyname.my.salesforce.com?so=companyid*).
+Cliquez sur le profil d’authentification unique créé à l’étape précédente.  
+Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, *https://companyname.my.salesforce.com?so=companyid*).
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience. Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience.  
+Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
@@ -198,3 +201,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+

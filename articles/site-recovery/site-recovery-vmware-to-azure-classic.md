@@ -260,11 +260,12 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 
 6. Assurez-vous que ces URL sont accessibles depuis le serveur d’administration :
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net Si vous avez des règles de pare-feu basées sur l’adresse IP sur le serveur, vérifiez que les règles autorisent la communication vers Azure. Vous devrez autoriser les [plages d’adresses IP Azure Datacenter](https://msdn.microsoft.com/library/azure/dn175718.aspx) et le protocole HTTPS (433). Vous devrez également inscrire sur la liste approuvée les plages d’adresses IP pour la région de votre abonnement et pour l’Ouest des États-Unis. De plus, placez cette URL sur la liste approuvée pour le téléchargement de MySQL : http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+	Si vous avez des règles de pare-feu basées sur l’adresse IP sur le serveur, vérifiez que les règles autorisent la communication vers Azure. Vous devrez autoriser les [plages d’adresses IP Azure Datacenter](https://msdn.microsoft.com/library/azure/dn175718.aspx) et le protocole HTTPS (433). Vous devrez également inscrire sur la liste approuvée les plages d’adresses IP pour la région de votre abonnement et pour l’Ouest des États-Unis. De plus, placez cette URL sur la liste approuvée pour le téléchargement de MySQL : http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 
 
 7. Dans **Vérification de la configuration requise**, le programme d’installation exécute une vérification de la configuration requise sur le serveur.
