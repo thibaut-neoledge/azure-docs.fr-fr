@@ -236,10 +236,10 @@ Comme mentionné ci-dessus, si l’entité implémente TableEntity, les méthode
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et téléchargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
 ## Étapes suivantes  
-Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) 
-Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java) 
+Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
+Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java)   
 Télécharger les packages Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault
 
 Consulter la [documentation d’Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

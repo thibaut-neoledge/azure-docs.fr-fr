@@ -28,7 +28,6 @@ Les rôles d’administrateur disponibles sont les suivants :
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
-
 > [AZURE.NOTE]
 > Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
 
@@ -87,4 +86,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!----HONumber=AcomDC_0107_2016-->
+<!-----HONumber=AcomDC_0107_2016-->
