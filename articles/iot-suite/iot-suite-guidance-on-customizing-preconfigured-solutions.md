@@ -2,13 +2,14 @@
 	pageTitle="Personnalisation des solutions préconfigurées | Microsoft Azure"
 	description="Fournit des conseils sur la personnalisation des solutions préconfigurées Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -30,7 +31,7 @@ Cette source est fournie pour illustrer un modèle pour l’implémentation de l
 
 ## Modification des règles préconfigurées
 
-La solution de surveillance à distance comprend deux [tâches Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics) pour implémenter la logique de télémétrie et d’alerte affichée sur le tableau de bord.
+La solution de surveillance à distance comprend deux [tâches Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) pour implémenter la logique de télémétrie et d’alerte affichée sur le tableau de bord.
 
 La première tâche sélectionne toutes les données du flux de télémétrie entrant et crée deux sorties différentes. La tâche est nommée **[nom\_solution]-Télémétrie**.
 
@@ -41,7 +42,7 @@ La première tâche sélectionne toutes les données du flux de télémétrie en
 
 La deuxième tâche opère sur les valeurs d’appareil à seuil créées dans la page **Règles** de la solution. Cette tâche utilise la valeur de seuil définie pour chaque appareil comme Donnée de référence. Elle compare la valeur de seuil pour voir si elle est supérieure (`>`) à la valeur réelle. Vous pouvez modifier cette tâche, par exemple pour changer l’opérateur de comparaison.
 
-> [AZURE.NOTE]Le tableau de bord de surveillance à distance dépend de données spécifiques. Ainsi, modifier les tâches peut provoquer l’échec du tableau de bord.
+> [AZURE.NOTE] Le tableau de bord de surveillance à distance dépend de données spécifiques. Ainsi, modifier les tâches peut provoquer l’échec du tableau de bord.
 
 ## Ajout de vos propres règles
 
@@ -65,8 +66,8 @@ Les [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/a
 
 ## Étapes suivantes
 
-Pour plus d’informations sur les appareils IoT, consultez le [site de développement Azure IoT](http://azure.microsoft.com/develop/iot) pour y trouver des liens et de la documentation.
+Pour plus d’informations sur les appareils IoT, consultez le [site de développement Azure IoT](https://azure.microsoft.com/develop/iot/) pour y trouver des liens et de la documentation.
 
 [Kit SDK d’appareils IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

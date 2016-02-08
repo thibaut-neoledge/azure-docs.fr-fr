@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Attachement d’un disque de données dans le portail Azure
@@ -27,21 +27,17 @@ Cet article explique comment attacher des disques nouveaux et existants à une m
 - Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
 - Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 - Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
-- Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier déjà présent, s’il n’est attaché à aucune autre machine virtuelle, ou télécharger votre propre fichier .vhd sur le compte de stockage.
+- Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier .vhd présent, s’il n’est attaché à aucune autre machine virtuelle, ou charger votre propre fichier .vhd sur le compte de stockage.
 
 ## Recherchez la machine virtuelle.
 
 1. Connectez-vous au portail Azure.
 
-2. Dans le menu Hub, cliquez sur **Parcourir**.
+2. Dans le menu hub, cliquez sur **Machines virtuelles**.
 
-3. Dans le panneau de recherche, faites défiler l’écran vers le bas, puis cliquez sur **Machines virtuelles**.
+3.	Sélectionnez la machine virtuelle dans la liste.
 
-	![Recherche de machines virtuelles](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
-
-4.	Sélectionnez la machine virtuelle dans la liste.
-
-5. À droite, sous **Bases**, cliquez sur **Tous les paramètres**, puis sur **Disques**.
+4. À droite, sous **Essentials**, cliquez sur **Tous les paramètres**, puis sur **Disques**.
 
 	![Ouverture des paramètres d’un disque](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -90,4 +86,4 @@ Une fois le disque ajouté, vous devez le préparer pour utilisation dans le sys
 
 [À propos des comptes Azure Storage]: ../storage-whatis-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

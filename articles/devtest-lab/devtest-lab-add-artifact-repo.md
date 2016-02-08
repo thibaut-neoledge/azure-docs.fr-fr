@@ -49,7 +49,7 @@ Pour ajouter un référentiel d’artefacts GitHub à votre laboratoire, vous de
 
 ###Connecter votre laboratoire au référentiel GitHub
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -115,4 +115,4 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
     3. Entrez le **Jeton d’accès personnel** enregistré dans le référentiel d’artefacts.
     4. Appuyez sur **Enregistrer**.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

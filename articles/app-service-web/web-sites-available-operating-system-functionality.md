@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Fonctionnalités de système d’exploitation sur Azure App Service #
@@ -105,10 +105,10 @@ Les applications disposent d'un accès en lecture seule à la majeure partie du 
 
 L'accès en écriture au registre est bloqué, y compris l'accès aux éventuelles clés de registre par utilisateur. Dans un environnement Azure, une application ne doit jamais compter sur l'accès en écriture au registre, car les applications peuvent être (et sont) migrées entre différentes machines virtuelles. Le seul stockage toujours accessible en écriture sur lequel une application peut compter est la structure des répertoires de contenu par application stockée dans les partages UNC App Service.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

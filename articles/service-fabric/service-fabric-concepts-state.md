@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # État du service
@@ -40,4 +40,4 @@ Pour plus d’informations sur les concepts propres à Service Fabric, consultez
 
 - [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

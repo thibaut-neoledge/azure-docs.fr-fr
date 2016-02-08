@@ -35,7 +35,7 @@ Outre le portail Azure Classic, d’autres outils sont disponibles pour administ
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](../storage-create-storage-account.md).
 
 
@@ -58,7 +58,7 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
 - Certains composants Java natifs, comme Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers JAR. Ces derniers peuvent être distribués au stockage d’objets blob Azure et envoyés aux clusters HDInsight à l’aide des mécanismes d’envoi de tâches Hadoop. Pour plus d’informations, consultez la rubrique [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
-	>[AZURE.NOTE]En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE] En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
 	> Cascading n'est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight.](hdinsight-component-versioning.md).
 
@@ -97,11 +97,11 @@ Les informations d’identification du cluster fournies lors de sa création don
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 
-> [AZURE.NOTE]Vous pouvez également utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour activer le Bureau à distance sur un cluster. Utilisez la méthode **ActiverRdp** sur l’objet client HDInsight de la manière suivante : **client.EnableRdp(nom cluster, emplacement, "utilisateurrdp", "motdepasserdp", DateHeure.Now.AddDays(6))**. De la même manière, pour désactiver le Bureau à distance sur le cluster, vous pouvez utiliser **client.DisableRdp(nom cluster, emplacement)**. Pour plus d’informations sur ces méthodes, consultez la rubrique [Référence du Kit de développement logiciel (SDK) HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Cela s’applique uniquement aux clusters HDInsight fonctionnant sous Windows.
+> [AZURE.NOTE] Vous pouvez également utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour activer le Bureau à distance sur un cluster. Utilisez la méthode **ActiverRdp** sur l’objet client HDInsight de la manière suivante : **client.EnableRdp(nom cluster, emplacement, "utilisateurrdp", "motdepasserdp", DateHeure.Now.AddDays(6))**. De la même manière, pour désactiver le Bureau à distance sur le cluster, vous pouvez utiliser **client.DisableRdp(nom cluster, emplacement)**. Pour plus d’informations sur ces méthodes, consultez la rubrique [Référence du Kit de développement logiciel (SDK) HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Cela s’applique uniquement aux clusters HDInsight fonctionnant sous Windows.
 
 
 
-> [AZURE.NOTE]Une fois RDP activé pour un cluster, vous devez actualiser la page avant de pouvoir vous connecter au cluster.
+> [AZURE.NOTE] Une fois RDP activé pour un cluster, vous devez actualiser la page avant de pouvoir vous connecter au cluster.
 
 **Pour vous connecter à un cluster à l’aide de RDP**
 
@@ -138,7 +138,7 @@ Les clusters HDInsight disposent des services web HTTP suivants (tous ces servic
 
 Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer/octroyer l’accès à partir du portail Azure Classic.
 
->[AZURE.NOTE]En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
+>[AZURE.NOTE] En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
 **Pour octroyer/révoquer l’accès aux services web HTTP**
 
@@ -198,4 +198,4 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

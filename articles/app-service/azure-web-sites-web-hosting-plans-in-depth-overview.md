@@ -61,7 +61,7 @@ Pour créer un nouveau plan App Service, cliquez sur **+ Créer nouveau**, saisi
  
 ## Déplacer une application vers un autre plan App Service
 
-Vous pouvez déplacer une application vers un autre plan App Service depuis le [portail Azure](http://portal.azure.com). Les applications peuvent être déplacées d'un plan à un autre s'ils appartiennent à la même région géographique.
+Vous pouvez déplacer une application vers un autre plan App Service depuis le [portail Azure](https://portal.azure.com). Les applications peuvent être déplacées d'un plan à un autre s'ils appartiennent à la même région géographique.
 
 Pour déplacer une application vers un autre plan, accédez à l’application que vous souhaitez déplacer, puis cliquez sur **Modifier le plan App Service**.
  
@@ -90,14 +90,11 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 ## Changements apportés
 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

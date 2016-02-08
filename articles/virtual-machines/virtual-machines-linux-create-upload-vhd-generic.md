@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>Informations concernant les distributions non approuvées #
 
@@ -32,7 +32,9 @@ Toutes les distributions exécutées sur Azure doivent remplir les conditions su
 C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](../linux-endorsed-distributions.md) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@ Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle al
 
 Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de l’applet de commande Powershell [ Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Si vous n’utilisez pas un environnement Windows, il est recommandé d’utiliser qemu-img pour convertir (si nécessaire) et redimensionner le disque dur virtuel.
 
-> [AZURE.NOTE]Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures. Référence : https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures. Référence : https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. Redimensionner le disque dur virtuel directement à l’aide d’outils comme `qemu-img` ou `vbox-manage` peut rendre le disque dur virtuel non démarrable. Il est donc recommandé de convertir d'abord le disque dur virtuel en image disque RAW. Si l'image de machine virtuelle a déjà été créée comme image disque RAW (c'est la valeur par défaut pour certains hyperviseurs comme KVM), vous pouvez ignorer cette étape :
@@ -193,4 +195,4 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

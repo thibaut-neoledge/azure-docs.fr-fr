@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Créer des ressources Application Insights à l’aide de PowerShell
@@ -117,6 +117,27 @@ find | replace with
 `"myappname"` (minuscules) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## Si votre application est une application web Azure
+
+Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteextensions`, paramétrez-la comme suit :
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Cette ressource déploie le kit de déploiement logiciel (SDK) Application Insights dans votre application web Azure.
+
 ## Définir les dépendances entre les ressources
 
 Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
@@ -145,6 +166,7 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
     * -webTestName est le nom du test web à créer.
     * -Url est l’URL de votre application web.
     * -text est une chaîne qui apparaît dans votre page web.
+    * -siteName : utilisé s’il s'agit d’un site Web Azure
 
 
 ## Définir les alertes de mesures
@@ -288,4 +311,4 @@ Voici l’intégralité des composants, test web et modèle d’alerte de test w
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

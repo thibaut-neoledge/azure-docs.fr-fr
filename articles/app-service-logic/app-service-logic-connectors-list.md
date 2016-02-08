@@ -20,12 +20,12 @@
 # Liste des connecteurs et des applications API à utiliser dans vos applications logiques
 Découvrez tous les connecteurs et les applications API disponibles créés par Microsoft et à utiliser dans votre application logique.
 
-Pour plus d’informations sur la tarification et une liste de ce qui est inclus dans chaque niveau de service, consultez la page [Tarification Azure App Service](http://azure.microsoft.com/pricing/details/app-service/).
+Pour plus d’informations sur la tarification et une liste de ce qui est inclus dans chaque niveau de service, consultez la page [Tarification Azure App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-## Connecteurs standard
-Le tableau suivant répertorie tous les connecteurs et toutes les applications API créés par Microsoft et disponibles dans les connecteurs standard :
+## Connecteurs principaux
+Le tableau suivant répertorie tous les connecteurs et toutes les applications API créés par Microsoft et disponibles dans les connecteurs principaux :
 
 Nom | Description
 --- | ---
@@ -89,14 +89,9 @@ Plusieurs connecteurs fournissent des déclencheurs pour les applications logiqu
 Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre application logique. Les actions sont utiles pour rechercher des données dans l'application logique qui peuvent ensuite être utilisées lors de l'exécution. Par exemple, vous devrez peut-être rechercher des données à partir d'une base de données SQL afin d'obtenir des informations complémentaires sur un client lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions mappent aux opérations des applications API (comme défini par leurs métadonnées Swagger).
 
 ## Créer vos propres connecteurs et applications API
-[Référence de connecteurs et d’applications API](http://aka.ms/appservicesconnectorreference)  
-[Déclencheurs des applications API Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md)  
-[Référence de l’application logique](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Référence de connecteurs et d'applications API](http://aka.ms/appservicesconnectorreference) [Déclencheurs des applications API Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md) [Référence de l'application logique](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 ## En savoir plus sur les connecteurs et les applications API
+[Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md) [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-[Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)  
-[Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md)  
-[Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
-
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 Le service Azure Search est un service de recherche cloud hébergé qui facilite l'offre d'une expérience de recherche exceptionnelle. Avant de pouvoir exécuter une recherche, vous devez remplir un index Azure Search avec vos données. Si les données résident dans une base de données SQL Azure, la nouvelle fonctionnalité d’**indexeur Azure Search pour Azure SQL Database** (ou **indexeur SQL Azure**) dans Azure Search peut automatiser le processus d'indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
-Actuellement, les indexeurs ne fonctionnent qu’avec Azure SQL Database, SQL Server on Azure VMs et [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). Dans cet article, nous allons nous concentrer sur les indexeurs qui fonctionnent avec Azure SQL Database. Si vous voulez voir comment d’autres sources de données sont prises en charge, indiquez vos souhaits sur le [forum Azure Search](http://feedback.azure.com/forums/263029-azure-search).
+Actuellement, les indexeurs ne fonctionnent qu’avec Azure SQL Database, SQL Server on Azure VMs et [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). Dans cet article, nous allons nous concentrer sur les indexeurs qui fonctionnent avec Azure SQL Database. Si vous voulez voir comment d’autres sources de données sont prises en charge, indiquez vos souhaits sur le [forum Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 Cet article décrit l’utilisation des indexeurs, mais nous allons également examiner les fonctionnalités et comportements propres aux bases de données SQL (par exemple, le suivi intégré des modifications).
 
@@ -279,4 +279,4 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

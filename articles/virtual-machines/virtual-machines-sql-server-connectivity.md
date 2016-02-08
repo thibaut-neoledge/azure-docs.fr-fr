@@ -60,7 +60,7 @@ Commencez par effectuer la [procédure décrite dans cet article pour configurer
 
 Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)
 
->[AZURE.NOTE]Il est important de noter que lorsque vous utilisez cette technique pour communiquer avec SQL Server, toutes les données renvoyées sont considérées comme du trafic sortant depuis le centre de données. Elles sont donc soumises à la [tarification sur les transferts de données sortantes](http://azure.microsoft.com/pricing/details/data-transfers) standard. C’est également le cas lorsque vous utilisez cette technique à partir d’une machine ou d’un service cloud différent au sein d’un même centre de données Azure, car le trafic passe toujours par l’équilibreur de charge public d’Azure.
+>[AZURE.NOTE] Il est important de noter que lorsque vous utilisez cette technique pour communiquer avec SQL Server, toutes les données renvoyées sont considérées comme du trafic sortant depuis le centre de données. Elles sont donc soumises à la [tarification sur les transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) standard. C’est également le cas lorsque vous utilisez cette technique à partir d’une machine ou d’un service cloud différent au sein d’un même centre de données Azure, car le trafic passe toujours par l’équilibreur de charge public d’Azure.
 
 ### Se connecter à SQL Server dans le même réseau virtuel
 
@@ -110,4 +110,4 @@ Il est important d’examiner toutes les recommandations de sécurité pour SQL 
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

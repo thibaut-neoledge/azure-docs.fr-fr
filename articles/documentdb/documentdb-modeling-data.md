@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Modélisation des données dans Azure DocumentDB | Microsoft Azure" 
-	description="Apprenez à modéliser les données d'une base de données de documents NoSQL comme DocumentDB Azure." 
+	description="Obtenez plus d’informations sur la modélisation des données pour DocumentDB, une base de données de documents NoSQL." 
+	keywords="modélisation des données"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -87,7 +88,7 @@ En général, utilisez des modèles de données incorporés dans les cas suivant
 - Des données incorporées ne croîtront pas **sans limite**.
 - Des données incorporées sont une partie **intégrante** des données d’un document.
 
-> [AZURE.NOTE]Normalement, les modèles de données dénormalisés offrent de meilleures performances en **lecture**.
+> [AZURE.NOTE] Normalement, les modèles de données dénormalisés offrent de meilleures performances en **lecture**.
 
 ###Quand éviter l'incorporation
 
@@ -113,7 +114,7 @@ Prenons cet extrait de code JSON.
 
 Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela posera un problème car la taille du document risque d'augmenter considérablement.
 
-> [AZURE.TIP]Les documents dans DocumentDB ont une taille maximale. Pour plus d’informations, consultez la rubrique [Limites de DocumentDB](documentdb-limits.md).
+> [AZURE.TIP] Les documents dans DocumentDB ont une taille maximale. Pour plus d’informations, consultez la rubrique [Limites de DocumentDB](documentdb-limits.md).
 
 L'augmentation de la taille du document a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour du document, à l'échelle.
 
@@ -220,7 +221,7 @@ Dans le code JSON ci-dessous, nous avons choisi d'utiliser l'exemple de portefeu
 
 Cette approche présente cependant un inconvénient si votre application doit afficher des informations sur chaque action qui est conservée lors de l'affichage du portefeuille d'une personne ; dans ce cas, vous devez faire plusieurs aller et retour jusqu'à la base de données afin de charger les informations pour chaque document d'action. Ici, nous avons pris une décision pour améliorer l'efficacité des opérations d'écriture, qui ont lieu fréquemment pendant la journée, mais nous avons fait un compromis sur les opérations de lecture, qui ont potentiellement moins d'impact sur les performances de ce système.
 
-> [AZURE.NOTE]Les modèles de données normalisés **peuvent nécessiter davantage d’aller-retour** jusqu’au serveur.
+> [AZURE.NOTE] Les modèles de données normalisés **peuvent nécessiter davantage d’aller-retour** jusqu’au serveur.
 
 ### Qu'en est-il des clés étrangères ?
 Dans la mesure où il n'existe actuellement aucun concept d'une contrainte (clé étrangère ou autre), toutes les relations entre documents que vous avez dans les documents sont effectivement des « liens faibles » et elles ne sont pas vérifiées par la base de données. Si vous souhaitez vous assurer que les données auxquelles un document fait référence existent réellement, vous devez le faire dans votre application, ou en utilisant des déclencheurs côté serveur ou des procédures stockées sur DocumentDB.
@@ -233,7 +234,7 @@ En général, utilisez des modèles de données normalisés dans les cas suivant
 - Les données associées **changent fréquemment**.
 - Les données référencées peuvent être **illimitées**.
 
-> [AZURE.NOTE]En général, la normalisation offre de meilleures performances en **écriture**.
+> [AZURE.NOTE] En général, la normalisation offre de meilleures performances en **écriture**.
 
 ###Où placer la relation ?
 La croissance de la relation permet de déterminer dans quel document doit être stockée la référence.
@@ -389,7 +390,7 @@ Pour plus d’informations sur le paramétrage des index dans Azure DocumentDB, 
 
 Pour comprendre la répartition de vos données entre plusieurs partitions, consultez la rubrique [Partitionnement des données dans DocumentDB](documentdb-partition-data.md).
 
-Et enfin, pour obtenir des conseils sur la modélisation et le partitionnement des données pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+Et enfin, pour obtenir des conseils sur la modélisation des données et le partitionnement pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Modifications apportées aux applets de commande PowerShell de gestion dans Azure Resource Manager
@@ -89,6 +89,6 @@ La procédure ci-dessus filtre les résultats pour afficher les emplacements pri
 
 ##Applets de commande de stratégie
 
-Nous avons ajouté la prise en charge des stratégies pour Azure Resource Manager. Les applets de commande PowerShell de gestion des stratégies ont été intégrées à cette version. Pour plus d'informations sur les stratégies, consultez [Utiliser une stratégie pour gérer les ressources et le contrôle d'accès](resource-manager-policy.md).
+Nous avons ajouté la prise en charge des stratégies pour Azure Resource Manager. Les applets de commande PowerShell de gestion des stratégies ont été intégrées à cette version. Pour plus d’informations sur les stratégies, consultez [Utiliser une stratégie pour gérer les ressources et le contrôle d’accès](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

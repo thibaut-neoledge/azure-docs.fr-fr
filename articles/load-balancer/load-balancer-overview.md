@@ -108,7 +108,7 @@ Tout le trafic sortant vers Internet à partir de votre service d'origine passe 
 La configuration de l'équilibrage de charge Azure prend en charge le NAT « plein cône » pour UDP. Le NAT« plein cône » est un type de NAT où le port autorise les connexions entrantes à partir de n’importe quel hôte externe (en réponse à une requête sortante).
 
 
->[AZURE.NOTE]Pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l'équilibrage de charge Azure. L'hôte externe voit le trafic entrant comme un port alloué d'adresse IP virtuelle. Si vous avez besoin d'un grand nombre de connexions sortantes, nous recommandons que les machines virtuelles utilisent des adresses IP publiques de niveau d’instance afin qu'elles disposent d'une adresse IP sortante dédiée pour SNAT. Cela réduit le risque d’épuisement du port.
+>[AZURE.NOTE] Pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l'équilibrage de charge Azure. L'hôte externe voit le trafic entrant comme un port alloué d'adresse IP virtuelle. Si vous avez besoin d'un grand nombre de connexions sortantes, nous recommandons que les machines virtuelles utilisent des adresses IP publiques de niveau d’instance afin qu'elles disposent d'une adresse IP sortante dédiée pour SNAT. Cela réduit le risque d’épuisement du port.
 >
 >Le nombre maximal de ports pouvant être utilisés par l'adresse IP virtuelle ou l'adresse IP publique de niveau d'instance est 64 000. Il s'agit d'une limite TCP standard.
 
@@ -119,7 +119,7 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 
 **Déploiements basés sur modèle avec Azure Resource Manager**
 
-Azure Resource Manager est la nouvelle infrastructure de gestion des services dans Azure. L'équilibrage de charge Azure peut maintenant être géré à l'aide des outils et API de Resource Manager. Pour en savoir plus sur Resource Manager, consultez [IaaS just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
+Azure Resource Manager est la nouvelle infrastructure de gestion des services dans Azure. L'équilibrage de charge Azure peut maintenant être géré à l'aide des outils et API de Resource Manager. Pour en savoir plus sur Resource Manager, consultez [IaaS just got easier with Azure Resource Manager](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
 
 ## Étapes suivantes
@@ -130,4 +130,4 @@ Azure Resource Manager est la nouvelle infrastructure de gestion des services da
 
 [Prise en main de la création d'un équilibreur de charge accessible sur Internet](load-balancer-internet-getstarted.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

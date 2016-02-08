@@ -30,6 +30,8 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer le [fournisseur de données pour Sybase](http://go.microsoft.com/fwlink/?linkid=324846) sur le même système que la passerelle de gestion des données.
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
 ## Exemple : copie de données de Sybase vers Azure Blob
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -216,7 +218,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-type | Le type de propriété doit être défini sur : **OnPremisesSybase** | Oui
+type | Le type de propriété doit être défini sur : **OnPremisesSybase** | Oui
 server | Nom du serveur Sybase. | Oui
 database | Nom de la base de données Sybase. | Oui 
 schema | Nom du schéma dans la base de données. | Non
@@ -264,4 +266,4 @@ Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de ty
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

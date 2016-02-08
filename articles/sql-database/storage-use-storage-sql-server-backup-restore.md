@@ -44,7 +44,7 @@ La création d'un compte Azure constitue la première étape de ce processus. Po
 
 ## Composants du service BLOB Azure
 
-* Compte de stockage : le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
+* Compte de stockage : le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Conteneur : un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un service BLOB Azure, au moins un conteneur racine doit être créé.
 
@@ -72,4 +72,4 @@ La création d'un compte Azure constitue la première étape de ce processus. Po
 
 [Pratiques recommandées pour la sauvegarde et la restauration (service de stockage d’objets blob Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

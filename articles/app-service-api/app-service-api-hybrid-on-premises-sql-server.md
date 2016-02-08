@@ -24,7 +24,7 @@ Les connexions hybrides permettent de connecter des applications API [Azure App
 
 Dans ce didacticiel, vous allez découvrir comment créer une application API App Service dans la [ version préliminaire d’Azure](http://go.microsoft.com/fwlink/?LinkId=529715) qui se connecte à une base de données SQL Server locale à l’aide de la nouvelle fonctionnalité de connexion hybride. Ce didacticiel part du principe que vous n’avez jamais utilisé Azure ni SQL Server.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Composants requis
 
@@ -75,7 +75,7 @@ Si vous avez déjà installé SQL Server dans une configuration et dans un envi
 <a name="InstallSQL"></a>
 ## Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local
 
-Cette section explique comment installer SQL Server Express, activer TCP/IP et créer une base de données afin que votre application API fonctionne avec le [portail Azure en version préliminaire](https://portal.azure.com).
+Cette section explique comment installer SQL Server Express, activer TCP/IP et créer une base de données afin que votre application API fonctionne avec le [portail Azure en version préliminaire](https://portal.azure.com/).
 
 <a name="InstallSQLDB"></a>
 ### Installation de SQL Server Express
@@ -202,7 +202,7 @@ Cette section vous guide dans le processus de création de l’application API d
 
 10. Remplacez le code dans le fichier `SpeakersController.cs` par le code ci-dessous. Assurez-vous de spécifier vos propres valeurs pour les espaces réservés <nom\_serveur> et <mot\_de\_passe> dans la `connectionString`. La valeur <nom\_serveur> est le nom de l’ordinateur sur lequel se trouve SQL Server, et la valeur <mot\_de\_passe> est celle que vous avez définie quand vous avez installé et configuré SQL Server.
 
-	> [AZURE.NOTE]L’extrait de code suivant contient des informations de mot de passe. Ceci permet de simplifier la démonstration. Dans un environnement de production réel, ne stockez pas vos informations d’identification dans le code. Reportez-vous plutôt aux [meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	> [AZURE.NOTE] L’extrait de code suivant contient des informations de mot de passe. Ceci permet de simplifier la démonstration. Dans un environnement de production réel, ne stockez pas vos informations d’identification dans le code. Reportez-vous plutôt aux [meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 		using System;
 		using System.Collections.Generic;
@@ -332,7 +332,7 @@ Maintenant que vous avez testé l’application localement, il est temps de la d
 	- Si vous avez plusieurs abonnements Azure, sélectionnez celui que vous souhaitez utiliser.
 	- Sous **Plan de service d’application**, sélectionnez l’un des plans de service d’application existants ou **Créer un plan de service d’application** et entrez le nom d’un nouveau plan. 
 	- Sous **Groupe de ressources**, sélectionnez un des groupes de ressources existants ou **Créer un groupe de ressources** et entrez un nom. Le nom doit être unique ; envisagez d'utiliser le nom de l'application en tant que préfixe et d'ajouter des informations personnelles telles que votre ID Microsoft (sans le signe @).  
-	- Sous **Niveau d’accès**, sélectionnez **Accessible à tout le monde**. Cette option rendra votre API complètement publique, ce qui convient pour ce didacticiel. Vous pouvez restreindre l’accès ultérieurement via le [portail Azure en version préliminaire](https://portal.azure.com).
+	- Sous **Niveau d’accès**, sélectionnez **Accessible à tout le monde**. Cette option rendra votre API complètement publique, ce qui convient pour ce didacticiel. Vous pouvez restreindre l’accès ultérieurement via le [portail Azure en version préliminaire](https://portal.azure.com/).
 	- Sélectionnez une région.
 
 	Cliquez sur **OK** pour créer l’application API dans votre abonnement.
@@ -355,7 +355,7 @@ La fenêtre **Activité d’Azure App Service** affiche la progression du déplo
 
 ## Création d'une connexion hybride et d'un service BizTalk ##
 
-1. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com). 
+1. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com/). 
 
 2. Cliquez sur l’option **Parcourir tout** sur la gauche.
 
@@ -432,4 +432,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

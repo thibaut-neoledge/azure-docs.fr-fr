@@ -36,7 +36,7 @@ Assurez-vous que les conditions préalables sont remplies :
 
 ### Conditions préalables pour Azure
 
-- Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer par une version d’[essai gratuit](pricing/free-trial/).
+- Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer par une version d’[essai gratuit](pricing/free-trial/).
 - Vous aurez besoin d’un compte de stockage Azure pour stocker les données répliquées. La géo-réplication doit être activée pour ce compte. Il doit se trouver dans la même région que le coffre Azure Site Recovery et être associé au même abonnement. [En savoir plus sur Azure Storage](../storage/storage-introduction.md).
 - Vous devez vous assurer que les machines virtuelles que vous souhaitez protéger sont conformes à la [configuration requise pour les machines virtuelle Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -449,4 +449,4 @@ if($isJobLeftForProcessing)
 
 [Découvrez plus](https://msdn.microsoft.com/library/dn850420.aspx) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

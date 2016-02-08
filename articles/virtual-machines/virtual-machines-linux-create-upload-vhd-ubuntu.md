@@ -14,29 +14,33 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # Préparation d'une machine virtuelle Linux Ubuntu pour Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Composants requis##
+## Images cloud Ubuntu officielles
+Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargeables depuis l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Si vous avez besoin de créer votre propre image Ubuntu spécialisée pour Azure, plutôt que d’utiliser la procédure manuelle ci-après, nous vous recommandons de démarrer avec ces disques durs virtuels opérationnels connus et de les personnaliser selon vos besoins.
+
+
+## Composants requis
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Linux Ubuntu dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d’installation Ubuntu**
 
 - Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
-
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou [RAID](virtual-machines-linux-configure-raid.md) sont utilisables sur les disques de données si vous le souhaitez.
-
 - Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
-
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## Étapes manuelles
+
+> [AZURE.NOTE] Avant de créer votre propre image Ubuntu personnalisée pour Azure, envisagez d’utiliser les images disponibles à l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
+
 
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
@@ -113,7 +117,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 11. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux .vhd pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous utilisez Azure et téléchargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 dans [ce guide](virtual-machines-linux-create-upload-vhd.md).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux .vhd pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous utilisez Azure et chargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 de [ce guide](virtual-machines-linux-create-upload-vhd.md).
 
 ## Références ##
 
@@ -122,4 +126,4 @@ Noyau HWE (HardWare Enablement) Ubuntu
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

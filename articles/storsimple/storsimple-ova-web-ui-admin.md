@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array (version préliminaire)
@@ -23,7 +23,7 @@
 
 Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version 1.1.1.0 (version préliminaire). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Il existe deux interfaces utilisateur qui peuvent être utilisées pour gérer StorSimple Virtual Array : l'interface utilisateur de service StorSimple Manager (également appelée interface utilisateur du portail) et l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple Virtual Array est en version préliminaire et est destiné à des fins d'évaluation et de planification du déploiement. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge. 
 >- Si vous rencontrez des problèmes avec StorSimple Virtual Array, publiez-les sur le [forum MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -132,14 +132,8 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
     Lorsque le redémarrage est en cours, la connexion à l'interface utilisateur s'interrompt. Vous pouvez surveiller le redémarrage en actualisant périodiquement l'interface utilisateur. Vous pouvez également surveiller l'état du redémarrage de l'appareil avec le Gestionnaire Hyper-V.
 
-![icône\_vidéo](./media/storsimple-ova-web-ui-admin/video_icon.png) **Vidéo disponible**
-
-Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarder les partages et restaurer des données sur un StorSimple Virtual Array.
-
-> [AZURE.VIDEO use-the-storsimple-virtual-array]
-
 ## Étapes suivantes
 
 Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

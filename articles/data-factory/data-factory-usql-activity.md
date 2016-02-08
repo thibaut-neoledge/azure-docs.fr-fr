@@ -19,7 +19,8 @@
 # Exécution d'un script U-SQL sur Azure Data Lake Analytics à partir de la fabrique d'Azure Data Factory 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l'**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**.
 
-> [AZURE.NOTE]Vous devez créer un compte Azure Data Lake Analytics avant de créer un pipeline avec une activité U-SQL Data Lake Analytics. Pour plus d'informations sur Azure Data Lake Analytics, consultez [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> [AZURE.NOTE] 
+Vous devez créer un compte Azure Data Lake Analytics avant de créer un pipeline avec une activité U-SQL Data Lake Analytics. Pour plus d'informations sur Azure Data Lake Analytics, consultez [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 >  
 > Veuillez consulter le [didacticiel Concevez votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de création d'une fabrique de données, de services liés, de jeux de données et d'un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor ou Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
 
@@ -62,8 +63,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données de l’utilisateur. | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données de l’utilisateur. | <p> Valeur maximale de 90 jours si l’utilisateur exécute des tranches en fonction de sa source de service lié OAuth au moins une fois tous les 14 jours. </p><p>Au cours des 90 jours attendus, dès lors que l’utilisateur n’a pas exécuté de tranches en fonction de cette source pendant une période de 14 jours, les informations d’identification expirent immédiatement 14 jours après la dernière tranche.</p> | 
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
@@ -257,4 +258,4 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

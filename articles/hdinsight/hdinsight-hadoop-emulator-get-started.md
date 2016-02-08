@@ -24,12 +24,12 @@ Ce didacticiel vous présente l'utilisation de clusters Hadoop dans l'émulateur
 
 Une fois que l'émulateur est installé, vous suivez un didacticiel MapReduce pour le comptage de mots, puis vous exécutez des exemples.
 
-> [AZURE.NOTE]L’émulateur HDInsight inclut uniquement un cluster Hadoop. Il n’inclut pas HBase ou Storm.
+> [AZURE.NOTE] L’émulateur HDInsight inclut uniquement un cluster Hadoop. Il n’inclut pas HBase ou Storm.
 
 
 L’émulateur HDInsight fournit un environnement de développement local assez proche d’un bac à sable (sandbox) Hadoop. Si vous connaissez Hadoop, vous pouvez prendre en main l’émulateur HDInsight à l’aide de Hadoop Distributed File System (HDFS). Dans HDInsight, le système de fichiers par défaut est le stockage d’objets blob Azure. Ainsi, vous pouvez développer vos tâches à l’aide du stockage d’objets blob Azure. Pour utiliser le stockage d’objets blob Azure avec l’émulateur HDInsight, vous devez apporter des modifications à la configuration de l’émulateur.
 
-> [AZURE.NOTE]L'émulateur HDInsight peut uniquement utiliser un déploiement à nœud unique.
+> [AZURE.NOTE] L'émulateur HDInsight peut uniquement utiliser un déploiement à nœud unique.
 
 
 ## Configuration requise
@@ -41,14 +41,14 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell** Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Azure PowerShell** Consultez [Installation et utilisation d'Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a name="install"></a>Installation de l’émulateur HDInsight
 
 L'émulateur Microsoft HDInsight peut être installé via Microsoft Web Platform Installer.
 
-> [AZURE.NOTE]Actuellement, l’émulateur HDInsight prend uniquement en charge les systèmes d’exploitation en anglais. Si vous avez installé une version antérieure de l’émulateur, vous devez désinstaller les deux composants suivants à partir de Panneau de configuration/Programmes et fonctionnalités avant d’installer la dernière version de l’émulateur : <ul> <li>Émulateur Microsoft HDInsight pour Azure ou HDInsight Developer Preview, selon celui qui est installé</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] Actuellement, l’émulateur HDInsight prend uniquement en charge les systèmes d’exploitation en anglais. Si vous avez installé une version antérieure de l’émulateur, vous devez désinstaller les deux composants suivants à partir de Panneau de configuration/Programmes et fonctionnalités avant d’installer la dernière version de l’émulateur : <ul> <li>Émulateur Microsoft HDInsight pour Azure ou HDInsight Developer Preview, selon celui qui est installé</li> <li>Hortonworks Data Platform</li> </ul>
 
 
 **Installation de l’émulateur HDInsight**
@@ -294,7 +294,7 @@ Il ne faut pas beaucoup de temps aux analystes expérimentés en SQL (Structured
 
 5. Exécutez la commande suivante pour exécuter le fichier de script **w3ccreate.hql**. Le script crée une table Hive et charge les données dans la table Hive :
 
-	> [AZURE.NOTE]À ce stade, vous pouvez également utiliser les outils Visual Studio HDInsight pour exécuter la requête Hive. Ouvrez Visual Studio, créez un projet, puis à partir du modèle HDInsight, sélectionnez **Application Hive**. Une fois le projet ouvert, ajoutez la requête en tant que nouvel élément. La requête est disponible à l’adresse **C:/hdp/GettingStarted/Hive/w3c**. Une fois la requête ajoutée au projet, remplacez **${hiveconf:input}** par **/w3c/hive/input**, puis cliquez sur **Envoyer**.
+	> [AZURE.NOTE] À ce stade, vous pouvez également utiliser les outils Visual Studio HDInsight pour exécuter la requête Hive. Ouvrez Visual Studio, créez un projet, puis à partir du modèle HDInsight, sélectionnez **Application Hive**. Une fois le projet ouvert, ajoutez la requête en tant que nouvel élément. La requête est disponible à l’adresse **C:/hdp/GettingStarted/Hive/w3c**. Une fois la requête ajoutée au projet, remplacez **${hiveconf:input}** par **/w3c/hive/input**, puis cliquez sur **Envoyer**.
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ Il ne faut pas beaucoup de temps aux analystes expérimentés en SQL (Structured
 
 6. Exécutez la commande suivante pour exécuter le fichier de script HiveQL **w3ctotalhitsbypage.hql** :
 
-	> [AZURE.NOTE]Comme expliqué précédemment, vous pouvez aussi exécuter cette requête en utilisant les outils Visual Studio HDInsight.
+	> [AZURE.NOTE] Comme expliqué précédemment, vous pouvez aussi exécuter cette requête en utilisant les outils Visual Studio HDInsight.
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connexion au stockage d’objets blob Azure
 L'émulateur HDInsight utilise HDFS en tant que système de fichiers par défaut. Toutefois, Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichiers par défaut. Il est possible de configurer l’émulateur HDInsight pour utiliser le stockage d’objets blob Azure plutôt que le stockage local. Suivez les instructions ci-dessous pour créer un conteneur de stockage dans Azure et pour le connecter à l'émulateur HDInsight.
 
->[AZURE.NOTE]Pour plus d’informations sur la façon dont HDInsight utilise le stockage d’objets blob Azure, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Pour plus d’informations sur la façon dont HDInsight utilise le stockage d’objets blob Azure, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md).
 
 Avant de commencer à suivre les instructions ci-dessous, vous devez créer un compte de stockage. Pour obtenir des instructions, consultez la rubrique [Création d'un compte de stockage](../storage-create-storage-account.md).
 
@@ -497,4 +497,4 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

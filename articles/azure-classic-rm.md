@@ -48,7 +48,7 @@ Les sections ci-dessous expliquent comment les ressources Azure sont configurée
 Azure dispose de deux portails :
 
 - **[Portail Azure](https://manage.windowsazure.com) :** si vous utilisez Azure depuis un certain temps, vous avez utilisé ce portail. Il est utilisé pour créer et configurer d’anciennes ressources Azure qui prennent en charge le modèle de déploiement classique. Vous ne pouvez pas l'utiliser pour créer ou configurer les ressources qui prennent uniquement en charge Resource Manager. 
-- **[Portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/) :** si vous utilisez une ressource Azure plus récente, vous avez certainement utilisé ce portail. Il peut être utilisé pour créer et configurer certaines ressources Azure. Vous pourrez à terme créer et configurer toutes les ressources Azure avec celui-ci. Pour les quelques ressources qui prennent en charge les deux modèles de déploiement, ce portail peut être utilisé pour créer et configurer une ressource à l'aide de n’importe quel modèle de déploiement. 
+- **[Portail Azure en version préliminaire](https://azure.microsoft.com/overview/preview-portal/) :** si vous utilisez une ressource Azure plus récente, vous avez certainement utilisé ce portail. Il peut être utilisé pour créer et configurer certaines ressources Azure. Vous pourrez à terme créer et configurer toutes les ressources Azure avec celui-ci. Pour les quelques ressources qui prennent en charge les deux modèles de déploiement, ce portail peut être utilisé pour créer et configurer une ressource à l'aide de n’importe quel modèle de déploiement. 
 
 Certaines fonctionnalités et ressources peuvent uniquement être créées et configurées dans un portail ou dans l'autre. Certaines ressources ou fonctionnalités ne peuvent pas (encore) être créées ou configurées dans les deux portails, et peuvent uniquement être configurées avec PowerShell, l'interface de ligne de commande ou les deux. La documentation de chaque ressource Azure précise avec quelle méthode elle peut être créée.
 
@@ -57,7 +57,7 @@ Avec [PowerShell](powershell-install-configure.md) vous pouvez utiliser une lign
 
 - **Applets de commande PowerShell uniquement :** vous pouvez créer et configurer chaque ressource Azure individuellement à l'aide des applets de commande de chaque ressource. Vous pouvez le faire à partir d'une ligne de commande ou en incluant plusieurs commandes dans un script PowerShell que vous pouvez stocker et versionner.
 
-- **Applets de commande PowerShell avec un modèle Azure Resource Manager :** vous pouvez utiliser PowerShell pour créer des ressources Azure à l'aide d'un modèle Azure Resource Manager. Les modèles peuvent être enregistrés et gérés. Pour en savoir plus, lisez l’article [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). Plusieurs [modèles Azure Quickstart](http://azure.microsoft.com/documentation/templates/) existent pour les solutions courantes. Ils peuvent également être téléchargés et modifiés.
+- **Applets de commande PowerShell avec un modèle Azure Resource Manager :** vous pouvez utiliser PowerShell pour créer des ressources Azure à l'aide d'un modèle Azure Resource Manager. Les modèles peuvent être enregistrés et gérés. Pour en savoir plus, lisez l’article [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). Plusieurs [modèles Azure Quickstart](https://azure.microsoft.com/documentation/templates/) existent pour les solutions courantes. Ils peuvent également être téléchargés et modifiés.
 
 ## Interface de ligne de commande
 Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Windows, OS X ou Linux à l'aide de l'interface de ligne de commande. Lisez l’article [Installer l’interface de ligne de commande Azure](xplat-cli-install.md) pour installer l'interface de ligne de commande sur le système d'exploitation de votre choix. Comme pour PowerShell, il existe différentes commandes à utiliser selon que vous créez des ressources à l'aide des modèles de déploiement [Resource Manager](xplat-cli-azure-resource-manager.md) ou [classique (Service Management)](virtual-machines-command-line-tools.md).
@@ -68,4 +68,4 @@ Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Wi
 - Découvrez comment [concevoir des modèles](/best-practices-resource-manager-design-templates.md).
 - Utilisez les [meilleures pratiques](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

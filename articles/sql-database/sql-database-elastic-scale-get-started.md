@@ -70,7 +70,7 @@ Les outils de base de données élastiques sont gratuits. Les outils de base de 
 
 Par exemple, l’exemple d’application crée des bases de données. Le coût dépend de l'édition d'Azure SQL DB choisie et de l'utilisation Azure de votre application.
 
-Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Étapes suivantes
 Pour plus d’informations sur les outils de bases de données élastiques, consultez :
@@ -80,7 +80,7 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
     -    [Base de données élastique avec Azure SQL - Prise en main](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Base de données élastique avec Azure SQL - Intégration avec Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Partitionner l’élasticité sur le centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog : [Annonce de la mise à l’échelle élastique](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Channel 9 : [Vidéo de présentation de la mise à l’échelle élastique](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Forum de discussion : [Forum sur Azure SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
@@ -98,4 +98,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

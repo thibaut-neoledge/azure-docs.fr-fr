@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Intégration d’Azure AD dans une application Android
@@ -68,7 +68,7 @@ Vous devez d’abord inscrire votre application web. Ensuite, vous devez aussi i
 
 **Qu’est-ce que je fais ?**
 
-*Comme indiqué plus haut, Microsoft Azure Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez procéder ainsi pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
+*Comme indiqué plus haut, Microsoft Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez procéder ainsi pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
 
 *Ici, nous supposons que vous inscrivez l’exemple d’application mentionné ci-dessus, mais cela fonctionne pour n’importe quelle application que vous développez.*
 
@@ -100,7 +100,7 @@ Pour générer avec Maven, vous pouvez utiliser le pom.xml au niveau supérieur.
   * Installez l’émulateur avec le kit de développement (SDK) 19.
   * Accédez au dossier racine où vous avez cloné le référentiel.
   * Exécutez la commande : mvn clean install
-  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\hello
+  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\\hello
   * Exécutez la commande : mvn android:deploy android:run
   * L’application doit normalement se lancer
   * Entrez les informations d’identification utilisateur de test pour faire un essai.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -270,8 +270,7 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker** :
-  l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
+11. **Broker** : l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -287,9 +286,9 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
 
  Votre manifeste d’application doit disposer des autorisations requises pour utiliser des comptes AccountManager : http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Cette procédure pas à pas devrait vous permettre d’effectuer correctement l’intégration avec Azure Active Directory. Pour d’autres exemples, consultez le référentiel AzureADSamples/ sur GitHub.
@@ -443,6 +442,5 @@ Votre application doit les remplacer si des chaînes localisées sont désirées
 Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée par l’événement onReceivedHttpAuthRequest de WebViewClient. La mise en page et les chaînes de la boîte de dialogue peuvent être personnalisés.### Étape 5 : Téléchargement de l’exemple de code de client natif iOS
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

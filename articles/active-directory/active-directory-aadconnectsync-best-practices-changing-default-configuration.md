@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -43,7 +43,7 @@ L'Assistant d’installation fournit une configuration qui est censée fonctionn
 - Pour [effectuer des modifications sur une règle out-of-box](#change-an-out-of-box-rule), vous devez faire une copie de la règle d’origine, puis la désactiver. L'éditeur de règles de synchronisation vous y invitera et vous aidera à le faire.
 - Exportez vos règles de synchronisation personnalisées à l’aide de l’éditeur de règles de synchronisation. Cela vous donne un script PowerShell que vous pouvez utiliser pour facilement les recréer dans le cadre d’une récupération d’urgence.
 
->[AZURE.WARNING]Les règles de synchronisation out-of-box ont une empreinte numérique. Si vous apportez une modification à ces règles, l'empreinte numérique ne correspondra plus et vous pourrez rencontrer des problèmes dans le futur lorsque vous essaierez d'appliquer une nouvelle version d'Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
+>[AZURE.WARNING] Les règles de synchronisation out-of-box ont une empreinte numérique. Si vous apportez une modification à ces règles, l'empreinte numérique ne correspondra plus et vous pourrez rencontrer des problèmes dans le futur lorsque vous essaierez d'appliquer une nouvelle version d'Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
 
 ### Modifier les flux d’attributs
 Dans certains cas, les flux d’attributs par défaut ne fonctionnent pas pour une organisation.
@@ -113,4 +113,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

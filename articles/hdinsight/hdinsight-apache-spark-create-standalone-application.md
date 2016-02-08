@@ -31,9 +31,9 @@ Cet article fournit des instructions détaillée pour le développement d'applic
 
 **Configuration requise**
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l'installer [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’[ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IDE Java. Cet article utilise IntelliJ IDEA 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/). 
 
 
@@ -138,7 +138,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
-	5. Dans la boîte de dialogue **Créer un fichier JAR à partir de modules**, assurez-vous que l’option **Extraire vers le fichier JAR cible** est activée, puis cliquez sur **OK**. Cela crée un fichier JAR contenant toutes les dépendances.
+	5. Dans la boîte de dialogue **Create JAR from Modules** (Créer un fichier jar à partir de modules), assurez-vous que l’option **Extract to the target JAR** (Extraire vers le fichier jar cible) est activée, puis cliquez sur **OK**. Cela crée un fichier JAR contenant toutes les dépendances.
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
@@ -172,11 +172,11 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Diffusion en continu Spark : utiliser Spark sur HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Analyse des journaux de site web en utilisant Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Créer et exécuter des applications
 
@@ -192,4 +192,4 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

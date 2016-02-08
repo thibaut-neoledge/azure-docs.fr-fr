@@ -33,7 +33,7 @@ Les informations contenues dans ces didacticiels supposent que vous avez passé 
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. Nous vous recommandons de consulter la liste de contrôle de configuration avant de commencer. Le processus de déploiement et de configuration peut prendre du temps.
 
-> [AZURE.NOTE]Les informations de déploiement StorSimple publiées sur le site web Microsoft Azure s’appliquent aux appareils StorSimple de la série 8000 uniquement. Pour obtenir des informations complètes sur les appareils de la série 7000, consultez la page : [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Pour plus d’informations sur le déploiement de la série 7000, consultez le [Guide de démarrage rapide du système StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] Les informations de déploiement StorSimple publiées sur le site web Microsoft Azure s’appliquent aux appareils StorSimple de la série 8000 uniquement. Pour obtenir des informations complètes sur les appareils de la série 7000, consultez la page : [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Pour plus d’informations sur le déploiement de la série 7000, consultez le [Guide de démarrage rapide du système StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Étapes du déploiement
 
@@ -83,10 +83,10 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | | Interface réseau : Adresses IP fixes de contrôleur Data 0 | Ces adresses IP doivent être routables vers Internet.</br>Adresse IP fixe de contrôleur 0 :</br>Adresse IP fixe de contrôleur 1 :|
 | | | | |
 | **Paramètres d'interface réseau supplémentaires** | Interface réseau : Data 1</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 2</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 3</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
 | | Interface réseau : Data 4</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
-| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
+| | Interface réseau : Data 5</br>Si iSCSI est activé, ne configurez pas la passerelle. | Objectif : Cloud/iSCSI/non utilisé</br>Adresse IP :</br>Masque de sous-réseau :</br>Passerelle :|
 | | | | |
 | **Création d’un conteneur de volumes** | Nom du conteneur de volumes : | nom du conteneur | |
 | | Compte Azure Storage : | nom et clé d'accès du compte de stockage à associer à ce conteneur de volume | |
@@ -115,7 +115,7 @@ Avant de commencer, assurez-vous que :
 
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
-- Votre abonnement Microsoft Azure est activé pour le service StorSimple Manager. Votre abonnement doit être acheté en passant par la page [Licences Azure pour l’entreprise](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Votre abonnement Microsoft Azure est activé pour le service StorSimple Manager. Votre abonnement doit être acheté en passant par la page [Licences Azure pour l’entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Vous avez accès à un logiciel d’émulation de terminal tel que PuTTY.
 
@@ -146,7 +146,7 @@ Un service StorSimple Manager peut gérer plusieurs appareils StorSimple. Procé
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT]Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
+> [AZURE.IMPORTANT] Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 >
 > * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. 
 > * Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
@@ -190,7 +190,7 @@ Pour créer un conteneur de volumes, procédez comme suit dans le portail Azure 
 
 Après avoir créé un conteneur de volumes, vous pouvez configurer un volume de stockage sur l’appareil StorSimple pour vos serveurs. Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
-> [AZURE.IMPORTANT]StorSimple Manager peut créer uniquement des volumes alloués dynamiquement. Vous ne pouvez pas créer des volumes configurés entièrement ou partiellement.
+> [AZURE.IMPORTANT] StorSimple Manager peut créer uniquement des volumes alloués dynamiquement. Vous ne pouvez pas créer des volumes configurés entièrement ou partiellement.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
@@ -241,10 +241,9 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 ## Recherche et application des mises à jour
 
-La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
-<!--can take 1-4 hours-->
+La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil. <!--can take 1-4 hours-->
 
-<!--Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Mise à jour de votre appareil
 
@@ -254,7 +253,7 @@ La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme
 
 3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
-	> [AZURE.NOTE]Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L’état ne passe à 100 % que lorsque la tâche de mise à jour est terminée. Il n’existe aucun état en temps réel du processus de mise à jour.
+	> [AZURE.NOTE] Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L’état ne passe à 100 % que lorsque la tâche de mise à jour est terminée. Il n’existe aucun état en temps réel du processus de mise à jour.
 
 4.	Lorsque l'appareil est correctement mis à jour, activez les interfaces réseau Data 2 et Data 3 si elles ont été désactivées.
 
@@ -279,7 +278,7 @@ La solution MPIO (Multipath I/O) est une fonctionnalité facultative qui n’est
 Pour obtenir les instructions d'installation et de configuration de MPIO pour un appareil StorSimple connecté à un hôte Linux, consultez [Configuration de MPIO pour votre hôte Linux](storsimple-configure-mpio-on-linux.md).
 
 
-> [AZURE.NOTE]La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
+> [AZURE.NOTE] La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
 
 
 
@@ -290,4 +289,4 @@ Pour obtenir les instructions d'installation et de configuration de MPIO pour un
 - Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # Modifier des runbooks textuels dans Azure Automation
@@ -21,7 +21,7 @@ L’éditeur de texte dans Azure Automation peut être utilisé pour modifier de
 
 L’éditeur de texte inclut une fonctionnalité permettant d’insérer du code pour les activités, les ressources et les runbooks enfants dans un runbook. Plutôt que de taper le code vous-même, vous pouvez sélectionner le code approprié dans la liste des ressources disponibles et l’insérer dans le runbook.
 
-Dans Azure Automation, chaque runbook existe en deux versions : un brouillon et une version publiée. Vous modifiez le brouillon du workflow, puis vous le publiez afin qu’il puisse être exécuté. La version publiée ne peut pas être modifiée. Consultez [Publication d’un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) pour plus d’informations.
+Dans Azure Automation, chaque runbook existe en deux versions : un brouillon et une version publiée. Vous devez modifier le brouillon du runbook, puis le publier afin qu’il puisse être exécuté. La version publiée ne peut pas être modifiée. Consultez [Publication d’un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) pour plus d’informations.
 
 Pour travailler avec des [runbooks graphiques](automation-runbook-types.md#graphical-runbooks), consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -58,7 +58,7 @@ Utilisez la procédure suivante pour ouvrir un runbook afin de le modifier dans 
 2. Dans le canevas de l’éditeur de texte, placez le curseur à l’emplacement où vous souhaitez placer le code pour le runbook enfant.
 3. Développez le nœud **Ressources** dans le contrôle Bibliothèque. 
 4. Développez le nœud pour le type de ressources souhaité.
-3. Cliquez avec le bouton droit sur la ressource à insérer, puis sélectionnez **Ajouter au canevas**. Pour les [ressources variables](variable-assets.md), sélectionnez **Ajouter « Obtenir la variable » au canevas** ou **Ajouter « Définir la variable » au canevas** selon que vous souhaitez obtenir ou définir la variable.
+3. Cliquez avec le bouton droit sur la ressource à insérer, puis sélectionnez **Ajouter au canevas**. Pour les [ressources variables](automation-variables.md), sélectionnez **Ajouter « Obtenir la variable » au canevas** ou **Ajouter « Définir la variable » au canevas** selon que vous souhaitez obtenir ou définir la variable.
 4. Le code de la ressource est inséré dans le runbook.
 
 
@@ -107,7 +107,7 @@ Utilisez la procédure suivante pour ouvrir un runbook afin de le modifier dans 
 
 ## Pour modifier un runbook Azure Automation à l’aide de Windows PowerShell
 
-Pour modifier un runbook avec Windows PowerShell, vous modifiez le workflow à l’aide de l’éditeur de votre choix et l’enregistrez dans un fichier .ps1. Vous pouvez utiliser l’applet de commande [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) pour récupérer le contenu du runbook, puis l’applet de commande [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) pour remplacer le brouillon du workflow existant par la version modifiée.
+Pour modifier un runbook avec Windows PowerShell, utilisez l’éditeur de votre choix et enregistrez-le dans un fichier .ps1. Vous pouvez utiliser l’applet de commande [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) pour récupérer le contenu du runbook, puis l’applet de commande [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) pour remplacer le brouillon du runbook existant par la version modifiée.
 
 ### Pour récupérer le contenu d’un runbook à l’aide de Windows PowerShell
 
@@ -124,7 +124,7 @@ Les exemples de commandes suivants montrent comment récupérer le script d’un
 
 ### Pour modifier le contenu d’un runbook à l’aide de Windows PowerShell
 
-Les exemples de commandes suivants montrent comment remplacer le contenu existant d’un runbook par le contenu d’un fichier de script contenant un workflow. Notez qu’il s’agit du même exemple de procédure que [Pour importer un runbook à partir d’un fichier de script avec Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
+Les exemples de commandes suivants montrent comment remplacer le contenu existant d’un runbook par le contenu d’un fichier de script. Notez qu’il s’agit du même exemple de procédure que [Pour importer un runbook à partir d’un fichier de script avec Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -135,7 +135,7 @@ Les exemples de commandes suivants montrent comment remplacer le contenu existan
 
 ## Articles connexes
 
-- [Création ou importation d’un runbook dans Azure Automation](automation-creatnig-importing-runbook.md)
+- [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
 - [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 - [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 - [Certificats](automation-certificates.md)
@@ -144,4 +144,4 @@ Les exemples de commandes suivants montrent comment remplacer le contenu existan
 - [Planifications](automation-schedules.md)
 - [Variables](automation-variables.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synchronisation Azure AD Connect : connecteur Lotus Domino"
+   pageTitle="Azure AD Connect Sync : connecteur Lotus Domino | Microsoft Azure"
    description="Cet article décrit comment configurer le connecteur Lotus Domino de Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur Lotus Domino
@@ -394,7 +394,7 @@ Le connecteur Lotus Domino prend en charge les opérations suivantes sur le mot 
 - Set Password : cette option définit un nouveau mot de passe HTTP/Internet sur l’utilisateur dans Domino. Par défaut, le compte est également déverrouillé. L’indicateur de déverrouillage est affiché sur l’interface WMI du moteur de synchronisation.
 - Change Password : dans ce scénario, un utilisateur peut souhaiter modifier le mot de passe ou est invité à le faire après un délai spécifié. Pour que cette opération ait lieu, les deux mots de passe (l’ancien et le nouveau) sont obligatoires. Une fois la modification effectuée, le nouveau mot de passe est mis à jour dans Lotus Domino.
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez les pages suivantes :
 
 - [Utilisation de la fonctionnalité de verrouillage Internet](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 - [Gestion des mots de passe Internet](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
@@ -449,7 +449,7 @@ Le connecteur Lotus Domino prend principalement en charge quatre types d’objet
 
 Cette section répertorie les attributs obligatoires pour chaque type d’objet pris en charge afin d’exporter l’objet vers un serveur Domino.
 
-| Type d'objet | Attributs obligatoires |
+| Type d’objet | Attributs obligatoires |
 | --- | --- |
 | Groupe | <li>ListName</li> |
 | Base courrier en arrivée | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
@@ -539,4 +539,4 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma de sorte qu’i
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -21,7 +21,8 @@
 
 Les appareils dont vos utilisateurs sont personnellement propriétaires peuvent être marqués comme étant connus par votre organisation en demandant aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration. Voici un guide étape par étape permettant d’activer l’accès conditionnel à des applications locales à l’aide des services AD FS (Active Directory Federation Services) dans Windows Server 2012 R2.
 
-> [AZURE.NOTE]Une licence Office 365 ou Azure AD Premium est nécessaire pour utiliser des appareils enregistrés dans les stratégies d’accès conditionnel du service Azure Active Directory Device Registration. Ces stratégies incluent les stratégies appliquées par les services AD FS (Active Directory Federation Services) pour les ressources locales.
+> [AZURE.NOTE]
+Une licence Office 365 ou Azure AD Premium est nécessaire pour utiliser des appareils enregistrés dans les stratégies d’accès conditionnel du service Azure Active Directory Device Registration. Ces stratégies incluent les stratégies appliquées par les services AD FS (Active Directory Federation Services) pour les ressources locales.
 
 Pour plus d’informations sur les scénarios d’accès conditionnel en local, consultez [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente pour accéder aux applications de l’entreprise](https://technet.microsoft.com/library/dn280945.aspx).
 
@@ -118,13 +119,14 @@ Ceci vous aidera à intégrer votre locataire Azure AD dans votre service Active
 5.	Dans la section de **déploiement et de gestion**, suivez les étapes 1 à 3 pour intégrer Azure Active Directory à votre répertoire local.
   1.	Ajoutez des domaines.
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape. >[AZURE.NOTE]Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. >[AZURE.NOTE]Il est inutile de configurer les fonctionnalités d'aperçu.
+  3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape. >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. >[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
   
    
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
-> [AZURE.NOTE]La mise à niveau de votre schéma Active Directory ne peut pas être annulée. Nous vous conseillons de procéder à cette opération tout d'abord dans un environnement de test.
+> [AZURE.NOTE]
+La mise à niveau de votre schéma Active Directory ne peut pas être annulée. Nous vous conseillons de procéder à cette opération tout d'abord dans un environnement de test.
 
 1. Connectez-vous à votre contrôleur de domaine avec un compte disposant des droits d’administrateur d’entreprise et d’administrateur de schéma.
 2. Copiez le répertoire **[media]\\support\\adprep** et les sous-répertoires vers l'un de vos contrôleurs de domaine Active Directory. 
@@ -132,12 +134,13 @@ Ceci vous aidera à intégrer votre locataire Azure AD dans votre service Active
 4. À partir d'une invite de commandes, accédez au répertoire adprep et exécutez la commande suivante : **adprep.exe /forestprep**. Suivez les instructions à l’écran pour terminer la mise à niveau du schéma.
 
 ## Préparation de votre Active Directory à la prise en charge d'appareils
->[AZURE.NOTE]Il s’agit d’une opération ponctuelle que vous devez effectuer pour préparer votre forêt Active Directory à la prise en charge d’appareils. Pour accomplir cette procédure, vous devez être connecté avec les autorisations d’administrateur d’entreprise et votre forêt Active Directory doit avoir le schéma Windows Server 2012 R2.
+>[AZURE.NOTE] Il s’agit d’une opération ponctuelle que vous devez effectuer pour préparer votre forêt Active Directory à la prise en charge d’appareils. Pour accomplir cette procédure, vous devez être connecté avec les autorisations d’administrateur d’entreprise et votre forêt Active Directory doit avoir le schéma Windows Server 2012 R2.
 
 
 ##Préparer votre forêt Active Directory à la prise en charge d’appareils
 
-> [AZURE.NOTE]Il s’agit d’une opération ponctuelle que vous devez effectuer pour préparer votre forêt Active Directory à la prise en charge d’appareils. Pour accomplir cette procédure, vous devez être connecté avec les autorisations d’administrateur d’entreprise et votre forêt Active Directory doit avoir le schéma Windows Server 2012 R2.
+> [AZURE.NOTE]
+Il s’agit d’une opération ponctuelle que vous devez effectuer pour préparer votre forêt Active Directory à la prise en charge d’appareils. Pour accomplir cette procédure, vous devez être connecté avec les autorisations d’administrateur d’entreprise et votre forêt Active Directory doit avoir le schéma Windows Server 2012 R2.
 
 ### Préparation de votre forêt Active Directory
 
@@ -178,10 +181,13 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous 
 
 ###Joindre un appareil Windows 8.1 à l’aide du service Azure Active Directory Device Registration
 
-1. Sur votre appareil Windows 8.1, accédez à **Paramètres du PC** > **Réseau** > **Espace de travail**.
+1. Sur votre appareil Windows 8.1, accédez à **Paramètres du PC** > **Réseau** > **Lieu de travail**.
 2. Entrez votre nom d’utilisateur au format UPN. Par exemple, dan@contoso.com..
 3. Sélectionnez **Joindre**.
 4. Quand vous y êtes invité, connectez-vous avec vos informations d’identification. L’appareil est à présent joint.
+
+###Joindre un appareil Windows 7 à l’aide du service Azure Active Directory Device Registration
+Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le package logiciel d’inscription de l’appareil. Le package logiciel, appelé Jonction au lieu de travail pour Windows 7, est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). Les instructions relatives à l’utilisation du package sont disponibles dans [Configurer l’inscription automatique des appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Joindre un appareil Android à l’aide du service Azure Active Directory Device Registration
 
@@ -198,7 +204,8 @@ Par défaut, les objets d’appareil réécrits à partir d’Azure Active Direc
 Considérez le scénario suivant : vous créez une approbation de partie de confiance d’application dans AD FS et configurez une règle d’autorisation d’émission autorisant uniquement les appareils enregistrés. À présent, seuls les appareils inscrits sont autorisés à accéder à l’application. Afin de faciliter l’accès à l’application à vos utilisateurs, vous configurez un message personnalisé de refus d’accès qui inclut des instructions leur permettant de joindre leur appareil. Vos utilisateurs peuvent à présent enregistrer de manière transparente leurs appareils afin d’accéder à une application.
 
 Les étapes suivantes vous expliquent comment implémenter ce scénario.
->[AZURE.NOTE]Cette section part du principe que vous avez déjà configuré une approbation de partie de confiance pour votre application dans AD FS.
+>[AZURE.NOTE]
+Cette section part du principe que vous avez déjà configuré une approbation de partie de confiance pour votre application dans AD FS.
 
 1. Ouvrez l’outil MMC AD FS et accédez à AD FS > Relations d’approbation > Approbations de partie de confiance.
 2. Recherchez l’application à laquelle doit s’appliquer la nouvelle règle d’accès. Cliquez avec le bouton droit sur l’application et sélectionnez Modifier les règles de revendication.
@@ -237,4 +244,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 ![Capture d'écran d'une erreur lorsque les utilisateurs n'ont pas enregistré leur appareil auprès d'Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

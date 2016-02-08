@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Cas d’utilisation - Recommandations de produits 
@@ -36,7 +36,7 @@ Troisièmement, les recommandations doivent être immédiatement communiquées �
 
 ## Vue d’ensemble de la solution
 
-Cet exemple de cas d'utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Analytics, y compris [HDInsight](http://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/) pour recevoir, préparer, transformer, analyser et publier les données finales.
+Cet exemple de cas d'utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Analytics, y compris [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/) pour recevoir, préparer, transformer, analyser et publier les données finales.
 
 Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail. Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse.
 
@@ -44,9 +44,9 @@ Comme le montre la figure suivante, toutes les données sont combinées et charg
 
 ![diagramme de cas d'utilisation](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un compte de stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme. [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/)(Hadoop en tant que service) est utilisé pour partitionner les fichiers journaux bruts (pour améliorer la gestion, la disponibilité et les performances) dans le magasin d'objets blob et traiter à grande échelle les journaux réceptionnés à l’aide des scripts Hive et Pig. Les données des journaux web partitionnés sont ensuite traités pour extraire les entrées nécessaires pour que le système de recommandation de Machine Learning génère des recommandations de produits personnalisées.
+Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un compte de stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme. [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)(Hadoop en tant que service) est utilisé pour partitionner les fichiers journaux bruts (pour améliorer la gestion, la disponibilité et les performances) dans le magasin d'objets blob et traiter à grande échelle les journaux réceptionnés à l’aide des scripts Hive et Pig. Les données des journaux web partitionnés sont ensuite traités pour extraire les entrées nécessaires pour que le système de recommandation de Machine Learning génère des recommandations de produits personnalisées.
 
-Le système de recommandation utilisé pour Machine Learning dans cet exemple est une plateforme de recommandation Machine Learning open source d’[Apache Mahout](http://mahout.apache.org/). Notez que n’importe quel modèle [Azure Machine Learning](http://azure.microsoft.com/services/machine-learning/) ou modèle personnalisé peut être appliqué. Le modèle Mahout sert à prédire la similarité entre des éléments présents sur le site web du détaillant en fonction de modèles d'utilisation globaux, et à générer des recommandations personnalisées selon un utilisateur individuel.
+Le système de recommandation utilisé pour Machine Learning dans cet exemple est une plateforme de recommandation Machine Learning open source d’[Apache Mahout](http://mahout.apache.org/). Notez que n’importe quel modèle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou modèle personnalisé peut être appliqué. Le modèle Mahout sert à prédire la similarité entre des éléments présents sur le site web du détaillant en fonction de modèles d'utilisation globaux, et à générer des recommandations personnalisées selon un utilisateur individuel.
 
 Enfin, le jeu de résultats des recommandations de produits personnalisées est déplacé vers un mini-Data Warehouse relationnel afin d’être utilisé par le site web du détaillant. Le jeu de résultats peut également être accessible directement depuis le stockage d’objets blob par une autre application, ou déplacé vers des magasins supplémentaires pour d'autres consommateurs et cas d'utilisation.
 
@@ -60,4 +60,4 @@ Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a cr
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

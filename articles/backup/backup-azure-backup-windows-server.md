@@ -14,13 +14,13 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/19/2016"
+	 ms.date="01/22/2016"
 	 ms.author="jimpark;"/>
 
 # Sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure
 Cette procédure simple perme de sauvegarder facilement des dossiers et fichiers Microsoft Azure. Si vous ne l’avez pas déjà fait, effectuez la [configuration requise](backup-configure-vault.md#before-you-start) pour préparer votre environnement pour la sauvegarde de votre machine Windows avant de continuer.
 
-## Fichiers de sauvegarde
+## Sauvegarde des fichiers et dossiers
 1. Une fois l’ordinateur inscrit, ouvrez le composant logiciel enfichable MMC de Microsoft Azure Backup.
 
     ![Résultat de la recherche](./media/backup-azure-backup-windows-server/result.png)
@@ -52,4 +52,4 @@ Cette procédure simple perme de sauvegarder facilement des dossiers et fichiers
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

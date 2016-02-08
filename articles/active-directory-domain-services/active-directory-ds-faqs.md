@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Caractéristiques de la version préliminaire des services de domaine Azure Active Directory : FAQ
@@ -38,17 +38,23 @@ Le déploiement à l’aide de PowerShell ou automatisé des services de domaine
 #### Les services de domaine Azure AD sont-ils disponibles dans le nouveau portail Azure ?
 Non. Les services de domaine Azure AD ne peuvent être configurés que dans l’ancien portail de gestion Azure (c’est-à-dire https://manage.windowsazure.com). Nous envisageons d’étendre la prise en charge pour le nouveau portail de gestion Microsoft Azure (c’est-à-dire https://portal.azure.com).
 
+#### Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?
+Non. Le domaine fourni par les services de domaine Azure AD est un domaine géré. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer par ailleurs les contrôleurs de ce domaine, car ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (ni en lecture/écriture ni en lecture seule) pour le domaine géré.
+
 
 ### Administration et opérations
 
 #### J’ai activé les services de domaine Azure AD. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
-Les comptes d’utilisateur que vous avez ajoutés au groupe d’administration (c’est-à-dire « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
+Les comptes d’utilisateurs que vous avez ajoutés au groupe d’administration (c’est-à-dire « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
 
 #### Puis-je exercer des privilèges d’administrateur de domaine pour le domaine fourni par les services de domaine Azure AD ?
 Non. Dans la mesure où il s’agit d’un service géré, aucun privilège d’administrateur ne vous est accordé sur le domaine. Cela signifie que les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles dans le domaine. En outre, les groupes d’administrateurs de domaine ou d’administrateurs d’entreprise existants dans votre annuaire Azure AD ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine.
 
 #### Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration Active Directory sur des domaines fournis par les services de domaine Azure AD ?
 Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez toutefois modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Ces modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
+
+#### Puis-je étendre le schéma du domaine fourni par les services de domaine Azure AD ?
+Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
 
 
 ### Facturation et disponibilité
@@ -68,4 +74,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

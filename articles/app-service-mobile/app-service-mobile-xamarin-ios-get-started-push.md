@@ -30,7 +30,7 @@ Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Xamarin.iOS](a
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n’avez pas encore de compte, inscrivez-vous pour obtenir une version d’essai Azure et jusqu’à 10 backends d’application mobile gratuits. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’avez pas encore de compte, inscrivez-vous pour obtenir une version d’essai Azure et jusqu’à 10 backends d’application mobile gratuits. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un Mac sur lequel sont installés [Xamarin Studio] et [Xcode] v4.4 ou version ultérieure. Vous pouvez exécuter l'application Xamarin.Forms à l'aide de Visual Studio sur un ordinateur Windows si vous le souhaitez. Mais c'est une opération peu plus compliqué, car vous devez vous connecter à un Mac en réseau exécutant l'hôte de build Xamarin.iOS. Si vous souhaitez effectuer cette opération, consultez la rubrique [Installation de Xamarin.iOS sur Windows].
 
@@ -153,7 +153,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
 1. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
 	
-	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
+	> [AZURE.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
 2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
@@ -174,4 +174,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

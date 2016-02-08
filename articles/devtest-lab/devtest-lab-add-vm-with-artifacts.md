@@ -30,7 +30,7 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 ## Ajout d'une machine virtuelle avec des artefacts
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Cliquez sur **Parcourir**, puis cliquez sur **Laboratoires de test et développement** dans la liste.
 
@@ -98,4 +98,4 @@ Suivez ces étapes pour afficher ou modifier les paramètres de vos artefacts s�
 
 Découvrez comment [créer des artefacts personnalisés pour votre machine virtuelle](devtest-lab-artifact-author.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

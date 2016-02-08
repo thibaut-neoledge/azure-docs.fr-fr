@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Restauration à partir d'une sauvegarde de votre tableau de virtuel StorSimple (version préliminaire)
@@ -77,11 +77,9 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 3.  Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
 
-4.  Cliquez sur **Restaurer comme nouveau** en bas de la page.
-
 5.  En bas de la page, cliquez sur **Restaurer comme nouveau**. L’assistant **Restaurer comme nouveau volume** démarre.
 
-1.  Sur la page **Spécifier le nom et l'emplacement** :
+1.  Dans la page **Spécifiez un nom et un emplacement** :
 
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le volume que vous souhaitez restaurer. La sélection de l'appareil n'est pas disponible. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.
@@ -92,7 +90,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 		![](./media/storsimple-ova-restore/image12.png)
 
-1.  Sur la page **Spécifier des hôtes qui peuvent utiliser ce volume**, sélectionnez les ACR appropriés dans la liste déroulante.
+1.  Dans la page **Spécifiez les hôtes qui peuvent utiliser ce volume**, sélectionnez les ACR appropriés dans la liste déroulante.
 
 	![](./media/storsimple-ova-restore/image13.png)
 
@@ -100,11 +98,11 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
 
-3.  Vous pouvez suivre la progression de la restauration. Lorsque la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
+3.  Vous pouvez suivre la progression de la restauration. Quand la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
 
 4.  Vous pouvez maintenant afficher le nouveau volume restauré dans la liste des volumes sur votre appareil.
 
-	> [AZURE.NOTE]La restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
+	> [AZURE.NOTE] La restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
 
 ## Récupération au niveau de l'élément (ILR)
 
@@ -130,9 +128,14 @@ Chaque partage comporte un dossier *.backups* contenant les sauvegardes les plus
 
 3.  Copiez le fichier ou le dossier dans le partage approprié sur votre serveur de fichiers StorSimple.
 
+![icône\_vidéo](./media/storsimple-ova-restore/video_icon.png) **Vidéo disponible**
+
+Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarder les partages et restaurer des données sur un StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Étapes suivantes
 
-En savoir plus sur la [gestion de votre StorSimple Virtual Array à l'aide de l'interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
+En savoir plus sur la [gestion de votre StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

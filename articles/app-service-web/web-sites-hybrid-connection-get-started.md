@@ -20,10 +20,10 @@
 
 Vous pouvez connecter une application web d’Azure App Service à n’importe quelle ressource locale utilisant un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP, les services mobiles et la plupart des services web personnalisés. Cet article vous explique comment créer une connexion hybride entre une application web d’App Service et une base de données SQL Server locale.
 
-> [AZURE.NOTE]La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE] La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Configuration requise
-- Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). 
+- Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 - Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L’utilisation d’une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour plus d’informations sur l’installation et la configuration de SQL Server Express en vue de son utilisation avec des connexions hybrides, consultez la page [Connexion à une instance SQL Server locale à partir d’un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -32,12 +32,12 @@ Vous pouvez connecter une application web d’Azure App Service à n’importe q
 	- doit être capable de se connecter à Azure sur le port 5671 ;
 	- doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale. 
 
-> [AZURE.NOTE]Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
+> [AZURE.NOTE] Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
 
 ## Créer une application web dans le portail Azure ##
 
-> [AZURE.NOTE]Si vous avez déjà créé dans le portail Azure une application web que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
+> [AZURE.NOTE] Si vous avez déjà créé dans le portail Azure une application web que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
 
 1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web + mobile** > **Application web**.
 	
@@ -75,11 +75,7 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le panneau **Créer une connexion hybride** :
-	- dans **Nom**, indiquez le nom de la connexion.
-	- dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource.
-	- Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut).
-	- Cliquez sur **Biz Talk Service**
+	Dans le panneau **Créer une connexion hybride** : - dans **Nom**, indiquez le nom de la connexion. - dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource. - Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut). - Cliquez sur **Biz Talk Service**
 
 
 4. Le panneau **Créer un service BizTalk** s’affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
@@ -95,16 +91,16 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
 	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. Dans le panneau de l’application web, l’icône **Connexions hybrides** indique à présent qu’une connexion hybride a été créée.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -171,7 +167,7 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 [Josh Twist présente les connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Site web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
+[Site web des connexions hybrides](https://azure.microsoft.com/services/biztalk-services/)
 
 [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs/)
 
@@ -180,7 +176,7 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [Connexion à une instance SQL Server locale à partir d’Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -208,4 +204,4 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

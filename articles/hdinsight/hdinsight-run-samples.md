@@ -28,7 +28,7 @@ Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les t�
 - [**Estimateur de la valeur de Pi**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
 - [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go au moyen de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
 
->[AZURE.NOTE]Vous trouverez le code source dans l'annexe.
+>[AZURE.NOTE] Vous trouverez le code source dans l'annexe.
 
 Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d'informations sur ces ressources, consultez :
 
@@ -44,7 +44,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
  
 **Conditions préalables** :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 - **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
@@ -118,9 +118,9 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 
 Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d’écrire des fonctions de mappage et de réduction dans d’autres langages que Java.
 
-> [AZURE.NOTE]Les étapes de ce didacticiel s’appliquent uniquement aux clusters Azure HDInsight Windows. Pour obtenir un exemple de diffusion en continu pour les clusters HDInsight Linux, consultez la rubrique [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md).
+> [AZURE.NOTE] Les étapes de ce didacticiel s’appliquent uniquement aux clusters Azure HDInsight Windows. Pour obtenir un exemple de diffusion en continu pour les clusters HDInsight Linux, consultez la rubrique [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdinstdin-stdout-stderr] (ligne par ligne), puis envoient leur résultat vers stdoutstdin-stdout-stderr. Le programme compte tous les mots dans le texte.
+Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis stdinstdin-stdout-stderr (ligne par ligne), puis envoient leur résultat vers stdoutstdin-stdout-stderr. Le programme compte tous les mots dans le texte.
 
 Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit ses entrées en lignes et les utilise pour alimenter le [stdin][stdin-stdout-stderr] du processus.
 
@@ -998,4 +998,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

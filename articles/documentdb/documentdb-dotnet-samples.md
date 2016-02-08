@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Exemples .NET sur github pour DocumentDB | Microsoft Azure" 
-	description="Accédez à des exemples C# .NET sur github couvrant l’exécution de tâches courantes dans DocumentDB, notamment les opérations CRUD pour les documents JSON dans les bases de données NoSQL." 
+	pageTitle="Exemple NoSQL .NET pour DocumentDB | Microsoft Azure" 
+	description="Accédez à des exemples NoSQL C# .NET sur github couvrant l’exécution de tâches courantes dans DocumentDB, notamment les opérations CRUD pour les documents JSON dans les bases de données NoSQL." 
+	keywords="Exemple NoSQL"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -20,8 +21,8 @@
 # Exemples .NET DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Le référentiel GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) contient des exemples de solutions qui exécutent des opérations CRUD ainsi que d’autres opérations courantes sur les ressources DocumentDB. Cet article fournit :
@@ -31,12 +32,13 @@ Le référentiel GitHub [azure-documentdb-net](https://github.com/Azure/azure-do
 
 **Configuration requise**
 
-1. Pour utiliser ces exemples, vous avez besoin d’un compte Azure :
+1. Pour utiliser ces exemples NoSQL, vous avez besoin d’un compte Azure :
     - Vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
    - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 2. Vous avez également besoin du [package NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
-> [AZURE.NOTE]Chaque exemple est autonome, se définit lui-même et se nettoie automatiquement. Les exemples transmettent donc plusieurs appels à CreateDocumentCollectionAsync(). À chaque appel, votre abonnement est facturé pour 1 heure d’utilisation selon le niveau de performances de la collection en cours de création.
+> [AZURE.NOTE]
+Chaque exemple est autonome, se définit lui-même et se nettoie automatiquement. Les exemples transmettent donc plusieurs appels à CreateDocumentCollectionAsync(). À chaque appel, votre abonnement est facturé pour 1 heure d’utilisation selon le niveau de performances de la collection en cours de création.
 
 ## Exemples de base de données
 
@@ -63,7 +65,7 @@ Task | Informations de référence sur l'API
 [Lire une liste de toutes les collections d’une base de données](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) | [DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx)
 [Supprimer une collection](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) | [DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx)
 
-## Exemples de documents
+## Exemples de document
 
 La méthode [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) de l’exemple de projet DocumentManagement explique comment effectuer les tâches suivantes.
 
@@ -78,7 +80,7 @@ Task | Informations de référence sur l'API
 [Supprimer un document](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L322) | [DocumentClient.DeleteDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentasync.aspx)
 [Utilisation d’objets dynamiques .NET](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentasync.aspx)<br>[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
 
-## Exemples d’indexation
+## Exemples d'indexation
 
 La méthode [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) de l’exemple de projet IndexManagement explique comment effectuer les tâches suivantes.
 
@@ -127,7 +129,7 @@ Task | Informations de référence sur l'API
  
 Pour plus d’informations sur l’utilisation des données géospatiales, consultez [Utilisation de données géospatiales dans Azure DocumentDB](documentdb-geospatial.md).
  
-## Exemples de requêtes
+## Exemples de requête
 
 Le fichier de document de requête [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs) explique comment effectuer chacune des tâches suivantes à l’aide de la syntaxe de requête SQL, à l’aide du fournisseur LINQ avec requête et avec des expressions Lambda.
 
@@ -174,4 +176,4 @@ Task | Informations de référence sur l'API
 [Définir les autorisations sur une collection ou un document](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [Obtenir la liste des autorisations d’un utilisateur](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

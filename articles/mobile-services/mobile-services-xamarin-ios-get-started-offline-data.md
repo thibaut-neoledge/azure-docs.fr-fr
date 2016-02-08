@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
@@ -34,7 +34,7 @@ La synchronisation hors connexion possède plusieurs utilisations potentielles 
 * Permettre aux utilisateurs finaux de créer et de modifier des données même en l'absence d'accès au réseau, prenant ainsi en charge des scénarios avec une connectivité faible ou nulle
 * Synchroniser des données sur plusieurs appareils et détecter des conflits lorsque le même enregistrement est modifié par deux appareils
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10&nbsp;services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10&nbsp;services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 >
 > Si vous n'avez aucune expérience de Mobile Services, commencez par suivre entièrement le didacticiel [Prise en main de Mobile Services].
 
@@ -99,7 +99,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     Dans cet exemple, nous récupérons tous les enregistrements de la table `TodoItem` distante, mais il est également possible de filtrer les enregistrements en transmettant une requête. Le premier paramètre passé à `PullAsync()` est un ID de requête qui est utilisé pour la synchronisation incrémentielle. Il utilise l’horodatage `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `null` comme ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-    >[AZURE.NOTE]Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
+    >[AZURE.NOTE] Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
 
     Notez que `MobileServicePushFailedException` peut survenir pour une opération push et une opération d'extraction. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions relatives à la synchronisation.
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez modifier l'application pour qu'elle ne se synchro
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     Désormais, `RefreshAsync()` chargera uniquement les données à partir du magasin local, mais ne se connectera pas au backend de l'application.
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 3. Connectez-vous au [portail Azure Classic] et examinez la base de données de votre service mobile. Si votre service utilise le backend JavaScript, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile.
 
-    Si vous utilisez le backend .NET pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** > **Azure** > **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.
+    Si vous utilisez le backend .NET pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.
 
     Notez que les données n’ont *pas* été synchronisées entre la base de données et le magasin local.
 
@@ -166,8 +166,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 ## Étapes suivantes
 
-* [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]
-
 * [Utilisation du client Xamarin Component pour Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -178,7 +176,7 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 <!-- Images -->
 
 <!-- URLs. -->
-[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
 [Utilisation du client Xamarin Component pour Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Suppression réversible]: mobile-services-using-soft-delete.md
@@ -187,4 +185,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [extension Xamarin]: http://xamarin.com/visual-studio
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

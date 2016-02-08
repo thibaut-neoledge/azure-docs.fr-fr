@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
@@ -54,7 +54,9 @@ L'exemple copie des données appartenant à une série horaire à partir d'un ob
 	  }
 	}
 
-**Jeu de données d'entrée d'objet Blob Azure :**
+Azure Data Factory prend en charge deux types de services liés Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+
+**Jeu de données d'entrée d'objet Blob Azure :**
 
 Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois et le jour de l'heure de début et le nom de fichier utilise la partie heure de l'heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
 
@@ -225,6 +227,9 @@ L'exemple copie des données appartenant à une série horaire à partir d'une t
 	  }
 	}
 
+Azure Data Factory prend en charge deux types de services liés Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+
+
 **Jeu de données d'entrée SQL Azure :**
 
 L'exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
@@ -254,9 +259,11 @@ La définition de « external » : « true » et la spécification de la st
 	  }
 	}
 
+
 **Jeu de données de sortie d'objet Blob Azure :**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
+
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -362,14 +369,10 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 		}
 	}
 
-## Propriétés du service lié Azure Storage
+## Services liés
+Il existe deux types de services liés que vous pouvez utiliser pour lier un stockage d'objets blob Azure à une fabrique de données Azure. Il s’agit des services liés **AzureStorage** et **AzureStorageSas**. Le service lié Azure Storage fournit à la fabrique de données un accès global à Azure Storage. Tandis que le service lié Azure de stockage SAP (signature d'accès partagé) fournit à la fabrique de données un accès restreint/limité dans le temps à Azure Storage. Il n'existe aucune différence entre ces deux services liés. Choisissez le service lié qui répond à vos besoins. Les sections suivantes expliquent plus en détail ces deux services liés.
 
-Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide d'un service lié Azure Storage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
-
-| Propriété | Description | Requis |
-| -------- | ----------- | -------- |
-| type | La propriété de type doit être définie sur : **AzureStorage** | Oui |
-| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Vous pouvez obtenir la valeur connectionString pour le stockage Azure à partir du portail Azure Classic. | Oui |
+[AZURE.INCLUDE [données-fabrique-azure-storage-liés-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Propriétés de type du jeu de données d’objet Blob Azure
 
@@ -505,4 +508,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 avec la structure
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

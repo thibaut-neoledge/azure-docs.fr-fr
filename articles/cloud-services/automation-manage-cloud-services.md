@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/19/2016"
 	ms.author="jolevy"/>
 
 
@@ -24,7 +24,7 @@ Ce guide vous présente le service Azure Automation et la manière de l'utilise
 
 ## Qu'est-ce qu'Azure Automation ?
 
-[Azure Automation](http://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Azure Automation permet d'automatiser les tâches fastidieuses, manuelles, propices aux erreurs et répétitives, afin d'augmenter la fiabilité, l'efficacité et le retour sur investissement pour votre organisation.
+[Azure Automation](https://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Azure Automation permet d'automatiser les tâches fastidieuses, manuelles, propices aux erreurs et répétitives, afin d'augmenter la fiabilité, l'efficacité et le retour sur investissement pour votre organisation.
 
 Azure Automation fournit un moteur d'exécution de workflow hautement fiable et hautement disponible, qui s'adapte à vos besoins au fur et à mesure que votre entreprise se développe. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
 
@@ -40,7 +40,9 @@ Les services cloud Azure peuvent être gérés dans Azure Automation à l'aide 
 
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer les services de cloud computing Azure, cliquez sur ces liens pour en savoir plus sur Azure Automation.
 
-Consultez le [Didacticiel de prise en main](../automation/automation-create-runbook-from-samples.md) d'Azure Automation
+- [Vue d’ensemble de Microsoft Azure Automation](../automation/automation-intro.md)
+- [Mon premier Runbook](../automation/automation-first-runbook-graphical.md)
+- [Plan d’apprentissage pour Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

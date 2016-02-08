@@ -20,7 +20,7 @@
 
 # Créer des applications Machine Learning en utilisant Apache Spark sur Azure HDInsight (Windows)
 
-> [AZURE.NOTE]HDInsight fournit maintenant des clusters Spark sur Linux. Pour plus d’informations sur la création d’une application Machine Learning sur des clusters HDInsight Spark Linux, consultez [ Créer des applications Machine Learning à l’aide d’Apache Spark sur Azure HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
+> [AZURE.NOTE] HDInsight fournit maintenant des clusters Spark sur Linux. Pour plus d’informations sur la création d’une application Machine Learning sur des clusters HDInsight Spark Linux, consultez [ Créer des applications Machine Learning à l’aide d’Apache Spark sur Azure HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
 
 Découvrez comment créer une application d’apprentissage automatique à l’aide d’un cluster Apache Spark dans HDInsight. Cet article montre comment utiliser le bloc-notes Jupyter disponible avec le cluster pour générer et tester notre application. L’application utilise l’exemple de données HVAC.csv, qui est disponible par défaut sur tous les clusters.
 
@@ -28,7 +28,7 @@ Découvrez comment créer une application d’apprentissage automatique à l’a
 
 Vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Afficher les données
@@ -49,7 +49,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -148,7 +148,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 		model = pipeline.fit(training)
 
-7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj + Entrée**.
+7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 		training.show()
 
@@ -184,7 +184,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 8.  Préparez un jeu de données sur lequel exécuter le modèle d’apprentissage. Pour ce faire, nous allons passer un ID système et une ancienneté du système (indiqués par **SystemInfo** dans le résultat de l’apprentissage). Le modèle prédira si le bâtiment ayant cet ID système et cette ancienneté de système sera plus chaud (indiqué par la valeur 1,0) ou plus froid (indiqué par la valeur 0,0).
 
-	Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
+	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 		
 		# SystemInfo here is a combination of system ID followed by system age
 		Document = Row("id", "SystemInfo")
@@ -215,14 +215,14 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 	Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC avec l’ID 20 et une ancienneté du système de 25 ans, le bâtiment sera chaud (**prediction=1,0**). La première valeur de DenseVector (0.49999) correspond à la prédiction 0.0, et la seconde valeur (0.5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
 
-11. À présent, vous pouvez quitter le bloc-notes en redémarrant le noyau. Dans la barre de menus supérieure, cliquez successivement sur **Kernel**, **Restart** et **Restart** à nouveau quand vous y êtes invité.
+11. À présent, vous pouvez quitter le bloc-notes en redémarrant le noyau. Dans la barre de menus supérieure, cliquez successivement sur **Kernel**, **Restart** et **Restart** à nouveau lorsque vous y êtes invité.
 
 	![Redémarrer le noyau Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.restart.kernel.png "Redémarrer le noyau Jupyter")
 	  	   
 
 ##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour l’apprentissage automatique
 
-Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, consultez [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Voir aussi
 
@@ -249,4 +249,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

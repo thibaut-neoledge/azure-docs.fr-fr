@@ -25,7 +25,7 @@ Il vous montre comment ajouter des nœuds « d’extension » Azure (instances
 
 ![Nœuds d’extension][burst]
 
->[AZURE.TIP]Si vous utilisez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster dans Azure, vous pouvez inclure des nœuds d’extension Azure dans votre déploiement automatisé. Consultez les exemples dans cet article.
+>[AZURE.TIP] Si vous utilisez le [script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster dans Azure, vous pouvez inclure des nœuds d’extension Azure dans votre déploiement automatisé. Consultez les exemples dans cet article.
 
 Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure est essentiellement la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions et considérations détaillées sur les déploiements de production, consultez [Extension à Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -37,7 +37,7 @@ Si vous souhaitez utiliser la taille d’instance de calcul intensif A8 ou A9, c
 
 * **Abonnement Azure** : pour ajouter des nœuds Azure, vous pouvez choisir l’abonnement utilisé pour déployer la machine virtuelle à nœud principal, ou bien un ou plusieurs autres abonnements.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multicœur. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multicœur. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ## Étape 1 : créer un service cloud et un compte de stockage pour ajouter des nœuds Azure
 
@@ -46,7 +46,7 @@ Utilisez le portail Azure Classic ou des outils équivalents pour configurer les
 * Un nouveau service cloud Azure
 * Un nouveau compte de stockage Azure
 
->[AZURE.NOTE]Ne réutilisez pas un service cloud existant dans votre abonnement. En outre, ne déployez pas un package de service cloud distinct et personnalisé sur ce service cloud. HPC Pack déploie automatiquement un package de service cloud quand vous démarrez (approvisionnez) les nœuds Azure.
+>[AZURE.NOTE] Ne réutilisez pas un service cloud existant dans votre abonnement. En outre, ne déployez pas un package de service cloud distinct et personnalisé sur ce service cloud. HPC Pack déploie automatiquement un package de service cloud quand vous démarrez (approvisionnez) les nœuds Azure.
 
 **Considérations**
 
@@ -88,4 +88,4 @@ Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, cons
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

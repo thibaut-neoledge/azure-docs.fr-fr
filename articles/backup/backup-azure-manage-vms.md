@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestion et surveillance des sauvegardes de machines virtuelles Azure
 
@@ -51,7 +58,7 @@ Pour créer une sauvegarde à la demande d’une machine virtuelle :
 
     ![Création du travail de sauvegarde](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]Pour afficher la stratégie associée à une machine virtuelle, accédez à cette dernière dans la page **Éléments protégés**, puis à l’onglet Stratégie de sauvegarde.
+    >[AZURE.NOTE] Pour afficher la stratégie associée à une machine virtuelle, accédez à cette dernière dans la page **Éléments protégés**, puis à l’onglet Stratégie de sauvegarde.
 
 3. Une fois que le travail est créé, vous pouvez cliquer sur le bouton **Afficher le travail** dans la barre de notification pour voir le travail correspondant dans la page Travaux.
 
@@ -65,7 +72,7 @@ Vous pouvez choisir d’arrêter les sauvegardes futures d’une machine virtuel
 - Conserver les données de sauvegarde associées à la machine virtuelle dans l’archivage de sauvegarde Azure
 - Supprimer les données de sauvegarde associées à la machine virtuelle
 
-Si vous avez choisi de conserver des données de sauvegarde associées à la machine virtuelle, vous pouvez utiliser les données de sauvegarde pour restaurer la machine virtuelle. Pour connaître les détails de la tarification de ces machines virtuelles, cliquez [ici](http://azure.microsoft.com/pricing/details/backup/).
+Si vous avez choisi de conserver des données de sauvegarde associées à la machine virtuelle, vous pouvez utiliser les données de sauvegarde pour restaurer la machine virtuelle. Pour connaître les détails de la tarification de ces machines virtuelles, cliquez [ici](https://azure.microsoft.com/pricing/details/backup/).
 
 Pour arrêter la protection d’une machine virtuelle :
 
@@ -104,7 +111,7 @@ Après l’application d’une nouvelle protection, l’état de protection de l
 
   ![Machine virtuelle à nouveau protégée](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
+>[AZURE.NOTE] Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
 
 ## Annulation de l’inscription des machines virtuelles
 
@@ -153,7 +160,7 @@ Dans la page **Tableau de bord**, vous pouvez consulter les informations des mac
 
 ![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
+>[AZURE.NOTE] Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
 
 ## Audit des opérations
 La sauvegarde Azure fournit l’analyse des « journaux d’opérations » pour les opérations de sauvegarde déclenchées par le client, ce qui vous permet de savoir exactement quelles sont les opérations de gestion exécutées sur le coffre de sauvegarde. Les journaux d’opérations activent l’assistance post mortem et d’audit des opérations de sauvegarde.
@@ -213,15 +220,15 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **OperationName** : il se présente sous le format « Microsoft.Backup/backupvault/<EventName> » où EventName est décrit ci-dessus.
 
-**Status** : les valeurs prises en charge sont Started, Succeeded et Failed. Il est conseillé de conserver le niveau Informational pour l’état Succeeded.
+**État** : les valeurs prises en charge sont Démarré, Réussi et Échec. Il est conseillé de conserver le niveau Informational pour l’état Succeeded.
 
 **SubStatus** : identique à l’état des opérations de sauvegarde.
 
 **RuleType** : conservez la valeur *Event*, car les alertes de sauvegarde sont basées sur les événements.
 
-**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur de ResourceId correspond à la valeur de ResourceGroup.
+**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
 
-**Name** : nom de la règle d’alerte.
+**Nom** : nom de la règle d’alerte.
 
 **Description** : description de la règle d’alerte.
 
@@ -249,4 +256,4 @@ Les alertes basées sur des événements sont soumises aux limitations suivantes
 
 - [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

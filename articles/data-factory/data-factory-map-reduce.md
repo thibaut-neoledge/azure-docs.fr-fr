@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
-Cet article explique comment appeler un programme **MapReduce** à partir d’un pipeline Azure Data Factory à l’aide de l’**activité MapReduce HDInsight**.
+L’activité MapReduce de HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes MapReduce sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 ## Introduction 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l'utilisation de l’activité MapReduce de HDInsight.
@@ -131,7 +131,6 @@ Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight �
 	    }
 	}
 
-
 ### Jeux de données
 
 #### Jeu de données de sortie
@@ -221,4 +220,4 @@ linkedServiceName | fait référence au service HDInsight lié créé précédem
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

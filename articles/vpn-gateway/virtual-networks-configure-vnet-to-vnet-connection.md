@@ -109,7 +109,7 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
 2. Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
-Sur la page **Détails Virtual Network**, entrez les informations suivantes.
+**Dans la page Détails du réseau virtuel**, entrez les informations suivantes :
 
   ![Détails du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -198,7 +198,7 @@ Maintenant que vous avez configuré chaque réseau virtuel, vous allez configure
 
 ## Étape 7 : connectez les passerelles VPN
 
-Lorsque vous avez terminé les étapes précédentes, définissez les clés prépartagées IPsec/IKE sur des valeurs identiques. Pour ce faire, utilisez une API REST ou une applet de commande PowerShell. Si vous utilisez PowerShell, vérifiez que vous disposez de la [dernière version](http://azure.microsoft.com/downloads/) des applets de commande Microsoft Azure PowerShell. Les exemples ci-dessous utilisent les applets de commande PowerShell pour définir la valeur de clé sur A1b2C3D4. Notez qu’ils utilisent tous les deux la même valeur de clé. Modifiez les exemples ci-dessous en spécifiant vos propres valeurs.
+Lorsque vous avez terminé les étapes précédentes, définissez les clés prépartagées IPsec/IKE sur des valeurs identiques. Pour ce faire, utilisez une API REST ou une applet de commande PowerShell. Si vous utilisez PowerShell, vérifiez que vous disposez de la [dernière version](https://azure.microsoft.com/downloads/) des applets de commande Microsoft Azure PowerShell. Les exemples ci-dessous utilisent les applets de commande PowerShell pour définir la valeur de clé sur A1b2C3D4. Notez qu’ils utilisent tous les deux la même valeur de clé. Modifiez les exemples ci-dessous en spécifiant vos propres valeurs.
 
 Pour VNet1
 
@@ -223,4 +223,4 @@ Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à v
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

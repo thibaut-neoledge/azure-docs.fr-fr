@@ -51,7 +51,7 @@ Il existe des Kits de développement logiciel pour un nombre croissant de platef
 
  * [Serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
  * [Azure Cloud Services](app-insights-cloudservices.md)
- * les [serveurs J2EE][java]
+ * [les serveurs J2EE][java]
  * [les pages Web][client] : HTML + JavaScript
  * [Applications de bureau et de serveurs Windows][desktop]
  * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
@@ -86,7 +86,7 @@ L'impact sur les performances est très faible. Le suivi des appels n’entraîn
 
 1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L'inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
 
-2. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Connectez-vous au [portail Azure](https://portal.azure.com).
 3. Créez une ressource Application Insights. C’est ici que vous pouvez afficher les données de votre application.
 
     ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
@@ -151,4 +151,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

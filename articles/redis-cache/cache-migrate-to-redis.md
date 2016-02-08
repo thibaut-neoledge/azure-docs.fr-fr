@@ -71,7 +71,7 @@ Vous pouvez créer des caches dans le Cache Redis Azure à partir du [portail Az
 -	Pour créer un cache à l’aide d’Azure PowerShell, voir [Gestion du Cache Redis Azure avec Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Pour créer un cache à l’aide de l’interface de ligne de commande Azure, voir [Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)](cache-manage-cli.md).
 
->[AZURE.NOTE]Pour utiliser le Cache Redis Azure, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] Pour utiliser le Cache Redis Azure, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ## Configuration des clients de cache
 
@@ -143,7 +143,7 @@ Ajoutez la déclaration suivante au début de chaque fichier à partir duquel vo
 								
 Si cet espace de noms ne se résout pas, vérifiez que vous avez bien ajouté le package NuGet StackExchange.Redis comme décrit dans la section [Configuration des clients de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
->[AZURE.NOTE]Notez que le client StackExchange.Redis requiert l’installation de .NET Framework version 4 ou ultérieure.
+>[AZURE.NOTE] Notez que le client StackExchange.Redis requiert l’installation de .NET Framework version 4 ou ultérieure.
 
 Pour vous connecter à une instance de Cache Redis Azure, appelez la méthode statique `ConnectionMultiplexer.Connect` et passez le point de terminaison et la clé. Pour partager une instance `ConnectionMultiplexer` dans votre application, vous pouvez utiliser une propriété statique qui renvoie une instance connectée, comme dans l’exemple suivant. Cela fournit une méthode thread-safe permettant d’initialiser une seule instance `ConnectionMultiplexer` connectée. Dans cet exemple, `abortConnect` est défini sur false, ce qui signifie que l’appel réussira même si aucune connexion au cache n’est établie. Une fonctionnalité clé de `ConnectionMultiplexer` est qu’il restaure automatiquement la connectivité au cache une fois que le problème réseau ou d’autres causes sont résolus.
 
@@ -195,4 +195,4 @@ Le Cache Redis Azure dispose de fournisseurs pour l’état de session ASP.NET e
 
 Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) pour accéder à des didacticiels, des exemples, des vidéos et de nombreuses autres ressources.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

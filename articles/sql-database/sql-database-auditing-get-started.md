@@ -21,7 +21,7 @@ L’audit de base de données SQL Azure effectue le suivi des événements de ba
 
 L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
 
-Les outils d’audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de gestion de la confidentialité Azure](http://azure.microsoft.com/support/trust-center/compliance).
+Les outils d’audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 + [Principes fondamentaux de l’audit de base de données SQL Azure]
 + [Configuration de l’audit pour votre base de données]
@@ -33,15 +33,15 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
 L’audit de bases de données SQL permet :
 
-- **La rétention** d’une piste d’audit d’événements sélectionnés. Définissez les catégories d’actions et d’événements de base de données à auditer.
-- **La génération de rapports** sur les activités de la base de données. Vous pouvez utiliser des rapports préconfigurés et un tableau de bord pour une prise en main rapide de la génération de rapports d’activités et d’événements.
-- **L’analyse** des rapports. Vous pouvez repérer les événements suspects, les activités inhabituelles et les tendances.
+- **La rétention** d’une piste d’audit d’événements sélectionnés. Définissez les catégories d'actions et d'événements de base de données à auditer.
+- **La génération de rapports** sur les activités de la base de données. Vous pouvez utiliser des rapports préconfigurés et un tableau de bord pour une prise en main rapide de la génération de rapports d'activités et d'événements.
+- **L'analyse** des rapports. Vous pouvez repérer les événements suspects, les activités inhabituelles et les tendances.
 
-> [AZURE.NOTE]Vous pouvez désormais recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles à l’aide de la nouvelle fonctionnalité de **détection de menaces**, désormais en version préliminaire. La détection des menaces peut activée et configurée à partir du panneau de configuration d’audit. Pour en savoir plus, consultez [Prise en main de la détection des menaces](sql-database-threat-detection-get-started.md).
+> [AZURE.NOTE] Vous pouvez désormais recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles à l’aide de la nouvelle fonctionnalité de **détection de menaces**, désormais en version préliminaire. La détection des menaces peut activée et configurée à partir du panneau de configuration d’audit. Pour en savoir plus, consultez [Prise en main de la détection des menaces](sql-database-threat-detection-get-started.md).
 
 Vous pouvez configurer l’audit pour les catégories d’événements suivantes :
 
-**SQL ordinaire** et **SQL paramétré** pour lesquels les journaux d’audit collectés sont classés comme
+**SQL ordinaire** et **SQL paramétré** pour lesquels les journaux d'audit collectés sont classés comme
 
 - **accès aux données ;**
 - **modifications de schéma (DDL) ;**
@@ -178,4 +178,4 @@ Vous pouvez utiliser différentes applets de commande PowerShell pour configurer
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

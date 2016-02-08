@@ -69,7 +69,7 @@ Pour calculer le coût estimé de cette configuration, consultez la [Calculatric
 	- le niveau tarifaire **Standard**
 	- la taille par défaut de la table précédente ou la **taille prévue des instances**
 
-> [AZURE.NOTE]La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+> [AZURE.NOTE] La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 ## Phases du déploiement
 
@@ -89,16 +89,16 @@ N'oubliez pas les éléments suivants :
 
 - Si vous êtes un responsable d'implémentation expérimenté de SharePoint, n'hésitez pas à adapter les instructions dans les étapes 3 à 5 et créez la batterie de serveurs qui correspond le mieux à vos besoins.
 - Si un déploiement de cloud hybride Azure existe déjà, n’hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
-- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez proposer une sécurité supplémentaire équivalente à l’isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l’isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
 Pour plus d’informations sur SharePoint avec les groupes de disponibilité SQL Server AlwaysOn, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez [Tester la version préliminaire SharePoint Server 2016 IT dans Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez [Tester la version préliminaire SharePoint Server 2016 IT dans Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Étape suivante
 
 - Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

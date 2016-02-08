@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Présentation de Application Gateway
@@ -20,7 +20,7 @@
 
 Microsoft Azure Application Gateway propose une solution d’équilibrage de charge HTTP gérée par Azure et basée sur l’équilibrage de charge de couche 7.
 
-L’équilibrage de la charge d’application permet aux administrateurs informatiques et aux développeurs de créer des règles de routage pour le trafic réseau basé sur HTTP. Le service Application Gateway est hautement disponible et contrôlé. Pour le contrat SLA et les prix appliqués, consultez les pages [SLA](http://azure.microsoft.com/support/legal/sla/) et [Prix appliqués](https://azure.microsoft.com/pricing/details/application-gateway/).
+L’équilibrage de la charge d’application permet aux administrateurs informatiques et aux développeurs de créer des règles de routage pour le trafic réseau basé sur HTTP. Le service Application Gateway est hautement disponible et contrôlé. Pour connaître le contrat SLA et les prix appliqués, consultez les pages [SLA](https://azure.microsoft.com/support/legal/sla/) et [Prix appliqués](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Application Gateway prend actuellement en charge la remise d’application de couche 7 pour les éléments suivants :
 
@@ -28,9 +28,14 @@ Application Gateway prend actuellement en charge la remise d’application de co
 - Affinité de session basée sur les cookies
 - Déchargement SSL (Secure Sockets Layer)
 
-![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
-L’équilibrage de charge de couche 7 HTTP est utile pour :
+## Équilibrage de charge de couche 7 HTTP
+
+Azure fournit un équilibrage de la charge de couche 4 via l'équilibreur de charge Azure fonctionnant au niveau du transport (TCP/UDP) et via l'équilibrage de la charge de tout le trafic réseau entrant pour le service Application Gateway. La passerelle Application Gateway applique ensuite les règles de routage au trafic HTTP, fournissant ainsi un équilibrage de la charge de niveau 7 (HTTP). Quand vous créez une passerelle Application Gateway, un point de terminaison (VIP) est associé et utilisé comme adresse IP publique pour le trafic réseau en entrée.
+
+La passerelle Application Gateway achemine le trafic HTTP en fonction de sa configuration, qu’il s’agisse d’un ordinateur virtuel, d’un service cloud, d’une application web ou d’une adresse IP externe.
+
+L'équilibrage de charge de couche 7 HTTP est utile pour :
 
 - Les applications qui demandent des requêtes à partir de la même session client/utilisateur pour atteindre la même machine virtuelle principale. Exemples : applications de panier d'achat et serveurs de messagerie.
 - Les applications qui veulent libérer les batteries de serveurs web de la surcharge de terminaison SSL.
@@ -52,23 +57,19 @@ Le tableau ci-dessous présente un débit moyen de performances pour chaque inst
 |100K | 35 Mbits/s | 100 Mbits/s| 200 Mbits/s |
 
 
->[AZURE.NOTE]Il s'agit d’une aide approximative pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur.
+>[AZURE.NOTE] Il s'agit d’une aide approximative pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur.
 
 ## Surveillance de l’intégrité
 
-
-Azure Application Gateway surveille automatiquement l’intégrité des instances de serveur principal. Pour plus d’informations, consultez [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+Azure Application Gateway surveille automatiquement l’intégrité des instances de serveur principal. Pour plus d’informations, consultez [Vue d’ensemble de l’analyse d’intégrité Application Gateway](application-gateway-probe-overview.md).
 
 ## Configuration et gestion
 
 Vous pouvez créer et gérer une passerelle d'application à l'aide des API REST et des applets de commande PowerShell.
 
 
-
 ## Étapes suivantes
 
-Créez une passerelle d’application. Consultez [Création d’une passerelle Application Gateway](application-gateway-create-gateway.md).
+À présent que vous êtes familiarisé avec Application Gateway, vous pouvez [créer une passerelle d’application](application-gateway-create-gateway.md) ou [configurer une passerelle d’application pour le déchargement SSL](application-gateway-ssl.md) de manière à équilibrer les charges des connexions HTTPS.
 
-Configurez le déchargement SSL. Consultez [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

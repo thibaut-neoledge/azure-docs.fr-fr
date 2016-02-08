@@ -2,13 +2,14 @@
    pageTitle="Connectez un périphérique à l’aide de Node.js | Microsoft Azure"
    description="Explique comment connecter un périphérique à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite dans Node.js."
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -61,4 +62,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@ En tant que service central de la plateforme Microsoft Azure, Azure Scheduler es
 
 ### Déploiement de service géo-redondant
 
-Azure Scheduler est disponible par le biais de l'interface utilisateur dans presque chaque région géographique incluse dans Azure actuellement. La liste des régions dans lesquelles Azure Scheduler est disponible est [répertoriée ici](http://azure.microsoft.com/regions/#services). Si un centre de données dans une région hébergé devient indisponible, les fonctionnalités de basculement d'Azure Scheduler sont telles que le service est disponible à partir d'un autre centre de données.
+Azure Scheduler est disponible par le biais de l'interface utilisateur dans presque chaque région géographique incluse dans Azure actuellement. La liste des régions dans lesquelles Azure Scheduler est disponible est [répertoriée ici](https://azure.microsoft.com/regions/#services). Si un centre de données dans une région hébergé devient indisponible, les fonctionnalités de basculement d'Azure Scheduler sont telles que le service est disponible à partir d'un autre centre de données.
 
 ### Réplication de travail géo-régionale
 
@@ -72,10 +72,9 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 
  [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
-
 
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # B2C en version préliminaire : ajout de connexion à une application web nodeJS
@@ -21,9 +21,10 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est encore fait, vous devez commencer par consulter le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes fondamentaux d’Azure AD B2C.
+> [AZURE.NOTE]
+	Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est encore fait, vous devez commencer par consulter le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes fondamentaux d’Azure AD B2C.
 
-**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis ajouter le plug-in `passport-azure-ad` Microsoft Azure Active Directory.
+**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Active Directory Azure.
 
 Pour ce faire, vous devez :
 
@@ -38,7 +39,7 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-> [AZURE.WARNING]Pour la version préliminaire de B2C, vous devez utiliser les mêmes ID client/ID d’application et stratégies pour le serveur de la tâche API web et le client qui s’y connecte. Cela est vrai pour les didacticiels iOS et Android. Si vous avez précédemment créé une application dans l’un de ces Démarrages rapides, utilisez ces valeurs au lieu d’en créer de nouvelles ci-dessous.
+> [AZURE.WARNING] 	Pour la version préliminaire de B2C, vous devez utiliser les mêmes ID client/ID d’application et stratégies pour le serveur de la tâche API web et le client qui s’y connecte. Cela est vrai pour les didacticiels iOS et Android. Si vous avez précédemment créé une application dans l’un de ces Démarrages rapides, utilisez ces valeurs au lieu d’en créer de nouvelles ci-dessous.
 
 ## 1\. Obtention d'un répertoire Azure AD B2C
 
@@ -48,10 +49,10 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L’application cliente et l’API web seront alors toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
 
-- Inclure une **application web/API web** dans l’application
-- Saisir `http://localhost/TodoListService` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut correspondant à cet exemple de code.
-- Créer une **clé secrète d'application** pour votre application et notez-la quelque part. Vous en aurez besoin rapidement.
-- Notez également l’**ID d’application** affecté à votre application. Vous en aurez aussi besoin rapidement.
+- Inclure une **application web/API web** dans l’application.
+- Saisir `http://localhost/TodoListService` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
+- Créer une **clé secrète d'application** pour votre application et de la noter. Vous en aurez besoin rapidement.
+- Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -59,9 +60,9 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l'[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
-- Choisir le **Nom d'affichage** et quelques autres attributs d'inscription dans votre stratégie d'inscription.
-- Choisir les revendications d’application **Nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement. 
+- Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications **nom d'affichage** et **ID objet** comme revendications d'application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -120,8 +121,8 @@ var log = bunyan.createLogger({
 - Après cela, utilisez la stratégie référencée pour gérer les demandes de connexion
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -157,7 +158,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Facebook, etc.), que respectent tous les enregistreurs de stratégie. Comme vous pouvez le voir dans la stratégie, nous transmettons une function() dont les paramètres sont un jeton et un done. La stratégie revient vers nous une fois le travail terminé. Il est alors intéressant de stocker l’utilisateur et le jeton afin de ne pas avoir à les redemander.
 
-> [AZURE.IMPORTANT]Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
+> [AZURE.IMPORTANT]
+Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
 - Ensuite, nous allons ajouter les méthodes qui assureront le suivi des utilisateurs connectés, comme requis par Passport. Cela inclut la sérialisation et la désérialisation des informations d’utilisateur :
 
@@ -250,7 +252,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -263,7 +265,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -324,7 +326,7 @@ function ensureAuthenticated(req, res, next) {
 
 ```
 
-- Enfin, créons le serveur proprement dit dans `app.js` :
+- Enfin, nous créons le serveur proprement dit dans `app.js` :
 
 ```JavaScript
 
@@ -350,7 +352,7 @@ exports.index = function(req, res){
 };
 ```
 
-- Créez l’itinéraire `/routes/user.js` sous le répertoire racine
+- Création de l’itinéraire `/routes/user.js` sous le répertoire racine
 
 ```JavaScript
 
@@ -410,7 +412,7 @@ Inscrivez-vous ou connectez-vous à l’application avec une adresse de messager
 
 ##Étapes suivantes
 
-Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
 
@@ -429,4 +431,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@ Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtue
 
 • Pour les machines virtuelles Linux : [Linux dans des distributions prises en charge par Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment sur les instructions et les limitations, référez-vous à [Images de clients Windows pour les abonnés MSDN (en anglais)](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
 
@@ -85,7 +85,7 @@ Vous ne devez pas utiliser le disque temporaire (le lecteur D: pour Windows ou /
 
 ## Comment puis-je modifier la lettre de lecteur d’un disque temporaire ?
 
-Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, voir [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md).
+Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md).
 
 ## Comment puis-je mettre à niveau le système d’exploitation invité ?
 
@@ -118,7 +118,7 @@ Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’
 
 - [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/) (en anglais)
+- [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## Quelles sont les options disponibles en matière de sauvegarde et de récupération d’urgence ?
 
@@ -136,7 +136,7 @@ Vous êtes facturé quand l’état de la machine virtuelle est « En cours d�
 - Utilisez l’applet de commande Stop-AzureVM disponible dans le module Azure PowerShell.
 - Utilisez l’opération Shutdown Role dans l’API REST de gestion des services et spécifiez StoppedDeallocated pour l’élément PostShutdownAction.
 
-Pour plus d’informations, voir [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Pour plus d’informations, voir [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Dois-je m’attendre à ce qu’Azure redémarre ma machine virtuelle aux fins de maintenance ?
 
@@ -146,7 +146,7 @@ Des événements de maintenance non planifiés peuvent se produire quand Azure d
 
 Pour toute machine virtuelle autonome (c’est-à-dire ne faisant pas partie d’un groupe à haute disponibilité), Azure notifie par courrier électronique l’administrateur de service de l’abonnement au moins une semaine avant la maintenance planifiée, car les machines virtuelles pourraient être redémarrées au cours de la mise à jour. Les applications exécutées sur les machines virtuelles peuvent subir un temps d’arrêt.
 
-Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles (en anglais)](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles (en anglais)](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
 
@@ -158,4 +158,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

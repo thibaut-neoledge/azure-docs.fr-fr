@@ -22,7 +22,7 @@ L’intégration du contrôle de code source vous permet d’associer des runboo
 Le contrôle du code source vous permet de transmettre le code à partir d’Azure Automation vers le contrôle de code source ou d’extraire vos runbooks à partir du contrôle de code source vers Azure Automation. Cet article décrit comment configurer le contrôle de code source dans votre environnement Azure Automation. Nous allons commencer par configurer Azure Automation pour accéder à votre référentiel GitHub et effectuer les différentes opérations pouvant être réalisées à l’aide de l’intégration du contrôle du code source.
 
 
->[AZURE.NOTE]Le contrôle de code source prend en charge l’extraction et la transmission de [runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), ainsi que de [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks). Les [runbooks graphiques](automation-runbook-types.md#graphical-runbooks) ne sont pas pris en charge pour l’instant.<br><br>
+>[AZURE.NOTE] Le contrôle de code source prend en charge l’extraction et la transmission de [runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), ainsi que de [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks). Les [runbooks graphiques](automation-runbook-types.md#graphical-runbooks) ne sont pas pris en charge pour l’instant.<br><br>
 
 
 Deux étapes simples sont requises pour configurer le contrôle de code source pour votre compte Automation. Une seule étape suffit si vous possédez déjà un compte GitHub. Il s'agit de :
@@ -104,7 +104,7 @@ L’archivage de runbooks vous permet de transmettre les modifications apportée
     ![Bouton d’archivage](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]L’archivage à partir d’Azure Automation remplacera le code qui existe actuellement dans votre contrôle de code source. L'instruction de ligne de commande équivalent à Git pour l'archivage est **git add + git commit + git push**.
+     >[AZURE.NOTE] L’archivage à partir d’Azure Automation remplacera le code qui existe actuellement dans votre contrôle de code source. L'instruction de ligne de commande équivalent à Git pour l'archivage est **git add + git commit + git push**.
 
 3. Lorsque vous cliquez sur **Archiver**, un message de confirmation s'affiche. Cliquez sur Oui pour continuer.
 
@@ -114,7 +114,7 @@ L’archivage de runbooks vous permet de transmettre les modifications apportée
 
     ![Runbook d’archivage](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]Les runbooks de contrôle de code source sont des runbooks Automation spéciaux que vous ne pouvez pas afficher ni modifier. Ils n’apparaîtront pas dans votre liste de runbooks, mais les tâches de synchronisation apparaîtront dans votre liste de tâches.
+    >[AZURE.NOTE] Les runbooks de contrôle de code source sont des runbooks Automation spéciaux que vous ne pouvez pas afficher ni modifier. Ils n’apparaîtront pas dans votre liste de runbooks, mais les tâches de synchronisation apparaîtront dans votre liste de tâches.
  
 5. Le nom du runbook modifié est envoyé comme paramètre d’entrée au runbook d’archivage. Vous pouvez [afficher les détails de la tâche](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) en développant le runbook dans le panneau **Synchronisation du référentiel**.
 
@@ -137,7 +137,7 @@ Le bouton de synchronisation dans le panneau Synchronisation du référentiel vo
     ![Runbook de synchronisation](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]Une synchronisation à partir du contrôle de code source remplace les brouillons de runbooks qui existent actuellement dans votre compte Automation pour **TOUS** les runbooks actuellement dans le contrôle de code source. L'instruction de ligne de commande équivalent á Git pour la synchronisation est **git pull**.
+    >[AZURE.NOTE] Une synchronisation à partir du contrôle de code source remplace les brouillons de runbooks qui existent actuellement dans votre compte Automation pour **TOUS** les runbooks actuellement dans le contrôle de code source. L'instruction de ligne de commande équivalent á Git pour la synchronisation est **git pull**.
 
 
 ## Résolution des problèmes de contrôle de code source
@@ -158,4 +158,4 @@ Pour vous déconnecter de votre compte GitHub, ouvrez le panneau Synchronisation
 
 Pour plus d’informations sur l’intégration du contrôle de code source, consultez les ressources suivantes : [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) ; [Votez pour votre système de contrôle de code source préféré](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) ; [Azure Automation : Intégration du contrôle de code source de runbooks à l’aide de Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

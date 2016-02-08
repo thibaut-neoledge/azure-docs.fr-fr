@@ -46,7 +46,7 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

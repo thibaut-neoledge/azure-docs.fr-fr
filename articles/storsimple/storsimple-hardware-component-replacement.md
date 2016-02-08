@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Remplacement des composants matériels StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple et les étapes nécessaires pour les retirer et les remplacer. Cet article décrit les icônes de sécurité, oriente vers les didacticiels détaillés et répertorie les composants remplaçables.
+Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple 8000 series et les étapes nécessaires pour les retirer et les remplacer. Cet article décrit les icônes de sécurité, oriente vers les didacticiels détaillés et répertorie les composants remplaçables.
 
->[AZURE.IMPORTANT]Avant de tenter de retirer ou remplacer un composant StorSimple, passez en revue les [conventions des icônes de sécurité](#safety-icon-conventions) et les autres [précautions de sécurité](storsimple-safety.md).
+>[AZURE.IMPORTANT] Avant de tenter de retirer ou remplacer un composant StorSimple, passez en revue les [conventions des icônes de sécurité](#safety-icon-conventions) et les autres [précautions de sécurité](storsimple-safety.md).
  
 ### Conventions des icônes de sécurité
 
@@ -57,7 +57,7 @@ Quand vous remplacez un module, **ne laissez JAMAIS une baie vide à l’arrièr
 
 ## Procédures de remplacement des composants matériels
 
-Votre appareil Microsoft Azure StorSimple est constitué de plusieurs modules enfichables dans les boîtiers principal et/ou EBOD. Le 8100 a un seul boîtier principal, tandis que le 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD.
+Votre appareil StorSimple série 8000 est constitué de plusieurs modules enfichables dans les boîtiers principal et/ou EBOD. Le 8100 a un seul boîtier principal, tandis que le 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD.
 
 Les principaux composants matériels de votre appareil sont résumés dans les tableaux suivants. Cliquez sur le lien dans la colonne **Procédure de remplacement** pour accéder au didacticiel associé.
 
@@ -142,4 +142,4 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 
 Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

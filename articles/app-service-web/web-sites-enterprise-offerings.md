@@ -49,7 +49,7 @@ Une autre approche consiste à utiliser votre investissement existant en local. 
 
 - [App Service Environments](../app-service-app-service-environment-intro.md) : App Service Environments (ASE) constituent une nouvelle fonctionnalité Premium qui a été récemment ajoutée à l'offre App Service de Microsoft Azure. ASEs fournissent un environnement totalement isolé et dédié pour l'exécution sécurisée des applications Azure App Service à grande échelle, tout en offrant un isolement et un accès réseau sécurisé.   
 - [Connexions hybrides](../integration-hybrid-connection-overview.md) : ces fonctionnalités de Microsoft Azure BizTalk Services permettent à Web Apps de se connecter à des ressources locales en toute sécurité, par exemple SQL Server, MySQL, des API web et des services web personnalisés. 
-- [Intégration au réseau virtuel](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) : l’intégration de Web Apps à Azure Virtual Network vous permet de vous connecter votre application web à un réseau virtuel Azure, lequel peut être connecté à votre infrastructure locale via un réseau privé virtuel de site à site. 
+- [Intégration au réseau virtuel](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) : l’intégration de Web Apps à Azure Virtual Network vous permet de vous connecter votre application web à un réseau virtuel Azure, lequel peut être connecté à votre infrastructure locale via un réseau privé virtuel de site à site. 
 
 Le diagramme suivant représente un exemple de solution puissante dotée d'options de connectivité pour des ressources locales. Le premier exemple montre comment procéder à l'aide des fonctionnalités standard d'Azure App Service et le second exemple montre comment procéder à l'aide de l'offre Premium, App Service Environments.
 
@@ -159,4 +159,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

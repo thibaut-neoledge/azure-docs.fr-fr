@@ -55,9 +55,9 @@ Suggestions : - si vous ne disposez d’aucune clé OSA, veuillez contacter l�
 ## Essayez-vous aujourd’hui d’activer une version d’évaluation gratuite d’Azure alors que vous avez déjà utilisé un abonnement Azure auparavant ?
 Les conditions d’utilisation d’Azure n’autorisent l’activation que d’une seule évaluation gratuite pour tout utilisateur n’ayant jamais utilisé Azure. Si vous avez déjà souscrit un autre type d’abonnement Azure, vous ne serez pas en mesure d’activer une version d'évaluation gratuite.
 
-Suggestions : - si vous déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
+Suggestions : - si vous déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
 
 ## Vous ne parvenez toujours pas à vous inscrire ?
 Veuillez [contacter le support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une assistance si vous rencontrez toujours des problèmes d’inscription ou si votre problème n’est pas abordé dans cet article.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -54,8 +54,8 @@ Cette version contient les mises à jour suivantes.
 Intitulé | Description
 ---|---
 Version préliminaire publique d’IoT Azure Suite | Stream Analytics est inclus dans la version préliminaire publique d’IoT Azure Suite.
-Intégration du portail Azure en version préliminaire | En plus de sa présence continue dans le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
-Prise en charge de la sortie DocumentDB | Les tâches Stream Analytics peuvent désormais générer une sortie vers [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Intégration du portail Azure en version préliminaire | En plus de sa présence continue dans le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](https://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
+Prise en charge de la sortie DocumentDB | Les tâches Stream Analytics peuvent désormais générer une sortie vers [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Prise en charge de l’entrée IoT Hub | Les tâches Stream Analytics peuvent à présent recevoir des données à partir d’IoT Hub.
 TIMESTAMP BY pour les événements hétérogènes | Quand un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez désormais utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas.
 
@@ -133,4 +133,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

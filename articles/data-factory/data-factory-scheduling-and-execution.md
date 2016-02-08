@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Planification et exécution avec Data Factory
@@ -22,7 +22,7 @@ Cet article explique les aspects de la planification et de l’exécution du mod
 
 ## Planification des activités
 
-Grâce à la section **planificateur** de l’activité JSON, vous pouvez planifier l’activité pour qu’elle s’exécute de façon récurrente. Par exemple, vous pouvez planifier l’activité pour qu’elle s’exécute toutes les heures comme suit :
+Grâce à la section **planificateur** de l’activité JSON, vous pouvez planifier l’activité pour qu’elle s’exécute de façon récurrente. Par exemple, vous pouvez planifier une activité toutes les heures comme suit :
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ Grâce à la section **planificateur** de l’activité JSON, vous pouvez planif
     
 ![Exemple de planificateur](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Comme indiqué ci-dessus, la spécification d’une planification horaire crée des activités correspondant à une série de fenêtres récurrentes. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas.
+Comme indiqué précédemment, la spécification d’un calendrier pour l'activité crée une série de fenêtres récurrentes. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas. Ces fenêtres récurrentes logiques pour l'activité sont appelés **fenêtres d'activité**.
  
-Pour l’activité en cours d’exécution, l’intervalle de temps est accessible par le biais des variables système **WindowStart** et **WindowEnd** de l’activité de JSON. Vous pouvez utiliser ces variables à d’autres fins dans votre activité JSON et les scripts associés à l’activité, notamment pour la sélection des données dans les jeux de données d’entrée et de sortie représentant les données de séries chronologiques.
+Pour la fenêtre d’activité en cours d’exécution, l’intervalle de temps associé à la fenêtre d’activité est accessible par le biais des variables système **WindowStart** et **WindowEnd** de l’activité de JSON. Vous pouvez utiliser ces variables à d’autres fins dans votre activité JSON et les scripts associés à l’activité, notamment pour la sélection des données dans les jeux de données d’entrée et de sortie représentant les données de séries chronologiques.
 
-Pour plus d’informations sur les différentes propriétés à la disposition du planificateur, notamment la programmation d’un décalage chronologique pour faire coïncider le traitement avec le début ou la fin de l’intervalle de fenêtre, reportez-vous à l’article [Création de Pipelines](data-factory-create-pipelines.md).
+Pour plus d’informations sur les différentes propriétés à la disposition du planificateur, notamment la programmation d’un décalage chronologique pour faire coïncider le traitement avec le début ou la fin de l’intervalle de fenêtre d'activité, reportez-vous à l’article [Création de Pipelines](data-factory-create-pipelines.md).
 
 ## Jeux de données et tranches de données de série chronologique
 
@@ -523,7 +523,7 @@ WindowEnd | Fin de l’intervalle de temps de l’intervalle d’exécution d’
 SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | <ol><li>Spécifier les chemins de dossier et noms de fichier dynamiques en cas d’utilisation d’un [objet blob Azure](data-factory-azure-blob-connector.md) et de [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collection d’entrées d’activité.</li></ol>
 SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | identique à ce qui précède. 
 
-> [AZURE.NOTE]Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Cela signifie que WindowStart, WindowEnd et SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
+> [AZURE.NOTE] Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Cela signifie que WindowStart, WindowEnd et SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
  
 ## Référence des fonctions Data Factory
 
@@ -577,7 +577,7 @@ Texte | Format(X) | X : variable de chaîne | Met en forme le texte.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
+> [AZURE.NOTE] Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
   
 
 ## Examen approfondi de la dépendance de données
@@ -678,4 +678,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

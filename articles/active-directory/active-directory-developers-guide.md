@@ -120,16 +120,16 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 Ces présentations sur le développement d'applications à l'aide d'Azure Active Directory mettent en scène des intervenants qui travaillent directement dans l'équipe d'ingénierie. Les présentations couvrent les sujets fondamentaux, notamment IDMaaS, l'authentification, la fédération d'identités et l'authentification unique.
 
-- [Azure Active Directory : gestion des identités en tant que service pour les applications modernes](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)
-- [Développement d’applications web modernes avec Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)
-- [Développement d’applications web natives avec Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
+- [Azure Active Directory : gestion des identités en tant que service pour les applications modernes](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
+- [Développement d’applications web modernes avec Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
+- [Développement d’applications web natives avec Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous propose de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
+[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous propose de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
 
-- [Identité Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
-- [Identité Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
-- [Identité Azure 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
+- [Identité Azure 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
+- [Identité Azure 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
+- [Identité Azure 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
 ## Réseaux sociaux
 
@@ -141,4 +141,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

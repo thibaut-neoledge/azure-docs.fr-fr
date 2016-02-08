@@ -18,7 +18,7 @@
 
 # Gestion des journaux d’audit et de sécurité Microsoft Azure
 
-Azure permet aux clients de générer et de collecter des événements de sécurité à partir des rôles Azure IaaS (Infrastructure as a Service) et PaaS (Platform as a Service) vers le stockage central dans leurs abonnements. Les clients peuvent ensuite utiliser [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) pour agréger et analyser les événements collectés. En outre, ces événements collectés peuvent être exportés vers les systèmes SIEM (Security Information and Event Management) locaux pour la surveillance en cours.
+Azure permet aux clients de générer et de collecter des événements de sécurité à partir des rôles Azure IaaS (Infrastructure as a Service) et PaaS (Platform as a Service) vers le stockage central dans leurs abonnements. Les clients peuvent ensuite utiliser [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) pour agréger et analyser les événements collectés. En outre, ces événements collectés peuvent être exportés vers les systèmes SIEM (Security Information and Event Management) locaux pour la surveillance en cours.
 
 Le cycle de vie de journalisation, d’analyse et de surveillance de la sécurité Azure inclut les phases suivantes :
 
@@ -32,9 +32,9 @@ Cet article est axé sur les phases de génération et de collecte du cycle de v
 ## Génération de journaux
 Les événements de sécurité sont déclenchés dans le journal des événements Windows pour les canaux **Système**, **Sécurité** et **Application** dans les machines virtuelles. Pour vous assurer que les événements sont consignés sans perte de données potentielle, il est important de configurer correctement la taille du journal des événements. Définissez la taille du journal des événements selon le nombre d’événements générés par les paramètres de stratégie d’audit et les stratégies de collecte d’événements définies. Pour plus d’informations, consultez [Planification de la gestion et de la surveillance de l’audit de sécurité](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4).
 
->[AZURE.NOTE]Lors de l’utilisation de WEF (Windows Event Forwarding) ou des diagnostics Azure (décrits dans la section [Collecte de journaux](#log-collection)) pour extraire des journaux des services cloud ou des machines virtuelles, tenez compte de l’impact éventuel des pannes du système. Par exemple, si votre environnement WEF tombe en panne pendant un certain temps, vous devez vous assurer que la taille du journal est assez grande pour prendre en compte une durée plus longue ou vous préparer à une perte possible des données du journal.
+>[AZURE.NOTE] Lors de l’utilisation de WEF (Windows Event Forwarding) ou des diagnostics Azure (décrits dans la section [Collecte de journaux](#log-collection)) pour extraire des journaux des services cloud ou des machines virtuelles, tenez compte de l’impact éventuel des pannes du système. Par exemple, si votre environnement WEF tombe en panne pendant un certain temps, vous devez vous assurer que la taille du journal est assez grande pour prendre en compte une durée plus longue ou vous préparer à une perte possible des données du journal.
 
-Pour les applications des services cloud qui sont déployées dans Azure et les machines virtuelles créées à partir du [Marketplace de machines virtuelles Azure](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft), un ensemble d’événements de sécurité de système d’exploitation sont activés par défaut. Les clients peuvent ajouter, supprimer ou modifier des événements à auditer en personnalisant la stratégie d’audit de système d’exploitation. Pour plus d’informations, consultez [Informations de référence sur les paramètres de stratégie de sécurité](http://technet.microsoft.com/library/jj852210.aspx).
+Pour les applications des services cloud qui sont déployées dans Azure et les machines virtuelles créées à partir du [Marketplace de machines virtuelles Azure](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft), un ensemble d’événements de sécurité de système d’exploitation sont activés par défaut. Les clients peuvent ajouter, supprimer ou modifier des événements à auditer en personnalisant la stratégie d’audit de système d’exploitation. Pour plus d’informations, consultez [Informations de référence sur les paramètres de stratégie de sécurité](http://technet.microsoft.com/library/jj852210.aspx).
 
 Vous pouvez utiliser les méthodes suivantes pour générer des journaux supplémentaires à partir du système d’exploitation (par exemple, les modifications de stratégie d’audit) et des composants Windows (comme IIS) :
 
@@ -93,7 +93,7 @@ Certaines différences clés entre ces deux technologies figurent dans le tablea
 ##	Collecte de données d’événements de sécurité avec WEF
 Pour les machines virtuelles Azure appartenant à un domaine, vous pouvez configurer WEF à l’aide des paramètres de stratégie de groupe de la même manière que pour les ordinateurs appartenant à un domaine local. Pour plus d’informations, consultez la page [Cloud hybride](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-Avec cette approche, une organisation peut acheter un abonnement IaaS, se connecter au réseau d’entreprise en utilisant [ExpressRoute](http://azure.microsoft.com/services/expressroute/) ou un réseau VPN de site à site, puis joindre les machines virtuelles présentes dans Azure au domaine d’entreprise. Ensuite, vous pouvez configurer WEF à partir des machines appartenant au domaine.
+Avec cette approche, une organisation peut acheter un abonnement IaaS, se connecter au réseau d’entreprise en utilisant [ExpressRoute](https://azure.microsoft.com/services/expressroute/) ou un réseau VPN de site à site, puis joindre les machines virtuelles présentes dans Azure au domaine d’entreprise. Ensuite, vous pouvez configurer WEF à partir des machines appartenant au domaine.
 
 Le transfert d’événements se compose de deux parties : la source et le collecteur. La source est l’ordinateur dans lequel les journaux de sécurité sont générés. Le collecteur est le serveur centralisé qui collecte et consolide les journaux des événements. Les administrateurs informatiques peuvent s’abonner aux événements pour pouvoir recevoir et stocker les événements qui sont transférés à partir d’ordinateurs distants (la source des événements). Pour plus d’informations, consultez [Configurer les ordinateurs pour transférer et recueillir les événements](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -218,7 +218,7 @@ Ensemble, les propriétés **PartitionKey** et **RowKey** identifient de manièr
 
 - Timestamp est une valeur date/heure qui est conservée sur le serveur pour suivre quand une entité a été modifiée pour la dernière fois.
 
->[AZURE.NOTE]La taille maximale des lignes dans une table de stockage Azure est limitée à 1 Mo. Un compte de stockage peut contenir jusqu’à 200 To de données d’objets BLOB, de files d’attente et de tables si le compte a été créé après juin 2012. Par conséquent, la taille de votre table peut atteindre 200 To si les files d’attente et les objets BLOB n’occupent pas d’espace de stockage. Les comptes créés avant juin 2012 ont une limite de taille de 100 To.
+>[AZURE.NOTE] La taille maximale des lignes dans une table de stockage Azure est limitée à 1 Mo. Un compte de stockage peut contenir jusqu’à 200 To de données d’objets BLOB, de files d’attente et de tables si le compte a été créé après juin 2012. Par conséquent, la taille de votre table peut atteindre 200 To si les files d’attente et les objets BLOB n’occupent pas d’espace de stockage. Les comptes créés avant juin 2012 ont une limite de taille de 100 To.
 
 L’explorateur de stockage vous permet également de modifier les données de la table. Double-cliquez sur une ligne particulière dans la vue Table pour ouvrir la fenêtre Modifier l’entité comme illustré ici :
 
@@ -230,7 +230,7 @@ Dans cette section, nous mettons à jour un pipeline de collecte de journaux de 
 ##### Étape 1 : Mettre à jour le fichier de configuration pour inclure les événements intéressants
 Le fichier des diagnostics Azure créé dans l’exemple précédent doit être mis à jour pour inclure les types d’erreurs de journal des événements de l’application Windows.
 
->[AZURE.NOTE]Les paramètres de configuration des diagnostics Azure existants doivent être fusionnés avec le nouveau fichier de configuration. Les paramètres définis dans le nouveau fichier remplacent les configurations existantes.
+>[AZURE.NOTE] Les paramètres de configuration des diagnostics Azure existants doivent être fusionnés avec le nouveau fichier de configuration. Les paramètres définis dans le nouveau fichier remplacent les configurations existantes.
 
 Pour récupérer le paramètre de configuration existant, vous pouvez utiliser l’applet de commande **Get-AzureVMDiagnosticsExtension**. Voici un exemple de script Azure PowerShell pour récupérer la configuration existante :
 
@@ -396,7 +396,7 @@ Dans cette section, nous mettons à jour un pipeline de collecte de journaux de 
 Pour détecter les modifications de pare-feu, nous allons mettre à jour la configuration existante pour inclure les événements de modification de pare-feu.
 
 #### Étape 1 : Obtenir la configuration existante
->[AZURE.NOTE]Les nouveaux paramètres de configuration remplacent la configuration existante. Il est ainsi important que les paramètres de configuration des diagnostics Azure existants soient fusionnés avec le nouveau fichier de configuration.
+>[AZURE.NOTE] Les nouveaux paramètres de configuration remplacent la configuration existante. Il est ainsi important que les paramètres de configuration des diagnostics Azure existants soient fusionnés avec le nouveau fichier de configuration.
 
 Pour récupérer le paramètre de configuration existant, vous pouvez utiliser l’applet de commande **Get-AzureServiceDiagnosticsExtension** :
 
@@ -527,7 +527,7 @@ Vous pouvez suivre les recommandations ci-dessous quand vous collectez des journ
 - Fusionnez les paramètres de configuration des diagnostics Azure existants avec les modifications apportées. Le nouveau fichier de configuration remplace les paramètres de configuration existants.
 - Choisissez avec soin l’intervalle de **période de transfert planifiée**. Des temps de transfert plus courts améliorent la pertinence des données, mais peuvent augmenter la charge de traitement et les coûts de stockage.
 
->[AZURE.NOTE]L’autre variable qui affecte considérablement la quantité de données collectées est le niveau de journalisation. Voici un exemple montrant comment filtrer les journaux par niveau de journalisation :
+>[AZURE.NOTE] L’autre variable qui affecte considérablement la quantité de données collectées est le niveau de journalisation. Voici un exemple montrant comment filtrer les journaux par niveau de journalisation :
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ Le niveau de journalisation est cumulatif. Si le filtre a la valeur **Avertissem
 
 - Effacez régulièrement les données de diagnostic du stockage Azure si vous n’en avez plus besoin.
 
->[AZURE.NOTE]Pour en savoir plus sur les données de diagnostic, consultez [Stocker et afficher des données de diagnostics dans le stockage Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Les conteneurs et les tables qui stockent les données de diagnostic ressemblent aux autres conteneurs et tables ; vous pouvez supprimer des objets BLOB et des entités de ceux-ci de la même façon que vous le feriez pour d’autres données. Vous pouvez supprimer les données de diagnostic par programme via l’une des bibliothèques clientes de stockage, ou visuellement via un [client de l’explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+>[AZURE.NOTE] Pour en savoir plus sur les données de diagnostic, consultez [Stocker et afficher des données de diagnostics dans le stockage Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Les conteneurs et les tables qui stockent les données de diagnostic ressemblent aux autres conteneurs et tables ; vous pouvez supprimer des objets BLOB et des entités de ceux-ci de la même façon que vous le feriez pour d’autres données. Vous pouvez supprimer les données de diagnostic par programme via l’une des bibliothèques clientes de stockage, ou visuellement via un [client de l’explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 - Il est recommandé de stocker les données des journaux de sécurité et les données de service dans des comptes de stockage distincts. Cet isolement permet de garantir que l’enregistrement des données des journaux de sécurité n’affecte pas les performances de stockage pour les données de service de production.
 - Choisissez la durée de rétention des journaux en fonction de la stratégie de conformité de votre organisation et des besoins en termes d’analyse et de surveillance des données.
@@ -572,7 +572,7 @@ Pour afficher les **journaux des opérations**, ouvrez le [portail de gestion Az
 ## Ressources supplémentaires
 Les ressources suivantes fournissent des informations générales sur Microsoft Azure et les services Microsoft connexes :
 
-- [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/)
+- [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/)
 
     Informations sur la façon dont la sécurité et la confidentialité sont intégrées dans le développement d’Azure et dont Azure répond à un grand ensemble de normes de conformité internationales et sectorielles
 
@@ -614,4 +614,4 @@ Les ressources suivantes fournissent des informations générales sur Microsoft 
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

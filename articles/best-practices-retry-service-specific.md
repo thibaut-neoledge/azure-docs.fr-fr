@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## Plus d’informations
 
-- [Recommandations de stratégie de nouvelle tentative de Bibliothèque cliente de stockage Azure](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Recommandations de stratégie de nouvelle tentative de Bibliothèque cliente de stockage Azure](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [Bibliothèque cliente de stockage 2.0 - Mise en œuvre de stratégies de nouvelle tentative](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Instructions relatives aux nouvelles tentatives pour la base de données utilisant Entity Framework 6
@@ -437,7 +437,7 @@ Cette section décrit comment vous pouvez utiliser le bloc applicatif de gestion
 
 Toutefois, dans la version actuelle du bloc applicatif de gestion des erreurs temporaires, ces approches ne prennent pas en charge localement les opérations asynchrones par rapport à la base de données SQL. Les bonnes pratiques nécessitent d’utiliser uniquement des techniques asynchrones pour accéder aux services Azure, tels que la base de données SQL. Par conséquent, vous devez envisager les techniques suivantes pour utiliser le bloc applicatif de gestion des erreurs temporaires avec la base de données SQL.
 
-Vous pouvez utiliser la prise en charge asynchrone simplifiée dans la version 5 du langage c# pour créer des versions asynchrones des méthodes fournies par le bloc. Par exemple, le code suivant montre comment vous pouvez créer une version asynchrone de la méthode d’extension **ExecuteReaderWithRetry**. Les modifications et ajouts au code d’origine sont mis en surbrillance. Le code source pour Topaz est disponible sur GitHub au niveau du [bloc applicatif de gestion des erreurs temporaires (« Topaz »)](http://topaz.codeplex.com/SourceControl/latest).
+Vous pouvez utiliser la prise en charge asynchrone simplifiée dans la version 5 du langage c# pour créer des versions asynchrones des méthodes fournies par le bloc. Par exemple, le code suivant montre comment vous pouvez créer une version asynchrone de la méthode d’extension **ExecuteReaderWithRetry**. Les modifications et ajouts au code d’origine sont mis en surbrillance. Le code source pour Topaz est disponible sur Codeplex au niveau du [bloc applicatif de gestion des erreurs temporaires (« Topaz »)](http://topaz.codeplex.com/SourceControl/latest).
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -713,7 +713,7 @@ Le tableau suivant présente les paramètres par défaut pour la stratégie de n
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />5 000 ms maximum plus SyncTimeout<br />1 000 | Le nombre de répétitions de tentatives de connexion pendant l’opération de connexion initiale.<br />Délai d’attente (ms) pour les opérations de connexion. Pas un délai entre chaque tentative.<br />Temps (ms) pour permettre des opérations synchrones. |
 
-> [AZURE.NOTE]SyncTimeout contribue à la latence de bout en bout d’une opération. Toutefois, en général, l’utilisation des opérations synchrones est déconseillée. Pour plus d’informations, consultez [Pipelines et multiplexeurs](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE] SyncTimeout contribue à la latence de bout en bout d’une opération. Toutefois, en général, l’utilisation des opérations synchrones est déconseillée. Pour plus d’informations, consultez [Pipelines et multiplexeurs](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Guide d’utilisation des nouvelles tentatives
 
@@ -1107,4 +1107,4 @@ Le bloc applicatif de gestion des erreurs temporaires comporte les stratégies p
 | **Linéaire (intervalle fixe)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 seconde<br />true | Nombre de nouvelles tentatives.<br />Délai entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erreurs temporaires, consultez les sections Exemples plus haut dans ce guide pour une base de données SQL Azure utilisant ADO.NET et Azure Active Directory.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

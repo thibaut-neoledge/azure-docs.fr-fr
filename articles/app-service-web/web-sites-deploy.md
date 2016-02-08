@@ -35,7 +35,7 @@ Comme vous n’avez pas à vous soucier du serveur web ou l’infrastructure d�
 
 Les outils de développement web populaires prennent en charge un ou plusieurs de ces processus de déploiement. L’outil que vous choisissez détermine les processus de déploiement que vous pouvez exploiter, la fonctionnalité DevOps réelle à votre disposition dépend de la combinaison du processus de déploiement et les outils spécifiques que vous choisissez. Par exemple, si vous effectuez le déploiement Web à partir de [Visual Studio avec Azure SDK](#vspros), même si vous n’obtenez pas d’automatisation de la part de Kudu, vous obtenez une restauration de package et l’automatisation MSBuild dans Visual Studio. Le kit de développement logiciel Azure fournit également un Assistant simple d’utilisation pour vous aider à créer les ressources Azure dont vous avez besoin directement au sein de l’interface de Visual Studio.
 
->[AZURE.NOTE]Ces processus de déploiement n’[approvisionnent pas réellement les ressources Azure](resource-group-portal) dont votre application peut avoir besoin, tel que le plan App Service, l’application App Service et la base de données SQL. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate).
+>[AZURE.NOTE] Ces processus de déploiement n’[approvisionnent pas réellement les ressources Azure](resource-group-portal) dont votre application peut avoir besoin, tel que le plan App Service, l’application App Service et la base de données SQL. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate).
 
 ## <a name="ftp"></a>Déploiement par copie manuelle des fichiers dans Azure
 Si vous êtes habitué à copier manuellement votre contenu web sur les hébergeurs web, un flux de travail courant pour les développeurs PHP, vous pouvez utiliser un utilitaire [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers, notamment l’Explorateur Windows ou [FileZilla](https://filezilla-project.org/).
@@ -201,8 +201,8 @@ Voici d’autres avantages du déploiement à l’aide de Visual Studio Team Ser
 ###<a name="cloudgitmercurial"></a>Déploiement à partir d’un référentiel Git ou Mercurial local hébergé sur le cloud
 
 - [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Activation du déploiement en continu de référentiels à partir de GitHub, CodePlex ou BitBucket. Bien que ce didacticiel montre comment publier un référentiel Git, le processus est similaire pour les référentiels Mercurial hébergés dans CodePlex ou BitBucket.
-- [Déploiement vers Web Apps avec GitHub au moyen de Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Service App.
-- [Bouton Deploy to Azure pour Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sur une méthode permettant de lancer le déploiement à partir d’un référentiel Git.
+- [Déploiement vers Web Apps avec GitHub au moyen de Kudu](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Service App.
+- [Bouton Deploy to Azure pour Web Apps](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sur une méthode permettant de lancer le déploiement à partir d’un référentiel Git.
 - [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 Pour plus d’informations, consultez les ressources suivantes :
@@ -264,7 +264,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 Pour plus d'informations, consultez les ressources suivantes :
 
-* [Web Apps en toute simplicité : déploiement](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/) (en anglais). Blog de David Ebbo sur un outil, qu’il a conçu pour faciliter l’utilisation de Web Deploy.
+* [Web Apps en toute simplicité : déploiement](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/) (en anglais). Blog de David Ebbo sur un outil, qu’il a conçu pour faciliter l’utilisation de Web Deploy.
 * [Outils de déploiement Web](http://technet.microsoft.com/library/dd568996). Documentation officielle sur le site Microsoft TechNet. Ancien, mais constitue un bon point de départ.
 * [Utilisation de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentation officielle sur le site Microsoft IIS.NET. Également ancien, mais constitue un bon point de départ.
 * [StackOverflow](http://www.stackoverflow.com). L'endroit idéal pour obtenir des informations plus récentes sur l'utilisation de Web Deploy à partir de la ligne de commande.
@@ -276,7 +276,7 @@ Dans certains cas, vous souhaiterez probablement pouvoir basculer facilement ent
 
 Posséder un programme de sauvegarde et de restauration établi représente une partie essentielle de tout flux de travail de déploiement. Pour plus d’informations concernant la fonctionnalité de sauvegarde et de restauration de Web Apps, consultez [Sauvegarder une application Web dans Azure App Service](web-sites-backup.md).
 
-Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement Web Apps, consultez [RBAC et publication Web Apps](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing) (en anglais).
+Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement Web Apps, consultez [RBAC et publication Web Apps](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/) (en anglais).
 
 Pour plus d’informations concernant d’autres rubriques de déploiement, consultez la section Déploiement figurant dans la [documentation Web Apps](/documentation/services/web-sites/).
 
@@ -284,4 +284,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

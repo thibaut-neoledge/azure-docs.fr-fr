@@ -16,7 +16,7 @@ Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et 
 ## Concepts
 [Découvrez la sauvegarde de machines virtuelles IaaS Azure](backup-azure-vms-introduction.md) dans la documentation Azure Backup.
 
-> [AZURE.WARNING]Avant de commencer, assurez-vous de connaître les [conditions préalables](backup-azure-vms-prepare.md) de base nécessaires pour travailler avec Azure Backup et les [limitations](backup-azure-vms-prepare.md#limitations) de la solution actuelle de sauvegarde de la machines virtuelles.
+> [AZURE.WARNING] Avant de commencer, assurez-vous de connaître les [conditions préalables](backup-azure-vms-prepare.md) de base nécessaires pour travailler avec Azure Backup et les [limitations](backup-azure-vms-prepare.md#limitations) de la solution actuelle de sauvegarde de la machines virtuelles.
 
 Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre la hiérarchie d’objets et par où commencer.
 
@@ -70,7 +70,7 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 
 ### Créer un coffre de sauvegarde
 
-> [AZURE.WARNING]Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureRMBackupVault**. Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
@@ -81,7 +81,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement donné à l’aide de l’applet de commande **Get-AzureRMBackupVault**.
 
-> [AZURE.NOTE]Il est pratique de stocker l’objet du coffre de sauvegarde dans une variable. L’objet coffre est nécessaire comme entrée de nombreuses applets de commande Azure Backup.
+> [AZURE.NOTE] Il est pratique de stocker l’objet du coffre de sauvegarde dans une variable. L’objet coffre est nécessaire comme entrée de nombreuses applets de commande Azure Backup.
 
 
 ### Enregistrement des machines virtuelles
@@ -106,7 +106,7 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
-> [AZURE.NOTE]Le fuseau horaire du champ BackupTime dans PowerShell est UTC. Toutefois, lorsque l'heure de sauvegarde s’affiche dans le portail Azure, le fuseau horaire est aligné sur votre système local, tout comme le décalage UTC.
+> [AZURE.NOTE] Le fuseau horaire du champ BackupTime dans PowerShell est UTC. Toutefois, lorsque l'heure de sauvegarde s’affiche dans le portail Azure, le fuseau horaire est aligné sur votre système local, tout comme le décalage UTC.
 
 Une stratégie de sauvegarde est associée à au moins une stratégie de rétention. La stratégie de rétention définit la durée de conservation d’un point de restauration avec Azure Backup. L’applet de commande **New-AzureRMBackupRetentionPolicy** crée des objets PowerShell qui contiennent des informations sur la stratégie de rétention. Ces objets de stratégie de rétention sont utilisés comme entrées dans l’applet de commande *New-AzureRMBackupProtectionPolicy* ou directement dans le cas de l’applet de commande *Enable-AzureRMBackupProtection*.
 
@@ -141,7 +141,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-> [AZURE.NOTE]Le fuseau horaire des champs StartTime et EndTime affichés dans PowerShell est UTC. Toutefois, lorsque des informations similaires s'affichent dans le portail Azure, le fuseau horaire est aligné sur l'horloge de votre système local.
+> [AZURE.NOTE] Le fuseau horaire des champs StartTime et EndTime affichés dans PowerShell est UTC. Toutefois, lorsque des informations similaires s'affichent dans le portail Azure, le fuseau horaire est aligné sur l'horloge de votre système local.
 
 ### Surveillance d’une tâche de sauvegarde
 La plupart des opérations longues dans Azure Backup sont reproduites en tant que tâche. Cela permet de suivre facilement la progression sans avoir à garder le portail Azure ouvert en permanence.
@@ -195,7 +195,7 @@ La variable ```$rp``` est un tableau de points de récupération pour l’élém
 
 Il existe une différence essentielle entre les opérations de restauration effectuées par le biais du portail Azure et celles effectuées via Azure PowerShell. Avec PowerShell, l’opération de restauration se limite à la restauration des disques et informations de configuration à partir d’un point de restauration. Il n’y a pas de création de machine virtuelle.
 
-> [AZURE.WARNING]L’applet de commande Restore-AzureRMBackupItem ne crée pas une machine virtuelle. Elle restaure uniquement les disques dans le compte de stockage spécifié. Vous ne constaterez pas le même comportement avec le portail Azure.
+> [AZURE.WARNING] L’applet de commande Restore-AzureRMBackupItem ne crée pas une machine virtuelle. Elle restaure uniquement les disques dans le compte de stockage spécifié. Vous ne constaterez pas le même comportement avec le portail Azure.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -327,4 +327,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si vous souhaitez ajouter des fonctionnalités graphiques à ce rapport, consultez le blog TechNet sur [Fonctionnalités graphiques avec PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

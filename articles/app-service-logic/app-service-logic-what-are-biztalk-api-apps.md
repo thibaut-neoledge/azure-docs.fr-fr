@@ -28,7 +28,7 @@ Pour accélérer la création de solutions avec Azure App Service, l’équipe A
 
 Dans Azure App Service, il existe différent niveaux de service disponibles. Tous les niveaux incluent l’ensemble des connecteurs et applications API, y compris leurs fonctionnalités complètes.
 
-La page [Tarification App Service](http://azure.microsoft.com/pricing/details/app-service/) décrit les niveaux de service et répertorie également ce qui y est inclus. Les sections suivantes décrivent les différentes catégories d’applications API et connecteurs BizTalk.
+La page [Tarification App Service](https://azure.microsoft.com/pricing/details/app-service/) décrit les niveaux de service et répertorie également ce qui y est inclus. Les sections suivantes décrivent les différentes catégories d’applications API et connecteurs BizTalk.
 
 
 ## Connecteurs standard
@@ -48,4 +48,4 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

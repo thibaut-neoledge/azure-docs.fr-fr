@@ -454,6 +454,90 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error?.code == MSErrorPreconditionFailed) {
 ```
 
+## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque d’authentification Active Directory
+
+Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX plus native et permet une personnalisation supplémentaire.
+
+1. Si vous souhaitez configurer le serveur principal de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé (mais pas obligatoire) d’utiliser un URI de redirection au format `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez la [procédure de démarrage rapide d’ADAL pour iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
+
+2. Installez la bibliothèque ADAL à l’aide de Cocoapods. Modifier votre podfile pour inclure les éléments suivants, en remplaçant **YOUR-PROJECT** par le nom de votre projet Xcode :
+
+	source 'https://github.com/CocoaPods/Specs.git' link\_with ['YOUR-PROJECT'] xcodeproj 'YOUR-PROJECT'
+	
+	pod 'ADALiOS'
+
+3. À l’aide du Terminal, exécutez `pod install` à partir du répertoire contenant votre projet, puis ouvrez l’espace de travail Xcode généré (et non le projet).
+
+4. Ajoutez le code ci-dessous à votre application, en fonction du langage utilisé. Dans chaque cas, effectuez les remplacements suivants :
+
+* Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
+
+* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
+
+* Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
+
+* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+**Objective-C** :
+
+	#import <ADALiOS/ADAuthenticationContext.h>
+	#import <ADALiOS/ADAuthenticationSettings.h>
+	// ...
+	- (void) authenticate:(UIViewController*) parent
+	           completion:(void (^) (MSUser*, NSError*))completionBlock;
+	{
+	    NSString *authority = @"INSERT-AUTHORITY-HERE";
+	    NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
+	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
+	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
+	    ADAuthenticationError *error;
+	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    authContext.parentController = parent;
+	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+	    [authContext acquireTokenWithResource:resourceId
+	                                 clientId:clientId
+	                              redirectUri:redirectUri
+	                          completionBlock:^(ADAuthenticationResult *result) {
+	                              if (result.status != AD_SUCCEEDED)
+	                              {
+	                                  completionBlock(nil, result.error);;
+	                              }
+	                              else
+	                              {
+	                                  NSDictionary *payload = @{
+	                                                            @"access_token" : result.tokenCacheStoreItem.accessToken
+	                                                            };
+	                                  [client loginWithProvider:@"aad" token:payload completion:completionBlock];
+	                              }
+	                          }];
+	}
+
+
+**Swift** :
+
+	// add the following imports to your bridging header:
+	//     #import <ADALiOS/ADAuthenticationContext.h>
+	//     #import <ADALiOS/ADAuthenticationSettings.h>
+	
+	func authenticate(parent:UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let authority = "INSERT-AUTHORITY-HERE"
+		let resourceId = "INSERT-RESOURCE-ID-HERE"
+		let clientId = "INSERT-CLIENT-ID-HERE"
+		let redirectUri = NSURL(string: "INSERT-REDIRECT-URI-HERE")
+		var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
+		let authContext = ADAuthenticationContext(authority: authority, error: error)
+		authContext.parentController = parent
+		ADAuthenticationSettings.sharedInstance().enableFullScreen = true;
+		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri, completionBlock: { (result) -> Void in
+			if result.status != AD_SUCCEEDED {
+				completion(nil, result.error)
+			}
+			else {
+				let payload:[String:String] = ["access_token":result.tokenCacheStoreItem.accessToken]
+				client.loginWithProvider("aad", token: payload, completion: completion)
+			}
+		})
+	}
 
 
 <!-- Anchors. -->
@@ -507,4 +591,4 @@ if (error?.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

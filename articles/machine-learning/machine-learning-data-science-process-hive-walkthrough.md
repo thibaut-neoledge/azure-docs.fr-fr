@@ -19,7 +19,7 @@
 
 # Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight
 
-Dans cette procédure pas à pas, vous allez utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](http://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
+Dans cette procédure pas à pas, vous allez utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
 
 Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l’aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus d’analyse Cortana : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -75,7 +75,7 @@ Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’a
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
@@ -91,7 +91,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
 
 ## <a name="getdata"></a>Obtenir les données auprès d’une source publique
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre machine.
 
@@ -107,7 +107,7 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 ## <a name="upload"></a>Charger les données dans le conteneur par défaut du cluster Hadoop Azure HDInsight
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifié lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
@@ -130,7 +130,7 @@ Les données doivent être désormais dans le stockage Blob Azure et prêtes à 
 
 ## <a name="#download-hql-files"></a>Connectez-vous au nœud principal du cluster Hadoop et préparez une analyse exploratoire de données
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Pour accéder au nœud principal du cluster afin d’exécuter une analyse exploratoire des données et une réduction de l’échantillon des données, suivez la procédure décrite dans [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
@@ -146,13 +146,13 @@ Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette
 
 ## <a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Nous sommes maintenant prêts à créer des tables Hive pour notre jeu de données NYC taxi. Dans le nœud principal du cluster Hadoop, ouvrez la ***Ligne de commande Hadoop*** sur le bureau du nœud principal et saisissez le répertoire Hive en entrant la commande
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**Exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable dans cette procédure pas à pas.**
+>[AZURE.NOTE] **Exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable dans cette procédure pas à pas.**
 
 À partir de l'invite du répertoire Hive, entrez la commande suivante dans la Ligne de commande Hadoop du nœud principal pour soumettre la requête Hive afin de créer des tables et une base de données Hive :
 
@@ -208,7 +208,7 @@ Si vous avez besoin d’aide sur ces procédures souhaitez examiner d’autres s
 
 ## <a name="#load-data"></a>Charger les données dans les tables Hive par partitions
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche d’**administration**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
 Le jeu de données taxi NYC a un partitionnement naturel par mois, qui nous permet d’accélérer les temps de traitement et de requête. Les commandes PowerShell ci-dessous (émises à partir du répertoire Hive à l'aide de la **Ligne de commande Hadoop**) chargent des données dans les tables Hive « trip » et « fare » partitionnées par mois.
 
@@ -275,7 +275,7 @@ Le résultat prévu est affiché ci-dessous :
 
 ## <a name="#explore-hive"></a>Exploration des données et ingénierie des fonctionnalités dans Hive
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 Les tâches d’exploration des données et d’ingénierie des fonctionnalités pour les données chargées dans les tables Hive peuvent être exécutées à l’aide de requêtes Hive. Voici des exemples de ces tâches que nous vous décrivons dans cette section :
 
@@ -287,7 +287,7 @@ Les tâches d’exploration des données et d’ingénierie des fonctionnalités
 
 ### Exploration : afficher les 10 premiers enregistrements de la table trip
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 Pour avoir un aperçu des données, nous examinons les 10 enregistrements de chaque table. Exécutez les deux requêtes suivantes séparément depuis l’invite de commande du répertoire Hive de la ligne de commande Hadoop pour analyser les enregistrements.
 
@@ -305,7 +305,7 @@ Il est souvent utile de sauvegarder les enregistrements dans un fichier pour un 
 
 ### Exploration : afficher le nombre d’enregistrements dans chacune des 12 partitions
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 La façon dont le nombre de courses varie au cours de l'année civile est intéressante. Le regroupement par mois nous permet d’avoir un aperçu de cette distribution de courses.
 
@@ -373,7 +373,7 @@ Le nombre total d'enregistrements dans les deux tables est également le même. 
 
 ### Exploration : distribution des courses par médaillon
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au cours d’une période donnée. La requête a accès aux tables partitionnées, car elle est conditionnée par la variable de partition **month**. Les résultats de la requête sont écrits dans un fichier local queryoutput.tsv dans `C:\temp` sur le nœud principal.
 
@@ -405,7 +405,7 @@ Voici le contenu du fichier *sample\_hive\_trip\_count\_by\_medallion.hql* pour 
 
 ### Exploration : distribution des courses par médaillon et par licence de taxi
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 Lors de l'exploration d'un jeu de données, nous devons examiner fréquemment le nombre de co-occurrences des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour les chauffeurs et les taxis.
 
@@ -428,7 +428,7 @@ Les résultats de la requête sont écrits dans un fichier local C:\\temp\\query
 
 ### Exploration : évaluation de la qualité des données en recherchant les enregistrements de longitude et de latitude non valides
 
->[AZURE.NOTE]Il s'agit généralement d’une tâche de **données scientifiques**.
+>[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
 Un objectif commun d'une analyse exploratoire des données est d'éliminer les enregistrements non valides ou incorrectes. L'exemple de cette section détermine si les champs de latitude ou de longitude contiennent une valeur en dehors de la zone NYC. Dans la mesure où il est probable que les valeurs de latitude-longitude de ces enregistrements soient erronées, nous souhaitons les éliminer des données devant être utilisées pour la modélisation.
 
@@ -794,9 +794,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

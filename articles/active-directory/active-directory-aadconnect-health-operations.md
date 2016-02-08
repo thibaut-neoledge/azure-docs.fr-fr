@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Opérations Azure AD Connect Health
@@ -22,7 +22,7 @@ La rubrique suivante décrit les différentes opérations pouvant être effectu�
 
 ## Activer les notifications par courrier électronique
 Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie des notifications par courrier électronique quand des alertes sont générées pour indiquer que votre infrastructure d’identité présente un défaut d’intégrité. Cela se produit lorsqu’une alerte est générée, et quand elle est marquée comme résolue. Pour configurer les notifications par courrier électronique, suivez les instructions ci-dessous.
->[AZURE.NOTE]Les notifications par courrier électronique sont désactivées par défaut.
+>[AZURE.NOTE] Les notifications par courrier électronique sont désactivées par défaut.
 
 
 ### Pour activer les notifications par courrier électronique Azure AD Connect Health
@@ -105,33 +105,28 @@ L’autorisation est accordée si un utilisateur final a accès au niveau Annuai
 ### Comment autoriser l’accès des utilisateurs ou des groupes à Azure AD Connect Health
 #### Étape 1 : sélectionner l’étendue d’accès appropriée
 Pour autoriser un accès utilisateur au niveau *toutes les instances de service* dans Azure AD Connect Health, ouvrez le panneau principal dans Azure AD Connect Health.<br>
-[//]: # (RBAC\_MainBladeSS)
 #### Étape 2 : ajouter des utilisateurs, des groupes et affecter des rôles
-1. Cliquez sur la partie « Utilisateurs » de la section Configurer.<br> 
-![Panneau principal (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Cliquez sur la partie « Utilisateurs » de la section Configurer.<br> ![Panneau principal (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Sélectionnez « Ajouter ».
-3. Sélectionnez le « Rôle », par exemple « Propriétaire ».<br> 
-![Ajouter un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .
-![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+3. Sélectionnez le « Rôle », par exemple « Propriétaire ».<br> ![Ajouter un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Sélectionnez « OK ».<br>
-[//]: # (RBAC\_LastStep)
+
 6. Une fois l’affectation de rôle terminée, les utilisateurs et/ou les groupes apparaissent dans la liste.<br> ![Liste des utilisateurs (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Au terme de ces étapes, les utilisateurs et groupes répertoriés bénéficient d’un accès en fonction des rôles qui leur ont été affectés.
->[AZURE.NOTE]-Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus. - La fonctionnalité « Inviter des utilisateurs » N’EST PAS prise en charge dans Azure AD Connect Health.
+>[AZURE.NOTE]
+-Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus. - La fonctionnalité « Inviter des utilisateurs » N’EST PAS prise en charge dans Azure AD Connect Health.
 
 #### Étape 3 : partager l’emplacement du panneau avec des utilisateurs ou des groupes
 1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à l’adresse [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Une fois sur le panneau, l’utilisateur peut épingler ce dernier ou différentes parties au tableau de bord en cliquant simplement sur « Épingler au tableau de bord ».<br> 
-![Épingler le panneau (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
-[//]: # (RBAC\_PinBlade)
+2. Une fois sur le panneau, l’utilisateur peut épingler ce dernier ou différentes parties au tableau de bord en cliquant simplement sur « Épingler au tableau de bord ».<br> ![Épingler le panneau (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
->[AZURE.NOTE]Un utilisateur qui détient le rôle « Lecteur » ne peut pas effectuer l’opération de création pour obtenir l’extension Azure AD Connect Health à partir d’Azure Marketplace. Cet utilisateur peut toujours accéder au panneau en suivant le lien ci-dessus. Pour une utilisation ultérieure, il peut épingler le panneau au tableau de bord.
+
+>[AZURE.NOTE] Un utilisateur qui détient le rôle « Lecteur » ne peut pas effectuer l’opération de création pour obtenir l’extension Azure AD Connect Health à partir d’Azure Marketplace. Cet utilisateur peut toujours accéder au panneau en suivant le lien ci-dessus. Pour une utilisation ultérieure, il peut épingler le panneau au tableau de bord.
 
 ### Supprimer des utilisateurs et/ou des groupes
-Vous pouvez supprimer un utilisateur ou un groupe de la partie du contrôle d’accès en fonction du rôle d’Azure AD Connect Health en cliquant avec le bouton droit et en sélectionnant Supprimer.<br> 
-![Supprimer un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_remove.png)
+Vous pouvez supprimer un utilisateur ou un groupe de la partie du contrôle d’accès en fonction du rôle d’Azure AD Connect Health en cliquant avec le bouton droit et en sélectionnant Supprimer.<br> ![Supprimer un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "Fin de la section RBAC"
 
@@ -143,4 +138,4 @@ Vous pouvez supprimer un utilisateur ou un groupe de la partie du contrôle d’
 * [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,4 +1,4 @@
-1. Connectez-vous au [portail Classic](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
+1. Connectez-vous au [portail Classic](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
 
 2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
 
@@ -20,16 +20,16 @@
 
 	- Pour **Région/Groupe d'affinités/Réseau virtuel**, utilisez une région qui correspond au lieu où vous êtes. Vous pouvez également choisir de spécifier un réseau virtuel à la place.
 
-	>[AZURE.NOTE]Si vous voulez qu’une machine virtuelle utilise un réseau virtuel, lorsque vous la créez, vous **devez** indiquer le réseau virtuel. Vous ne pouvez pas joindre la machine virtuelle à un réseau virtuel après avoir créé celle-ci. Pour plus d'informations, consultez la page [Vue d'ensemble d'Azure Virtual Network](virtual-networks-overview.md)
+	>[AZURE.NOTE] Si vous voulez qu’une machine virtuelle utilise un réseau virtuel, lorsque vous la créez, vous **devez** indiquer le réseau virtuel. Vous ne pouvez pas joindre la machine virtuelle à un réseau virtuel après avoir créé celle-ci. Pour plus d'informations, consultez la page [Vue d'ensemble d'Azure Virtual Network](virtual-networks-overview.md)
 	>
 	> Pour obtenir des détails sur la configuration de points de terminaison, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines-set-up-endpoints.md).
 
 7. Le quatrième écran de configuration vous permet d’installer l’agent de machine virtuelle et de configurer certaines des extensions disponibles.
 
-	>[AZURE.NOTE]L’agent de machine virtuelle fournit l’environnement dans lequel vous installez les extensions qui permettent d’interagir avec la machine virtuelle ou de la gérer. Pour en savoir plus, consultez la page [À propos de l'agent et des extensions de machine virtuelle](virtual-machines-extensions-agent-about.md).
+	>[AZURE.NOTE] L’agent de machine virtuelle fournit l’environnement dans lequel vous installez les extensions qui permettent d’interagir avec la machine virtuelle ou de la gérer. Pour en savoir plus, consultez la page [À propos de l'agent et des extensions de machine virtuelle](virtual-machines-extensions-agent-about.md).
 
 8. Une fois que vous avez créé la machine virtuelle, la version classique du portail la répertorie sous **Machines virtuelles**. Le service cloud et le compte de stockage correspondants sont également créés et répertoriés dans ces sections. La machine virtuelle et le service cloud sont démarrés automatiquement et leur statut est répertorié comme **En cours d'exécution**.
 
 	![Configurer l’agent de machine virtuelle et les points de terminaison de la machine virtuelle](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

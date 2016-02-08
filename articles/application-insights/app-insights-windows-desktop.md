@@ -183,7 +183,7 @@ En revanche, le canal de persistance met en mémoire tampon la télémétrie dan
 
 ### Pour utiliser le canal de persistance
 
-1. Importez le package NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel).
+1. Importez le package NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Incluez ce code dans votre application, dans un emplacement d’initialisation approprié :
  
     ```C# 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-Le code du canal de persistance est disponible sur [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
+Le code du canal de persistance est disponible sur [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
 
 
 ## <a name="usage"></a>Étapes suivantes
@@ -299,4 +299,4 @@ Le code du canal de persistance est disponible sur [github](https://github.com/M
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

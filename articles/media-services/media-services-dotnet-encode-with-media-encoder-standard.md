@@ -46,7 +46,7 @@ Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.micro
 
 ##Charger l’exemple
 
-Obtenir et exécuter un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Obtenir et exécuter un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Exemple
 
@@ -147,4 +147,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

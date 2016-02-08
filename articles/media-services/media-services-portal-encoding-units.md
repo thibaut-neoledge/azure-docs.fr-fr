@@ -28,11 +28,11 @@
 
 ## Vue d'ensemble
 
-Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **Standard** que le type **De base**. Pour plus d’informations, consultez [Types d’unités réservées d’encodage](http://azure.microsoft.com/blog/author/milanga).
+Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **Standard** que le type **De base**. Pour plus d’informations, consultez [Types d’unités réservées d’encodage](https://azure.microsoft.com/blog/author/milanga/).
 
 En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées d’encodage. Le nombre d’unités réservées d’encodage approvisionnées détermine le nombre de tâches de média qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d’attente entre la fin d’une tâche et le début de la suivante dépend de la disponibilité des ressources du système.
 
->[AZURE.IMPORTANT]Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux à l'aide de l'Indexeur multimédia Azure. Toutefois, contrairement à l'encodage, l'indexation des travaux ne sera pas plus rapide avec des unités réservées plus rapides.
+>[AZURE.IMPORTANT] Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux à l'aide de l'Indexeur multimédia Azure. Toutefois, contrairement à l'encodage, l'indexation des travaux ne sera pas plus rapide avec des unités réservées plus rapides.
 
 Pour modifier le type d’unité réservée et le nombre d’unités réservées d’encodage, procédez comme suit :
 
@@ -48,13 +48,13 @@ Pour modifier le type d’unité réservée et le nombre d’unités réservées
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 
-	>[AZURE.NOTE]Les centres de données suivants ne proposent pas le type d’unité réservée Premium : Singapour, Hong Kong, Osaka, Beijing, Shanghai.
+	>[AZURE.NOTE] Les centres de données suivants ne proposent pas le type d’unité réservée Premium : Singapour, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
 
 	Les nouvelles unités réservées d’encodage sont allouées dès que vous cliquez sur ENREGISTRER.
 
-	>[AZURE.NOTE]C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
+	>[AZURE.NOTE] C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
 ##Quotas et limitations
 
@@ -70,4 +70,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

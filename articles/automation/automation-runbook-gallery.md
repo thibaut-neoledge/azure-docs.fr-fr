@@ -28,7 +28,7 @@ La [galerie de runbooks](http://gallery.technet.microsoft.com/scriptcenter/site/
 
 Vous pouvez uniquement importer directement à partir de la galerie de runbooks à l’aide du portail Azure ou du portail Azure en version préliminaire. Vous ne pouvez pas exécuter cette fonction à l’aide de Windows PowerShell.
 
->[AZURE.NOTE]Vous devez valider le contenu de tous les runbooks que vous obtenez de la galerie de runbooks et vous montrer très vigilant lors de leur installation et de leur exécution dans un environnement de production. |
+>[AZURE.NOTE] Vous devez valider le contenu de tous les runbooks que vous obtenez de la galerie de runbooks et vous montrer très vigilant lors de leur installation et de leur exécution dans un environnement de production. |
 
 ### Pour importer un runbook à partir de la galerie de runbooks avec le portail Azure
 
@@ -54,7 +54,7 @@ Vous pouvez uniquement importer directement à partir de la galerie de runbooks 
 
 Microsoft vous invite à ajouter à la galerie de runbooks des runbooks dont vous pensez qu’ils pourraient être utiles à d’autres utilisateurs. Vous pouvez ajouter un runbook en [le téléchargeant vers le Centre de scripts](http://gallery.technet.microsoft.com/site/upload) en tenant compte des informations suivantes.
 
-- Vous devez spécifier *Microsoft Azure* pour la **Catégorie** et *Automation* pour la **Sous-catégorie** pour le runbook à afficher dans l’Assistant.  
+- Vous devez spécifier *Windows Azure* comme **Catégorie** et *Automation* comme **Sous-catégorie** pour le runbook à afficher dans l’Assistant.  
 
 - Le téléchargement doit être un seul fichier .ps1 ou .graphrunbook. Si le runbook nécessite des modules, des runbooks enfants ou des ressources, vous devez répertorier ceux figurant dans la description de l’envoi et dans la section commentaires du runbook. Si vous disposez d’une solution nécessitant plusieurs runbooks, téléchargez-les séparément et répertoriez les noms des runbooks associés dans chacune de leurs descriptions. Assurez-vous que vous utilisez les mêmes balises afin qu’elles s’affichent dans la même catégorie. Un utilisateur doit lire la description pour savoir que les autres runbooks sont requis pour que la solution fonctionne.
 
@@ -81,12 +81,12 @@ Microsoft vous invite à ajouter à la galerie de runbooks des runbooks dont vou
 
 ## Modules dans PowerShell Gallery
 
-Les modules PowerShell contiennent des applets de commande que vous pouvez utiliser dans vos runbooks. Des modules existants que vous pouvez installer dans Azure Automation sont disponibles dans [PowerShell Gallery](http://www.powershellgallery.com). Vous pouvez lancer cette galerie à partir du portail Azure en version préliminaire et les installer directement dans Azure Automation, ou vous pouvez les télécharger et les installer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module.
+Les modules PowerShell contiennent des applets de commande que vous pouvez utiliser dans vos runbooks ; des modules existants que vous pouvez installer dans Azure Automation sont disponibles dans [PowerShell Gallery](http://www.powershellgallery.com). Vous pouvez lancer cette galerie à partir du portail Azure en version préliminaire et les installer directement dans Azure Automation, ou vous pouvez les télécharger et les installer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module.
 
 ### Pour importer un module à partir de PowerShell Gallery avec le portail Azure en version préliminaire
 
 1. Dans le portail Azure en version préliminaire, ouvrez votre compte Automation. 
-2. Cliquez sur la vignette **Éléments multimédias** pour ouvrir la liste des éléments multimédias.
+2. Cliquez sur la vignette **Ressources** pour ouvrir la liste des ressources.
 3. Cliquez sur la vignette **Modules** pour ouvrir la liste des modules.
 3. Cliquez sur le bouton **PowerShell Gallery** pour lancer la PowerShell Gallery dans une autre fenêtre de navigateur. <br> ![PowerShell Gallery](media/automation-runbook-gallery/powershell-gallery-button.png)
 4. Cliquez sur le menu **Modules** pour accéder à la liste des modules disponibles.<br> ![Bouton PowerShell Gallery](media/automation-runbook-gallery/powershell-gallery.png)
@@ -101,11 +101,11 @@ Les modules PowerShell contiennent des applets de commande que vous pouvez utili
 
 ## Demande d’un runbook ou d’un module
 
-Vous pouvez envoyer des demandes à [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/forums/246290-azure-automation/). Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Articles connexes
 
 - [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
 - [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@ Pour créer des machines virtuelles basées sur des images Oracle, connectez-vou
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Images de machines virtuelles Windows
-Voici une liste des images de machines virtuelles Oracle disponibles qui s’exécutent sur Windows Server dans Azure. Ces images sont fournies moyennant un paiement à l’utilisation. Cela signifie que les coûts de la licence Oracle sont inclus dans l’utilisation de ces images. Vous pouvez également utiliser votre propre licence pour exécuter le logiciel Oracle sur Windows ou Linux. Voici des informations complètes sur [la tarification et les licences des machines virtuelles Azure et des images de la galerie de machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Cliquez sur l’onglet **Oracle** pour obtenir des informations détaillées sur la tarification spécifique d’Oracle.
+Voici une liste des images de machines virtuelles Oracle disponibles qui s’exécutent sur Windows Server dans Azure. Ces images sont fournies moyennant un paiement à l’utilisation. Cela signifie que les coûts de la licence Oracle sont inclus dans l’utilisation de ces images. Vous pouvez également utiliser votre propre licence pour exécuter le logiciel Oracle sur Windows ou Linux. Voici des informations complètes sur [la tarification et les licences des machines virtuelles Azure et des images de la galerie de machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Cliquez sur l’onglet **Oracle** pour obtenir des informations détaillées sur la tarification spécifique d’Oracle.
 
 ###Images de machines virtuelles Oracle Database
 - Oracle Database 12c Enterprise Edition sur Windows Server 2012
@@ -63,4 +63,4 @@ Voici une liste des images de machines virtuelles Oracle préconfigurées dispon
 
 [Images de machines virtuelles Oracle – Considérations diverses](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

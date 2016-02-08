@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Déploiement et gestion d’un appareil virtuel StorSimple dans Azure (Update 2)
@@ -125,8 +125,7 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
-[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 
@@ -235,7 +234,7 @@ Si vous décidez de repartir de zéro avec votre appareil virtuel, désactivez-l
 
 La récupération d’urgence est un des scénarios clés pour lequel l’appareil virtuel StorSimple a été conçu. Dans ce scénario, l’appareil physique StorSimple ou un centre de données entier peut ne pas être disponible. Heureusement, vous pouvez utiliser un appareil virtuel pour restaurer les opérations dans un autre emplacement. Pendant la récupération d’urgence, la propriété des conteneurs de volumes de l’appareil source change et ces derniers sont transférés vers l’appareil virtuel. Les conditions requises pour la récupération d’urgence sont les suivantes : l’appareil virtuel a été créé et configuré, tous les volumes du conteneur de volumes ont été mis hors connexion et le conteneur de volumes est associé à un instantané cloud.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - Lorsque vous utilisez un appareil virtuel en tant qu’appareil secondaire pour la récupération d'urgence, n'oubliez pas que le modèle 8 010 dispose de 30 To de stockage Standard et que le modèle 8 020 dispose de 64 To de stockage Premium. La capacité de l’appareil virtuel 8 020, qui est plus importante, peut être plus adaptée à un scénario de récupération d'urgence.
 > - Vous ne pouvez pas effectuer un basculement ou un clonage à partir d’un appareil exécutant Update 2 sur un appareil exécutant un logiciel de la mise à jour préliminaire 1. Vous pouvez toutefois basculer un appareil exécutant Update 2 vers un appareil exécutant Update 1 (1.1 ou 1.2)
@@ -259,4 +258,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

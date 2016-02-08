@@ -32,11 +32,11 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###3\.1.0 (20/11/2015)
-Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
+###3\.2.0 (22/01/2016)
+Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
 
--   Incident fixe lors de la demande de l'ID de l'appareil juste après l'initialisation.
--   Améliorations des journaux de la console.
+-   Schémas personnalisés, ms-appx et ms-appdata disponibles sur les URL d'action.
+-   Améliorations de la stabilité.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-phone-release-notes.md)
 
@@ -55,4 +55,4 @@ Aucune.
 Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

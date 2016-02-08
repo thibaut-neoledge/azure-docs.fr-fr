@@ -18,13 +18,13 @@
 
 # Activation de la surveillance et des diagnostics
 
-Dans le [portail Azure](http://portal.azure.com), vous pouvez configurer les données de surveillance et de diagnostic, riches et fréquentes, concernant vos ressources. Vous pouvez également utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) ou le [Kit de développement (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour configurer les diagnostics par programmation.
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer les données de surveillance et de diagnostic, riches et fréquentes, concernant vos ressources. Vous pouvez également utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) ou le [Kit de développement (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour configurer les diagnostics par programmation.
 
 Les données de diagnostic, de surveillance et de mesure d’Azure sont enregistrées dans le compte de stockage de votre choix. Ceci vous permet d'utiliser les outils avec lesquels vous souhaitez lire les données, de l'explorateur de stockage à Power BI,  en passant par les outils tiers.
 
 ## Lorsque vous créez une ressource
 
-La plupart des services vous permettent d'activer les diagnostics lorsque vous les créez dans le [portail Azure](http://portal.azure.com).
+La plupart des services vous permettent d'activer les diagnostics lorsque vous les créez dans le [portail Azure](https://portal.azure.com).
 
 1. Accédez à **Nouveau** et choisissez la ressource qui vous intéresse. 
 
@@ -71,4 +71,4 @@ Notez qu’à ce stade, certaines distributions de Linux ne sont pas prises en c
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances. 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

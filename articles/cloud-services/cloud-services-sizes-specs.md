@@ -27,7 +27,7 @@ Azure Virtual Machines et Azure Cloud Services sont deux des nombreux types de r
 
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
-* Les instances de machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d'informations, consultez l'annonce sur le blog Azure : [Tailles des machines virtuelles de la nouvelle série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Les instances de machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).  
 
 *   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
@@ -57,7 +57,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 |A9|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
 |A10|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
 |A11|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
-|D1 standard|1|3,5 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 46104 Mo<br/>Applications = environ 1,5 Go|
+|D1 standard|1|3,5 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 46 104 Mo<br/>Applications = environ 1,5 Go|
 |D2 standard|2|7 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 97304 Mo<br/>Applications = environ 1,5 Go|
 |D3 standard|4|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 199704 Mo<br/>Applications = environ 1,5 Go|
 |D4 standard|8|28 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 404 504 Mo<br/>Applications = environ 1,5 Go|
@@ -73,7 +73,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 |Standard\_D11\_v2|2|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 97304 Mo<br/>Applications = environ 1,5 Go|
 |Standard\_D12\_v2|4|28 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 199704 Mo<br/>Applications = environ 1,5 Go|
 |Standard\_D13\_v2|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 404 504 Mo<br/>Applications = environ 1,5 Go|
-|Standard\_D14\_v2|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 814104 Mo<br/>Applications = environ 1,5 Go|
+|Standard\_D14\_v2|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 814 104 Mo<br/>Applications = environ 1,5 Go|
 ## Configurer les tailles pour les Cloud Services
 
 Vous pouvez spécifier la taille de l’ordinateur virtuel d'une instance de rôle dans le cadre du modèle de service décrit par le fichier de définition de service. La taille du rôle détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Choisissez la taille du rôle en fonction des besoins en ressources de votre application.
@@ -90,4 +90,4 @@ Assurez-vous que la taille de ressources locales spécifiée est inférieure ou 
 
 [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

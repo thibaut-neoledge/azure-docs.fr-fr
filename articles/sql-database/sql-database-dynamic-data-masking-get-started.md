@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
@@ -53,7 +53,7 @@ Le masquage des données dynamiques peut être configuré par l’administrateur
 | **Carte de crédit** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs désignés** et ajoute une chaîne constante comme préfixe sous la forme d'une carte de crédit.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Numéro de sécurité sociale** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs désignés** et ajoute une chaîne constante comme préfixe sous la forme d'un numéro de sécurité sociale américain.<br/><br/>XXX-XX-1234 |
 | **E-mail** | **Méthode de masquage qui affiche la première lettre et remplace le domaine par XXX.com** à l'aide d'une chaîne constante comme préfixe sous la forme d'une adresse de messagerie.<br/><br/>aXX@XXXX.com |
-| **Nombre aléatoire** | **Méthode de masquage qui génère un nombre aléatoire** selon les limites sélectionnées et les types de données réels. Si les limites désignées sont égales, la fonction de masquage sera un nombre constant.<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Nombre aléatoire** | **Méthode de masquage qui génère un nombre aléatoire** selon les limites sélectionnées et les types de données réelles. Si les limites désignées sont égales, la fonction de masquage sera un nombre constant.<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Texte personnalisé** | **Méthode de masquage qui affiche le premier et le dernier caractères** et ajoute une chaîne de remplissage personnalisée entre les deux. Si la chaîne d'origine est plus courte que le préfixe et le suffixe affichés, seule la chaîne de remplissage sera utilisée. <br/>préfixe[remplissage]suffixe<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 
@@ -70,7 +70,7 @@ Le moteur de recommandations DDM signale certains champs de votre base de donné
 
 3. Cliquez sur la vignette **masquage des données dynamiques** qui lance le panneau de configuration **Masquage des données dynamiques**.
 
-	* Vous pouvez également faire défiler vers le bas jusqu'à la section **Opérations** et cliquer sur **Masquage des données dynamiques**.
+	* Vous pouvez également faire défiler vers le bas vers la section **Opérations** et cliquer sur **masquage de données dynamiques**.
 
     ![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
 
@@ -96,7 +96,7 @@ Le moteur de recommandations DDM signale certains champs de votre base de donné
 
     ![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP]Pour que la couche d'application puisse afficher des données sensibles aux utilisateurs d'application privilégiés, ajoutez l'utilisateur SQL ou l'identité AAD qu'utilise l'application pour interroger la base de données. Il est vivement recommandé de limiter le nombre d'utilisateurs privilégiés dans cette liste afin de limiter l'exposition des données sensibles.
+	>[AZURE.TIP] Pour que la couche d'application puisse afficher des données sensibles aux utilisateurs d'application privilégiés, ajoutez l'utilisateur SQL ou l'identité AAD qu'utilise l'application pour interroger la base de données. Il est vivement recommandé de limiter le nombre d'utilisateurs privilégiés dans cette liste afin de limiter l'exposition des données sensibles.
 
 10. Cliquez sur **Enregistrer** dans le panneau de configuration du masquage des données afin d'enregistrer la stratégie de masquage, nouvelle ou mise à jour.
 
@@ -109,4 +109,4 @@ Voir [Cmdlets de la base de données SQL Azure](https://msdn.microsoft.com/libra
 
 Voir [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

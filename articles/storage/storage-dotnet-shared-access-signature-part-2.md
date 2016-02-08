@@ -34,7 +34,7 @@ Ce didacticiel traite spécifiquement de la création des signatures d'accès pa
 
 ## Partie 1 : créer une application console pour générer des signatures d’accès partagé
 
-Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "Package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir l’installation des correctifs les plus récents. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](http://azure.microsoft.com/downloads/).
+Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "Package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir l’installation des correctifs les plus récents. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/).
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, en utilisant l'une des méthodes suivantes :
 
@@ -311,7 +311,7 @@ Lorsque vous exécutez l'application console GenerateSharedAccessSignatures, la 
 
 Pour tester les signatures d’accès partagé créées dans les exemples précédents, nous allons créer une deuxième application console qui utilise les signatures afin d’exécuter les opérations sur le conteneur et un objet blob.
 
-> [AZURE.NOTE]Si plus de 24 heures se sont écoulées depuis la fin de la première partie de ce didacticiel, les signatures que vous avez générées ne sont plus valides. Dans ce cas, exécutez le code dans la première application console pour générer de nouvelles signatures d’accès partagé pour la seconde partie du didacticiel.
+> [AZURE.NOTE] Si plus de 24 heures se sont écoulées depuis la fin de la première partie de ce didacticiel, les signatures que vous avez générées ne sont plus valides. Dans ce cas, exécutez le code dans la première application console pour générer de nouvelles signatures d’accès partagé pour la seconde partie du didacticiel.
 
 Dans Visual Studio, créez une application console Windows et nommez-la **ConsumeSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, comme précédemment.
 
@@ -554,4 +554,4 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

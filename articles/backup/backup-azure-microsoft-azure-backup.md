@@ -1,13 +1,21 @@
 <properties
   pageTitle="Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server | Microsoft Azure"
-  description="Cet article explique les opérations à exécuter pour préparer votre environnement aux charges de travail de sauvegarde avec Azure Backup Server"
+  description="Assurez-vous que votre environnement est correctement préparé à la sauvegarde des charges de travail à l’aide d’Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="SamirMehta"
-  manager="shreeshd"
-  editor=""/>
+  authors="Jim-Parker"
+  manager="jwhit"
+  editor=""
+  keywords="serveur de sauvegarde Azure ; coffre de sauvegarde"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2015" ms.author="sammehta; jimpark"; "aashishr"/>
+<tags
+  ms.service="backup"
+  ms.workload="storage-backup-recovery"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="01/22/2016"
+  ms.author="jimpark; trinadhk;"/>
 
 # Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 
@@ -17,7 +25,7 @@
 
 Cet article concerne la préparation de votre environnement à la sauvegarde des charges de travail à l’aide d’Azure Backup Server. Avec Azure Backup Server, vous pouvez protéger des charges de travail d’application telles que les machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et les clients Windows à partir d’une console unique :
 
->[AZURE.WARNING]Azure Backup Server hérite des fonctionnalités de Data Protection Manager (DPM) pour la sauvegarde de charge de travail. Vous trouverez des liens vers la documentation DPM pour certaines de ces fonctionnalités. Cependant, le serveur Microsoft Azure Backup ne fournit pas de protection sur bande et ne s’intègre pas à System Center.
+>[AZURE.WARNING] Azure Backup Server hérite des fonctionnalités de Data Protection Manager (DPM) pour la sauvegarde de charge de travail. Vous trouverez des liens vers la documentation DPM pour certaines de ces fonctionnalités. Cependant, le serveur Microsoft Azure Backup ne fournit pas de protection sur bande et ne s’intègre pas à System Center.
 
 ## 1\. Machine Windows Server
 
@@ -28,9 +36,9 @@ La première étape de la mise en service d’Azure Backup Server consiste à se
 | Emplacement | Configuration minimale requise | Instructions supplémentaires |
 | -------- | -------------------- | ----------------------- |
 | Microsoft Azure | Machine virtuelle IaaS Azure<br><br>Standard A2 : 2 cœurs, 3,5 Go de RAM | Vous pouvez démarrer avec une simple image de la galerie de Windows Server 2012 R2 Datacenter. [La protection des charges de travail IaaS à l’aide d’Azure Backup Server (DPM)](https://technet.microsoft.com/library/jj852163.aspx) peut prendre plusieurs formes. Veillez à lire l’article dans son intégralité avant de déployer la machine. |
-| Local | Ordinateur virtuel Hyper-V,<br> Ordinateur virtuel VMWare,<br> ou hôte physique <br><br>2 coeurs et RAM de 4 Go | Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](https://technet.microsoft.com/library/dn891438.aspx) en cas de déploiement sur des machines virtuelles Hyper-V. |
+| Local | Ordinateur virtuel Hyper-V,<br> ordinateur virtuel VMWare<br> ou hôte physique <br><br>2 cœurs et 4 Go de RAM | Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](https://technet.microsoft.com/library/dn891438.aspx) en cas de déploiement sur des machines virtuelles Hyper-V. |
 
-> [AZURE.NOTE]Il est conseillé d’installer Azure Backup Server sur un ordinateur équipé de Windows Server 2012 R2 Datacenter. La dernière version du système d’exploitation Windows est automatiquement conforme aux conditions préalables requises.
+> [AZURE.NOTE] Il est conseillé d’installer Azure Backup Server sur un ordinateur équipé de Windows Server 2012 R2 Datacenter. La dernière version du système d’exploitation Windows est automatiquement conforme aux conditions préalables requises.
 
 Si vous envisagez d’ajouter ce serveur à un domaine à un moment donné, il est conseillé d’exécuter l’activité du domaine associé avant l’installation du serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
@@ -58,7 +66,7 @@ Pour créer un archivage de sauvegarde :
 
 6. Un message confirme que l’archivage a été correctement créé et l’archivage est affiché dans la page Services de récupération avec l’état Actif. ![Liste des archivages de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT]Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+  >[AZURE.IMPORTANT] Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
 
 ## 3\. Package logiciel
@@ -84,14 +92,14 @@ Vous pouvez télécharger Microsoft Azure Backup pour les charges de travail d�
 
 ### Extraction du package logiciel
 
-Une fois que vous avez téléchargé tous les fichiers, cliquez sur **MicrosoftAzureBackupInstaller.exe**. Ceci lancera l’extraction des fichiers d’installation par **Assistant Installation de Microsoft Azure Backup** vers un emplacement que vous avez spécifié. Suivez les instructions de l’Assistant et cliquez sur le bouton **Extraire** pour commencer le processus d’extraction.
+Une fois que vous avez téléchargé tous les fichiers, cliquez sur **MicrosoftAzureBackupInstaller.exe**. L’**Assistant Installation de Microsoft Azure Backup** démarrera l’extraction des fichiers d’installation vers l’emplacement que vous avez spécifié. Suivez les instructions de l’Assistant et cliquez sur le bouton **Extraire** pour commencer le processus d’extraction.
 
-> [AZURE.WARNING]Au moins 4 Go d’espace libre sont nécessaires pour l’extraction des fichiers d’installation.
+> [AZURE.WARNING] Au moins 4 Go d’espace libre sont nécessaires pour l’extraction des fichiers d’installation.
 
 
 ![Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Une fois le processus d’extraction terminé, cochez la case pour exécuter le fichier *setup.exe* venant d’être extrait pour installer le serveur de sauvegarde Microsoft Azure Backup, puis cliquez sur le bouton **Terminer**.
+Une fois le processus d’extraction terminé, cochez la case pour exécuter le fichier *setup.exe* que vous venez d’extraire pour installer le serveur de sauvegarde Microsoft Azure Backup, puis cliquez sur le bouton **Terminer**.
 
 ### Installation du package logiciel
 
@@ -99,7 +107,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     ![Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. Dans l’écran d’accueil, cliquez sur **Suivant**. Vous serez orienté vers la section *Vérification des conditions préalables*. Sur cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour le serveur Microsoft Azure Backup sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant**.
+2. Dans l’écran d’accueil, cliquez sur **Suivant**. Vous êtes redirigé vers la section *Vérification des conditions préalables*. Sur cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour le serveur Microsoft Azure Backup sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant**.
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
@@ -109,7 +117,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     Si une défaillance se produit et qu’il est conseillé de redémarrer la machine, faites-le, puis cliquez sur **Vérifier à nouveau**.
 
-    > [AZURE.NOTE]Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
+    > [AZURE.NOTE] Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
 
 4. Fournissez un emplacement pour l’installation des fichiers de serveur Microsoft Azure Backup, puis cliquez sur **Suivant**.
 
@@ -123,7 +131,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
 6. Indiquez si vous souhaitez utiliser *Microsoft Update* pour vérifier les mises à jour et cliquez sur **Suivant**.
 
-    >[AZURE.NOTE]Nous conseillons de faire en sorte que Windows Update soit redirigé vers Microsoft Update, qui offre une sécurité et des mises à jour importantes pour Windows et autres produits, tels que le serveur Microsoft Azure Backup.
+    >[AZURE.NOTE] Nous conseillons de faire en sorte que Windows Update soit redirigé vers Microsoft Update, qui offre une sécurité et des mises à jour importantes pour Windows et autres produits, tels que le serveur Microsoft Azure Backup.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
@@ -148,7 +156,7 @@ Lorsque l’étape d’installation est terminée, les icônes du produit sur le
 
 La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez la section [Configurer des pools de stockage et un disque de stockage](https://technet.microsoft.com/library/hh758075.aspx).
 
-> [AZURE.NOTE]Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture actuelle d’Azure Backup Server, le coffre de sauvegarde Azure conserve la *deuxième* copie des données, alors que le stockage local conserve la première copie (obligatoire).
+> [AZURE.NOTE] Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture actuelle d’Azure Backup Server, le coffre de sauvegarde Azure conserve la *deuxième* copie des données, alors que le stockage local conserve la première copie (obligatoire).
 
 ## 4\. Connectivité réseau
 
@@ -182,10 +190,10 @@ Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Se
 
 ### Gestion des états d’abonnement
 
-Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *Approvisionnement annulé* à l’état *Actif*. Cependant, cette opération a certaines conséquences sur le comportement du produit pendant que l’état n’est pas *Actif* :
+Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *Approvisionnement annulé* à l’état *Actif*. Cependant, cette opération a certaines conséquences sur le comportement du produit lorsque l’état n’est pas *Actif* :
 
-- Un abonnement dont l’*approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est restaurée. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé*.
-- Un abonnement *Expiré* ne fonctionne plus jusqu’à ce qu’il ait été *réactivé*. Pendant que l’abonnement est à l’état *Expiré*, les sauvegardes prévues ne sont pas exécutées.
+- Un abonnement dont l’*approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est rétablie. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé*.
+- Un abonnement *Expiré* ne fonctionne plus jusqu’à ce qu’il ait été *réactivé*. Lorsque l’abonnement est à l’état *Expiré*, les sauvegardes planifiées ne sont pas exécutées.
 
 
 ## Résolution de problèmes
@@ -203,4 +211,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 - [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

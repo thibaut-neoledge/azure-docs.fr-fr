@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Détection des applications cloud non approuvées avec Cloud App Discovery | Microsoft Azure"
+	pageTitle="Détection des applications cloud non gérées avec Cloud App Discovery | Microsoft Azure"
 	description="Fournit une vue d'ensemble de la recherche et de la gestion d'applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement."
 	services="active-directory"
 	keywords="détection d'applications cloud, gestion d'applications"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Détection des applications cloud non approuvées avec Cloud App Discovery
+# Détection des applications cloud non gérées avec Cloud App Discovery
 
-## Vue d'ensemble
+## Vue d’ensemble
 Dans les entreprises modernes, les services informatiques n’ont souvent pas connaissance de toutes les applications cloud utilisées par les membres de l’organisation pour effectuer leur travail. Il est facile de comprendre pourquoi les administrateurs s’inquiètent d’un accès non autorisé aux données d'entreprise, de possibles fuites de données et autres risques de sécurité. Négliger cet aspect peut sérieusement compliquer l’élaboration d'un plan visant à gérer ces risques de sécurité.
 
 Cloud App Discovery est une fonctionnalité Premium d’Azure Active Directory (AD) qui vous permet de détecter les applications cloud utilisées par les membres de votre organisation.
@@ -48,4 +48,4 @@ Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App 
 - [Cloud App Discovery - Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery - Forum aux Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

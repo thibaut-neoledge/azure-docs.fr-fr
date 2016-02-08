@@ -49,7 +49,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
 
-1. Dans la troisième page de l’Assistant, assurez-vous que l’option **Lire des données d’annuaire** est cochée. L’Assistant renseigne le champ **Clé secrète client**.
+1. Dans la troisième page de l’Assistant, assurez-vous que l’option **Accès en lecture aux données d’annuaire** est cochée. L’Assistant renseigne le champ **Clé secrète client**.
 
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
@@ -75,8 +75,8 @@ Posez des questions et obtenez de l’aide.
 
  - [Forum MSDN : Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Documentation Azure AD](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Documentation Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

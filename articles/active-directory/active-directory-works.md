@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) crée un paysage d'identité qui vous appart
 
 Vous pouvez considérer un compte dans Azure AD comme votre permis de conduire pour le cloud, c’est-à-dire un ID unique vous permettant d’accéder aux services en ligne. Azure AD fonctionne ainsi de la même manière que votre propre bureau d'enregistrement privé du cloud pour ces permis de conduire. Il permet d’utiliser des identités n'importe où dans le cloud et améliore la mobilité des utilisateurs qui accèdent aux ressources locales.
 
-> [AZURE.NOTE]Pour utiliser Azure Active Directory, vous avez besoin d'un compte Azure. Si vous ne possédez pas encore un compte Azure, vous pouvez [vous inscrire pour en obtenir un gratuitement](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Pour utiliser Azure Active Directory, vous avez besoin d'un compte Azure. Si vous ne possédez pas encore un compte Azure, vous pouvez [vous inscrire pour en obtenir un gratuitement](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Comment Azure AD prend-il en charge Office 365, Microsoft Intune et d’autres services Azure ?
 Le portail Azure, le Centre d’administration Office 365, le portail de compte Microsoft Intune et les applets de commande du module Azure AD PowerShell peuvent tous lire et écrire dans une instance partagée unique d’Azure AD associée à votre répertoire. Les portails (ou applets de commande) agissent ainsi comme une interface frontale qui extrait et/ou modifie vos données de répertoire. [En savoir plus sur la prise en charge des autres services](active-directory-administer.md#what-is-an-azure-ad-tenant)
@@ -48,4 +48,4 @@ Vous désirez en savoir plus sur la gestion d'Azure AD ? Comment bénéficier d
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

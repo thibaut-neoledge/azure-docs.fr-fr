@@ -27,7 +27,7 @@ Chaque balise que vous ajoutez à une ressource ou à un groupe de ressources es
 
 Chaque ressource ou groupe de ressources peut inclure un maximum de 15 balises. Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères.
 
-> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (par exemple, via le portail Azure ou l’[API Service Management](../services/api-management/)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
+> [AZURE.NOTE] Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (telles que via le portail Azure ou l’[API Service Management](../services/api-management/)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
 
 ## Balises dans les modèles
 
@@ -183,4 +183,4 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 - Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](./xplat-cli-azure-resource-manager.md).
 - Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md).  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

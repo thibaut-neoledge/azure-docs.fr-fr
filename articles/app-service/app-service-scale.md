@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # Changement de niveau de tarification dans Azure App Service
@@ -22,13 +22,13 @@ Si vous souhaitez améliorer les performances et le débit de vos applications w
 
 Le niveau de service de votre plan App Service est basé sur le [*niveau de tarification* du plan](/pricing/details/app-service/). Les niveaux de tarification supérieurs comme les modes **Standard** et **Premium** augmentent la robustesse et la souplesse dont vous disposez pour déterminer la façon dont vos ressources sont utilisées sur Azure. La modification du niveau de tarification a une incidence sur le nombre de cœurs et la quantité de mémoire de votre service. Elle appelée *montée en puissance* (ou *descente en puissance*).
 
-Outre la montée en puissance du niveau de tarification, vous pouvez augmenter le nombre d’instances du service. On parle alors d’*augmentation* ou de *diminution de la taille des instances*. Consultez l’article sur la [mise à l’échelle manuelle ou automatique du nombre d’instances](../insights-how-to-scale.md) pour en savoir plus sur la *diminution* et *l’augmentation de la taille des instances*.
+Outre la montée en puissance du niveau de tarification, vous pouvez augmenter le nombre d’instances de votre service. On parle alors d’*augmentation* ou de *diminution de la taille des instances*. Consultez l’article sur la [mise à l’échelle manuelle ou automatique du nombre d’instances](../insights-how-to-scale.md) pour en savoir plus sur la *diminution* et *l’augmentation de la taille des instances*.
 
 Pour plus d’informations sur les plans App Service, consultez les pages [Présentation des plans App Service](../web-sites-web-hosting-plan-overview.md) et [Présentation détaillée des plans d’Azure App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails de la tarification – App Service](/pricing/details/app-service/).
 
 Pour finir, la mise à l’échelle fonctionne différemment si vous souhaitez utiliser un [environnement App Service](app-service-app-service-environment-intro.md) dédié. Pour plus d’informations, voir l’article [Mise à l’échelle des applications web dans un environnement App Service](app-service-web-scale-a-web-app-in-an-app-service-environment.md).
 
-> [AZURE.NOTE]Avant de passer du mode **Gratuit** au mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Avant de passer du mode **Gratuit** au mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -85,7 +85,7 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 
 - Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="Next Steps"></a>
 ## Étapes suivantes
@@ -130,4 +130,4 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

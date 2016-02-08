@@ -17,17 +17,17 @@
  
 # Utiliser Stream Analytics pour alimenter Power BI à partir d’Application Insights
 
-Cet article explique comment utiliser [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) pour traiter des données [exportées](app-insights-export-telemetry.md) depuis [Visual Studio Application Insights](app-insights-overview.md). Comme exemple de cible, nous envoyons les données à [Microsoft Power BI](https://powerbi.microsoft.com/).
+Cet article explique comment utiliser [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) pour traiter des données [exportées](app-insights-export-telemetry.md) depuis [Visual Studio Application Insights](app-insights-overview.md). Comme exemple de cible, nous envoyons les données à [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 
-> [AZURE.NOTE]Le moyen le plus simple d'obtenir des données dans Power BI à partir d'Application Insights consiste à [utiliser l'adaptateur](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-application-insights/) que vous trouverez dans la galerie Power BI sous Services. Ce que nous décrivons dans cet article est actuellement plus souple, mais cela vous indique également comment utiliser Stream Analytics avec Application Insights.
+> [AZURE.NOTE] Le moyen le plus simple d'obtenir des données dans Power BI à partir d'Application Insights consiste à [utiliser l'adaptateur](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-application-insights/) que vous trouverez dans la galerie Power BI sous Services. Ce que nous décrivons dans cet article est actuellement plus souple, mais cela vous indique également comment utiliser Stream Analytics avec Application Insights.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) présente vos données dans des graphiques riches et variés, avec la possibilité de rassembler des informations provenant de plusieurs sources.
 
 
 ![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-power-bi/010.png)
 
-[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) est un service Azure qui fonctionne comme un adaptateur et traite les données exportées depuis Application Insights.
+[Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) est un service Azure qui fonctionne comme un adaptateur et traite les données exportées depuis Application Insights.
 
 ![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-power-bi/020.png)
 
@@ -138,11 +138,11 @@ La séquence d'octets préfixe du chemin d'accès spécifie où Stream Analytics
 Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**.
-* `1234...` est la clé d'instrumentation de la ressource Application Insights, **sans les tirets**. 
-* `PageViews` est le type de données à analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
+* `1234...` est la clé d'instrumentation de la ressource Application Insights, **sans les tirets**. 
+* `PageViews` est le type de données que vous souhaitez analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
-> [AZURE.NOTE]Vérifiez le stockage pour être sûr d'avoir le chemin d'accès approprié.
+> [AZURE.NOTE] Vérifiez le stockage pour être sûr d'avoir le chemin d'accès approprié.
 
 #### Fin de l’installation initiale
 
@@ -152,7 +152,7 @@ Confirmez le format de sérialisation :
 
 Fermez l’assistant et attendez la fin de l’installation.
 
-> [AZURE.TIP]Utilisez l'exemple de commande pour télécharger des données. Gardez-le comme exemple de test pour déboguer votre requête.
+> [AZURE.TIP] Utilisez l'exemple de commande pour télécharger des données. Gardez-le comme exemple de test pour déboguer votre requête.
 
 ## Définir la sortie
 
@@ -269,4 +269,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

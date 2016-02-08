@@ -18,13 +18,13 @@
 
 # Utiliser Active Directory pour l’authentification dans Azure App Service #
 
-[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) permet des scénarios d’application métier d’entreprise en prenant en charge l’authentification unique (SSO) des utilisateurs qui accèdent à l’application à partir de votre environnement local ou d’une connexion Internet publique. La solution peut être intégrée dans [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) ou dans un service d'émission de jeton de sécurité (STS) local, comme les services ADFS (Active Directory Federation Services), pour authentifier les utilisateurs internes d'Active Directory (AD) et leur fournir une autorisation adéquate.
+[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) permet des scénarios d’application métier d’entreprise en prenant en charge l’authentification unique (SSO) des utilisateurs qui accèdent à l’application à partir de votre environnement local ou d’une connexion Internet publique. La solution peut être intégrée dans [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) ou dans un service d'émission de jeton de sécurité (STS) local, comme les services ADFS (Active Directory Federation Services), pour authentifier les utilisateurs internes d'Active Directory (AD) et leur fournir une autorisation adéquate.
 
 ## Authentification et autorisation sans friction ##
 
-En seulement quelques clics, vous pouvez activer l'authentification et l'autorisation pour votre application web. La configuration du style de case à cocher dans chaque application web Azure fournit un contrôle d'accès de base de votre application web métier. Pour cela, le protocole HTTPS et l'authentification sont appliqués au client Azure AD de votre choix avant que les utilisateurs ne soient autorisés à accéder au contenu de votre application web. Pour plus d’informations, consultez [Authentification et autorisation des applications Web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/) (en anglais).
+En seulement quelques clics, vous pouvez activer l'authentification et l'autorisation pour votre application web. La configuration du style de case à cocher dans chaque application web Azure fournit un contrôle d'accès de base de votre application web métier. Pour cela, le protocole HTTPS et l'authentification sont appliqués au client Azure AD de votre choix avant que les utilisateurs ne soient autorisés à accéder au contenu de votre application web. Pour plus d’informations, consultez [Authentification et autorisation des applications Web](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/) (en anglais).
 
->[AZURE.NOTE]Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+>[AZURE.NOTE] Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 ## Implémentation manuelle de l’authentification et de l’autorisation ##
 
@@ -46,10 +46,10 @@ Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d’au
 	-	Il est possible de gérer les [revendications](http://technet.microsoft.com/library/ee913571.aspx) pour chaque application.
 	-	Le service doit avoir une solution distincte pour accéder aux données AD locales via le pare-feu de l'entreprise.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

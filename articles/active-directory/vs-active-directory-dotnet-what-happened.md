@@ -169,6 +169,6 @@ Les sections de configuration et la chaîne de connexion suivantes ont été ajo
 ###Votre application Azure Active Directory a été mise à jour
 Votre application Azure Active Directory a été mise à jour pour inclure l'autorisation *Lire les données de l'annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:ClientSecret* dans le fichier **web.config**.
 
-[En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

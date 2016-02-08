@@ -29,7 +29,7 @@ Apprenez à créer des clusters HDInsight à l’aide du Kit de développement l
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Visual Studio 2013 ou 2015.
 
 ## Créer des clusters
@@ -220,4 +220,4 @@ Le script Azure PowerShell suivant peut être utilisé pour créer les composant
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

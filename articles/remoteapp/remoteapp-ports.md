@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Cet article s’applique à une collection cloud ou hybride Azure RemoteApp dép
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 Sortant : TCP : 443, TCP : 10101-10175 
-*	 Facultatif – UDP : 10201-10275 
+*	 Facultatif – UDP : 10201-10275  
  
 ## Points de terminaison et URL devant être accessibles aux clients Azure RemoteApp : 
 
@@ -44,6 +44,6 @@ J’entends par clients les bureaux, appareils, etc. que les personnes utilisent
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Sortant : TCP : 443  
--  Facultatif - UDP : 10201-10275
+-  Facultatif - UDP : 3391 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

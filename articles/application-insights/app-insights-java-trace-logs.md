@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="01/21/2016" 
 	ms.author="awills"/>
 
 # Exploration du suivi des journaux Java dans Application Insights
@@ -87,9 +87,9 @@ Téléchargez et décompressez l’appender approprié, puis ajoutez la biblioth
 
 Enregistreur | Télécharger | Bibliothèque
 ----|----|----
-Logback|[Kit de développement logiciel (SDK) avec appender Logback](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Kit de développement logiciel (SDK) avec appender Logback](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -149,4 +149,4 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

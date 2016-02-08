@@ -24,7 +24,7 @@ Azure IoT Hub est un service entièrement géré qui autorise des communications
 
 Ce didacticiel s’appuie sur le code présenté dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] pour montrer comment utiliser des messages envoyés du cloud vers des appareils pour fournir à l’appareil, de façon sécurisée, un URI d’objet blob Azure à utiliser pour télécharger le fichier, et illustre comment utiliser des accusés de réception IoT Hub pour déclencher le traitement du fichier à partir de votre serveur d’applications principal. Les avantages de cette approche sont la réutilisation de l’identité de l’appareil IoT Hub et de l’accusé de réception des messages entre le cloud et les appareils pour signaler au serveur d’applications principal que le fichier a été téléchargé correctement.
 
-> [AZURE.NOTE]Vous pouvez adopter la même approche pour faire en sorte que les appareils téléchargent des fichiers à partir du cloud en toute sécurité.
+> [AZURE.NOTE] Vous pouvez adopter la même approche pour faire en sorte que les appareils téléchargent des fichiers à partir du cloud en toute sécurité.
 
 Vous trouverez des informations supplémentaires sur les messages du cloud vers les appareils et sur la sécurité IoT Hub dans le [Guide du développeur d’IoT Hub].
 
@@ -33,13 +33,13 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 * **SimulatedDevice**, une version modifiée de l’application créée dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] qui se connecte à votre hub IoT et reçoit les messages envoyés du cloud vers les appareils contenant des URI d’objets blob Azure. Pour chaque message du cloud vers les appareils reçu, elle déclenche un téléchargement de fichier vers l’URI d’objet blob spécifié.
 * **SendCloudToDevice**, qui crée un URI d’objet blob Azure (comme expliqué dans [Création et utilisation d’une signature d’accès partagé avec le service BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md), l’envoie dans un message du cloud vers l’appareil simulé via IoT Hub et reçoit ensuite l’accusé de réception.
 
-> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
+> [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015
 
-+ Un compte Azure actif. <br/>Si vous n’avez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -99,4 +99,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

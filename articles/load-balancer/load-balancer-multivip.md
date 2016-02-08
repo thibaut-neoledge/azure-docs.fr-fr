@@ -24,11 +24,11 @@ Toutefois, il existe des scénarios dans lesquels vous pouvez avoir besoin de pl
 
 Dans le scénario ci-dessus, toutes les adresses IP virtuelles utilisent le même port public (443) et le trafic est redirigé vers une ou plusieurs machines virtuelles à équilibrage de charge sur un seul port privé de l’adresse IP interne du service cloud qui héberge les sites Web.
 
->[AZURE.NOTE]L’hébergement de plusieurs écouteurs de groupe de disponibilité SQL AlwaysOn dans le même jeu de machines virtuelles nécessite également l’utilisation de plusieurs adresses IP virtuelles.
+>[AZURE.NOTE] L’hébergement de plusieurs écouteurs de groupe de disponibilité SQL AlwaysOn dans le même jeu de machines virtuelles nécessite également l’utilisation de plusieurs adresses IP virtuelles.
 
 Les adresses IP virtuelles sont dynamiques par défaut, ce qui signifie que l’adresse IP réelle affectée au service cloud peut changer au fil du temps. Pour éviter cela, vous pouvez réserver une adresse IP virtuelle pour votre service. Pour plus d’informations sur les adresses IP virtuelles réservées, consultez [Adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
 
->[AZURE.NOTE]Consultez [Tarification des adresses IP](http://azure.microsoft.com/pricing/details/ip-addresses/) pour plus d’informations sur la tarification des adresses IP virtuelles et réservées.
+>[AZURE.NOTE] Consultez [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/) pour plus d’informations sur la tarification des adresses IP virtuelles et réservées.
 
 Vous pouvez utiliser PowerShell pour vérifier les adresses IP virtuelles utilisées par vos services cloud, ainsi qu’ajouter et supprimer des adresses IP virtuelles, associer une adresse IP virtuelle à un point de terminaison et configurer l’équilibrage de charge sur une adresse IP virtuelle spécifique.
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser PowerShell pour vérifier les adresses IP virtuelles utilis
 - **IaaS uniquement**. Vous ne pouvez activer les adresses IP virtuelles multiples que pour les services cloud qui contiennent des machines virtuelles. Vous ne pouvez pas utiliser les adresses IP virtuelles multiples dans les scénarios PaaS avec des instances de rôle.
 - **PowerShell uniquement**. Vous pouvez gérer les adresses IP virtuelles multiples uniquement à l'aide de PowerShell.
 
->[AZURE.IMPORTANT]Ces limitations sont temporaires et peuvent changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
+>[AZURE.IMPORTANT] Ces limitations sont temporaires et peuvent changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
 
 
 ## Ajout d’une adresse IP virtuelle à un service cloud
@@ -58,7 +58,7 @@ Pour supprimer l’adresse IP virtuelle ajoutée à votre service dans l’exem
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
->[AZURE.IMPORTANT]Vous ne pouvez supprimer une adresse IP virtuelle que si aucun point de terminaison ne lui est associé.
+>[AZURE.IMPORTANT] Vous ne pouvez supprimer une adresse IP virtuelle que si aucun point de terminaison ne lui est associé.
 
 ## Récupération des informations de l’adresse IP virtuelle à partir d’un service cloud
 Pour récupérer les adresses IP virtuelles associées à un service cloud, exécutez le script PowerShell suivant :
@@ -91,7 +91,7 @@ Dans cet exemple, le service cloud a trois adresses IP virtuelles (Vip) :
 - **Vip1** est l’adresse IP virtuelle par défaut, comme en atteste la valeur de IsDnsProgrammedName définie sur true.
 - **Vip2** et **Vip3** ne sont pas utilisées étant donné qu’elles n’ont pas d’adresses IP. Elles servent uniquement si vous associez un point de terminaison à l’adresse IP virtuelle.
 
->[AZURE.NOTE]Votre abonnement est uniquement facturé pour les adresses IP virtuelles supplémentaires après leur association à un point de terminaison. Pour plus d’informations sur la tarification, voir la page [Tarification des adresses IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Votre abonnement est uniquement facturé pour les adresses IP virtuelles supplémentaires après leur association à un point de terminaison. Pour plus d’informations sur la tarification, voir la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Association d’une adresse IP virtuelle à un point de terminaison
 Pour associer une adresse IP virtuelle sur un service cloud à un point de terminaison, exécutez la commande PowerShell suivante :
@@ -150,9 +150,9 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
 
-[Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
+[Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

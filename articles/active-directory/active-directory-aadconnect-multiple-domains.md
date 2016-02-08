@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #Prise en charge de plusieurs domaines
@@ -50,8 +50,8 @@ Ainsi, dans Powershell, si j’ajoute fabrikam.com en utilisant le paramètre Su
 j’obtiens la configuration suivante dans Azure AD :
 
 - DomainName : fabrikam.com
-- IssuerURI : http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI : http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/
 
 Notez que même si la valeur d’IssuerURI a été définie en fonction de mon domaine et qu’elle est donc unique, les valeurs d’URL de point de terminaison sont quand même configurées pour pointer vers mon service de fédération sur fs.contoso100.com, comme elles le sont pour le domaine contoso.com d’origine. Ainsi, tous les domaines pointent quand même vers le même système AD FS.
 
@@ -74,11 +74,11 @@ Consultez les informations ci-dessous pour connaître les étapes détaillées p
 Après cela, nous avons donc une configuration pour deux domaines dans Azure AD :
 
 - DomainName : contoso.com
-- IssuerURI : http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI : http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/
 - DomainName : fabrikam.com
-- IssuerURI : http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI : http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl :https://fs.contoso100.com/adfs/ls/
 
 L’authentification fédérée pour les utilisateurs des domaines contoso.com et fabrikam.com fonctionne désormais. Il ne reste qu’un seul problème : l’authentification des utilisateurs dans les sous-domaines.
 
@@ -91,4 +91,4 @@ Vous devez configurer la règle de revendication personnalisée afin qu’elle r
 
 En résumé, vous pouvez avoir plusieurs domaines portant des noms disparates, ainsi que des sous-domaines, tous fédérés sur le même serveur AD FS. Il suffit de quelques étapes supplémentaires pour garantir la bonne définition des valeurs Issuer pour tous les utilisateurs.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

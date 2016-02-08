@@ -23,8 +23,8 @@ DocumentDB est une base de données de documents NoSQL pour les solutions Big Da
 
 Les trois étapes suivantes permettent de découvrir JSON et de le voir à l’œuvre rapidement :
 
-1. Regardez la vidéo [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de deux minutes, qui présente les avantages liés à l'utilisation de DocumentDB.
-2. Regardez la vidéo [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de trois minutes, qui présente la prise en main de DocumentDB à l'aide du portail Azure.
+1. Regardez la vidéo [What is DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de deux minutes, qui présente les avantages liés à l'utilisation de DocumentDB.
+2. Regardez la vidéo [Create DocumentDB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de trois minutes, qui présente la prise en main de DocumentDB à l'aide du portail Azure.
 3. Visitez le [Query Playground](http://www.documentdb.com/sql/demo) où vous pouvez utiliser différentes activités pour découvrir les riches fonctionnalités de requêtes disponibles dans DocumentDB. Ensuite, cliquez sur l'onglet Sandbox, exécutez vos propres requêtes SQL personnalisées et essayez DocumentDB.
 
 Ensuite, revenez à cet article, où nous approfondissons la question pour vous fournir les réponses aux questions suivantes :
@@ -103,12 +103,12 @@ Si vous avez déjà un compte Azure, vous pouvez commencer avec DocumentDB dans 
 Si vous n'avez pas de compte Azure, vous pouvez :
 
 - vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et l’équivalent de 200 USD pour essayer tous les services Azure. 
-- Si vous avez un abonnement MSDN, vous pouvez bénéficier de l’équivalent de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure. 
+- Si vous possédez un abonnement MSDN, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n'importe quel service Azure. 
 
-Ensuite, quand vous êtes prêt à aller plus loin, visitez notre [cursus](http://azure.microsoft.com/documentation/learning-paths/documentdb/) pour explorer toutes les ressources de formation à votre disposition.
+Ensuite, quand vous êtes prêt à aller plus loin, visitez notre [cursus](https://azure.microsoft.com/documentation/learning-paths/documentdb/) pour explorer toutes les ressources de formation à votre disposition.
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -27,7 +27,7 @@ L’objectif de cette rubrique est de vous fournir les informations nécessaires
 
 La synchronisation de mot de passe est une fonctionnalité des services de synchronisation d’Azure Active Directory Connect (Azure AD Connect Sync) qui synchronise les mots de passe des utilisateurs de votre annuaire Active Directory local vers Azure Active Directory (Azure AD). Cette fonctionnalité permet à vos utilisateurs de se connecter à leurs services Azure Active Directory (comme Office 365, Microsoft Intune et CRM Online) à l’aide du mot de passe qu’ils utilisent pour se connecter à votre réseau local.
 
-> [AZURE.NOTE]Pour plus d'informations sur les services de domaine Active Directory qui sont configurés pour la synchronisation de mot de passe et FIPS, consultez [Synchronisation de mot de passe et FIPS](#password-synchronization-and-fips).
+> [AZURE.NOTE] Pour plus d'informations sur les services de domaine Active Directory qui sont configurés pour la synchronisation de mot de passe et FIPS, consultez [Synchronisation de mot de passe et FIPS](#password-synchronization-and-fips).
 
 ### Disponibilité de la synchronisation de mot de passe
 
@@ -45,7 +45,7 @@ Quand vous activez pour la première fois la fonctionnalité de synchronisation 
 
 La synchronisation d’un mot de passe n’a aucun impact sur les utilisateurs actuellement connectés. Si un utilisateur connecté à un service cloud modifie également le mot de passe local, la session de service cloud se poursuit sans interruption. Toutefois, dès que le service cloud exige de l’utilisateur qu’il se réauthentifie, le nouveau mot de passe doit être fourni. À ce stade, l’utilisateur doit fournir le nouveau mot de passe (celui qui a récemment été synchronisé de l’annuaire Active Directory local vers le cloud).
 
-> [AZURE.NOTE]La synchronisation de mot de passe est uniquement prise en charge pour l'utilisateur de type d'objet dans Active Directory. Elle n'est pas prise en charge pour le type d'objet iNetOrgPerson.
+> [AZURE.NOTE] La synchronisation de mot de passe est uniquement prise en charge pour l'utilisateur de type d'objet dans Active Directory. Elle n'est pas prise en charge pour le type d'objet iNetOrgPerson.
 
 ### Fonctionnement de la synchronisation de mot de passe avec les services de domaine Azure AD.
 
@@ -68,11 +68,11 @@ Deux types de stratégies de mot de passe sont affectés par l’activation de l
 
 Quand vous activez la synchronisation de mot de passe, les stratégies de complexité de mot de passe configurées dans l’annuaire Active Directory local remplacent les stratégies de complexité qui peuvent être définies dans le cloud pour les utilisateurs synchronisés. Cela signifie que tout mot de passe valide dans l’environnement Active Directory local du client peut être utilisé pour accéder aux services Azure AD.
 
-> [AZURE.NOTE]Les mots de passe des utilisateurs créés directement dans le cloud sont toujours soumis aux stratégies de mot de passe définies dans le cloud.
+> [AZURE.NOTE] Les mots de passe des utilisateurs créés directement dans le cloud sont toujours soumis aux stratégies de mot de passe définies dans le cloud.
 
 **Stratégie d'expiration de mot de passe**
 
-Si un utilisateur figure dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur "*Never Expire*". Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
+Si un utilisateur figure dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
 
 Le mot de passe cloud sera mis à jour la prochaine fois que l’utilisateur modifiera le mot de passe dans l’environnement local.
 
@@ -160,4 +160,4 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

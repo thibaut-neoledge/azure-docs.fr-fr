@@ -27,7 +27,7 @@ Il est possible de configurer Azure Application Gateway de façon à mettre fin 
 
 ## Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide.
 3. Vérifiez que des serveurs principaux se trouvent dans le réseau virtuel ou qu’une adresse IP/VIP leur a été affectée.
 
@@ -235,4 +235,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

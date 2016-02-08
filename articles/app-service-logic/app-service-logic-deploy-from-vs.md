@@ -18,12 +18,12 @@
 	
 # Déploiement depuis Visual Studio
 
-Bien que le [portail Azure](https://portal.azure.com) vous offre un excellent moyen de concevoir et gérer vos applications logiques, vous pouvez également déployer votre application logique à partir de Visual Studio. Visual Studio propose quelques fonctionnalités clés pour :
+Bien que le [portail Azure](https://portal.azure.com/) vous offre un excellent moyen de concevoir et gérer vos applications logiques, vous pouvez également déployer votre application logique à partir de Visual Studio. Visual Studio propose quelques fonctionnalités clés pour :
 
 - Stocker votre application logique en même temps que d’autres ressources dans votre solution, pour contenir tous les aspects de votre application
 - Garder la définition de votre application logique archivée dans le contrôle de code source pour que vous puissiez utiliser TFS ou Git pour suivre les versions 
 
-Vous devez avoir installé la version 2.7 du kit de développement logiciel (SDK) Azure ou une version supérieure pour pouvoir suivre les étapes ci-dessous. Recherchez [la dernière version du Kit de développement logiciel (SDK) de Visual Studio](http://azure.microsoft.com/downloads/) ici.
+Vous devez avoir installé la version 2.7 du kit de développement logiciel (SDK) Azure ou une version supérieure pour pouvoir suivre les étapes ci-dessous. Recherchez [la dernière version du Kit de développement logiciel (SDK) de Visual Studio](https://azure.microsoft.com/downloads/) ici.
 
 ## Création d’un projet
 
@@ -65,4 +65,4 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en utilisant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [PowerShell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -50,7 +50,7 @@ Les volumes hiérarchisés sont des volumes alloués dynamiquement dans lesquels
 
 Vous pouvez désigner un volume hiérarchisé comme volume d’archivage en cochant la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent**. Les volumes d’archivage utilisent une taille de bloc de déduplication de 512 Ko, tandis que les volumes autres que d’archivage utilisent une taille de bloc de 64 Ko. La grande taille des blocs de déduplication permet à l’appareil de transférer des segments de données plus importants vers le cloud.
 
->[AZURE.NOTE]Les volumes d’archivage créés avec une version antérieure à la mise à jour Update 2 de StorSimple sont importés en tant que volumes hiérarchisés si la case d’archivage est cochée.
+>[AZURE.NOTE] Les volumes d’archivage créés avec une version antérieure à la mise à jour Update 2 de StorSimple sont importés en tant que volumes hiérarchisés si la case d’archivage est cochée.
 
 ### Capacité allouée
 
@@ -136,13 +136,13 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u2.md#step-6-crea
 
 Le nouveau volume est maintenant prêt à l’emploi.
 
->[AZURE.NOTE]Si vous créez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches de création de volume s’exécutent de façon séquentielle. La première tâche de création de volume doit se terminer pour que la deuxième puisse commencer.
+>[AZURE.NOTE] Si vous créez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches de création de volume s’exécutent de façon séquentielle. La première tâche de création de volume doit se terminer pour que la deuxième puisse commencer.
 
 ## Modification d’un volume
 
 Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de modifier les hôtes qui peuvent y accéder.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
 > - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
@@ -163,7 +163,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 5. Sous **Paramètres supplémentaires**, vous pouvez modifier l’ACR, sous réserve que le volume soit hors connexion. Si le volume est en ligne, vous devez d’abord le mettre hors connexion. Reportez-vous à la procédure [Mise hors connexion d’un volume](#take-a-volume-offline) avant de modifier l’enregistrement de contrôle d’accès.
 
-    > [AZURE.NOTE]Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
+    > [AZURE.NOTE] Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
 
 6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
@@ -174,11 +174,11 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
    3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
 
-    >[AZURE.NOTE]Si vous développez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches d’expansion de volume s’exécutent de façon séquentielle. La première tâche d’expansion de volume doit se terminer pour que la deuxième puisse commencer.
+    >[AZURE.NOTE] Si vous développez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches d’expansion de volume s’exécutent de façon séquentielle. La première tâche d’expansion de volume doit se terminer pour que la deuxième puisse commencer.
 
 ![Vidéo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Modification du type de volume
 
@@ -189,11 +189,11 @@ Vous pouvez modifier le type de volume hiérarchisé en épinglé localement, et
 
 Un volume épinglé localement est entièrement configuré lors de sa création. Si vous convertissez un volume hiérarchisé en volume épinglé localement, StorSimple vérifie que vous disposez d’un espace suffisant sur l’appareil avant de démarrer la conversion. Si tel n’est pas le cas, vous recevez une erreur et l’opération est annulée.
 
-> [AZURE.NOTE]Avant de commencer la conversion d’un volume hiérarchisé en volume épinglé localement, vérifiez que vous tenez compte de l’espace requis par les autres charges de travail.
+> [AZURE.NOTE] Avant de commencer la conversion d’un volume hiérarchisé en volume épinglé localement, vérifiez que vous tenez compte de l’espace requis par les autres charges de travail.
 
 Vous souhaiterez peut-être modifier un volume épinglé localement en volume hiérarchisé si vous avez besoin d’espace supplémentaire pour configurer d’autres volumes. Lorsque vous convertissez le volume épinglé localement en volume hiérarchisé, la capacité disponible sur l’appareil augmente de la taille de la capacité libérée. Si des problèmes de connectivité empêchent la conversion d’un volume de type local en volume de type hiérarchisé, le volume local présente les propriétés d’un volume hiérarchisé tant que la conversion n’est pas terminée. Cela tient au fait que certaines données peuvent avoir été dispersées dans le cloud. Ces données dispersées continuent d’occuper l’espace local sur l’appareil qui ne peut pas être libéré tant que l’opération n’est pas redémarrée ni terminée.
 
->[AZURE.NOTE]La conversion d’un volume peut prendre un certain temps. Vous ne pouvez pas l’annuler une fois qu’elle a commencé. Le volume reste en ligne pendant la conversion, et vous pouvez effectuer des sauvegardes, mais vous ne pouvez pas développer ni restaurer le volume pendant l’exécution de la conversion.
+>[AZURE.NOTE] La conversion d’un volume peut prendre un certain temps. Vous ne pouvez pas l’annuler une fois qu’elle a commencé. Le volume reste en ligne pendant la conversion, et vous pouvez effectuer des sauvegardes, mais vous ne pouvez pas développer ni restaurer le volume pendant l’exécution de la conversion.
 
 #### Pour modifier le type de volume
 
@@ -237,11 +237,11 @@ Vous devrez peut-être mettre un volume hors connexion si vous envisagez de le m
 
     Une fois qu’un volume est hors connexion, l’option **Mettre en ligne** devient disponible.
 
-> [AZURE.NOTE]La commande **Mettre hors connexion** permet de demander à l’appareil de mettre le volume hors connexion. Si les ordinateurs hôtes utilisent toujours le volume, les connexions correspondantes sont rompues et la mise hors connexion du volume n’échoue pas.
+> [AZURE.NOTE] La commande **Mettre hors connexion** permet de demander à l’appareil de mettre le volume hors connexion. Si les ordinateurs hôtes utilisent toujours le volume, les connexions correspondantes sont rompues et la mise hors connexion du volume n’échoue pas.
 
 ## Suppression d’un volume
 
-> [AZURE.IMPORTANT]Vous pouvez supprimer un volume uniquement s’il est hors connexion.
+> [AZURE.IMPORTANT] Vous pouvez supprimer un volume uniquement s’il est hors connexion.
 
 Pour supprimer un volume, procédez comme indiqué ci-dessous.
 
@@ -257,7 +257,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
 
 5. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Le volume est ensuite supprimé et la liste des volumes du conteneur affichée dans la page **Volumes** est mise à jour.
 
-    >[AZURE.NOTE]Si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches de suppression de volume s’exécutent de façon séquentielle. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
+    >[AZURE.NOTE] Si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après, les tâches de suppression de volume s’exécutent de façon séquentielle. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
  
 ## Analyse d’un volume
 
@@ -285,4 +285,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

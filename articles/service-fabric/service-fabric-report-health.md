@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Ajout de rapports d’intégrité Service Fabric personnalisés
@@ -45,11 +45,11 @@ Comme mentionné ci-dessus, la création de rapports peut être effectuée à pa
 
 - Les agents de surveillance externes qui sondent la ressource à partir de l’*extérieur* du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
-> [AZURE.NOTE]Dès le départ, le cluster comprend des rapports d’intégrité envoyés par les composants système. Pour en savoir plus, voir [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Les rapports utilisateur doivent être envoyés sur des [entités d’intégrité](service-fabric-health-introduction.md#health-entities-and-hierarchy) déjà créées par le système.
+> [AZURE.NOTE] Dès le départ, le cluster comprend des rapports d’intégrité envoyés par les composants système. Pour en savoir plus, voir [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Les rapports utilisateur doivent être envoyés sur des [entités d’intégrité](service-fabric-health-introduction.md#health-entities-and-hierarchy) déjà créées par le système.
 
 Lorsque la conception de la création des rapports d’intégrité est claire, l’envoi de rapports d’intégrité est simple. Il peut se faire au moyen de l’API à l’aide de **FabricClient.HealthManager.ReportHealth**, via Powershell ou REST. En interne, toutes les méthodes utilisent un client d’intégrité contenu dans un client Fabric. Des boutons de configuration regroupent les rapports afin d’améliorer les performances.
 
-> [AZURE.NOTE]L’intégrité de rapport est synchrone, et représente uniquement le travail de validation côté client. Le fait que le rapport est accepté par le client de contrôle d’intégrité ne signifie pas qu’il est appliqué dans le magasin. Il est envoyé de manière asynchrone et éventuellement regroupé avec d’autres rapports. Le traitement sur le serveur peut encore échouer (par exemple, parce qu’un numéro de séquence est périmé, parce que l’entité sur laquelle le rapport doit être appliqué a été supprimée, etc..).
+> [AZURE.NOTE] L’intégrité de rapport est synchrone, et représente uniquement le travail de validation côté client. Le fait que le rapport est accepté par le client de contrôle d’intégrité ne signifie pas qu’il est appliqué dans le magasin. Il est envoyé de manière asynchrone et éventuellement regroupé avec d’autres rapports. Le traitement sur le serveur peut encore échouer (par exemple, parce qu’un numéro de séquence est périmé, parce que l’entité sur laquelle le rapport doit être appliqué a été supprimée, etc..).
 
 ## Client de contrôle d’intégrité
 Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré avec les éléments suivants :
@@ -60,7 +60,7 @@ Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aid
 
 - **HealthOperationTimeout** : délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
-> [AZURE.NOTE]Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le magasin d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.
+> [AZURE.NOTE] Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le magasin d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.
 
 La mise en mémoire tampon sur le client prend en compte l’unicité des rapports. Par exemple, si un rapporteur incorrect génère 100 rapports par seconde sur la même propriété de la même entité, les rapports sont remplacés par la dernière version. La file d’attente du client ne contient pas plus d’un rapport de ce type. Si le traitement par lots est configuré, les rapports envoyés au magasin d’intégrité sont au nombre de un par intervalle d’envoi. Il s’agit du dernier rapport ajouté, qui reflète l’état le plus récent de l’entité. Tous les paramètres de configuration peuvent être spécifiés lors de la création de **FabricClient**, en transmettant les paramètres **FabricClientSettings** avec les valeurs souhaitées pour les entrées relatives à l’intégrité.
 
@@ -104,7 +104,7 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE]Pour vous assurer que des services non autorisés ne puissent pas rapporter sur l’intégrité des entités dans le cluster, vous pouvez configurer le serveur pour qu’il accepte uniquement les demandes de clients sécurisés. Dans la mesure où la génération de rapports est effectuée via FabricClient, la sécurité doit être activée sur le client Fabric (FabricClient) pour permettre une communication avec le cluster (par exemple, avec l’authentification de certificat ou Kerberos).
+> [AZURE.NOTE] Pour vous assurer que des services non autorisés ne puissent pas rapporter sur l’intégrité des entités dans le cluster, vous pouvez configurer le serveur pour qu’il accepte uniquement les demandes de clients sécurisés. Dans la mesure où la génération de rapports est effectuée via FabricClient, la sécurité doit être activée sur le client Fabric (FabricClient) pour permettre une communication avec le cluster (par exemple, avec l’authentification de certificat ou Kerberos).
 
 ## Conception de rapports d’intégrité
 La première étape de la génération de rapports de haute qualité consiste à identifier les conditions qui peuvent avoir une incidence sur l’intégrité du service. Toute condition pouvant aider à signaler des problèmes dans le service ou le cluster dès le début ou, mieux encore, avant qu’ils se produisent, peut permettre d’économiser des milliards de dollars. Les avantages incluent moins temps d’arrêt, moins de nuits passées à investiguer et à résoudre des problèmes, et une satisfaction accrue des clients.
@@ -119,7 +119,7 @@ Parfois, un agent de surveillance s’exécutant dans le cluster n’est pas non
 
 Une fois les détails de l’agent de surveillance finalisés, vous devez choisir un ID source qui l’identifie de façon unique. Si plusieurs agents de surveillance du même type résident dans le cluster, ils doivent générer des rapports sur des entités différentes ou, s’ils génèrent des rapports sur la même entité, ils doivent veiller à ce que l’ID source ou la propriété diffèrent. De cette façon, leurs rapports peuvent coexister. La propriété du rapport d’intégrité doit capturer la condition surveillée. (Par exemple, dans l’exemple ci-dessus, la propriété pourrait être **ShareSize**). Si plusieurs rapports s’appliquent à une même condition, la propriété doit contenir des informations dynamiques permettant la coexistence des rapports. Par exemple, si plusieurs partages doivent être surveillés, le nom de la propriété peut être **ShareSize-sharename**.
 
-> [AZURE.NOTE]Vous ne devez *pas* utiliser le magasin d’intégrité pour conserver les informations sur l’état. Seules des informations liées à l’intégrité doivent être rapportées comme telles, car ces informations ont une incidence sur l’évaluation de l’intégrité d’une entité. Le magasin d’intégrité n’a pas été conçu en tant que magasin à usage général. Il utilise une logique d’évaluation de l’intégrité pour regrouper toutes les données dans l’état d’intégrité. Le fait d’envoyer des informations non liées à l’intégrité (par exemple, de signaler un statut avec l’état d’intégrité OK) n’a pas d’incidence sur l’état d’intégrité agrégé, mais peut affecter négativement les performances du magasin d’intégrité.
+> [AZURE.NOTE] Vous ne devez *pas* utiliser le magasin d’intégrité pour conserver les informations sur l’état. Seules des informations liées à l’intégrité doivent être rapportées comme telles, car ces informations ont une incidence sur l’évaluation de l’intégrité d’une entité. Le magasin d’intégrité n’a pas été conçu en tant que magasin à usage général. Il utilise une logique d’évaluation de l’intégrité pour regrouper toutes les données dans l’état d’intégrité. Le fait d’envoyer des informations non liées à l’intégrité (par exemple, de signaler un statut avec l’état d’intégrité OK) n’a pas d’incidence sur l’état d’intégrité agrégé, mais peut affecter négativement les performances du magasin d’intégrité.
 
 La décision suivante a trait à l’entité sur laquelle générer le rapport. La plupart du temps, cela est évident en fonction de la condition. Vous devez choisir l’entité offrant la meilleure granularité possible. Si une condition a un impact sur tous les réplicas d’une partition, le rapport doit porter sur la partition, pas le service. Il existe cependant des cas où une réflexion approfondie s’impose. Si la condition a une incidence sur une entité telle qu’un réplica, mais que vous souhaitez que la condition soit signalée pendant une durée supérieure à la durée de vie du réplica, elle doit être rapportées sur la partition. Autrement, lors de la suppression du réplica, tous les rapports associés à celui-ci sont effacés du magasin. Cela signifie que les enregistreurs de surveillance doivent également tenir compte des durées de vie de l’entité et du rapport. Le moment où un rapport doit être effacé d’un magasin doit être clair (par exemple, quand une erreur rapportées sur une entité ne s’applique plus).
 
@@ -275,4 +275,4 @@ Grâce aux données d’intégrité, les enregistreurs de service et les adminis
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

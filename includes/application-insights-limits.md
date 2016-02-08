@@ -1,4 +1,4 @@
- Les limites varient selon le [niveau de tarification](http://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
+ Les limites varient selon le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
 **Ressource** | **Limite par défaut** | **Limite maximale**
 -------- | ------------- | -------------
@@ -21,4 +21,4 @@ Longueur du nom de la mesure | 100 | 100
  
 [Tarification et quotas dans Application Insights](app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

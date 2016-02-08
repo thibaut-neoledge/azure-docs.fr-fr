@@ -11,9 +11,9 @@ Adresses IP réservées par abonnement|20|100
 Circuits ExpressRoute dédiés par abonnement|10|25
 Certificats de services hébergés par abonnement|400|400
 [Groupes d'affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement|256|256
-Comptes [Batch](http://azure.microsoft.com/services/batch/) par région et par abonnement|1|50
+Comptes [Batch](https://azure.microsoft.com/services/batch/) par région et par abonnement|1|50
 Règles d’alerte par abonnement|250|250
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

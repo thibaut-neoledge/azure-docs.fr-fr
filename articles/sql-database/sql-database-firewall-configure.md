@@ -20,7 +20,7 @@
 
 # Comment créer et configurer une base de données SQL Azure
 
-Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu SQL Database empêche tout accès à votre serveur SQL Database jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu de base de données octroie l'accès en fonction de l'adresse IP d'origine de chaque demande.
+Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu SQL Database empêche tout accès à votre serveur SQL Database jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 
 Pour configurer votre pare-feu de base de données, vous créez des règles de pare-feu qui spécifient les plages d’adresses IP acceptables. Vous pouvez créer des règles de pare-feu au niveau du serveur et de la base de données.
 
@@ -31,7 +31,7 @@ Pour configurer votre pare-feu de base de données, vous créez des règles de p
 
 **À propos des fédérations :** l’implémentation actuelle des fédérations sera retirée en même temps que les niveaux de service Web et Business. Considérez le déploiement de solutions de partitionnement personnalisées pour optimiser les performances, la flexibilité et l'évolutivité. Pour plus d’informations sur le partitionnement personnalisé, consultez [Montée en puissance parallèle de bases de données SQL Azure](https://msdn.microsoft.com/library/dn495641.aspx).
 
-> [AZURE.NOTE]Si vous créez une fédération de bases de données dans Azure SQL Database dans laquelle la base de données racine contient des règles de pare-feu au niveau de la base de données, les règles ne sont pas copiées vers les bases de données membres de la fédération. Si vous avez besoin de règles de pare-feu au niveau de la base de données pour les membres de la fédération, vous devez recréer les règles pour ces derniers. Toutefois, si vous fractionnez un membre de la fédération contenant une règle de pare-feu au niveau de la base de données en nouveaux membres de fédération à l’aide de l’instruction ALTER FEDERATION … SPLIT, les nouveaux membres de destination ont les mêmes règles de pare-feu au niveau de la base de données que le membre de fédération source. Pour plus d’informations sur les fédérations, consultez [Fédérations dans Azure SQL Database](https://msdn.microsoft.com/library/hh597452.aspx).
+> [AZURE.NOTE] Si vous créez une fédération de bases de données dans Azure SQL Database dans laquelle la base de données racine contient des règles de pare-feu au niveau de la base de données, les règles ne sont pas copiées vers les bases de données membres de la fédération. Si vous avez besoin de règles de pare-feu au niveau de la base de données pour les membres de la fédération, vous devez recréer les règles pour ces derniers. Toutefois, si vous fractionnez un membre de la fédération contenant une règle de pare-feu au niveau de la base de données en nouveaux membres de fédération à l’aide de l’instruction ALTER FEDERATION … SPLIT, les nouveaux membres de destination ont les mêmes règles de pare-feu au niveau de la base de données que le membre de fédération source. Pour plus d’informations sur les fédérations, consultez [Fédérations dans Azure SQL Database](https://msdn.microsoft.com/library/hh597452.aspx).
 
 ## Présentation du pare-feu de base de données SQL
 
@@ -41,7 +41,7 @@ Toutefois, si vous souhaitez accorder l’accès de manière sélective à une d
 
 Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir le pare-feu avant de pouvoir atteindre votre base de données ou serveur Azure SQL Database, comme illustré dans le diagramme suivant.
 
-   ![Diagramme décrivant la configuration de pare-feu de base de données SQL.][1]
+   ![Diagramme décrivant la configuration de pare-feu.][1]
 
 ## Connexion à partir d’Internet
 
@@ -53,7 +53,7 @@ Quand un ordinateur tente de se connecter à votre serveur de base de données �
 
 - Si l’adresse IP de la demande n’appartient pas aux plages spécifiées dans une règle de pare-feu au niveau du serveur ou de la base de données, la demande de connexion échoue.
 
-> [AZURE.NOTE]Pour accéder à Azure SQL Database à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.
+> [AZURE.NOTE] Pour accéder à Azure SQL Database à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.
 
 
 ## Connexion à partir d’Azure
@@ -72,9 +72,9 @@ Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’
 
 ## Création de règles de pare-feu au niveau de la base de données
 
-Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations, voir [Procédure : configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
+Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations, consultez la rubrique [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
 
-## Gestion par programmation des règles de pare-feu de base de données
+## Gestion par programmation des règles de pare-feu
 
 Outre avec le portail Azure Classic, les règles de pare-feu peuvent être gérées par programmation à l’aide de Transact-SQL, de l’API REST et d’Azure PowerShell. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles pour chaque méthode.
 
@@ -109,7 +109,7 @@ Outre avec le portail Azure Classic, les règles de pare-feu peuvent être gér�
 | [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) | Serveur | Met à jour les propriétés d’une règle de pare-feu au niveau du serveur existante |
 | [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) | Serveur | Supprime des règles de pare-feu au niveau du serveur |
 
-> [AZURE.NOTE]il peut y avoir un délai maximal de cinq minutes pour que les modifications apportées au pare-feu soient appliquées.
+> [AZURE.NOTE] il peut y avoir un délai maximal de cinq minutes pour que les modifications apportées au pare-feu soient appliquées.
 
 ## Dépannage du pare-feu de base de données
 
@@ -138,4 +138,4 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,7 +31,7 @@ Pour analyser votre application, vous [ajoutez un kit de développement logiciel
 
 Pour commencer :
 
-1. Obtenez un [compte dans Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Obtenez un [compte dans Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. Sur le [portail Azure][portal], ajoutez une nouvelle ressource Application Insights pour votre application :
 
     ![Cliquez sur Nouveau, Services de développement, Application Insights, puis choisissez le type d’application.](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
@@ -467,7 +467,7 @@ Ajoutez votre chaîne de connexion de base de données au nom `TelemetryContext`
 
 Voici le schéma de la table qui sera générée pour PageView.
 
-> [AZURE.NOTE]Vous n’êtes pas obligé d’exécuter ce script. Les attributs du JSON déterminent les colonnes de la table.
+> [AZURE.NOTE] Vous n’êtes pas obligé d’exécuter ce script. Les attributs du JSON déterminent les colonnes de la table.
 
     CREATE TABLE [dbo].[PageViewPerformances](
 	[Id] [uniqueidentifier] NOT NULL,
@@ -543,4 +543,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

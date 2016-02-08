@@ -21,14 +21,14 @@
 
 Azure Media Hyperlapse est un processeur multimédia (MP) qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d'un contenu de caméra à la première personne (first-person camera) ou d'action. L'équivalent cloud du [bureau Microsoft Research Hyperlapse Pro et Hyperlapse Mobile pour les applications téléphoniques](http://aka.ms/hyperlapse), Microsoft Hyperlapse pour Azure Media Services, utilise la mise à l'échelle massive de traitement de supports multimédia Azure Media Services pour une évolutivité horizontale et une mise en parallèle du traitement en bloc d'Hyperlapse.
 
->[AZURE.IMPORTANT]Microsoft Hyperlapse pour Azure Media Services est en version préliminaire publique gratuite. Les tâches sont limitées aux 10 000 premières images de l'élément multimédia d'entrée.
+>[AZURE.IMPORTANT] Microsoft Hyperlapse pour Azure Media Services est en version préliminaire publique gratuite. Les tâches sont limitées aux 10 000 premières images de l'élément multimédia d'entrée.
 
 
 > Microsoft Hyperlapse est conçu pour fonctionner parfaitement dans du contenu « first-person » avec une caméra en mouvement. Bien que les enregistrements effectués par des appareils photo soient toujours pris en charge, les performances et la qualité du processeur multimédia Azure Media Hyperlapse ne peuvent pas être garanties pour d'autres types de contenu. Pour en savoir plus sur Microsoft Hyperlapse pour Azure Media Services et voir des exemples de vidéos, consultez la [billet de blog d'introduction](http://aka.ms/azurehyperlapseblog) depuis la version préliminaire.
 
 Une tâche Azure Media Hyperlapse prend comme entrée un fichier de ressource MP4, MOV ou WMV, ainsi qu'un fichier de configuration qui spécifie les images sur lesquelles la technique image par image doit être appliquée et à quelle vitesse (par exemple, les 10 000 premières images à 2x). La sortie est un rendu stabilisé et accéléré de l'entrée vidéo.
 
-Pour connaître les dernières mises à jour d'Azure Media Hyperlapse, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
+Pour connaître les dernières mises à jour d'Azure Media Hyperlapse, consultez les [blogs Media Services](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## Hyperlapse d'un élément multimédia
 
@@ -78,9 +78,9 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
 
 La méthode suivante charge un fichier multimédia en tant qu'élément multimédia et crée une tâche avec le processeur multimédia Azure Media Hyperlapse.
 
-> [AZURE.NOTE]Pour que ce code fonctionne, vous devez déjà disposer d'un CloudMediaContext avec le nom « context ». Pour en savoir plus à ce sujet, lisez l'[article sur la gestion de contenu](media-services-manage-content.md).
+> [AZURE.NOTE] Pour que ce code fonctionne, vous devez déjà disposer d'un CloudMediaContext avec le nom « context ». Pour en savoir plus à ce sujet, lisez l'[article sur la gestion de contenu](media-services-manage-content.md).
 
-> [AZURE.NOTE]L'argument de chaîne « hyperConfig » doit être une présélection de configuration conforme prédéfinie au format JSON ou XML, comme décrit précédemment.
+> [AZURE.NOTE] L'argument de chaîne « hyperConfig » doit être une présélection de configuration conforme prédéfinie au format JSON ou XML, comme décrit précédemment.
 
 	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
 	{
@@ -221,4 +221,4 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

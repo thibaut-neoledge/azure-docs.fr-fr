@@ -27,7 +27,7 @@ Apprenez à créer des clusters HDInsight à l’aide de l’interface de ligne 
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- **Abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration.
 
 ##Connexion à Azure
@@ -70,7 +70,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]Il doit se trouver dans le même centre de données que le cluster HDInsight. Le type de compte de stockage ne peut pas être ZRS, car ZRS ne prend pas en charge de table.
+	> [AZURE.NOTE] Il doit se trouver dans le même centre de données que le cluster HDInsight. Le type de compte de stockage ne peut pas être ZRS, car ZRS ne prend pas en charge de table.
 
 	Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
 	
@@ -134,4 +134,4 @@ Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters
 - [Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure](hdinsight-administer-use-command-line.md)
 - [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

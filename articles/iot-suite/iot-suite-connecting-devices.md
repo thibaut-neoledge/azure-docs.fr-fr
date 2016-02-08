@@ -2,13 +2,14 @@
    pageTitle="Connectez un périphérique à l'aide de C sur Windows | Microsoft Azure"
    description="Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows."
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -38,9 +39,9 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-5. Remplacez **[Id de périphérique]** et **[Clé de périphérique]** par les valeurs de votre périphérique du tableau de bord de solution de surveillance à distance.
+5. Remplacez **[Id de périphérique]** et **[Clé de périphérique]** par les valeurs de votre périphérique provenant du tableau de bord de solution de surveillance à distance.
 
-6. Utilisez le **nom d'hôte d’IoT Hub** du tableau de bord pour remplacer **[Nom IoTHub]** et **[Suffixe IoTHub, c'est-à-dire azure-devices.net]**. Par exemple, si votre **nom d’hôte d’IoT Hub** est **contoso.azure-devices.net**, remplacez **[Nom IoTHub]** par **contoso** et remplacez **[Suffixe IoTHub, c'est-à-dire azure-devices.net]** par **azure-devices.net** comme indiqué ci-dessous :
+6. Utilisez le **nom d’hôte IoT Hub** du tableau de bord pour remplacer **[Nom IoTHub]** et **[Suffixe IoTHub, c’est-à-dire azure-devices.net]**. Par exemple, si votre **nom d’hôte d’IoT Hub** est **contoso.azure-devices.net**, remplacez **[Nom IoTHub]** par **contoso** et remplacez **[Suffixe IoTHub, c'est-à-dire azure-devices.net]** par **azure-devices.net** comme indiqué ci-dessous :
 
     ```
     static const char* deviceId = "mydevice";
@@ -55,4 +56,4 @@
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

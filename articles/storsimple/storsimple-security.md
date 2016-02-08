@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
@@ -38,9 +38,9 @@ Les sections suivantes décrivent les fonctionnalités de sécurité StorSimple 
 
 Le service StorSimple Manager est un service de gestion hébergé dans Microsoft Azure, qui permet de gérer tous les appareils StorSimple de votre organisation. Vous pouvez accéder au service StorSimple Manager en vous connectant au portail Azure Classic via un navigateur web à l’aide de vos informations d’identification professionnelles.
 
-L’accès au service StorSimple Manager requiert que votre organisation dispose d’un abonnement Azure incluant StorSimple. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure Classic. Si votre organisation ne dispose pas d’un abonnement Azure et que vous souhaitez en savoir plus à ce sujet, consultez [Inscription à Azure en tant qu’organisation](../sign-up-organization.md).
+L’accès au service StorSimple Manager requiert que votre organisation dispose d’un abonnement Azure incluant StorSimple. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure Classic. Si votre organisation ne dispose pas d’un abonnement Azure et que vous souhaitez en savoir plus à ce sujet, consultez [Inscription à Azure en tant qu’organisation](../active-directory/sign-up-organization.md).
 
-Étant donné que le service StorSimple Manager est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Étant donné que le service StorSimple Manager est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 ## Protection de l’appareil StorSimple
 
@@ -56,7 +56,7 @@ La clé d’inscription est une clé longue, contenant plus de 100 caractères.
 
 Une fois qu’un appareil est inscrit, il utilise des jetons pour communiquer avec Microsoft Azure. La clé d’inscription au service n’est pas utilisée après l’inscription de l’appareil.
 
-> [AZURE.NOTE]Il est recommandé de régénérer la clé d'inscription au service après chaque utilisation.
+> [AZURE.NOTE] Il est recommandé de régénérer la clé d'inscription au service après chaque utilisation.
 
 ## Protection de votre solution StorSimple par des mots de passe
 
@@ -114,7 +114,7 @@ Pour plus d'informations sur le Gestionnaire d'instantanés StorSimple, consulte
 Nous vous recommandons d'utiliser les instructions suivantes afin de garantir que les mots de passe StorSimple sont forts et bien protégés :
 
 - Modifiez votre mot de passe tous les trois mois. Vous devez modifier les mots de passe tous les ans.
-- Utilisez des mots de passe forts. Pour plus d'informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Utilisez des mots de passe forts. Pour plus d’informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Utilisez toujours des mots de passe différents pour les différents mécanismes d’accès : chacun des mots de passe que vous spécifiez doit être unique.
 - Ne partagez pas les mots de passe avec les personnes non autorisées à accéder à l’appareil StorSimple.
 - Ne parlez pas d’un mot de passe devant d’autres personnes et ne faites pas allusion à son format.
@@ -127,7 +127,7 @@ Cette section décrit les fonctionnalités de sécurité StorSimple visant à pr
 
 Comme mentionné dans les sections précédentes, les mots de passe sont utilisés pour autoriser et authentifier les utilisateurs et leur permettre d'accéder à votre solution StorSimple. La protection des données contre les utilisateurs non autorisés pendant leur transfert entre les systèmes de stockage et pendant leur stockage est également primordiale. Les sections suivantes décrivent les fonctionnalités de protection des données fournies par StorSimple.
 
-> [AZURE.NOTE]La déduplication offre une protection supplémentaire pour les données stockées sur l’appareil StorSimple et dans le stockage Microsoft Azure. Lorsque les données sont dédupliquées, les objets de données sont stockés séparément des métadonnées utilisées pour les mapper et y accéder : aucun contexte au niveau du stockage n’est disponible pour reconstruire les données en fonction de la structure d’un volume, du système de fichiers ou du nom de fichier.
+> [AZURE.NOTE] La déduplication offre une protection supplémentaire pour les données stockées sur l’appareil StorSimple et dans le stockage Microsoft Azure. Lorsque les données sont dédupliquées, les objets de données sont stockés séparément des métadonnées utilisées pour les mapper et y accéder : aucun contexte au niveau du stockage n’est disponible pour reconstruire les données en fonction de la structure d’un volume, du système de fichiers ou du nom de fichier.
 
 ## Protection des données transitant par le service
 
@@ -144,7 +144,7 @@ Le système de clés asymétriques permet de protéger les données qui transite
 
 La clé de chiffrement des données du service est générée uniquement sur le premier appareil inscrit auprès du service. Tous les autres appareils inscrits auprès du service doivent utiliser la même clé de chiffrement.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > Il est très important de faire une copie de la clé de chiffrement des données du service et de l'enregistrer dans un emplacement sécurisé. La méthode de stockage de la copie de la clé de chiffrement des données de service doit permettre à toute personne autorisée d’y accéder et de la communiquer facilement à l’administrateur de l’appareil.
 >
@@ -269,4 +269,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

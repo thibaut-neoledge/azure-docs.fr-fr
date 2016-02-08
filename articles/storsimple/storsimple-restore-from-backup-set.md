@@ -47,7 +47,7 @@ Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur
 
 Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre volume StorSimple à partir d’une sauvegarde spécifique. N’oubliez pas cependant que la restauration d’un volume rétablit l’état dans lequel il se trouvait au moment de la sauvegarde. Toutes les données qui ont été ajoutées après l’opération de sauvegarde seront perdues.
 
-> [AZURE.WARNING]La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
+> [AZURE.WARNING] La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
 
 
 ### Pour restaurer à partir d’un jeu de sauvegarde
@@ -66,7 +66,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes à la page **Conteneurs de volumes**, puis suivez les étapes de la rubrique [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline) pour les mettre hors connexion.
 
-    >  [AZURE.IMPORTANT]Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Sans quoi, vous vous exposez à un risque d’altération des données.
+    >  [AZURE.IMPORTANT] Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Sans quoi, vous vous exposez à un risque d’altération des données.
 
 4. Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 ![Vidéo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## Étapes suivantes
 
@@ -90,4 +90,4 @@ Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de cl
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

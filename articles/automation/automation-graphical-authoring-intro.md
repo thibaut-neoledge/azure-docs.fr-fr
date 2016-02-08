@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Création de graphiques dans Azure Automation
@@ -40,6 +40,10 @@ Les sections suivantes décrivent les contrôles de l'éditeur graphique.
 
 ### Canevas
 Le canevas est l'emplacement où vous concevez votre Runbook. Vous pouvez ajouter au Runbook des activités des nœuds se trouvant dans le contrôle Bibliothèque et les connecter à l'aide de liens pour définir la logique du Runbook.
+
+Vous pouvez utiliser les commandes en bas de la zone de dessin pour effectuer un zoom avant ou arrière.
+
+![Espace de travail graphique](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### Contrôle Bibliothèque
 
@@ -141,6 +145,38 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier « **-Verbose:$True** ».
 
+### Nouvelles tentatives d’activité
+
+La fonction **Comportement des nouvelles tentatives** permet à une activité de s’exécuter plusieurs fois jusqu’à ce qu’une condition particulière soit remplie. Vous pouvez utiliser cette fonctionnalité pour les activités qui doivent s’exécuter plusieurs fois ou qui sont sujettes à des erreurs et qui peuvent nécessiter plusieurs tentatives avant d’aboutir.
+
+Lorsque vous activez les nouvelles tentatives pour une activité, vous pouvez définir un délai et une condition. Le délai correspond au temps (exprimé en secondes ou minutes) d’attente du Runbook avant la nouvelle exécution de l’activité. Si aucun délai n’est spécifié, l’activité est immédiatement réexécutée après son exécution.
+
+![Délai de nouvelle tentative d’activité](media/automation-graphical-authoring-intro/retry-delay.png)
+
+La condition de nouvelle tentative est une expression PowerShell qui est évaluée après chaque exécution de l’activité. Si l’expression correspond à True, l’activité s’exécute à nouveau. Si l’expression correspond à False, l’activité n’est pas réexécutée et le Runbook passe à l’activité suivante.
+
+![Délai de nouvelle tentative d’activité](media/automation-graphical-authoring-intro/retry-condition.png)
+
+La condition de nouvelle tentative peut utiliser une variable appelée $RetryData qui fournit un accès aux informations sur les nouvelles tentatives d’activité. Cette variable possède les propriétés indiquées dans le tableau suivant.
+
+| Propriété | Description |
+|:--|:--|
+| NumberOfAttempts | Nombre d’exécutions de l’activité. |
+| Sortie | Sortie de la dernière exécution de l’activité. |
+| TotalDuration | Délai écoulé depuis la première exécution de l’activité. |
+| StartedAt | Heure au format UTC à laquelle l’activité a été exécutée pour la première fois. |
+
+Voici des exemples de conditions de nouvelles tentatives d’activité.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
+
 ### Contrôle Script de workflow
 
 Un contrôle Script de workflow est une activité spéciale qui accepte du code de workflow PowerShell pour fournir des fonctionnalités qui, sans cela, ne serait peut-être pas disponibles. Il ne s'agit pas d'un workflow complet, mais il doit contenir des lignes valides de code de workflow PowerShell. Il n'accepte pas de paramètres, mais il peut utiliser des variables pour les paramètres de sortie d'activité et d'entrée de Runbook. Toute sortie de l'activité est ajoutée au bus de données, sauf si elle n'a aucun lien sortant, auquel cas elle est ajoutée à la sortie du Runbook.
@@ -239,7 +275,11 @@ Vous pouvez également récupérer la sortie d'une activité dans une source de 
 
 ### Points de contrôle
 
-Les recommandations relatives à la définition de [points de contrôles](automation-powershell-workflow/#checkpoints) dans votre Runbook s'appliquent également aux Runbooks graphiques. Vous pouvez ajouter une activité pour l'applet de commande Checkpoint-Workflow à l'endroit où vous devez définir un point de contrôle. Vous devez ensuite suivre cette activité avec une activité Add-AzureAccount au cas où le Runbook démarrerait à partir de ce point de contrôle sur un autre Worker.
+Vous pouvez définir des [points de contrôle](automation-powershell-workflow/#checkpoints) dans un Runbook graphique en sélectionnant *Runbook de point de contrôle* sur n’importe quelle activité. Cette option permet de définir un point de contrôle après l’exécution de l’activité.
+
+![Point de contrôle](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+Les recommandations relatives à la définition de points de contrôles dans votre Runbook s’appliquent également aux Runbooks graphiques. Si le Runbook utilise les applets de commande Azure, vous devez suivre toute activité soumise à des points de contrôle avec l’applet de commande Add-AzureRMAccount dans l’éventualité où le Runbook serait interrompu et redémarré sur un autre Worker à partir de ce point de contrôle.
 
 
 ## Authentification auprès de ressources Azure
@@ -291,7 +331,7 @@ Les données créées par toute activité qui ne dispose pas d'un lien sortant s
 Un des avantages de la création de graphiques est qu'elle vous donne la possibilité de créer un Runbook avec une connaissance de PowerShell minimale. Pour le moment, vous devez avoir quelques connaissances de base sur PowerShell pour remplir certaines [valeurs de paramètres](#activities) et définir des [conditions de lien](#links-and-workflow). Cette section propose une brève introduction aux utilisateurs qui ne connaissent pas les expressions PowerShell. La totalité des informations sur PowerShell est disponible dans [Écriture de scripts avec Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
 
 
-### Source de données d'expressions PowerShell
+### Source de données d’expressions PowerShell
 
 Vous pouvez utiliser une expression PowerShell comme source de données pour remplir la valeur d'un [paramètre d'activité](#activities) avec les résultats d'un code PowerShell. Il peut s'agir d'une seule ligne de code qui exécute une fonction simple ou de plusieurs lignes qui suivent une logique complexe. Toute sortie de commande non affectée à une variable correspond à la sortie de la valeur du paramètre.
 
@@ -379,4 +419,4 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 - [Opérateurs](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/21/2015"
+   ms.date="01/19/2016"
    ms.author="dkshir"/>
 
 # Créer un nom de domaine complet dans le portail Azure
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal.azure.com) à l’aide du modèle de déploiement du **Gestionnaire des ressources**, le portail crée une ressource d’adresse IP publique pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Toutefois, par défaut, le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN). Dans la mesure où il est plus facile de retenir un nom de domaine complet qu’une adresse IP, cet article vous explique comment en ajouter un à votre machine virtuelle.
+Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal.azure.com) à l’aide du modèle de déploiement du **Gestionnaire des ressources**, le portail crée une ressource d’adresse IP publique pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Bien que le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), par défaut, il est très facile d’en générer un une fois la machine virtuelle créée. Cet article explique les étapes pour créer un nom DNS ou un nom de domaine complet.
 
 Cet article suppose que vous vous êtes connecté à votre abonnement dans le portail et créé une machine virtuelle avec les images disponibles, à l’aide de **Gestionnaire des ressources**. Une fois que votre machine virtuelle commence à s’exécuter, suivez ces étapes.
 
@@ -30,28 +30,21 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
 
     ![localiser la ressource d’adresse IP](media/virtual-machines-create-fqdn-on-portal/locatePublicIP.PNG)
 
-2.  **Dissociez** l’adresse IP publique de la machine virtuelle. Notez qu’aucun nom de domaine ne s’affiche à ce stade. Une fois que vous avez cliqué sur le bouton **Oui**, la dissociation prend quelques secondes.
+2.  Notez que le nom DNS de l’adresse IP publique est vide. Cliquez sur **Tous les paramètres** pour accéder au panneau de l’adresse IP publique.
 
-    ![dissocier la ressource d’adresse IP](media/virtual-machines-create-fqdn-on-portal/dissociateIP.PNG)
+    ![paramètres ip](media/virtual-machines-create-fqdn-on-portal/settingsIP.PNG)
 
-    Nous allons associer cette adresse IP publique à la machine virtuelle après l’exécution des étapes suivantes. Si l’adresse IP publique est une adresse _IP publique dynamique_, vous perdez l’adresse IPV4, tandis qu’une nouvelle adresse est affectée après la configuration du nom de domaine complet.
-
-3.  Une fois que le bouton **Dissocier** est grisé, cliquez sur la section **Tous les paramètres** de l’adresse IP publique, puis ouvrez l’onglet **Configuration**. Entrez l’étiquette de nom DNS souhaitée. **Enregistrez** cette configuration.
+3.  Ouvrez l’onglet **Configuration** dans les paramètres de l’adresse IP publique. Entrez l’étiquette souhaitée pour le nom DNS, puis **enregistrez** cette configuration.
 
     ![entrer l’étiquette du nom dns](media/virtual-machines-create-fqdn-on-portal/dnsNameLabel.PNG)
 
-4.  Revenez au panneau de la machine virtuelle dans le portail, puis cliquez sur **Tous les paramètres** pour la machine virtuelle. Ouvrez l’onglet **Interfaces réseau**, puis cliquez sur la ressource d’interface réseau associée à cette machine virtuelle. Cette action ouvre le panneau **Interface réseau** dans le portail.
+    La ressource d’adresse IP publique affiche désormais ce nouveau nom DNS sur son panneau.
 
-    ![ouvrir l’interface réseau](media/virtual-machines-create-fqdn-on-portal/openNetworkInterface.PNG)
-
-5.  Notez que le champ **Adresse IP publique** associé à l’interface réseau est vide. Cliquez sur la section **Tous les paramètres** associée à cette interface réseau, puis ouvrez l’onglet **Adresses IP**. Sur le panneau **Adresses IP**, cliquez sur **Activé** pour le champ **Adresse IP publique**. Sélectionnez l’onglet **Adresse IP Configurer les paramètres requis**, puis sélectionnez l’adresse IP par défaut que vous avez dissociée plus haut. Cliquez sur **Enregistrer**. L’ajout de la ressource IP peut prendre quelques instants.
-
-    ![configurer la ressource d’adresse IP](media/virtual-machines-create-fqdn-on-portal/configureIP.PNG)
-
-6.  Fermez tous les autres panneaux, puis revenez au panneau **Machine virtuelle**. Dans les paramètres, cliquez sur la ressource d’adresse IP publique. Notez que le panneau d’adresse IP publique représente désormais le nom de domaine complet souhaité en tant que **nom DNS**.
+4.  Fermez les panneaux de l’adresse IP publique, puis revenez au panneau de la machine virtuelle dans le portail. Vérifiez que le nom DNS/nom de domaine complet apparaît en regard de l’adresse IP pour la ressource d’adresse IP publique.
 
     ![le nom de domaine complet est créé](media/virtual-machines-create-fqdn-on-portal/fqdnCreated.PNG)
 
-    Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.eastus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
 
-<!---HONumber=AcomDC_1203_2015-->
+    Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.centralus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
+
+<!---HONumber=AcomDC_0128_2016-->

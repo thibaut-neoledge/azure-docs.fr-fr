@@ -22,13 +22,13 @@
 
 ## Vue d’ensemble
 
-Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance à l’aide du [portail Azure Classic](manage.windowsazure.com), de Windows PowerShell ou par programmation via une API de stockage.
+Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance à l’aide du [portail Azure Classic](https://manage.windowsazure.com), de Windows PowerShell ou par programmation via une API de stockage.
 
 Lorsque vous activez Storage Metrics, vous devez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
 
 ## Activer les métriques de stockage à l’aide du portail Azure Classic
 
-Dans le [portail Azure Classic](manage.windowsazure.com), la page Configurer d’un compte de stockage permet de contrôler les métriques de stockage. Pour la surveillance, vous pouvez définir un niveau et une période de rétention en jours pour chaque objet blob, table et file d’attente. Dans chaque cas, le niveau est l’un des suivants :
+Dans le [portail Azure Classic](https://manage.windowsazure.com), la page Configurer d’un compte de stockage permet de contrôler les métriques de stockage. Pour la surveillance, vous pouvez définir un niveau et une période de rétention en jours pour chaque objet blob, table et file d’attente. Dans chaque cas, le niveau est l’un des suivants :
 
 - Désactivée : aucune métrique n’est collectée.
 
@@ -211,4 +211,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 [Activation de la journalisation et accès aux données des journaux de stockage](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

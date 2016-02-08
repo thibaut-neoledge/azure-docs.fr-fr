@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # Télécharger des images vers Azure Storage depuis un appareil Android
@@ -35,7 +35,7 @@ Avant de commencer ce didacticiel, vous devez avoir terminé le démarrage rapid
 
 Ce didacticiel requiert les éléments suivants :
 
-+ Un [compte de stockage Azure](../storage-create-storage-account.md).
++ Un [compte de stockage Azure](../storage/storage-create-storage-account.md).
 + Un appareil Android avec un appareil photo
 
 ## Fonctionnement de l’application
@@ -49,7 +49,7 @@ Le téléchargement de la photo est un processus en plusieurs étapes :
 
 Alors, qu’est ce qu’une SAP ?
 
-Il n’est pas sûr de stocker les informations d’identification nécessaires au téléchargement des données Azure à l’intérieur de votre application cliente. Au lieu de cela, vous stockez ces informations d’identification dans votre service mobile et vous en servir pour générer une signature d’accès partagé (SAP) qui octroie l’autorisation de télécharger une nouvelle image. La signature d’accès partagé (SAP), information d’identification dont le délai d’expiration est de 5 minutes est renvoyée en toute sécurité par Mobile Services à l’application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Pour plus d’informations sur SAP, consultez la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
+Il n’est pas sûr de stocker les informations d’identification nécessaires au téléchargement des données Azure à l’intérieur de votre application cliente. Au lieu de cela, vous stockez ces informations d’identification dans votre service mobile et vous en servir pour générer une signature d’accès partagé (SAP) qui octroie l’autorisation de télécharger une nouvelle image. La signature d’accès partagé (SAP), information d’identification dont le délai d’expiration est de 5 minutes est renvoyée en toute sécurité par Mobile Services à l’application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Pour plus d’informations sur SAP, consultez la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## Exemple de code
 [Voici](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) la partie du code source client terminée de cette application. Pour l'exécuter, vous devez effectuer les étapes de ce didacticiel liées au serveur principal de Mobile Services.
@@ -426,4 +426,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

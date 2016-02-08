@@ -44,7 +44,7 @@ Depuis la semaine du 4 décembre 2015, les fonctionnalités suivantes ont ét�
 - Prise en charge des sources de données Azure Data Lake Store. Les utilisateurs peuvent désormais inscrire et découvrir des sources de données Azure Data Lake Store à l’aide d'Azure Data Catalog.
 - Prise en charge de la spécification manuelle des paramètres de proxy réseau dans l'outil d'inscription de sources de données Azure Data Catalog. Les utilisateurs peuvent sélectionner « Modifier les paramètres de proxy » à partir de la page d'accueil de l'outil et spécifier l'adresse du proxy et le port qui doivent être utilisés par l'outil.
 
-> [AZURE.NOTE]« Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com/).
+> [AZURE.NOTE] « Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com/).
 
 
 ## Nouveautés de la version de la semaine du 20 novembre 2015
@@ -55,7 +55,7 @@ Depuis la semaine du 20 novembre 2015, les fonctionnalités suivantes ont ét�
 - Prise en charge de l’inclusion des profils de données lors de l’inscription des tables et vues Teradata.
 - Prise en charge de la fonction « Ouvrir dans Power BI Desktop » pour les sources SQL Server (notamment Azure SQL Database et Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage et HDFS.  
 
-> [AZURE.NOTE]« Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com).
+> [AZURE.NOTE] « Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com).
 
 ## Nouveautés de la version de la semaine du 13 novembre 2015
 
@@ -94,7 +94,7 @@ Depuis la semaine du 23 octobre 2015, les fonctionnalités suivantes ont été
 
 - Prise en charge des sources de données Teradata. Les utilisateurs peuvent désormais inscrire et découvrir des tables et vues Teradata.
 
-> [AZURE.NOTE]Pour la version actuelle, seule l’authentification Teradata TD2 est pris en charge. D’autres mécanismes d’authentification seront pris en charge dans les futures versions.
+> [AZURE.NOTE] Pour la version actuelle, seule l’authentification Teradata TD2 est pris en charge. D’autres mécanismes d’authentification seront pris en charge dans les futures versions.
 
 ## Nouveautés de la version de la semaine du 16 octobre 2015
 
@@ -118,7 +118,7 @@ Depuis la semaine du 2 octobre 2015, les fonctionnalités suivantes ont été 
 - Prise en charge de l’autorisation des groupes de sécurité Azure Active Directory. Les administrateurs du catalogue peuvent autoriser l’accès au catalogue à des groupes de sécurité et à des comptes d'utilisateurs, facilitant la gestion de l'accès à **Azure Data Catalog**.
 - Prise en charge de l’ouverture de sources de données Hive dans Excel à partir du portail **Azure Data Catalog**.
 
-> [AZURE.NOTE]Pour pouvoir utiliser la fonctionnalité « Ouvrir dans Excel » avec des sources de données Hive, les utilisateurs doivent avoir installé le pilote ODBC pour Hive.
+> [AZURE.NOTE] Pour pouvoir utiliser la fonctionnalité « Ouvrir dans Excel » avec des sources de données Hive, les utilisateurs doivent avoir installé le pilote ODBC pour Hive.
 
 ## Nouveautés de la version de la semaine du 25 Septembre 2015
 
@@ -132,10 +132,10 @@ Depuis la semaine du 25 septembre 2015, les fonctionnalités suivantes ont ét
 À compter de la semaine du 18 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Une nouvelle expérience d’initiation à la découverte de source de données dans le portail **Azure Data Catalog**. Quand les utilisateurs accèdent à la page de découverte du portail **Azure Data Catalog** sans entrer un terme de recherche, une vue d’ensemble du contenu du catalogue s’affiche, notamment les balises fréquemment utilisées, ainsi que les experts, les types de sources de données et les types d’objets.
-- Prise en charge de l’inscription et de la découverte des bases de données et des objets Azure SQL Data Warehouse. Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Prise en charge de l’inscription et de la découverte des bases de données et des objets Azure SQL Data Warehouse. Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Prise en charge de l’inscription et de la découverte des modèles SQL Server Analysis Services et des serveurs SQL Server Reporting Services en tant que conteneurs. Au moment de l’inscription d’objets SSAS et SSRS, **Azure Data Catalog** crée une entrée pour le modèle SSAS et le serveur SSRS, ainsi que pour les rapports et d’autres objets. Les conteneurs peuvent être découverts et annotés à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’un modèle ou serveur en plus de la recherche et du filtrage du contenu du catalogue.
 
-> [AZURE.NOTE]Les objets SSAS et SSRS qui ont été inscrits avant la version du 18 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de modèle ou de serveur soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
+> [AZURE.NOTE] Les objets SSAS et SSRS qui ont été inscrits avant la version du 18 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de modèle ou de serveur soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 11 Septembre 2015
 
@@ -146,7 +146,7 @@ Depuis la semaine du 11 septembre 2015, les fonctionnalités suivantes ont ét
 - Prise en charge de l’inscription et de la détection de bases de données Oracle et de clusters HDFS en tant que conteneurs. Lors de l’inscription de tables et de vues Oracle ou de HDFS, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être découverte et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’une base de données ou d’un cluster, en plus de la recherche et du filtrage du contenu du catalogue.
 
 
-> [AZURE.NOTE]Les tables et vues Oracle, ainsi que les fichiers et répertoires HDFS, qui ont été inscrits avant la version du 11 septembre, doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données ou de cluster soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
+> [AZURE.NOTE] Les tables et vues Oracle, ainsi que les fichiers et répertoires HDFS, qui ont été inscrits avant la version du 11 septembre, doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données ou de cluster soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 4 Septembre 2015
 
@@ -155,7 +155,7 @@ Depuis la semaine du 4 septembre 2015, les fonctionnalités suivantes ont ét�
 - Prise en charge de l'enregistrement manuel de types de sources de données inconnus. Les utilisateurs peuvent entrer manuellement des informations sur les sources de données à l’aide du portail **Azure Data Catalog**, afin que les sources de données non prises en charge explicitement par l’outil d’inscription de sources de données puissent être annotées et découvertes.
 - Prise en charge de l'enregistrement et de la découverte des bases de données SQL Server en tant que conteneurs. Pendant l'enregistrement des tables et des vues SQL Server, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être découverte et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d'une base de données en plus de la recherche et du filtrage du contenu du catalogue.
 
-> [AZURE.NOTE]Les tables et vues SQL Server qui ont été inscrits avant la version du 4 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
+> [AZURE.NOTE] Les tables et vues SQL Server qui ont été inscrits avant la version du 4 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 28 août 2015
 
@@ -174,4 +174,4 @@ Depuis la semaine du 28 août 2015, les fonctionnalités suivantes ont été a
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

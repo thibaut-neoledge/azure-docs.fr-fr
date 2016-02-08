@@ -49,11 +49,11 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
 
-    Pour en savoir plus sur les machines virtuelles spécialisées et généralisées, consultez [Image de machine virtuelle](http://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Pour plus d’informations sur l’utilisation d’une machine virtuelle comme modèle pour créer rapidement de nouvelles machines virtuelles préconfigurées, consultez [Capture d’une machine virtuelle Windows à utiliser comme modèle](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Pour en savoir plus sur les machines virtuelles spécialisées et généralisées, consultez [Image de machine virtuelle](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Pour plus d’informations sur l’utilisation d’une machine virtuelle comme modèle pour créer rapidement de nouvelles machines virtuelles préconfigurées, consultez [Capture d’une machine virtuelle Windows à utiliser comme modèle](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
     Vous pouvez cliquer sur le nom d’une image de machine virtuelle sur le côté droit de la page pour afficher les informations associées à cette image.
 
-    >[AZURE.NOTE]Vous ne pouvez pas ajouter d’images de machines virtuelles aux listes **Images publiques** et **Images MSDN**, car elles sont en lecture seule. Toutes les machines virtuelles que vous créez sont ajoutées à la liste **Images privées**.
+    >[AZURE.NOTE] Vous ne pouvez pas ajouter d’images de machines virtuelles aux listes **Images publiques** et **Images MSDN**, car elles sont en lecture seule. Toutes les machines virtuelles que vous créez sont ajoutées à la liste **Images privées**.
 
     >Si vous êtes un abonné MSDN avec un abonnement de niveau Visual Studio, vous pouvez créer une machine virtuelle Azure préconfigurée contenant Visual Studio, ainsi que plusieurs autres images. Pour plus d’informations, consultez [Créer une machine virtuelle dans Visual Studio à l’aide de la galerie d’images Visual Studio 2013 pour les abonnés MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) et [Abonnements MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
@@ -61,17 +61,17 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Vous devrez utiliser les nouveaux nom et mot de passe pour vous connecter à la machine à l’aide du Bureau à distance. Il est donc conseillé de noter ces informations pour ne pas les oublier. Après avoir créé une machine virtuelle Azure dans Visual Studio, vous pouvez modifier sa taille, ainsi que d’autres paramètres depuis le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](./storage/storage-introduction/).
 
 1. Si vous voulez spécifier un réseau virtuel (ce qui est facultatif), sélectionnez-le dans les listes déroulantes Réseau virtuel et Sous-réseau.
 
-    Les machines virtuelles qui sont membres d’un groupe à haute disponibilité sont déployées sur des domaines d’erreur différents. Pour plus d’informations, consultez [Azure Virtual Network](http://www.windowsazure.com/services/virtual-network/).
+    Les machines virtuelles qui sont membres d’un groupe à haute disponibilité sont déployées sur des domaines d’erreur différents. Pour plus d’informations, consultez [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/).
 
 1. Si vous voulez que votre machine virtuelle soit membre d’un groupe à haute disponibilité (également facultatif), cochez la case **Spécifier un groupe à haute disponibilité**, puis choisissez un groupe à haute disponibilité dans la liste déroulante. Quand vous avez terminé, cliquez sur le bouton **Suivant**.
 
-    L’ajout de votre machine virtuelle à un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d’un disque dur local et de temps d’arrêt planifiés. Vous devez utiliser le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=253103) pour créer des réseaux virtuels, des sous-réseaux et des groupes à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/).
+    L’ajout de votre machine virtuelle à un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d’un disque dur local et de temps d’arrêt planifiés. Vous devez utiliser le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=253103) pour créer des réseaux virtuels, des sous-réseaux et des groupes à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/).
 
 1. Dans la page **Points de terminaison**, spécifiez les points de terminaison publics que vous voulez mettre à disposition des utilisateurs de votre machine virtuelle. Par exemple, vous pouvez choisir d’activer le protocole HTTP (port 80) en plus du Bureau à distance et des points de terminaison PowerShell, qui sont activés par défaut. Pour ajouter un point de terminaison, sélectionnez-en un dans la liste déroulante **Nom du port**, puis cliquez sur le bouton **Ajouter**. Pour supprimer un point de terminaison, cliquez sur la croix rouge (**X**) à côté de son nom dans la liste des points de terminaison.
 
@@ -79,7 +79,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Les points de terminaison disponibles varient selon le service cloud que vous avez sélectionné pour votre machine virtuelle. Pour plus d’informations, consultez [Points de terminaison de service Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
-    >[AZURE.NOTE]Une fois les points de terminaison publics activés, les services de votre machine virtuelle sont disponibles sur Internet. Veillez à installer et à configurer correctement les points de terminaison et les services de votre machine virtuelle, tels que les listes de contrôle d’accès des points de terminaison. Pour plus d’informations, consultez [Comment configurer des points de terminaison sur une machine virtuelle](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    >[AZURE.NOTE] Une fois les points de terminaison publics activés, les services de votre machine virtuelle sont disponibles sur Internet. Veillez à installer et à configurer correctement les points de terminaison et les services de votre machine virtuelle, tels que les listes de contrôle d’accès des points de terminaison. Pour plus d’informations, consultez [Comment configurer des points de terminaison sur une machine virtuelle](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 1. Après avoir configuré les paramètres de la machine virtuelle, cliquez sur le bouton **Créer** pour créer la machine virtuelle.
 
@@ -141,7 +141,7 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 1. Si vous avez déjà exécuté Sysprep sur cette machine virtuelle, cochez la case **J’ai exécuté Sysprep sur la machine virtuelle**.
 
-    Sysprep est un outil qui, entre autres choses, supprime les données spécifiques aux systèmes de la version de Windows de la machine virtuelle, pour en faire un modèle que les autres peuvent utiliser. Pour plus d’informations, consultez [Capture d’une machine virtuelle Windows pour l’utiliser comme modèle](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Sysprep est un outil qui, entre autres choses, supprime les données spécifiques aux systèmes de la version de Windows de la machine virtuelle, pour en faire un modèle que les autres peuvent utiliser. Pour plus d’informations, consultez [Capture d’une machine virtuelle Windows pour l’utiliser comme modèle](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
 1. Après avoir configuré les paramètres de capture, cliquez sur le bouton **Capturer** pour créer le point de contrôle.
 
@@ -177,4 +177,4 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

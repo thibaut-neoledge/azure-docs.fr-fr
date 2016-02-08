@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2016"
+   ms.date="01/22/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight
@@ -27,7 +27,7 @@ Apprenez à planifier la création de clusters HDInsight.
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
 ## Options de configuration de base
@@ -51,9 +51,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	
 - **Système d’exploitation**
 
-	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants :
-	- **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** :
-	- **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Type de cluster** et **taille du cluster (également appelé nœuds de données)**
 
@@ -66,7 +64,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Clusters HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE]Le *cluster Azure HDInsight* est également appelé *Cluster Hadoop dans HDInsight* ou *Cluster HDInsight*. Parfois, il est utilisé de manière interchangeable avec le *cluster Hadoop*. Ils font tous référence aux clusters Hadoop hébergés dans l'environnement Microsoft Azure.
+	> [AZURE.NOTE] Le *cluster Azure HDInsight* est également appelé *Cluster Hadoop dans HDInsight* ou *Cluster HDInsight*. Parfois, il est utilisé de manière interchangeable avec le *cluster Hadoop*. Ils font tous référence aux clusters Hadoop hébergés dans l'environnement Microsoft Azure.
 
 	Un type de cluster donné comprend différents rôles correspondant aux différents nœuds, qui permettent à un client de dimensionner ces nœuds dans un rôle donné, approprié aux détails de leur charge de travail. Les nœuds de travail d’un cluster Hadoop peuvent, par exemple, être dotés d'une grande capacité de mémoire si les types d'analyses en cours d'exécution utilisent beaucoup de mémoire.
 
@@ -79,30 +77,21 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Les clusters HBase pour HDInsight sont déployés avec trois rôles :
-	- les serveurs principaux (2 nœuds)
-	- les serveurs Region (au moins 1 nœud)
-	- les nœuds Master/Zookeeper (3 nœuds)
+	Les clusters HBase pour HDInsight sont déployés avec trois rôles : - les serveurs principaux (2 nœuds) - les serveurs Region (au moins 1 nœud) - les nœuds Master/Zookeeper (3 nœuds)
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Les clusters Storm pour HDInsight sont déployés avec trois rôles :
-	- les nœuds Nimbus (2 nœuds)
-	- les serveurs Supervisor (au moins 1 nœud)
-	- les nœuds Zookeeper (3 nœuds)
+	Les clusters Storm pour HDInsight sont déployés avec trois rôles : - les nœuds Nimbus (2 nœuds) - les serveurs Supervisor (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds)
 
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Les clusters Spark pour HDInsight sont déployés avec trois rôles :
-	- le nœud principal (2 nœuds)
-	- le nœud de travail (au moins 1 nœud)
-	- les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
+	Les clusters Spark pour HDInsight sont déployés avec trois rôles : - le nœud principal (2 nœuds) - le nœud de travail (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
 
 	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
-	>[AZURE.NOTE]La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
+	>[AZURE.NOTE] La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
 
 - **Version de HDInsight**
 
@@ -121,9 +110,17 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![tailles de nœud de machine virtuelle HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-	Sélectionnez une taille de machine virtuelle pour les nœuds. Pour en savoir plus, consultez la rubrique [Tailles pour Cloud Services](cloud-services-sizes-specs.md).
+	Sélectionnez une taille de machine virtuelle pour les nœuds. Pour en savoir plus, consultez la rubrique [Tailles de services cloud](cloud-services-sizes-specs.md). Vous pouvez sélectionner le volume de ressources de calcul utilisé par le cluster. Par exemple, si vous savez que vous allez effectuer des opérations nécessitant un grand volume de mémoire, vous souhaitez sélectionner une ressource de calcul avec davantage de mémoire.
 
-	Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+	>[AZURE.NOTE] Les nœuds utilisés par votre cluster ne sont pas considérés comme des machines virtuelles car les images de machines virtuelles utilisées pour les nœuds sont un détail d'implémentation du service HDInsight. Toutefois, les cœurs de calcul utilisés par les nœuds ne sont pas pris en compte dans le total de cœurs de calcul disponibles pour votre abonnement. Vous pouvez voir le nombre de cœurs qui seront utilisés par le cluster, ainsi que le nombre de cœurs disponibles, dans la section Résumé du panneau Niveaux de tarification du nœud lors de la création d'un cluster HDInsight.
+
+	Différents types de cluster ont des types de nœuds, des nombres de nœuds et des tailles de nœud différents. Par exemple, un type de cluster Hadoop possède deux _nœuds principaux_ et une valeur par défaut de quatre _nœuds de données_, tandis qu’un type de cluster Storm possède deux _nœuds nimbus_, trois _nœuds zookeeper_ et une valeur par défaut de quatre _nœuds superviseur_.
+
+	> [AZURE.IMPORTANT] Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
+
+	Quand vous utilisez la version préliminaire du portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
+
+	> [AZURE.IMPORTANT] La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
 - **Utilisateurs HDInsight**
@@ -144,12 +141,12 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Stockage HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
-	>[AZURE.NOTE]Un conteneur de stockage d'objets blob regroupe un ensemble d'objets blob, comme illustré dans l'image :
+	>[AZURE.NOTE] Un conteneur de stockage d'objets blob regroupe un ensemble d'objets blob, comme illustré dans l'image :
 
 	![Stockage des objets blob](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
 
-	>[AZURE.WARNING]Ne partagez pas un conteneur de stockage d’objets blob sur plusieurs clusters. Ce n’est pas pris en charge.
+	>[AZURE.WARNING] Ne partagez pas un conteneur de stockage d’objets blob sur plusieurs clusters. Ce n’est pas pris en charge.
 
 	Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
 
@@ -181,7 +178,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 ## Utilisation des réseaux virtuels Azure
 
-[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
+[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
 
 * Connecter différentes ressources de cloud dans un réseau privé (uniquement dans le cloud).
 
@@ -212,4 +209,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

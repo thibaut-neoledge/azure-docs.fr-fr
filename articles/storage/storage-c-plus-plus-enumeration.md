@@ -19,7 +19,7 @@
 
 Les opérations de listage sont essentielles dans de nombreux scénarios de développement avec Azure Storage. Cet article explique comment énumérer de façon optimale les objets d’Azure Storage à l’aide des API de listage fournies par la bibliothèque cliente Microsoft Azure Storage pour C++.
 
->[AZURE.NOTE]Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.x, qui est disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.x, qui est disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La bibliothèque cliente Storage propose diverses méthodes pour lister ou interroger les objets présents dans Azure Storage. Cet article traite les scénarios suivants :
 
@@ -182,6 +182,6 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 -	[Utilisation du service de stockage de files d'attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Documentation sur les API de la bibliothèque cliente Azure Storage pour C++.](http://azure.github.io/azure-storage-cpp/)
 -	[Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

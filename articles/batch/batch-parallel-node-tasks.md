@@ -1,32 +1,32 @@
 <properties
-   pageTitle="Optimiser l’utilisation de nœuds Batch avec des tâches parallèles | Microsoft Azure"
-   description="Améliorer l'efficacité et réduire les coûts en utilisant moins de nœuds de calcul lors de l'exécution de tâches simultanées sur chaque nœud dans un pool Azure Batch"
-   services="batch"
-   documentationCenter=".net"
-   authors="mmacy"
-   manager="timlt"
-   editor=""/>
-
-   <tags
-   	ms.service="batch"
-   	ms.devlang="multiple"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="vm-windows"
-   	ms.workload="big-compute"
-   	ms.date="11/02/2015"
-   	ms.author="v-marsma"/>
-
+	pageTitle="Optimiser l’utilisation de nœuds Batch avec des tâches parallèles | Microsoft Azure"
+	description="Améliorer l'efficacité et réduire les coûts en utilisant moins de nœuds de calcul lors de l'exécution de tâches simultanées sur chaque nœud dans un pool Azure Batch"
+	services="batch"
+	documentationCenter=".net"
+	authors="mmacy"
+	manager="timlt"
+	editor="" />
+	
+<tags
+	ms.service="batch"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="01/22/2016"
+	ms.author="marsma" />
+	
 # Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées
 
-L'exécution de tâches parallèles à grande échelle est une fonctionnalité principale d'Azure Batch. Cette possibilité s'étend non seulement à plusieurs nœuds de calcul exécutant vos tâches, mais aussi à l'exécution de tâches simultanées sur ces nœuds. Avec Batch, l’exécution de tâches parallèles est très évolutive.
+Dans cet article, vous allez apprendre à exécuter plusieurs tâches simultanément sur chaque nœud de calcul au sein de votre pool Azure Batch. En autorisant l'exécution de tâches simultanées sur les nœuds de calcul d'un pool, vous pouvez optimiser l'utilisation des ressources sur un plus petit nombre de nœuds dans le pool. Pour certaines charges de travail, cela peut vous faire gagner du temps et de l’argent.
 
-En autorisant l'exécution de tâches simultanées sur les nœuds de calcul d'un pool, vous pouvez optimiser l'utilisation des ressources sur un plus petit nombre de nœuds dans le pool. Alors que certains scénarios tirent parti de toutes les ressources d’un nœud disponibles pour l’allocation à une seule tâche, un certain nombre de situations profitent de l’autorisation accordée à plusieurs tâches de partager ces ressources :
+Alors que certains scénarios tirent parti de toutes les ressources d’un nœud disponibles pour l’allocation à une seule tâche, un certain nombre de situations profitent de l’autorisation accordée à plusieurs tâches de partager ces ressources :
 
  - **Réduction du transfert de données** lorsque les tâches sont en mesure de partager des données. Dans ce scénario, vous pouvez considérablement réduire les frais de transfert de données en copiant les données partagées vers un plus petit nombre de nœuds et en exécutant les tâches en parallèle sur chaque nœud. Cela s'applique surtout si les données à copier sur chaque nœud doivent être transférées entre des régions géographiques.
 
- - **Optimisation de l’utilisation de la mémoire** lorsque les tâches nécessitent une grande quantité de mémoire, mais seulement pendant de courtes périodes et à des moments variables au cours de l’exécution. Vous pouvez employer des instances de nœud moins nombreuses mais de plus grande taille, avec plus de mémoire pour gérer efficacement ces pics. De cette façon, les instances de nœud ont des tâches parallèles qui s'exécutent sur chaque nœud, tout en bénéficiant de la mémoire abondante des nœuds à des moments différents.
+ - **Optimisation de l’utilisation de la mémoire** lorsque les tâches nécessitent une grande quantité de mémoire, mais seulement pendant de courtes périodes et à des moments variables au cours de l’exécution. Vous pouvez employer des nœuds de calcul moins nombreux mais de plus grande taille, avec plus de mémoire pour gérer efficacement ces pics. De cette façon, ces nœuds ont plusieurs tâches exécutées en parallèle sur chaque nœud, mais chaque tâche bénéficie de la mémoire abondante des nœuds à des moments différents.
 
- - **Atténuation des limites au nombre de nœuds** lorsque la communication entre les nœuds est requise au sein d’un pool. Actuellement, les pools configurés pour la communication entre les nœuds sont limités à 50 nœuds. Par conséquent, un plus grand nombre de tâches peuvent être exécutées simultanément si chaque nœud dans un pool de ce type est capable d'exécuter des tâches en parallèle.
+ - **Atténuation des limites au nombre de nœuds** lorsque la communication entre les nœuds est requise au sein d’un pool. Actuellement, les pools configurés pour la communication entre les nœuds sont limités à 50 nœuds de calcul. Par conséquent, un plus grand nombre de tâches peuvent être exécutées simultanément si chaque nœud dans un pool de ce type est capable d'exécuter des tâches en parallèle.
 
  - **Réplication d'un cluster de calcul local**, comme lorsque vous déplacez un environnement de calcul vers Azure pour la première fois. Vous pouvez augmenter le nombre maximal de tâches de nœud pour refléter plus précisément une configuration physique existante, si cette configuration exécute actuellement plusieurs tâches par nœud de calcul.
 
@@ -34,15 +34,15 @@ En autorisant l'exécution de tâches simultanées sur les nœuds de calcul d'un
 
 Voici un exemple qui illustre les avantages de l'exécution de tâches en parallèle. Supposons que votre application de tâche a des exigences en termes de processeur et de mémoire adaptées à une taille de nœud Standard\_D1. Cependant, afin d'exécuter le travail dans le délai imparti, il vous faut 1 000 nœuds de ce type.
 
-Au lieu d’utiliser les nœuds Standard\_D1, vous pouvez employer des nœuds Standard\_D14 avec 16 cœurs et activer l’exécution de tâches parallèles. Dans ce cas, vous pouvez donc utiliser *16 fois moins de nœuds* : au lieu de 1 000 nœuds, seuls 63 sont requis. Cela améliore considérablement le temps et l’efficacité de l’exécution des tâches si des fichiers d’application ou des données de référence de grande taille sont requis pour chaque nœud.
+Au lieu d’utiliser les nœuds Standard\_D1 avec 1 cœur de processeur, vous pouvez employer des nœuds Standard\_D14 avec 16 cœurs chacun et activer l’exécution de tâches parallèles. Dans ce cas, vous pouvez donc utiliser *16 fois moins de nœuds* : au lieu de 1 000 nœuds, seuls 63 sont requis. Cela améliore considérablement le temps et l’efficacité de l’exécution des tâches si des fichiers d’application ou des données de référence de grande taille sont requis pour chaque nœud.
 
 ## Activer l’exécution des tâches parallèles
 
-Vous configurez les nœuds de calcul dans votre solution Batch pour l'exécution des tâches parallèles au niveau du pool. Lorsque vous utilisez l'API .NET Batch, la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] est définie lors de la création d'un pool. Dans l'API REST Batch, l'élément [maxTasksPerNode][maxtasks_rest] est défini dans le corps de la demande lors de la création du pool.
+Vous configurez les nœuds de calcul dans votre solution Batch pour l'exécution des tâches parallèles au niveau du pool. Lorsque vous utilisez la bibliothèque .NET Batch, la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] est définie lors de la création d'un pool. Si vous utilisez l'API REST Batch, l'élément [maxTasksPerNode][maxtasks_rest] est défini dans le corps de la demande lors de la création du pool.
 
-Azure Batch vous permet de définir un nombre maximum de tâches par nœud allant jusqu'à quatre fois (4x) le nombre de cœurs de nœud. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Pour plus d'informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](../cloud-services/cloud-services-sizes-specs.md). Pour plus d'informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
+Azure Batch vous permet de définir un nombre maximum de tâches par nœud allant jusqu'à quatre fois (4x) le nombre de cœurs de nœud. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Pour plus d'informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](./../cloud-services/cloud-services-sizes-specs.md). Pour plus d'informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
 
-> [AZURE.TIP]Veillez à prendre en compte la valeur `maxTasksPerNode` lors de la construction d'une [formule de mise à l'échelle automatique][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.
+> [AZURE.TIP] Veillez à prendre en compte la valeur `maxTasksPerNode` lors de la construction d'une [formule de mise à l'échelle automatique][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.
 
 ## Répartition des tâches
 
@@ -78,7 +78,7 @@ Cet extrait de code de l'API [REST Batch][api_rest] illustre une demande de cré
           "maxTasksPerNode": 4
         }
 
-> [AZURE.NOTE]Vous pouvez définir l'élément `maxTasksPerNode` et la propriété [MaxTasksPerComputeNode][maxtasks_net] uniquement au moment de la création du pool. Ils ne peuvent pas être modifiés après qu'un pool a déjà été créé.
+> [AZURE.NOTE] Vous pouvez définir l'élément `maxTasksPerNode` et la propriété [MaxTasksPerComputeNode][maxtasks_net] uniquement au moment de la création du pool. Ils ne peuvent pas être modifiés après qu'un pool a déjà été créé.
 
 ## Explorer l’exemple de projet
 
@@ -106,11 +106,11 @@ Duration: 00:08:48.2423500
 
 La deuxième exécution de l'exemple montre une diminution significative de la durée du travail. Cela est dû au fait que le pool a été configuré avec quatre tâches par nœud, ce qui permet l'exécution de tâches parallèles pour terminer le travail en un quart du temps, environ.
 
-> [AZURE.NOTE]Les durées des tâches dans les résumés ci-dessus n’incluent pas le temps de création du pool. Chacune des tâches ci-dessus a été envoyée à des pools créés précédemment dont les nœuds de calcul étaient à l'état *Inactif* au moment de l'envoi.
+> [AZURE.NOTE] Les durées des tâches dans les résumés ci-dessus n’incluent pas le temps de création du pool. Chacune des tâches ci-dessus a été envoyée à des pools créés précédemment dont les nœuds de calcul étaient à l'état *Inactif* au moment de l'envoi.
 
 ## Carte thermique Batch Explorer
 
-[Batch Explorer][batch_explorer], l'un des [exemples d'application][github_samples] Azure Batch, contient une fonctionnalité *Carte thermique* qui permet de visualiser l'exécution des tâches. Lorsque vous exécutez l'exemple d'application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l'exécution de tâches parallèles sur chaque nœud.
+[Azure Batch Explorer][batch_explorer], l'un des [exemples d'application][github_samples] Azure Batch, contient une fonctionnalité *Carte thermique* qui permet de visualiser l'exécution de tâches. Lorsque vous exécutez l'exemple d'application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l'exécution de tâches parallèles sur chaque nœud.
 
 ![Carte thermique Batch Explorer][1]
 
@@ -118,7 +118,7 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
@@ -131,4 +131,4 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

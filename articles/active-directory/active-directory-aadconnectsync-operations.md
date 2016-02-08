@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure Connect AD sync : tâches opérationnelles et examen
@@ -96,7 +96,7 @@ Microsoft Azure AD sync ayant une dépendance sur une base de données SQL, vous
 ### Régénérer lorsque nécessaire
 Une stratégie viable consiste à planifier une régénération du serveur si nécessaire. Dans de nombreux cas, l’installation du moteur de synchronisation et l’exécution de l’importation et la synchronisation initiales peuvent être complétées en quelques heures. Si aucun serveur n’est libre, il est possible d’utiliser provisoirement un contrôleur de domaine pour héberger le moteur de synchronisation.
 
-Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L'attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
+Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L’attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
 
 ### Disposer d’un serveur de secours en attente, connu sous le nom de mode intermédiaire.
 Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l'installation, vous pouvez activer un serveur en **mode intermédiaire**.
@@ -114,4 +114,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

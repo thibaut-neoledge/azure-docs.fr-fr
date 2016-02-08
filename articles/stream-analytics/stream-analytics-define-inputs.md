@@ -34,7 +34,7 @@ Stream Analytics prend en charge un second type d'entrée : les données de ré
 
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de réception d’événements de publication/d’abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos appareils connectés et vos applications. Il s’agit des entrées les plus couramment utilisées pour Stream Analytics. Event Hubs et Stream Analytics fournissent au client une solution complète pour des analyses en temps réel. Event Hubs permet aux clients d’alimenter Azure en événements en temps réel et les tâches Stream Analytics peuvent traiter ces événements en temps réel. Par exemple, les clients peuvent envoyer des clics web, des lectures de capteurs ou des journaux des événements en ligne sur Event Hubs et créer des tâches Stream Analytics pour utiliser Event Hubs comme flux de données d’entrée pour les opérations de filtrage, d’agrégation et de corrélation en temps réel.
 
-Il est important de noter que l’horodatage par défaut des événements issus d’Event Hubs dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans Event Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+Il est important de noter que l’horodatage par défaut des événements issus d’Event Hubs dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans Event Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 ### Groupes de consommateurs
 
@@ -112,7 +112,7 @@ Quand vos données proviennent d’une source IoT Hub, vous pouvez accéder à c
 
 ## Créer une entrée de flux de données de stockage d’objets blob
 
-Quand il est nécessaire de stocker de grandes quantités de données non structurées dans le cloud, le stockage d’objets blob offre une solution peu coûteuse et évolutive. Les données dans le [stockage d’objets blob](http://azure.microsoft.com/services/storage/blobs/) sont généralement considérées comme « au repos », mais elles peuvent être traitées comme un flux de données par Stream Analytics. Le traitement du journal est un scénario courant pour les entrées de stockage d’objets Blob avec Stream Analytics dans lequel la télémétrie est capturée à partir d’un système et doit être analysée et traitée pour extraire des données pertinentes.
+Quand il est nécessaire de stocker de grandes quantités de données non structurées dans le cloud, le stockage d’objets blob offre une solution peu coûteuse et évolutive. Les données dans le [stockage d’objets blob](https://azure.microsoft.com/services/storage/blobs/) sont généralement considérées comme « au repos », mais elles peuvent être traitées comme un flux de données par Stream Analytics. Le traitement du journal est un scénario courant pour les entrées de stockage d’objets Blob avec Stream Analytics dans lequel la télémétrie est capturée à partir d’un système et doit être analysée et traitée pour extraire des données pertinentes.
 
 Il est important de noter que l’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, *BlobLastModifiedUtcTime*. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -195,9 +195,9 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 Vous avez appris à connaître les options de connexion de données dans Azure pour vos travaux Stream Analytics. Pour en savoir plus sur Stream Analytics, consultez :
 
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
@@ -207,4 +207,4 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

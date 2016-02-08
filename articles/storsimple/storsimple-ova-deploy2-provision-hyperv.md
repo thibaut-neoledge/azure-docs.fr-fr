@@ -22,7 +22,7 @@
 
 ## Vue d'ensemble 
 
-Ce didacticiel sur la configuration s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version 1.1.1.0 (version préliminaire publique) uniquement. Ce didacticiel explique comment configurer StorSimple Virtual Array sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
+Ce didacticiel sur la configuration s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version 1.1.1.0 (version préliminaire publique) uniquement. Ce didacticiel explique comment configurer StorSimple Virtual Array sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
 
 Vous aurez besoin de privilèges d'administrateur pour configurer un appareil virtuel. La configuration initiale peut prendre environ 10 minutes.
 
@@ -32,7 +32,7 @@ Vous aurez besoin de privilèges d'administrateur pour configurer un appareil vi
 
 ## Configuration des composants requis
 
-Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un ordinateur hôte Hyper-V 2008 R2, Hyper-V 2012 et 2012 R2.
+Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un ordinateur hôte Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
 
 ### Pour le service StorSimple Manager
 
@@ -274,4 +274,4 @@ Regardez la vidéo pour voir comment configurer StorSimple Virtual Array dans Hy
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Résolution des problèmes : dégradation des performances dans une application web
 
 Cet article vous aide à résoudre les problèmes de performances dans une application web hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Si vous avez besoin d’une aide supplémentaire au sujet d’un point quelconque de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d’une aide supplémentaire au sujet d’un point quelconque de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 ## Symptôme
 
@@ -133,19 +133,19 @@ Le portail de support Azure App Service vous propose trois onglets distincts pou
 2.	Analyser en collectant des informations de diagnostic et en exécutant les analyseurs intégrés
 3.	Résoudre
 
-Si le problème se produit maintenant, cliquez sur **Analyser** > **Diagnostics** > **Diagnostiquer maintenant** pour créer une session de diagnostic, qui recueillera les journaux HTTP, les journaux de l’observateur d’événements, les vidages de mémoire, les journaux d’erreurs PHP et le rapport de traitement PHP.
+Si le problème est en cours, cliquez sur **Analyser** > **Diagnostics** > **Diagnostiquer maintenant** pour créer une session de diagnostic, qui recueillera les journaux HTTP, les journaux de l'observateur d'événements, les vidages de mémoire, les journaux d'erreurs PHP et le rapport de traitement PHP.
 
 Une fois les données collectées, une analyse sera également exécutée sur les données pour vous fournir un rapport HTML.
 
 Si vous souhaitez télécharger les données, par défaut, celles-ci sont stockées dans le dossier D:\\home\\data\\DaaS.
 
-Pour plus d’informations sur le portail de support Azure App Service, consultez [Nouvelles mises à jour à l’extension de site de support pour les sites web Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Pour plus d'informations sur le portail de support Azure App Service, consultez [Nouvelles mises à jour à l'extension de site de support pour les sites web Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### Utilisation de la console de débogage Kudu
 
-Web Apps est fourni avec une console de débogage que vous pouvez utiliser pour le débogage, l’exploration, le téléchargement de fichiers, ainsi que les points de terminaison JSON pour obtenir des informations relatives à votre environnement. Il s’agit de la _console Kudu_ ou du _tableau de bord SCM_ pour votre application web.
+Web Apps est fourni avec une console de débogage que vous pouvez utiliser pour le débogage, l’exploration, le téléchargement de fichiers, ainsi que les points de terminaison JSON pour obtenir des informations relatives à votre environnement. Il s'agit de la _console Kudu_ ou du _tableau de bord SCM_ pour votre application web.
 
-Vous pouvez accéder à ce tableau de bord avec le lien **https://&lt;Your nom de l’application>.scm.azurewebsites.net/**.
+Vous pouvez accéder à ce tableau de bord avec le lien **https://&lt;Your nom de l'application>.scm.azurewebsites.net/**.
 
 Kudu fournit, entre autres, les éléments suivants :
 
@@ -166,7 +166,7 @@ Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consu
 
 Dans Azure App Service, pour améliorer les performances et le débit, vous pouvez ajuster l’échelle à laquelle vous exécutez votre application. La mise à l’échelle d’une application web implique deux actions associées : l’évolution de votre plan App Service vers un niveau de tarification supérieur et la configuration de certains paramètres après le passage à ce niveau de tarification supérieur.
 
-Pour plus d’informations sur la mise à l’échelle, consultez [Mettre à l’échelle une application web dans Azure App Service](web-sites-scale.md).
+Pour plus d'informations sur la mise à l'échelle, consultez [Mise à l'échelle d'une application web dans Microsoft Azure App Service](web-sites-scale.md).
 
 En outre, vous pouvez choisir d’exécuter votre application sur plusieurs instances. Non seulement cela vous offre plus de capacité de traitement, mais également un certain niveau de tolérance aux pannes. Si le processus s’arrête sur une instance, l’autre instance continue de servir les requêtes.
 
@@ -176,14 +176,14 @@ Vous pouvez définir la mise à l’échelle pour qu’elle soit manuelle ou aut
 
 La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application web directement dans le portail Azure, la fonctionnalité de correction automatique (AutoHeal) le fera automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application web. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .Net.
 
-Pour plus d’informations, consultez [Correction automatique de Sites Web Azure](/blog/auto-healing-windows-azure-web-sites/).
+Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](/blog/auto-healing-windows-azure-web-sites/).
 
 ####	Redémarrage de l’application web
 
-Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com), sur le panneau de votre application web, vous disposez des options pour arrêter ou redémarrer votre application.
+Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com/), sur le panneau de votre application web, vous avez la possibilité d’arrêter ou de redémarrer votre application.
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Modification d’un modèle Resource Manager avec Visual Studio | Microsoft Azure"
    description="Apprenez à ajouter des ressources à un modèle Azure Resource Manager à l’aide de Visual Studio."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags 
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Modification des modèles Resource Manager avec Visual Studio
 
@@ -69,4 +69,4 @@ Pour plus d’informations sur la structure du modèle, consultez [Création de 
 
 [Vidéo Channel 9 : gestionnaire de ressources Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

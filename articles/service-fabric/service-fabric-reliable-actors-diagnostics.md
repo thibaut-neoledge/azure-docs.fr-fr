@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Diagnostics et surveillance des performances pour Reliable Actors
@@ -153,4 +153,4 @@ Le runtime Reliable Actors émet les événements suivants liés à l'[activatio
 |ActorActivated|5|Informations|0x1|Un acteur a été activé.|
 |ActorDeactivated|6|Informations|0x1|Un acteur a été désactivé.|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

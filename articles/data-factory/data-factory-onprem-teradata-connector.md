@@ -30,6 +30,8 @@ Data Factory prend uniquement en charge le déplacement de données de Teradata 
 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données Teradata, vous devez installer le [fournisseur de données .NET pour Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) sur le même système que la passerelle de gestion des données.
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
 ### Exemple : copie de données de Teradata vers Azure Blob
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -312,4 +314,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

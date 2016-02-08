@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Pour télécharger des correctifs logiciels
 
@@ -20,7 +20,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
  
 6. Cliquez sur **Télécharger**. Spécifiez ou **accédez** à un emplacement local où vous souhaitez que le téléchargement s'affiche. La mise à jour est téléchargée dans un dossier (portant le même nom que la mise à jour) à l’emplacement choisi. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
        
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
 	> 
 	> - Vous devez également télécharger la **mise à jour du pilote LSI** (SAS Controller Update 2.0 pour la gamme StorSimple 8000 - KB3121900), la **mise à jour Storport** (correctif logiciel pour Windows Server 2012 R2 x64 Edition - KB3080728), la **mise à jour Spaceport** (correctif logiciel pour Windows Server 2012 R2 x64 Edition - KB3090322) et la **mise à jour du microprogramme de disque** (Cumulative Disk Firmware Update 2.0 pour la gamme StorSimple 8000 - KB3121899), et les copier dans le même de dossier partagé.
 	> - Le correctif doit être accessible depuis les deux contrôleurs pour détecter les messages d'erreur potentiels à partir du contrôleur homologue.
@@ -85,7 +85,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
         ````
 		
 
-	> [AZURE.NOTE]Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif logiciel est terminé.
+	> [AZURE.NOTE] Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif logiciel est terminé.
 	
 8. Une fois la mise à jour logicielle terminée, répétez les étapes 3 à 5 pour installer et surveiller les agents SaaS et MDS à l’aide de `CisMdsAgentUpdateBundle.exe`. Veillez à installer `HcsMdsSoftwareUpdate.exe` avant `CisMdsAgentUpdateBundle.exe`.
 
@@ -109,7 +109,11 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
 #### Pour installer et vérifier le correctif logiciel en mode Maintenance
 
-Utilisez le package `DiskFirmwarePackage.exe` (KB3121899) pour installer les mises à jour du microprogramme de disque. Ces mises à jour, qui entraînent des perturbations, nécessitent environ 30 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série du périphérique. Pour installer les mises à jour du microprogramme de disque, suivez les instructions ci-dessous.
+Utilisez le package `DiskFirmwarePackage.exe` (KB3121899) pour installer les mises à jour du microprogramme de disque. Ces mises à jour, qui entraînent des perturbations, nécessitent environ 30 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série du périphérique.
+
+Notez que si votre microprogramme de disque est déjà à jour, vous n’aurez pas à installer ces mises à jour. Exécuter l’applet de commande `Get-HcsUpdateAvailability` à partir de la console série de l’appareil. Le système vous indique si des mises à jour sont disponibles et si elles risquent de provoquer une interruption de service (mises en jour en mode maintenance) ou non (périodiques).
+ 
+Pour installer les mises à jour du microprogramme de disque, suivez les instructions ci-dessous.
 
 1. Mettez l’appareil en mode Maintenance. Notez que vous ne devez pas utiliser l’accès distant Windows PowerShell quand vous vous connectez à un appareil en mode Maintenance. Vous devez exécuter cette applet de commande sur le contrôleur de l’appareil si vous êtes connecté par le biais de la console série de l’appareil. Entrez :
 		
@@ -235,4 +239,4 @@ Utilisez le package `DiskFirmwarePackage.exe` (KB3121899) pour installer les mis
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

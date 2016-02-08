@@ -106,13 +106,13 @@ Vous êtes prêt à commencer ? Pour déployer l’authentification unique entr
 
 ###Utilisation de la galerie d’applications Azure AD
 
-La [Galerie d'applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory.
+La [Galerie d’applications Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) contient une liste d’applications qui prennent en charge une forme d’authentification unique avec Azure Active Directory.
 
 ![][1]
 
 Voici quelques conseils pour trouver des applications en fonction des fonctionnalités qu’elles prennent en charge :
 
-*	Azure AD prend en charge l'approvisionnement et l'annulation de l'approvisionnement automatique pour toutes les applications de la sélection de la [Galerie d'applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD prend en charge l'approvisionnement et l'annulation de l'approvisionnement automatique pour toutes les applications de la sélection de la [Galerie d'applications Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	Une liste d'applications fédérées qui prennent en charge l'authentification unique fédérée à l'aide d'un protocole comme SAML, WS-Federation ou OpenID Connect est disponible [ici](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
@@ -131,7 +131,7 @@ Si l’application est introuvable dans la galerie d’applications Azure AD, v
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Demander l'intégration d'une application** : demandez à ce que l'application dont vous avez besoin soit prise en charge via le [forum de commentaires Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Demander l’intégration d’une application** : demandez à ce que l’application dont vous avez besoin soit prise en charge via le [forum de commentaires Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ###À l'aide du portail de gestion Azure
 
@@ -168,7 +168,7 @@ Les méthodes que vous choisissez de déployer dans votre organisation sont à v
 
 ###Panneau d’accès Azure AD
 
-Le panneau d'accès à l'adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d'un compte d'organisation dans Azure Active Directory de voir et de lancer les applications cloud pour laquelle il a reçu des autorisations d'accès de l'administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d'accès.
+Le panneau d'accès à l'adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d'un compte d'organisation dans Azure Active Directory de voir et de lancer les applications cloud pour laquelle il a reçu des autorisations d'accès de l'administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
 
 ![][3]
 
@@ -182,7 +182,7 @@ Pour les organisations ayant déployé Office 365, les applications affectées 
 
 ![][4]
 
-Pour plus d'informations sur le lanceur d'applications Office 365, consultez [Faire apparaître votre application dans le lanceur d'applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Pour plus d’informations sur le lanceur d’applications Office 365, consultez [Faire apparaître votre application dans le lanceur d’applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Authentification directe pour les applications fédérées
 
@@ -220,4 +220,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

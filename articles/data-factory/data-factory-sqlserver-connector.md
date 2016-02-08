@@ -204,7 +204,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	   }
 	}
 
-> [AZURE.NOTE]Dans l'exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête dans la source de base de données SQL server pour obtenir les données.
+> [AZURE.NOTE] Dans l'exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête dans la source de base de données SQL server pour obtenir les données.
 >  
 > Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 >  
@@ -447,7 +447,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
-> [AZURE.NOTE]L'activité de copie accepte uniquement une entrée et produit une seule sortie.
+> [AZURE.NOTE] L'activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -499,7 +499,10 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 5. Créez une **règle de pare-feu Windows** sur l’ordinateur pour autoriser le trafic à entrer par ce port.  
 6. **Vérifier la connexion** : servez-vous de SQL Server Management Studio sur un autre ordinateur pour vous connecter à SQL Server en utilisant un nom qualifié complet. Par exemple : <machine>.<domain>.corp.<company>.com, 1433.
 
-	> [AZURE.IMPORTANT]Consultez la page [Considérations liées aux ports et à la sécurité](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) pour plus d’informations.
+	> [AZURE.IMPORTANT] 
+	Consultez la page [Considérations liées aux ports et à la sécurité](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) pour plus d’informations.
+	>   
+	> Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -562,4 +565,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

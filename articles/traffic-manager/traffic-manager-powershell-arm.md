@@ -12,17 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="01/25/2016"
    ms.author="joaoma" />
-
-
 
 # Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager
 Azure Resource Manager (ARM) est la nouvelle infrastructure de gestion des services dans Azure. Les outils et API d’Azure Resource Manager permettent désormais de gérer les profils Azure Traffic Manager. Pour plus d’informations sur Azure Resource Manager, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../azure-preview-portal-using-resource-groups.md).
-
->[AZURE.NOTE]La prise en charge d’ARM dans Traffic Manager est actuellement en version préliminaire. Ceci concerne également l’API REST, Azure PowerShell, l’interface de ligne de commande Azure et le Kit de développement logiciel (SDK) .NET.
-
-
 
 ## Modèle de ressource
 
@@ -44,22 +38,22 @@ Toutefois, si les fonctionnalités restent les mêmes, la terminologie a changé
 
 - La méthode de routage du trafic par « basculement » a été renommée en « priorité ».
 
-## Limitations de la version préliminaire
-Comme la prise en charge d’Azure Resource Manager dans Traffic Manager est un service actuellement en version préliminaire, il présente quelques limitations :
+## Limites
+Il existe actuellement un petit nombre de limitations dans la prise en charge ARM d’Azure Traffic Manager :
 
 - Les profils Traffic Manager créés à l’aide de l’API (non ARM) de gestion des services (ASM), des outils et du portail classique ne sont pas disponibles dans ARM et inversement. La migration des profils d’API ASM vers ARM n’est pas actuellement pas prise en charge. La seule possibilité consiste à supprimer puis recréer le profil.
 
-- Les points de terminaison Traffic Manager « Imbriqués » ne sont pas actuellement pris en charge dans l’API ARM.
 
-- Azure Traffic Manager n’est pas encore disponible dans le portail Azure « en version préliminaire », uniquement sur le portail « classique ».
+- Les points de terminaison Traffic Manager « imbriqués » sont pris en charge via l’API ARM, PowerShell ARM et l’interface de ligne de commande Azure en mode ARM. Ils ne sont pas actuellement pris en charge dans le portail Azure (qui utilise également l’API ARM).
+
 
 ## Configuration d’Azure PowerShell
 
 Ces instructions utilisent Microsoft Azure PowerShell qui doit être configuré comme indiqué ci-après.
 
-Pour les utilisateurs non PowerShell ou non Windows, des opérations analogues peuvent être exécutées via l’interface de ligne de commande Azure.
+Pour les utilisateurs non PowerShell ou non Windows, des opérations analogues peuvent être exécutées via l’interface de ligne de commande Azure. Toutes les opérations, à l’exception de la gestion des profils Traffic Manager « imbriqués », sont également disponibles par le biais du portail Azure.
 
-### Étape 1 :
+### Étape 1
 Installez la dernière version d’Azure PowerShell, disponible dans la page des téléchargements d’Azure.
 
 ### Étape 2 :
@@ -72,7 +66,7 @@ Vous devez indiquer vos informations d’identification.
 ### Étape 3
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
-	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
+	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
 Pour afficher la liste des abonnements disponibles, utilisez l’applet de commande « Get-AzureRmSubscription ».
 
@@ -85,7 +79,7 @@ Le service Traffic Manager est géré par le fournisseur de ressources Microsoft
 ### Étape 5
 Créez un groupe de ressources (ignorez cette étape si vous en avez un) :
 
-	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -Location "West US"
+	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que les ressources des profils Traffic Manager sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure Traffic Manager.
 
@@ -93,7 +87,7 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Pour créer un profil Traffic Manager, utilisez l’applet de commande New-AzureRmTrafficManagerProfile :
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 Les paramètres sont les suivants :
 
@@ -119,7 +113,7 @@ L'applet de commande crée un profil Traffic Manager dans Azure Traffic Manager 
 
 Pour récupérer un profil Traffic Manager, utilisez l’applet de commande Get-AzureRmTrafficManagerProfile :
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 
 Cette applet de commande renvoie un objet de profil Traffic Manager.
 
@@ -137,7 +131,7 @@ Toutes les propriétés de profil peuvent être modifiées, à l’exception du 
 
 Par exemple, pour modifier la durée de vie (TTL) du profil :
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
@@ -155,7 +149,7 @@ Dans tous les cas : - le service est spécifié avec le paramètre « targetRe
 #### Exemple 1 : ajout de points de terminaison Web App à l’aide de Add-AzureRmTrafficManagerEndpointConfig
 Dans cet exemple, nous créer un profil Traffic Manager et ajouter deux points de terminaison Web App à l’aide de l’applet de commande Add-AzureRmTrafficManagerEndpointConfig, puis valider le profil mis à jour vers Azure Traffic Manager à l’aide de Set-AzureRmTrafficManagerProfile.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $webapp1 = Get-AzureRMWebApp -Name webapp1
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp1ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled
 	PS C:\> $webapp2 = Get-AzureRMWebApp -Name webapp2
@@ -171,18 +165,18 @@ Dans cet exemple, un point de terminaison Cloud Service « classique » est aj
 #### Exemple 3 : ajout d’un point de terminaison publicIpAddress à l’aide de New-AzureRmTrafficManagerEndpoint
 Dans cet exemple, une ressource d’adresse IP publique ARM est ajoutée au profil Traffic Manager. L’adresse IP publique doit avoir un nom DNS configuré et peut être liée à la carte réseau d’une machine virtuelle ou à un équilibreur de charge.
 
-	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyIpEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $ip.Id –EndpointStatus Enabled
 
 ### Ajout de points de terminaison externes
 Traffic Manager utilise les points de terminaison externes pour diriger le trafic vers les services hébergés en dehors d’Azure. Comme avec les points de terminaison Azure, les points de terminaison externes peuvent être ajoutés à l’aide de Add-AzureRmTrafficManagerEndpointConfig suivi de Set-AzureRmTrafficManagerProfile ou New-AzureRMTrafficManagerEndpoint.
 
-Lorsque vous spécifiez les points de terminaison externes : - le nom de domaine du point de terminaison doit être spécifié à l’aide du paramètre « Target » - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée. Sinon, il est facultatif. La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure.
+Lorsque vous spécifiez les points de terminaison externes : - le nom de domaine du point de terminaison doit être spécifié à l’aide du paramètre « Target » - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée. Sinon, il est facultatif. La valeur doit être un [nom de région Azure valide](https://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure.
 
 #### Exemple 1 : ajout de points de terminaison externes à l’aide d’Add-AzureRmTrafficManagerEndpointConfig et Set-AzureRmTrafficManagerProfile
 Dans cet exemple, nous allons créer un profil Traffic Manager, ajouter deux points de terminaison externes et valider les modifications.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName eu-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName us-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-us.contoso.com –EndpointStatus Enabled
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
@@ -192,13 +186,39 @@ Dans cet exemple, nous ajoutons un point de terminaison externe à un profil exi
 
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name eu-endpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 
+### Ajout de points de terminaison « imbriqués »
+
+Traffic Manager vous permet de configurer un profil Traffic Manager (que nous appellerons profil « enfant ») en tant que point de terminaison dans un autre profil Traffic Manager (que nous appellerons profil « parent »).
+
+L’imbrication de Traffic Manager vous permet de créer des schémas de routage du trafic et de basculement plus souples et plus puissants pour répondre aux besoins des déploiements plus vastes et plus complexes. [Ce billet de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) donne plusieurs exemples.
+
+Les points de terminaison imbriqués sont configurés sur le profil parent, à l’aide d’un type de point de terminaison spécifique, « NestedEndpoints ». Quand vous spécifiez des points de terminaison imbriqués : - le point de terminaison (c’est-à-dire, le profil enfant) doit être spécifié à l’aide du paramètre « targetResourceId ». - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée (sinon, il est facultatif). La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure. - le paramètre « MinChildEndpoints » est facultatif (sa valeur par défaut est 1). Si le nombre de points de terminaison disponibles dans le profil enfant tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de profil parents.
+
+
+#### Exemple 1 : ajout de points de terminaison imbriqués à l’aide d’Add-AzureRmTrafficManagerEndpointConfig et Set-AzureRmTrafficManagerProfile
+
+Dans cet exemple, nous créons des profils Traffic Manager enfant et parent, ajoutons l’enfant en tant que point de terminaison imbriqué dans le parent et validons les modifications. (Par souci de concision, nous n’ajoutons pas d’autres points de terminaison au profil enfant ou parent, bien que cela soit normalement nécessaire.)
+
+	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName child-endpoint –TrafficManagerProfile $parent –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+
+#### Exemple 2 : ajout de points de terminaison imbriqués à l’aide de New-AzureRmTrafficManagerEndpoint
+
+Dans cet exemple, nous ajoutons un profil enfant existant en tant que point de terminaison imbriqué à un profil parent existant, spécifié à l’aide du nom du profil et du nom de groupe de ressources.
+
+	PS C:\> $child = Get-AzureRmTrafficManagerEndpoint –Name child -ResourceGroupName MyRG
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name child-endpoint –ProfileName parent -ResourceGroupName MyRG –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+
+
 ## Mettre à jour un point de terminaison Traffic Manager
 Il existe deux façons de mettre à jour un point de terminaison Traffic Manager existant : 1. Obtenir le profil Traffic Manager à l’aide de Get-AzureRmTrafficManagerProfile, mettre à jour les propriétés de point de terminaison dans le profil et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerProfile. Cette méthode présente l’avantage de pouvoir mettre à jour plusieurs points de terminaison en une seule opération. 2. Obtenir le point de terminaison Traffic Manager à l’aide de Get-AzureRmTrafficManagerEndpoint, mettre à jour les propriétés de point de terminaison et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerEndpoint. Cette méthode est plus simple, car elle ne nécessite pas d’indexation dans le tableau de points de terminaison dans le profil.
 
 #### Exemple 1 : mise à jour de points de terminaison à l’aide de Get-AzureRmTrafficManagerProfile et Set-AzureRmTrafficManagerProfile
 Dans cet exemple, nous allons modifier l’ordre de priorité de deux points de terminaison dans un profil existant.
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG
 	PS C:\> $profile.Endpoints[0].Priority = 2
 	PS C:\> $profile.Endpoints[1].Priority = 1
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
@@ -206,7 +226,7 @@ Dans cet exemple, nous allons modifier l’ordre de priorité de deux points de 
 #### Exemple 2 : mise à jour d’un point de terminaison à l’aide de Get-AzureRmTrafficManagerEndpoint et Set-AzureRmTrafficManagerEndpoint
 Dans cet exemple, nous allons modifier le poids d’un seul point de terminaison dans un profil existant.
 
-	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName myrg -Type ExternalEndpoints
+	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 	PS C:\> $endpoint.Weight = 20
 	PS C:\> Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
@@ -227,11 +247,11 @@ L’applet de commande Disable-AzureRmTrafficManagerProfile vous invite à confi
 #### Exemple 2 : activation et désactivation d’un point de terminaison Traffic Manager
 Pour activer un point de terminaison Traffic Manager, utilisez Enable-AzureRmTrafficManagerEndpoint. Le point de terminaison peut être spécifié à l’aide d’un objet TrafficManagerEndpoint (transmis via le pipeline ou à l’aide du paramètre « -TrafficManagerEndpoint »), ou par l’utilisation du nom de point de terminaison, du type de point de terminaison, du nom du profil et du nom de groupe de ressources :
 
-	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 
 De même, pour désactiver un point de terminaison Traffic Manager :
 
- 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
+ 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 
 Comme avec Disable-AzureRmTrafficManagerProfile, l’applet de commande Disable-AzureRmTrafficManagerEndpoint inclut une invite de confirmation qui peut être supprimée à l’aide du paramètre « -Force ».
 
@@ -240,23 +260,23 @@ Un des moyens de supprimer un point de terminaison Traffic Manager consiste à r
 
 Une autre façon de supprimer des points de terminaison individuels consiste à utiliser l’applet de commande Remove-AzureRmTrafficManagerEndpoint :
 
-	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 	
 Cette applet de commande vous invite à confirmer l’opération à moins que le paramètre « -Force » soit utilisé pour supprimer l’invite.
 
 ## Supprimer un profil Traffic Manager
 Pour supprimer un profil Traffic Manager, utilisez l’applet de commande AzureRmTrafficManagerProfile, en spécifiant le nom du profil et le nom du groupe de ressources :
 
-	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG [-Force]
 
 Cette applet de commande vous demande de confirmer l'opération. Le commutateur facultatif « -Force » permet de supprimer l'invite de confirmation. Le profil à supprimer peut également être spécifié par un objet de profil :
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Cette séquence peut également être canalisée :
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
 
 ## Étapes suivantes
 
@@ -265,4 +285,4 @@ Cette séquence peut également être canalisée :
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

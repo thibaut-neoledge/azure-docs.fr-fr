@@ -48,7 +48,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 ### Promotion de votre application dans les Marketplace d’Azure et d’Office 365
 
-**Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.** Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
+**Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.** Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
 **Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Office 365.** Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](active-directory-saas-access-panel-introduction.md).
 
@@ -68,7 +68,7 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 ### Fonctionnalités de sécurité avancées
 
-**Authentification multifacteur** Azure AD fournit une authentification multifacteur native. Les administrateurs informatiques peuvent avoir besoin d'une authentification multifacteur pour accéder à votre application afin que vous n'ayez pas à écrire le code vous-même. En savoir plus sur l’[authentification multifacteur](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Authentification multifacteur** Azure AD fournit une authentification multifacteur native. Les administrateurs informatiques peuvent avoir besoin d'une authentification multifacteur pour accéder à votre application afin que vous n'ayez pas à écrire le code vous-même. En savoir plus sur l’[authentification multifacteur](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Détection de connexion anormale** Azure AD traite plus d'un milliard de connexions par jour, tout en utilisant des algorithmes d'apprentissage automatique pour détecter des activités suspectes et signaler tout problème éventuel aux administrateurs informatiques. En prenant en charge la connexion à Azure AD, votre application bénéficie de cette protection. En savoir plus sur l’[affichage des rapports d'accès Azure Active Directory](active-directory-view-access-usage-reports.md).
 
@@ -90,4 +90,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 1 : configurer Azure
@@ -62,7 +62,7 @@ Consultez votre service informatique afin de déterminer ces espaces d'adressage
 
 **Table S : sous-réseaux du réseau virtuel**
 
-> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md) Azure.
+> [AZURE.NOTE] Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md) Azure.
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
@@ -87,7 +87,7 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Tout d’abord, démarrez une invite Azure PowerShell et connectez-vous à votre compte.
 
@@ -220,4 +220,4 @@ Vous trouverez ci-dessous la configuration résultant de l'exécution de cette p
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

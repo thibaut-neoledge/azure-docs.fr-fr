@@ -116,19 +116,25 @@ Nous allons créer le premier service fiable avec état à plusieurs partitions.
 Avant d’écrire le code, vous devez réfléchir aux partitions et aux clés de partition. Vous avez besoin de 26 partitions, soit une partition pour chaque lettre de l’alphabet, mais devez-vous utiliser des clés basses ou hautes ? Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons utiliser 0 comme clé basse et 25 comme clé haute puisque chaque lettre est sa propre clé.
 
 
->[AZURE.NOTE]Il s’agit d’un scénario simplifié car, en réalité, la distribution serait inégale. Les noms commençant par la lettre S ou M sont plus courants que ceux commençant par X ou Y.
+>[AZURE.NOTE] Il s’agit d’un scénario simplifié car, en réalité, la distribution serait inégale. Les noms commençant par la lettre S ou M sont plus courants que ceux commençant par X ou Y.
 
 
 1. Ouvrez **Visual Studio** ->**Fichier** -> **Nouveau** -> **Projet**.
 2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez l’application Service Fabric.
 3. Appelez le projet AlphabetPartitions.
-4. Dans la boîte de dialogue **Créer un service**, choisissez Service **avec état** et appelez-le Alphabet.Processing comme indiqué dans l’image ci-dessous. ![Capture d’écran de service avec état](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+4. Dans la boîte de dialogue **Créer un service**, choisissez Service **avec état** et appelez-le « Alphabet.Processing » comme indiqué dans l’image ci-dessous.
+
+    ![Capture d’écran de service avec état](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
 5. Définissez le nombre de partitions. Ouvrez le fichier ApplicationManifest.xml dans le projet AlphabetPartitions et mettez à jour le paramètre Processing\_PartitionCount sur 26, comme illustré ci-dessous.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    Vous devez également mettre à jour les propriétés LowKey et HighKey de l’élément StatefulService, comme illustré ci-dessous. ```xml
+    
+    Vous devez également mettre à jour les propriétés LowKey et HighKey de l’élément StatefulService, comme illustré ci-dessous.
+    
+    ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
@@ -146,84 +152,93 @@ Avant d’écrire le code, vous devez réfléchir aux partitions et aux clés de
 
 7. Vous devez ensuite remplacer la méthode `CreateServiceReplicaListeners()` de la classe Processing.
 
-    >[AZURE.NOTE]Pour cet exemple, supposons que vous utilisiez un HttpCommunicationListener simple. Pour plus d’informations sur la communication de service fiable, consultez [modèle de communication de Reliable Service](service-fabric-reliable-services-communication.md).
+    >[AZURE.NOTE] Pour cet exemple, supposons que vous utilisiez un HttpCommunicationListener simple. Pour plus d’informations sur la communication de service fiable, consultez [modèle de communication de Reliable Service](service-fabric-reliable-services-communication.md).
 
 8. Le format suivant est recommandé pour l’URL sur laquelle se fait l’écoute du réplica : `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`. Vous devez donc configurer votre écouteur de communication pour l’écoute sur les points de terminaison correctes et avec ce modèle.
 
-Plusieurs réplicas de ce service peuvent être hébergés sur le même ordinateur, ce qui signifie que cette adresse doit être unique pour le réplica. C’est pourquoi l’ID de partition + ID de réplica sont dans l’URL. HttpListener peut écouter plusieurs adresses sur le même port tant que le préfixe d’URL est unique.
+    Plusieurs réplicas de ce service peuvent être hébergés sur le même ordinateur, ce qui signifie que cette adresse doit être unique pour le réplica. C’est pourquoi l’ID de partition + ID de réplica sont dans l’URL. HttpListener peut écouter plusieurs adresses sur le même port tant que le préfixe d’URL est unique.
 
-Le GUID supplémentaire est fourni dans les cas où des réplicas secondaires écouteraient également les demandes en lecture seule. Dans ce cas de figure, vous voudrez vous assurer qu’une nouvelle adresse unique est utilisée lors de la transition du réplica principal vers le réplica secondaire afin de forcer les clients à résoudre l’adresse. « + » est utilisé comme adresse ici afin que le réplica écoute sur tous les hôtes disponibles (IP, FQDM, localhost, etc.). Le code ci-dessous en montre un exemple.
+    Le GUID supplémentaire est fourni dans les cas où des réplicas secondaires écouteraient également les demandes en lecture seule. Dans ce cas de figure, vous voudrez vous assurer qu’une nouvelle adresse unique est utilisée lors de la transition du réplica principal vers le réplica secondaire afin de forcer les clients à résoudre l’adresse. « + » est utilisé comme adresse ici afin que le réplica écoute sur tous les hôtes disponibles (IP, FQDM, localhost, etc.). Le code ci-dessous en montre un exemple.
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
     private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
     {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
         string uriPrefix = String.Format(
-                "{0}://+:{1}/{2}/{3}-{4}/",
-                internalEndpoint.Protocol,
-                internalEndpoint.Port,
-                this.ServiceInitializationParameters.PartitionId,
-                this.ServiceInitializationParameters.ReplicaId,
-                Guid.NewGuid());
+            "{0}://+:{1}/{2}/{3}-{4}/",
+            internalEndpoint.Protocol,
+            internalEndpoint.Port,
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
         string uriPublished = uriPrefix.Replace("+", nodeIP);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
-Il est également important de noter que l’URL publiée diffère légèrement du préfixe de l’URL d’écoute. L’URL d’écoute est donnée à HttpListener. L’URL publiée est l’URL qui est publiée dans le service de nommage Service Fabric, utilisé pour la découverte de service. Les clients demanderont cette adresse via ce service de découverte. L’adresse obtenue par les clients doit comporter l’IP ou le nom de domaine complet du nœud pour pouvoir établir la connexion. Vous devez remplacer « + » par l’adresse IP ou le nom de domaine complet du nœud comme indiqué ci-dessus. 9. La dernière étape consiste à ajouter la logique de traitement au service comme indiqué ci-dessous.
+
+    Il est également important de noter que l’URL publiée diffère légèrement du préfixe de l’URL d’écoute. L’URL d’écoute est donnée à HttpListener. L’URL publiée est l’URL qui est publiée dans le service de nommage Service Fabric, utilisé pour la découverte de service. Les clients demanderont cette adresse via ce service de découverte. L’adresse obtenue par les clients doit comporter l’IP ou le nom de domaine complet du nœud pour pouvoir établir la connexion. Vous devez remplacer « + » par l’adresse IP ou le nom de domaine complet du nœud comme indiqué ci-dessus.
+    
+9. La dernière étape consiste à ajouter la logique de traitement au service comme indiqué ci-dessous.
 
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-          string output = null;
-          string user = context.Request.QueryString["lastname"].ToString();
+        string output = null;
+        string user = context.Request.QueryString["lastname"].ToString();
 
-          try
-          {
-              output = await this.AddUserAsync(user);
-          }
-          catch (Exception ex)
-          {
-              output = ex.Message;
-          }
+        try
+        {
+            output = await this.AddUserAsync(user);
+        }
+        catch (Exception ex)
+        {
+            output = ex.Message;
+        }
 
-          using (HttpListenerResponse response = context.Response)
-          {
-              if (output != null)
-              {
-                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
-              }
-          }
-      }
-      private async Task<string> AddUserAsync(string user)
-      {
-          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+        using (HttpListenerResponse response = context.Response)
+        {
+            if (output != null)
+            {
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
+    }
+    private async Task<string> AddUserAsync(string user)
+    {
+        IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-          using (ITransaction tx = this.StateManager.CreateTransaction())
-          {
-              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+        using (ITransaction tx = this.StateManager.CreateTransaction())
+        {
+            bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-              await tx.CommitAsync();
+            await tx.CommitAsync();
 
-              return String.Format(
-                  "User {0} {1}",
-                  user,
-                  addResult ? "sucessfully added" : "already exists");
-          }
-      }
+            return String.Format(
+                "User {0} {1}",
+                user,
+                addResult ? "sucessfully added" : "already exists");
+        }
+    }
     ```
+        
+    `ProcessInternalRequest` lit les valeurs du paramètre de la chaîne de requête utilisée pour appeler la partition et appelle `AddUserAsync` pour ajouter le nom au dictionnaire fiable `dictionary`.
+    
+10. Ajoutons un service sans état au projet pour voir comment appeler une partition particulière.
 
-    `ProcessInternalRequest` lit les valeurs du paramètre de la chaîne de requête utilisée pour appeler la partition et appelle `AddUserAsync` pour ajouter le nom au dictionnaire fiable `m_name`.
-
-10. Ajoutons un service sans état au projet pour voir comment appeler une partition particulière. Ce service sert d’interface web simple qui accepte le nom comme paramètre de la chaîne de requête, détermine la clé de partition et l’envoie au service Alphabet.Processing pour traitement.
-11. Dans la boîte de dialogue **Créer un service**, choisissez Service **sans état** et appelez-le Alphabet.WebAPI comme indiqué ci-dessous. ![Capture d’écran de service sans état](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    Ce service sert d’interface web simple qui accepte le nom comme paramètre de la chaîne de requête, détermine la clé de partition et l’envoie au service Alphabet.Processing pour traitement.
+    
+11. Dans la boîte de dialogue **Créer un service**, choisissez Service **sans état** et appelez-le « Alphabet.WebApi » comme indiqué ci-dessous.
+    
+    ![Capture d’écran de service sans état](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    
 12. Mettez à jour les informations du point de terminaison dans le fichier ServiceManifest.xml du service Alphabet.WebApi pour ouvrir un port comme indiqué ci-dessous.
 
     ```xml
@@ -235,62 +250,64 @@ Il est également important de noter que l’URL publiée diffère légèrement 
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-           return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
     }
     private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
     {
-           // Service instance's URL is the node's IP & desired port
-           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
-           string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-     }
-     ```
+        // Service instance's URL is the node's IP & desired port
+        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
+        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+    }
+    ```
+     
 14. Maintenant, vous devez implémenter la logique de traitement. HttpCommunicationListener appelle `ProcessInputRequest` lorsqu’une demande lui parvient. Par conséquent, vous devez ajouter le code ci-dessous.
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-           String output = null;
-           try
-           {
-               string lastname = context.Request.QueryString["lastname"];
-               char firstLetterOfLastName = lastname.First();
-               int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+        String output = null;
+        try
+        {
+            string lastname = context.Request.QueryString["lastname"];
+            char firstLetterOfLastName = lastname.First();
+            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
 
-               ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
-               ResolvedServiceEndpoint ep = partition.GetEndpoint();
-               JObject addresses = JObject.Parse(ep.Address);
-               string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
+            ResolvedServiceEndpoint ep = partition.GetEndpoint();
+            JObject addresses = JObject.Parse(ep.Address);
+            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
 
-               UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
-               primaryReplicaUriBuilder.Query = "lastname=" + lastname;
+            UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
+            primaryReplicaUriBuilder.Query = "lastname=" + lastname;
 
-               string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
+            string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
-               output = String.Format(
-               "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
-               result,
-               partitionKey,
-               firstLetterOfLastName,
-               lastname,
-               partition.Info.Id,
-               primaryReplicaAddress);
+            output = String.Format(
+                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    result,
+                    partitionKey,
+                    firstLetterOfLastName,
+                    lastname,
+                    partition.Info.Id,
+                    primaryReplicaAddress);
+        }
+        catch (Exception ex) { output = ex.Message; }
+        
+        using (var response = context.Response)
+        {
+            if (output != null)
+            {
+                output = output + "added to Partition: " + primaryReplicaAddress;
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
     }
-    catch (Exception ex) { output = ex.Message; }
-    using (var response = context.Response)
-    {
-               if (output != null)
-               {
-                   output = output + "added to Partition: " + primaryReplicaAddress;
-                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
-               }
-           }
-      }
-      ```
+    ```
 
-    Voici la procédure pas à pas. Le code lit la première lettre du paramètre de chaîne de requête `lastname` sous forme de caractère. Il détermine ensuite la clé de partition pour cette lettre en soustrayant la valeur hexadécimale de `A` de la valeur hexadécimale de la première lettre des derniers noms.
+    Voici la procédure pas à pas. Le code lit la première lettre du paramètre de chaîne de requête `lastname` sous forme de caractère. Il détermine ensuite la clé de partition pour cette lettre en soustrayant la valeur hexadécimale de `A` de la valeur hexadécimale de la première lettre des noms.
 
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -330,11 +347,16 @@ Il est également important de noter que l’URL publiée diffère légèrement 
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-  </Parameters>
-  ```
+    </Parameters>
+    ```
 
-16. Une fois le déploiement terminé, vous pouvez vérifier le service et toutes ses partitions dans l’Explorateur de Service Fabric. ![Capture d’écran de l’explorateur Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. Dans un navigateur, vous pouvez tester la logique de partitionnement en entrant `http://localhost:8090/?lastname=somename`. Vous verrez que chaque nom de famille commençant par la même lettre sera stocké dans la même partition. ![Capture d’écran du navigateur](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Une fois le déploiement terminé, vous pouvez vérifier le service et toutes ses partitions dans l’Explorateur de Service Fabric.
+    
+    ![Capture d’écran de l’explorateur Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+    
+17. Dans un navigateur, vous pouvez tester la logique de partitionnement en entrant `http://localhost:8090/?lastname=somename`. Vous verrez que chaque nom de famille commençant par la même lettre sera stocké dans la même partition.
+    
+    ![Capture d’écran du navigateur](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
@@ -350,4 +372,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

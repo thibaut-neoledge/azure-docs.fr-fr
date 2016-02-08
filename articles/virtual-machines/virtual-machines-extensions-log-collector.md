@@ -19,14 +19,10 @@
 
 # AzureLogCollector Extension
 
-Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessite la collecte des fichiers journaux de service sur les machines virtuelles lorsque les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque.  
+Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessite la collecte des fichiers journaux de service sur les machines virtuelles lorsque les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque.
+> [AZURE.NOTE]Vous trouverez des descriptions de la plupart des informations consignées sur http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 
-> [AZURE.NOTE]Vous trouverez des descriptions de la plupart des informations consignées sur http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp. 
-
-
-Il existe deux modes de collecte dépendant des types de fichiers à recueillir.
-- Journaux d’agent d’invité Azure uniquement (GA). Ce mode de collecte inclut tous les journaux liés aux agents invités d’Azure et d’autres composants Azure.
-- Tous les journaux (complète). Ce mode de collecte recueille tous les fichiers en mode GA plus :
+Il existe deux modes de collecte dépendant des types de fichiers à recueillir. - Journaux d’agent d’invité Azure uniquement (GA). Ce mode de collecte inclut tous les journaux liés aux agents invités d’Azure et d’autres composants Azure. -Tous les journaux (complète). Ce mode de collecte recueille tous les fichiers en mode GA plus :
 
   - journaux des événements système et d’application
   
@@ -51,7 +47,7 @@ Dans les deux modes de collecte, les dossiers de collecte de données supplémen
 ## Composants requis
 
 - Vous devez disposer d’un compte de stockage pour une extension pour enregistrer les fichiers zip générés.
-- Vous devez vous assurer que vous utilisez des applets de commande Azure PowerShell V0.8.0 ou version ultérieure. Pour plus d’informations, consultez la rubrique [Téléchargements Azure](http://azure.microsoft.com/downloads/).
+- Vous devez vous assurer que vous utilisez des applets de commande Azure PowerShell V0.8.0 ou version ultérieure. Pour plus d’informations, consultez la rubrique [Téléchargements Azure](https://azure.microsoft.com/downloads/).
 
 ## Ajouter l’extension
 
@@ -130,7 +126,7 @@ Vous pouvez exécuter l’une des deux étapes suivantes pour ajouter AzureLogCo
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]Vous pouvez utiliser le jeton `%roleroot%` pour spécifier le lecteur racine de rôle, car il n’utilise pas un lecteur fixe.
+    > [AZURE.NOTE] Vous pouvez utiliser le jeton `%roleroot%` pour spécifier le lecteur racine de rôle, car il n’utilise pas un lecteur fixe.
 
 4. Fournissez le nom du compte de stockage Azure et la clé vers laquelle les fichiers recueillis seront téléchargés.
 
@@ -171,21 +167,21 @@ Voici la définition des paramètres transmis au script. (Également copié ci-d
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-- *ServiceName*: nom de votre service cloud.
+- *ServiceName* : nom de votre service cloud.
 
-- *Rôles*: une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
+- *Rôles* : une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
 
-- *Instances*: liste de noms des instances de rôle séparés par des virgules, utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
+- *Instances* : liste de noms des instances de rôle séparés par des virgules, utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
 
-- *Emplacement*: nom de l’emplacement. « Production » ou « Intermédiaire ».
+- *Emplacement* : nom de l’emplacement. « Production » ou « Intermédiaire ».
 
-- *Mode*: mode de collecte. « Complet » ou « GA ».
+- *Mode* : mode de collecte. « Complet » ou « GA ».
 
-- *StorageAccountName*: nom du compte de stockage Azure pour le stockage des données recueillies.
+- *StorageAccountName* : nom du compte de stockage Azure pour le stockage des données recueillies.
 
-- *StorageAccountKey*: nom de clé de compte de stockage Azure.
+- *StorageAccountKey* : nom de clé de compte de stockage Azure.
 
-- *AdditionalDataLocationList*: liste obéissant à la structure suivante :
+- *AdditionalDataLocationList* : liste obéissant à la structure suivante :
 
       { Nom de chaîne, Emplacement de chaîne, schéma de recherche, Récursive Bool }
              
@@ -525,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Vous pouvez maintenant examiner ou copier vos journaux depuis un emplacement très simple.
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

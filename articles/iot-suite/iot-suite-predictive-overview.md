@@ -2,13 +2,14 @@
  pageTitle="Solution préconfigurée de maintenance prédictive | Microsoft Azure"
  description="Description de la solution préconfigurée de maintenance prédictive Azure IoT."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -33,7 +34,7 @@ En prédisant le moment où une maintenance est requise, Fabrikam peut optimiser
 
 ## Comment la solution de gestion prédictive est générée
 
-Pour comprendre comment les fonctionnalités d’[Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, consultez cette [infographie][lnk_infographic].
+Pour comprendre comment les fonctionnalités d’[Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, reportez-vous à cette [infographie][lnk_infographic].
 
 Pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques recueillies via les services IoT Suite et pour les présenter aux utilisateurs dans une application web, la solution s'appuie sur un modèle Microsoft Azure Machine Learning existant disponible en tant que modèle. Microsoft a créé un [modèle de régression][lnk_regression_model] et publié le modèle complet, les données<sup>[1]</sup> et des instructions détaillées.
 
@@ -55,4 +56,4 @@ Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azu
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

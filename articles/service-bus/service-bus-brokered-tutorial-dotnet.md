@@ -103,7 +103,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,11 +249,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 
 Dans le menu **Générer** de Visual Studio, vous pouvez cliquer sur **Générer la solution** ou appuyer sur F6 pour confirmer si votre travail est correct.
 
-Créer des informations d'identification d'administration
-
-Il s'agit de la deuxième étape du didacticiel consacré aux fonctionnalités de messagerie Service Bus. Dans cette étape, vous définissez les opérations de gestion que vous allez utiliser pour créer les informations d'identification de signature d’accès partagé (SAP) qui serviront à autoriser votre application.
-
-## Créer des informations d'identification d'administration
+## Créer des informations d’identification d’administration
 
 Dans cette étape, vous définissez les opérations de gestion que vous allez utiliser pour créer les informations d'identification de signature d’accès partagé (SAP) qui serviront à autoriser votre application.
 
@@ -262,7 +260,7 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
 1. L’étape suivante consiste à créer des informations d’identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -652,4 +650,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,24 +1,24 @@
-<properties 
+<properties
 	pageTitle="Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Azure"
 	description="Une analyse des différents types de stratégies HADR pour SQL Server s’exécutant dans des machines virtuelles Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/07/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
-# Haute disponibilité et récupération d'urgence pour SQL Server sur des machines virtuelles Azure
+# Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Les machines virtuelles Microsoft Azure avec SQL Server permettent de réduire le coût d’une solution de base de données haute disponibilité et récupération d’urgence (HADR). La plupart des solutions HADR SQL Server sont prises en charge dans les machines virtuelles Azure, en tant que solutions Azure uniquement et solutions hybrides. Dans une solution Azure uniquement, le système HADR s’exécute dans Azure. Dans une configuration hybride, une partie de la solution est exécutée dans Azure, tandis que l’autre est exécutée localement dans votre organisation. La flexibilité de l’environnement Azure vous permet de migrer partiellement ou totalement vers Azure afin de répondre aux exigences HADR et en termes de budget de vos systèmes de base de données SQL Server.
 
@@ -39,7 +39,7 @@ Les technologies HADR SQL Server prises en charge dans Azure incluent :
 - [Mise en miroir de bases de données](https://technet.microsoft.com/library/ms189852.aspx)
 - [Copie des journaux de transaction](https://technet.microsoft.com/library/ms187103.aspx)
 - [Sauvegarde et restauration avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Instances de cluster de basculement AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
+- [Instances de cluster de basculement AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 
 Il est possible de combiner les technologies pour implémenter une solution SQL Server qui a des fonctions de haute disponibilité et de récupération d’urgence. Selon la technologie que vous utilisez, un déploiement hybride peut nécessiter un tunnel VPN avec le réseau virtuel Azure. Les sections ci-dessous illustrent certains exemples d’architectures de déploiement.
 
@@ -149,9 +149,9 @@ Pour obtenir des performances optimales de SQL Server dans Azure, voir les indi
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-### Autres ressources :
+### Autres ressources
 
 - [Installation d’une nouvelle forêt Active Directory dans Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Création du cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure ](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

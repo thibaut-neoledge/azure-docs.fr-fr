@@ -36,7 +36,7 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 
 - Vous pouvez mettre à l'échelle des ressources qui sont liées à votre service cloud. Pour plus d’informations sur la liaison des ressources, consultez la rubrique [Liaison d’une ressource à un service cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- Pour permettre la haute disponibilité de votre application, vous devez vous assurer qu'elle est déployée avec plusieurs instances de rôle ou machines virtuelles. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/).
+- Pour permettre la haute disponibilité de votre application, vous devez vous assurer qu'elle est déployée avec plusieurs instances de rôle ou machines virtuelles. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Mise à l'échelle manuelle d'une application exécutant des rôles Web ou de travail
@@ -227,4 +227,4 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@ Cet article fournit les informations dont vous avez besoin pour ouvrir un dossie
 
 >[AZURE.NOTE]Seul l’administrateur du compte Azure est autorisé à accéder au Centre des comptes.
 
-1. Accédez au site Web de [support Azure](http://azure.microsoft.com/support), puis cliquez sur **Obtenir un support**. Vous pouvez également soumettre un incident à partir du portail Microsoft Azure ou du Centre des comptes Azure.
+1. Accédez au site Web de [support Azure](https://azure.microsoft.com/support/), puis cliquez sur **Obtenir un support**. Vous pouvez également soumettre un incident à partir du portail Microsoft Azure ou du Centre des comptes Azure.
 
  * Pour soumettre un ticket de support à partir du [portail Azure](https://manage.windowsazure.com/), cliquez sur votre nom de compte, puis sur Contacter le support Microsoft.
  * Pour soumettre un ticket de support à partir du [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), sélectionnez un abonnement, puis cliquez sur Contacter le support Microsoft.
@@ -49,4 +49,4 @@ Cet article fournit les informations dont vous avez besoin pour ouvrir un dossie
 
 Un représentant du support technique Azure vous contactera conformément aux conditions du contrat.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

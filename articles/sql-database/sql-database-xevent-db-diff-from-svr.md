@@ -33,9 +33,9 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 *XEvents* est un surnom informel parfois utilisé pour désigne les « événements étendus » dans les blogs et autres emplacements informels.
 
 
-> [AZURE.NOTE]À compter d’octobre 2015, la fonctionnalité de session d’événements étendus est activée dans la base de données SQL Azure dans la version préliminaire. La date de disponibilité générale n’est pas encore définie.
+> [AZURE.NOTE] À compter d’octobre 2015, la fonctionnalité de session d’événements étendus est activée dans la base de données SQL Azure dans la version préliminaire. La date de disponibilité générale n’est pas encore définie.
 > 
-> Les annonces concernant la disponibilité générale seront postées sur la page [Mises à jour du service](http://azure.microsoft.com/updates/?service=sql-database) Azure.
+> Les annonces concernant la disponibilité générale seront postées sur la page [Mises à jour du service](https://azure.microsoft.com/updates/?service=sql-database) Azure.
 
 
 ## Composants requis
@@ -44,7 +44,7 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
 
 
-- [Service Base de données SQL Azure](http://azure.microsoft.com/services/sql-database/)
+- [Service Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
 
 
 - [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
@@ -54,7 +54,7 @@ Cette rubrique part du principe que vous connaissez déjà les éléments suivan
 Il est utile d’avoir une connaissance préalable des éléments suivants lorsque vous choisissez le fichier d’événements comme [cible](#AzureXEventsTargets) :
 
 
-- [Service Azure Storage](http://azure.microsoft.com/services/storage/)
+- [Service Azure Storage](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -269,4 +269,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

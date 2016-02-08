@@ -22,7 +22,7 @@
 
 Ce didacticiel explique comment Microsoft Azure Site Recovery s’intègre dans Microsoft Azure Automation pour permettre l’extensibilité des plans de récupération. Les plans de récupération peuvent orchestrer la récupération des machines virtuelles protégées via Microsoft Azure Site Recovery, pour la réplication vers un cloud secondaire et la réplication vers Microsoft Azure. Ils garantissent que le récupération est **précise et cohérente**, **répétable** et **automatisée**. Si vous effectuez le basculement de vos machines virtuelles vers Microsoft Azure, l’intégration avec Microsoft Azure Automation étend les plans de récupération et vous offre la possibilité d’exécuter des Runbooks, ce qui vous donne accès à des tâches d’automatisation très puissantes.
 
-Si vous n’avez pas encore entendu parler de Microsoft Azure Automation, connectez-vous [ici](http://azure.microsoft.com/services/automation/) et téléchargez [ici](http://azure.microsoft.com/documentation/scripts/) des exemples de scripts. Lisez plus d’informations sur [Microsoft Azure Site Recovery](http://azure.microsoft.com/services/site-recovery/) et découvrez [ici](http://azure.microsoft.com/blog/?p=166264) comment orchestrer la récupération vers Microsoft Azure à l’aide de plans de récupération.
+Si vous n’avez pas encore entendu parler de Microsoft Azure Automation, connectez-vous [ici](https://azure.microsoft.com/services/automation/) et téléchargez [ici](https://azure.microsoft.com/documentation/scripts/) des exemples de scripts. Lisez plus d’informations sur [Microsoft Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) et découvrez [ici](https://azure.microsoft.com/blog/?p=166264) comment orchestrer la récupération vers Microsoft Azure à l’aide de plans de récupération.
 
 Dans ce didacticiel, nous allons voir comment intégrer des Runbooks Microsoft Azure dans des plans de récupération. Nous allons automatiser des tâches simples, qui nécessitaient auparavant une intervention manuelle, et savoir comment convertir une opération de récupération en plusieurs étapes en une seule action, impliquant un seul clic. Nous verrons également comment dépanner un script simple en cas de problème.
 
@@ -310,4 +310,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

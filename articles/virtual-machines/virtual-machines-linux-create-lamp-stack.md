@@ -32,7 +32,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 -	Préparation de la machine virtuelle pour la pile LAMP.
 -	Installation des logiciels requis par votre serveur LAMP sur la machine virtuelle.
 
-Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, voir [Qu’est-ce que Microsoft Azure ?](http://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](https://azure.microsoft.com/). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, voir [Qu’est-ce que Microsoft Azure ?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, voir [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
 
@@ -49,7 +49,7 @@ Pour générer la clé d'authentification SSH, procédez comme suit.
 -	Téléchargez et installez Puttygen via [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
--	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
+-	Après le processus de génération, puttygen.exe affiche votre clé générée. Par exemple : ![][2]
 -	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
@@ -88,7 +88,7 @@ Cliquez sur **Add**. Quand vous approvisionnez une nouvelle machine virtuelle, v
 
 Configurez le point de terminaison :
 
-1.	Entrez un nom pour le point de terminaison dans **Point de terminaison**.
+1.	Tapez un nom pour le point de terminaison dans **Point de terminaison**.
 2.	Tapez 80 dans **Port public**. Si vous avez modifié le port d'écoute par défaut d'Apache, vous devez mettre à jour Port privé pour qu'il s'agisse du même que le port d'écoute Apache.
 3.	Tapez 80 dans **Port public**. Par défaut, le trafic HTTP utilise le port 80. Si vous affectez le port 80, vous n'avez pas besoin d'inclure le numéro de port dans l'URL qui vous permet d'accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net. Si vous affectez une autre valeur pour le port d'écoute Apache, par exemple 81, vous devez ajouter le numéro de port à l'URL pour accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net:81/.
 
@@ -268,7 +268,7 @@ Cela a été testé sur Ubuntu 14.04.
 
 Ubuntu est basé sur Debian. Vous pouvez installer la pile LAMP de la même manière que la série Red Hat. Pour simplifier les étapes, utilisez l'outil Tasksel.
 
-Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, consultez [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
+Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, voir [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
 
 Utilisez tasksel pour installer les logiciels requis pour la pile LAMP.
 
@@ -350,7 +350,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]Vous devrez peut-être vous reconnecter si vous souhaitez modifier un fichier dans /var/www/html/.
+	>[AZURE.NOTE] Vous devrez peut-être vous reconnecter si vous souhaitez modifier un fichier dans /var/www/html/.
 -	Utilisez n’importe quel client SFTP (par exemple, FileZilla) pour vous connecter au nom DNS de votre machine virtuelle (par exemple, lampdemo.cloudapp.net) et accédez à /**var/www/html** pour publier votre site. ![][18]
 
 
@@ -456,4 +456,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

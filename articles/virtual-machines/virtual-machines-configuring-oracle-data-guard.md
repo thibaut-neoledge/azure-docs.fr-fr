@@ -29,7 +29,7 @@ En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditio
 
 - Vous avez déjà consulté la section Considérations relatives à la haute disponibilité et à la récupération d’urgence de la rubrique [Images de machine virtuelle Oracle - Considérations diverses](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Remarquez qu’Azure prend actuellement en charge des instances autonomes d’Oracle Database, mais pas Oracle Real Application Clusters (Oracle RAC).
 
-- Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) et [Machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-load-balance.md) et du même [réseau virtuel](azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de placer les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Remarquez qu’Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](http://msdn.microsoft.com/library/dn197896.aspx). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md).
+- Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) et [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-load-balance.md) et du même [réseau virtuel](azure.microsoft.com/documentation/services/virtual-network/) (Virtual Network) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de définir les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Remarquez qu’Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](http://msdn.microsoft.com/library/dn197896.aspx). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md).
 
 - Vous avez configuré les noms des machines virtuelles comme suit : « Machine1 » pour la machine virtuelle principale et « Machine2 » pour la machine virtuelle de secours sur le portail Azure Classic.
 
@@ -75,7 +75,7 @@ Créer une base de données de secours physique
 
 6. Vérifier la base de données de secours physique
 
-> [AZURE.IMPORTANT]Ce didacticiel a été configuré et testé selon la configuration matérielle et logicielle suivante :
+> [AZURE.IMPORTANT] Ce didacticiel a été configuré et testé selon la configuration matérielle et logicielle suivante :
 >
 >| | **Base de données primaire** | **Base de données de secours** |
 >|----------------------|-------------------------------------------|-------------------------------------------|
@@ -134,9 +134,9 @@ Pour mettre en œuvre une base de données de secours, il faut activer la « Jo
 
 Afin de pouvoir transmettre et appliquer des journaux archivés depuis le serveur principal vers le serveur de secours, le mot de passe sys doit être identique sur le serveur principal et de secours. C’est pourquoi vous créez un fichier de mot de passe sur la base de données primaire et le copiez sur le serveur de secours.
 
->[AZURE.IMPORTANT]Lorsque vous utilisez la base de données Oracle 12c, il existe un nouvel utilisateur, **SYSDG**, qui vous permet de gérer Oracle Data Guard. Pour plus d’informations, voir [Changes in Oracle Database 12c Release](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm) (en anglais).
+>[AZURE.IMPORTANT] Lorsque vous utilisez la base de données Oracle 12c, il existe un nouvel utilisateur **SYSDG**, qui vous permet de gérer Oracle Data Guard. Pour plus d’informations, voir [Changes in Oracle Database 12c Release](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm) (en anglais).
 
-En outre, assurez-vous que l’environnement ORACLE\_HOME est déjà défini sur Machine1. Dans le cas contraire, définissez-le en tant que variable d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sous l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Cliquez sur le bouton **Nouveau** de la section **Variables système** pour configurer les variables d’environnement. Une fois les variables d’environnement configurées, fermez l’invite de commande Windows existante et ouvrez-en une nouvelle.
+En outre, assurez-vous que l’environnement ORACLE\_HOME est déjà défini sur Machine1. Dans le cas contraire, définissez-le en tant que variable d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sur l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Cliquez sur le bouton **Nouveau** de la section **Variables système** pour configurer les variables d’environnement. Une fois les variables d’environnement configurées, fermez l’invite de commande Windows existante et ouvrez-en une nouvelle.
 
 Exécutez l’instruction suivante pour basculer vers le répertoire Oracle\_Home, par exemple C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database.
 
@@ -527,7 +527,7 @@ Vous pouvez utiliser l’utilitaire Recovery Manager (RMAN) afin de sélectionn
 
 Connectez-vous à distance à la machine virtuelle de secours (Machine2) et exécutez l’utilitaire RMAN en spécifiant une chaîne de connexion complète pour l’instance cible (base de données primaire, Machine1) et l’instance auxiliaire (base de données de secours, Machine2).
 
->[AZURE.IMPORTANT]N’utilisez pas l’authentification du système d’exploitation, car il n’existe pour le moment aucune base de données au sein de la machine serveur de secours.
+>[AZURE.IMPORTANT] N’utilisez pas l’authentification du système d’exploitation, car il n’existe pour le moment aucune base de données au sein de la machine serveur de secours.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
 
@@ -625,4 +625,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

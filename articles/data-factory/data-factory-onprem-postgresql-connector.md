@@ -30,6 +30,8 @@ Data Factory prend uniquement en charge le déplacement de PostgreSQL vers d’a
 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, vous devez installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) sur le même système que la passerelle de gestion des données.
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
 ## Exemple : copie de données de PostgreSQL vers Azure Blob
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -241,7 +243,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut PostgreSQL), les propriétés suivantes sont disponibles dans la section type Properties :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource**(qui inclut PostgreSQL), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
@@ -306,4 +308,4 @@ texte | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

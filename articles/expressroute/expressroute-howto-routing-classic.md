@@ -28,11 +28,11 @@ Cet article vous guide tout au long des étapes de création et de gestion d’u
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
->[AZURE.IMPORTANT]Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
+>[AZURE.IMPORTANT] Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
 
 Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation.
 
@@ -92,7 +92,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
 
-	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+	>[AZURE.IMPORTANT] Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
 ### Pour obtenir les détails d’une homologation privée Azure
 
@@ -124,7 +124,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’app
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante.
 
->[AZURE.WARNING]Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
+>[AZURE.WARNING] Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
 
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
@@ -186,7 +186,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
 
-	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+	>[AZURE.IMPORTANT] Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
 ### Pour obtenir les détails d’une homologation publique Azure
 
@@ -318,4 +318,4 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 -  Pour plus d'informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 -  Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,11 +34,9 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*
-URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest* URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
-![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Online.
 
@@ -53,15 +51,13 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*.
-Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
 Nom d’utilisateur | Non | Entrez un nom d'utilisateur valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
-Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
-![][2]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][2]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Server.
 
@@ -76,20 +72,15 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 
 3. Si le connecteur SharePoint est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte SharePoint à l'aide du connecteur.
 
-4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint :  
-![][3]
+4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : ![][3]
 
-5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations :  
-![][4]
+5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : ![][4]
 
-6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :  
-![][5]
+6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :  
-![][6]
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][6]
   
-**URL relative configurée pour la bibliothèque de documents**  
-![][7]
+**URL relative configurée pour la bibliothèque de documents** ![][7]
 
 **URL relative configurée pour la liste de documents**
 
@@ -98,7 +89,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 ##  Déclencheurs
 Utilisez des déclencheurs pour lancer une application logique.
 
-> [AZURE.NOTE]Les déclencheurs suppriment les fichiers après lecture. Pour conserver ces fichiers, indiquez une valeur pour l'emplacement d'archivage.
+> [AZURE.NOTE] Les déclencheurs suppriment les fichiers après lecture. Pour conserver ces fichiers, indiquez une valeur pour l'emplacement d'archivage.
 
 ### 1\. Nouveau document dans les documents partagés (JSON)
 Ce déclencheur est déclenché quand un nouveau document est disponible dans Documents partagés.
@@ -456,7 +447,7 @@ XML de sortie | Message XML qui contient les valeurs des champs de l'élément d
 
 ## Configuration hybride (facultatif)
 
-> [AZURE.NOTE]Cette étape n'est requise que si vous utilisez SharePoint en local, derrière le pare-feu.
+> [AZURE.NOTE] Cette étape n'est requise que si vous utilisez SharePoint en local, derrière le pare-feu.
 
 App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si votre connecteur utilise un serveur SharePoint en local, le Gestionnaire de connexion hybride est requis.
 
@@ -465,9 +456,9 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](app-service-api-manage-in-portal.md).
 
@@ -481,4 +472,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -21,11 +21,11 @@
 
 Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
 
->[AZURE.WARNING]Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
+>[AZURE.WARNING] Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
 
 D’autres informations sur les certificats Azure (y compris la création d’un certificat auto-signé) sont [disponibles](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) si vous en avez besoin.
 
-Vous pouvez également utiliser [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
+Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
 
 ## Charger un certificat de gestion
 
@@ -52,4 +52,4 @@ Une fois le certificat de gestion créé (fichier .cer contenant uniquement la c
 
 Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’[API REST de Service Management](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
@@ -52,7 +52,7 @@ Exportez votre base de données de production vers un fichier bacpac à l’aide
 
 Importez le fichier bacpac dans une nouvelle base de données Premium.
 
-1. Dans le [portail](http://portal.azure.com/) Azure,
+1. Dans le [portail](https://portal.azure.com/) Azure,
  - accédez au serveur.
  - Sélectionnez l’option [Base de données d’importation](sql-database-import.md).
  - Sélectionnez un niveau tarifaire Premium.
@@ -220,7 +220,7 @@ Pour réduire la latence du réseau, exécutez le test dans la région géograph
 
 Veillez à surveiller les effets des performances de vos implémentations In-Memory en production :
 
-- [Surveiller le stockage en mémoire](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md).
 
 - [Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 
 - [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

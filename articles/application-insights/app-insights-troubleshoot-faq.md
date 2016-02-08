@@ -32,7 +32,7 @@
 
 #### Que vais-je obtenir si je paye ?
 
-* Un [quota de données mensuel](http://azure.microsoft.com/pricing/details/application-insights/) plus important.
+* Un [quota de données mensuel](https://azure.microsoft.com/pricing/details/application-insights/) plus important.
 * L'option consistant à payer le « dépassement » pour poursuivre la collecte des données une fois le quota mensuel dépassé. Si vos données dépassent le quota, vous êtes facturé par Mo.
 * [Exportation continue](app-insights-export-telemetry.md).
 
@@ -155,7 +155,7 @@ Consultez les [notes de publication](app-insights-release-notes.md) du Kit de d�
 #### Je pouvais voir les données, mais plus maintenant
 
 * Vérifiez le [blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
-* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez les champs Paramètres/Quota et Tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d'une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
+* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez les champs Paramètres/Quota et Tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d'une capacité supplémentaire. Consultez le [mécanisme de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 #### Je ne vois pas toutes les données que j’attends
@@ -252,4 +252,4 @@ Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -29,7 +29,7 @@ Azure Data Factory est un service d’intégration de données dans le cloud e
 
 Avec ADF, les services de traitement de données existants peuvent être composés dans des pipelines de données, à disponibilité élevée et gérés dans le cloud. Ces pipelines de données peuvent être soumis à planification pour la réception, la préparation, la transformation, l’analyse et la publication de données. ADF gère et orchestre toutes les données et les dépendances de traitement complexes. Les solutions peuvent être rapidement créées et déployées dans le cloud, afin de connecter un nombre croissant de sources de données locales et cloud.
 
-Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes. Pour plus d'informations sur ADF, consultez la documentation relative à [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
+Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes. Pour plus d'informations sur ADF, consultez la documentation relative à [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Scénario
 
@@ -44,12 +44,12 @@ Nous allons configurer un pipeline ADF composé de deux activités de migratio
 ## <a name="prereqs"></a>Configuration requise
 Ce didacticiel part du principe que vous disposez de :
 
-* Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+* Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Accès à une **base de données SQL Azure** Si vous devez configurer une base de données SQL Azure, l’article [Créer votre première base de données SQL Microsoft Azure](sql-database-get-started.md) fournit des informations sur la configuration d'une nouvelle instance de base de données SQL Azure.
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](powershell-install-configure.md).
 
-> [AZURE.NOTE]Cette procédure utilise le [portail Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Cette procédure utilise le [portail Azure](https://ms.portal.azure.com/).
 
 ##<a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
 
@@ -94,7 +94,7 @@ Pour créer le service lié pour la base de données Azure SQL locale, cliquez
 
 Créez des tables qui spécifient la structure, l'emplacement et la disponibilité des jeux de données avec les procédures reposant sur des scripts suivantes. Les fichiers JSON sont utilisés pour définir les tables. Pour plus d'informations sur la structure de ces fichiers, consultez [Jeux de données](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]Vous devez exécuter l’applet de commande `Add-AzureAccount` avant d’exécuter l’applet de commande [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx), afin de vérifier que l’abonnement Azure approprié est sélectionné pour l’exécution de la commande. Pour obtenir la documentation de cette applet de commande, consultez [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+> [AZURE.NOTE]  Vous devez exécuter l’applet de commande `Add-AzureAccount` avant d’exécuter l’applet de commande [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx), afin de vérifier que l’abonnement Azure approprié est sélectionné pour l’exécution de la commande. Pour obtenir la documentation de cette applet de commande, consultez [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
 
 Les définitions reposant sur JSON dans les tables utilisent les noms suivants :
 
@@ -107,7 +107,7 @@ Trois définitions de table sont nécessaires pour ce pipeline ADF :
 2. [Table d'objets blob](#adf-table-blob-store)
 3. [Table SQL Azure](#adf-table-azure-sql)
 
-> [AZURE.NOTE]Les procédures suivantes utilisent Azure PowerShell pour définir et créer les activités ADF. Toutefois, ces tâches peuvent également être accomplies à l’aide du portail Azure. Pour plus d’informations, consulter [Création de jeux de données d’entrée et de sortie](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
+> [AZURE.NOTE]  Les procédures suivantes utilisent Azure PowerShell pour définir et créer les activités ADF. Toutefois, ces tâches peuvent également être accomplies à l’aide du portail Azure. Pour plus d’informations, consulter [Création de jeux de données d’entrée et de sortie](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>Table SQL locale
 
@@ -211,7 +211,7 @@ Spécifiez les activités appartenant au pipeline et créez le pipeline avec les
 * Le script suppose que le **nom du pipeline** est *AMLDSProcessPipeline*.
 * Notez également que nous avons défini la périodicité du pipeline sur une exécution quotidienne et avec un temps d'exécution par défaut pour la tâche (12 h 00 UTC).
 
-> [AZURE.NOTE]Les procédures suivantes utilisent Azure PowerShell pour définir et créer le pipeline ADF. Toutefois, cette tâche peut également être accomplie à l’aide du portail Azure. Pour plus d’informations, consultez [créer et exécuter un pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]  Les procédures suivantes utilisent Azure PowerShell pour définir et créer le pipeline ADF. Toutefois, cette tâche peut également être accomplie à l’aide du portail Azure. Pour plus d’informations, consultez [créer et exécuter un pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 En utilisant les définitions de table ci-dessus, la définition de pipeline pour ADF est spécifiée comme suit :
 
@@ -299,6 +299,6 @@ Les valeurs de paramètres *startdate* et *enddate* doivent être remplacées pa
 
 Une fois que le pipeline s'exécute, vous devez être en mesure de voir des données apparaître dans le conteneur sélectionné pour l'objet blob, à compter d’un fichier par jour.
 
-Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](http://azure.microsoft.com/services/data-factory/).
+Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

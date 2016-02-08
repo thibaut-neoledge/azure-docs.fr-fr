@@ -27,7 +27,7 @@ InMage Scout dans Azure Site Recovery assure une réplication en temps réel ent
 
 ## Composants requis
 
-- **Compte Azure** : vous devez avoir un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](pricing/free-trial/).
+- **Compte Azure** : vous devez avoir un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](pricing/free-trial/).
 
 
 ## Étape 1 : Créer un coffre
@@ -130,4 +130,4 @@ Cette dernière mise à jour comprend des correctifs de bogues et de nouvelles f
 
 Publiez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

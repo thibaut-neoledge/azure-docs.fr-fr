@@ -18,7 +18,7 @@
 
 # Processus d’analyse Cortana en action : utilisation des clusters Hadoop Azure HDInsight sur un groupe de données de 1 To
 
-Dans cette procédure pas à pas, nous vous indiquons comment utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur un des groupes de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction d’échantillon. Nous utilisons Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Nous vous expliquons également comment publier un de ces modèles en tant que service Web.
+Dans cette procédure pas à pas, nous vous indiquons comment utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur un des groupes de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction d’échantillon. Nous utilisons Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Nous vous expliquons également comment publier un de ces modèles en tant que service Web.
 
 Il est également possible d'utiliser un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -663,4 +663,4 @@ Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes
 
 Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

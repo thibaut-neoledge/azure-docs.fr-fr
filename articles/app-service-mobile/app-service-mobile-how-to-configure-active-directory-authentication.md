@@ -24,7 +24,7 @@
 
 Cette rubrique montre comment configurer Azure App Services pour utiliser Azure Active Directory comme fournisseur d'authentification.
 
-> [AZURE.NOTE]Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/autorisation d'App Service. Elle remplace la passerelle App Service pour la plupart des applications. Si vous utilisez la passerelle, consultez la [méthode alternative]. Les différences qui s'appliquent à l'utilisation de la passerelle sont signalées dans des notes tout au long de cette section.
+> [AZURE.NOTE] Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/autorisation d'App Service. Elle remplace la passerelle App Service pour la plupart des applications. Si vous utilisez la passerelle, consultez la [méthode alternative]. Les différences qui s'appliquent à l'utilisation de la passerelle sont signalées dans des notes tout au long de cette section.
 
 
 ## <a name="express"></a>Configuration d'Azure Active Directory à l'aide de la configuration rapide
@@ -35,7 +35,7 @@ Cette rubrique montre comment configurer Azure App Services pour utiliser Azure 
 
 15. Cliquez sur **Azure Active Directory**, puis sur **Rapide** sous **Mode de gestion**.
 
-16. Cliquez sur **OK** pour inscrire l'application dans Azure Active Directory. Une nouvelle inscription est alors créée. Si vous choisissez une inscription existante à la place, cliquez sur **Sélectionner une application existante** et recherchez le nom d'une inscription créée précédemment au sein de votre locataire. Cliquez sur l'inscription pour la sélectionner, puis sur **OK**. Cliquez ensuite sur **OK** dans le panneau des paramètres Azure Active Directory.
+16. Cliquez sur **OK** pour inscrire l'application dans Azure Active Directory. Une nouvelle inscription est alors créée. Si vous choisissez une inscription existante à la place, cliquez sur **Sélectionner une application existante** et recherchez le nom d’une inscription précédemment créée au sein de votre locataire. Cliquez sur l'inscription pour la sélectionner, puis sur **OK**. Cliquez ensuite sur **OK** dans le panneau des paramètres Azure Active Directory.
 
     ![][0]
 	
@@ -66,12 +66,13 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 
 7. Dans la zone **URL DE CONNEXION**, collez l'URL de l'application que vous avez copiée précédemment. Entrez cette URL dans la zone **URI ID d’application**. Ensuite, cliquez pour continuer.
 
-8. Une fois que l'application a été ajoutée, cliquez sur l'onglet **Configurer**. Remplacez l'**URL de réponse** sous **Authentification unique** par l’URL de votre application en y ajoutant le chemin d’accès _/.auth/login/aad/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Assurez-vous d'utiliser le schéma HTTPS.
+8. Une fois que l'application a été ajoutée, cliquez sur l'onglet **Configurer**. Remplacez l’**URL de réponse** sous **Authentification unique** par l’URL de votre application en y ajoutant le chemin d’accès _/.auth/login/aad/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
     ![][3]
 	
 	
-	> [AZURE.NOTE]Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification/autorisation d'App Service, votre URL de réponse utilise à la place l'URL de la passerelle avec le chemin d’accès _/signin-aad_.
+	> [AZURE.NOTE]
+	Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification/autorisation d'App Service, votre URL de réponse utilise à la place l'URL de la passerelle avec le chemin d’accès _/signin-aad_.
 
 
 9. Cliquez sur **Save**. Copiez ensuite l’**ID client** pour l’application. Vous configurerez l’application pour utiliser cet ID plus tard.
@@ -82,7 +83,8 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 
 ### <a name="secrets"> </a>Ajout d'informations Azure Active Directory à votre application
 
-> [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis choisissez **Azure Active Directory**. Collez le ClientID et ajoutez l'ID client à la liste des **locataires autorisés**. Cliquez sur **Save**.
+> [AZURE.NOTE]
+Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis choisissez **Azure Active Directory**. Collez le ClientID et ajoutez l'ID client à la liste des **locataires autorisés**. Cliquez sur **Save**.
 
 
 13. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
@@ -119,7 +121,7 @@ Azure Active Directory permet également d’inscrire les clients natifs, ce qui
 
 7. Faites défiler la page vers le bas jusqu’à la section **Autorisations pour d’autres applications** et cliquez sur **Ajouter une application**.
 
-8. Recherchez l’application web que vous avez inscrite précédemment et cliquez sur l’icône plus, puis sur la coche pour fermer la boîte de dialogue.
+8. Recherchez l’application web que vous avez inscrite précédemment et cliquez sur l’icône plus, puis sur la coche pour fermer la boîte de dialogue. Si l’application web est introuvable, recherchez son inscription et ajoutez une nouvelle URL de réponse (par exemple, la version HTTP de votre URL en cours). Cliquez sur Enregistrer, puis répétez ces étapes ; l’application doit apparaître dans la liste.
 
 9. Dans la nouvelle entrée que vous venez d’ajouter, ouvrez la liste déroulante **Autorisations déléguées**, sélectionnez **Accès (appName)**. Cliquez ensuite sur **Enregistrer**.
 
@@ -143,4 +145,4 @@ Vous avez maintenant configuré une application cliente native qui peut accéder
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [méthode alternative]: #advanced
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@ Après avoir [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [aj
 
 ## Créer un modèle de machine virtuelle
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -86,4 +86,4 @@ Pour ajouter une nouvelle image de modèle, vous devez avoir accès à un fichie
 
 Lorsque vous avez ajouté un modèle de machine virtuelle à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [Ajouter une machine virtuelle à votre instance du service DevTest Lab](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

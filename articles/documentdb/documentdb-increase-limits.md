@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Demande d’augmentation des limites de compte DocumentDB
@@ -38,8 +38,8 @@ Le tableau suivant décrit les quotas DocumentDB qui peuvent être ajustés en c
 |Nombre maximal de fonctions définies par l'utilisateur par requête |2
 |Nombre maximal de clauses JOIN par requête |5
 |Nombre maximal de clauses AND par requête |20
-|Nombre maximal de clauses OR par requête |10
-|Nombre maximal de valeurs par expression IN |100
+|Nombre maximal de clauses OR par requête |20
+|Nombre maximal de valeurs par expression IN |200
 |Nombre maximal de points dans un argument de polygone dans une requête ST\_WITHIN |16
 |Nombre maximal de créations de collection par minute |5
 |Nombre maximal d'opérations de mise à l'échelle par minute |5
@@ -75,4 +75,4 @@ Une fois le ticket de support créé, vous recevrez le numéro de demande de sup
 ##<a name="NextSteps"></a>Étapes suivantes
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

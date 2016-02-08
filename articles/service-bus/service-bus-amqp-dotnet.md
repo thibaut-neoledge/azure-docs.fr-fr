@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Utilisation de Service Bus à partir de .NET avec AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Téléchargement du Kit de développement logiciel (SDK) Service Bus
 
-La prise en charge d’AMQP 1.0 est disponible dans le Kit de développement logiciel (SDK) Service Bus version 2.1 ou supérieure. Vous pouvez télécharger le dernier Kit de développement logiciel (SDK) à partir de [NuGet][].
+La prise en charge d’AMQP 1.0 est disponible dans le Kit de développement logiciel (SDK) Service Bus version 2.1 ou supérieure. Vous pouvez télécharger les dernières informations sur Service Bus à partir de [NuGet][].
 
 ## Configuration des applications .NET pour utiliser AMQP 1.0
 
@@ -53,7 +53,7 @@ Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType
 
 Lorsque vous utilisez le protocole par défaut, le comportement de sérialisation par défaut de la bibliothèque cliente .NET consiste à utiliser le type [DataContractSerializer][] pour sérialiser une instance [BrokeredMessage][] pour le transport entre la bibliothèque cliente et le service Service Bus. Lorsque vous utilisez le mode de transport AMQP, la bibliothèque cliente utilise le système de type AMQP pour la sérialisation du [message réparti][BrokeredMessage] dans un message AMQP. Cette sérialisation permet au message d’être reçu et interprété par une application réceptrice potentiellement exécutée sur une plateforme différente, par exemple, une application Java qui utilise l’API JMS pour accéder à Service Bus.
 
-Lorsque vous construisez une instance [BrokeredMessage][], vous pouvez fournir un objet .NET en tant que paramètre au constructeur pour servir de corps du message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé à un type primitif AMQP, c’est-à-dire, un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][] et les octets sérialisés sont envoyés dans un message de données AMQP.
+Lorsque vous construisez une instance [BrokeredMessage][], vous pouvez fournir un objet .NET en tant que paramètre au constructeur pour servir de corps du message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé sur un type primitif AMQP, c’est-à-dire, un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][] et les octets sérialisés sont envoyés dans un message de données AMQP.
 
 Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez uniquement des types .NET qui peuvent être sérialisés directement en types AMQP pour le corps du message. Le tableau suivant détaille ces types et le mappage correspondant sur le système de types AMQP.
 
@@ -157,7 +157,7 @@ Les API .NET exposent plusieurs paramètres pour contrôler le comportement du p
 
 -   **MessageReceiver.PrefetchCount** : contrôle le crédit initial appliqué à un lien. La valeur par défaut est 0.
 
--   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation au moment de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
+-   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation lors de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
 
 -   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval** : si les transferts sont exécutables par lots, cette valeur détermine le délai maximal pour l’envoi des dispositions. Héritée par les expéditeurs/destinataires par défaut. Un expéditeur/destinataire individuel peut remplacer la valeur par défaut, qui est de 20 millisecondes.
 
@@ -198,10 +198,9 @@ Prêt à en savoir plus ? Visitez les liens suivants :
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [portail Azure Classic]: http://manage.windowsazure.com
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

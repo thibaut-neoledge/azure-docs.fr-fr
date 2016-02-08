@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="micurd"/>
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
@@ -173,10 +173,6 @@ Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Az
 
 Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md)  
-[Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) 
-[Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) 
-[Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)
-[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+[Introduction à Microsoft Azure Storage](storage-introduction.md) [Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) [Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

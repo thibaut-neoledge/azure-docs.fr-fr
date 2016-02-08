@@ -18,9 +18,9 @@
 
 # Répliquer des machines virtuelles Hyper-V (dans un cloud VMM) sur un site secondaire avec Azure Site Recovery à l’aide d’un SAN
 
-Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées sur Azure ou sur un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
+Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit comment déployer Site Recovery pour orchestrer et automatiser la protection des machines virtuelles Hyper-V situées dans des clouds privés System Center Virtual Machine Manager (VMM). Dans ce scénario, les machines virtuelles sont répliquées depuis un site VMM principal sur un site VMM secondaire à l’aide de Site Recovery et d’une réplication SAN.
 
@@ -59,7 +59,7 @@ Assurez-vous que les conditions préalables sont remplies :
 
 **Configuration requise** | **Détails** 
 --- | ---
-**Microsoft Azure**| Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery. 
+**Microsoft Azure**| Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery. 
 **VMM** | Vous devez disposer d’au moins un serveur VMM déployé comme serveur autonome physique ou virtuel, ou comme cluster virtuel. <br/><br/>Le serveur VMM doit exécuter System Center 2012 R2 avec les dernières mises à jour cumulatives.<br/><br/>Vous devez disposer d’au moins un cloud configuré sur le serveur VMM principal à protéger et d’un cloud configuré sur le serveur VMM secondaire à utiliser pour la protection et la récupération.<br/><br/>Le cloud source à protéger doit contenir un ou plusieurs groupes hôtes VMM.<br/><br/>Tous les clouds VMM doivent avoir le profil Capacité Hyper-V défini.<br/><br/>Pour plus d’informations sur la configuration de clouds VMM, consultez [Configuration de la structure de cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) et [Procédure pas à pas : création de clouds privés avec System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 **Hyper-V** | Vous avez besoin d’un ou plusieurs clusters Hyper-V dans les sites principaux et secondaires et d’une ou plusieurs machines virtuelles sur le cluster Hyper-V source. Les groupes hôtes VMM situés à des emplacements principaux et secondaires doivent chacun comporter un ou plusieurs clusters Hyper-V.<br/><br/>Les serveurs Hyper-V hôte et cible doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour installées.<br/><br/>Tout serveur Hyper-V contenant des machines virtuelles à protéger doit être dans un cloud VMM.<br/><br/>Si vous exécutez Hyper-V dans un cluster, notez que le service Broker de cluster n’est pas créé automatiquement si le cluster est basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. [En savoir plus](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 **Stockage SAN** | À l’aide de la réplication SAN, vous pouvez répliquer des machines virtuelles en cluster invité avec un stockage iSCSI ou Fibre Channel, ou à l’aide de disques durs virtuels (VHDX) partagés.<br/><br/>Vous avez besoin des deux groupes SAN configurés, l’un dans le site principal et l’autre dans le site secondaire.<br/><br/>Une infrastructure réseau doit être configurée entre les groupes. L'homologation et la réplication doivent être configurées. Des licences de réplication doivent être configurées conformément aux exigences des baies de stockage.<br/><br/>La mise en réseau doit être configurée entre les serveurs hôtes Hyper-V et la baie de stockage pour que les hôtes puissent communiquer avec les LUN de stockage via iSCSI ou Fibre Channel.<br/><br/> Consultez la liste des [groupes de stockage pris en charge](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/>Les fournisseurs SMI-S, proposés par les fabricants de groupes de stockage, doivent être installés, et les groupes SAN doivent être gérés par le fournisseur. Configurez le fournisseur conformément à sa documentation.<br/><br/>Vérifiez que le fournisseur SMI-S pour le groupe se trouve sur un serveur auquel le serveur VMM peut accéder via le réseau au moyen d’une adresse IP ou du nom de domaine complet.<br/><br/>Chaque groupe SAN doit avoir un ou plusieurs pools de stockage disponibles dans ce déploiement. Le serveur VMM sur le site primaire doit gérer le groupe primaire, tandis que le serveur VMM secondaire gère le groupe secondaire.<br/><br/>Le serveur VMM sur le site primaire doit gérer le groupe primaire, tandis que le serveur VMM secondaire doit gérer le groupe secondaire.
@@ -190,12 +190,12 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 	- Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s'exécute pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy et le port.
 	- Les URL suivantes doivent être accessibles à partir du serveur VMMet des hôtes Hyper-V :
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
 
 10. Dans **Registration Key**, indiquez que vous téléchargez depuis Azure Site Recovery et que vous copiez sur le serveur VMM.
@@ -320,9 +320,7 @@ Vous pouvez suivre la progression de l’action d’activation de la protection,
 Pour vous assurer que les machines virtuelles et les données basculent comme prévu, testez votre déploiement. Pour ce faire, créez un plan de récupération en sélectionnant des groupes de réplication. Ensuite, exécutez un test de basculement sur le plan.
 
 1. Dans l'onglet **Plans de récupération**, cliquez sur **Créer un plan de récupération**.
-2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN.
-3.
-	![Créer un plan de récupération](./media/site-recovery-vmm-san/r-plan.png)
+2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN. 3. ![Créer un plan de récupération](./media/site-recovery-vmm-san/r-plan.png)
 
 4. Dans **Sélectionner la machine virtuelle**, sélectionnez les groupes de réplication. Toutes les machines virtuelles associées au groupe de réplication sont sélectionnées et ajoutées au plan de récupération. Ces machines virtuelles sont ajoutées au groupe par défaut du plan de récupération, à savoir le groupe 1. Vous pouvez ajouter d'autres groupes si nécessaire. Notez qu’après la réplication, les machines virtuelles démarrent dans l’ordre des groupes du plan de récupération.
 
@@ -359,4 +357,4 @@ Pour vous assurer que les machines virtuelles et les données basculent comme pr
 
 Après avoir exécuté un test de basculement pour vérifier que votre environnement fonctionne comme prévu, [découvrez](site-recovery-failover.md) les différents types de basculement.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

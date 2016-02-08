@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Sauvegarder et restaurer Reliable Services
@@ -87,7 +87,7 @@ Dans ce cas, le runtime détecte automatiquement la perte de données et appelle
 
 Le créateur du service doit effectuer les opérations suivantes pour assurer la récupération :
 
-- Remplacer **IReliableStateManager** pour renvoyer un nouveau **ReliableStateManager** et fournir une fonction de rappel à utiliser dans le cas d’un événement de type perte de données.
+- Remplacer **CreateReliableStateManager** pour renvoyer un nouveau **ReliableStateManager** et fournir une fonction de rappel à utiliser dans le cas d’un événement de type perte de données.
 
 - Rechercher la dernière sauvegarde dans l’emplacement externe qui contient les sauvegardes du service.
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]Par défaut, RestorePolicy est défini sur Sécurisé. Cela signifie que l’API **RestoreAsync** va échouer avec ArgumentException si elle détecte que le dossier de sauvegarde contient un état antérieur ou égal à l’état contenu dans ce réplica. **RestorePolicy.Force** peut servir à ignorer cette vérification de sécurité.
+>[AZURE.NOTE] Par défaut, RestorePolicy est défini sur Sécurisé. Cela signifie que l’API **RestoreAsync** va échouer avec ArgumentException si elle détecte que le dossier de sauvegarde contient un état antérieur ou égal à l’état contenu dans ce réplica. **RestorePolicy.Force** peut servir à ignorer cette vérification de sécurité.
 
 ## Service supprimé ou perdu
 
@@ -158,4 +158,4 @@ Le gestionnaire d’état fiable permet de restaurer une sauvegarde à l’aide 
 
 La méthode **RestoreAsync** supprime tout d’abord tout état existant dans le réplica principal sur lequel elle a été appelée. Le gestionnaire d’état fiable crée ensuite tous les objets fiables qui existent dans le dossier de sauvegarde. Les objets fiables sont alors invités à procéder à une restauration à partir de leurs points de contrôle dans le dossier de sauvegarde. Enfin, le gestionnaire d’état fiable récupère son propre état à partir d’enregistrements de journal dans le dossier de sauvegarde, puis effectue la récupération. Dans le cadre de la récupération, les opérations commençant à partir du point de départ qui ont validé des enregistrements de journal dans le dossier de sauvegarde sont relues dans les objets fiables. Cette étape garantit que l’état récupéré est cohérent.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

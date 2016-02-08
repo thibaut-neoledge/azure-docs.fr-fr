@@ -40,13 +40,13 @@ Pour créer des solutions Media Services, vous pouvez utiliser les composants su
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Workflow en flux continu AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Affiche
 
 
-Vous pouvez [ici](http://azure.microsoft.com/documentation/infographics/media-services/) consulter l'affiche Azure Media Services qui présente les flux de travail AMS, de la création des médias à leur consommation.
+Vous pouvez [ici](https://azure.microsoft.com/documentation/infographics/media-services/) consulter l'affiche Azure Media Services qui présente les flux de travail AMS, de la création des médias à leur consommation.
 
 ##Composants requis
 
@@ -206,7 +206,7 @@ Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajou
 
 ##Support
 
-Le [support Azure](http://azure.microsoft.com/support/options/) propose des options de support pour Azure, y compris Media Services.
+Le [support Azure](https://azure.microsoft.com/support/options/) propose des options de support pour Azure, y compris Media Services.
 
 ##Modèles et pratiques recommandées
 
@@ -225,7 +225,7 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 - Pour la Protection de Contenu, nous garantissons que nous serons en mesure de traiter les demandes de clé au moins 99,9 % du temps.
 - Pour l’Indexeur, nous serons en mesure d’assurer les demandes de tâche d’indexation traitées avec une unité réservée d’encodage 99,9 % du temps.
 
-	Pour plus d’informations, consultez le [contrat SLA Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Pour plus d’informations, consultez le [contrat SLA Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

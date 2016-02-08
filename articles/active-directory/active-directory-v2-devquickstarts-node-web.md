@@ -19,7 +19,8 @@
 # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application Web NodeJS
 
 
-  >[AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+    Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 
 Nous allons utiliser Passport pour :
@@ -43,16 +44,16 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1. Inscription d’une application
+## 1\. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 - ajouter la plateforme **Web** pour votre application ;
 - entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `http://localhost:3000/auth/openid/return`.
 
-## 2. Ajoutez des éléments requis à votre répertoire
+## 2\. Ajoutez des éléments requis à votre répertoire
 
-Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
+Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
 
 - `npm install express`
 - `npm install ejs`
@@ -74,13 +75,13 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 
 Cela installera les bibliothèques dont dépend passport-azure-ad.
 
-## 3. Configurez votre application pour utiliser la stratégie passport-nod-js
+## 3\. Configurez votre application pour utiliser la stratégie passport-nod-js
 Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d’authentification OpenID Connect. Passport sera utilisé notamment pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur.
 
 -	Pour commencer, ouvrez le fichier `config.js` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `exports.creds`.
     -	L’élément `clientID:` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
     -	L’élément `returnURL` est l’**URI de redirection** que vous avez saisi dans le portail.
-    - Le `clientSecret` est la clé secrète que vous avez générée dans le portail.
+    - Le `clientSecret` est la clé secrète que vous avez générée dans le portail
 
 - Ouvrez ensuite le fichier `app.js` dans la racine du projet et ajoutez l’appel suivant pour appeler la stratégie `OIDCStrategy` qui est fournie avec `passport-azure-ad`
 
@@ -89,9 +90,9 @@ Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - Après cela, utilisez la stratégie référencée pour gérer les demandes de connexion
@@ -112,7 +113,7 @@ passport.use(new OIDCStrategy({
     responseType: config.creds.responseType,
     responseMode: config.creds.responseMode,
     skipUserProfile: config.creds.skipUserProfile
-    //scope: config.creds.scope
+    scope: config.creds.scope
   },
   function(iss, sub, profile, accessToken, refreshToken, done) {
     log.info('Example: Email address we received was: ', profile.email);
@@ -135,7 +136,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Facebook, etc.), que respectent tous les enregistreurs de stratégie. Comme vous pouvez le voir dans la stratégie, nous transmettons une function() dont les paramètres sont un jeton et un done. La stratégie revient vers nous une fois le travail terminé. Il est alors intéressant de stocker l’utilisateur et le jeton afin de ne pas avoir à les redemander.
 
-> [AZURE.IMPORTANT]Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
+> [AZURE.IMPORTANT]
+Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
 - Ensuite, nous allons ajouter les méthodes qui assureront le suivi des utilisateurs connectés, comme requis par Passport. Cela inclut la sérialisation et la désérialisation des informations d’utilisateur :
 
@@ -246,7 +248,7 @@ app.post('/auth/openid/return',
   });
 ```
 
-## 4. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
+## 4\. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
 
 Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 à l’aide du protocole d’authentification OpenID Connect. `passport-azure-ad` a pris en charge le laborieux processus d’élaboration des messages d’authentification, de validation des jetons d’Azure AD et de gestion des sessions utilisateur. Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
 
@@ -285,7 +287,7 @@ app.get('/logout', function(req, res){
     - `/logout` appelle simplement logout.ejs (et l’itinéraire) qui efface les cookies, puis renvoie l’utilisateur à index.ejs
 
 
-- Pour la dernière partie de `app.js`, nous ajoutons la méthode EnsureAuthenticated utilisée dans `/account` ci-dessus.
+- Pour la dernière partie de `app.js`, ajoutons la méthode EnsureAuthenticated utilisée dans `/account` ci-dessus.
 
 ```JavaScript
 
@@ -328,7 +330,7 @@ exports.index = function(req, res){
 };
 ```
 
-- Créez l’itinéraire `/routes/user.js` sous le répertoire racine.
+- Création de l’itinéraire `/routes/user.js` sous le répertoire racine
 
 ```JavaScript
 
@@ -343,7 +345,7 @@ exports.list = function(req, res){
 
 Ces itinéraires simples transmettent simplement la demande à nos vues, en incluant l’utilisateur le cas échéant.
 
-- Créez la vue `/views/index.ejs` sous le répertoire racine. Il s'agit d'une page simple qui appelle nos méthodes de connexion et de déconnexion et nous permet de récupérer des informations de compte. Notez que nous pouvons utiliser l’instruction conditionnelle `if (!user)`, étant donné que l’utilisateur transmis dans la demande prouve qu’un utilisateur est connecté.
+- Créez la vue `/views/index.ejs` sous le répertoire racine. Il s’agit d’une page simple qui appelle nos méthodes de connexion et de déconnexion et nous permet de récupérer des informations de compte. Notez que nous pouvons utiliser l’instruction conditionnelle `if (!user)`, étant donné que l’utilisateur transmis dans la demande prouve qu’un utilisateur est connecté.
 
 ```JavaScript
 <% if (!user) { %>
@@ -411,7 +413,7 @@ Connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou
 
 ##Étapes suivantes
 
-Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
@@ -421,4 +423,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

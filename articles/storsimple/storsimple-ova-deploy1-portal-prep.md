@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Préparation du portail (version préliminaire)
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## Introduction 
+## Vue d'ensemble 
 
 Cet article s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version 1.1.1.0 (version préliminaire publique) uniquement. Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaires pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
 
@@ -40,7 +40,7 @@ Le flux de travail du déploiement se compose de la préparation du portail, de 
 
 Consultez les articles suivants dans l'ordre indiqué pour déployer votre StorSimple Virtual Array.
 
-| **#** | **Dans cette étape** | **Vous effectuerez ceci...** | **Utilisez ces documents...**|
+| **#** | **Dans cette étape** | **Vous effectuerez ceci...** | **Utilisez ces documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Configuration du portail Azure Classic** | Créez et configurez votre service StorSimple Manager avant de configurer un appareil virtuel StorSimple. |[Préparation du portail](storsimple-ova-deploy1-portal-prep.md)| 
 |2\. | **Configuration du tableau virtuel** | Pour Hyper-V, configurez et connectez-vous à un appareil virtuel StorSimple sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2. <br></br> <br></br> Pour VMware, configurez et connectez-vous à un appareil virtuel local StorSimple sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures.| [Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md)|
@@ -48,13 +48,13 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre StorS
 
 #### Vidéos de déploiement
 
-| **Pour effectuer cette étape...** | **Regardez cette vidéo**|
+| **Pour effectuer cette étape...** | **Regardez cette vidéo.**|
 |----------------|-------------|
-| Instructions pas à pas pour prendre en main StorSimple Virtual Array. | [Prise en main de StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
-| Instructions pas à pas pour configurer StorSimple Virtual Array dans Hyper-V.|[Création d’un StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
-|Instructions pas à pas pour configurer et enregistrer StorSimple Virtual Array|[Configuration de StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
-|Instructions pas à pas pour créer des partages, sauvegarder des partages et restaurer des données sur un StorSimple Virtual Array configuré comme serveur de fichiers|[Utilisation de StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
-|Instructions pas à pas pour le basculement et la récupération d'urgence d'un StorSimple Virtual Array|[Récupération d’urgence d’un StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
+| Instructions pas à pas pour prendre en main StorSimple Virtual Array. | [Prise en main de StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
+| Instructions pas à pas pour configurer StorSimple Virtual Array dans Hyper-V.|[Création d’un StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
+|Instructions pas à pas pour configurer et enregistrer StorSimple Virtual Array|[Configuration de StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
+|Instructions pas à pas pour créer des partages, sauvegarder des partages et restaurer des données sur un StorSimple Virtual Array configuré comme serveur de fichiers|[Utilisation de StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
+|Instructions pas à pas pour le basculement et la récupération d'urgence d'un StorSimple Virtual Array|[Récupération d’urgence d’un StorSimple Virtual Array](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
 
 Vous pouvez maintenant commencer à configurer le portail Azure Classic.
 
@@ -112,48 +112,14 @@ Utilisez la procédure pas à pas suivante afin de préparer votre portail pour 
 
 Une seule instance du service StorSimple Manager peut gérer plusieurs appareils StorSimple 1200. Procédez comme suit pour créer une instance du service StorSimple Manager. Si vous disposez d'un service StorSimple Manager existant pour gérer vos appareils 1200, ignorez cette étape et passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 
-#### Création d’un service
-
-1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure Classic en utilisant l’URL qui suit : <https://manage.windowsazure.com/>
-
-2.  Dans le portail, cliquez sur **Nouveau > Services de données > StorSimple Manager > Création rapide**.
-
-3.  Dans le formulaire qui s’affiche, procédez comme suit :
-
-	1.  Indiquez un **nom** unique pour votre service. Il s’agit d’un nom convivial qui peut être utilisé pour identifier le service. Le nom peut comporter entre 2 et 50 caractères qui peuvent être des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre.
-
-	2.  Pour permettre à un service de gérer un appareil virtuel StorSimple, dans le menu déroulant des **Types d’appareils gérés**, choisissez **Série d’appareils virtuels**.
-
-	3.  Indiquez un **emplacement** pour votre service. L’emplacement fait référence à la région géographique dans laquelle vous souhaitez déployer votre appareil.
-
-	 -   Si vous avez d’autres charges de travail dans Azure que vous souhaitez déployer avec votre appareil StorSimple, nous vous invitons à utiliser ce centre de données.
-
-   	 -   Le gestionnaire StorSimple et le stockage Azure peuvent se trouver en deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Azure Storage dans le portail et suivez les étapes indiquées dans [Créer un compte Azure Storage](storage-create-storage-account.md#create-a-storage-account). Une fois ce compte créé, ajoutez-le au service StorSimple Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](#appendix-a-configure-a-new-storage-account-for-the-service).
-   	 
-   	 -   Notez que dans la version préliminaire, vous pouvez créer un service StorSimple Manager uniquement dans l'Ouest des États-Unis et dans l’Est du Japon.
-	
-	1.  Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
-
-	1.  Sélectionnez **Créer un compte de stockage Azure** pour créer automatiquement un compte de stockage avec le service. Ce compte de stockage possédera un nom spécial, tel que « storsimplebwv8c6dcnf ». Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher.
-
-	1.  Cliquez sur **Créer StorSimple Manager** pour créer le service.
-
-		![](./media/storsimple-ova-deploy1-portal-prep/image1.png)
-
-	Vous allez être redirigé vers la page d’accueil **Service**. La création de service dure quelques minutes. Un message vous informe que le service a été créé.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image2.png)
-
-	Le statut du service sera alors **Actif**.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image3.png)
+[AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
 > 
 > Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service.
 > 
 
-> - Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#appendix-a-configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
+> - Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
 > 
 
 > - Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
@@ -164,18 +130,10 @@ Une seule instance du service StorSimple Manager peut gérer plusieurs appareils
 
 Une fois le service StorSimple Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
-Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure.com/).
-
-#### Pour obtenir la clé d’inscription au service StorSimple
-
-1.  En bas de la page **Service StorSimple Manager**, cliquez sur **Clé d’inscription**.
-
-2.  Vous devez patienter quelques minutes pendant la récupération de la clé. La boîte de dialogue **Clé d’inscription au service** s’affiche.
+Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
 
 
-	1.  Repérez la **clé d’inscription au service**.
-
-	2.  Cliquez sur l’icône de copie ![](./media/storsimple-ova-deploy1-portal-prep/image6.png) pour copier la clé et l’enregistrer pour une utilisation ultérieure.
+[AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
 > 
@@ -185,7 +143,7 @@ Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure
 
 Après avoir obtenu la clé d'inscription du service, vous devrez télécharger l'image de l’appareil virtuel appropriée pour configurer un appareil virtuel sur le système hôte. Les images d’appareil virtuel sont spécifiques au système d'exploitation et peuvent être téléchargées depuis la page Démarrage rapide du portail Azure Classic.
 
-Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure.com/).
+Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
 
 #### Pour obtenir l'image de l’appareil virtuel
 
@@ -210,16 +168,9 @@ Regardez la vidéo afin d’obtenir des instructions pas à pas pour prendre en 
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
-## Étape suivante
-
-L'étape suivante consiste à configurer une machine virtuelle pour votre appareil virtuel StorSimple. Selon votre système d'exploitation hôte, consultez les instructions détaillées dans :
-
--   [Configuration de StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-
--   [Configuration de StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md)
 
 
-## Annexe A : Configuration d’un nouveau compte de stockage pour le service
+## Étape facultative : configuration d’un nouveau compte de stockage pour le service
 
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service.
 
@@ -247,4 +198,13 @@ Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure
 
 1.  Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-<!---HONumber=AcomDC_0121_2016-->
+
+## Étape suivante
+
+L'étape suivante consiste à configurer une machine virtuelle pour votre appareil virtuel StorSimple. Selon votre système d'exploitation hôte, consultez les instructions détaillées dans :
+
+-   [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md)
+
+<!---HONumber=AcomDC_0128_2016-->

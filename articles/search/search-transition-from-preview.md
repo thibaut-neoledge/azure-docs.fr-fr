@@ -27,7 +27,7 @@ En tant que client de la version préliminaire, vous avez peut-être utilisé l�
 
 À présent qu’Azure Search est mis à la disposition générale, nous encourageons la transition vers des versions plus récentes : 2015-02-28 constitue la version d’API officielle de la version mise à la disposition générale d’Azure Search. Cette version est documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-Nous déployons également la prochaine version préliminaire, [2015-02-28-Preview](search-api-2015-02-28-preview.md), qui comportera des fonctionnalités toujours en cours de développement. Vous pouvez fournir des commentaires sur la version préliminaire de l’API via les [forums Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou notre [page de commentaires](http://feedback.azure.com/forums/263029-azure-search).
+Nous déployons également la prochaine version préliminaire, [2015-02-28-Preview](search-api-2015-02-28-preview.md), qui comportera des fonctionnalités toujours en cours de développement. Vous pouvez fournir des commentaires sur la version préliminaire de l'API à l'aide des [forums Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou notre [page de commentaires] (https://feedback.azure.com/forums/263029-azure-search /).
 
 ###Liste de contrôle pour la migration###
 
@@ -144,4 +144,4 @@ La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de s
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

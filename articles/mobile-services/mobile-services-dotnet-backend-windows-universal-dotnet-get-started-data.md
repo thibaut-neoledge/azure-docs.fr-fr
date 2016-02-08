@@ -39,7 +39,7 @@ Le service mobile que vous allez créer dans ce didacticiel est un service mobil
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 ou une version ultérieure).
 
 ##Téléchargement du projet GetStartedWithData
@@ -98,14 +98,11 @@ Cela conclut le didacticiel.
 
 Ce didacticiel a présenté les bases de l'activation d'un projet d'application Windows universelle pour utiliser les données dans Mobile Services. Vous pouvez ensuite consulter une de ces autres rubriques :
 
-* [Prise en main de l'authentification]
-  <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Prise en main des notifications Push]
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
+* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 
 <!-- Images. -->
@@ -119,13 +116,11 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [Prise en main de l'authentification]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Prise en main des notifications Push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Prise en main de la synchronisation des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

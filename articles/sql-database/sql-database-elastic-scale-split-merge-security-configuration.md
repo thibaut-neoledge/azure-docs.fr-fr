@@ -437,7 +437,7 @@ Dans l'Assistant Importation de certificat :
 1. Sélectionnez l’emplacement du magasin.
 
     * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
-    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service.
+    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
 2. Cliquez sur **Next**.
 3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
 4. Si vous importez depuis un fichier .PFX :
@@ -453,7 +453,7 @@ Dans l'Assistant Importation de certificat :
 
 ## Téléchargement d’un certificat
 
-Dans le [portail Azure Classic](http://portal.azure.com/)
+Dans le [portail Azure Classic](https://portal.azure.com/)
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud.
@@ -473,4 +473,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

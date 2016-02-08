@@ -19,7 +19,7 @@
 # Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 
 ## Vue d'ensemble ##
-Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
+Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -35,7 +35,7 @@ Pour configurer un environnement App Service, consultez [notre documentation](a
 Barracuda propose un [article détaillé](https://techlib.barracuda.com/WAF/AzureDeploy) sur le déploiement de son WAF sur une machine virtuelle dans Azure. Mais étant donné que nous voulons la redondance sans introduire aucun point de défaillance, vous devez déployer au moins 2 machines virtuelles d'instances WAF dans le même service cloud.
 
 ### Ajout de points de terminaison au service cloud ###
-Du moment où vous disposez d’au moins deux instances de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour ajouter des points de terminaison HTTP et HTTPS utilisés par votre application, comme illustré dans l’image ci-dessous.
+Du moment où vous disposez d’au moins deux instances de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour ajouter des points de terminaison HTTP et HTTPS utilisés par votre application, comme illustré dans l’image ci-dessous.
 
 ![Configurer le point de terminaison][ConfigureEndpoint]
 
@@ -99,4 +99,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

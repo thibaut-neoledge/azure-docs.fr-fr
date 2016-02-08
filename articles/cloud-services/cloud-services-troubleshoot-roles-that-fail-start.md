@@ -22,9 +22,9 @@ Voici des solutions à quelques problèmes courants liés à des rôles Azure Cl
 
 ## Contacter le Support technique Azure
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## DLL ou dépendances manquantes
@@ -107,7 +107,7 @@ Vous pouvez utiliser l’émulateur de calcul Microsoft Azure pour diagnostiquer
 
 Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Microsoft Azure, vous devez utiliser Windows Server 2008 R2 x64.
 
-1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads)
+1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads/)
 
 2. Sur l’ordinateur de développement, générez le projet Cloud Service.
 
@@ -167,4 +167,4 @@ Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-i
 
 Pour savoir comment résoudre le problème des rôles de service Cloud à l’aide des données de diagnostic d’ordinateur Azure PaaS, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -6,8 +6,7 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"
-	/>
+	tags="azure-service-management"	/>
 
 <tags
 	ms.service="virtual-machines"
@@ -38,11 +37,11 @@ Ce didacticiel présente les procédures suivantes :
 * [Suivre la procédure de configuration pour se connecter à la machine virtuelle en utilisant SQL Server Management Studio sur un autre ordinateur](#SSMS)
 * [Étapes suivantes](#Optional)
 
->[AZURE.NOTE]Cet article décrit la configuration d'une machine virtuelle SQL Server avec le portail existant. Toutefois, il est également possible de créer et gérer des machines virtuelles SQL Server dans le [nouveau portail](https://manage.windowsazure.com). Le nouveau portail comporte plusieurs avantages, comment l’utilisation par défaut du stockage Premium, ainsi que d’autres options, comme l’application automatique de correctifs, la sauvegarde automatisée et les configurations AlwaysOn. Le contenu à venir fournira des instructions détaillées.
+>[AZURE.NOTE] Cet article décrit la configuration d'une machine virtuelle SQL Server avec le portail existant. Toutefois, il est également possible de créer et gérer des machines virtuelles SQL Server dans le [nouveau portail](https://manage.windowsazure.com). Le nouveau portail comporte plusieurs avantages, comment l’utilisation par défaut du stockage Premium, ainsi que d’autres options, comme l’application automatique de correctifs, la sauvegarde automatisée et les configurations AlwaysOn. Le contenu à venir fournira des instructions détaillées.
 
 ##<a id="Provision">Approvisionner une machine virtuelle SQL Server depuis la galerie</a>
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 2. Dans le portail Azure Classic, en bas à gauche de la page Web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
@@ -50,12 +49,12 @@ Ce didacticiel présente les procédures suivantes :
 
 	![Choisir une image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Pour obtenir les informations les plus récentes concernant les images SQL Server prises en charge sur Azure, consultez la rubrique [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Pour obtenir les informations les plus récentes concernant les images SQL Server prises en charge sur Azure, consultez la rubrique [Vue d'ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
->[AZURE.NOTE]Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
+>[AZURE.NOTE] Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
 >
 > - Vous pouvez créer une machine virtuelle en utilisant la version de SQL Server payante à la minute à partir de la galerie et faire migrer vos fichiers de base de données vers cette nouvelle machine virtuelle en suivant la procédure de la page [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-migrate-onpremises-database).
-> - Vous pouvez également mettre à niveau une instance de la version d’évaluation de SQL Server vers une autre version de SQL Server selon le contrat de [mobilité de licence via l’assurance logicielle sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de la page [Mise à niveau vers une autre version de SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+> - Vous pouvez également mettre à niveau une instance de la version d’évaluation de SQL Server vers une autre version de SQL Server selon le contrat de [mobilité de licence via l’assurance logicielle sur Azure](https://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de la page [Mise à niveau vers une autre version de SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
 	- Une **DATE DE SORTIE DE LA VERSION**. Si plusieurs images sont disponibles, sélectionnez la dernière.
@@ -67,7 +66,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 
 	![Configuration de machine virtuelle](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE]La taille de la machine virtuelle est indiquée durant la configuration :
+	>[AZURE.NOTE] La taille de la machine virtuelle est indiquée durant la configuration :
  	>
 	> - Pour les charges de travail de production, nous recommandons l’utilisation de stockage Premium avec les tailles minimum recommandées : **DS3** pour l’édition SQL Server Enterprise et **DS2** pour l’édition SQL Server Standard. Pour plus d’informations, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
 	> - La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
@@ -78,7 +77,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 	- Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
 	- Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net**
 	- Sélectionnez un **ABONNEMENT** s’il en existe plusieurs. Ce choix détermine les **comptes de stockage **disponibles.
-	- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
+- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
 	- Dans la zone **Compte de stockage**, générez automatiquement un compte ou sélectionnez-en un dans la liste. Modifiez l’**ABONNEMENT** pour voir plus de comptes.
 	- Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
 	- Lisez et acceptez les conditions juridiques.
@@ -98,7 +97,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 	- **Exécution**
 
 
-##<a id="RemoteDesktop">Ouverture de la machine virtuelle à l’aide du Bureau à distance pour achever la configuration</a>
+##<a id="RemoteDesktop">Ouverture de la machine virtuelle à l'aide du Bureau à distance pour achever la configuration</a>
 
 1. Une fois l’approvisionnement terminé, cliquez sur le nom de votre machine virtuelle pour accéder à la page TABLEAU DE BORD. En bas de la page, cliquez sur **Connect**.
 
@@ -112,7 +111,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 
 4. Utilisez le nom de la machine en tant que nom de domaine, suivi de votre nom d’administrateur au format suivant : `machinename\username`. Saisissez votre mot de passe et connectez-vous à la machine.
 
-4. Lors de la première connexion, plusieurs processus doivent s’effectuer, notamment la configuration de votre bureau, les mises à jour de Windows et l’achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L’exécution de ces tâches peut nécessiter quelques minutes. `SELECT @@SERVERNAME` peut ne pas renvoyer le nom correct tant que la configuration de SQL Server n’est pas terminée, et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
+4. Lors de la première connexion, plusieurs processus doivent s’effectuer, notamment la configuration de votre bureau, les mises à jour de Windows et l’achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L'exécution de ces tâches peut nécessiter quelques minutes. `SELECT @@SERVERNAME` peut ne pas renvoyer le nom correct tant que la configuration de SQL Server n'est pas terminée, et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
 
 Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l’instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
 
@@ -176,5 +175,4 @@ La liste suivante fournit des ressources supplémentaires pour SQL Server dans d
 
 - [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

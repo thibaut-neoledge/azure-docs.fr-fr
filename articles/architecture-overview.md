@@ -104,8 +104,8 @@ D’autres symboles utilisables avec Microsoft Office et des technologies assoc
 
 ##Éléments d'infographie relatifs à l'architecture
 
-Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'architecture. Cela inclut la [création d’applications cloud réalistes](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) et leur [mise à l’échelle à l’aide de Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/).
+Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'architecture. Cela inclut la [création d’applications cloud réalistes](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) et leur [mise à l’échelle à l’aide de Cloud Services](https://azure.microsoft.com/documentation/infographics/cloud-services/).
 
 ![Éléments d’infographie relatifs à l’architecture Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

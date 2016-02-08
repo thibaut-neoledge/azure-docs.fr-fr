@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
@@ -21,7 +21,7 @@
 
 Cet article fournit des informations sur le matériel supplémentaire fonctionnant avec votre appareil Microsoft Azure StorSimple.
 
-## Liste des périphériques pris en charge
+## Liste des appareils testés par Microsoft
 
 Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichables infrarouges à faible encombrement suivants, pour vérifier qu'ils fonctionnent de façon optimale avec les appareils. (Les tableaux suivants sont actualisés lorsque du nouveau matériel est testé.)
 
@@ -33,7 +33,7 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 
 ### Câbles
 
-|S. No. |Assurez-vous|Modèle|
+|S. N° |Assurez-vous|Modèle|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
 | 2\.|Cisco|SFP-H10GB-CU2M|
@@ -42,13 +42,31 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 
 ### Commutateurs
 
-|S. No.|Assurez-vous|Modèle|
+|S. N°|Assurez-vous|Modèle|
 |---|---|---|
 | 1\. |Cisco|N3K C3172PQ-10-GE|
 | 2\. |Cisco|N3K-C3048-ZM-F|
 | 3\. |Cisco|N5K-C5596UP-FA|
 
-## Liste des périphériques pris en charge par Mellanox  
+## Liste des appareils testés sur site
+
+Cette section contient la liste des appareils qui ont été déployés sur site par les clients de StorSimple. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
+ 
+| Paramètre | Valeur |
+|-----------------------------------|------------------------------------------|
+| Marque du commutateur | Juniper |
+| Modèle du commutateur | ex4550-32F |
+| Version de système d’exploitation du commutateur | JunOS 12.3R9.4 |
+| Modèle de panneau | Ports intégrés (PIC 0) |
+| Marque du transmetteur | Juniper |
+| Modèle de transmetteur | Numéro de référence 740-021308 <br></br> Numéro de référence 740-030658 |
+| Version du microprogramme du transmetteur | Rev 01 Version 0.0 (indiqué) |
+| Modèle de câble | Cavalier duplex LC/LC 50/125µ, OM3, LSZH |
+| Modèle StorSimple | 8600 |
+| Version du logiciel StorSimple | 6\.3.9600.17491 |
+
+
+## Liste des appareils testés par le fournisseur OEM (Mellanox)  
 
 Mellanox a testé les câbles, les commutateurs et les transmetteurs enfichables infrarouges à faible encombrement suivants, pour vérifier qu'ils fonctionnent de façon optimale avec les interfaces réseau Mellanox comme les interfaces réseau 10 GbE sur votre appareil StorSimple.
 
@@ -56,7 +74,7 @@ Mellanox a testé les câbles, les commutateurs et les transmetteurs enfichables
 
 Le tableau suivant répertorie les câbles et les modules pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. No. | Vitesse | Modèle | Description | Assurez-vous |
+| S. N° | Vitesse | Modèle | Description | Assurez-vous |
 |--------|-------|-----------------------|--------------------------------------------------------|-----------------------|
 | 1\. | 10 GbE| CAB-SFP-SFP - 1M | câble en cuivre passif SFP+ 10 Gbit/s, 1 m | Arista |
 | 2\. | 10 GbE| CAB-SFP-SFP-2M | câble en cuivre passif SFP+ 10 Gbit/s, 2 m | Arista |
@@ -98,7 +116,7 @@ Le tableau suivant répertorie les câbles et les modules pris en charge par Mel
 
 Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. No. | Vitesse | Modèle | Description | Assurez-vous |
+| S. N° | Vitesse | Modèle | Description | Assurez-vous |
 |--------|-------|-------------|---------------------------------------------------------------------|-------------|
 | 1\. | 10 GbE | 516733-B21 | Commutateur Ethernet Blade 6120XG 10 GbE HP ProCurve | HP |
 | 2\. | 10 GbE | 538113-B21 | Module de passerelle HP 10 GbE (PTM) | HP |
@@ -112,4 +130,4 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 [En savoir plus sur les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

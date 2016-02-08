@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # Prise en main des requêtes de bases de données croisées (partitionnement vertical) 
@@ -109,4 +109,4 @@ Pour plus d’informations sur la tarification, voir [Tarification des bases de 
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

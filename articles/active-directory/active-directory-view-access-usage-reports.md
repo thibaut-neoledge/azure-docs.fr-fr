@@ -34,7 +34,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 > [AZURE.NOTE]
 >
 - Certains rapports d'utilisation de ressources et d’anomalies avancés ne sont disponibles que lorsque vous activez [Azure Active Directory Premium](active-directory-get-started-premium.md). Des rapports avancés vous permettent d'améliorer la sécurité d'accès, de répondre aux menaces potentielles et d'accéder aux analyses relatives à l'utilisation de l’application et à l’accès à l’appareil.
-- Les clients situés en Chine peuvent accéder à Azure Active Directory Premium ainsi qu’aux éditions De base à l'aide de l'instance mondiale d'Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Les clients situés en Chine peuvent accéder à Azure Active Directory Premium ainsi qu’aux éditions De base à l'aide de l'instance mondiale d'Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Rapports
 
@@ -221,7 +221,7 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 | ----------------------								| ---------		|
 | Connexions au [Volet d'accès](http://myapps.microsoft.com/) | Oui |
 | Connexions au [Portail de gestion Azure](https://manage.windowsazure.com/) | Oui |
-| Connexions au [Portail Microsoft Azure](http://portal.azure.com/) | Oui |
+| Connexions au [Portail Microsoft Azure](https://portal.azure.com/) | Oui |
 | Connexions au [Portail Office 365](http://portal.office.com/) | Oui |
 | Connexions à une application native, telle qu’Outlook (consultez l'exception ci-dessous) | Oui |
 | Connexions à une application fédérée/configurée via le volet d'accès, telle que Salesforce | Oui |
@@ -253,7 +253,7 @@ Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’
 1. Dans le portail de gestion Azure, cliquez sur **Active Directory**, sur le nom du répertoire de votre société, puis sur **Rapports**.
 2. Dans la page Rapports, cliquez sur le rapport que vous souhaitez afficher et/ou télécharger.
 
-    > [AZURE.NOTE]S’il s’agit de votre première utilisation de la fonctionnalité de création de rapports d’Azure Active Directory, un message s’affiche pour sélectionner votre choix. Si vous acceptez, cliquez sur la coche pour continuer.
+    > [AZURE.NOTE] S’il s’agit de votre première utilisation de la fonctionnalité de création de rapports d’Azure Active Directory, un message s’affiche pour sélectionner votre choix. Si vous acceptez, cliquez sur la coche pour continuer.
 
 3. Cliquez sur le menu déroulant situé près d'Intervalle, puis sélectionnez l’une des plages horaires qui doivent être utilisées lors de la génération de ce rapport :
     - 24 dernières heures
@@ -271,11 +271,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
+Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

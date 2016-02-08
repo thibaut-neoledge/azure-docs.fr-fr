@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -34,9 +34,8 @@ Vous lancez la connexion entre votre service local et le service de relais à l'
 Pour plus de détails sur Service Bus Relay, consultez les rubriques suivantes.
 
 - [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)#
 
-> [AZURE.NOTE]Cet article décrit les indexeurs dans la version [2015-02-28-Preview](./search-api-2015-02-28-preview). Il n'existe actuellement aucune différence entre la version `2015-02-28` documentée sur [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) et la version `2015-02-28-Preview` décrite ici. Cet article a pour but de mettre à votre disposition une documentation complète de `2015-02-28-Preview`, même si cette API n'a pas été modifiée
+> [AZURE.NOTE] Cet article décrit les indexeurs dans la version [2015-02-28-Preview](./search-api-2015-02-28-preview). Il n'existe actuellement aucune différence entre la version `2015-02-28` documentée sur [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) et la version `2015-02-28-Preview` décrite ici. Cet article a pour but de mettre à votre disposition une documentation complète de `2015-02-28-Preview`, même si cette API n'a pas été modifiée
 
 ## Vue d'ensemble ##
 
@@ -38,7 +38,7 @@ Les sources de données actuellement prises en charge sont les suivantes :
 - Base de données Azure SQL sur les machines virtuelles Azure
 - Document DB Azure 
 
-Nous envisageons d'ajouter une prise en charge de sources de données supplémentaires à l'avenir. Pour nous aider à classer ces décisions par ordre de priorité, indiquez vos commentaires sur le [forum des commentaires Azure Search](http://feedback.azure.com/forums/263029-azure-search).
+Nous envisageons d'ajouter une prise en charge de sources de données supplémentaires à l'avenir. Pour nous aider à classer ces décisions par ordre de priorité, indiquez vos commentaires sur le [forum des commentaires Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 Consultez les [Limites du service](search-limits-quotas-capacity.md) pour les limites maximales liées à l’indexeur et aux sources de données.
 
@@ -776,4 +776,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

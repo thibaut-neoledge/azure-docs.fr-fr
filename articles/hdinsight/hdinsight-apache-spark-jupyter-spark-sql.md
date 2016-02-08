@@ -26,7 +26,7 @@ Découvrez comment créer un cluster Apache Spark dans HDInsight, puis comment 
 
 **Configuration requise :**
 
-- **Un abonnement Azure**. Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Un client SSH (Secure Shell)** : les systèmes Linux, Unix et OS X fournissent un client SSH par le biais de la commande `ssh`. Pour les systèmes Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
     
@@ -41,7 +41,7 @@ Découvrez comment créer un cluster Apache Spark dans HDInsight, puis comment 
 
 Dans cette section, vous allez créer un cluster HDInsight version 3.3, qui est basé sur la version 1.5.1 de Spark. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 
->[AZURE.NOTE]Les étapes décrites dans cet article permettent de créer un cluster Apache Spark dans HDInsight à l’aide des paramètres de configuration de base. Pour plus d’informations sur les autres paramètres de configuration de cluster (comme l’utilisation d’un espace de stockage supplémentaire, d’un réseau virtuel Azure ou d’un metastore pour Hive), consultez [Créer des clusters Spark HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] Les étapes décrites dans cet article permettent de créer un cluster Apache Spark dans HDInsight à l’aide des paramètres de configuration de base. Pour plus d’informations sur les autres paramètres de configuration de cluster (comme l’utilisation d’un espace de stockage supplémentaire, d’un réseau virtuel Azure ou d’un metastore pour Hive), consultez [Créer des clusters Spark HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 **Pour créer un cluster Spark**
@@ -60,13 +60,13 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.3, qui est
 
 5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez l’endroit où créer le cluster. Vous pouvez également cliquer sur **Créer un nouveau**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
 
-	> [AZURE.NOTE]Cette entrée correspond par défaut à l’un des groupes de ressources existants, si l’un d’eux est disponible.
+	> [AZURE.NOTE] Cette entrée correspond par défaut à l’un des groupes de ressources existants, si l’un d’eux est disponible.
 
 6. Cliquez sur **Informations d’identification**, puis entrez un mot de passe pour l’utilisateur administrateur. Vous devez également entrer un **Nom d’utilisateur SSH**. Pour **Type d’authentification SSH**, cliquez sur **MOT DE PASSE** et spécifiez un mot de passe pour l’utilisateur SSH. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer la configuration des informations d’identification.
 
 	![Fournir les informations d’identification du cluster](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "Fournir les informations d’identification du cluster")
 
-    > [AZURE.NOTE]SSH permet d’accéder à distance au cluster HDInsight à l’aide d’une ligne de commande. Le nom d’utilisateur et le mot de passe que vous employez ici sont utilisés pour la connexion au cluster via SSH. Par ailleurs, le nom d’utilisateur SSH doit être unique, car il crée un compte d’utilisateur sur tous les nœuds du cluster HDInsight. Voici quelques-uns des noms de compte dont l’usage est réservé aux services sur le cluster et qui ne peuvent pas être utilisés en tant que nom d’utilisateur SSH :
+    > [AZURE.NOTE] SSH permet d’accéder à distance au cluster HDInsight à l’aide d’une ligne de commande. Le nom d’utilisateur et le mot de passe que vous employez ici sont utilisés pour la connexion au cluster via SSH. Par ailleurs, le nom d’utilisateur SSH doit être unique, car il crée un compte d’utilisateur sur tous les nœuds du cluster HDInsight. Voici quelques-uns des noms de compte dont l’usage est réservé aux services sur le cluster et qui ne peuvent pas être utilisés en tant que nom d’utilisateur SSH :
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -90,7 +90,7 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.3, qui est
 
 	- **Emplacement** : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
-		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définit également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
+		> [AZURE.IMPORTANT] La sélection de l’emplacement de la source de données par défaut définit également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de source de données.
 
@@ -106,7 +106,7 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.3, qui est
 	| ------------------ | --------------------- |
 	| ![Indicateur de création sur le tableau d’accueil](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour vérifier le processus de création.
+	> [AZURE.NOTE] La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour vérifier le processus de création.
 
 10. Une fois la création terminée, cliquez sur la vignette du cluster Spark dans le tableau d’accueil pour lancer le panneau du cluster.
 
@@ -120,7 +120,7 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -248,4 +248,4 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

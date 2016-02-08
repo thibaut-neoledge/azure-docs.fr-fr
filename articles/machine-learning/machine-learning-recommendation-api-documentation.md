@@ -41,7 +41,7 @@ Les API Azure Machine Learning Recommendations peuvent être divisées en groupe
 - <ins>Données utilisateur</ins> : API permettant d’extraire des informations relatives aux données d’utilisation de l’utilisateur.
 - <ins>Notifications</ins> : API permettant de recevoir des notifications sur les problèmes liés à vos opérations d'API. (Par exemple, si vous signalez les données d'utilisation via acquisition de données et que la plupart des événements traités échouent, une notification d'erreur est déclenchée.)
 
-##2. Limites
+##2\. Limites
 
 - Le nombre maximal de modèles par abonnement est de 10.
 - Le nombre maximal de builds par modèle est de 20.
@@ -49,34 +49,35 @@ Les API Azure Machine Learning Recommendations peuvent être divisées en groupe
 - La quantité maximale de points d'utilisation conservée est d'environ 5 000 000. Le plus ancien est supprimé quand des nouveaux sont téléchargés ou signalés.
 - La taille maximale des données pouvant être envoyées dans POST (par exemple, importation des données de catalogue ou des données d'utilisation) est de 200 Mo.
 - Le nombre de transactions par seconde pour une build de modèle de recommandation inactive est d'environ 2 TPS. Une build de modèle de recommandation active peut prendre en charge jusqu'à 20 TPS.
+- Le nombre maximal d'éléments qui peuvent être demandés lors de l'obtention de recommandations est 150.
 
-##3. API – Informations générales
+##3\. API – Informations générales
 
-###3.1. Authentification
+###3\.1. Authentification
 Respectez les instructions de Microsoft Azure Marketplace concernant l'authentification. Le Marketplace prend en charge les méthodes d'authentification De base et OAuth.
 
-###3.2. URI de service
+###3\.2. URI de service
 Les URI racines de service des API Azure Machine Learning Recommendations se trouvent [ici](https://api.datamarket.azure.com/amla/recommendations/v3/).
 
 L'URI de service complet est exprimée à l'aide des éléments de la spécification OData.
 
-###3.3. Version de l'API
+###3\.3. Version de l'API
 À la fin de chaque appel d'API doit se trouver un paramètre de requête appelé apiVersion qui doit avoir la valeur 1.0.
 
-###3.4. Respect de la casse des ID
+###3\.4. Respect de la casse des ID
 Les ID, quelle que soit l'API qui les retourne, respectent la casse. Ils doivent donc être utilisés comme tels quand ils sont passés en tant que paramètres dans les appels d'API ultérieurs. Par exemple, les ID de modèle et de catalogue respectent la casse.
 
-##4. Qualité des recommandations et éléments froids
+##4\. Qualité des recommandations et éléments froids
 
-###4.1. Qualité de la recommandation
+###4\.1. Qualité de la recommandation
 
 La création d'un modèle de recommandation est généralement suffisante pour permettre au système de fournir des recommandations. Toutefois, la qualité de la recommandation varie en fonction de l'utilisation traitée et de la couverture du catalogue. Par exemple, si vous avez beaucoup d'éléments froids (éléments n'étant pas beaucoup utilisés), le système aura des difficultés à émettre une recommandation pour de tels éléments ou à utiliser l'un de ces éléments en tant qu'élément recommandé. Pour remédier au problème des éléments froids, le système autorise l'utilisation des métadonnées des éléments pour améliorer les recommandations. Ces métadonnées sont appelées « caractéristiques ». L'auteur d'un livre et l'acteur d'un film sont des exemples de caractéristiques. Les caractéristiques sont fournies via le catalogue sous la forme de chaînes clé/valeur. Pour obtenir le format complet du fichier catalogue, consultez la [section Importer des données de catalogue](#81-import-catalog-data).
 
-###4.2. Build de classement
+###4\.2. Build de classement
 
 L'amélioration du modèle de recommandation exige le recours à des caractéristiques significatives. Dans cette optique, une nouvelle build a été introduite : la build de classement. Cette build permet de classer l'utilité des caractéristiques. Une caractéristique est significative si elle reçoit un score d'au moins 2 de la build de classement. Après avoir déterminé les caractéristiques significatives, déclenchez une build de recommandation avec la liste (ou sous-liste) des caractéristiques significatives. Il est possible d'utiliser ces caractéristiques pour améliorer à la fois les éléments chauds et les éléments froids. Pour utiliser des caractéristiques pour des éléments chauds, vous devez configurer le paramètre de build `UseFeatureInModel`. Pour utiliser des caractéristiques pour des éléments froids, vous devez activer le paramètre de build `AllowColdItemPlacement`. Remarque : il est impossible d'activer `AllowColdItemPlacement` sans activer `UseFeatureInModel`.
 
-###4.3. Raisonnement de la recommandation
+###4\.3. Raisonnement de la recommandation
 
 Le raisonnement de la recommandation est un autre aspect de l'utilisation des caractéristiques. En effet, le moteur Azure Machine Learning Recommendations peut utiliser des caractéristiques pour fournir des explications sur la recommandation (ou « raisonnement »), renforçant ainsi la confiance de l'utilisateur de la recommandation envers l'élément recommandé. Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `ReasoningFeatureList` doivent être configurés avant la demande d'une build de recommandation.
 
@@ -92,10 +93,7 @@ Crée une demande de création de modèle.
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
-| apiVersion | 1.0 | 
-||| 
-| Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
 
 
 **Réponse** :
@@ -145,8 +143,8 @@ Crée une demande d'obtention de modèle.
 |:--------			|:--------								|
 |	id |	Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -208,8 +206,8 @@ Récupère tous les modèles de l'utilisateur actuel.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -277,8 +275,8 @@ Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br
 |:--------			|:--------								|
 |	id | Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
+|
+| Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
 
 **Réponse** :
 
@@ -295,8 +293,8 @@ Supprime un modèle existant par ID.
 |:--------			|:--------								|
 |	id |	Identificateur unique du modèle (respecte la casse) |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -339,8 +337,8 @@ Disponible uniquement pour la build de recommandation.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -576,8 +574,8 @@ Disponible uniquement pour la build de recommandation.
 |	modelId |	Identificateur unique du modèle |
 |	buildId |	Facultatif. Numéro qui identifie une build réussie. |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -656,8 +654,8 @@ Obtient un exemple du modèle de recommandation.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -798,8 +796,8 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 ##7\. Règles métiers de modèle
-Voici les types de règles prises en charge :
-- <strong>Liste de blocage</strong> : permet de fournir une liste d’éléments à ne pas retourner dans les résultats de la recommandation.
+
+Voici les types de règles prises en charge : <strong>Liste de blocage</strong> : permet de fournir une liste d’éléments à ne pas retourner dans les résultats de la recommandation.
 
 - <strong>Liste de blocage de fonctionnalités</strong> : permet de bloquer les éléments en fonction des valeurs de ses fonctionnalités.
 
@@ -826,8 +824,8 @@ Voici les types de règles prises en charge :
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -884,20 +882,9 @@ OData XML
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|||
+|
 | Corps de la requête | 
-<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que vous avez utilisé dans le fichier de catalogue)</ins><br> 
-<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Pour ajouter une règle FeatureBlockList :</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Pour ajouter une règle WhiteList :</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Pour ajouter une règle FeatureWhiteList :</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que vous avez utilisé dans le fichier de catalogue)</ins><br> <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Réponse** :
@@ -945,8 +932,8 @@ OData XML
 |	modelId |	Identificateur unique du modèle |
 |	filterId |	Identificateur unique du filtre |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -962,8 +949,8 @@ Code d'état HTTP : 200
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -987,11 +974,7 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
-| Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
-| Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
-| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | 
-| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -1002,19 +985,14 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion | 1.0 |
-|||
-| Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Réponse** :
 
 Code d'état HTTP : 200
 
-L'API retourne un rapport de l'importation.
-- `feed\entry\content\properties\LineCount` : nombre de lignes acceptées.
-- `feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
+L'API retourne un rapport de l'importation. `feed\entry\content\properties\LineCount` : nombre de lignes acceptées. `feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
 
 OData XML
 
@@ -1050,8 +1028,8 @@ Récupère tous les éléments de catalogue.
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -1153,8 +1131,8 @@ OData XML
 |	modelId |	Identificateur unique du modèle |
 |	token |	Jeton du nom de l'élément de catalogue. Doit contenir au moins 3 caractères. |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -1208,10 +1186,7 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion | 1.0 | 
-|||
-| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID d’élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille de fichier maximale : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID d’élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille de fichier maximale : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -1372,8 +1347,8 @@ Récupère les métadonnées de tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 |	forModelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -1439,8 +1414,8 @@ Obtient les statistiques d'utilisation.
 | endDate |	Date de fin. Format : aaaa/MM/jjTHH:mm:ss |
 | eventTypes |	Chaîne de types d'événements séparés par des virgules ou valeur null pour obtenir tous les événements |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -1522,31 +1497,14 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 | modelId |	Identificateur unique du modèle |
 | fileId |	Identificateur unique du fichier d'utilisation du modèle |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
 Code d'état HTTP : 200
 
-La réponse est retournée au format texte brut :
-<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-</pre>
+La réponse est retournée au format texte brut : <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 
 ###9\.5. Obtention de fichier d'utilisation de modèle
@@ -1562,49 +1520,14 @@ Récupère le contenu intégral du fichier d'utilisation.
 | fid |	Identificateur unique du fichier d'utilisation du modèle |
 | télécharger | 1 |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
 Code d'état HTTP : 200
 
-La réponse est retournée au format texte brut :
-<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-</pre>
+La réponse est retournée au format texte brut : <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
 ###9\.6. Suppression de fichier d'utilisation
 Supprime le fichier d'utilisation du modèle spécifié.
@@ -1618,8 +1541,8 @@ Supprime le fichier d'utilisation du modèle spécifié.
 | modelId |	Identificateur unique du modèle |
 | fileId | Identificateur unique du fichier à supprimer |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -1637,17 +1560,15 @@ Supprime tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 | modelId |	Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
 Code d'état HTTP : 200
 
 ##10\. Caractéristiques
-Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement.
-Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes.
-Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
+Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement. Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes. Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
 
 ###10\.1. Obtention d'informations sur les caractéristiques (pour la dernière build de classement)
 Récupère des informations sur les caractéristiques, y compris le classement, pour la dernière build de classement réussie.
@@ -1661,8 +1582,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | modelId |	Identificateur unique du modèle |
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue. <br/>Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 
 **Réponse** :
@@ -1744,8 +1665,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue.<br/> Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 |rankBuildId| Identificateur unique de la build de classement ou -1 pour la dernière build de classement|
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 
 **Réponse** :
@@ -1817,19 +1738,9 @@ OData
 
   Cette section explique les différentes API liées aux builds. Il existe 3 types de builds : une build de recommandation, une build de classement et une build FBT (fréquemment achetés ensemble).
 
-L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types :
-* I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants.
-* U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
+L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types : * I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants. * U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
 
-Une build de classement est une build technique qui vous permet d'en savoir plus sur l'utilité de vos caractéristiques. En général, pour tirer le meilleur parti d'un modèle de recommandation impliquant des caractéristiques, vous devez procéder comme suit :
-- Déclencher une build de classement (sauf si le score de vos caractéristiques est stable) et attendre l'obtention du score des caractéristiques.
-- Récupérer le classement de vos caractéristiques en appelant l'API [Obtention d'informations sur les caractéristiques](#101-get-features-info-for-last-rank-build).
-- Configurer une build de recommandation avec les paramètres suivants :
-	- `useFeatureInModel` : valeur True.
-	- `ModelingFeatureList` : liste séparée par des virgules des caractéristiques avec un score de 2.0 ou plus (selon les classements récupérés lors de l'étape précédente).
-	- `AllowColdItemPlacement` : valeur True.
-	- Affecter éventuellement à `EnableFeatureCorrelation` la valeur True et à `ReasoningFeatureList` la liste des caractéristiques à utiliser pour fournir des explications (en général la même liste de caractéristiques que celle utilisée lors de la modélisation ou une sous-liste).
-- Déclencher la build de recommandation avec les paramètres configurés.
+Une build de classement est une build technique qui vous permet d'en savoir plus sur l'utilité de vos caractéristiques. En général, pour tirer le meilleur parti d'un modèle de recommandation impliquant des caractéristiques, vous devez procéder comme suit : - Déclencher une build de classement (sauf si le score de vos caractéristiques est stable) et attendre l'obtention du score des caractéristiques. - Récupérer le classement de vos caractéristiques en appelant l'API [Obtention d'informations sur les caractéristiques](#101-get-features-info-for-last-rank-build). - Configurer une build de recommandation avec les paramètres suivants :- `useFeatureInModel` : valeur True. - `ModelingFeatureList` : liste séparée par des virgules des caractéristiques avec un score de 2.0 ou plus (selon les classements récupérés lors de l'étape précédente). - `AllowColdItemPlacement` : valeur True. - Affecter éventuellement à `EnableFeatureCorrelation` la valeur True et à `ReasoningFeatureList` la liste des caractéristiques à utiliser pour fournir des explications (en général la même liste de caractéristiques que celle utilisée lors de la modélisation ou une sous-liste). -Déclencher la build de recommandation avec les paramètres configurés.
 
 Remarque : si vous ne configurez aucun paramètre (par exemple, en appelant la build de recommandation sans paramètres) ou que vous ne désactivez pas explicitement l'utilisation de caractéristiques (par exemple, en affectant à `UseFeatureInModel` la valeur False), le système affecte aux paramètres liés aux caractéristiques les valeurs ci-dessus dans le cas d'une build de classement existante.
 
@@ -1906,8 +1817,8 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 | modelId |	Identificateur unique du modèle |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
-||| 
-| Corps de la demande | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+|
+| Corps de la requête | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Réponse** :
 
@@ -1982,7 +1893,7 @@ OData XML
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | buildType | Type de la build à appeler : <br/> : « Recommendation » pour une build de recommandation <br> : « Ranking » pour une build de classement <br/> : « Fbt » pour une build FBT
 | apiVersion | 1\.0 |
-||| 
+|
 | Corps de la requête | S’il est laissé vide, le build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi que la liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Réponse** :
@@ -2082,18 +1993,9 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
 
-États de build valides :
-- Created : l'entrée de demande de build a été créée.
-- Queued : la demande de build a été déclenchée et mise en file d'attente.
-- Building : la build est en cours d'exécution.
-- Success : la build a été correctement exécutée
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+États de build valides : - Created : l'entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d'attente. - Building : la build est en cours d'exécution. - Success : la build a été correctement exécutée - Error : la build s'est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d'annulation.
 
-Valeurs valides pour le type de build :
-- Rank : build de classement.
-- Recommendation : build de recommandation.
+Valeurs valides pour le type de build : - Rank : build de classement. - Recommendation : build de recommandation.
 
 
 OData XML
@@ -2166,19 +2068,10 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
 
-États de build valides :
-- Created : l'entrée de demande de build a été créée.
-- Queued : la demande de build a été déclenchée et mise en file d'attente.
-- Building : la build est en cours d'exécution.
-- Success : la build a été correctement exécutée
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+États de build valides : - Created : l'entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d'attente. - Building : la build est en cours d'exécution. - Success : la build a été correctement exécutée - Error : la build s'est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d'annulation.
 
 
-Valeurs valides pour le type de build :
-- Rank : build de classement. 
-- Recommendation : build de recommandation.
+Valeurs valides pour le type de build : - Rank : build de classement. - Recommendation : build de recommandation.
 
 
 OData XML
@@ -2267,9 +2160,7 @@ Récupère les paramètres de build.
 
 Code d'état HTTP : 200
 
-Cette API retourne une collection d'éléments clé/valeur. Chaque élément représente un paramètre et sa valeur :
-- `feed/entry/content/properties/Key` : nom du paramètre de build.
-- `feed/entry/content/properties/Value` : valeur du paramètre de build.
+Cette API retourne une collection d'éléments clé/valeur. Chaque élément représente un paramètre et sa valeur : - `feed/entry/content/properties/Key` : nom du paramètre de build. - `feed/entry/content/properties/Value` : valeur du paramètre de build.
 
 Le tableau ci-dessous décrit la valeur de chaque clé.
 
@@ -2470,7 +2361,7 @@ Obtient des recommandations de la build active de type « Recommendation » ou
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | itemIds | Liste des éléments séparés par des virgules faisant l'objet d'une demande de recommandation. <br>Si la build active est de type FBT, vous ne pouvez envoyer qu'un seul élément. <br>Longueur maximale : 1 024 |
-| numberOfResults | Nombre de résultats requis |
+| numberOfResults | Nombre de résultats requis <br> Max : 150 |
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
 
@@ -2479,11 +2370,7 @@ Obtient des recommandations de la build active de type « Recommendation » ou
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 L'exemple de réponse ci-dessous comprend 10 éléments recommandés.
 
@@ -2650,7 +2537,7 @@ Obtient des recommandations d'une build spécifique de type « Recommendation 
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | itemIds | Liste des éléments séparés par des virgules faisant l'objet d'une demande de recommandation. <br>Si la build active est de type FBT, vous ne pouvez envoyer qu'un seul élément. <br>Longueur maximale : 1 024 |
-| numberOfResults | Nombre de résultats requis |
+| numberOfResults | Nombre de résultats requis <br> Max : 150 |
 | includeMetatadata | Utilisation ultérieure, toujours false
 | buildId | ID de build à utiliser pour cette demande de recommandation |
 | apiVersion | 1\.0 |
@@ -2660,11 +2547,7 @@ Obtient des recommandations d'une build spécifique de type « Recommendation 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2680,7 +2563,7 @@ Obtient des recommandations de la build active de type « Fbt ». en fonction 
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | itemId | Élément à recommander. <br>Longueur maximale : 1024 |
-| numberOfResults | Nombre de résultats requis |
+| numberOfResults | Nombre de résultats requis <br> Max : 150 |
 | minimalScore | Score minimal qu’un jeu fréquent doit obtenir pour être inclus dans les résultats retournés. |
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
@@ -2690,13 +2573,7 @@ Obtient des recommandations de la build active de type « Fbt ». en fonction 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id1` : ID de l’élément recommandé.
-- `Feed\entry\content\properties\Name1` : nom de l’élément.
-- `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif).
-- `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif).
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id1` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name1` : nom de l’élément. - `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif). - `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif). - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 L’exemple de réponse ci-dessous comprend 3 ensembles d’éléments recommandés.
 
@@ -2771,7 +2648,7 @@ Obtient des recommandations d’une build spécifique de type « Fbt ».
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | itemId | Élément à recommander. <br>Longueur maximale : 1024 |
-| numberOfResults | Nombre de résultats requis |
+| numberOfResults | Nombre de résultats requis <br> Max : 150 |
 | minimalScore | Score minimal qu’un jeu fréquent doit obtenir pour être inclus dans les résultats retournés. |
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | buildId | ID de build à utiliser pour cette demande de recommandation |
@@ -2782,13 +2659,7 @@ Obtient des recommandations d’une build spécifique de type « Fbt ».
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes : 
-- `Feed\entry\content\properties\Id1` : ID de l’élément recommandé.
-- `Feed\entry\content\properties\Name1` : nom de l’élément.
-- `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif).
-- `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif).
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id1` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name1` : nom de l’élément. - `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif). - `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif). - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.3.
 
@@ -2798,9 +2669,7 @@ Obtient des recommandations de l’utilisateur auprès de la build de type « R
 
 L’API retourne une liste d’éléments prédits en fonction de l’historique d’utilisation de l’utilisateur.
 
-Remarques :
- 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT.
- 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
+Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT. 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
 
 | Méthode HTTP | URI |
 |:--------|:--------|
@@ -2819,11 +2688,7 @@ Remarques :
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2833,9 +2698,7 @@ Obtient des recommandations de l’utilisateur auprès de la build de type « R
 
 L’API retourne une liste d’éléments prédits en fonction de l’historique d’utilisation de l’utilisateur et des éléments supplémentaires fournis.
 
-Remarques :
- 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT.
- 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
+Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT. 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
 
 
 | Méthode HTTP | URI |
@@ -2846,7 +2709,7 @@ Remarques :
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | userId | Identificateur unique de l’utilisateur |
-| itemIds | Liste des éléments séparés par des virgules faisant l'objet d'une demande de recommandation. Longueur maximale : 1 024 |
+| itemsIds | Liste des éléments séparés par des virgules faisant l'objet d'une demande de recommandation. Longueur maximale : 1 024 |
 | numberOfResults | Nombre de résultats requis |
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
@@ -2856,11 +2719,7 @@ Remarques :
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2891,11 +2750,7 @@ Remarque : il n’existe aucune recommandation de l’utilisateur pour une buil
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2929,17 +2784,12 @@ Remarque : il n’existe aucune recommandation de l’utilisateur pour une buil
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l'élément.
-- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
 ##13\. Historique d’utilisation de l’utilisateur
-Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. 
-Cette API permet de récupérer l’historique de l’utilisateur.
+Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. Cette API permet de récupérer l’historique de l’utilisateur.
 
 Remarque : l’historique de l’utilisateur est actuellement disponible uniquement pour les builds de recommandation.
 
@@ -2963,11 +2813,7 @@ Récupère la liste des éléments utilisés dans la build active ou dans la bui
 
 Code d'état HTTP : 200
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comporte les données suivantes :
-- `Feed\entry\content\properties\Id` : ID de l’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
-- `Feed\entry\content\properties\Rating` : n/a.
-- `Feed\entry\content\properties\Reasoning` : n/a.
+La réponse inclut une entrée par élément recommandé. Chaque entrée comporte les données suivantes :- `Feed\entry\content\properties\Id` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name` : nom de l’élément. - `Feed\entry\content\properties\Rating` : n/a. - `Feed\entry\content\properties\Reasoning` : n/a.
 
 OData XML
 
@@ -2997,10 +2843,7 @@ OData XML
 </feed>
 
 ##14\. Notifications
-Azure Machine Learning Recommendations crée des notifications dès lors que des erreurs persistantes se produisent dans le système. Il existe 3 types de notifications :
-1.	Échec de build : cette notification est déclenchée à chaque échec de build.
-2.	Échec de traitement d'acquisition de données : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des événements d'utilisation par modèle.
-3.	Échec d'utilisation de recommandation : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des demandes de recommandation par modèle.
+Azure Machine Learning Recommendations crée des notifications dès lors que des erreurs persistantes se produisent dans le système. Il existe 3 types de notifications : 1. Échec de build : cette notification est déclenchée à chaque échec de build. 2. Échec de traitement d'acquisition de données : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des événements d'utilisation par modèle. 3. Échec d'utilisation de recommandation : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des demandes de recommandation par modèle.
 
 
 ###14\.1. Obtention de notifications
@@ -3015,8 +2858,8 @@ Récupère toutes les notifications pour tous les modèles ou pour un seul modè
 |:--------			|:--------								|
 | modelId | Paramètre facultatif. Si vous l'omettez, vous obtenez toutes les notifications pour tous les modèles. <br>Valeur valide : identificateur unique du modèle.|
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse :**
 
@@ -3067,8 +2910,8 @@ Supprime toutes les notifications lues pour un modèle.
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -3085,8 +2928,8 @@ Supprime toutes les notifications pour tous les modèles.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -3096,10 +2939,7 @@ Code d'état HTTP : 200
 
 
 ##15\. Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br>
-Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br>
-Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br>
-© 2015 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

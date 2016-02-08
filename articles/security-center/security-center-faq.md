@@ -20,7 +20,7 @@
 
 Ce forum aux questions répond aux questions concernant le Centre de sécurité Azure, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
 
-> [AZURE.NOTE]Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
+> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
 ## Questions générales
 
@@ -28,7 +28,7 @@ Ce forum aux questions répond aux questions concernant le Centre de sécurité 
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 ### Comment obtenir le Centre de sécurité Azure ?
-Le Centre de sécurité Azure est disponible avec votre abonnement Microsoft Azure et accessible à partir du [portail Azure](http://azure.microsoft.com/features/azure-portal/). ([Connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, puis faites défiler jusqu’à **Centre de sécurité**). Des recommandations de sécurité peuvent déjà apparaître dans le tableau de bord. Cela s’explique par le fait que le service peut évaluer l’état de sécurité de certains contrôles en fonction de leur configuration dans Azure. Pour activer l’ensemble des fonctionnalités de sécurité, telles que la surveillance, les recommandations et les alertes, vous devez [activer la collecte des données](#data-collection).
+Le Centre de sécurité Azure est disponible avec votre abonnement Microsoft Azure et accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). ([Connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, puis faites défiler jusqu’à **Centre de sécurité**). Des recommandations de sécurité peuvent déjà apparaître dans le tableau de bord. Cela s’explique par le fait que le service peut évaluer l’état de sécurité de certains contrôles en fonction de leur configuration dans Azure. Pour activer l’ensemble des fonctionnalités de sécurité, telles que la surveillance, les recommandations et les alertes, vous devez [activer la collecte des données](#data-collection).
 
 ## Facturation
 
@@ -103,4 +103,4 @@ Les recommandations relatives aux listes de contrôle d’accès s’appliquent 
 ### Les machines virtuelles Linux sont-elles prises en charge ?
 Le Centre de sécurité Azure fournit une surveillance de base pour les machines virtuelles Linux (Ubuntu versions 12.04, 14.04, 14.10 et 15.04 uniquement). Une surveillance renforcée de l’intégrité de la sécurité et une analyse/collecte de données améliorée seront prochainement disponibles, tout comme la prise en charge d’autres distributions de Linux.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

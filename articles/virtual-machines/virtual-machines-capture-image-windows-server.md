@@ -24,7 +24,7 @@
 
 Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser comme image pour créer d’autres machines virtuelles. Cette image contient le disque du système d’exploitation et les disques de données éventuellement associés à la machine virtuelle. Comme elle ne comporte pas de configurations de mise en réseau, vous devez effectuer ces tâches de configuration quand vous créez d’autres machines virtuelles à partir de l’image.
 
-Azure stocke l’image sous **Mes images**. Il s’agit de l’emplacement où sont stockées les images que vous avez éventuellement téléchargées. Pour plus d’informations sur les images, voir la page [À propos des images pour les machines virtuelles](virtual-machines-images.md).
+Azure stocke l’image sous **Mes images**. Il s’agit de l’emplacement où sont stockées les images que vous avez éventuellement téléchargées. Pour plus d’informations sur les images, consultez la page [À propos des images pour les machines virtuelles](virtual-machines-images.md).
 
 ##Avant de commencer##
 
@@ -33,9 +33,9 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 - [Création d’une machine virtuelle à partir d’une image](virtual-machines-create-custom.md)
 - [Comment attacher un disque de données à une machine virtuelle](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]Ce processus supprime la machine virtuelle d’origine une fois celle-ci capturée.
+> [AZURE.WARNING] Ce processus supprime la machine virtuelle d’origine une fois celle-ci capturée.
 
-Il ne doit pas être considéré comme un moyen de sauvegarder une machine virtuelle. Pour cela, vous pouvez utiliser Azure Backup, qui est disponible sous forme de version préliminaire dans certaines régions. Pour plus d’informations, consultez la page [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+Avant de capturer une image d’une machine virtuelle Azure, nous vous recommandons de sauvegarder la machine virtuelle cible. Les machines virtuelles Azure peuvent être sauvegardées à l’aide d’Azure Backup. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 
 ##Capture de la machine virtuelle
@@ -68,7 +68,7 @@ Il ne doit pas être considéré comme un moyen de sauvegarder une machine virtu
 
 10.	Dans **Image Name**, entrez le nom de la nouvelle image.
 
-11.	Avant d’ajouter une image Windows Server à votre jeu d’images personnalisées, elle doit être généralisée en exécutant Sysprep comme indiqué dans les étapes précédentes. Cliquez sur **J’ai exécuté Sysprep sur la machine virtuelle** pour indiquer que vous avez effectué cette opération.
+11.	Avant d’ajouter une image Windows Server à votre jeu d’images personnalisées, elle doit être généralisée en exécutant Sysprep comme indiqué dans les étapes précédentes. Cliquez sur **J’ai exécuté Sysprep sur la machine virtuelle** pour indiquer que vous l’avez fait.
 
 12.	Cliquez sur la coche pour capturer l’image. La nouvelle image est disponible dans **Images**.
 
@@ -90,4 +90,4 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

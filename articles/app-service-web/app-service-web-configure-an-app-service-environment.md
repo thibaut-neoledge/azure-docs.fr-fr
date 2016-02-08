@@ -39,7 +39,7 @@ Chaque ASE est configuré avec 500 Go de stockage. Cet espace est utilisé par 
 
 La base de données conserve les informations qui définissent l’environnement, ainsi que des détails sur les applications exécutées. Il s’agit également d’une partie de l’abonnement Azure et ce n’est pas un élément pour lequel les clients peuvent effectuer des manipulations directes.
 
-Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vous avez créé lors de la création de l’ASE ou un réseau dont vous disposiez au préalable. Si vous souhaitez que votre ASE figure dans un groupe de ressources distinct de celui utilisé pour votre ASE, vous devez créer votre réseau virtuel séparément du flux de création de l’ASE. Il est judicieux de créer le sous-réseau à utiliser en même temps que le sous-réseau, lors de la création de l’ASE, forçant ainsi l’ASE à figurer dans le même groupe de ressources que le réseau virtuel. Actuellement, seuls les réseaux virtuels « classiques » V1 sont pris en charge.
+Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vous avez créé lors de la création de l’ASE ou un réseau dont vous disposiez au préalable. Si vous souhaitez que votre réseau virtuel figure dans un groupe de ressources distinct de celui utilisé pour votre ASE, vous devez créer votre réseau virtuel séparément du flux de création de l’ASE. Il est judicieux de créer le sous-réseau à utiliser en même temps que le sous-réseau, lors de la création de l’ASE, forçant ainsi l’ASE à figurer dans le même groupe de ressources que le réseau virtuel. Actuellement, seuls les réseaux virtuels « classiques » V1 sont pris en charge.
 
 L’interface utilisateur permettant de gérer et surveiller votre environnement App Service est disponible à partir du portail Azure. Si vous possédez un ASE, il est possible que vous voyiez le symbole App Service dans votre barre latérale. Ce symbole est utilisé pour représenter les environnements App Service dans le portail Azure.
 
@@ -200,4 +200,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,9 +33,9 @@ New Relic effectue le suivi de la durée du chargement et du débit de votre tr
 
 New Relic Standard est gratuit pour les utilisateurs d'Azure, New Relic Pro est fourni selon la taille d'instance d'Azure Cloud Services
 
-Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
+Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/).
 
-> [AZURE.NOTE]la tarification n'est répertoriée que jusqu'à 10 instances de calcul. Pour un nombre supérieur à 10, contactez New Relic (sales@newrelic.com) pour une tarification en gros.
+> [AZURE.NOTE] la tarification n'est répertoriée que jusqu'à 10 instances de calcul. Pour un nombre supérieur à 10, contactez New Relic (sales@newrelic.com) pour une tarification en gros.
 
 Les clients d'Azure reçoivent un abonnement de 2 semaines gratuit à New Relic Pro lorsqu'ils déploient l'agent New Relic.
 
@@ -148,4 +148,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
  * [Surveillance des utilisateurs](https://newrelic.com/docs/features/real-user-monitoring) : vue d'ensemble de la manière dont RUM détaille le temps qu'il faut aux navigateurs de vos utilisateurs pour charger vos pages web, leur provenance et les navigateurs qu'ils utilisent
  * [Recherche d'aide](https://newrelic.com/docs/site/finding-help) : ressources disponibles dans le centre d'aide en ligne de New Relic
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

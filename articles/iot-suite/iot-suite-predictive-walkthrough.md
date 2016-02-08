@@ -2,13 +2,14 @@
  pageTitle="Procédure pas à pas de maintenance prédictive | Microsoft Azure"
  description="Procédure pas à pas de la solution préconfigurée de maintenance prédictive Azure IoT."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -123,4 +124,4 @@ Maintenant que vous avez exécuté la solution préconfigurée de maintenance pr
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

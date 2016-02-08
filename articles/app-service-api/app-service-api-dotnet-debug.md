@@ -72,7 +72,7 @@ Pour activer le débogage à distance, vous devez déployer une version de débo
 
 Il peut arriver lorsque vous souhaitiez déboguer votre application API localement ; par exemple, si des allers-retours vers le serveur Azure ralentissent le débogage. Cette section indique comment déboguer votre application API en local, en utilisant l’interface utilisateur Swagger en tant que client de test.
 
-2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com). 
+2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com/). 
 
 3. Cliquez sur le bouton **Parcourir** dans la barre latérale et sélectionnez **API Apps**.
 
@@ -138,4 +138,4 @@ Dans ce didacticiel, vous avez vu comment déboguer des applications API.
 
 Pour plus d’informations sur la résolution des problèmes, consultez la section [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Les applications API sont des applications web qui présentent des fonctionnalités supplémentaires pour l’hébergement des services web. Vous pouvez donc utiliser les mêmes outils de débogage et de résolution des problèmes pour les applications API que ceux que vous utilisez pour les applications web.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

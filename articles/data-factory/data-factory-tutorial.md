@@ -27,7 +27,7 @@ Dans ce didacticiel, vous allez créer des pipelines Data Factory afin d’éval
 
 ## Préparation pour le didacticiel
 1.	Lisez la page [Présentation d’Azure Data Factory][adfintroduction] pour obtenir une vue d’ensemble de Microsoft Azure Data Factory et comprendre les concepts principaux.
-2.	Pour suivre ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d’abonnement](http://azure.microsoft.com/pricing/purchase-options/), des [offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) ou de la [version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+2.	Pour suivre ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d’abonnement](https://azure.microsoft.com/pricing/purchase-options/), des [offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) ou de la [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 3.	Vous devez télécharger et installer [Azure PowerShell][download-azure-powershell] sur votre ordinateur. Vous allez exécuter les applets de commande Data Factory pour charger des exemples de données et des scripts pig/hive sur votre stockage d’objets blob. 
 2.	**(recommandé)** Consultez et effectuez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted], car ce didacticiel simple vous permettra de vous familiariser avec le portail et les applets de commande.
 3.	**(recommandé)** Consultez et effectuez la procédure pas à pas de l’article [Utilisation de Pig et Hive avec Azure Data Factory][usepigandhive] pour en savoir plus sur la création d’un pipeline servant à déplacer les données d’une source de données locale vers un magasin d’objets blob Microsoft Azure.
@@ -192,7 +192,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
  
 ## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE]Cet article utilise le portail Azure Classic, en particulier Data Factory Editor, pour créer des pipelines, des tables et des services liés. Consultez le [didacticiel utilisant Azure PowerShell][adftutorial-using-powershell] si vous souhaitez suivre ce didacticiel à l’aide de Microsoft Azure PowerShell.
+> [AZURE.NOTE] Cet article utilise le portail Azure Classic, en particulier Data Factory Editor, pour créer des pipelines, des tables et des services liés. Consultez le [didacticiel utilisant Azure PowerShell][adftutorial-using-powershell] si vous souhaitez suivre ce didacticiel à l’aide de Microsoft Azure PowerShell.
 
 Dans cette étape, vous allez créer les services liés suivants :
 
@@ -206,8 +206,6 @@ Dans cette étape, vous allez créer les services liés suivants :
 1.	Dans le panneau **DATA FACTORY**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
 
 	![Vignette Créer et déployer][image-author-deploy-tile]
-
-	Pour obtenir une présentation détaillée de Data Factory Editor, consultez la rubrique [Data Factory Editor][data-factory-editor].
 
 2.  Dans l’**éditeur**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Stockage Azure** dans le menu déroulant. Le modèle JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans le volet droit.
 	
@@ -421,7 +419,6 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

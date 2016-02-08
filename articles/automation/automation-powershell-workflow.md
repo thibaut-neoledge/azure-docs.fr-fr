@@ -129,7 +129,7 @@ Vous pouvez passer des valeurs dans un bloc InlineScript, mais vous devez utilis
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ L'exemple suivant est similaire à l'exemple précédent concernant la copie de 
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]Nous vous déconseillons d'exécuter des Runbooks enfants en parallèle car les résultats obtenus ne sont pas fiables. Parfois, la sortie du Runbook enfant n'apparaît pas, et les paramètres d'un Runbook enfant peuvent affecter les autres Runbooks enfants parallèles.
+> [AZURE.NOTE]  Nous vous déconseillons d'exécuter des Runbooks enfants en parallèle car les résultats obtenus ne sont pas fiables. Parfois, la sortie du Runbook enfant n'apparaît pas, et les paramètres d'un Runbook enfant peuvent affecter les autres Runbooks enfants parallèles.
 
 
 ## Points de contrôle
@@ -249,4 +249,4 @@ Pour plus d'informations sur les points de contrôle, consultez [Ajout de points
 
 - [Mise en route d'un workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

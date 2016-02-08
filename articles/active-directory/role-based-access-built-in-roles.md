@@ -3,7 +3,7 @@
 	description="Cette rubrique décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC)."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 #RBAC : rôles intégrés
 
 ## Rôles intégrés
 
-Le contrôle d'accès basé sur un rôle inclut les trois rôles intégrés suivants qui peuvent être affectés aux utilisateurs, groupes et services. Vous ne pouvez pas modifier la définition des rôles intégrés. Dans une version ultérieure d'Azure RBAC, vous pourrez définir des rôles personnalisés en composant un ensemble d'actions à partir d'une liste des actions applicables aux ressources Azure.
+Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier la définition des rôles intégrés. Dans une version ultérieure d'Azure RBAC, vous pourrez définir des rôles personnalisés en composant un ensemble d'actions à partir d'une liste des actions applicables aux ressources Azure.
 
-Cliquez sur le lien correspondant pour voir les propriétés **actions** et **not actions** d'une définition de rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **not actions** d'une définition de rôle spécifie les actions qui doivent être exclues des actions autorisées.
+Cliquez sur les liens ci-dessous pour voir les propriétés **actions** et **not actions** d’une définition de rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **not actions** d'une définition de rôle spécifie les actions qui doivent être exclues des actions autorisées.
 
 
 | Nom de rôle | Description |
@@ -39,8 +39,8 @@ Cliquez sur le lien correspondant pour voir les propriétés **actions** et **no
 | [Collaborateur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Gérer les comptes Intelligent Systems |
 | [Collaborateur de réseau](#network-contributor) | Gérer toutes les ressources réseau |
 | [Collaborateur de compte NewRelic APM](#newrelic-apm-account-contributor) | Gérer les comptes et applications NewRelic Application Performance Management |
-| [Propriétaire](#owner) | Les propriétaires peuvent tout gérer, y compris l’accès. |
-| [Lecteur](#reader) | Les lecteurs peuvent tout afficher, mais pas apporter de modifications. |
+| [Propriétaire](#owner) | Gérer tout, y compris l’accès |
+| [Lecteur](#reader) | Afficher tout, mais ne pas apporter de modifications |
 | [Collaborateur Cache Redis](#redis-cache-contributor]) | Gérer les caches Redis |
 | [Collaborateur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Gérer des collections de travaux du planificateur |
 | [Collaborateur du service de recherche](#search-service-contributor) | Gérer les services de recherche |
@@ -85,7 +85,7 @@ Gérer les composants Application Insights
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Opérateur Automation
-Les opérateurs Automation peuvent démarrer, arrêter, suspendre et reprendre les travaux.
+Démarrer, arrêter, suspendre et reprendre les travaux
 
 | **Actions** ||
 | ------- | ------ |
@@ -128,13 +128,15 @@ Gérer les bases de données ClearDB MySQL
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur
-Les collaborateurs peuvent gérer tout sauf les accès
+Gérer tout sauf les accès
 
 | **Actions** ||
 | ------- | ------ |
 | * | Créer et gérer les ressources de tous les types |
-| ****Non-actions |  |
-| Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles|
+
+| **Non-actions** | |
+| ------- | ------ |
+| Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles |
 | Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
 
 ### Collaborateurs de fabrique de données
@@ -301,7 +303,9 @@ Gérer les bases de données SQL, mais pas leurs stratégies de sécurité
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
+
 | **Non-actions** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossible de modifier les stratégies de masquage des données |
@@ -341,7 +345,9 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Créer et gérer les déploiements de groupes de ressources des abonnements |
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
+
 | **Non-actions** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Impossible de modifier les stratégies d’audit de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion de base de données de serveur SQL |
@@ -381,8 +387,7 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. |
-| Microsoft.Authorization/* | Autorisation de lecture |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. | | Microsoft.Authorization/* | Autorisation de lecture |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle classique
@@ -483,4 +488,4 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

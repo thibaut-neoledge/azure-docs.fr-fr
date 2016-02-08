@@ -25,7 +25,7 @@ Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelin
 À l'aide du portail Azure, vous pouvez afficher votre fabrique de données sous forme de diagramme, voir les activités d’un pipeline, visualiser les jeux de données d’entrée et de sortie, et bien plus encore. Cette section montre également comment une tranche de données passe d'un état à un autre.
 
 ### Accédez à votre fabrique de données
-1.	Connectez-vous au [portail Azure](http://portal.azure.com).
+1.	Connectez-vous au [portail Azure](https://portal.azure.com).
 2.	Cliquez sur **Parcourir tout** et sélectionnez **Fabriques de données**.
 	
 	![Parcourir tout -> Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,7 +96,7 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -540,9 +540,7 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : 
-- FailedRuns 
-- SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
@@ -569,4 +567,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 
 Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d'alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d'informations et des exemples.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath;andkjell"/>
 
 # Prise en main d’Azure AD Connect à l’aide de paramètres express
@@ -63,4 +63,4 @@ Notez que lorsque vous avez Azure AD Connect installé, vous pouvez [vérifier l
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -67,7 +67,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_ACCESS_KEY`, ou `AZURE_STORAGE_CONNECTION_STRING`, pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createBlobService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](portal.azure.com) pour une application web Azure, consultez [Application web Node.js avec stockage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour une application web Azure, consultez [Application web Node.js avec stockage].
 
 ## Créez un conteneur.
 
@@ -75,7 +75,7 @@ L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le 
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]Vous pouvez accéder à un objet blob de façon anonyme en utilisant **createBlobServiceAnonymous** et en fournissant l’adresse hôte. Par exemple, utilisez `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE] Vous pouvez accéder à un objet blob de façon anonyme en utilisant **createBlobServiceAnonymous** et en fournissant l’adresse hôte. Par exemple, utilisez `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -182,7 +182,7 @@ L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myp
 	  }
 	});
 
-> [AZURE.NOTE]Les objets blob de pages sont constitués de « pages » de 512 octets. Une erreur peut se produire lors du téléchargement de données lorsque leur taille n'est pas un multiple de 512.
+> [AZURE.NOTE] Les objets blob de pages sont constitués de « pages » de 512 octets. Une erreur peut se produire lors du téléchargement de données lorsque leur taille n'est pas un multiple de 512.
 
 ## Création d'une liste d'objets blob dans un conteneur
 
@@ -270,7 +270,7 @@ Vous pouvez acquérir un nouveau bail à l’aide de la méthode **acquireLease*
 
 Les opérations suivantes sur **myblob** doivent fournir le paramètre `options.leaseId`. L'ID du bail est renvoyé comme `result.id` à partir de **acquireLease**.
 
-> [AZURE.NOTE]Par défaut, la durée du bail est infinie. Vous pouvez spécifier une durée finie (entre 15 et 60 secondes) en fournissant le paramètre `options.leaseDuration`.
+> [AZURE.NOTE] Par défaut, la durée du bail est infinie. Vous pouvez spécifier une durée finie (entre 15 et 60 secondes) en fournissant le paramètre `options.leaseDuration`.
 
 Pour supprimer un bail, utilisez **releaseLease**. Pour terminer un bail, mais empêcher d'autres utilisateurs d'obtenir un nouveau bail avant la fin de la durée d'origine, utilisez **breakLease**.
 
@@ -278,7 +278,7 @@ Pour supprimer un bail, utilisez **releaseLease**. Pour terminer un bail, mais e
 
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux objets blob et aux conteneurs sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à accéder à des objets blob.
 
-> [AZURE.NOTE]Vous pouvez bien sûr autoriser l'accès anonyme aux objets blob, mais les signatures d'accès partagé permettent de mieux contrôler les accès, car elles doivent être générées.
+> [AZURE.NOTE] Vous pouvez bien sûr autoriser l'accès anonyme aux objets blob, mais les signatures d'accès partagé permettent de mieux contrôler les accès, car elles doivent être générées.
 
 Une application approuvée, comme un service cloud, génère une signature d’accès partagé à l’aide de l’élément **generateSharedAccessSignature** du **BlobService** et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. Les signatures d'accès partagé sont générées à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité des signatures d'accès partagé, et le niveau d'accès accordé au détenteur des signatures d'accès partagé.
 
@@ -377,4 +377,4 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

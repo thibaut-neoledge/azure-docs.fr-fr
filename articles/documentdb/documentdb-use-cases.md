@@ -36,7 +36,7 @@ Les contenus tels que les discussions, les commentaires et les publications peuv
 
 Les applications qui s'intègrent à différents réseaux sociaux doivent répondre à l'évolution des schémas de ces réseaux. Puisque les données sont automatiquement indexées par défaut dans DocumentDB, les données sont prêtes à être interrogées à tout moment. Par conséquent, ces applications ont la possibilité de récupérer les projections selon leurs besoins respectifs.
 
-La plupart des applications des réseaux sociaux s'exécutent à l'échelle mondiale et peuvent présenter des modèles d'utilisation imprévisibles. La flexibilité dans la mise à l'échelle des données est essentielle car la couche Application se met à l’échelle pour correspondre à la demande. Vous pouvez monter en charge en ajoutant des partitions de données supplémentaires sous un compte DocumentDB. De plus, vous pouvez également créer des comptes DocumentDB supplémentaires dans plusieurs régions. Pour la disponibilité régionale du service DocumentDB, consultez [Régions Azure](http://azure.microsoft.com/regions/#services).
+La plupart des applications des réseaux sociaux s'exécutent à l'échelle mondiale et peuvent présenter des modèles d'utilisation imprévisibles. La flexibilité dans la mise à l'échelle des données est essentielle car la couche Application se met à l’échelle pour correspondre à la demande. Vous pouvez monter en charge en ajoutant des partitions de données supplémentaires sous un compte DocumentDB. De plus, vous pouvez également créer des comptes DocumentDB supplémentaires dans plusieurs régions. Pour la disponibilité régionale du service DocumentDB, consultez [Régions Azure](https://azure.microsoft.com/regions/#services).
 
 ## Données de catalogue
 Les scénarios d'utilisation des données de catalogue impliquent le stockage et l'interrogation d'un ensemble d'attributs pour des entités telles que des personnes, des lieux et des produits. Les comptes d'utilisateurs, les catalogues de produits, les registres de périphérique pour IoT et les systèmes de facturation de matériaux sont des exemples de données de catalogue. Les attributs de ces données peuvent varier et peuvent changer au fil du temps pour répondre aux besoins de l'application.
@@ -68,7 +68,7 @@ Pour plus d'informations sur les offres Azure pour IoT, consultez [Création de 
 
 ## Étapes suivantes
  
-Pour commencer avec DocumentDB, vous pouvez créer un [compte](http://azure.microsoft.com/pricing/free-trial/) puis suivre notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) pour en savoir plus sur DocumentDB et trouver les informations dont vous avez besoin.
+Pour commencer avec DocumentDB, vous pouvez créer un [compte](https://azure.microsoft.com/pricing/free-trial/) puis suivre notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) pour en savoir plus sur DocumentDB et trouver les informations dont vous avez besoin.
 
 Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consultez les témoignages de clients suivants :
 
@@ -79,4 +79,4 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

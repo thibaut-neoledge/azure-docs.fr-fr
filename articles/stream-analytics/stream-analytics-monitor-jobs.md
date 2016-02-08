@@ -27,7 +27,7 @@
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Visual Studio 2012 ou 2013.
-- Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](http://azure.microsoft.com/downloads/).
+- Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/).
 - Un travail Stream Analytics existant pour lequel la surveillance doit être activée.
 
 ## Configuration d'un projet
@@ -139,7 +139,8 @@ Le code suivant définit les variables nécessaires et les clients de gestion.
 
 Le code suivant permet d'activer la surveillance pour un travail Stream Analytics **existant**. La première partie du code exécute une requête GET sur le service Stream Analytics pour récupérer des informations sur le travail Stream Analytics spécifique. Elle utilise la propriété « Id » (récupérée à partir de la requête GET) en tant que paramètre pour la méthode Put dans la seconde moitié du code qui envoie une requête PUT au service Insights afin d'activer la surveillance du travail Stream Analytics.
 
-> [AZURE.WARNING]Si vous avez déjà activé la surveillance pour une tâche Stream Analytics différente par le passé, via le portail Microsoft Azure ou par programme via le code ci-dessous, **nous vous recommandons de fournir un nom de compte de stockage identique cette fois-ci.**
+> [AZURE.WARNING]
+Si vous avez déjà activé la surveillance pour une tâche Stream Analytics différente par le passé, via le portail Microsoft Azure ou par programme via le code ci-dessous, **nous vous recommandons de fournir un nom de compte de stockage identique cette fois-ci.**
 > 
 > Le compte de stockage est lié à la région dans laquelle vous avez créé la tâche Stream Analytics, pas spécifiquement à la tâche en soi.
 > 
@@ -172,11 +173,11 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

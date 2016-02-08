@@ -66,7 +66,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou intégrations
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE]Parfois, le kit de développement logiciel nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible Event Hub est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de nom** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Parfois, le kit de développement logiciel nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible Event Hub est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de nom** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter à l’Event Hub ci-dessus.
 
@@ -88,7 +88,7 @@ Chaque IoT Hub dispose d’un registre d’identité des appareils servant à c
 
 À un niveau supérieur, le registre d’identité des appareils est une collection compatible REST de ressources d’identité des appareils. Les sections suivantes détaillent les propriétés des ressources d’identité des appareils et les opérations que le registre autorise sur les identités.
 
-> [AZURE.NOTE]Consultez l’article [API et Kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] pour plus d’informations sur le protocole HTTP et les kits de développement logiciel (SDK) que vous pouvez utiliser pour interagir avec le registre d’identité des appareils.
+> [AZURE.NOTE] Consultez l’article [API et Kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] pour plus d’informations sur le protocole HTTP et les kits de développement logiciel (SDK) que vous pouvez utiliser pour interagir avec le registre d’identité des appareils.
 
 ### Propriétés d’identité des appareils <a id="deviceproperties"></a>
 
@@ -108,7 +108,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 | connectionStateUpdatedTime | en lecture seule | Date de la dernière mise à jour de l’état de la connexion. |
 | lastActivityTime | en lecture seule | Date de la dernière connexion de l’appareil, de la dernière réception d’un message ou du dernier envoi d’un message. |
 
-> [AZURE.NOTE]L’état de la connexion peut uniquement représenter la vue IoT Hub de l’état de la connexion. Les mises à jour à cet état peuvent être différées en fonction des conditions et des configurations du réseau.
+> [AZURE.NOTE] L’état de la connexion peut uniquement représenter la vue IoT Hub de l’état de la connexion. Les mises à jour à cet état peuvent être différées en fonction des conditions et des configurations du réseau.
 
 ### Opérations d’identité des appareils
 
@@ -122,7 +122,7 @@ Le registre d’identité des appareils IoT Hub expose les opérations suivante
 
 Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel optimiste comme spécifié dans [RFC7232][lnk-rfc7232].
 
-> [AZURE.IMPORTANT]La seule façon de récupérer toutes les identités dans le registre d’identité d’un hub consiste à utiliser la fonctionnalité [Exporter](#importexport).
+> [AZURE.IMPORTANT] La seule façon de récupérer toutes les identités dans le registre d’identité d’un hub consiste à utiliser la fonctionnalité [Exporter](#importexport).
 
 Un registre d’identité des appareils IoT Hub : - ne contient aucune métadonnée d’applications ; - est accessible à la manière d’un dictionnaire grâce à la propriété **deviceId** utilisée en tant que clé ; -ne prend pas en charge les requêtes expressives.
 
@@ -147,7 +147,7 @@ Les opérations suivantes sont possibles sur les tâches d’exportation :
 * Récupération de l’état d’une tâche en cours d’exécution
 * Annuler une tâche en cours d’exécution
 
-> [AZURE.NOTE]Chaque hub peut avoir une seule tâche en cours d’exécution à un moment donné.
+> [AZURE.NOTE] Chaque hub peut avoir une seule tâche en cours d’exécution à un moment donné.
 
 Pour plus d’informations sur l’importation et l’exportation des API, consultez [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
 
@@ -217,7 +217,7 @@ Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un je
 
 Les informations d’identification de sécurité telles que les clés symétriques ne sont jamais envoyées sur le réseau.
 
-> [AZURE.NOTE]Le fournisseur de ressources Azure IoT Hub est sécurisé au moyen de votre abonnement Azure, à l’instar de tous les fournisseurs dans [Azure Resource Manager][lnk-azure-resource-manager].
+> [AZURE.NOTE] Le fournisseur de ressources Azure IoT Hub est sécurisé au moyen de votre abonnement Azure, à l’instar de tous les fournisseurs dans [Azure Resource Manager][lnk-azure-resource-manager].
 
 #### Format du jeton de sécurité <a id="tokenformat"></a>
 
@@ -229,10 +229,10 @@ Voici les valeurs attendues :
 
 | Valeur | Description |
 | ----- | ----------- |
-| {signature} | Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry` |
+| {signature} | Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important** : la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul de HMAC-SHA256. |
 | {resourceURI} | Préfixe URI (par segment) des points de terminaison qui sont accessibles avec ce jeton. Par exemple, `/events` |
 | {expiry} | Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
-| {URL-encoded-resourceURI} | URI de ressource codé URL (minuscule) |
+| {URL-encoded-resourceURI} | Encodage en URL minuscules de l’URI de ressource en minuscules |
 | {policyName} | Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. Absent dans le cas de jetons faisant référence aux informations d’identification de registre des appareils. |
 
 **Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
@@ -254,7 +254,7 @@ Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
 Dans les deux cas, le champ de mot de passe contient le jeton comme décrit dans la section [Format de jeton](#tokenformat).
 
-> [AZURE.NOTE]Les [kits de développement logiciel (SDK) Azure IoT Hub][lnk-apis-sdks] génèrent automatiquement des jetons lors de la connexion au service. Dans certains cas, les kits de développement logiciel ne prennent pas en charge l’ensemble des protocoles ou méthodes d’authentification.
+> [AZURE.NOTE] Les [kits de développement logiciel (SDK) Azure IoT Hub][lnk-apis-sdks] génèrent automatiquement des jetons lors de la connexion au service. Dans certains cas, les kits de développement logiciel ne prennent pas en charge l’ensemble des protocoles ou méthodes d’authentification.
 
 #### Comparaison entre SASL PLAIN et CBS
 
@@ -341,6 +341,8 @@ Notez que cela ne signifie pas que vous pouvez remplacer Event Hubs par IoT Hub
 
 Pour plus d’informations sur la façon d’utiliser la messagerie Appareil vers cloud, reportez-vous à [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks].
 
+> [AZURE.NOTE] Lorsque vous utilisez HTTP pour envoyer des messages Appareil vers cloud, les chaînes suivantes peuvent uniquement contenir des caractères ASCII : valeurs de propriétés système, noms et valeurs de propriétés d’application.
+
 #### Trafic autre que la télémétrie
 
 Dans de nombreux cas, outre les points de données de télémétrie, les appareils envoient également des messages et demandes *interactifs* qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
@@ -386,6 +388,8 @@ Chaque message Cloud vers appareil cible un seul appareil, en définissant la pr
 
 **Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages Cloud vers appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
 
+> [AZURE.NOTE] Lorsque vous envoyez des messages Cloud vers appareil, les chaînes suivantes peuvent uniquement contenir des caractères ASCII : valeurs de propriétés système, noms et valeurs de propriétés d’application.
+
 #### Cycle de vie des messages <a id="message lifecycle"></a>
 
 Pour mettre en œuvre *au moins une fois* la garantie de remise, les messages Cloud vers appareil sont conservés dans les files d’attente par appareil et les appareils doivent explicitement reconnaître leur *achèvement* pour qu’IoT Hub puisse les supprimer de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
@@ -402,7 +406,7 @@ Il est possible qu’un thread ne parvienne pas à traiter un message sans en av
 
 Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité Cloud vers appareil entre les API et le kit de développement logiciel, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-apis-sdks].
 
-> [AZURE.NOTE]Généralement, les messages Cloud vers appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Cela peut se produire dans de nombreux scénarios différents. Par exemple : le contenu du message a été conservé sur l’espace de stockage local, une opération a été exécutée avec succès ou le message transporte des informations temporaires dont la perte n’aurait aucune répercussion sur le fonctionnement de l’application. Parfois, pour les tâches à long terme, vous pouvez achever le message Cloud vers appareil après avoir maintenu la description de la tâche sur le stockage local, puis notifier le backend d’application avec un ou plusieurs messages Appareil vers cloud à différentes étapes de progression de la tâche.
+> [AZURE.NOTE] Généralement, les messages Cloud vers appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Cela peut se produire dans de nombreux scénarios différents. Par exemple : le contenu du message a été conservé sur l’espace de stockage local, une opération a été exécutée avec succès ou le message transporte des informations temporaires dont la perte n’aurait aucune répercussion sur le fonctionnement de l’application. Parfois, pour les tâches à long terme, vous pouvez achever le message Cloud vers appareil après avoir maintenu la description de la tâche sur le stockage local, puis notifier le backend d’application avec un ou plusieurs messages Appareil vers cloud à différentes étapes de progression de la tâche.
 
 #### Durée de vie <a id="ttl"></a>
 
@@ -542,4 +546,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

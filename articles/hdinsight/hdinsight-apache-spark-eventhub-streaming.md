@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="01/27/2016" 
 	ms.author="nitinme"/>
 
 
@@ -24,13 +24,13 @@ La diffusion en continu de Spark développe l’API Spark de base pour générer
 
 Ce didacticiel explique comme créer un Event Hub Azure, recevoir des messages dans un Event Hub à l’aide d’une application console écrite en Java, et à les récupérer en parallèle à l’aide d’une application Spark écrite en Scala. Cette application utilise les données diffusées en continu via les Event Hubs, et les achemine vers différentes sorties (objet blob Azure Storage, table Hive et table SQL).
 
-> [AZURE.NOTE]Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un hub d’événements, vous utilisez le [portail Azure](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous allez utiliser le [portail Azure en version préliminaire](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un hub d’événements, vous utilisez le [portail Azure](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous allez utiliser le [portail Azure en version préliminaire](https://ms.portal.azure.com/).
 
 **Configuration requise :**
 
 Vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’[ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - IDE Java. Cet article utilise IntelliJ IDEA 15.0.1. Vous pouvez l’installer à partir d’[ici](https://www.jetbrains.com/idea/download/).
@@ -55,7 +55,7 @@ Voici le déroulement de la solution de diffusion en continu :
 
 	![page 1 de l’assistant](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Création d'un hub d'événements Azure")
 
-	> [AZURE.NOTE]Vous devez sélectionner le même **emplacement** que celui de votre cluster Apache Spark dans HDInsight pour réduire la latence et les coûts.
+	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre cluster Apache Spark dans HDInsight pour réduire la latence et les coûts.
 
 3. Sur l'écran **Configurer un hub d'événements**, entrez le **nombre de partitions** et les valeurs de **rétention des messages**, puis cliquez sur la coche. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
@@ -88,7 +88,7 @@ Dans cette section, vous utilisez une application Scala autonome locale pour env
 	
 2. Créez le projet. Dans le menu **Build** (Générer), cliquez sur **Make Project** (Créer le projet). Le fichier jar de sortie est créé sous **\\out\\artifacts**.
 
->[AZURE.TIP]Vous pouvez également utiliser une option disponible dans IntelliJ IDEA pour créer directement le projet à partir d’un dépôt GitHub. Pour comprendre comment utiliser cette approche, suivez les instructions dans la section suivante. Notez que de nombreuses étapes décrites dans la section suivante ne sont pas applicables pour l’application Scala que vous créez à cette étape. Par exemple :
+>[AZURE.TIP] Vous pouvez également utiliser une option disponible dans IntelliJ IDEA pour créer directement le projet à partir d’un dépôt GitHub. Pour comprendre comment utiliser cette approche, suivez les instructions dans la section suivante. Notez que de nombreuses étapes décrites dans la section suivante ne sont pas applicables pour l’application Scala que vous créez à cette étape. Par exemple :
 
 > * Vous ne devrez pas mettre à jour le fichier POM pour inclure la version de Spark. C’est parce qu’il n’y a aucune dépendance de Spark pour créer cette application.
 > * Vous ne devrez pas ajouter de fichiers jar de dépendance à la bibliothèque de projet. C’est parce que ces fichiers ne sont pas requis pour ce projet.
@@ -121,9 +121,9 @@ Un exemple d’application Scala pour recevoir l’événement et le router vers
 
 5. L’application requiert deux fichiers jar de dépendance :
 
-	* **Fichier jar du récepteur EventHub**. Ce fichier est nécessaire pour permettre à Spark de recevoir les messages de l’Event Hub. Il est disponible sur votre cluster Spark Linux `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. Vous pouvez utiliser pscp pour copier le fichier jar sur votre ordinateur local.
+	* **Fichier jar du récepteur EventHub**. Ce fichier est nécessaire pour permettre à Spark de recevoir les messages de l’Event Hub. Il est disponible sur votre cluster Spark Linux `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Vous pouvez utiliser pscp pour copier le fichier jar sur votre ordinateur local.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		Cette opération copie le fichier jar à partir du cluster Spark sur votre ordinateur local.
 
@@ -209,7 +209,7 @@ Nous devons comprendre quels sont les paramètres dans le fichier d’entrée :
 * **numExecutors** est le nombre de cœurs que Spark utilise pour exécuter l’application de diffusion en continu. Il doit toujours y avoir au moins deux fois le nombre de partitions de l’Event Hub.
 * **executorMemory**, **executorCores** et **driverMemory** sont des paramètres utilisés pour affecter les ressources nécessaires à l’application de diffusion en continu.
 
->[AZURE.NOTE]Il est inutile de créer les dossiers de sortie (EventCheckpoint, EventCount/EventCount10) utilisés comme paramètres. L’application de diffusion en continu les crée pour vous.
+>[AZURE.NOTE] Il est inutile de créer les dossiers de sortie (EventCheckpoint, EventCount/EventCount10) utilisés comme paramètres. L’application de diffusion en continu les crée pour vous.
 	
 Lorsque vous exécutez la commande, vous devez voir une sortie similaire à ce qui suit :
 
@@ -370,4 +370,4 @@ Le résultat ressemble à ce qui suit :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

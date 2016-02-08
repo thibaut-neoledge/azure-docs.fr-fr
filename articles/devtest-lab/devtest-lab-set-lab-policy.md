@@ -26,7 +26,7 @@ DevTest Lab vous permet de spécifier des stratégies clés qui régissent l’u
 
 Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -100,4 +100,4 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 1. Appuyez sur **Enregistrer**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

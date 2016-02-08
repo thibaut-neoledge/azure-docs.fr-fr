@@ -45,7 +45,7 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 2.	Configurer la version d'évaluation d'Office 365 FastTrack.
 3.	Configurer le serveur de synchronisation d'annuaires (DS1).
 
-Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1 : configuration de l’environnement de cloud hybride
 
@@ -55,7 +55,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_1.png)
 
-> [AZURE.NOTE]Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Pour obtenir des instructions, voir [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+> [AZURE.NOTE] Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Suivez les instructions de la rubrique [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 ## Phase 2: configuration de la version d’évaluation d’Office 365 FastTrack
 
@@ -159,7 +159,7 @@ Montrez ensuite la synchronisation de mot de passe d'Office 365 avec le compte 
 5.	Fermez Internet Explorer.
 6.	Exécutez Internet Explorer et accédez à ****http://portal.microsoftonline.com**.
 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera deniseb@<*Votre nom fictif*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
-8.	Une fois la session ouverte, la page principale du portail d’Office 365 s’affiche avec la mention **Faisons la différence aujourd’hui**.
+8.	Après l’ouverture de session réussie, vous voyez la page principale du portail d’Office 365 avec la mention **Faisons la différence aujourd’hui**.
 
 Ceci est votre configuration actuelle.
 
@@ -185,4 +185,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

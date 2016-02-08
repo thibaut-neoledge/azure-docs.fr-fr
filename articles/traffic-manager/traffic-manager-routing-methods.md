@@ -31,7 +31,7 @@ Les trois méthodes de routage du trafic de Traffic Manager sont :
 
 Notez qu'Azure Websites fournit déjà des méthodes de routage du trafic par basculement et tourniquet (round robin) pour les sites web d’un centre de données, indépendamment du mode de site web. Traffic Manager vous permet de spécifier un routage du trafic par basculement et tourniquet (round robin) pour des sites web de différents centres de données.
 
->[AZURE.NOTE]La durée de vie DNS indique aux clients DNS et aux programmes de résolution sur les serveurs DNS la durée pendant laquelle les noms résolus doivent être mis en cache. Les clients continuent à utiliser un point de terminaison pendant la résolution de son nom de domaine jusqu'à ce qu'expire l'entrée de cache DNS local associée au nom.
+>[AZURE.NOTE] La durée de vie DNS indique aux clients DNS et aux programmes de résolution sur les serveurs DNS la durée pendant laquelle les noms résolus doivent être mis en cache. Les clients continuent à utiliser un point de terminaison pendant la résolution de son nom de domaine jusqu'à ce qu'expire l'entrée de cache DNS local associée au nom.
 
 ## Méthode de routage du trafic par basculement
 
@@ -85,7 +85,7 @@ Pour le moment, vous ne pouvez pas utiliser le portail Azure Classic pour config
 
 Pour plus d’informations sur l’utilisation des API REST, consultez [Opérations sur Traffic Manager (informations de référence sur les API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
-Pour plus d’informations sur l’utilisation des applets de commande Azure PowerShell, consultez [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769). Pour obtenir un exemple de configuration, consultez [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) (en anglais) dans le blog Azure.
+Pour plus d’informations sur l’utilisation des applets de commande Azure PowerShell, consultez [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769). Pour obtenir un exemple de configuration, consultez [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) (en anglais) dans le blog Azure.
 
 Pour tester le profil à partir d'un seul client et observer le comportement de tourniquet égal ou pondéré, vérifiez que le nom DNS est résolu dans les différentes adresses IP des points de terminaison en fonction des valeurs égales ou pondérées dans le profil. Pendant le test, vous devez désactiver la mise en cache DNS côté client ou effacer le cache DNS entre chaque tentative pour qu'une nouvelle requête de nom DNS soit envoyée.
 
@@ -130,4 +130,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 [Ajout d’un point de terminaison](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

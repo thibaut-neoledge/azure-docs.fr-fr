@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Version préliminaire B2C : sécuriser une API web à l’aide de node.js
@@ -21,12 +21,12 @@
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 
-> [AZURE.NOTE]Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
+> [AZURE.NOTE] Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
 
 
-> [AZURE.NOTE]Cet exemple a été écrit pour être connecté à notre [exemple d’application iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Effectuez d’abord cette procédure pas à pas avant de passer à cet exemple.
+> [AZURE.NOTE]	Cet exemple a été écrit pour être connecté à notre [exemple d’application iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Effectuez d’abord cette procédure pas à pas avant de passer à cet exemple.
 
-**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Azure Active Directory.
+**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Active Directory Azure.
 
 Pour ce faire, vous devez :
 
@@ -52,22 +52,19 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L’application cliente et l’API web seront alors toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
 
 - Inclure une **application web/API web** dans l’application.
-- Entrer `http://localhost/TodoListService` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut correspondant à cet exemple de code.
+- Saisir `http://localhost/TodoListService` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
 - Créer une **clé secrète d'application** pour votre application et de la noter. Vous en aurez besoin rapidement.
-- Notez également l’**ID d’application** affecté à votre application. Vous en aurez aussi besoin rapidement.
+- Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
-    > [AZURE.IMPORTANT]
-    Vous ne pouvez pas utiliser les applications enregistrées sous l’onglet **Applications** sur le [portail Azure](https://manage.windowsazure.com/) à cette fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md).  Cette application contient trois 
-expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’
-[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l'[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
-- Choisir le **nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
-- Choisir les revendications d’application **nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-- Notez le **nom** de chaque stratégie après sa création. Il doit présenter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
+- Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications **nom d'affichage** et **ID objet** comme revendications d'application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -86,7 +83,7 @@ Pour réussir à utiliser cet exemple, MongoDB doit être installé correctement
 
 Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE]Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
+> [AZURE.NOTE] Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
 
 ## 6 : installation des modules Restify sur votre API web
 
@@ -178,7 +175,7 @@ Le résultat de la commande doit ressembler à ceci :
 
 Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
-> [AZURE.NOTE]Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
+> [AZURE.NOTE] Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
 
 Depuis la ligne de commande, accédez au répertoire azuread
 
@@ -308,7 +305,7 @@ policyName:'b2c_1_<sign in policy name>',
 
 *policyName* : stratégie que vous souhaitez utiliser pour valider les jetons atteignant votre serveur. Cette stratégie doit être la même que celle que vous utilisez sur l’application cliente pour vous connecter.
 
-> [AZURE.NOTE]Pour notre aperçu B2C, vous utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Après avoir suivi cette procédure, vous ne devriez plus avoir à configurer de nouvelles stratégies dans le cadre d’autres procédures pas à pas de client décrites sur ce site.
+> [AZURE.NOTE] Pour notre aperçu B2C, vous utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Après avoir suivi cette procédure, vous ne devriez plus avoir à configurer de nouvelles stratégies dans le cadre d’autres procédures pas à pas de client décrites sur ce site.
 
 
 ## 13 : ajout de configuration à votre fichier server.js
@@ -754,7 +751,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’objet de l’utilisateur dans le jeton (appelé via token.oid) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
+> [AZURE.TIP]
+Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’objet de l’utilisateur dans le jeton (appelé via token.oid) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
 
 Ensuite, nous allons utiliser la stratégie Bearer incluse dans passport-azure-ad. Contentez-vous d’examiner le code pour l’instant, je fournirai des explications sous peu. Placez ceci après ce que vous avez collé ci-dessus :
 
@@ -803,7 +801,8 @@ passport.use(oidcStrategy);
 
 Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Facebook, etc.), que respectent tous les enregistreurs de stratégie. Comme vous pouvez le voir dans la stratégie, nous transmettons une function() dont les paramètres sont un jeton et un done. La stratégie revient vers nous une fois le travail terminé. Il est alors intéressant de stocker l’utilisateur et le jeton afin de ne pas avoir à les redemander.
 
-> [AZURE.IMPORTANT]Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
+> [AZURE.IMPORTANT]
+Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
 ### 2\. Pour finir, protégez certains points de terminaison
 
@@ -892,4 +891,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Se connecter à une API web utilisant iOS avec B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

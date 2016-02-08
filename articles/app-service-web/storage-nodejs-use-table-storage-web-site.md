@@ -37,7 +37,7 @@ Voici l’application finalisée :
 
 ![Une page Web avec une liste de tâches vide][node-table-finished]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Composants requis
 
@@ -53,7 +53,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
 Créez un compte de stockage Azure. L'application utilisera ce compte pour stocker les tâches à effectuer.
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur l’icône **Nouveau** en bas à gauche du portail, puis cliquez sur **Données + stockage** > **Stockage**. Attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
 
@@ -88,7 +88,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]Le paramètre « -g » installe le module globalement. Ainsi, nous pouvons utiliser la commande **express** pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires concernant le chemin d’accès.
+	> [AZURE.NOTE] Le paramètre « -g » installe le module globalement. Ainsi, nous pouvons utiliser la commande **express** pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires concernant le chemin d’accès.
 
 4. Pour créer la structure de l'application, entrez la commande **express** :
 
@@ -336,7 +336,7 @@ Un *contrôleur* gère les requêtes HTTP et génère la réponse HTML.
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE]nconf charge les valeurs de configuration de l’une ou l’autre des variables d'environnement ou du fichier **config.json**, que nous allons créer ensuite.
+	> [AZURE.NOTE] nconf charge les valeurs de configuration de l’une ou l’autre des variables d'environnement ou du fichier **config.json**, que nous allons créer ensuite.
 
 3. Dans le fichier app.js, faites défiler le contenu jusqu'à la ligne suivante :
 
@@ -478,7 +478,7 @@ Bien que l'application s'exécute localement, elle stocke les données du servic
 
 Les étapes de cette section utilisent les outils en ligne de commande Azure pour créer une application web dans Azure App Service et la déployer à l’aide de Git. Pour effectuer ces étapes, vous devez disposer d'un abonnement Azure.
 
-> [AZURE.NOTE]Ces étapes peuvent également être effectuées depuis le [portail Azure](https://portal.azure.com). Consultez [Créer et déployer une application web Node.js dans Azure App Service].
+> [AZURE.NOTE] Ces étapes peuvent également être effectuées depuis le [portail Azure](https://portal.azure.com/). Consultez [Créer et déployer une application web Node.js dans Azure App Service].
 >
 > S’il s’agit de la première application web que vous créez, vous devez utiliser le portail Azure pour la déployer.
 
@@ -496,8 +496,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Cette commande lance un navigateur et accède à la page de téléchargement. Si vous y êtes invité, connectez-vous avec le compte associé à votre abonnement Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
+	<!-- ![The download page][download-publishing-settings] -->Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
 
 2. Entrez la commande suivante pour importer les paramètres :
 
@@ -534,7 +533,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE]S’il s’agit de la première application web App Service dans votre abonnement, vous devez utiliser le portail Azure pour la créer. Pour plus d’informations, consultez la page [Créer et déployer une application web Node.js dans Azure App Service].
+	> [AZURE.NOTE] S’il s’agit de la première application web App Service dans votre abonnement, vous devez utiliser le portail Azure pour la créer. Pour plus d’informations, consultez la page [Créer et déployer une application web Node.js dans Azure App Service].
 
 ### Définition des variables d'environnement
 
@@ -546,7 +545,7 @@ Dans cette étape, vous allez ajouter des variables d'environnement à la config
 
 Remplacez **<storage account name>** par le nom du compte de stockage créé, puis remplacez **<storage access key>** par la clé d'accès primaire de votre compte de stockage. (Utilisez les mêmes valeurs que le fichier config.json que vous avez créé précédemment).
 
-L’autre possibilité consiste à définir les variables d'environnement dans le [Portail Azure](https://portal.azure.com) :
+L’autre possibilité consiste à définir les variables d'environnement dans le [Portail Azure](https://portal.azure.com/) :
 
 1.  Ouvrez le volet de l'application web en cliquant sur **Parcourir** > **Web Apps** > nom de votre application web.
 
@@ -636,4 +635,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

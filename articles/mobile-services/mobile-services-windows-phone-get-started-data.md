@@ -37,7 +37,7 @@ Vous pouvez également voir Nick Harris illustrer cela dans la vidéo suivante 
 
 + Visual Studio 2012 Express pour Windows Phone 8 et le [Kit de développement logiciel (SDK) Windows Phone 8] en cours d’exécution sur Windows 8. Pour suivre ce didacticiel afin de créer une application Windows Phone 8.1, vous devez utiliser Visual Studio 2013 Update 2 ou une version ultérieure.
 
-+ Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
++ Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
 ##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
 
@@ -93,10 +93,10 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l’application po
 
 6. Dans le même fichier, supprimez les marques de commentaire du code qui définit la variable **MobileService**, puis indiquez l’URL et la clé d’application du service mobile dans le constructeur **MobileServiceClient**, dans cet ordre.
 
-		//public static MobileServiceClient MobileService = new MobileServiceClient( 
-        //    "AppUrl", 
-        //    "AppKey" 
-        //); 
+		//public static MobileServiceClient MobileService = new MobileServiceClient(
+        //    "AppUrl",
+        //    "AppKey"
+        //);
 
   	Cela permet de créer une nouvelle instance de **MobileServiceClient**, qui est utilisée pour accéder à votre service mobile.
 
@@ -196,4 +196,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

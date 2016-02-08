@@ -29,7 +29,7 @@ Il existe deux niveaux de sécurité dans Azure App Service.
 #### Sécurité de la plateforme et de l’infrastructure
 Étant donné qu’App Service gère les machines virtuelles Azure, le stockage, les connexions réseau, les infrastructures web, les fonctionnalités de gestion et d’intégration et bien plus encore, il est activement sécurisé et renforcé et fait l’objet de contrôles de conformité et de tests continus pour vous assurer que :
 
-- vos applications App Service sont isolées d’Internet et des ressources Azure d’autres clients ;
+- vos applications App Service sont isolées à la fois d’Internet et des ressources Azure d’autres clients ;
 - la communication de clés secrètes (par exemple, des chaînes de connexion) entre votre application App Service et d’autres ressources Azure (par exemple, la base de données SQL) dans un groupe de ressources reste dans Azure et ne franchit par les limites du réseau. Les clés secrètes sont toujours chiffrées ;
 - toutes les communications entre votre application App Service et des ressources externes, telles que la gestion de PowerShell, une interface de ligne de commande, des kits de développement logiciel Azure, des API REST et des connexions hybrides, sont correctement chiffrés ;
 - la gestion continue des menaces protège les ressources App Service contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces. 
@@ -89,7 +89,7 @@ De plus, assurez-vous que les informations d’identification importées sont s�
 ### Paramètres de configuration et chaînes de connexion
 Il est d'usage courant de stocker les chaînes de connexion, les informations d'identification et autres informations sensibles dans les fichiers de configuration. Malheureusement, ces fichiers peuvent être exposés sur votre site web, ou déposés dans un référentiel public, exposant ces informations. Une recherche simple dans [GitHub](https://github.com), par exemple, peut renvoyer d’innombrables fichiers de configuration avec des clés secrètes exposées dans les référentiels publics.
 
-La meilleure pratique consiste à conserver ces informations en dehors des fichiers de configuration de votre application. App Service vous permet de stocker des informations de configuration dans l’environnement d’exécution en tant que **paramètres d’application** et **chaînes de connexion**. Ces valeurs sont exposées sur votre application au moment de l'exécution via des *variables d'environnement* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l’exécution. Outre ces cas, ces paramètres de configuration restent chiffrés, sauf si vous les affichez ou configurez à l’aide du [portail Azure](http://portal.azure.com) ou d’utilitaires tels que PowerShell ou l’interface de ligne de commande Azure.
+La meilleure pratique consiste à conserver ces informations en dehors des fichiers de configuration de votre application. App Service vous permet de stocker des informations de configuration dans l’environnement d’exécution en tant que **paramètres d’application** et **chaînes de connexion**. Ces valeurs sont exposées sur votre application au moment de l'exécution via des *variables d'environnement* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l’exécution. En dehors de ces cas, ces paramètres de configuration restent chiffrés, à moins que vous les affichiez ou les configuriez en utilisant le [portail Azure](https://portal.azure.com) ou des utilitaires tels que PowerShell ou l’interface de ligne de commande Azure.
 
 Le stockage d’informations de configuration dans App Service permet à l’administrateur de l’application de verrouiller les informations sensibles pour les applications de production. Les développeurs peuvent utiliser un ensemble de paramètres de configuration distinct pour le développement d’applications. Ils peuvent être automatiquement remplacés par les paramètres configurés dans App Service. Même les développeurs ne doivent pas connaître les clés secrètes configurées pour l’application de production. Pour plus d’informations sur la configuration des paramètres d’application et des chaînes de connexion dans App Service, consultez la rubrique sur la [Configuration des applications web](web-sites-configure.md).
 
@@ -99,7 +99,7 @@ Azure App Service fournit un accès FTP sécurisé au système de fichiers de v
 
 Vous pouvez rechercher le lien FTPS pour votre application en procédant comme suit :
 
-1. Ouvrez le [portail Azure](http://portal.azure.com).
+1. Ouvrez le [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Parcourir tout**.
 3. Dans le panneau **Parcourir**, sélectionnez **App Services**.
 4. Dans le panneau **App Services**, sélectionnez l’application souhaitée.
@@ -111,16 +111,16 @@ Pour plus d'informations sur FTPS, consultez la page [Protocole FTP](http://en.w
 
 ## Étapes suivantes
 
-Pour plus d'informations sur la sécurité de la plateforme Azure, ou pour savoir comme signaler **un incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, consultez la section Sécurité du [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Pour plus d'informations sur la sécurité de la plateforme Azure, ou pour savoir comme signaler **un incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, consultez la section Sécurité du [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Pour plus d’informations sur les fichiers **web.config** ou **applicationhost.config** des applications App Service, consultez la page [Options de configuration déverrouillées dans les applications Azure App Service Web Apps (en anglais)](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Pour plus d’informations sur les fichiers **web.config** ou **applicationhost.config** des applications App Service, consultez la page [Options de configuration déverrouillées dans les applications web Azure App Service (en anglais)](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Pour plus d’informations sur la journalisation des informations des applications App Service, également utile pour détecter les attaques, consultez la page [Activer la journalisation des diagnostics](web-sites-enable-diagnostic-log.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -41,7 +41,7 @@ Cette rubrique présente un exemple de code en deux phases :
 ## Configuration requise
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données dans laquelle vous pouvez créer une table.
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

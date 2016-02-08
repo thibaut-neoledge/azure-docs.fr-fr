@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Pour installer des mises à jour périodiques via le portail de gestion
+#### Pour installer des mises à jour périodiques par le biais du portail Azure Classic
 
 1. À la page **Appareils**, sélectionnez l’appareil sur lequel vous souhaitez installer les mises à jour.
 
@@ -12,4 +12,4 @@
 
     Un message s’affiche lorsque la mise à jour est correctement installée.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

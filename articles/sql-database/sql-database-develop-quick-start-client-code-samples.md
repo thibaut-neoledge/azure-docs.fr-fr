@@ -39,7 +39,7 @@ Les exemples regroupent :
 - Échantillons de code qui convertissent des jeux de résultats relationnels en format orienté objet.
 
 
-> [AZURE.NOTE]Des exemples de code pour davantage de langages sont en cours de préparation et des liens vers ceux-ci seront ajoutés à cette rubrique.
+> [AZURE.NOTE] Des exemples de code pour davantage de langages sont en cours de préparation et des liens vers ceux-ci seront ajoutés à cette rubrique.
 
 
 ## Clients sous Linux
@@ -86,7 +86,7 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 ## Voir aussi
 
 
-- [Téléchargements pour les Kits de développement logiciel (SDK) et les outils, pour de nombreux langages et plateformes](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Téléchargements pour les Kits de développement logiciel (SDK) et les outils, pour de nombreux langages et plateformes](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - [Liste de codes numériques des erreurs temporaires](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Développement de base de données SQL Azure : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
@@ -94,4 +94,4 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 - [Créer votre première base de données SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 ici, EF 7 sur GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

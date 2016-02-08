@@ -50,7 +50,7 @@ Nous allons utiliser les valeurs suivantes pour cette configuration :
 
 ## Avant tout chose
 
-Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé les applets de commande Azure PowerShell nécessaires pour cette configuration (1.0.2 ou ultérieure). Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé les applets de commande Azure PowerShell nécessaires pour cette configuration (1.0.2 ou ultérieure). Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 	
 **À propos de l’installation des modules d’applet de commande PowerShell**
 
@@ -231,4 +231,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

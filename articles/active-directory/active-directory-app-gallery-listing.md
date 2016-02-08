@@ -19,7 +19,7 @@
 
 # Affichage de votre application dans la galerie d’applications Azure AD
 
-Pour répertorier une application qui prend en charge l'authentification unique avec Azure Active Directory dans la [galerie Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/), l'application doit tout d'abord mettre en œuvre l'un des modes d'intégration suivants :
+Pour répertorier une application qui prend en charge l'authentification unique avec Azure Active Directory dans la [galerie Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), l'application doit tout d'abord mettre en œuvre l'un des modes d'intégration suivants :
 
 * **OpenID Connect** : intégration directe dans Azure AD à l'aide d'OpenID Connect pour l'authentification et l'API de consentement Azure AD pour la configuration. Si vous débutez une intégration et que votre application ne prend pas en charge SAML, il s'agit du mode de recommandé.
 
@@ -33,7 +33,7 @@ Pour intégrer votre application dans Azure AD, suivez les [instructions pour d�
 
 * Fournissez des informations d'identification pour votre application pour un locataire ou un compte de test pouvant être utilisées par l'équipe Azure AD pour tester l'intégration.  
 
-* Fournissez des instructions sur la manière dont l'équipe Azure AD peut se connecter et connecter une instance d'Azure AD à votre application à l'aide de l'[infrastructure de consentement d'Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Fournissez des instructions sur la manière dont l'équipe Azure AD peut se connecter et connecter une instance d'Azure AD à votre application à l'aide de l'[infrastructure de consentement d'Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
 
 * Fournissez toute instruction supplémentaire nécessaire pour permettre à l'équipe Azure AD de tester l'authentification unique avec votre application.
 
@@ -97,4 +97,4 @@ Toute application prenant en charge SAML 2.0 peut être intégrée directement d
 > 
 > Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

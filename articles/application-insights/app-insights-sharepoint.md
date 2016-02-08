@@ -26,7 +26,7 @@ Visual Studio Application Insights surveille la disponibilité, les performanc
 ## Création d’une ressource Application Insights dans Azure
 
 
-Dans le [portail Azure](http://portal.azure.com), créez une ressource Application Insights. Choisissez le type d'application ASP.NET.
+Dans le [portail Azure](https://portal.azure.com), créez une ressource Application Insights. Choisissez le type d'application ASP.NET.
 
 ![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,7 +75,7 @@ Insérez un composant Web et incorporez l'extrait de code qu'il contient.
 
 Redéployez votre application.
 
-Revenez au panneau de votre application dans le [portail Azure](http://portal.azure.com).
+Revenez au panneau de votre application dans le [portail Azure](https://portal.azure.com).
 
 Les premiers événements s’affichent dans Search.
 
@@ -83,7 +83,7 @@ Les premiers événements s’affichent dans Search.
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
-Dans le panneau de présentation, cliquez sur **Analyse de l'utilisation** pour accéder aux graphiques des utilisateurs, des sessions et des affichages de page :
+Dans le panneau de présentation, cliquez sur **Analyse de l’utilisation** pour accéder aux graphiques des utilisateurs, des sessions et des affichages de page :
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
@@ -108,4 +108,4 @@ Ou bien Utilisateurs :
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

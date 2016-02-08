@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Berline familiale
 
 [Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Concentrateur d'événement d'Azure](http://azure.microsoft.com/services/event-hubs/)
+[Concentrateur d'événement d'Azure](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 
 
 ## Préparation
->[AZURE.ALERT]Cette étape de la solution s’applique uniquement au traitement par lots.
+>[AZURE.ALERT] Cette étape de la solution s’applique uniquement au traitement par lots.
 
 Le jeu de données de signaux et de diagnostic brut semi-structuré est partitionné au cours de l’étape de préparation des données au format ANNÉE/MOIS pour permettre une interrogation efficace et un stockage évolutif à long terme (c’est-à-dire qu’il bascule d’un compte de stockage d’objets blob à un autre dès que le premier est alimenté). Les données de sortie (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « lac de données » du client. Les données d’entrée de ce pipeline sont généralement ignorées car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
 
@@ -396,7 +396,7 @@ Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?Link
 
 *Figure 19 – RealtimeDashboardApp : connexion à Power BI*
 
->[AZURE.NOTE]Remarque : si vous voulez vider le jeu de données Power BI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » :
+>[AZURE.NOTE] Remarque : si vous voulez vider le jeu de données Power BI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » :
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

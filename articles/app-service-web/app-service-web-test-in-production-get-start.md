@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Prise en main de la fonction de test en production pour les applications web
@@ -39,9 +39,9 @@ Grâce à la fonctionnalité de routage du trafic dans [Azure App Service](http:
 
 Au niveau de base, dans chaque scénario de test en production, vous acheminez un pourcentage prédéfini de votre trafic en direct vers un emplacement de déploiement hors production. Pour ce faire, procédez comme suit :
 
->[AZURE.NOTE]Cette procédure suppose que vous disposez déjà d’un [emplacement de déploiement hors production](web-sites-staged-publishing.md) et que le contenu d’application web souhaité est déjà [déployé](web-sites-publish-source-control.md) sur celui-ci.
+>[AZURE.NOTE] Cette procédure suppose que vous disposez déjà d’un [emplacement de déploiement hors production](web-sites-staged-publishing.md) et que le contenu d’application web souhaité est déjà [déployé](web-sites-publish-source-control.md) sur celui-ci.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le panneau de votre application web, cliquez sur **Paramètres** > **Routage du trafic**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Sélectionnez l’emplacement vers lequel vous souhaitez acheminer le trafic, ainsi que le pourcentage de trafic total souhaité, puis cliquez sur **Enregistrer**.
 
@@ -86,4 +86,4 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 -   [Développement logiciel agile avec Azure App Service](app-service-agile-software-development.md)
 -	[Utiliser efficacement les environnements DevOps pour vos applications web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

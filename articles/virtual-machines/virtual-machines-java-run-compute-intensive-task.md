@@ -105,7 +105,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://azure.microsoft.com/develop/java/).
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](https://azure.microsoft.com/develop/java/).
 2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
@@ -484,7 +484,8 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
  Si vous n'entrez aucun nombre, l'exécution portera sur 10 villes. Dès que le solveur trouve les itinéraires les plus courts, il les ajoute à la file d’attente.
 
-> [AZURE.NOTE]Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
+> [AZURE.NOTE]
+Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
 
 ### Exécution de la surveillance de l'application cliente
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
@@ -520,4 +521,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

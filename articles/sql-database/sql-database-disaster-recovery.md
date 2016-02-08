@@ -34,10 +34,10 @@ L'opération de récupération a un impact sur l'application. Elle requiert la m
 1. Échec permanent de la connectivité de la couche d'application à la base de données.
 2. Votre portail Azure Classic affiche une alerte concernant un incident dans la région avec un large impact.
 
-> [AZURE.NOTE]Une fois votre base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Configure your database after recovery](#postrecovery).
+> [AZURE.NOTE] Une fois votre base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Configure your database after recovery](#postrecovery).
 
 ## Basculement vers la base de données secondaire géo-répliquée
-> [AZURE.NOTE]Vous devez configurer une base de données secondaire à utiliser pour le basculement. La réplication géographique est uniquement disponible pour les bases de données Standard et Premium. Apprenez à [configurer la géo-réplication](sql-database-business-continuity-design.md)
+> [AZURE.NOTE] Vous devez configurer une base de données secondaire à utiliser pour le basculement. La réplication géographique est uniquement disponible pour les bases de données Standard et Premium. Apprenez à [configurer la géo-réplication](sql-database-business-continuity-design.md)
 
 ###Portail Azure Classic
 Utilisez le portail Azure Classic pour mettre fin à la relation de copie continue avec la base de données secondaire géo-répliquée.
@@ -64,7 +64,7 @@ REST permet d'initialiser le basculement vers une base de données secondaire pa
 
 En cas de défaillance d'une base de données, vous pouvez récupérer votre base de données à partir de sa dernière sauvegarde géographique redondante à l'aide de la restauration géographique.
 
-> [AZURE.NOTE]La récupération d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la récupération a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] La récupération d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la récupération a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portail Azure Classic
 Pour restaurer une base de données SQL à l’aide de la géo-restauration dans le portail Azure Classic, procédez comme suit.
@@ -131,4 +131,4 @@ Pour en savoir plus, voir [Réception de notifications d'alerte](insights-receiv
 
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

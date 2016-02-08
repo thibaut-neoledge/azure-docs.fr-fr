@@ -33,51 +33,51 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 
 |Terminé|	Domaine|	Catégorie|	Question
 |----|------|-----------|-----------
-||Tous les services| Objectifs d’évolutivité| [Votre application est-elle conçue de manière à éviter d’atteindre les objectifs d’évolutivité ?](#subheading1)
-||Tous les services| Réseau| [Les appareils côté client disposent-ils d’une bande passante suffisamment large et d’une latence suffisamment faible pour parvenir aux performances requises ?](#subheading2)
-||Tous les services| Réseau| [La qualité de la liaison des appareils côté client est-elle suffisamment élevée ?](#subheading3)
-||Tous les services| Réseau| [L’application cliente est-elle située « à proximité » du compte de stockage ?](#subheading4)
-||Tous les services| Distribution de contenu| [Utilisez-vous un CDN pour la distribution de contenu ?](#subheading5)
-||Tous les services| Accès direct au client| [Utilisez-vous SAS et CORS au lieu d’un proxy pour permettre un accès direct au client ?](#subheading6)
-||Tous les services| Mise en cache| [Votre application met-elle en cache les données qui sont utilisées fréquemment et qui changent rarement ?](#subheading7)
-||Tous les services| Mise en cache| [Votre application traite-t-elle les mises à jour par lots (mise en cache côté client, suivi du téléchargement dans des ensembles plus grands) ?](#subheading8)
-||Tous les services| Configuration .NET| [Avez-vous configuré votre client pour qu’il utilise un nombre suffisant de connexions simultanées ?](#subheading9)
-||Tous les services| Configuration .NET| [Avez-vous configuré .NET pour qu’il utilise un nombre suffisant de threads ?](#subheading10)
-||Tous les services| Configuration .NET| [Utilisez-vous .NET 4.5 ou une version ultérieure, qui présente une méthode de nettoyage de mémoire optimisée ?](#subheading11)
-||Tous les services| Parallélisme| [Vous êtes-vous assuré que le parallélisme était limité de manière appropriée, afin de ne pas surcharger les capacités du client, ni dépasser les objectifs d’évolutivité ?](#subheading12)
-||Tous les services| Outils| [Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournies par Microsoft ?](#subheading13)
-||Tous les services| Nouvelles tentatives| [Utilisez-vous une stratégie de nouvelles tentatives d’interruption exponentielle pour les erreurs et les délais d’expiration ?](#subheading14)
-||Tous les services| Nouvelles tentatives| [Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#subheading15)
-||Objets blob| Objectifs d’évolutivité| [Votre application respecte-t-elle l’objectif d’évolutivité relatif aux opérations ou à la bande passante ou des opérations pour un objet blob unique ?](#subheading16)
-||Objets blob| Copie des objets blob|[La copie des objets blob s’effectue-t-elle de manière efficace ?](#subheading17)
-||Objets blob| Copie des objets blob| [Utilisez-vous AzCopy pour les copies en bloc d’objets blob ?](#subheading18)
-||Objets blob| Copie des objets blob| [Utilisez-vous le service Azure Import/Export pour transférer de très gros volumes de données ?](#subheading19)
-||Objets blob| Utilisation de métadonnées| [Stockez-vous des métadonnées fréquemment utilisées concernant des objets blob dans leurs métadonnées ?](#subheading20)
-||Objets blob| Téléchargement rapide| [Lorsque vous essayez de télécharger rapidement un objet blob, téléchargez-vous les blocs en parallèle ?](#subheading21)
-||Objets blob| Téléchargement rapide| [Lorsque vous essayez de télécharger rapidement de nombreux objets blob, les téléchargez-vous en parallèle ?](#subheading22)
-||Objets blob| Type d’objet blob correct| [Utilisez-vous des objets blob de pages ou de blocs lorsque cela s’avère approprié ?](#subheading23)
-||Tables| Objectifs d’évolutivité| [Vous approchez-vous des objectifs d’évolutivité en termes d’entités par seconde ?](#subheading24)
-||Tables| Configuration| [Utilisez-vous JSON pour vos demandes de table ?](#subheading25)
-||Tables| Configuration| [Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading26)
-||Tables| Tables et partitions| [Avez-vous partitionné vos données correctement ?](#subheading27)
-||Tables| Partitions actives| [Évitez-vous les modèles en mode append-only et prepend-only ?](#subheading28)
-||Tables| Partitions actives| [Vos opérations d’insertion/de mise à jour couvrent-elles plusieurs partitions ?](#subheading29)
-||Tables| Étendue de requête| [Avez-vous conçu votre schéma pour qu’il autorise l’utilisation des requêtes de point dans la plupart des cas et l’utilisation modérée des requêtes de tables ?](#subheading30)
-||Tables| Densité de requête| [En règle générale, vos requêtes n’analysent et ne renvoient-elles que les lignes qui seront utilisées par votre application ?](#subheading31)
-||Tables| Limitation des données retournées| [Utilisez-vous le filtrage pour éviter de retourner des entités inutiles ?](#subheading32)
-||Tables| Limitation des données retournées| [Utilisez-vous la projection pour éviter le renvoi de propriétés inutiles ?](#subheading33)
-||Tables| Dénormalisation| [Avez-vous dénormalisé vos données de manière à éviter les requêtes inefficaces ou les demandes de lecture multiples lorsque vous essayez de récupérer des données ?](#subheading34)
-||Tables| Mise à jour/insertion/suppression| [Effectuez-vous un traitement par lots des demandes qui doivent être transactionnelles ou qui peuvent être effectuées en même temps pour réduire les allers-retours ?](#subheading35)
-||Tables| Mise à jour/insertion/suppression| [Évitez-vous de récupérer une entité pour déterminer simplement s’il faut appeler l’opération insert ou update ?](#subheading36)
-||Tables| Mise à jour/insertion/suppression| [Avez-vous envisagé de stocker des séries de données qui seront fréquemment récupérées ensemble dans une seule entité sous la forme de propriétés plutôt que d’entités multiples ?](#subheading37)
-||Tables| Mise à jour/insertion/suppression| [Dans le cas des tables qui sont toujours récupérées ensemble et qui peuvent être écrites par lots (des données de séries temporelles, par exemple), avez-vous envisagé d’utiliser des objets blob à la place de tables ?](#subheading38)
-||Files d’attente| Objectifs d’évolutivité| [Vous approchez-vous des objectifs d’évolutivité en termes de messages par seconde ?](#subheading39)
-||Files d’attente| Configuration| [Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40)
-||Files d’attente| Taille de message| [Vos messages sont-ils compacts pour améliorer les performances de la file d’attente ?](#subheading41)
-||Files d’attente| Récupération en bloc| [Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading41)
-||Files d’attente| Fréquence d’interrogation| [Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading42)
-||Files d’attente| Message de mise à jour| [Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l’intégralité du message en cas d’erreur ?](#subheading43)
-||Files en attente| Architecture| [Utilisez-vous des files d’attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading44)
+|Tous les services|	Objectifs d'évolutivité|[Votre application est-elle conçue de manière à éviter d'atteindre les objectifs d'évolutivité ?](#subheading1)
+|Tous les services|	Mise en réseau|	[Les appareils côté client disposent-ils d'une bande passante suffisamment large et d'une latence suffisamment faible pour parvenir aux performances requises ?](#subheading2)
+|Tous les services|	Mise en réseau|	[La qualité de la liaison des appareils côté client est-elle suffisamment élevée ?](#subheading3)
+|Tous les services|	Mise en réseau|	[L'application cliente est-elle située « à proximité » du compte de stockage ?](#subheading4)
+|Tous les services|	Distribution de contenu|	[Utilisez-vous un CDN pour la distribution de contenu ?](#subheading5)
+|Tous les services|	Accès direct au client|	[Utilisez-vous SAP et CORS au lieu d'un proxy pour permettre un accès direct au client ?](#subheading6)
+|Tous les services|	Mise en cache|	[Votre application met-elle en cache les données qui sont utilisées fréquemment et qui changent rarement ?](#subheading7)
+|Tous les services|	Mise en cache|	[Votre application traite-t-elle les mises à jour par lots (mise en cache côté client, suivie du téléchargement dans des ensembles plus grands) ?](#subheading8)
+|Tous les services|	Configuration .NET|	[Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#subheading9)
+|Tous les services|	Configuration .NET|	[Avez-vous configuré .NET pour qu'il utilise un nombre suffisant de threads ?](#subheading10)
+|Tous les services|	Configuration .NET|	[Utilisez-vous .NET 4.5 ou version ultérieure, qui présente une méthode de nettoyage de mémoire optimisée ?](#subheading11)
+|Tous les services|	Parallélisme|	[Vous êtes-vous assuré que le parallélisme était limité de manière appropriée, de manière à ne pas surcharger les capacités du client, ni dépasser les objectifs d'évolutivité ?](#subheading12)
+|Tous les services|	Outils|	[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#subheading13)
+|Tous les services|	Nouvelle tentatives|	[Utilisez-vous une stratégie de nouvelles tentatives d'interruption exponentielle pour les erreurs de limitation et les délais d'expiration ?](#subheading14)
+|Tous les services|	Nouvelle tentatives|	[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#subheading15)
+|Objets blob|	Objectifs d'évolutivité|	[Votre application respecte-t-elle l'objectif d'évolutivité relatif aux opérations ou à la bande passante pour un objet blob unique ?](#subheading16)
+|Objets blob|	Copie d'objets blob|	[La copie des objets blob s'effectue-t-elle de manière efficace ?](#subheading17)
+|Objets blob|	Copie d'objets blob|	[Utilisez-vous AzCopy pour les copies en bloc d'objets blob ?](#subheading18)
+|Objets blob|	Copie d'objets blob|	[Utilisez-vous le service Azure Import/Export pour transférer de très gros volumes de données ?](#subheading19)
+|Objets blob|	Utilisation de métadonnées|	[Stockez-vous des métadonnées fréquemment utilisées concernant des objets blob dans leurs métadonnées ?](#subheading20)
+|Objets blob|	Téléchargement rapide|	[Lorsque vous essayez de télécharger rapidement un seul objet blob, téléchargez-vous les blocs en parallèle ?](#subheading21)
+|Objets blob|	Téléchargement rapide|	[Lorsque vous essayez de télécharger rapidement de nombreux objets blob, les téléchargez-vous en parallèle ?](#subheading22)
+|Objets blob|	Type d'objet blob correct|	[Utilisez-vous des objets blob de pages ou de blocs lorsque cela s'avère approprié ?](#subheading23)
+|Tables|	Objectifs d'évolutivité|	[Vous approchez-vous des objectifs d'évolutivité en termes d'entités par seconde ?](#subheading24)
+|Tables|	Configuration|	[Utilisez-vous JSON pour vos demandes de table ?](#subheading25)
+|Tables|	Configuration|	[Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading26)
+|Tables|	Tables et partitions|	[Avez-vous correctement partitionné vos données ?](#subheading27)
+|Tables|	Partitions actives|	[Évitez-vous les modèles « Ajouter après uniquement » ou « Ajouter avant uniquement » ?](#subheading28)
+|Tables|	Partitions actives|	[Vos opérations d'insertion/de mise à jour couvrent-elles plusieurs partitions ?](#subheading29)  
+|Tables|	Étendue de requête|	[Avez-vous conçu votre schéma pour qu'il autorise l'utilisation des requêtes de point dans la plupart des cas et l'utilisation modérée des requêtes de tables ?](#subheading30)
+|Tables|	Densité des requêtes|	[En règle générale, vos requêtes n'analysent et ne renvoient-elles que les lignes qui seront utilisées par votre application ?](#subheading31)
+|Tables|	Limitation des données renvoyées|	[Utilisez-vous le filtrage pour éviter le renvoi d'entités inutiles ?](#subheading32)
+|Tables|	Limitation des données renvoyées|	[Utilisez-vous la projection pour éviter le renvoi de propriétés inutiles ?](#subheading33)
+|Tables|	Dénormalisation|	[Avez-vous dénormalisé vos données de manière à éviter les requêtes inefficaces ou les demandes de lecture multiples lorsque vous essayez de récupérer des données ?](#subheading34)
+|Tables|	Insertion/Mise à jour/Suppression|	[Effectuez-vous un traitement par lots des demandes qui doivent être transactionnelles ou qui peuvent être effectuées en même temps pour réduire les allers-retours ?](#subheading35)
+|Tables|	Insertion/Mise à jour/Suppression|	[Évitez-vous de récupérer une entité pour déterminer simplement s'il faut appeler l'opération insert ou update ?](#subheading36)
+|Tables|	Insertion/Mise à jour/Suppression|	[Avez-vous envisagé de stocker des séries de données qui seront fréquemment récupérées ensemble dans une seule entité sous la forme de propriétés plutôt que d'entités multiples ?](#subheading37)
+|Tables|	Insertion/Mise à jour/Suppression|	[Dans le cas des tables qui sont toujours récupérées ensemble et qui peuvent être écrites par lots (des données de séries temporelles, par exemple), avez-vous envisagé d'utiliser des objets blob à la place de tables ?](#subheading38)
+|Files d’attente|	Objectifs d'évolutivité|	[Vous approchez-vous des objectifs d'évolutivité en termes de messages par seconde ?](#subheading39)
+|Files d’attente|	Configuration|	[Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40)
+|Files d’attente|	Taille des messages|	[Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#subheading41)
+|Files d’attente|	Récupération en bloc|	[Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading41)
+|Files d’attente|	Fréquence d'interrogation|	[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading42)
+|Files d’attente|	Mise à jour de message|	[Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l'intégralité du message en cas d'erreur ?](#subheading43)
+|Files d’attente|	Architecture|	[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading44)
 
 
 ##<a name="allservices"></a>Tous les Services
@@ -102,7 +102,7 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 -	Si votre application atteint les objectifs d’extensibilité, vérifiez que vous utilisez bien une interruption exponentielle pour les nouvelles tentatives (voir [Nouvelles tentatives](#subheading14)). Il est préférable de veiller à ne jamais s’approcher des objectifs d’extensibilité (en utilisant l’une des méthodes ci-dessus). Vous vous assurez ainsi que votre application n’effectue pas de nouvelle tentative immédiatement, ce qui aurait pour conséquence d’empirer la limitation.  
 
 ####Ressources utiles
-Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d’extensibilité : - vous pouvez consulter les objectifs d’extensibilité sur la page [Objectifs de performance et d’extensibilité d’Azure Storage](storage-scalability-targets.md). Pour plus d’informations sur les options de redondance de stockage, consultez [Réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx). - Pour obtenir des informations en cours sur la tarification des services Azure, consultez [Tarification Azure](http://azure.microsoft.com/pricing/overview/).
+Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d’extensibilité : - vous pouvez consulter les objectifs d’extensibilité sur la page [Objectifs de performance et d’extensibilité d’Azure Storage](storage-scalability-targets.md). Pour plus d’informations sur les options de redondance de stockage, consultez [Réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx). - Pour obtenir des informations en cours sur la tarification des services Azure, consultez [Tarification Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###Mise en réseau
 Bien que les appels d’API soient importants, les contraintes de réseau physiques de l’application ont souvent un impact majeur sur les performances. Vous trouverez, ci-dessous, certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
@@ -125,7 +125,7 @@ Si votre application cliente n’est pas hébergée dans Azure (c’est le cas, 
 ###<a name="subheading5"></a>Distribution de contenu
 Il arrive qu’une application doive diffuser le même contenu vers plusieurs utilisateurs situés au sein d’une même région ou dans des régions différentes. Il peut s’agir, par exemple, d’une vidéo de démonstration d’un produit utilisée sur la page d’accueil d’un site web. Dans ce cas, vous devez utiliser un réseau de distribution de contenu (CDN), tel que le CDN Azure, qui utilise le stockage Azure comme origine des données. Contrairement à un compte Azure Storage qui existe dans une seule région et qui ne peut pas diffuser de contenu avec une faible latence vers d’autres régions, le CDN Azure utilise des serveurs dans plusieurs centres de données répartis dans le monde entier. De plus, un CDN peut généralement prendre en charge des limites de sortie bien plus élevées qu’un compte de stockage unique.
 
-Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](http://azure.microsoft.com/services/cdn/).
+Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](https://azure.microsoft.com/services/cdn/).
 
 ###<a name="subheading6"></a>Utilisation de SAP et de CORS
 Lorsque vous devez autoriser du code, tel que JavaScript, dans le navigateur Web d’un utilisateur ou une application pour téléphone mobile afin d’accéder à des données dans Azure Storage, une méthode consiste à utiliser une application dans un rôle Web en tant que proxy : l’appareil de l’utilisateur s’authentifie avec le rôle Web, qui à son tour s’authentifie avec le service de stockage. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cela place une surcharge importante sur le rôle web, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le service de stockage doivent transiter par ce rôle. Vous pouvez éviter d’utiliser un rôle web comme proxy pour le service de stockage en utilisant des signatures d’accès partagé (SAP), combinées parfois à des en-têtes CORS (Partage des ressources cross-origin). Grâce au modèle SAP, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des demandes à un service de stockage par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite télécharger une photo vers votre application, votre rôle web peut générer et envoyer à l’appareil de cet utilisateur un jeton SAP qui accordera des autorisations en écriture sur un conteneur ou un objet blob spécifique au cours des 30 prochaines minutes (au terme desquelles le jeton SAP expirera).
@@ -235,7 +235,7 @@ Pour télécharger rapidement un seul objet blob de grande taille, votre applica
 -	.NET : définissez ParallelOperationThreadCount sur un objet BlobRequestOptions à utiliser.
 -	Java/Android : utilisez BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js : utilisez parallelOperationThreadCount sur les options de demande ou sur le service BLOB.
--	C++ : utilisez la méthode blob_request_options::set_parallelism_factor.
+-	C++ : utilisez la méthode blob\_request\_options::set\_parallelism\_factor.
 
 ####<a name="subheading22"></a>Téléchargement rapide de nombreux objets blob
 Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Cela s’avère plus rapide que de télécharger des objets blob individuels avec des téléchargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. Dans le cas d’un objet blob unique, le débit pris en charge est seulement de 60 Mo/seconde (environ 480 Mbits/s). Au moment de la rédaction du présent document, un compte LRS basé sur US prenait en charge un débit de 20 Gbits/s en entrée, soit bien plus que le débit pris en charge par un objet blob individuel. Par défaut, [AzCopy](#subheading18) effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario.
@@ -365,7 +365,7 @@ Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une 
 ###<a name=subheading43"></a>Intervalle d'interrogation de file d'attente
 La plupart des applications interrogent une file d’attente pour les messages, ce qui peut représenter l’une des plus grandes sources de transactions pour cette application. Sélectionnez votre intervalle d’interrogation avec soin : une interrogation trop fréquente pourrait entraîner un rapprochement des objectifs d’extensibilité pour la file d’attente. Toutefois, à 200 000 transactions à 0,01 $ (au moment de la rédaction), un seul processeur interrogeant une fois par seconde pendant un mois reviendrait à moins de 15 cents. Le prix n’est donc généralement pas un facteur qui affecte le choix de l’intervalle d’interrogation.
 
-Pour plus d’informations relatives au coût, voir la page [Tarification-Stockage](http://azure.microsoft.com/pricing/details/storage/).
+Pour plus d’informations relatives au coût, voir la page [Tarification-Stockage](https://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
 Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.
@@ -382,4 +382,4 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

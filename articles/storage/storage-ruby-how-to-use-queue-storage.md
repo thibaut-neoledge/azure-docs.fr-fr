@@ -58,7 +58,7 @@ Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et
 
 Pour obtenir ces valeurs :
 
-1. Connectez-vous au [portail Azure](portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous voulez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS** au bas du volet de navigation.
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
@@ -152,4 +152,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 Pour obtenir une comparaison entre le service de File d'attente Azure abordé dans cette rubrique et les files d'attente Azure Service Bus abordées dans la rubrique [Utilisation des files d'attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d'attente Microsoft Azure et files d'attente Microsoft Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/azure/hh767287.aspx).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,9 +17,9 @@
 
 # FAQ sur la tarification de Service Bus
 
-Cette section répond à certaines questions fréquemment posées sur la tarification de Service Bus. Vous pouvez également visiter le [Forum aux questions de Support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de tarification générale Microsoft Azure. Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [détails de tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
+Cette section répond à certaines questions fréquemment posées sur la tarification de Service Bus. Vous pouvez également visiter le [Forum aux questions de Support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de tarification générale Microsoft Azure. Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [détails de tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE]Décrit la structure de prix pour les hubs d’événements dans la rubrique [FAQ relatif à la disponibilité et au support des hubs d’événements](event-hubs-availability-and-support-faq.md), et d’autres informations figurent dans la rubrique [Tarification des hubs d’événements](http://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] Décrit la structure de prix pour les hubs d’événements dans la rubrique [FAQ relatif à la disponibilité et au support des hubs d’événements](event-hubs-availability-and-support-faq.md), et d’autres informations figurent dans la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Quel est le coût de Service Bus ?](#how-do-you-charge-for-service-bus)
 - [Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ Cette section répond à certaines questions fréquemment posées sur la tarific
 
 ## Quel est le coût de Service Bus ?
 
-Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ci-dessous.
+Pour obtenir toutes les informations sur la tarification Service Bus, voir la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ci-dessous.
 
 ## Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?
 
@@ -116,4 +116,4 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

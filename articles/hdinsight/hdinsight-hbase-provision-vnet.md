@@ -34,9 +34,9 @@ Avec l’intégration du réseau virtuel, les clusters HBase peuvent être dépl
 ##Configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Consultez la rubrique [Utilisation de l'applet de commande Set-ExecutionPolicy][2].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Consultez la rubrique [Utilisation de l'applet de commande Set-ExecutionPolicy][2].
 
 	Avant d’exécuter vos scripts Azure PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l’aide de la cmdlet suivante :
 
@@ -93,8 +93,7 @@ Avant la configuration d’un cluster HBase, vous devez disposer d’un réseau 
 	- **Abonnement** : sélectionnez l'abonnement Azure que vous voulez utiliser pour ce réseau virtuel.
 	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
     
-        > [AZURE.NOTE]
-	> Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités.
+        > [AZURE.NOTE] > Azure HDInsight prend en charge uniquement les réseaux virtuels basés sur l’emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d’affinités.
         
     Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -113,7 +112,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 
 **Approvisionnement d’un cluster HBase en utilisant le portail Azure**
 
-> [AZURE.NOTE]Pour plus d’informations sur l’approvisionnement d’un nouveau cluster HBase au moyen d’Azure PowerShell, consultez la rubrique [Approvisionnement d’un cluster HBase au moyen d’Azure PowerShell](#powershell).
+> [AZURE.NOTE] Pour plus d’informations sur l’approvisionnement d’un nouveau cluster HBase au moyen d’Azure PowerShell, consultez la rubrique [Approvisionnement d’un cluster HBase au moyen d’Azure PowerShell](#powershell).
 
 
 **Création d'un cluster HDInsight**
@@ -157,13 +156,13 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple :
+		Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host\_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple :
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
 			...
 
-		La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS. Par exemple, mon_cluster.b1.cloudapp.net.
+		La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS. Par exemple, mon\_cluster.b1.cloudapp.net.
 
 	* **Azure PowerShell** : utilisez le script Azure PowerShell suivant pour enregistrer la fonction **Get-ClusterDetail**, qui peut être utilisée pour renvoyer le suffixe DNS.
 
@@ -261,9 +260,9 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 			Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-		Ceci renvoie le suffixe DNS. Par exemple, **votre_nom_cluster.b4.internal.cloudapp.net**.
+		Ceci renvoie le suffixe DNS. Par exemple, **votre\_nom\_cluster.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Vous pouvez également utiliser le Bureau à distance pour vous connecter au cluster HBase (vous serez connecté au nœud principal) et exécuter **ipconfig** à partir d’une invite de commandes pour obtenir le suffixe DNS. Pour des instructions sur l’activation du protocole RDP (Remote Desktop Protocol) et la façon de se connecter au moyen de ce dernier, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE] Vous pouvez également utiliser le Bureau à distance pour vous connecter au cluster HBase (vous serez connecté au nœud principal) et exécuter **ipconfig** à partir d’une invite de commandes pour obtenir le suffixe DNS. Pour des instructions sur l’activation du protocole RDP (Remote Desktop Protocol) et la façon de se connecter au moyen de ce dernier, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.suffix][img-dns-surffix]
 
@@ -292,7 +291,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Pour plus d’informations sur la résolution de noms sur des réseaux virtuels Azure, y compris la façon d’utiliser votre propre serveur DNS, consultez la rubrique [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> [AZURE.NOTE] Pour plus d’informations sur la résolution de noms sur des réseaux virtuels Azure, y compris la façon d’utiliser votre propre serveur DNS, consultez la rubrique [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Approvisionnement d’un cluster HBase au moyen d’Azure PowerShell
 
@@ -392,4 +391,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

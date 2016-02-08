@@ -37,7 +37,7 @@ Le modèle Azure Resource Manager vous permet de spécifier de manière déclara
 
 ### Conditions préalables
 
-1. Installez les dernières applets de commande d'Azure PowerShell ou de l'interface de ligne de commande Azure à partir d'[ici](http://azure.microsoft.com/downloads).
+1. Installez les dernières applets de commande d'Azure PowerShell ou de l'interface de ligne de commande Azure à partir d'[ici](https://azure.microsoft.com/downloads/).
 2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l'agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez [ces](virtual-machines-extensions-install) instructions pour en installer un.
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d'un seul ou de plusieurs conteneurs de stockage.
 4. Les scripts peuvent également être téléchargés vers un compte Github.
@@ -102,4 +102,4 @@ Reportez-vous aux exemples ci-dessous pour obtenir des exemples complets de conf
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

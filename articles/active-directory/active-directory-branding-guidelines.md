@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="01/21/2016"
    ms.author="mbaldwin"/>
 
 
@@ -94,4 +94,4 @@ N’exposez **PAS** les utilisateurs finaux à la marque Azure ou Active Direct
 
 Si votre application prend en charge Azure AD et les comptes Microsoft, vous devez y inclure deux boutons de connexion distincts. Nous travaillons actuellement sur une mise à jour qui vous permettra d’effectuer une seule intégration et de prendre en charge à la fois les comptes personnels et professionnels de Microsoft. Une fois que cette fonctionnalité sera disponible, vous serez en mesure d’afficher un seul bouton « connexion avec Microsoft » dans votre application.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

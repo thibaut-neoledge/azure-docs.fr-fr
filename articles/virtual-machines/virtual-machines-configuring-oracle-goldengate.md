@@ -24,7 +24,7 @@ Ce didacticiel décrit comment configurer et mettre en œuvre Oracle GoldenGate
 
 Oracle GoldenGate prend en charge la distribution et l’intégration des données. Il permet de configurer une solution de distribution et de synchronisation des données via la configuration de réplication Oracle à Oracle, et offre une solution flexible de haute disponibilité. Oracle GoldenGate complète Oracle Data Guard avec ses fonctionnalités de réplication pour permettre la distribution d’informations à l’ensemble de l’entreprise ainsi que des migrations et mises à niveau sans interruption de service. Pour plus d’informations, voir [Using Oracle GoldenGate with Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm) (en anglais).
 
-Oracle GoldenGate présente les principaux composants suivants : Extract, Data pump, Replicat, Trails ou Extract Files, Checkpoints, Manager et Collector. Pour établir une réplication bidirectionnelle entre deux sites, vous devez créer et démarrer tous les composants sur les deux sites. Pour obtenir des informations plus détaillées sur l’architecture d’Oracle GoldenGate, voir [Oracle GoldenGate Guide](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) (en anglais).
+Oracle GoldenGate présente les principaux composants suivants : Extract, Data pump, Replicat, Trails ou Extract Files, Checkpoints, Manager et Collector. Pour établir une réplication bidirectionnelle entre deux sites, vous devez créer et démarrer tous les composants sur les deux sites. Pour obtenir des informations plus détaillées sur l’architecture d’Oracle GoldenGate, consultez le guide (en anglais) [Oracle GoldenGate Guide](http://docs.oracle.com/goldengate/1212/gg-winux/index.html).
 
 Ce didacticiel suppose que vous disposez déjà de connaissances théoriques et pratiques concernant les concepts de haute disponibilité et de récupération d’urgence pour Oracle Database, ainsi que concernant [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html). Pour plus d’informations, voir le [site web d’Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html).
 
@@ -34,7 +34,7 @@ En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditio
 
 - Vous avez téléchargé le logiciel Oracle GoldenGate à partir du site web [Téléchargements Oracle](http://www.oracle.com/us/downloads/index.html). Vous avez sélectionné Product Pack Oracle Fusion Middleware – Data Integration. Vous avez ensuite sélectionné Oracle GoldenGate sur Oracle v11.2.1 Media Pack pour Microsoft Windows x64 (64 bits) pour une base de données Oracle 11g. Téléchargez ensuite Oracle GoldenGate v11.2.1.0.3 pour Oracle 11g 64 bits sur Windows 2008 (64 bits).
 
-- Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de l’image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](#z3dc8d3c097cf414e9048f7a89c026f80) et [Machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-load-balance.md) et du même [réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante.
+- Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de l’image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](#z3dc8d3c097cf414e9048f7a89c026f80) et [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-load-balance.md) et du même [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante.
 
 - Vous avez nommé les machines virtuelles « MachineGG1 » pour le site A et « MachineGG2 » pour le site B sur le portail Azure Classic.
 
@@ -80,7 +80,7 @@ Ce didacticiel présente les procédures suivantes :
 
 6. Vérifier le processus de réplication bidirectionnelle
 
->[AZURE.IMPORTANT]Ce didacticiel a été configuré et testé selon la configuration matérielle et logicielle suivante :
+>[AZURE.IMPORTANT] Ce didacticiel a été configuré et testé selon la configuration matérielle et logicielle suivante :
 >
 >| | **Base de données du site A** | **Base de données du site B** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -90,7 +90,7 @@ Ce didacticiel présente les procédures suivantes :
 >| **SID Oracle** | TESTGG1 | TESTGG2 |
 >| **Schéma de réplication** | SCOTT | SCOTT |
 
-Pour les versions ultérieures d’Oracle Database et d’Oracle GoldenGate, il se peut que vous deviez procéder à certaines modifications supplémentaires. Pour obtenir les dernières informations concernant la version, voir la documentation relative à [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) et [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) sur le site web d’Oracle. Par exemple, pour une base de données source version 11.2.0.4 et versions ultérieures, la capture de DDL est exécutée par le serveur logmining de façon asynchrone et nécessite l’installation de déclencheurs, tables ou autres objets de base de données spéciaux. Les mises à niveau d’Oracle GoldenGate peuvent être effectuées sans arrêter les applications utilisateur. L’utilisation d’un déclencheur DDL et des objets de prise en charge est requise lorsqu’Extract est en mode intégré avec une base de données source Oracle 11g antérieure à la version 11.2.0.4. Pour obtenir des instructions détaillées, voir le guide [Installing and Configuring Oracle GoldenGate for Oracle Database](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf) (en anglais).
+Pour les versions ultérieures d’Oracle Database et d’Oracle GoldenGate, il se peut que vous deviez procéder à certaines modifications supplémentaires. Pour obtenir les dernières informations concernant la version, consultez la documentation relative à [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) et [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) sur le site web d’Oracle. Par exemple, pour une base de données source version 11.2.0.4 et versions ultérieures, la capture de DDL est exécutée par le serveur logmining de façon asynchrone et nécessite l’installation de déclencheurs, tables ou autres objets de base de données spéciaux. Les mises à niveau d’Oracle GoldenGate peuvent être effectuées sans arrêter les applications utilisateur. L’utilisation d’un déclencheur DDL et des objets de prise en charge est requise lorsqu’Extract est en mode intégré avec une base de données source Oracle 11g antérieure à la version 11.2.0.4. Pour obtenir des instructions détaillées, voir le guide [Installing and Configuring Oracle GoldenGate for Oracle Database](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf) (en anglais).
 
 ##1\. Configurer la base de données sur les sites A et B
 Cette section explique comment configurer la base de données sur les sites A et B. Vous devez effectuer toutes les étapes décrites sur les deux sites.
@@ -602,4 +602,4 @@ Connectez-vous à distance au site A et vérifiez la bonne réplication :
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

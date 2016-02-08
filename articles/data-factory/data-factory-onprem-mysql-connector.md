@@ -29,6 +29,8 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 ## Installation 
 Pour que la passerelle de gestion des données puisse se connecter à la base de données MySQL, vous devez installer le [connecteur MySQL/Net 6.6.5 pour Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) sur le même système que la passerelle de gestion des données.
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
 ## Exemple : copie de données de MySQL vers Azure Blob
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -256,7 +258,7 @@ Dans le cas d’une activité de copie, lorsque la source est de type **Relation
 
 ### Mappage de type pour MySQL
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion de types .NET en types récepteur natifs
@@ -310,4 +312,4 @@ Lors du déplacement de données vers MySQL, les mappages suivants seront utilis
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

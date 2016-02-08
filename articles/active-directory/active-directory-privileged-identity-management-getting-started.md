@@ -3,7 +3,7 @@
    description="Découvrez comment gérer des rôles privilégiés avec l’extension Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
 # Prise en main d’Azure Privileged Identity Management
@@ -23,7 +23,7 @@
 1.  Créez un répertoire dans Azure Active Directory.
 2.  Ajoutez des utilisateurs à votre annuaire Azure Active Directory.
 3.  Créez quelques administrateurs généraux dans votre annuaire.
-4.  Connectez-vous au [portail Azure](http://portal.azure.com) avec un compte d’administrateur général.
+4.  Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte d’administrateur général.
 5.  Cliquez sur le **nom d’utilisateur** dans le coin supérieur gauche du portail Azure.
 6.  Sélectionnez l’**annuaire** que vous venez de créer.
 7.  Cliquez sur l’icône **Nouveau** dans le volet de navigation à gauche.
@@ -35,4 +35,4 @@
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

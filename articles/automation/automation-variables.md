@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ressources de variables dans Azure Automation
@@ -55,7 +55,7 @@ Les activités de workflow du tableau suivant sont utilisées pour accéder aux 
 |Get-AutomationVariable|Récupère la valeur d'une variable existante.|
 |Set-AutomationVariable|Définit la valeur d'une variable existante.|
 
->[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre –Name de **Get-AutomationVariable** dans un Runbook ou dans une configuration DSC, car cela complique la découverte de dépendances entre les Runbooks ou configurations DSC et les variables Automation au moment de la conception.
+>[AZURE.NOTE] Évitez d’utiliser des variables dans le paramètre –Name de **Get-AutomationVariable** dans un Runbook ou dans une configuration DSC, car cela complique la découverte de dépendances entre les Runbooks ou configurations DSC et les variables Automation au moment de la conception.
 
 ## Création d'une variable Automation
 
@@ -188,4 +188,4 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

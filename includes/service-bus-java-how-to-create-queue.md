@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## Présentation des files d'attente Service Bus
 
 Les files d’attente Service Bus prennent en charge un modèle de communication de **messagerie répartie**. Lors de l’utilisation de files d’attente, les composants d’une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une file d’attente, qui fait office d’intermédiaire (broker). Un producteur de messages (expéditeur) remet un message à la file d’attente, puis continue son traitement. De manière asynchrone, un consommateur de message (destinataire) extrait le message de la file d’attente, puis le traite. L’expéditeur ne doit pas forcément attendre une réponse du destinataire afin de continuer à traiter et à envoyer d’autres messages. Les files d’attente permettent la livraison de messages sur le principe du **premier entré, premier sorti (FIFO)** à un ou plusieurs destinataires concurrents. Autrement dit, les messages sont en général reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
@@ -41,8 +40,6 @@ L’espace de noms que venez de créer apparaît alors dans le portail Azure. So
 
 Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail.
 
-###Pour obtenir les informations de gestion du portail
-
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Cliquez sur l’espace de noms que vous venez de créer dans la liste affichée.
@@ -55,4 +52,4 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

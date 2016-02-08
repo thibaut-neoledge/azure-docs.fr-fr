@@ -33,7 +33,7 @@ Les certificats de service peuvent être gérés séparément de vos services et
 ## Que sont les certificats de gestion ?
 Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par le portail Azure Classic. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
 
->[AZURE.WARNING]Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
+>[AZURE.WARNING] Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
 
 ### Limites
 Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires.
@@ -74,10 +74,10 @@ Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-cr
 
 ## Étapes suivantes
 
-[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)), puis [configurez-le](cloud-services-xml-certs.md) pour le service cloud.
+[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
 
->[AZURE.NOTE]Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
+>[AZURE.NOTE] Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -97,7 +97,7 @@ La liste suivante contient des points clés à prendre en compte lors de la cré
 
 - Le service blob Azure ne dispose d'aucun moyen pour déterminer si deux blocs contiennent des données identiques. Chaque bloc qui est téléchargé et validé est traité comme étant unique, même s’il a les mêmes données et le même ID de bloc. Comme des frais sont applicables aux blocs uniques, il est important de savoir que la mise à jour d'un objet blob qui a un instantané entraîne la création de blocs uniques supplémentaires et donc des frais supplémentaires.
 
-> [AZURE.NOTE]Un conseil : gérez les instantanés avec attention afin d’éviter des frais supplémentaires. Nous vous recommandons de gérer les instantanés de la manière suivante :
+> [AZURE.NOTE] Un conseil : gérez les instantanés avec attention afin d’éviter des frais supplémentaires. Nous vous recommandons de gérer les instantanés de la manière suivante :
 
 > - Supprimez et recréez les instantanés associés à un objet blob chaque fois que vous mettez à jour l'objet blob, même si vous le mettez à jour avec des données identiques, sauf si la conception de votre application exige de tenir à jour des instantanés. En supprimant et en recréant les instantanés de l’objet blob, vous pouvez vous assurer que l’objet blob et les instantanés ne diffèrent pas.
 
@@ -125,4 +125,4 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

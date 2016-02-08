@@ -31,6 +31,9 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 
 Des problèmes connus ont été signalés par IBM lors de l'installation du pilote du serveur de données IBM DB2 sous Windows 8, où des étapes d'installation supplémentaires sont nécessaires. Pour plus d'informations sur le pilote du serveur de données IBM DB2 sous Windows 8, consultez [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
+
 ## Exemple : copie de données de DB2 vers Azure Blob
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -309,4 +312,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Introduction ##
 
-Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté [ici](https://msdn.microsoft.com/library/azure/dn834998.aspx). Ce document décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
+Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté dans le guide [Référence du langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
 
 ## Exemple de requête : conversions de types de données ##
 **Description** : définir les types des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
@@ -168,7 +168,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque*: vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -349,7 +349,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**Explication** : la requête comprend deux étapes, la première servant à rechercher l’horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
+**Explication** : la requête comprend deux étapes, la première servant à rechercher l'horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
 
 ## Exemple de requête : détection de l’absence d’événements ##
 **Description** : vérifier qu’un flux de données n’a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
@@ -384,6 +384,35 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Comparez-la ensuite à la valeur de Make de l’événement actuel, créez une sortie si elles sont identiques, et utilisez LAG pour obtenir des données sur la voiture précédente.
 
+## Exemple de requête : détection de la durée entre des événements
+**Description** : rechercher la durée d’un événement donné. Par exemple, en fonction d’un parcours web, déterminer le temps passé sur une fonctionnalité.
+
+**Entrée** :
+  
+| Utilisateur | Fonctionnalité | Événement | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Démarrer | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | Terminer | 2015-01-01T00:00:08.0000000Z |
+  
+**Sortie** :
+  
+| Utilisateur | Fonctionnalité | Durée |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**Solution**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**Explication** : utilisez la fonction LAST pour récupérer la dernière valeur d’heure quand le type d’événement est « Démarrer ». Notez que la fonction LAST utilise PARTITION BY [user] pour indiquer que le résultat doit être calculé par utilisateur unique. La requête a un seuil maximal de 1 heure pour la différence de temps entre les événements « Démarrer » et « Terminer » (LIMIT DURATION(hour, 1)), mais ce seuil est configurable en fonction des besoins.
+
 ## Exemple de requête : détection de la durée d’une condition ##
 **Description** : déterminer sur quelle période un problème s’est produit. Par exemple, supposons qu’un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
 
@@ -413,43 +442,28 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Solution** :
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**Explication** : nous recherchons 2 événements corrects, avec un événement incorrect et sans événement correct entre eux, ce qui signifie que les 2 événements sont les premiers événements avant et après au moins 1 événement incorrect. L’obtention de deux événements corrects avec un événement incorrect entre eux est simple à l'aide de deux instructions JOIN et c’est en validant que nous obtenons un schéma correct -> incorrect -> correct en vérifiant le poids et en comparant les horodatages.
-
-Grâce à ce que nous avons appris dans « Jonction extérieure LEFT pour inclure NULL ou l’absence d’événements », nous savons comment vérifier qu'aucun événement correct ne s'est produit entre les deux événements corrects récupérés.
-
-En les utilisant ensemble, nous obtenons un schéma correct -> incorrect -> correct sans aucun autre événement correct entre les deux. Nous pouvons maintenant calculer la durée entre les événements corrects de début et de fin, ce qui nous donne la durée du bogue.
+**Explication** : utilisez LAG pour afficher le flux d’entrée de 24 heures et rechercher les instances où StartFault et StopFault sont couvertes par la condition « weight < 20000 » (poids inférieur à 20 000 livres).
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](../stream.analytics.get.started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
@@ -37,7 +37,7 @@ Pour vous protéger contre les pannes ACS, utilisez des jetons SAS (Signature d'
 
 ## Protection des files d'attente et des rubriques contre les défaillances de la banque de messagerie
 
-Une file d'attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n'est pas disponible, toutes les opérations sur cette file d'attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu'un message est envoyé à une file d'attente ou une rubrique partitionnée, Service Bus affecte le message à l'un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d'informations sur les entités partitionnées, consultez [Partitionnement des entités de messagerie][].
+Une file d'attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n'est pas disponible, toutes les opérations sur cette file d'attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu'un message est envoyé à une file d'attente ou une rubrique partitionnée, Service Bus affecte le message à l'un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d'informations sur les entités partitionnées, consultez [Entités de messagerie partitionnées][].
 
 ## Protection contre les pannes ou les sinistres du centre de données
 
@@ -67,7 +67,7 @@ Un client reçoit des messages des deux files d'attente. Le destinataire traite 
 
 L'exemple [Géo-réplication avec la messagerie répartie de Service Bus][] illustre la réplication active des entités de messagerie.
 
-> [AZURE.NOTE]L'approche de réplication active double le nombre d'opérations ; par conséquent, cette approche peut mener à un coût plus élevé.
+> [AZURE.NOTE] L'approche de réplication active double le nombre d'opérations ; par conséquent, cette approche peut mener à un coût plus élevé.
 
 ## Réplication passive
 
@@ -99,14 +99,14 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
 - [Guide technique Azure Business Continuity][]
 
   [Authentification Service Bus]: service-bus-authentication-and-authorization.md
-  [Partitionnement des entités de messagerie]: service-bus-partitioning.md
-  [Modèles de messagerie asynchrone et haute disponibilité]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [Entités de messagerie partitionnées]: service-bus-partitioning.md
+  [Modèles de messagerie asynchrone et haute disponibilité]: service-bus-async-messaging.md
   [Géo-réplication avec la messagerie par relais Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Géo-réplication avec la messagerie répartie de Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Expéditeur de message durable]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Continuité de l’activité des bases de données SQL Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Continuité de l’activité des bases de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
   [Guide technique Azure Business Continuity]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

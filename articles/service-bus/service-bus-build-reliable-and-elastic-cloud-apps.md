@@ -42,7 +42,7 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
 
 ## Services connexes
 
-- [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 
+- [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

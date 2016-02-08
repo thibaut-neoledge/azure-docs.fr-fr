@@ -51,9 +51,9 @@ La configuration du sous-réseau de réseau d’entreprise de l’environnement 
 3.	Configuration d’APP1
 4.	Configuration de CLIENT1
 
-Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit dans la page [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/). Si vous souscrivez à un abonnement Plateformes MSDN, consultez [Avantage Azure pour les abonnés Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/).
+Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit dans la page [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/). Si vous souscrivez à un abonnement Plateformes MSDN, consultez [Avantage Azure pour les abonnés Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/).
 
-> [AZURE.NOTE]Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé dans le cadre de votre essai gratuit, de votre abonnement Plateformes MSDN ou de votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](http://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
+> [AZURE.NOTE] Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé dans le cadre de votre essai gratuit, de votre abonnement Plateformes MSDN ou de votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](https://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
 
 ## Phase 1 : création du réseau virtuel
 
@@ -284,4 +284,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

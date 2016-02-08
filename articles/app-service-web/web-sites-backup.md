@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Sauvegarder une application web dans Azure App Service
@@ -35,14 +35,14 @@ Web Apps peut sauvegarder les informations suivantes :
 
 Ces informations sont sauvegardées dans le conteneur et le compte de stockage Azure que vous indiquez.
 
-> [AZURE.NOTE]Chaque sauvegarde représente une copie hors connexion complète de votre application et non une mise à jour incrémentielle.
+> [AZURE.NOTE] Chaque sauvegarde représente une copie hors connexion complète de votre application et non une mise à jour incrémentielle.
 
 <a name="requirements"></a>
 ## Exigences et restrictions
 
 * La fonction de sauvegarde et de restauration implique que le plan App Service se situe au niveau Standard ou un niveau plus élevé. Pour plus d'informations sur l'évolution de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md). Notez que le niveau Premium autorise un plus grand nombre de sauvegardes quotidiennes que le niveau Standard.
 
-* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne disposez pas encore d’un compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur le **Compte de stockage**, dans le panneau **Sauvegardes** du [portail Azure](http://portal.azure.com), puis, choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
+* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne disposez pas encore d’un compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur le **Compte de stockage**, dans le panneau **Sauvegardes** du [portail Azure](https://portal.azure.com/), puis, choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
 
 * La fonctionnalité de sauvegarde et de restauration prend en charge jusqu’à 10 Go de contenu de site Web et de base de données. Une erreur est indiquée lorsqu'un dépassement de ce seuil empêche la sauvegarde.
 
@@ -66,7 +66,7 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 	![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]Pour qu'une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d'application web** du portail.
+	> [AZURE.NOTE] 	Pour qu'une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d'application web** du portail.
 
 6. Dans le panneau **Configurer les paramètres de sauvegarde**, cliquez sur **Enregistrer**.
 6. Dans le panneau **Sauvegardes**, sélectionnez la destination concernée sous **Destination de sauvegarde**. Vous devez choisir un conteneur et un compte de stockage existants.
@@ -98,7 +98,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle.
 
 	![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]Pour qu'une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d'application web** du portail.
+	> [AZURE.NOTE] 	Pour qu'une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d'application web** du portail.
 
 6. Dans le panneau **Configurer les paramètres de sauvegarde**, cliquez sur **Enregistrer**.
 
@@ -107,7 +107,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle.
 
 * Veillez à configurer correctement les chaînes de connexion pour chacune de vos bases de données dans le panneau **Paramètres d’application web** correspondant au panneau **Paramètres** de l’application Web, afin que la fonctionnalité de sauvegarde et de restauration inclue vos bases de données.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="partialbackups"></a>
 ## Sauvegarde d'une partie de votre application web uniquement
@@ -126,8 +126,7 @@ Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_ba
 
 Supposons que vous avez une application web qui contient des fichiers journaux et des images statiques provenant d'années précédentes et qui ne vont jamais changer. Vous disposez déjà d'une sauvegarde complète de l'application web qui inclut les anciennes images. Vous voulez désormais effectuer une sauvegarde quotidienne de l'application web, mais vous ne voulez pas payer pour le stockage des fichiers journaux ou des images statiques qui ne changent jamais.
 
-![Dossier des journaux][LogsFolder]
-![Dossier images][ImagesFolder]
+![Dossier des journaux][LogsFolder] ![Dossier images][ImagesFolder]
 	
 Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegarde.
 
@@ -139,7 +138,7 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 		D:\home\site\wwwroot\Images\2014
 		D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE]La dernière ligne montre que vous pouvez exclure des fichiers individuels, ainsi que des dossiers.
+	[AZURE.NOTE] La dernière ligne montre que vous pouvez exclure des fichiers individuels, ainsi que des dossiers.
 
 2. Créez un fichier sous le nom `_backup.filter` et placez la liste précédente dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
 
@@ -151,7 +150,7 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 
 Dorénavant, tous les fichiers et dossiers spécifiés dans `_backup.filter` seront exclus de la sauvegarde. Dans cet exemple, les fichiers journaux et les fichiers image 2013 et 2014 ne seront plus sauvegardés, ainsi que brand.png.
 
->[AZURE.NOTE]Pour restaurer les sauvegardes partielles de votre site, procédez de la même façon que pour [restaurer une sauvegarde régulière](web-sites-restore.md). Le processus de restauration fait ce qu'il faut.
+>[AZURE.NOTE] Pour restaurer les sauvegardes partielles de votre site, procédez de la même façon que pour [restaurer une sauvegarde régulière](web-sites-restore.md). Le processus de restauration fait ce qu'il faut.
 >
 >Lorsqu'une sauvegarde complète est restaurée, tout le contenu sur le site est remplacé par tout ce qui se trouve dans la sauvegarde. Si un fichier se trouve sur le site, mais pas dans la sauvegarde, il est supprimé. Mais lorsqu'une sauvegarde partielle est restaurée, tout contenu qui se trouve dans l'un des répertoires exclus, ou n'importe quel fichier exclu, est conservé tel quel.
 
@@ -163,7 +162,7 @@ Dès lors que vous avez effectué une ou plusieurs sauvegardes de votre applicat
 
 La sauvegarde de base de données pour l'application web est stockée dans la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une nouvelle base de données SQL en fonction de l'exportation de BACPAC, consultez [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
 
-> [AZURE.WARNING]Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
+> [AZURE.WARNING] Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
 
 <a name="nextsteps"></a>
 ## Étapes suivantes
@@ -190,4 +189,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

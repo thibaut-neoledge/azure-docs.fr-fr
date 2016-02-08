@@ -40,7 +40,7 @@ Ce didacticiel vous familiarise avec la procédure de création d'une collection
 
 Avant de créer la collection, vous devez effectuer les étapes suivantes :
 
-- [S’inscrire](http://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp. 
+- [S’inscrire](https://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp. 
 - Créer un compte d’utilisateur dans Active Directory à utiliser comme compte de service Azure RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine.
 - Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../install-configure-powershell.md).
@@ -149,4 +149,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

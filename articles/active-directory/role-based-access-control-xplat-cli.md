@@ -3,7 +3,7 @@
 	description="Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI) #
 
@@ -22,9 +22,9 @@
 - [Windows PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](/role-based-access-control-xplat-cli-install.md)
 
-Le contrôle d’accès en fonction du rôle dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
+Le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
-Dans ce didacticiel, vous allez apprendre à utiliser Azure CLI pour gérer le contrôle d’accès en fonction du rôle. Vous suivrez les différentes étapes du processus de création et de contrôle des affectations de rôles.
+Dans ce didacticiel, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour gérer le contrôle d’accès en fonction du rôle (RBAC). Vous suivrez les différentes étapes du processus de création et de contrôle des affectations de rôles.
 
 **Durée estimée :** 15 minutes
 
@@ -92,7 +92,7 @@ Tous les paramètres de cette applet de commande sont facultatifs. Vous pouvez l
 
 Pour créer une affectation de rôle, vous devez réfléchir aux éléments suivants :
 
-- À qui vous affectez le rôle : vous pouvez utiliser les cmdlets Azure Active Directory suivants pour savoir quels utilisateurs, groupes et principaux du service sont inclus dans votre annuaire.
+- À qui vous affectez le rôle : vous pouvez utiliser les applets de commande Azure Active Directory suivants pour savoir quels utilisateurs, groupes et principaux du service sont inclus dans votre annuaire.
 
     ```
     azure ad user list  
@@ -108,7 +108,7 @@ Pour créer une affectation de rôle, vous devez réfléchir aux éléments suiv
 
     `azure role list`
 
-- Quelle étendue vous souhaitez affecter : il existe trois niveaux d’étendue :
+- L'étendue à laquelle s'applique l'affectation : il existe trois niveaux d'étendue
 
     - L'abonnement actuel
     - Un groupe de ressources. Pour obtenir la liste des groupes de ressources, entrez `azure group list`
@@ -116,16 +116,13 @@ Pour créer une affectation de rôle, vous devez réfléchir aux éléments suiv
 
 Ensuite, utilisez `azure role assignment create` pour créer une affectation de rôle. Par exemple :
 
- - Cela créera une affectation de rôle au niveau de l’abonnement actuel pour un utilisateur en tant que lecteur :
-
+ 	#This will create a role assignment at the current subscription level for a user as a reader:
     `azure role assignment create --upn <user's email> -o Reader`
 
-- Cela créera une affectation de rôle au niveau d’un groupe de ressources :
-
+	#This will create a role assignment at a resource group level:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-- Cela créera une affectation de rôle au niveau d’une ressource :
-
+	#This will create a role assignment at a resource level:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>Vérifier les autorisations ##
@@ -151,4 +148,4 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 - [Configurer le contrôle d’accès en fonction du rôle à l’aide de Windows PowerShell](role-based-access-control-powershell.md)
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

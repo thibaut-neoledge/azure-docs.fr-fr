@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| Microsoft Azure"
-   description="FAQ sur les hubs d'événements"
+   description="Présentation du modèle de sécurité et de l'authentification Event Hubs."
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Présentation du modèle de sécurité et de l'authentification Event Hubs
@@ -31,7 +31,7 @@ En règle générale, un hub d'événements utilise un seul éditeur par apparei
 
 Un jeton unique, qui est téléchargé sur l'appareil, est affecté à chaque appareil. Les jetons sont produits de façon à ce que chaque jeton unique donne accès à un éditeur unique différent. Un appareil qui possède un jeton ne peut envoyer qu'à un seul éditeur, mais pas un autre éditeur. Si plusieurs appareils partagent le même jeton, alors ils partagent un éditeur.
 
-Bien que cela soit déconseillé, il est possible d'équiper les appareils de jetons qui donnent un accès direct à un hub d'événements. N'importe quel appareil qui contient ce type de jeton peut envoyer des messages directement dans ce hub d'événements. Un appareil de ce type ne sera pas soumis à la limitation. En outre, il est impossible d'empêcher l'appareil d'effectuer des envois à ce hub d'événements.
+Bien que cela soit déconseillé, il est possible d'équiper les appareils de jetons qui donnent un accès direct à un hub d'événements. N'importe quel appareil qui contient ce jeton peut envoyer des messages directement dans ce hub d'événements. Un appareil de ce type ne sera pas soumis à la limitation. En outre, il est impossible d'empêcher l'appareil d'effectuer des envois à ce hub d'événements.
 
 Tous les jetons sont signés avec une clé SAS. En règle générale, tous les jetons sont signés avec la même clé. Les appareils ne sont pas conscients de la clé. Cela empêche les appareils de fabriquer des jetons.
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event Hub with a SAS rule that allows sending to that Event Hub.
+// Create Event hub with a SAS rule that allows sending to that Event hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -154,4 +154,4 @@ Pour plus d'informations sur les hubs d'événements, consultez les rubriques su
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

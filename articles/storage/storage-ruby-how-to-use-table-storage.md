@@ -58,7 +58,7 @@ Le module Azure lit les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** 
 
 Pour obtenir ces valeurs :
 
-1. Connectez-vous au [portail Azure](portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Accédez à votre compte de stockage.
 
@@ -128,7 +128,7 @@ Pour interroger un ensemble d'entités dans une table, créez un objet de hachag
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-> [AZURE.NOTE]Si l’ensemble de résultats est trop grand pour être renvoyé par une seule requête, un jeton de liaison est renvoyé. Vous pouvez l’utiliser pour récupérer les pages suivantes.
+> [AZURE.NOTE] Si l’ensemble de résultats est trop grand pour être renvoyé par une seule requête, un jeton de liaison est renvoyé. Vous pouvez l’utiliser pour récupérer les pages suivantes.
 
 ## Interrogation d'un sous-ensemble de propriétés d'entité
 
@@ -157,4 +157,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

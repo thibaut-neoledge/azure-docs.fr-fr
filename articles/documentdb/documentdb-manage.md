@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Gestion des capacités de DocumentDB | Microsoft Azure" 
-	description="Découvrez comment mettre à l’échelle DocumentDB pour répondre aux besoins de capacité de votre application." 
+	pageTitle="DocumentDB - Capacité - Stockage de documents | Microsoft Azure" 
+	description="Obtenez plus d’informations sur le stockage de données et le stockage de documents dans DocumentDB, et découvrez comment faire évoluer DocumentDB pour répondre aux besoins de capacité de votre application." 
+	keywords="stockage de documents"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,18 +14,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/27/2016" 
 	ms.author="mimig"/>
 
-# Gestion des besoins de capacité de DocumentDB
-DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et évolutif. Avec DocumentDB, il n'est pas nécessaire de louer des machines virtuelles, de déployer des logiciels, de surveiller les bases de données ou de se soucier de la récupération d'urgence. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales.
+# En savoir plus sur la capacité et le stockage de documents dans DocumentDB
+DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et évolutif pour les documents JSON. Avec DocumentDB, il n'est pas nécessaire de louer des machines virtuelles, de déployer des logiciels, de surveiller les bases de données ou de se soucier de la récupération d'urgence. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales.
 
 Vous pouvez prendre en main DocumentDB en [créant un compte de base de données](documentdb-create-account.md) via le [portail Azure](https://portal.azure.com/). DocumentDB est proposé sous forme d’unités de stockage et de débit SSD. Ces unités sont configurées en créant des collections de base de données dans votre compte de base de données. Chaque collection comprend 10 Go de stockage de base de données avec un débit réservé. Si les exigences de débit de votre application changent, vous pouvez le modifier de façon dynamique en définissant le [niveau de performances](documentdb-performance-levels.md) pour chaque collection.
 
 Lorsque votre application dépasse les niveaux de performances d'une ou plusieurs collections, les demandes sont limitées en fonction de chaque collection. Cela signifie que certaines demandes d'application peuvent réussir tandis que d'autres peuvent être limitées.
 
+Cet article fournit une vue d'ensemble des ressources et métriques disponibles pour gérer la capacité et planifier le stockage de données.
+
 ## Compte de base de données et ressources d'administration
 En tant qu'abonné Azure, vous pouvez approvisionner un ou plusieurs comptes de base de données DocumentDB. Chaque compte de base de données offre un quota de ressources d'administration, avec des bases de données, des utilisateurs et des autorisations. Ces ressources sont soumises à des [quotas et des limites](documentdb-limits.md). Si vous avez besoin de ressources d'administration supplémentaires, [contactez le support technique](documentdb-increase-limits.md).
+
+Le portail Azure fournit des métriques d'utilisation pour surveiller des comptes de base de données, des bases de données et des collections. Pour plus d'informations, consultez [Surveillance d'un compte DocumentDB](documentdb-monitor-accounts.md).
 
 ## Bases de données avec stockage de documents illimité
 Une seule base de données DocumentDB peut contenir un volume presque illimité de stockage de documents partitionné par collections. Les collections forment les domaines de transaction des documents qu'elles contiennent. La taille d’une base de données DocumentDB est flexible : elle peut aller de quelques Go à des téraoctets de stockage de documents SSD et de débit configuré. Contrairement à une base de données de SGBDR classique, une base de données DocumentDB n'est pas étendue à un seul ordinateur.
@@ -34,22 +39,22 @@ Avec DocumentDB, lorsque vous devez mettre à l’échelle vos applications, vou
 ## Collections de base de données
 Chaque base de données DocumentDB peut contenir une ou plusieurs collections. Les collections font office de partitions de données hautement disponibles pour le traitement et le stockage de documents. Chaque collection peut stocker des documents avec un schéma hétérogène. Les capacités de requête et d’indexation automatique de DocumentDB vous permettent de filtrer et de récupérer facilement des documents. Une collection fournit l'étendue du stockage de documents et de l'exécution de requêtes. Il sert également de domaine de transaction pour tous les documents qu'elle contient. Un débit est alloué aux collections en fonction de leur niveau de performances. Il peut être ajusté dynamiquement via le portail Azure ou l’un des Kits de développement logiciel (SDK).
 
-Vous pouvez créer un nombre quelconque de collections pour répondre aux besoins de vos applications en termes de stockage et de débit. Les collections peuvent être créées via le [portail Azure](https://portal.azure.com/) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Vous pouvez créer un nombre quelconque de collections pour répondre aux besoins de vos applications en termes de stockage de données et de débit. Les collections peuvent être créées via le [portail Azure](https://portal.azure.com/) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md).
 
->[AZURE.NOTE]Chaque collection prend en charge le stockage de 10 Go de données de document.
+>[AZURE.NOTE] Chaque collection prend en charge le stockage de 10 Go de données de document. Pour stocker des jeux de données plus volumineux, vous devez partitionner les données sur plusieurs collections. Consultez [Partitionnement des données dans DocumentDB avec le Kit de développement logiciel (SDK) .NET](documentdb-sharding.md) pour plus d’informations.
  
 ## Unités de demande et opérations de base de données
 DocumentDB propose un riche ensemble d'opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l'utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent tous au niveau des documents d'une collection de base de données. Le coût de traitement associé à chacune de ces opérations varie selon le processeur, les E/S et la mémoire nécessaires à l'exécution de l'opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à la demande de l'application.
 
 Les unités de demande sont configurées et affectées en fonction du niveau de performances défini pour une collection. Un niveau de performances est affecté à chaque collection dès sa création. Ce niveau de performances détermine la capacité de traitement d’une collection en unités de demande par seconde. Les niveaux de performances peuvent être ajustés tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
->[AZURE.IMPORTANT]Les collections sont des entités facturables. Le coût est déterminé par le niveau de performances affecté à la collection.
+>[AZURE.IMPORTANT] Les collections sont des entités facturables. Le coût est déterminé par le niveau de performances affecté à la collection.
 
 La consommation d'unités de demande est évaluée en fonction d'un taux par seconde. Pour les applications qui dépassent le taux d’unités de demande configuré pour une collection, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. Si votre application requiert un niveau de débit supérieur, vous pouvez ajuster le niveau de performances des collections existantes ou répartir les requêtes d’applications entre les nouvelles collections.
 
-Une unité de demande est une mesure normalisée du coût de traitement de la demande. Une seule unité de demande représente la capacité de traitement nécessaire pour lire (via un élément self link) un seul document JSON de 1 Ko composé de 10 valeurs de propriété uniques. Le coût en unités de demande est établi en supposant que le niveau de cohérence est défini à la valeur par défaut « Session » et que tous les documents sont automatiquement indexés. Une demande d'insertion, de remplacement ou de suppression du même document nécessite un plus grand traitement de la part du service et consomme donc plus d'unités de demande. Chaque réponse du service inclut un en-tête personnalisé (x-ms-request-charge) qui mesure le nombre d’unités de demande consommées pour la demande. Cet en-tête est également accessible via les [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx). Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.
+Une unité de demande est une mesure normalisée du coût de traitement de la demande. Une seule unité de demande représente la capacité de traitement nécessaire pour lire (via un élément self link) un seul document JSON de 1 Ko composé de 10 valeurs de propriété uniques. Le coût en unités de demande est établi en supposant que le niveau de cohérence est défini à la valeur par défaut « Session » et que tous les documents sont automatiquement indexés. Une demande d'insertion, de remplacement ou de suppression du même document nécessite un plus grand traitement de la part du service et consomme donc plus d'unités de demande. Chaque réponse du service inclut un en-tête personnalisé (x-ms-request-charge) qui mesure le nombre d’unités de demande consommées pour la demande. Cet en-tête est également accessible via les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md). Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.
 
->[AZURE.NOTE]La ligne de base d’une unité de demande pour un document de 1 Ko correspond à une opération GET simple par l’élément self link du document.
+>[AZURE.NOTE] La ligne de base d’une unité de demande pour un document de 1 Ko correspond à une opération GET simple par l’élément self link du document.
 
 Plusieurs facteurs déterminent le nombre d'unités de demande consommées par une opération effectuée dans un compte de base de données DocumentDB. Exemples de facteurs :
 
@@ -77,4 +82,4 @@ Pour obtenir des instructions sur la surveillance des niveaux de performances da
 Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

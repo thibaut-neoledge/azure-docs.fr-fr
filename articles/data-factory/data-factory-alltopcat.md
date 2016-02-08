@@ -88,7 +88,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | [Transformation et analyse en utilisant Azure Data Factory](data-factory-data-transformation-activities.md) | Découvrez comment utiliser le service Azure Data Factory pour transformer et analyser des données. |
 | [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) | Découvrez comment vous pouvez utiliser l’activité de diffusion en continu Hadoop dans une fabrique de données Azure pour exécuter des programmes de diffusion en continu Hadoop sur votre cluster HDInsight propre/à la demande. |
 | [Activité Hive](data-factory-hive-activity.md) | Découvrez comment vous pouvez utiliser l'activité Hive d’une fabrique de données Azure pour exécuter des requêtes Hive sur un cluster HDInsight à la demande/ou votre propre cluster. |
-| [Appeler des programmes MapReduce à partir de Data Factory](data-factory-map-reduce.md) | Découvrez comment traiter les données en exécutant des programmes MapReduce sur un cluster Azure HDInsight à partir d'une fabrique de données Azure. |
+| [Appeler des programmes MapReduce à partir de Data Factory](data-factory-map-reduce.md) | Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory. |
 | [Activité pig](data-factory-pig-activity.md) | Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster. |
 | [Activité de procédure stockée SQL Server](data-factory-stored-proc-activity.md) | Découvrez comment utiliser l'activité de procédure stockée SQL Server pour appeler une procédure stockée dans une base de données SQL Azure ou un entrepôt Azure SQL Data Warehouse à partir d'un pipeline Data Factory. |
 | [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md) | Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory. |
@@ -136,7 +136,6 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 | Intitulé | Description |
 | :-- | :-- |
-| [Azure Data Factory Editor](data-factory-editor.md) | Décrit Azure Data Factory Editor, qui vous permet de créer, modifier et déployer des définitions JSON de services liés, de tables et de pipelines à l’aide d’une interface utilisateur web légère. |
 | [Azure Data Factory - Forum aux Questions](data-factory-faq.md) | Forum aux Questions sur Azure Data Factory. |
 | [Azure Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) | Décrit les règles d'affectation de noms pour les entités Data Factory. |
 | [Notes de publication sur Azure Data Factory](data-factory-release-notes.md) | Data Factory release notes |
@@ -145,10 +144,10 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 #### Extras
 
-- [Graphique du parcours d’apprentissage de Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Autre recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [Affichage des dernières mises à jour du service data-factory](http://azure.microsoft.com/updates/?service=data-factory)
-- [Graphique du parcours d’apprentissage des services Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
+- [Graphique du parcours d’apprentissage de Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Recherche dans la documentation de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Autre recherche dans la documentation de Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [Affichage des dernières mises à jour du service data-factory](https://azure.microsoft.com/updates/?service=data-factory)
+- [Graphique du parcours d’apprentissage des services Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

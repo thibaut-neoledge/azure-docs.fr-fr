@@ -28,7 +28,7 @@ Ce document décrit ce qu’est un registre privé Docker et montre comment vous
 Ce document suppose que :
 
 1. Vous savez comment utiliser Docker et vous avez des images Docker à stocker. (Ce n’est pas le cas ? [Découvrez Docker](https://www.docker.com))
-2. Vous disposez d’un serveur où le moteur Docker est installé. (Ce n’est pas le cas ? [Faites-le rapidement sur Azure](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/).)
+2. Vous disposez d’un serveur où le moteur Docker est installé. (Ce n’est pas le cas ? [Faites-le rapidement sur Azure](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/).)
 
 
 ## Qu’est-ce qu’un registre Docker privé ?
@@ -82,7 +82,7 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT]La configuration de la sécurité pour le registre Docker n’est pas abordée dans ce document. Votre registre sera accessible par défaut à toute personne sans authentification si vous ouvrez le port pour le port du registre sur le point de terminaison ou l’équilibreur de charge de la machine virtuelle si vous utilisez la commande de déploiement ci-dessus.
+> [AZURE.IMPORTANT] La configuration de la sécurité pour le registre Docker n’est pas abordée dans ce document. Votre registre sera accessible par défaut à toute personne sans authentification si vous ouvrez le port pour le port du registre sur le point de terminaison ou l’équilibreur de charge de la machine virtuelle si vous utilisez la commande de déploiement ci-dessus.
 >
 > Lisez la documentation [Configuration de Docker Registry][registry-config] pour savoir comment sécuriser l’instance du registre et vos images.
 
@@ -96,4 +96,4 @@ Une fois le registre configuré, vous pouvez l’utiliser. Démarrez avec le doc
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

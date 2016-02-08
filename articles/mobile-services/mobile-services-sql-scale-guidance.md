@@ -43,7 +43,7 @@ Si vous pensez que votre service mobile rencontre des problèmes en condition de
 - Vos mesures d’utilisation, dont les **Appels API** et les **Périphériques actifs**, ne dépassent pas le quota.
 - Le statut **Surveillance de point de terminaison** indique que le service fonctionne (uniquement disponible si le service utilise le niveau Standard et que la surveillance de point de terminaison est activée).
 
-Si l’un des points ci-dessus n’est pas confirmé, ajustez vos paramètres de mise à l’échelle sous l’onglet *Échelle*. Si cela ne résout pas le problème, passez à l’étape suivante et cherchez si la base de données SQL Azure peut être à l’origine du problème. Les prochaines sections proposent différentes approches pour diagnostiquer le problème.
+Si l'un des points ci-dessus n'est pas confirmé, ajustez vos paramètres de mise à l'échelle sous l'onglet *Échelle*. Si cela ne résout pas le problème, passez à l’étape suivante et cherchez si la base de données SQL Azure peut être à l’origine du problème. Les prochaines sections proposent différentes approches pour diagnostiquer le problème.
 
 ### Choix du niveau de base de données SQL adapté
 
@@ -152,7 +152,7 @@ Pour définir l’index d’une colonne dans le backend JavaScript, procédez co
 1. Ouvrez votre service mobile dans le [portail Azure Classic].
 2. Cliquez sur l'onglet **Données**.
 3. Sélectionnez la table à modifier.
-4. Cliquez sur l'onglet **Colonnes**.
+4. Cliquez sur l’onglet **Colonnes**.
 5. Sélectionnez la colonne. Dans la barre de commandes, cliquez sur **Définir l'index**.
 
 	![Mobile Services Portal - Set Index][SetIndexJavaScriptPortal]
@@ -186,7 +186,7 @@ Voici quelques points à surveiller lors du choix des types de données pour vos
 
 Voici quelques instructions liées aux requêtes effectuées dans la base de données :
 
-- **Exécutez toujours les opérations de jointure de la base de données.** Vous devez souvent combiner les enregistrements d'au moins deux tables lorsque ces enregistrements partagent un champ commun (également appelé *jointure*). Cette opération peut être inefficace si elle est mal menée, car elle peut impliquer l’extraction de toutes les entités de toutes les tables, puis l’itération sur toutes celles-ci. Il vaut mieux laisser ce type d’opération à la base de données, mais il arrive parfois qu’il soit plus facile de l’effectuer dans le code du client ou du service mobile.
+- **Exécutez toujours les opérations de jointure de la base de données.** Vous devez souvent combiner les enregistrements d’au moins deux tables lorsque ces enregistrements partagent un champ commun (également appelé *jointure*). Cette opération peut être inefficace si elle est mal menée, car elle peut impliquer l’extraction de toutes les entités de toutes les tables, puis l’itération sur toutes celles-ci. Il vaut mieux laisser ce type d’opération à la base de données, mais il arrive parfois qu’il soit plus facile de l’effectuer dans le code du client ou du service mobile.
     - N’effectuez pas de jointures dans le code de votre application.
     - N’effectuez pas de jointures dans le code de votre service mobile. Lorsque vous utilisez le backend JavaScript, n'oubliez pas que l'[objet table](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) ne prend pas en charge les jointures. Pensez à utiliser directement l'[objet mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) pour que la jointure s'effectue dans la base de données. Pour plus d'informations, consultez la page [Joindre des tables relationnelles](mobile-services-how-to-use-server-scripts.md#joins). Si vous utilisez le backend .NET et que vous effectuez des requêtes via LINQ, les jointures sont automatiquement gérées au niveau de la base de données par Entity Framework.
 - **Implémentez la pagination.** Effectuer des recherches dans la base de données peut aboutir au renvoi d’un grand nombre d’enregistrements au client. Pour minimiser le volume et la latence des opérations, pensez à implémenter la pagination.
@@ -203,8 +203,8 @@ Pour plus d’informations sur l’optimisation de la conception des requêtes, 
 Imaginez que vous êtes sur le point d’envoyer une notification push à tous vos clients pour qu’ils consultent un nouveau contenu de votre application. Lorsqu’ils appuient sur la notification, l’application se lance et déclenche éventuellement un appel sur votre service mobile et l’exécution d’une requête sur votre base de données SQL. Comme des millions de clients sont susceptibles d’effectuer cette action sur une période de quelques minutes, la charge SQL fait un bond dans des proportions bien supérieures à la charge habituelle de l’application. Ce problème peut être résolu en faisant passer votre application vers un niveau SQL supérieur pendant le pic, puis en la ramenant au niveau d’origine, même si cette solution demande une intervention manuelle et génère une augmentation des coûts. Souvent, de petites modifications dans l’architecture de votre service mobile permettent de compenser efficacement la charge que font peser les clients sur votre base de données SQL et éliminent les pics problématiques de demande. Ces modifications peuvent souvent être mises en œuvre facilement et ont un impact minimal sur l’expérience de vos clients. Voici quelques exemples :
 
 - **Répartissez la charge dans le temps.** Si vous contrôlez la planification de certains événements (par exemple, la notification push d’une diffusion) qui sont susceptibles de générer un pic des demandes et que la planification de ces événements n’est pas stratégique, pensez à les répartir dans le temps. Dans l’exemple précédent, il peut être acceptable pour les clients de votre application d’être avertis par vagues du nouveau contenu de l’application sur une journée et non pas de façon rapprochée. Pensez à regrouper vos clients pour permettre une livraison échelonnée dans chaque lot. Si vous utilisez Notification Hubs, appliquez une balise supplémentaire pour suivre le lot, puis envoyez une notification push à cette balise pour mieux implémenter cette stratégie. Pour plus d'informations sur les balises, consultez la page [Utilisation de Notification Hubs pour envoyer les dernières nouvelles](../notification-hubs-windows-store-dotnet-send-breaking-news.md).
-- **Utilisez le stockage d'objets blob et de tables dès que possible.** Souvent, le contenu que voient les clients pendant le pic est relativement statique et n’a pas besoin d’être stocké dans une base de données SQL, car vous n’avez probablement pas besoin de fonctionnalités d’interrogation relationnelle sur ce contenu. Dans ce cas, pensez à stocker le contenu dans un stockage d’objets blob ou de tables. Vous pouvez accéder aux objets blob publics dans le stockage d’objets blob directement à partir de l’appareil. Pour accéder aux objets blob de façon sécurisée ou pour utiliser le stockage de tables, accédez à une API personnalisée Mobile Services pour protéger votre clé d’accès de stockage. Pour plus d'informations, consultez la page [Téléchargement d'images vers Azure Storage à l'aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md).
-- **Utilisez un cache en mémoire**. Une alternative consiste à stocker les données pour qu'elles soient facilement accessibles en cas de pic de trafic, dans un cache en mémoire comme le [Cache Microsoft Azure](http://azure.microsoft.com/services/cache/). Les requêtes entrantes peuvent accéder aux informations dont elles ont besoin en mémoire, au lieu de lancer des requêtes de façon répétée dans la base de données.
+- **Utilisez le stockage d'objets blob et de tables dès que possible.** Souvent, le contenu que voient les clients pendant le pic est relativement statique et n’a pas besoin d’être stocké dans une base de données SQL, car vous n’avez probablement pas besoin de fonctionnalités d’interrogation relationnelle sur ce contenu. Dans ce cas, pensez à stocker le contenu dans un stockage d’objets blob ou de tables. Vous pouvez accéder aux objets blob publics dans le stockage d’objets blob directement à partir de l’appareil. Pour accéder aux objets blob de façon sécurisée ou pour utiliser le stockage de tables, accédez à une API personnalisée Mobile Services pour protéger votre clé d’accès de stockage. Pour plus d’informations, voir la page [Téléchargement d’images vers Azure Storage à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md).
+- **Utilisez un cache en mémoire**. Une alternative consiste à stocker les données pour qu’elles soient facilement accessibles en cas de pic de trafic, dans un cache en mémoire comme le [Cache Microsoft Azure](https://azure.microsoft.com/services/cache/). Les requêtes entrantes peuvent accéder aux informations dont elles ont besoin en mémoire, au lieu de lancer des requêtes de façon répétée dans la base de données.
 
 <a name="Advanced"></a>
 ## Résolution avancée des problèmes
@@ -213,7 +213,7 @@ Cette section présente des tâches de diagnostic avancées, qui peuvent être u
 ### Composants requis
 Pour effectuer certaines des tâches de diagnostic traitées dans cette section, vous devez accéder à un outil de gestion pour les bases de données SQL, tel que **SQL Server Management Studio** ou la fonctionnalité de gestion intégrée au **portail Azure Classic**.
 
-SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n'avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d'une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
+SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n’avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
 
 Le portail Azure Classic offre une expérience de gestion intégrée plus limitée, mais disponible sans installation locale.
 
@@ -242,7 +242,7 @@ Les étapes suivantes présentent l’obtention des informations de connexion po
 5. À ce stade, vous devez être connecté.
 
 #### Portail de gestion de base de données SQL
-1. Sous l'onglet Base de données SQL Azure pour votre base de données, cliquez sur le bouton **Gérer**
+1. Sous l’onglet Base de données SQL Azure pour votre base de données, cliquez sur le bouton **Gérer**
 2. Configurez la connexion en appliquant les valeurs suivantes.
     - Serveur : *doit être prédéfini avec la valeur appropriée*
     - Base de données : *laisser vide*
@@ -279,7 +279,8 @@ Le portail de gestion met certaines mesures à disposition avec les niveaux Basi
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.resource\_stats** est présente uniquement sur cette base de données.
+> [AZURE.NOTE]
+Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.resource\_stats** est présente uniquement sur cette base de données.
 
 Le résultat contient les mesures utiles suivantes : UC (% de limite de niveau), Stockage (Mo), Lectures de données physiques (% de limite de niveau), Écritures dans les journaux (% de limite de niveau), Mémoire (% de limite de niveau), Nombre de traitements, Nombre de sessions, etc.
 
@@ -292,7 +293,8 @@ La vue **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.event\_log** est présente uniquement sur cette base de données.
+> [AZURE.NOTE]
+Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.event\_log** est présente uniquement sur cette base de données.
 
 <a name="AdvancedIndexing" ></a>
 ### Indexation avancée
@@ -305,14 +307,15 @@ Une table ou une vue peut contenir les types d’index suivants :
 
 Pour fournir une analogie concrète : pensez à un livre ou à un guide technique. Le contenu de chaque page est un enregistrement, le numéro de page est l’index cluster et l’index de rubrique à l’arrière du livre est un index non cluster. Chaque entrée de l’index de rubrique pointe vers l’index cluster, le numéro de page.
 
-> [AZURE.NOTE]Par défaut, le backend JavaScript d'Azure Mobile Services définit **\_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le backend .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]
+Par défaut, le backend JavaScript d'Azure Mobile Services définit **\_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le backend .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Instructions sur la conception des index cluster
 
 Chaque table doit avoir un index cluster sur la colonne (ou sur les colonnes, dans le cas d’une clé composite) avec les propriétés suivantes :
 
-- Restreinte : utilise un petit datatype, ou est une [clé composite][Primary and Foreign Key Constraints] d'un petit nombre de colonnes restreintes
+- Restreinte : utilise un petit datatype, ou est une [clé composite][Primary and Foreign Key Constraints] d’un petit nombre de colonnes restreintes
 - Unique, ou presque unique
 - Statique : la valeur n’est pas souvent changée
 - En augmentation constante
@@ -489,4 +492,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 <!-- BLOG LINKS -->
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

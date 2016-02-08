@@ -32,6 +32,6 @@ Une fois que vous avez connecté votre interface de ligne de commande Azure au c
     info:    Changes saved
     info:    account set command OK
 
-> [AZURE.NOTE]Si vous ne disposez pas d'un compte Azure, mais d'un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d'abonné MSDN ici](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ; ou vous pouvez utiliser le compte gratuit. Les deux possibilités permettent d’accéder à Azure.
+> [AZURE.NOTE] Si vous ne disposez pas d'un compte Azure, mais d'un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d'abonné MSDN ici](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ; ou vous pouvez utiliser le compte gratuit. Les deux possibilités permettent d’accéder à Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

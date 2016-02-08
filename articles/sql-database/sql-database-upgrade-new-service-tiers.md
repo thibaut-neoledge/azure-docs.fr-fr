@@ -22,7 +22,7 @@
 Les [bases de données Web et Business Azure SQL seront retirées](sql-database-web-business-sunset-faq.md) et il est donc temps d mettre à niveau les bases de données Web ou Business vers les [niveaux de service de base, Standard, Premium ou Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]La mise à niveau des bases de données Web ou Business vers un nouveau niveau de service ne met pas la base de données hors connexion. La base de données reste en ligne et disponible pour l’ensemble de l’opération de mise à niveau.
+> [AZURE.IMPORTANT] La mise à niveau des bases de données Web ou Business vers un nouveau niveau de service ne met pas la base de données hors connexion. La base de données reste en ligne et disponible pour l’ensemble de l’opération de mise à niveau.
 
 
 Pour vous aider lors de la mise à niveau, le service Base de données SQL recommande un niveau de service et de performances approprié (niveau tarifaire) pour chaque base de données. En analysant l’historique d’utilisation de chaque base de données, le service recommande un niveau qui convient le mieux pour l’exécution des charges de travail de votre base de données existante.
@@ -91,7 +91,7 @@ Les nouvelles fonctionnalités de niveau de service et des niveaux de performanc
 |:--|:--|
 |[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail Azure Classic et à l’aide des vues de gestion dynamique). |
 |[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
-|[Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
+|[Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
 
 <br>
 
@@ -140,8 +140,7 @@ Il convient également de noter que ces données sont la moyenne d’échantillo
 
 ![Données de pourcentage DTU][2]
 
-Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de ~28 DTU (55,83 % x 50).
-En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
+Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de ~28 DTU (55,83 % x 50). En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
 
 Pour explorer les détails de la consommation des ressources par la base de données, vous pouvez utiliser les vues système fournies.
 
@@ -151,7 +150,7 @@ Pour explorer les détails de la consommation des ressources par la base de donn
 
 Les données relatives à la consommation de ressources par les bases de données Web et Business sont accessibles via la vue [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) dans la base de données master du serveur logique sur lequel se trouve votre base de données actuelle. Il affiche les données de consommation des ressources en pourcentage de la limite du niveau de performances. Cette vue affiche les données des 14 derniers jours, par intervalles de 5 minutes.
 
-> [AZURE.NOTE]Vous pouvez maintenant utiliser la vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) des bases de données Web et Business pour obtenir une vue de granularité plus élevée (toutes les 15 secondes) des données de consommation des ressources. Comme sys.dm\_db\_resource\_stats conserve uniquement les données historiques pour une heure, vous pouvez interroger cette vue de gestion dynamique toutes les heures et stocker les données pour une analyse supplémentaire.
+> [AZURE.NOTE] Vous pouvez maintenant utiliser la vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) des bases de données Web et Business pour obtenir une vue de granularité plus élevée (toutes les 15 secondes) des données de consommation des ressources. Comme sys.dm\_db\_resource\_stats conserve uniquement les données historiques pour une heure, vous pouvez interroger cette vue de gestion dynamique toutes les heures et stocker les données pour une analyse supplémentaire.
 
 Exécutez la requête suivante sur la base de données master pour récupérer la consommation DTU moyenne :
 
@@ -175,8 +174,7 @@ En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande
 
 ![Consommation des ressources][4]
 
-> **Remarque :**
-> les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
+> **Remarque :** les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
 > 
 > bien que le nouveau niveau d’édition/niveau de performances suggéré tienne compte de l’activité de votre base de données pendant les 14 derniers jours, ces données sont basées sur des échantillons de données de consommation de ressources mesurés toutes les 5 minutes. Par conséquent, les pics d’activité à court terme inférieurs à 5 minutes peuvent ne pas apparaître. Ce guide sert donc de point de départ pour mettre à jour votre base de données. Une fois la base de données mise à jour vers le niveau suggéré, vous devez effectuer des contrôles, tests et validations supplémentaires pour déterminer si la base de données doit être élevée ou abaissée à un autre niveau de service/niveau de performances.
 
@@ -263,8 +261,8 @@ Après avoir déterminé le niveau de service et le niveau de performances appro
 Pour plus d’informations, voir la page [Modification des niveaux de service et des niveaux de performance de base de données](sql-database-scale-up.md)
 
 
-## 6. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
-La base de données SQL Azure fournit des informations sur la progression des opérations de gestion (telles que CREATE, ALTER, DROP) effectuées sur une base de données dans la vue de gestion dynamique sys.dm\_operation\_status de la base de données master du serveur logique où se trouve votre base de données active. [Consultez la documentation relative à sys.dm_operation_status](http://msdn.microsoft.com/library/azure/dn270022.aspx). Utilisez la vue de gestion dynamique du statut de l’opération pour déterminer l’avancement de la mise à niveau d’une base de données. Cet exemple de requête affiche toutes les opérations de gestion effectuées sur une base de données :
+## 6\. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
+La base de données SQL Azure fournit des informations sur la progression des opérations de gestion (telles que CREATE, ALTER, DROP) effectuées sur une base de données dans la vue de gestion dynamique sys.dm\_operation\_status de la base de données master du serveur logique où se trouve votre base de données active. Voir la documentation relative à sys.dm \_operation \_status (http://msdn.microsoft.com/library/azure/dn270022.aspx). Utilisez la vue de gestion dynamique du statut de l’opération pour déterminer l’avancement de la mise à niveau d’une base de données. Cet exemple de requête affiche toutes les opérations de gestion effectuées sur une base de données :
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -319,4 +317,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -69,7 +69,7 @@ Pour la plupart des applications SaaS, l’approvisionnement s’effectue unique
 
 **Comment puis-je envoyer des commentaires à l’équipe d’ingénierie ?**
 
-Veuillez nous contacter via le [forum des commentaires sur Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Veuillez nous contacter via le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ##Comment fonctionne l’approvisionnement automatique ?
 
@@ -104,8 +104,8 @@ Cliquez sur une application pour consulter un didacticiel expliquant comment la 
 
 Pour qu’une application puisse prendre en charge l’approvisionnement automatique des utilisateurs, elle doit d’abord fournir les points de terminaison requis pour permettre aux programmes externes d’automatiser la création, la maintenance et la suppression des utilisateurs. Par conséquent, toutes les applications SaaS ne sont pas compatibles avec cette fonctionnalité. L’équipe d’ingénierie d’Azure AD peut développer un connecteur d’approvisionnement pour les applications qui le sont. Ce travail s’effectue en fonction des besoins des clients actuels et à venir.
 
-Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

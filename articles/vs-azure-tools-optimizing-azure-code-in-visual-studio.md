@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Pour plus d’informations, consultez [Files d’attente et rubriques Service Bus partitionnées | Blog Microsoft Azure](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) et consultez l’exemple de [file d’attente Microsoft Azure Service Bus partitionnée](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Pour plus d’informations, consultez [Files d’attente et rubriques Service Bus partitionnées | Blog Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) et consultez l’exemple de [file d’attente Microsoft Azure Service Bus partitionnée](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
 
 ## Ne pas définir SharedAccessStartTime
 
@@ -449,7 +449,7 @@ Stocker les chaînes de connexion dans les fichiers de configuration ou dans les
 
 - Pour les applications ASP.NET vNext, utilisez configuration.json pour stocker les chaînes de connexion.
 
-Pour plus d’informations sur l’utilisation de fichiers de configuration comme web.config ou app.config, consultez la page Conseils de [configuration ASP.NET web ](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Pour plus d’informations sur le fonctionnement des variables d’environnement Azure, consultez [Sites web Microsoft Azure : Fonctionnement des chaînes d’application et des chaînes de connexion.](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) Pour plus d’informations sur le stockage de la chaîne de connexion dans le contrôle de code source, consultez la rubrique [Éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
+Pour plus d’informations sur l’utilisation de fichiers de configuration comme web.config ou app.config, consultez la page Conseils de configuration ASP.NET web https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Pour plus d’informations sur le fonctionnement des variables d’environnement Azure, consultez [Sites web Microsoft Azure : Fonctionnement des chaînes d’application et des chaînes de connexion.](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) Pour plus d’informations sur le stockage de la chaîne de connexion dans le contrôle de code source, consultez la rubrique [Éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
 
 ## Utiliser le fichier de configuration des diagnostics
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Pour plus d’informations sur l’optimisation et le dépannage des applications Azure, consultez [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

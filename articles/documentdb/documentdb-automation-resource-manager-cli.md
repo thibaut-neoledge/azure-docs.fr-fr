@@ -46,7 +46,7 @@ Si vous disposez d’une version antérieure à la version 0.9.11, vous devez [
 
 ### Configurer votre compte et votre abonnement Microsoft Azure
 
-Si vous ne possédez pas encore d’abonnement Azure, mais que vous avez un abonnement Visual Studio, vous pouvez activer vos [avantages abonnés Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas encore d’abonnement Azure, mais que vous avez un abonnement Visual Studio, vous pouvez activer vos [avantages abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez disposer d’un compte professionnel ou scolaire, ou bien d’une identité du compte Microsoft, pour utiliser des modèles de gestion des ressources Azure. Si vous avez l’un de ces comptes, tapez la commande suivante.
 
@@ -59,7 +59,7 @@ Ce qui génère la sortie suivante :
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Si vous n’avez pas de compte Azure, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure actuel, consultez [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Si vous n’avez pas de compte Azure, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure actuel, consultez [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Ouvrez [https://aka.ms/devicelogin](https://aka.ms/devicelogin) dans un navigateur, puis entrez le code fourni dans la sortie de commande.
 
@@ -136,7 +136,7 @@ Si vous rencontrez des erreurs, consultez la section [Dépannage](#troubleshooti
 
 Créez un compte DocumentDB dans le groupe de ressources nouveau ou existant en entrant la commande suivante à l’invite de commandes :
 
-> [AZURE.TIP]Si vous exécutez cette commande dans Azure PowerShell ou Windows PowerShell, une erreur relative à un jeton inattendu s’affiche. Exécutez plutôt cette commande à l’invite de commandes Windows.
+> [AZURE.TIP] Si vous exécutez cette commande dans Azure PowerShell ou Windows PowerShell, une erreur relative à un jeton inattendu s’affiche. Exécutez plutôt cette commande à l’invite de commandes Windows.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@ Une fois que la commande a renvoyé un résultat, le compte est dans l’état *
 
 Si vous rencontrez des erreurs semblables à `Deployment provisioning state was not successful` lors de la création de votre compte de base de données ou du groupe de ressources, vous pouvez résoudre le problème de plusieurs manières.
 
-> [AZURE.NOTE]La saisie de caractères non valides dans le nom du compte de base de données ou la spécification d’un emplacement dans lequel DocumentDB n’est pas disponible générera des erreurs de déploiement. Les noms de comptes de base de données ne peuvent contenir que des minuscules, des chiffres et le caractère « - », et doivent comporter entre 3 et 50 caractères. Tous les emplacements de compte de base de données valides sont répertoriés sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
+> [AZURE.NOTE] La saisie de caractères non valides dans le nom du compte de base de données ou la spécification d’un emplacement dans lequel DocumentDB n’est pas disponible générera des erreurs de déploiement. Les noms de comptes de base de données ne peuvent contenir que des minuscules, des chiffres et le caractère « - », et doivent comporter entre 3 et 50 caractères. Tous les emplacements de compte de base de données valides sont répertoriés sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
 
 - Si votre sortie contient le message suivant : `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, passez en revue les informations relatives à l’erreur dans le fichier azure.err.
 
@@ -349,6 +349,6 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 -	[Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modèle de ressource et concepts de DocumentDB](documentdb-resources.md)
 
-Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/).
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

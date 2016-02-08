@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/21/2016"
    ms.author="barbkess;sonyama"/>
 
 #Rubriques Transact-SQL
@@ -47,7 +47,7 @@
 - [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 - [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 - [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-- RENAME
+- [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 - [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -60,19 +60,19 @@
 ## Commandes de la console de base de données
 
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
-- [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
-- DBCC SHRINKLOG
+- [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
+- [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 - [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
-- DBCC PDW\_SHOWPARTITIONSTATS
-- DBCC PDW\_SHOWSPACEUSED
-- [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
+- [DBCC PDW\_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
+- [DBCC PDW\_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
+- [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## Instructions de requête
 
 - [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 - [WITH common\_table\_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 - [EXCEPT et INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
-- EXPLAIN
+- [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
 - [Instructions de PIVOT et UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
@@ -82,9 +82,9 @@
 - [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
 - [WHERE](https://msdn.microsoft.com/library/ms188047.aspx)
 - [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
-- Alias
+- [Alias](https://msdn.microsoft.com/library/mt631614.aspx)
 - [Condition de recherche](https://msdn.microsoft.com/library/ms173545.aspx)
-- Sous-requêtes
+- [Sous-requêtes](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## Instructions de sécurité
 
@@ -129,4 +129,4 @@ Pour accéder à d’autres exemples TSQL, consultez la [Vue d’ensemble sur le
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

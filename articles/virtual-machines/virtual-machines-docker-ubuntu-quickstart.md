@@ -29,7 +29,7 @@ Vous pouvez immédiatement vous connecter à la machine virtuelle via SSH et com
 
 ## Connexion au portail
 
-Cette partie est facile, à moins que vous ne disposiez pas d'un compte Azure. [Dans ce cas, vous pouvez facilement en obtenir un gratuitement.](http://azure.microsoft.com/pricing/free-trial/)
+Cette partie est facile, à moins que vous ne disposiez pas d'un compte Azure. [Dans ce cas, vous pouvez facilement en obtenir un gratuitement.](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Création d’une machine virtuelle avec l’image Docker fournie par Canonical et MSOpenTech
 
@@ -78,4 +78,4 @@ L’idéal est de commencer en utilisant [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

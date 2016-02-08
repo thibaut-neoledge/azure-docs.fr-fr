@@ -59,9 +59,9 @@ L’offre d’essai gratuite d’Azure est limitée à l’activation d’une se
 
 Suggestions
 
-Si l’activation d’une version d’évaluation gratuite échoue parce que vous déjà activé un abonnement Azure auparavant, veuillez utiliser un autre plan Azure disponible répertorié dans les [détails de l’offre Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite Azure.
+Si l’activation d’une version d’évaluation gratuite échoue parce que vous déjà activé un abonnement Azure auparavant, veuillez utiliser un autre plan Azure disponible répertorié dans les [détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite Azure.
 
 ## Contacter le support Azure
 Si votre problème d’inscription persiste après avoir suivi ces étapes de résolution, contactez le [support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

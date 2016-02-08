@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@ Cet article répertorie les limites par défaut et maximales de certaines ressou
 
 Si vous envisagez d’exécuter des charges de travail Batch dans un environnement de production, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Si vous souhaitez augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
 
->[AZURE.NOTE]Un quota est une limite de crédit, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
+>[AZURE.NOTE] Un quota est une limite de crédit, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
 
 ## Quotas d’abonnement
 Ressource|Limite par défaut|Limite maximale
@@ -53,11 +53,11 @@ Affichez vos quotas de compte Batch dans le [portail Azure](https://portal.azure
 
 ## Augmenter un quota
 
-Procédez comme suit pour demander une augmentation de quota dans le portail Azure (vous pouvez également demander une augmentation dans le [portail Azure Classic](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Procédez comme suit pour demander une augmentation de quota dans le portail Azure (vous pouvez également demander une augmentation dans le [portail Azure Classic](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
-1. Dans le tableau de bord du portail en version préliminaire, cliquez sur **Aide + support**.
+1. Dans le tableau de bord du portail, cliquez sur **Aide + support**.
 
-2. Cliquez sur **Créer une demande de support > De base**.
+2. Cliquez sur **Nouvelle demande de support > De base**.
 
 3. Dans le panneau **De base**, procédez comme suit :
 
@@ -65,7 +65,7 @@ Procédez comme suit pour demander une augmentation de quota dans le portail Azu
 
 	b. Sélectionnez votre abonnement.
 
-	c. Dans **Service**, sélectionnez **Service Batch**.
+	c. Dans **Type de quota**, sélectionnez **Batch**.
 
 	d. Dans **Formule d’assistance**, sélectionnez **Formule d’assistance Azure - Développeur**.
 
@@ -73,7 +73,7 @@ Procédez comme suit pour demander une augmentation de quota dans le portail Azu
 
 4. Dans le panneau **Problème**, procédez comme suit :
 
-	a. Dans **Type de problème**, sélectionnez **Batch**.
+	a. Sélectionnez un **niveau de gravité** en fonction de l'impact sur votre activité.
 
 	b. Dans **Détails**, répertoriez le quota ou les quotas à modifier dans un compte spécifique et les nouvelles limites que vous souhaitez.
 
@@ -95,4 +95,4 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

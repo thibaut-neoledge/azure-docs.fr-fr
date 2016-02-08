@@ -20,7 +20,8 @@
 
 Si vous connaissez bien le service Azure AD mis à la disposition générale ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le modèle d’application v2.0 auxquelles vous ne vous attendiez pas. Pour votre bonne compréhension, ce document énumère ces différences.
 
-> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD mis à la disposition générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD mis à la disposition générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 
 ## Comptes Microsoft et comptes Azure AD
@@ -105,12 +106,25 @@ Le paramètre ci-dessus demande l’autorisation pour l’application de lire le
 
 Autoriser une application à demander des autorisations dynamiquement via le paramètre `scope` vous permet de contrôler totalement l’expérience de vos utilisateurs. Si vous le souhaitez, vous pouvez choisir d’anticiper votre expérience de consentement et demander toutes les autorisations dans une demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez choisir de rassembler celles de l’utilisateur de façon incrémentielle lorsqu’il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
 
-## Accès hors connexion
+## Étendues connues
+
+#### Accès hors connexion
 Le modèle d’application v2.0 introduit une nouvelle autorisation bien connue pour les applications : l’étendue `offline_access`. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement « Accéder aux données hors connexion », que l’utilisateur doit accepter. Demander l’autorisation `offline_access` permet à votre application web de recevoir les jetons d’actualisation OAuth 2.0 du point de terminaison v2.0. Les jetons d’actualisation sont de longue durée, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées.
 
-Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/oauth2/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/oauth2/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
+Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
 
 Pour en savoir plus sur OAuth 2.0, les jetons d’actualisation et les jetons d’accès, consultez [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
+
+#### OpenID, profile et email
+
+Dans le service Azure Active Directory d’origine, le flux de connexion OpenID Connect le plus simple fournit une somme d’informations sur l’utilisateur dans le paramètre id\_token résultant. Les revendications contenues dans un paramètre id\_token peuvent inclure différentes informations utilisateur : son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
+
+À présent, nous allons limiter les informations auxquelles l’étendue `openid` permet à votre application d’accéder. L’étendue `openid` permettra uniquement à votre application de connecter l’utilisateur et de recevoir un identificateur propre à l’application pour l’utilisateur. Si vous souhaitez obtenir des informations d’identification personnelle (PII) sur l’utilisateur dans votre application, votre application devra lui demander des autorisations supplémentaires. Nous introduisons deux nouvelles étendues, les étendues `email` et `profile`, qui vous permettent d’effectuer cette opération.
+
+L’étendue `email` est très directe : elle permet à votre application d’accéder à l’adresse de messagerie principale de l’utilisateur via la revendication `email` contenue dans le paramètre id\_token. L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur (nom, nom d’utilisateur par défaut, ID objet, etc.).
+
+Vous pouvez ainsi coder votre application en en divulguant le moins possible : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Pour plus d’informations sur ces étendues, consultez [les informations de référence sur les étendues v2.0](active-directory-v2-scopes.md).
+
 
 ## Demandes de jetons
 Les demandes des jetons émis par le point de terminaison v2.0 ne sont pas identiques à celles des jetons émis par les points de terminaison du service Azure AD mis à la disposition générale. Les applications migrant vers le nouveau service ne doivent pas supposer qu’une demande particulière existe dans les jetons d’ID ou les jetons d’accès. Les jetons émis par le point de terminaison v2.0 sont conformes aux spécifications OAuth 2.0 et OpenID Connect, mais peuvent suivre une sémantique différente de celle du service Azure AD mis à la disposition générale.
@@ -121,4 +135,4 @@ Pour en savoir plus sur les demandes spécifiques émises dans les jetons du mod
 ## Limitations de la version préliminaire
 Il existe un certain nombre de restrictions dont vous devez être conscient lorsque vous générez une application avec le modèle d’application v2.0 pendant la version préliminaire publique. Consultez le [document relatif aux limitations du modèle d’application v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 
 Il est courant d'utiliser un ensemble de points de terminaison identiques, comprenant des services cloud et des sites web, et de répartir le trafic en tourniquet. Les étapes ci-dessous décrivent comment configurer Traffic Manager pour effectuer ce type de méthode de routage du trafic. Pour plus d’informations sur les différentes méthodes de routage du trafic, consultez la rubrique [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md).
 
->[AZURE.NOTE]Azure Websites fournit déjà des fonctionnalités d'équilibrage de charge de tourniquet pour les sites web dans un centre de données (également appelé région). Traffic Manager vous permet de spécifier une méthode de routage du trafic en tourniquet (round robin) pour des sites web de différents centres de données.
+>[AZURE.NOTE] Azure Websites fournit déjà des fonctionnalités d'équilibrage de charge de tourniquet pour les sites web dans un centre de données (également appelé région). Traffic Manager vous permet de spécifier une méthode de routage du trafic en tourniquet (round robin) pour des sites web de différents centres de données.
 
 ## Router le trafic de manière équitable (tourniquet) sur un ensemble de points de terminaison :
 
@@ -28,7 +28,7 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 3. Dans la page de votre profil, cliquez sur **Points de terminaison** en haut de la page et vérifiez que les points de terminaison de service que vous souhaitez inclure dans votre configuration sont présents. Pour savoir comment ajouter ou supprimer des points de terminaison, consultez [Gérer les points de terminaison dans Traffic Manager](traffic-manager-endpoints.md).
 4. Dans la page de votre profil, cliquez sur **Configurer** en haut pour ouvrir la page de configuration.
 5. Pour **Paramètres de méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Tourniquet**. Si ce n’est pas le cas, cliquez sur **Tourniquet** dans la liste déroulante.
-6. Vérifiez que les **Paramètres de surveillance** sont correctement configurés. La surveillance permet de s'assurer qu'aucun trafic n'est dirigé vers les points de terminaison désactivés. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Notez qu'une barre oblique « / » est une entrée valide pour le chemin d'accès relatif et qu'elle implique que le fichier se trouve dans le répertoire racine (par défaut). Pour plus d’informations sur la surveillance, consultez la rubrique [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md).
+6. Vérifiez que les **Paramètres de surveillance** sont correctement configurés. La surveillance permet de s'assurer qu'aucun trafic n'est dirigé vers les points de terminaison désactivés. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Notez qu'une barre oblique « / » est une entrée valide pour le chemin d'accès relatif et qu'elle implique que le fichier se trouve dans le répertoire racine (par défaut). Pour plus d’informations sur la surveillance, consultez [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md).
 7. Une fois que vous avez terminé de modifier la configuration, cliquez sur **Enregistrer** en bas de la page.
 8. Testez les modifications dans votre configuration. Pour plus d’informations, consultez [Test des paramètres de Traffic Manager](traffic-manager-testing-settings.md).
 9. Une fois le profil Traffic Manager configuré et opérationnel, modifiez l'enregistrement DNS sur le serveur DNS faisant autorité, afin de faire pointer votre nom de domaine d'entreprise vers le nom de domaine Traffic Manager. Pour plus d’informations sur la marche à suivre, consultez [Redirection d’un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md).
@@ -52,4 +52,4 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

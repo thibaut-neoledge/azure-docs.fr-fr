@@ -24,7 +24,7 @@ Les modèles de solution visent à accélérer le processus de création d’une
 
 L’objectif de ce document est de vous présenter l’architecture de référence et les différents composants configurés dans votre abonnement dans le cadre de ce modèle de solution. Ce document explique également comment remplacer les exemples de données par vos propres données réelles afin de vous permettre d’accéder à des analyses et à des prévisions directement dérivées de vos propres données. Il décrit enfin les éléments du modèle de solution que vous devrez modifier si vous souhaitez personnaliser la solution avec vos propres données. Vous trouverez à la fin de ce document des instructions sur la façon de configurer le tableau de bord Power BI pour ce modèle de solution.
 
->[AZURE.TIP]Vous pouvez télécharger et imprimer une [version PDF de ce document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+>[AZURE.TIP] Vous pouvez télécharger et imprimer une [version PDF de ce document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 
 ## **Grandes lignes**
 
@@ -156,6 +156,18 @@ L’expérience [Azure Machine Learning](https://azure.microsoft.com/services/ma
 
 Pour plus d’informations sur la création de l’expérience Azure Machine Learning, consultez la page [Maintenance prédictive : étape 1 sur 3, préparation des données et ingénierie des caractéristiques](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) (en anglais).
 
+## **Surveiller la progression**
+ Une fois le Générateur de données lancé, l’alimentation du pipeline commence et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
+
+1. Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage d'objets blob. Si vous cliquez sur le composant de stockage d'objets Blob de votre solution à partir de l'écran depuis lequel vous avez correctement déployé la solution, puis cliquez sur Ouvrir dans le volet droit, vous accédez au [portail de gestion](https://portal.azure.com/). Une fois dans le portail, cliquez sur Objets BLOB. Dans l'écran suivant, vous verrez une liste de conteneurs. Cliquez sur **maintenancesadata**. Dans l'écran suivant, vous verrez le dossier **rawdata**. Dans le dossier rawdata, vous verrez des dossiers nommés par exemple hour=17, hour=18, etc. Si vous voyez ces dossiers, cela signifie que les données brutes sont correctement générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers csv avec des tailles finies en Mo dans ces dossiers.
+
+2. La dernière étape du pipeline consiste à enregistrer des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans la base de données SQL. Vous devrez peut-être attendre un maximum de trois heures pour les données s'affichent dans la base de données SQL. La première consiste à surveiller la quantité de données disponible dans votre base de données SQL via le [portail Azure](https://manage.windowsazure.com/). Dans le volet gauche, identifiez les bases de données SQL ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-SQL-databases.png) et cliquez dessus. Recherchez ensuite votre base de données **pmaintenancedb** puis cliquez dessus. En bas de la page suivante, cliquez sur Gérer
+
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-manage.png).
+
+	Ici, vous pouvez cliquer sur Nouvelle requête et rechercher le nombre de lignes (par exemple, select count(*) from PMResult). À mesure que votre base de données augmente, le nombre de lignes de la table devrait augmenter.
+
+
 ## **Tableau de bord Power BI**
 
 ### Vue d’ensemble
@@ -255,4 +267,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

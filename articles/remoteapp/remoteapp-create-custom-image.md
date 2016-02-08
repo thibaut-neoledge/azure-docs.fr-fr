@@ -20,7 +20,7 @@
 Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une.
 
 
-> [AZURE.TIP]Saviez-vous que vous pouvez créer une image à partir d’une machine virtuelle Azure ? En plus, cela réduit le temps nécessaire à l’importation de l'image. Découvrez les étapes [ici](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP] Saviez-vous que vous pouvez créer une image à partir d’une machine virtuelle Azure ? En plus, cela réduit le temps nécessaire à l’importation de l'image. Découvrez les étapes [ici](remoteapp-image-on-azurevm.md).
 
 Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
 
@@ -43,7 +43,7 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
 
 Avant de créer le service, vous devez effectuer les étapes suivantes :
 
-- [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à RemoteApp.
+- [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à RemoteApp.
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
 - Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../install-configure-powershell.md).
@@ -142,4 +142,4 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 - [Comment créer une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

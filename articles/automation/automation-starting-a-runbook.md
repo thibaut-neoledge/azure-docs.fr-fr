@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Démarrage d'un Runbook dans Azure Automation"
+   pageTitle="Démarrage d’un Runbook dans Azure Automation| Microsoft Azure"
    description="Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l'utilisation du portail Azure et de Windows PowerShell."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Démarrage d'un Runbook dans Azure Automation
@@ -106,6 +106,9 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
 <br>
 
 
+L’image suivante illustre le processus détaillé du cycle de vie d’un runbook. Elle présente différentes méthodes de démarrage d’un runbook dans Azure Automation, décrit les composants requis pour permettre à un ordinateur local d’exécuter les runbooks Azure Automation, et illustre les interactions entre les différents composants. Pour en savoir plus sur l’exécution des runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides Azure Automation](automation-hybrid-runbook-worker.md)
+
+![Architecture de runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## Démarrage d'un Runbook avec le portail Azure
 
@@ -236,8 +239,8 @@ En supposant que le nom d'utilisateur des informations d'identification soit *js
 
 	jsmith
 
-## Articles connexes
+## Étapes suivantes
 
-- [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
+- L’architecture de runbook présentée dans cet article fournit une description détaillée des runbooks hybrides. Pour plus d’informations, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

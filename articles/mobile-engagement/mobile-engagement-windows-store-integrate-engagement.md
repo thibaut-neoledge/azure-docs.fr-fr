@@ -37,7 +37,7 @@ Le Kit de développement logiciel (SDK) Engagement Mobile pour les applications 
 -   Windows Phone 8.1
 -   Windows 10 (gammes mobiles et de bureau)
 
-> [AZURE.NOTE]Si vous ciblez Windows Phone Silverlight, consultez la [procédure d'intégration Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
+> [AZURE.NOTE] Si vous ciblez Windows Phone Silverlight, consultez la [procédure d'intégration Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
 
 ## Installation du Kit de développement d'applications universelles Mobile Engagement
 
@@ -58,8 +58,6 @@ NuGet ne déploie pas encore automatiquement les ressources du Kit de développe
 3.  Faites glisser et déposez le dossier **Ressources** à partir de l'Explorateur de fichiers vers la racine de votre projet dans Visual Studio.
 4.  Dans Visual Studio, sélectionnez votre projet et activez l'icône **Afficher tous les fichiers** au sommet de l'**Explorateur de solutions**.
 5.  Certains fichiers ne sont pas inclus dans le projet. Pour tous les importer à la fois, cliquez avec le bouton droit sur le dossier **Ressources**, sélectionnez **Exclure du projet**, puis cliquez de nouveau avec le bouton droit sur le dossier **Ressources**, sélectionnez **Inclure dans le projet** pour inclure à nouveau la totalité du dossier. Tous les fichiers du dossier **Ressources** sont désormais inclus dans votre projet.
-
-Le package Engagement extrait est également accessible dans *$(Solutiondir)\\Packages* ou tel que défini dans votre fichier *NuGet.config*.
 
 ## Ajouter les fonctionnalités
 
@@ -127,7 +125,7 @@ Modifiez le fichier `App.xaml.cs` :
           InitEngagement(args);
 		}
 
-> [AZURE.IMPORTANT]Nous vous déconseillons fortement d'ajouter l'initialisation d'Engagement à un autre endroit de votre application.
+> [AZURE.IMPORTANT] Nous vous déconseillons fortement d'ajouter l'initialisation d'Engagement à un autre endroit de votre application.
 
 ## Génération de rapports de base
 
@@ -169,7 +167,7 @@ Modifiez le fichier `.xaml.cs` de votre page :
 		  }
 		}
 
-> [AZURE.IMPORTANT]Si votre page remplace la méthode `OnNavigatedTo`, veillez à appeler `base.OnNavigatedTo(e)`. Sinon, l'activité ne sera pas signalée (la `EngagementPage` appelle `StartActivity` à l'intérieur de sa méthode `OnNavigatedTo`).
+> [AZURE.IMPORTANT] Si votre page remplace la méthode `OnNavigatedTo`, veillez à appeler `base.OnNavigatedTo(e)`. Sinon, l'activité ne sera pas signalée (la `EngagementPage` appelle `StartActivity` à l'intérieur de sa méthode `OnNavigatedTo`).
 
 #### Fichier XAML
 
@@ -232,7 +230,7 @@ Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode 
 			  EngagementAgent.Instance.StartActivity("MyPage");
 			}
 
-> [AZURE.IMPORTANT]Assurez-vous de terminer votre session correctement.
+> [AZURE.IMPORTANT]  Assurez-vous de terminer votre session correctement.
 > 
 > Le Kit de développement logiciel Windows Universal appelle automatiquement la méthode `EndActivity` quand l'application est fermée. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode `EndActivity`. Cette dernière envoie au serveur Engagement une notification indiquant que l'utilisateur actuel doit quitter l'application, ce qui aura un impact sur tous les journaux d'application.
 
@@ -248,7 +246,7 @@ Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée M
 
 Vous pouvez désactiver la fonctionnalité de signalement automatique des incidents d'Engagement. Dans ce cas, si une exception non gérée se produit, Engagement ne fait rien.
 
-> [AZURE.WARNING]Si vous désactivez cette fonctionnalité et qu'un incident non géré se produit dans votre application, sachez qu'Engagement n'envoie pas l'incident **ET** qu'il ne ferme ni la session ni les tâches.
+> [AZURE.WARNING] Si vous désactivez cette fonctionnalité et qu'un incident non géré se produit dans votre application, sachez qu'Engagement n'envoie pas l'incident **ET** qu'il ne ferme ni la session ni les tâches.
 
 Pour désactiver le signalement automatique des incidents, il vous suffit de personnaliser votre configuration en fonction de la façon dont vous l'avez déclarée :
 
@@ -279,10 +277,10 @@ L'argument est une valeur en **millisecondes**. Si vous souhaitez réactiver la 
 
 Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s). Vous devez savoir que les journaux enregistrés sont limités à 300 entrées. Si l'envoi est trop long, vous risquez de perdre certains journaux.
 
-> [AZURE.WARNING]Vous ne pouvez pas configurer un seuil de rafale inférieur à 1 s. Sinon, le SDK affiche une trace avec l'erreur et rétablit automatiquement la valeur par défaut, c'est-à-dire 0 s. Le SDK génère alors les journaux en temps réel.
+> [AZURE.WARNING] Vous ne pouvez pas configurer un seuil de rafale inférieur à 1 s. Sinon, le SDK affiche une trace avec l'erreur et rétablit automatiquement la valeur par défaut, c'est-à-dire 0 s. Le SDK génère alors les journaux en temps réel.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

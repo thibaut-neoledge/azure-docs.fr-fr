@@ -27,7 +27,7 @@ L'infrastructure limite l'accessibilité et crée une limite de confiance entre 
 
 Vous pouvez utiliser l'ILB dans beaucoup de nouvelles configurations, notamment les suivantes :
 
-L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
+L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
 
 L’ILB permet les nouveaux types d'équilibrage de charge suivants :
 
@@ -92,4 +92,4 @@ Un autre scénario pour le système cœur de métier est d'avoir un VPN de site 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

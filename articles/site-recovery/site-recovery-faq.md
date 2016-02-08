@@ -88,7 +88,7 @@ Les machines virtuelles que vous souhaitez répliquer vers Azure doivent se conf
 
 ### Puis-je répliquer des machines virtuelles de génération 2 Hyper-V vers Azure ?
 
-Oui. Site Recovery les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. [En savoir plus](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Oui. Site Recovery les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. [En savoir plus](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Si je réplique vers Azure comment vais-je payer les machines virtuelles Azure ? 
 
@@ -129,28 +129,28 @@ Lors de la réplication de machines virtuelles et de serveurs physiques entre de
 
 Vous avez besoin d’un compte de stockage avec [stockage géo-redondant standard](../storage/storage-redundancy.md/#geo-redundant-storage). Un [compte de stockage premium](../storage/storage-premium-storage-preview-portal/) est pris en charge uniquement si vous répliquez des machines virtuelles VMware, ou des serveurs physiques Windows/Linux sur Azure.
 
-La prise en charge du stockage localement redondant standard est en souffrance. Envoyez des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+La prise en charge du stockage localement redondant standard est en souffrance. Envoyez des commentaires sur cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### À quelle fréquence puis-je répliquer les données ?
 - **Hyper-V :** les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes, 5 minutes ou 15 minutes. Si vous avez configuré la réplication SAN, alors la réplication sera synchrone.
 - **Serveurs VMware et physiques :** une fréquence de réplication n’est pas pertinente ici. La réplication sera continue. 
 
 ### Puis-je étendre la réplication depuis un site de récupération existant à un site tiers ?
-La réplication étendue ou chaînée n’est pas prise en charge. Envoyez des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+La réplication étendue ou chaînée n’est pas prise en charge. Envoyez des commentaires sur cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### Puis-je effectuer une réplication hors connexion la première fois que je réplique vers Azure ? 
 
-Ceci n’est pas pris en charge. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Ceci n’est pas pris en charge. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### Puis-je exclure des disques spécifiques de la réplication ?
 
-Ceci n’est pas pris en charge. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+Ceci n’est pas pris en charge. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### Puis-je répliquer des machines virtuelles avec des disques dynamiques ?
 
-Les disques dynamiques sont pris en charge lors de la réplication de machines virtuelles Hyper-V. Ils ne sont pas pris en charge lors de la réplication de machines virtuelles ou de serveurs physiques VMware. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery).
+Les disques dynamiques sont pris en charge lors de la réplication de machines virtuelles Hyper-V. Ils ne sont pas pris en charge lors de la réplication de machines virtuelles ou de serveurs physiques VMware. Envoyez-nous des commentaires sur cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### Si j’effectue le basculement vers Azure, comment accéder aux machines virtuelles Azure après le basculement ? 
 
@@ -223,4 +223,4 @@ Oui, vous pouvez répliquer les machines virtuelles Hyper-V et Azure, ou entre d
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

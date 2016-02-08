@@ -29,7 +29,7 @@
 
 ##Vue d'ensemble
 
-Un compte Media Services est associé à un Type d’unité réservé qui détermine la vitesse à laquelle vos tâches d’encodage sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : De base, Standard ou Premium. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée Standard que le type De base. Pour plus d’informations, consultez le blog « Encodage des types d’unité réservée » rédigé par [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
+Un compte Media Services est associé à un Type d’unité réservé qui détermine la vitesse à laquelle vos tâches d’encodage sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : De base, Standard ou Premium. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée Standard que le type De base. Pour plus d’informations, consultez le blog « Encodage des types d’unité réservée » rédigé par [Milan Gada](https://azure.microsoft.com/blog/author/milanga/).
 
 En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées d’encodage. Le nombre d’unités réservées d’encodage approvisionnées détermine le nombre de tâches de média qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d’attente entre la fin d’une tâche et le début de la suivante dépend de la disponibilité des ressources du système.
 
@@ -81,4 +81,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

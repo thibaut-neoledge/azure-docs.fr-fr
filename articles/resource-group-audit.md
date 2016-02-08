@@ -98,7 +98,7 @@ Vous pouvez filtrer les résultats avec un utilitaire JSON comme [jq](http://ste
 
     azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
-Vous pouvez ajouter le paramètre **–-last-deployment** pour limiter les entrées renvoyées aux opérations effectuées à partir du dernier déploiement uniquement.
+Vous pouvez ajouter le paramètre **–-last-deployment** pour limiter les entrées renvoyées aux opérations à partir du dernier déploiement uniquement.
 
     azure group log show ExampleGroup --last-deployment
 
@@ -162,4 +162,4 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 - Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

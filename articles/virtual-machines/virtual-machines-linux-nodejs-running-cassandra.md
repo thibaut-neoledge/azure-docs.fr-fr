@@ -11,7 +11,7 @@
 
 # exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Vue d'ensemble
 Microsoft Azure est une plateforme de cloud ouverte qui exécute des logiciels Microsoft et non-Microsoft tels que des systèmes d'exploitation, serveurs d'applications, intergiciels de messagerie, ainsi que des bases de données SQL et NoSQL à partir de modèles commerciaux et open source. La création de services résilients sur des clouds publics, y compris Azure, nécessite une planification soignée et une architecture délibérée pour les serveurs d'applications et les niveaux de stockage. L'architecture de stockage distribuée de Cassandra aide naturellement à créer des systèmes hautement disponibles qui offrent une tolérance de panne en cas de défaillance de cluster. Cassandra est une base de données NoSQL à l'échelle du cloud maintenue par Apache Software Foundation à l'adresse cassandra.apache.org ; Cassandra est écrit en Java et s'exécute donc sur Windows, ainsi que sur les plateformes Linux.
@@ -109,7 +109,7 @@ Les versions logicielles suivantes sont utilisées lors du déploiement :
 <tr><td>JRE	</td><td>[JRE 8] (http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Étant donné que le téléchargement de JRE nécessite l'acceptation manuelle de la licence Oracle, pour simplifier le déploiement, téléchargez tous les logiciels nécessaires sur le bureau en vue de leur chargement ultérieur dans l'image du modèle Ubuntu que nous créerons préalablement au déploiement du cluster.
@@ -124,7 +124,7 @@ Au moment du déploiement, Azure requiert une clé publique X509 encodée PEM o
 ####ÉTAPE 2 : Création du modèle de machine virtuelle Ubuntu
 Pour créer le modèle de machine virtuelle, connectez-vous au portail Azure Classic et procédez comme suit : Cliquez sur Nouveau, Calculer, Machine virtuelle, À partir de la galerie, Ubuntu, Ubuntu Server 14.04 LTS, puis cliquez sur la flèche droite. Un didacticiel décrivant la création d'une machine virtuelle Linux est disponible à la rubrique Création d'une machine virtuelle exécutant Linux.
 
-Entrez les informations suivantes dans l'écran « Configuration de la machine virtuelle » n#1 :
+Entrez les informations suivantes dans l'écran « Configuration de la machine virtuelle » n°1 :
 
 <table>
 <tr><th>Nom du champ              </td><td>       Valeur du champ               </td><td>         Remarques                </td><tr>
@@ -139,7 +139,7 @@ Entrez les informations suivantes dans l'écran « Configuration de la machine 
 <tr><td> Confirmer le mot de passe	</td><td> Mot de passe fort </td><td></td><tr>
 </table>
 
-Entrez les informations suivantes dans l'écran « Configuration de la machine virtuelle » n#2 :
+Entrez les informations suivantes dans l'écran « Configuration de la machine virtuelle » n°2 :
 
 <table>
 <tr><th>Nom du champ             </th><th> Valeur du champ	                   </th><th> Remarques                                 </th></tr>
@@ -151,7 +151,7 @@ Entrez les informations suivantes dans l'écran « Configuration de la machine 
 <tr><td>Points de terminaison	</td><td>Utiliser la valeur par défaut </td><td>	Utilisez la configuration SSH par défaut </td></tr>
 </table>
 
-Cliquez sur la flèche droite, conservez les valeurs par défaut dans l'écran n#3 et cliquez sur le bouton « Rechercher » pour terminer le processus d'approvisionnement de machine virtuelle. Après quelques minutes, la machine virtuelle avec le nom « ubuntu-template » doit être à l'état « en cours d'exécution ».
+Cliquez sur la flèche droite, conservez les valeurs par défaut dans l'écran n°3 et cliquez sur le bouton « Rechercher » pour terminer le processus d'approvisionnement de machine virtuelle. Après quelques minutes, la machine virtuelle avec le nom « ubuntu-template » doit être à l'état « en cours d'exécution ».
 
 ###INSTALLATION DU LOGICIEL NÉCESSAIRE
 ####ÉTAPE 1 : Téléchargement de tarballs 
@@ -513,8 +513,8 @@ Utilisez le script PowerShell suivant pour mettre à jour la clé IPSec de chaqu
 ###Étape 7 : Établissement d’une connexion de réseau virtuel à réseau virtuel
 Dans le portail Azure Classic, utilisez le menu Tableau de bord des deux réseaux virtuels pour établir la connexion de passerelle à passerelle. Utilisez les éléments de menu « Se connecter » dans la barre d'outils inférieure. Après quelques minutes, le tableau de bord doit afficher les informations de connexion sous forme graphique.
 
-###Étape 8 : Création des machines virtuelles dans la région n# 2 
-Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la procédure de déploiement de la région n#1 ou copiez le fichier de disque dur virtuel d'image dans le compte de stockage Azure situé dans la région n#2 et créez l'image. Utilisez cette image et créez la liste suivante de machines virtuelles dans un nouveau service cloud hk-c-svc-east-us :
+###Étape 8 : Création des machines virtuelles dans la région n° 2 
+Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la procédure de déploiement de la région n°1 ou copiez le fichier de disque dur virtuel d'image dans le compte de stockage Azure situé dans la région n°2 et créez l'image. Utilisez cette image et créez la liste suivante de machines virtuelles dans un nouveau service cloud hk-c-svc-east-us :
 
 
 | Nom de la machine | Sous-réseau | Adresse IP | Groupe à haute disponibilité | Contrôleur de domaine ou rack | Initial ? |
@@ -530,7 +530,7 @@ Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la
 | hk-w2-east-us | web | 10\.2.1.5 | hk-w-aset-1 | N/A | N/A |
 
 
-Suivez les mêmes instructions que pour la région n#1, mais utilisez l'espace d'adressage 10.2.xxx.xxx.
+Suivez les mêmes instructions que pour la région n°1, mais utilisez l'espace d'adressage 10.2.xxx.xxx.
 
 ###Étape 9 : Configuration de Cassandra sur chaque machine virtuelle
 Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
@@ -692,4 +692,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,11 +25,31 @@ En analysant votre application avec [Application Insights de Visual Studio][star
 
 Pour analyser une application ASP.NET, vous devez [ajouter le Kit de développement logiciel (SDK) Application Insights][greenbrown] à votre application, ou [installer le Status Monitor sur votre serveur IIS][redfield], ou, si votre application est une application web de Azure, ajoutez l’[extension Application Insights][azure].
 
-## Diagnostic des défaillances 
+## Diagnostic des exceptions à l’aide de Visual Studio
 
-Dans le panneau Vue d'ensemble, la vignette Défaillances vous montre les graphiques des exceptions et des demandes HTTP ayant échoué ainsi qu’une liste des URL demandées qui entraînent les défaillances les plus fréquentes.
+Ouvrez la solution d’application dans Visual Studio pour faciliter le débogage.
 
-![Sélection des défaillances](./media/app-insights-asp-net-exceptions/012-start.png)
+Exécutez l’application sur votre serveur ou sur votre ordinateur de développement à l’aide de la touche F5.
+
+Ouvrez la fenêtre de recherche d’Application Insights dans Visual Studio et configurez-la pour afficher les événements depuis votre application. En cours de débogage, il vous suffit de cliquer sur le bouton Application Insights pour effectuer ce paramétrage.
+
+![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Ouvrir.](./media/app-insights-asp-net-exceptions/34.png)
+
+Notez que vous pouvez filtrer le rapport pour qu’il affiche uniquement les exceptions.
+
+*Aucune exception ne s’affiche ? Consulter [Capture des exceptions](#exceptions).*
+
+Cliquez sur un rapport d’exception pour afficher sa trace de pile.
+
+![Cliquez sur une exception.](./media/app-insights-asp-net-exceptions/35.png)
+
+Cliquez sur une référence de ligne dans la trace de pile pour ouvrir le fichier approprié.
+
+## Diagnostic des défaillances à l’aide du portail Azure
+
+Dans la vue d’ensemble Application Insights de votre application, la vignette Défaillances vous montre les graphiques des exceptions et des demandes HTTP ayant échoué ainsi qu’une liste des URL demandées qui entraînent les défaillances les plus fréquentes.
+
+![Sélectionnez Paramètres, Défaillances](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir des occurrences individuelles de cette défaillance. À partir de là, cliquez sur les exceptions ou les données de trace qui y sont associées :
 
@@ -50,6 +70,8 @@ Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir 
 
 [En savoir plus sur la recherche de diagnostic][diagnostic]
 
+
+
 ## Défaillances de dépendance
 
 Une *dépendance* est un service que votre application appelle, généralement via une API REST ou une connexion à une base de données. [Application Insights Status Monitor][redfield] analyse automatiquement différents types d'appel de dépendance en déterminant la durée et la réussite ou la défaillance de l’appel.
@@ -68,18 +90,18 @@ Pour obtenir des données de diagnostic propres à votre application, vous pouve
 
 Vous disposez de plusieurs options :
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Événements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic][diagnostic].
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Evénements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic][diagnostic].
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) vous permet d’envoyer des données plus longues telles que des informations POST.
 * [TrackException()](#exceptions) envoie des arborescences des appels de procédure. [Plus d’informations sur les exceptions](#exceptions).
 * Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux][netlogs] et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
 
-Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Événement personnalisé, Trace ou Exception.
+Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Evénement personnalisé, Trace ou Exception.
 
 
 ![Extraire](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
+> [AZURE.NOTE] Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
 
 ### Affichage des données POST de la demande
 
@@ -434,7 +456,7 @@ Ajoutez l'attribut aux implémentations de service :
 
 ## Compteurs de performance des exceptions
 
-Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir une représentation graphique du taux d'exceptions mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
+Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
 
 Ouvrez un panneau d'explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d'exception** sous Compteurs de performances.
 
@@ -455,4 +477,4 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -57,4 +57,4 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 [À propos des méthodes de routage du trafic de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

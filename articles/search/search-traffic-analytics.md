@@ -27,7 +27,7 @@ La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search
 ## Activation de la fonctionnalité Rechercher l’analyse du trafic
 
 ### 1\. Utiliser le portail
-Ouvrez votre service Azure Search dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
+Ouvrez votre service Azure Search dans le [portail Azure](https://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
 
 ![][1]
 
@@ -36,7 +36,7 @@ Sélectionnez-la pour ouvrir un nouveau panneau. Définissez l’état sur **Act
 ![][2]
 
 
-> [AZURE.IMPORTANT]Le compte de stockage doit être situé dans la même région et le même abonnement que votre service de recherche.
+> [AZURE.IMPORTANT] Le compte de stockage doit être situé dans la même région et le même abonnement que votre service de recherche.
 > 
 > Des frais standard s’appliquent à ce compte de stockage.
 
@@ -221,4 +221,4 @@ En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, 
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

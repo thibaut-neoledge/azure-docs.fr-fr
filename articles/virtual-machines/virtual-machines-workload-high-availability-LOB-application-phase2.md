@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
@@ -40,7 +40,7 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur Web, par exemple WEB1) | Windows Server 2012 R2 Datacenter | D3 standard
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur Web, par exemple WEB2) | Windows Server 2012 R2 Datacenter | D3 standard
 
-**Table M - Machines virtuelles pour l'application métier à haute disponibilité dans Azure** (en anglais)
+**Table M - Machines virtuelles pour l'application métier à haute disponibilité dans Azure (en anglais)**
 
 Pour obtenir la liste complète des tailles des machines virtuelles, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
@@ -54,7 +54,7 @@ Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines
 
 Souvenez-vous que vous avez défini les tables V, S, ST et A au cours de la [Phase 1 : configurer Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -111,7 +111,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou nom DNS intranet.
+> [AZURE.NOTE] Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou nom DNS intranet.
 
 ## Configuration du premier contrôleur de domaine
 
@@ -173,7 +173,7 @@ Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin
 4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
 5.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
-7.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
+7.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
 8.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
 
 Notez que les deux contrôleurs de domaine sont redémarrés afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils ont été promus contrôleurs de domaine.
@@ -197,4 +197,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

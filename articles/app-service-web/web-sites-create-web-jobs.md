@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # Exécuter des tâches en arrière-plan avec les tâches web
@@ -42,7 +42,7 @@ Les types de fichier suivants sont acceptés :
 
 ## <a name="CreateOnDemand"></a>Création d’une tâche Web à la demande sur le portail
 
-1. Dans le panneau **Application web** du [portail Azure](http://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
+1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
 	
 	![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -70,7 +70,7 @@ Les types de fichier suivants sont acceptés :
 
 2. Pour démarrer ou arrêter une tâche Web exécutée en continu, cliquez avec le bouton droit sur la tâche Web dans la liste, puis cliquez sur **Démarrer** ou **Arrêter**.
 	
-> [AZURE.NOTE]Si votre application web est exécutée sur plusieurs instances, une tâche web exécutée en continu le sera sur toutes vos instances. Les tâches web à la demande et planifiées sont exécutées sur une seule instance sélectionnée pour l’équilibrage de charge par Microsoft Azure.
+> [AZURE.NOTE] Si votre application web est exécutée sur plusieurs instances, une tâche web exécutée en continu le sera sur toutes vos instances. Les tâches web à la demande et planifiées sont exécutées sur une seule instance sélectionnée pour l’équilibrage de charge par Microsoft Azure.
 	
 > Pour que les tâches Web continues s'exécutent de façon fiable sur toutes les instances, activez le paramètre de configuration Toujours actif* de l'application Web. Sinon, elles risquent de s’arrêter si le site de l'hôte SCM reste inactif pendant trop longtemps.
 
@@ -201,7 +201,7 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
 - Les modes Basique et Standard proposent la fonctionnalité Toujours actif qui, lorsqu’elle est activée, empêche les applications web de devenir inactives.
 - Vous pouvez uniquement déboguer les tâches Web qui s’exécutent en continu. Le débogage des tâches Web planifiées et à la demande n’est pas pris en charge.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## <a name="NextSteps"></a>Étapes suivantes
  
@@ -239,4 +239,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

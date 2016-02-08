@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/22/2016"
    ms.author="nitinme"/>
 
 # Présentation d'Azure Data Lake Store
 
 Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Azure Data Lake vous permet de capturer les données de toute taille, de tout type et à toute vitesse d'ingestion dans un emplacement unique en vue d'une analyse opérationnelle et exploratoire.
 
-> [AZURE.TIP]Utilisez le [Parcours d’apprentissage Data Lake Store](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) pour commencer à explorer le service Azure Data Lake Store.
+> [AZURE.TIP] Utilisez le [Parcours d’apprentissage Data Lake Store](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) pour commencer à explorer le service Azure Data Lake Store.
 
 Azure Data Lake Store est accessible à partir de Hadoop (disponible avec le cluster HDInsight) avec les API REST compatibles WebHDFS. Il est conçu spécifiquement pour permettre l'analyse des données stockées et met l'accent sur les performances des scénarios d'analyse des données. En standard, il inclut toutes les capacités de niveau entreprise (sécurité, facilité de gestion, évolutivité, fiabilité et disponibilité) essentielles pour les cas d'usage professionnels réels.
 
@@ -55,6 +55,8 @@ Data Lake Store fournit également une sécurité de niveau entreprise des donn�
 
 Azure Data Lake Store peut stocker des données dans leur format natif, en l'état, sans nécessiter de transformations préalables. Data Lake Store ne requiert pas la définition d'un schéma avant le chargement des données, laissant ainsi à l'infrastructure d'analyse individuelle le soin d'interpréter les données et de définir un schéma au moment de l'analyse. La possibilité de stocker les fichiers de formats et de tailles arbitraires rend possible la gestion par Data Lake Store de données structurées, semi-structurées et non structurées.
 
+Les conteneurs Azure Data Lake Store pour données sont essentiellement des dossiers et des fichiers. Vous travaillez sur les données stockées à l'aide de kits de développement logiciel (SDK), du portail Azure et d’Azure Powershell. Tant que vous placez vos données dans le magasin en utilisant ces interfaces et les conteneurs appropriés, vous pouvez stocker n'importe quel type de données. Data Lake Store n'effectue aucune opération particulière sur les données en fonction du type de données qu’il contient.
+
 
 ## <a name="DataLakeStoreSecurity"></a>Sécurisation des données dans Azure Data Lake Store
 
@@ -86,4 +88,4 @@ Consultez [Prise en main de Data Lake Store avec le portail Azure](data-lake-sto
 - [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

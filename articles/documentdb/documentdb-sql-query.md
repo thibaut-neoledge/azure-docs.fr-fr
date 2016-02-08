@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Requête SQL sur DocumentDB, une base de données NoSQL | Microsoft Azure" 
-	description="Apprenez à utiliser les instructions de requête SQL pour une requête DocumentDB, une base de données NoSQL. Comme pour un langage de requête JSON, les requêtes SQL peuvent être utilisées pour l’analyse Big Data (données volumineuses)." 
-	keywords="requête SQL, requêtes sql, syntaxe sql, langage de requête json, concepts de base de données et requêtes sql"
+	pageTitle="Syntaxe SQL et requête SQL pour DocumentDB | Microsoft Azure" 
+	description="Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour DocumentDB, une base de données NoSQL. SQL peut être utilisé comme un langage de requête JSON dans DocumentDB." 
+	keywords="syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données et requêtes sql"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -17,12 +17,12 @@
 	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
-# Requête SQL dans DocumentDB
+# Requête SQL et syntaxe SQL dans DocumentDB
 Microsoft Azure DocumentDB prend en charge l’interrogation de documents à l’aide du langage SQL en tant que langage de requête JSON. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires.
 
 Lors de la conception du langage de requête pour DocumentDB, nous avions deux objectifs à l'esprit :
 
--	Au lieu d’inventer un langage de requête, nous voulions prendre en charge SQL. SQL est l’un des langages de requête les plus conviviaux et populaires. SQL de DocumentDB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
+-	Au lieu d’inventer un langage de requête JSON, nous voulions prendre en charge SQL. SQL est l’un des langages de requête les plus conviviaux et populaires. SQL de DocumentDB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
 -	Comme une base de données de documents JSON peut exécuter JavaScript directement dans le moteur de base de données, nous avons voulu utiliser le modèle de programmation de JavaScript comme base pour notre langage de requête. SQL de DocumentDB est inclus dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
 
 Nous pensons que ces capacités sont la clé pour réduire la friction entre l'application et la base de données et sont cruciales pour la productivité des développeurs.
@@ -997,7 +997,7 @@ L’exemple ci-dessus crée une fonction définie par l’utilisateur dont le no
 
 Nous pouvons maintenant utiliser cette fonction définie par l'utilisateur dans une requête, dans une projection. Les fonctions définies par l'utilisateur doivent être qualifiées par le préfixe respectant la casse « udf.» quand elles sont appelées à partir de requêtes.
 
->[AZURE.NOTE]Jusqu’au 17 mars 2015, DocumentDB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf. », comme SELECT REGEX\_MATCH(). Ce modèle d'appel est maintenant déconseillé.
+>[AZURE.NOTE] Jusqu’au 17 mars 2015, DocumentDB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf. », comme SELECT REGEX\_MATCH(). Ce modèle d'appel est maintenant déconseillé.
 
 **Requête**
 
@@ -1489,7 +1489,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
+>[AZURE.NOTE] Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
@@ -1527,7 +1527,7 @@ LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requ
 
 L'image suivante illustre l'architecture de prise en charge des requêtes LINQ à l'aide de DocumentDB. En utilisant le client DocumentDB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de DocumentDB, qui traduit alors les requêtes LINQ en requêtes DocumentDB. Ces requêtes sont ensuite transmises au serveur DocumentDB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
 
-![Architecture de prise en charge des requêtes LINQ avec DocumentDB][1]
+![Architecture de prise en charge des requêtes LINQ avec DocumentDB - Syntaxe SQL, langage de requête JSON, concepts de bases de données et requêtes SQL][1]
  
 
 
@@ -2133,8 +2133,8 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 7.	Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Techniques d’évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
@@ -2144,4 +2144,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

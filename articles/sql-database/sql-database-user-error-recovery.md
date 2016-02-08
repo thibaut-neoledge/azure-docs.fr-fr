@@ -23,7 +23,7 @@ La base de données SQL Microsoft Azure offre deux fonctionnalités essentielle
 - Limite de restauration dans le temps 
 - Restauration d’une base de données supprimée
 
-Pour en savoir plus sur ces fonctionnalités, reportez-vous à ce [billet de blog](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
+Pour en savoir plus sur ces fonctionnalités, reportez-vous à ce [billet de blog](https://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
 
 La base de données SQL Azure effectue toujours les restaurations vers une nouvelle base de données. Ces fonctions de restauration sont proposées pour toutes les bases de données, quel que soit leur niveau (niveau de base, Standard et Premium).
 
@@ -32,12 +32,12 @@ En cas d’erreur de l’utilisateur ou de modification involontaire des donnée
 
 Les bases de données de niveau de base proposent une période de rétention de 7 jours. Quant aux niveaux Standard et Premium, ils offrent des périodes de rétention de 14 et 35 jours, respectivement. Pour en savoir plus sur le mécanisme de rétention de base de données, consultez la [vue d’ensemble de la continuité d’activité](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portail Azure
 Pour utiliser la limite de restauration dans le temps dans le portail Azure, procédez comme suit.
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.Azure.com).
+1. Connectez-vous au [portail Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l’écran, sélectionnez l’option **PARCOURIR**, puis choisissez **Bases de données SQL**
 3. Accédez à votre base de données et sélectionnez-la.
 4. Sur la partie supérieure du volet de votre base de données, sélectionnez **Restaurer**.
@@ -45,9 +45,9 @@ Pour utiliser la limite de restauration dans le temps dans le portail Azure, pro
 6. Le processus de restauration de base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**, sur le côté gauche de l’écran.
 
 ###PowerShell
-Utilisez PowerShell pour exécuter par programme une limite de restauration dans le temps avec l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez la vidéo de cette procédure](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+Utilisez PowerShell pour exécuter par programme une limite de restauration dans le temps avec l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez la vidéo de cette procédure](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
-> [AZURE.IMPORTANT]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT] Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -68,21 +68,21 @@ En cas de suppression d’une base de données, la base de données SQL Microsof
 
 La période de rétention d’une base de données supprimée est déterminée par le niveau de service de la base de données pendant sa période d’existence, ou le nombre de jours d’existence de la base de données. La valeur la plus faible est choisie. Pour en savoir plus sur la rétention de base de données, consultez notre [vue d’ensemble de la fonction de continuité d’activité](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portail Azure
 Pour restaurer une base de données supprimée à l’aide du portail Azure, procédez comme suit.
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.Azure.com).
+1. Connectez-vous au [portail Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l’écran, sélectionnez l’option **PARCOURIR**, puis choisissez **Serveur SQL Server**.
 3. Accédez à votre serveur et sélectionnez-le.
-4. Sous l’option **Opérations** figurant sur le panneau du serveur, sélectionnez **Bases de données supprimées**.
+4. Dans le panneau du serveur, faites défiler vers le bas jusqu’à **Opérations**, puis cliquez sur la vignette **Bases de données supprimées**.
 5. Sélectionnez la base de données supprimée que vous souhaitez restaurer.
 6. Spécifiez un nom de base de données, puis cliquez sur **Créer**.
 7. Le processus de restauration de base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**, sur le côté gauche de l’écran.
 
 ###PowerShell
-Pour restaurer une base de données supprimée à l’aide de PowerShell, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez une vidéo de cette procédure](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
+Pour restaurer une base de données supprimée à l’aide de PowerShell, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez une vidéo de cette procédure](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Dans la liste des bases de données supprimées, recherchez la base de données supprimée et sa date de suppression.
 		
@@ -106,4 +106,4 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 	
 4.	Surveillez l’état de la restauration en suivant la procédure de suivi de l’[état de fonctionnement de base de données](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

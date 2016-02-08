@@ -53,4 +53,4 @@ Notez qu'Azure Websites fournit déjà des fonctionnalités de routage du trafi
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

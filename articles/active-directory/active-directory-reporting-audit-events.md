@@ -120,6 +120,6 @@ StrongAuthenticationRequirement | Dans le cas où l'authentification multi-facte
 StrongAuthenticationUserDetails | Numéro de téléphone de l'utilisateur, numéro de téléphone alternatif et adresse de messagerie utilisés pour la vérification de l'authentification multi-facteur et de la réinitialisation du mot de passe.
 TelephoneNumber | Numéro de téléphone de l'utilisateur
 
-Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
+Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](https://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

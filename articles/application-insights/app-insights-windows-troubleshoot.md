@@ -35,7 +35,7 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Wi
 #### Je pouvais voir les données, mais plus maintenant
 
 * Vérifiez le [blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
-* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez Paramètres/Quota et tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
+* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez Paramètres/Quota et tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Comment puis-je ajouter Application Insights à une application universelle ?
@@ -82,7 +82,7 @@ Pour vous aider à mettre en corrélation les événements dans le client et dan
 
 ## L'écran d'accueil Azure
 
-*J’ai ouvert [le portail Azure](http://portal.azure.com). Est-ce que la carte fournit des informations concernant mon application ?*
+*J’ai ouvert [le portail Azure](https://portal.azure.com). Est-ce que la carte fournit des informations concernant mon application ?*
 
 Non, elle montre l'intégrité des serveurs Azure dans le monde entier.
 
@@ -124,4 +124,4 @@ Consultez [Rétention de données et confidentialité][data].
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

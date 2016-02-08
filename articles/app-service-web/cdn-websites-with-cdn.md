@@ -41,9 +41,7 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409). Si vous utilisez Visual Studio, les étapes peuvent varier.
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : 
-> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. 
-> + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. + Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -82,7 +80,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure Classic affiche son URL et le domaine d’origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
+	> [AZURE.NOTE] Une fois votre point de terminaison CDN créé, le portail Azure Classic affiche son URL et le domaine d’origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
 
 3. De retour dans le portail Azure Classic, sous l’onglet **CDN**, cliquez sur le nom du point de terminaison CDN que vous venez de créer.
 
@@ -92,7 +90,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE]Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
+	>[AZURE.NOTE] Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
 
 2. À présent, cliquez sur l'adresse du point de terminaison CDN. Si le point de terminaison est prêt, votre application web doit être affichée. Si vous obtenez une erreur **HTTP 404**, c’est que le point de terminaison CDN n’est pas prêt. La propagation de la configuration du CDN sur tous les nœuds de périmètre peut prendre au moins une heure.
 
@@ -506,27 +504,8 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Republiez votre application web Azure et accédez à la page d'accueil.
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :    
 	
-	``` 
-	... 
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -539,11 +518,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mais, du fait que la première partie de l'expression || renvoie toujours la valeur true (dans la ligne juste au-dessus), la fonction document.write() ne s'exécute jamais.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Pour tester le bon fonctionnement du script de secours, revenez au tableau de bord de votre point de terminaison CDN et cliquez sur **Désactiver le point de terminaison**
 
@@ -563,4 +542,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

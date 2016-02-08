@@ -3,7 +3,7 @@
 	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Prise en main de Mobile Services (Projets .NET)
 
@@ -81,6 +81,6 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 	await todoTable.DeleteAsync(item);
 
 
-[En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
+[En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

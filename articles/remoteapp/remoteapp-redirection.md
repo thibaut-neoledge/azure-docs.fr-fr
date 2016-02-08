@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/21/2016"
     ms.author="elizapo" />
 
 # Utilisation de la redirection dans Azure RemoteApp
@@ -67,13 +67,13 @@ Utilisez l'applet de commande suivante pour désactiver le partage du Presse-pap
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-> [AZURE.IMPORTANT]Veillez à fermer complètement la session de tous les utilisateurs de la collection (et pas seulement à les déconnecter) avant de tester la modification. Pour vous assurer que les sessions d'utilisateurs sont complètement fermées, accédez à l'onglet **Sessions** de la collection dans le portail Azure et fermez la session de tous les utilisateurs qui sont déconnectés ou connectés. L'affichage des lecteurs locaux dans l'Explorateur de la session peut parfois prendre plusieurs secondes.
+> [AZURE.IMPORTANT] Veillez à fermer complètement la session de tous les utilisateurs de la collection (et pas seulement à les déconnecter) avant de tester la modification. Pour vous assurer que les sessions d'utilisateurs sont complètement fermées, accédez à l'onglet **Sessions** de la collection dans le portail Azure et fermez la session de tous les utilisateurs qui sont déconnectés ou connectés. L'affichage des lecteurs locaux dans l'Explorateur de la session peut parfois prendre plusieurs secondes.
 
 ## Modification des paramètres de redirection USB sur votre client Windows
 
 Si vous voulez utiliser la redirection USB sur un ordinateur qui se connecte à RemoteApp, deux actions doivent se produire. 1 - Votre administrateur doit activer la redirection USB au niveau de la collection à l'aide d'Azure PowerShell. 2 - Sur chaque périphérique sur lequel vous voulez utiliser la redirection USB, vous devez activer une stratégie de groupe qui l'autorise. Cette étape doit être effectuée pour chaque utilisateur qui souhaite utiliser la redirection USB.
 
-> [AZURE.NOTE]La redirection USB avec Azure RemoteApp est prise en charge uniquement pour les ordinateurs Windows.
+> [AZURE.NOTE] La redirection USB avec Azure RemoteApp est prise en charge uniquement pour les ordinateurs Windows.
 
 ### Activation de la redirection USB pour la collection RemoteApp
 Utilisez l'applet de commande suivante pour activer la redirection USB au niveau de la collection :
@@ -104,4 +104,4 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

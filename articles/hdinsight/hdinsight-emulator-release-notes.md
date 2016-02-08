@@ -23,7 +23,8 @@
 
 
 
-> [AZURE.NOTE]La méthode la plus simple pour connaître votre numéro de version consiste à vérifier dans Ajout/Suppression de programmes, à l’entrée **Émulateur Microsoft HDInsight pour Azure** (pour la version 1.0.0.0 ou supérieure) ou **Microsoft HDInsight Developer Preview** (pour les versions inférieures à 1.0.0.0).
+> [AZURE.NOTE] 
+La méthode la plus simple pour connaître votre numéro de version consiste à vérifier dans Ajout/Suppression de programmes, à l’entrée **Émulateur Microsoft HDInsight pour Azure** (pour la version 1.0.0.0 ou supérieure) ou **Microsoft HDInsight Developer Preview** (pour les versions inférieures à 1.0.0.0).
 
 ## Version 2.0.0.0, publiée le 29 août 2014.
 
@@ -89,7 +90,7 @@
 
 * Nouveau tableau de bord Microsoft HDInsight comprenant les fonctionnalités suivantes :
  
-	* Connexion à plusieurs clusters, notamment l’installation locale et celle à distance utilisant le service Azure HDInsight. Pour plus d’informations sur le service HDInsight, consultez la rubrique [http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
+	* Connexion à plusieurs clusters, notamment l’installation locale et celle à distance utilisant le service Azure HDInsight. Pour plus d’informations sur le service HDInsight, consultez la rubrique [http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/).
  
 	* Configurez le stockage d’objets blob Azure sur le cluster local. Voir les instructions détaillées ci-dessous.
 
@@ -276,4 +277,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

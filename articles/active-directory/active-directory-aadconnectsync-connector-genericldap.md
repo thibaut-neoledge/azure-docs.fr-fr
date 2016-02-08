@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synchronisation Azure AD Connect : connecteur LDAP générique"
+   pageTitle="Azure AD Connect Sync : connecteur LDAP générique | Microsoft Azure"
    description="Cet article décrit comment configurer le connecteur LDAP générique Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Référence technique au connecteur LDAP générique
@@ -279,4 +279,4 @@ Pour les répertoires avec des journaux de modification différentielle basée s
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

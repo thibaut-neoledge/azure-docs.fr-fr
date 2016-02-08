@@ -31,7 +31,7 @@ Vos commentaires sont très importants pour nous. Cet article a été rédigé p
 
 ## Composants d’Azure
 
-Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que cette [infographie sur Microsoft Azure](http://azure.microsoft.com/documentation/infographics/azure/). Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous).
+Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que cette [infographie sur Microsoft Azure](https://azure.microsoft.com/documentation/infographics/azure/). Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous).
 
 Ce document repose sur une **organisation différente** afin de présenter les services basés sur des fonctionnalités similaires et d'accéder aux sous-services importants intégrés à des services de plus grande taille.
 
@@ -246,7 +246,7 @@ Azure offre aux développeurs et aux professionnels de l'informatique un certain
 ### Kit de développement logiciel (SDK) Azure
 En 2008, la toute première version préliminaire d’Azure prenait en charge le développement uniquement en .NET. Aujourd’hui, vous pouvez créer des applications Azure dans la quasi-totalité des langages. Actuellement, Microsoft fournit des Kits de développement logiciel (SDK) spécifiques pour .NET, Java, PHP, Node.js, Ruby et Python. Il existe aussi un Kit de développement logiciel (SDK) Azure général qui assure une prise en charge de base pour tous les langages, tels que C++.
 
-Ces Kits de développement logiciel (SDK) vous aident à créer, à déployer et à gérer vos applications Azure. Ils sont disponibles sur [www.microsoftazure.com](http://azure.microsoft.com/downloads/) ou GitHub et peuvent être utilisés avec Visual Studio et Eclipse. Azure propose également des outils en ligne de commande que les développeurs peuvent utiliser avec tous les éditeurs et les environnements de développement. Cela comprend les outils pour déployer les applications sur Azure depuis des systèmes Linux et Macintosh.
+Ces Kits de développement logiciel (SDK) vous aident à créer, à déployer et à gérer vos applications Azure. Ils sont disponibles sur [www.microsoftazure.com](https://azure.microsoft.com/downloads/) ou GitHub et peuvent être utilisés avec Visual Studio et Eclipse. Azure propose également des outils en ligne de commande que les développeurs peuvent utiliser avec tous les éditeurs et les environnements de développement. Cela comprend les outils pour déployer les applications sur Azure depuis des systèmes Linux et Macintosh.
 
 En plus de vous aider à concevoir des applications Azure, ces Kits de développement logiciel (SDK) fournissent des bibliothèques clientes qui vous permettent de créer des logiciels utilisant les services Azure. Par exemple, vous pouvez créer une application qui lit et écrit des objets blob Azure ou concevoir un outil qui déploie des applications Azure via l'interface de gestion d'Azure.
 
@@ -611,4 +611,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

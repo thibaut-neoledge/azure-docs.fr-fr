@@ -25,7 +25,7 @@ Pour étendre les groupes de disponibilité locaux à Microsoft Azure, vous pouv
 
 Ce didacticiel part du principe que vous disposez des éléments suivants :
 
-- Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial).
+- Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 - Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, consultez la page [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -91,7 +91,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 
 1. Le processus d’approvisionnement commence. Lorsque l’Assistant a terminé, cliquez sur **Fermer** pour quitter l’Assistant.
 
->[AZURE.NOTE]L’Assistant Ajout d’un réplica Azure crée un fichier journal dans <Users><nom\_utilisateur>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Ce fichier journal peut servir à résoudre les déploiements de réplica Azure ayant échoué. Si l’Assistant ne parvient pas à exécuter une action, toutes les opérations précédentes sont annulées, y compris la suppression de la machine virtuelle approvisionnée.
+>[AZURE.NOTE] L’Assistant Ajout d’un réplica Azure crée un fichier journal dans <Users><nom\_utilisateur>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Ce fichier journal peut servir à résoudre les déploiements de réplica Azure ayant échoué. Si l’Assistant ne parvient pas à exécuter une action, toutes les opérations précédentes sont annulées, y compris la suppression de la machine virtuelle approvisionnée.
 
 ## Créer un écouteur de groupe de disponibilité
 
@@ -103,4 +103,4 @@ En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

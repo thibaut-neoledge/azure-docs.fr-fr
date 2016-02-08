@@ -114,7 +114,7 @@ Vous pouvez modifier ces valeurs à tout moment en spécifiant un de ces paramè
 
 Même si vous choisissez de tolérer certains échecs, les informations indiquant les documents affectés par ceux-ci sont retournées par l'[API d'obtention d'état d'indexeur](https://msdn.microsoft.com/library/azure/dn946884.aspx).
 
-C'est tout pour le moment. Si vous avez des idées ou des suggestions de contenu, vous pouvez nous envoyer un tweet en utilisant le hashtag #AzureSearch ou les soumettre via notre [page UserVoice](http://feedback.azure.com/forums/263029-azure-search).
+C'est tout pour le moment. Si vous avez des idées ou des suggestions de contenu, vous pouvez nous envoyer un tweet en utilisant le hashtag #AzureSearch ou les soumettre via notre [page UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

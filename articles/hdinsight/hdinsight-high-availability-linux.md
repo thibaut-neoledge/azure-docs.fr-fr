@@ -21,7 +21,7 @@
 
 Un deuxième nœud principal est utilisé par les clusters Hadoop Linux déployés par Azure HDInsight. Cela augmente la disponibilité et la fiabilité des services et des travaux Hadoop en cours d'exécution s'exécutant dans Azure.
 
-> [AZURE.NOTE]Les étapes de ce document sont spécifiques aux clusters HDInsight sous Linux. Si vous utilisez un cluster Windows, consultez [Disponibilité et fiabilité des clusters Hadoop Windows dans HDInsight](hdinsight-high-availability.md) pour plus d'informations spécifiques Windows.
+> [AZURE.NOTE] Les étapes de ce document sont spécifiques aux clusters HDInsight sous Linux. Si vous utilisez un cluster Windows, consultez [Disponibilité et fiabilité des clusters Hadoop Windows dans HDInsight](hdinsight-high-availability.md) pour plus d'informations spécifiques Windows.
 
 ##Connaissance des nœuds principaux
 
@@ -29,7 +29,7 @@ Certaines implémentations de Hadoop sont dotées d'un seul nœud principal héb
 
 Les clusters HDInsight fournissent un nœud principal secondaire, ce qui permet aux services et composants de continuer de s'exécuter sur le nœud secondaire en cas de panne sur le serveur principal.
 
-> [AZURE.IMPORTANT]Les deux nœuds principaux sont actifs et s'exécutent simultanément sur le cluster. Certains services tels que HDFS ou YARN, ne sont plus « actifs » sur un nœud principal à toute donnée temps (et « En attente » sur le nœud de tête). D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
+> [AZURE.IMPORTANT] Les deux nœuds principaux sont actifs et s'exécutent simultanément sur le cluster. Certains services tels que HDFS ou YARN, ne sont plus « actifs » sur un nœud principal à toute donnée temps (et « En attente » sur le nœud de tête). D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
 
 Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZKs) sont utilisés pour la sélection primaire de services principaux sur les nœuds principaux et garantissent que les services, les nœuds (worker) et les passerelles savent sur quel nœud principal, un service principal est actif.
 
@@ -128,7 +128,7 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 ###Ambari
 
-> [AZURE.NOTE]L'accès aux fichiers journaux via Ambari nécessite un tunnel SSH, les sites web pour les services individuels ne sont pas exposés publiquement sur Internet. Pour des informations sur l'utilisation d'un tunnel SSH, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE] L'accès aux fichiers journaux via Ambari nécessite un tunnel SSH, les sites web pour les services individuels ne sont pas exposés publiquement sur Internet. Pour des informations sur l'utilisation d'un tunnel SSH, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 À partir de l'interface utilisateur Web d'Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN) et utilisez **Liens rapides** pour sélectionner le nœud principal dont vous voulez afficher les journaux.
 
@@ -136,7 +136,7 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 ## Configuration de la taille du nœud principal ##
 
-La taille du nœud principal ne peut être sélectionnée que lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+La taille du nœud principal ne peut être sélectionnée que lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
 
@@ -166,4 +166,4 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

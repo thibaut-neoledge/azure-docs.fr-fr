@@ -19,19 +19,19 @@
 
 ## Vue d’ensemble
 
-La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](portal.azure.com), ainsi que des fonctions étendues d’accès aux données.
+La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com), ainsi que des fonctions étendues d’accès aux données.
 
 Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli-install.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
 
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
-> [AZURE.NOTE]Ce guide fournit des exemples de commandes CLI Azure et de scripts s’exécutant en mode Azure Service Management (ASM). Pour obtenir la liste des commandes de CLI Azure pour le stockage en mode ASM, voir [Utilisation de l’interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+> [AZURE.NOTE] Ce guide fournit des exemples de commandes CLI Azure et de scripts s’exécutant en mode Azure Service Management (ASM). Pour obtenir la liste des commandes de CLI Azure pour le stockage en mode ASM, voir [Utilisation de l’interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
 
 ## Prise en main de Microsoft Azure Storage et de la CLI Azure en 5 minutes
 
 Ce guide inclut des exemples basés sur Ubuntu, mais les résultats devraient être les mêmes sur d’autres plates-formes.
 
-**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](http://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
+**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
 Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des comptes, des abonnements et des rôles d’administrateur](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -129,7 +129,7 @@ Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouv
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
 
 ### Charger un blob dans un conteneur.
 
@@ -215,10 +215,10 @@ Copie d’un objet blob vers un répertoire de fichiers :
 
 Pour en savoir plus sur Azure Storage, consultez les articles et ressources suivants :
 
-- [Documentation d’Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Référence de l’API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

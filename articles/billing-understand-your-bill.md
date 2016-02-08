@@ -24,7 +24,7 @@ Le coût des abonnements Microsoft Azure varie selon la formule tarifaire. Certa
 
 Veuillez noter que 24 heures au plus d'utilisation latente de votre période de facturation précédente peuvent être reportées sur votre période de facturation actuelle.
 
-Pour plus d’informations sur la consommation et les formules tarifaires, consultez la [page Options d’achat de Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Pour plus d’informations sur la consommation et les formules tarifaires, consultez la [page Options d’achat de Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
 Les liens ci-dessous couvrent la liste de tous les services Microsoft Azure.
 
@@ -262,4 +262,4 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

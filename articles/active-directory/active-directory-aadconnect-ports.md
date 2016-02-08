@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ports Azure AD Connect"
+	pageTitle="Azure AD Connect : Ports | Microsoft Azure"
 	description="Cette page contient des informations de référence techniques sur les ports qui doivent être ouverts pour Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Ports et protocoles nécessaires à l’identité hybride
@@ -79,4 +79,4 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 ### 6b - Points de terminaison pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Exemples Service Bus
 
-Les exemples de Service Bus illustrent des fonctionnalités clés de Bus de Service (service cloud) et Service Bus pour Windows Server. Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
+Les exemples de Service Bus illustrent des fonctionnalités clés de [Service Bus](https://azure.microsoft.com/services/service-bus/) (service cloud) et [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
->[AZURE.NOTE]Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples du Kit de développement logiciel (SDK) Microsoft Azure](https://code.msdn.microsoft.com).
+>[AZURE.NOTE] Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples de kit de développement logiciels Microsoft Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 
 ## Messagerie répartie Service Bus
 
@@ -126,10 +126,10 @@ Les exemples suivants illustrent différentes autres fonctionnalités du service
 
 ## Étapes suivantes
 
-Consultez les rubriques suivantes pour plus de présentations Service Bus.
+Consultez les rubriques suivantes pour obtenir des présentations conceptuelles de Service Bus.
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

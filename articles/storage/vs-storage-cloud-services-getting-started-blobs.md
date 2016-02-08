@@ -28,7 +28,7 @@ De la même manière que les fichiers résident dans des dossiers, le stockage d
 
 - Pour plus d’informations sur la manipulation des objets blob par programmation, consultez [Utilisation de Blob Storage blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
 - Pour obtenir des informations générales sur Azure Storage, consultez [Documentation du stockage](https://azure.microsoft.com/documentation/services/storage/).
-- Pour obtenir des informations générales sur Azure Cloud Services, consultez la [Documentation Azure Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Pour obtenir des informations générales sur Azure Cloud Services, consultez la [Documentation Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Pour plus d’informations sur la programmation d’applications ASP.NET, consultez [ASP.NET](http://www.asp.net).
 
 ## Accès aux conteneurs d'objets blob dans le code
@@ -58,11 +58,11 @@ Pour accéder par programmation aux objets blob dans des projets de service clou
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Utilisez l’ensemble du code montré dans la procédure précédente en haut du code des sections suivantes.
+> [AZURE.NOTE] Utilisez l’ensemble du code montré dans la procédure précédente en haut du code des sections suivantes.
 
 ## Création d'un conteneur dans le code
 
-> [AZURE.NOTE]Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
+> [AZURE.NOTE] Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
 
 Pour créer un conteneur dans votre compte de stockage, il suffit d’ajouter un appel à **CreateIfNotExistsAsync**, comme dans le code suivant :
 
@@ -257,4 +257,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

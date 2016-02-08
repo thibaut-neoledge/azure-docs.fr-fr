@@ -18,6 +18,13 @@
 
 #Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
 
+##3\.3.0 (22/01/2016)
+
+-   Correction de l'incident de mise en forme dans les applications UWP en cours d'exécution en mode version finale.
+-   Correction de la marge 1px sur les notifications pour les applications 8.1 universelles.
+-   Schémas ms-appx et ms-appdata disponibles sur les URL d'action.
+-   Améliorations de la stabilité.
+
 ##3\.2.0 (20/11/2015)
 
 -   Prise en charge supplémentaire pour les applications de la plateforme Windows universelle Windows 10.
@@ -49,4 +56,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

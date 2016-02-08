@@ -55,7 +55,7 @@ La section suivante montre comment utiliser Service Bus pour créer cette applic
 
 ### Inscrivez-vous à un compte et un abonnement Service Bus
 
-Vous aurez besoin d'un compte Azure pour commencer à travailler avec Service Bus. Si vous n'en avez pas, vous pouvez vous inscrire [ici](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF) pour bénéficier d'un essai gratuit.
+Vous aurez besoin d'un compte Azure pour commencer à travailler avec Service Bus. Si vous n'en avez pas, vous pouvez vous inscrire [ici](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF) pour bénéficier d'un essai gratuit.
 
 ### Création d'un espace de noms de service
 
@@ -63,7 +63,7 @@ Une fois que vous avez un abonnement, vous pouvez créer un nouvel espace de nom
 
 ### Installez le package NuGet
 
-Pour utiliser l'espace de noms de service Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Vous pouvez retrouver cet assembly dans le kit de développement logiciel (SDK) Microsoft Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement (SDK) de Microsoft Azure](http://azure.microsoft.com/downloads/). Toutefois, le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus disponibles. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
+Pour utiliser l'espace de noms de service Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Vous pouvez retrouver cet assembly dans le kit de développement logiciel (SDK) Microsoft Azure. Le téléchargement est disponible sur la [page de téléchargement du kit de développement (SDK) de Microsoft Azure](https://azure.microsoft.com/downloads/). Toutefois, le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus disponibles. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Créez la file d'attente
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Maintenant que vous avez appris les fondamentaux des files d'attente, consultez la section [Créer des applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour poursuivre cette discussion à l'aide des fonctions publication/abonnement de la messagerie répartie de Service Bus.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

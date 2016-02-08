@@ -62,12 +62,12 @@ Le diagramme ci-dessous montre les composants de haut niveau utilisés dans l'in
 
 En examinant les zones vertes du diagramme précédent, vous verrez que la solution WhatToPedia s'appuie sur les services suivants :
 
-- [Azure Search](http://azure.microsoft.com/services/search/)
-- [Sites Web Azure avec MVC 4](http://azure.microsoft.com/services/websites/)
+- [Azure Search](https://azure.microsoft.com/services/search/)
+- [Sites Web Azure avec MVC 4](https://azure.microsoft.com/services/websites/)
 - [WebJobs Azure pour les tâches planifiées](../websites-webjobs-resources.md)
-- [Base de données SQL Azure](http://azure.microsoft.com/services/sql-database/)
-- [Stockage Azure BLOB](http://azure.microsoft.com/services/storage/)
-- [Service de messagerie SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
+- [Stockage Azure BLOB](https://azure.microsoft.com/services/storage/)
+- [Service de messagerie SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 Les données et la recherche constituent le cœur de la solution. Le flux de données entre le fournisseur Revendeur et le client final est illustré ci-dessous :
 
@@ -170,7 +170,7 @@ Toutes les tâches web ont été développées sous forme d'applications de cons
 
 La tâche est programmée pour s'exécuter toutes les 5 minutes comme une tâche web planifiée. Nous avons calculé que le service permet de transférer 3 000 documents en trois minutes environ, ce qui répond à nos exigences.
 
-> [AZURE.NOTE]Un prototype de fonctionnalité d'indexeur a récemment été introduit dans Azure Search. Cette fonctionnalité a été développée trop tard pour figurer dans notre première version, mais elle semble être aussi efficace que notre tâche d'indexeur pour résoudre le même problème, en automatisant les opérations de chargement de données.
+> [AZURE.NOTE] Un prototype de fonctionnalité d'indexeur a récemment été introduit dans Azure Search. Cette fonctionnalité a été développée trop tard pour figurer dans notre première version, mais elle semble être aussi efficace que notre tâche d'indexeur pour résoudre le même problème, en automatisant les opérations de chargement de données.
 
 
 ###Stratégie de sauvegarde
@@ -193,7 +193,7 @@ Auparavant, notre code instaurait une pagination, des décomptes et d'autres com
 
 Le plus grand défi au cours de la mise en œuvre venait du fait qu'il s'agissait d'une version préliminaire et qu'il était difficile de trouver des informations et des expériences partagées. Après avoir rassemblé les pièces du puzzle, nous avons découvert que le service Azure Search était relativement simple en raison de l'API REST et du format de données JSON. Nous pouvions lancer le framework directement à partir de la plupart des plug-ins source ouverts comme JQuery JSON.Net, et utiliser des outils tels que Fiddler pour effectuer des tests rapides et le débogage.
 
-> [AZURE.NOTE]Outre la préparation des données, le fait que les développeurs du prototype comprenaient déjà le fonctionnement de la technologie de recherche a amélioré notre productivité et notre capacité à exploiter les fonctionnalités intégrées. Si l'on considère la construction des requêtes de recherche, la navigation à facettes, les filtres, etc., on s'attendrait à ce que la phase du prototype soit plus longue.
+> [AZURE.NOTE] Outre la préparation des données, le fait que les développeurs du prototype comprenaient déjà le fonctionnement de la technologie de recherche a amélioré notre productivité et notre capacité à exploiter les fonctionnalités intégrées. Si l'on considère la construction des requêtes de recherche, la navigation à facettes, les filtres, etc., on s'attendrait à ce que la phase du prototype soit plus longue.
 
 ###Contrôle des facettes sur la page de présentation de la recherche
 
@@ -217,7 +217,7 @@ Nous espérons que cette étude de cas vous a été utile. Si vous décidez d'ut
 
 - [Forum MSDN consacré à Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Page de documentation sur Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Page de documentation sur Azure.com](https://azure.microsoft.com/documentation/services/search/)
 - [Documentation Azure Search sur MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
@@ -421,4 +421,4 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

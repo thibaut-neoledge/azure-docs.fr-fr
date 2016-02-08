@@ -47,7 +47,7 @@ Le nombre total de « points de rétention » (points à partir duquel un clie
 
 Le nombre total de points de récupération est 56.
 
-> [AZURE.NOTE]La sauvegarde Azure n'impose aucune restriction sur le nombre de points de récupération.
+> [AZURE.NOTE] La sauvegarde Azure n'impose aucune restriction sur le nombre de points de récupération.
 
 ## Configuration avancée
 En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible.
@@ -60,4 +60,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

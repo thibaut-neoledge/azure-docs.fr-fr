@@ -25,7 +25,7 @@ Ce didacticiel explique comment utiliser le service StorSimple Manager pour cré
 
 Le service StorSimple Manager est une extension du portail Azure Classic qui vous permet de gérer votre solution StorSimple à partir d’une seule interface Web. Outre la gestion des volumes, vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services StorSimple, afficher et gérer les appareils, afficher les alertes, ainsi que pour afficher et gérer les stratégies de sauvegarde et le catalogue de sauvegarde.
 
-> [AZURE.NOTE]Azure StorSimple peut créer uniquement des volumes alloués dynamiquement. Vous ne pouvez pas créer de volumes entièrement ou partiellement alloués sur un système Azure StorSimple.
+> [AZURE.NOTE] Azure StorSimple peut créer uniquement des volumes alloués dynamiquement. Vous ne pouvez pas créer de volumes entièrement ou partiellement alloués sur un système Azure StorSimple.
 >
 > L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, Azure StorSimple utilise l’allocation dynamique afin d’allouer juste assez d’espace pour répondre aux besoins actuels. La nature élastique du stockage cloud simplifie cette approche, car Azure StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes.
 
@@ -90,7 +90,7 @@ Le nouveau volume est maintenant prêt à l’emploi.
 
 Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de modifier les hôtes qui peuvent y accéder.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
 > - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
@@ -108,14 +108,14 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
   - Modifier le **nom** et le **type d’application**.
   - Augmenter la **capacité allouée**. La **capacité allouée** peut uniquement être augmentée. Vous ne pouvez pas réduire la taille d’un volume après sa création.
 
-    > [AZURE.NOTE]Vous ne pouvez pas modifier le conteneur de volumes après qu’il a été affecté à un volume.
+    > [AZURE.NOTE] Vous ne pouvez pas modifier le conteneur de volumes après qu’il a été affecté à un volume.
 
 5. Sous **Paramètres supplémentaires**, vous pouvez effectuer les opérations suivantes :
 
   - Modifier les enregistrements de contrôle d’accès, à condition que le volume soit hors connexion. Si le volume est en ligne, vous devez d’abord le mettre hors connexion. Reportez-vous à la procédure [Mise hors connexion d’un volume](#take-a-volume-offline) avant de modifier l’enregistrement de contrôle d’accès.
   - Modifiez la liste des enregistrements de contrôle d’accès une fois que le volume est hors connexion.
  
-    > [AZURE.NOTE]Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut pour ce volume** pour le volume en question.
+    > [AZURE.NOTE] Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut pour ce volume** pour le volume en question.
 
 6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
@@ -128,7 +128,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 ![Vidéo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment étendre un volume, cliquez [ici](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Pour visionner une vidéo expliquant comment étendre un volume, cliquez [ici](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Mise hors connexion d’un volume
 
@@ -149,11 +149,11 @@ Vous devrez peut-être mettre un volume hors connexion si vous envisagez de le m
 
     Une fois qu’un volume est hors connexion, l’option **Mettre en ligne** devient disponible.
 
-> [AZURE.NOTE]La commande **Mettre hors connexion** permet de demander à l’appareil de mettre le volume hors connexion. Si les ordinateurs hôtes utilisent toujours le volume, les connexions correspondantes sont rompues et la mise hors connexion du volume n’échoue pas.
+> [AZURE.NOTE] La commande **Mettre hors connexion** permet de demander à l’appareil de mettre le volume hors connexion. Si les ordinateurs hôtes utilisent toujours le volume, les connexions correspondantes sont rompues et la mise hors connexion du volume n’échoue pas.
 
 ## Suppression d’un volume
 
-> [AZURE.IMPORTANT]Vous pouvez supprimer un volume uniquement s’il est hors connexion.
+> [AZURE.IMPORTANT] Vous pouvez supprimer un volume uniquement s’il est hors connexion.
 
 Pour supprimer un volume, procédez comme indiqué ci-dessous.
 
@@ -198,4 +198,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

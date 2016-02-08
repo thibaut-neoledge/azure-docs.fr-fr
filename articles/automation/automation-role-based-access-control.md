@@ -37,13 +37,13 @@ Dans cet article, nous allons vous guider dans la configuration de RBAC dans Az
 
 ## Configurer RBAC pour votre compte Automation à l’aide du portail Azure
 
-1.	Connectez-vous au [portail Azure](http://portal.azure.com/) et ouvrez votre compte Automation à partir du panneau Comptes Automation.  
+1.	Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation à partir du panneau Comptes Automation.  
 
 2.	Cliquez sur le contrôle **Accès** dans l’angle supérieur droit. Cette opération ouvre le panneau **Utilisateurs** où vous pouvez ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et afficher les rôles existants qui peuvent être configurés pour le compte Automation.
 
     ![Bouton Accéder](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE]Le groupe **Administrateurs des abonnements** existe déjà en tant qu’utilisateur par défaut. Le groupe Active Directory Administrateurs des abonnements inclut les administrateurs et les coadministrateurs de services fédérés pour votre abonnement Azure. L’administrateur de services fédérés est le propriétaire de votre abonnement Azure et de ses ressources, et dispose du rôle de propriétaire hérité pour les comptes Automation. En d’autres termes, l’accès est **hérité** pour les **administrateurs et coadministrateurs de services fédérés** d’un abonnement et il est **affecté** à tous les autres utilisateurs. Cliquez sur **Administrateurs des abonnements** pour afficher plus de détails sur leurs autorisations.
+>[AZURE.NOTE]  Le groupe **Administrateurs des abonnements** existe déjà en tant qu’utilisateur par défaut. Le groupe Active Directory Administrateurs des abonnements inclut les administrateurs et les coadministrateurs de services fédérés pour votre abonnement Azure. L’administrateur de services fédérés est le propriétaire de votre abonnement Azure et de ses ressources, et dispose du rôle de propriétaire hérité pour les comptes Automation. En d’autres termes, l’accès est **hérité** pour les **administrateurs et coadministrateurs de services fédérés** d’un abonnement et il est **affecté** à tous les autres utilisateurs. Cliquez sur **Administrateurs des abonnements** pour afficher plus de détails sur leurs autorisations.
 
 ### Ajouter un nouvel utilisateur et affecter un rôle
 
@@ -67,7 +67,7 @@ Vous pouvez également affecter un rôle à l’utilisateur à partir du panneau
 
 ![Affecter un rôle à partir du panneau Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
->[AZURE.NOTE]Le contrôle d’accès en fonction du rôle ne peut être défini qu’au niveau du compte Automation et pas au niveau d’une ressource située au-dessous de ce compte.
+>[AZURE.NOTE] Le contrôle d’accès en fonction du rôle ne peut être défini qu’au niveau du compte Automation et pas au niveau d’une ressource située au-dessous de ce compte.
 
 Vous pouvez affecter plusieurs rôles à un utilisateur, à un groupe ou à une application. Par exemple, si nous ajoutons les rôles **Opérateur Automation** et **Lecteur** pour l’utilisateur, il pourra alors afficher toutes les ressources Automation et exécuter des tâches de Runbook. Vous pouvez développer la liste déroulante pour afficher la liste des rôles affectés à l’utilisateur.
 
@@ -139,4 +139,4 @@ Dans les applets de commande indiquées ci-dessus, remplacez le nom de connexion
 - Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 - Pour en savoir plus sur les différents types de Runbook, consultez l’article [Types de Runbook Azure Automation](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

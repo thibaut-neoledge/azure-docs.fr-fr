@@ -53,7 +53,8 @@ Alerte de fraude peut être configuré et installé de manière à ce que vos ut
 6.	Dans la zone de texte **Code permettant de signaler une fraude durant le message d'accueil initial**, saisissez un code qui peut être utilisé lors de la vérification de l'appel. Si un utilisateur saisit ce code et le signe #, à la place du signe # seul, une alerte de fraude est alors signalée. 
 7.	Cliquez sur Enregistrer au bas de la page.
 
->[AZURE.NOTE]Le message d'accueil de Microsoft par défaut demande aux utilisateurs d'appuyer sur 0# pour envoyer une alerte de fraude. Si vous utilisez un code autre que 0, vous devrez enregistrer et charger vos propres messages d'accueil vocaux personnalisés avec les instructions appropriées.
+>[AZURE.NOTE]
+Le message d'accueil de Microsoft par défaut demande aux utilisateurs d'appuyer sur 0# pour envoyer une alerte de fraude. Si vous utilisez un code autre que 0, vous devrez enregistrer et charger vos propres messages d'accueil vocaux personnalisés avec les instructions appropriées.
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@ Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'app
 
 ### Pour afficher le rapport de fraude
 
-1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Ouvrez une session sur [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
@@ -106,7 +107,7 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 
 ### Pour afficher le rapport de contournement à usage unique
 
-1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Ouvrez une session sur [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
@@ -210,7 +211,7 @@ En dehors du réseau d'entreprise|Pour les flux de navigateur, l'authentificatio
 
 Dans certaines applications, telles qu’Office 2010 (ou version antérieure) et Apple Mail, vous ne pouvez pas utiliser l’authentification multifacteur. Pour utiliser ces applications, vous devrez utiliser des « mots de passe d’application » à la place de votre mot de passe traditionnel. Le mot de passe d'application permet à l’application de contourner l'authentification multifacteur et de continuer à fonctionner.
 
->[AZURE.NOTE]Authentification moderne pour les clients Office 2013
+>[AZURE.NOTE] Authentification moderne pour les clients Office 2013
 >
 > Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d'informations, consultez la rubrique [Version préliminaire publique de l'authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -230,7 +231,7 @@ Expérience d'authentification|Pour les applications avec navigateur|Pour les ap
 - À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe. Il vous faudra supprimer l’un de vos mots de passe d’application existants pour pouvoir en créer un nouveau.
 - Une fois l’authentification multifacteur activée sur un compte d’utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur tels qu’Outlook et Lync, mais les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application via des applications sans navigateur telles que Windows PowerShell, même si l’utilisateur dispose d’un compte d’administrateur. Vérifiez que vous créez un compte de service avec un mot de passe fort pour exécuter des scripts PowerShell et que vous n’activez pas ce compte pour l’authentification multifacteur.
 
->[AZURE.WARNING]Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique de cloud.
+>[AZURE.WARNING]  Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique de cloud.
 >
 >N’oubliez pas que les mots de passe d’application ne fonctionneront pas dans les environnements hybrides où les clients communiquent avec à la fois avec les points de terminaison locaux et de découverte automatique, car les mots de passe de domaine sont tenus de s’authentifier sur le site et les mots de passe d’application doivent s’authentifier avec le cloud.
 
@@ -338,7 +339,7 @@ Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez res
 - Si leur compte d'entreprise est devenu compromis
 - Si un appareil mémorisé a été perdu ou volé
 
-> [AZURE.NOTE]Cette fonctionnalité est implémentée comme un cache de cookie du navigateur. Elle ne fonctionnera pas si les cookies de votre navigateur ne sont pas activés.
+> [AZURE.NOTE] Cette fonctionnalité est implémentée comme un cache de cookie du navigateur. Elle ne fonctionnera pas si les cookies de votre navigateur ne sont pas activés.
 
 ### Activation/désactivation de MFA pour les appareils mémorisés et définis
 
@@ -351,4 +352,4 @@ Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez res
 <li>Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs d’interrompre l'authentification multifacteur pour qu’un appareil puisse être mémorisé**.</li>
 ![Interrompre les appareils](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Définir le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.</li> <li>Cliquez sur Enregistrer.</li> <li>Cliquez sur Fermer.</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

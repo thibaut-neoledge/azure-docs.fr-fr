@@ -28,7 +28,7 @@ L’opération **Ajouter des services connectés** installe les packages NuGet a
 
  - Pour plus d’informations sur la manipulation de files d’attente en code, consultez la page [Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md).
  - Pour des informations générales sur Azure Storage, consultez la [documentation du stockage](https://azure.microsoft.com/documentation/services/storage/).
- - Pour des informations générales sur les services cloud Azure, consultez la [documentation Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/).
+ - Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](https://azure.microsoft.com/documentation/services/cloud-services/).
  - Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net).
 
 
@@ -50,18 +50,18 @@ Pour accéder à des files d’attente dans les projets Visual Studio Cloud Se
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenez un objet **CloudQueueClient** pour référencer les objets de file d’attente de votre compte de stockage.
+3. Obtenez un objet **CloudQueueClient** pour référencer les objets de file d’attente de votre compte de stockage.
 
 	    // Create the queue client.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Obtenez un objet **CloudQueue** pour référencer une file d’attente spécifique.
+4. Obtenez un objet **CloudQueue** pour référencer une file d’attente spécifique.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**REMARQUE** : utilisez tout le code ci-dessus avant le code des exemples suivants.
+**REMARQUE :** placez tout le code ci-dessus avant celui des exemples suivants.
 
 ## Créer une file d’attente dans le code
 
@@ -192,4 +192,4 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

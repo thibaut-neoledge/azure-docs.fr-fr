@@ -54,7 +54,7 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
 2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
@@ -111,7 +111,7 @@ Suivez les instructions de l’article [Créer un pool de base de données élas
 
 ## Surveillance des bases de données après la mise à niveau vers SQL Database V12
 
->[AZURE.IMPORTANT]Effectuez la mise à niveau vers la dernière version de SQL Server Management Studio (SSMS) pour tirer parti des nouvelles fonctionnalités de la version 12. [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Effectuez la mise à niveau vers la dernière version de SQL Server Management Studio (SSMS) pour tirer parti des nouvelles fonctionnalités de la version 12. [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 	
 Après la mise à niveau, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et pour optimiser l’utilisation en fonction des besoins.
 
@@ -169,4 +169,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

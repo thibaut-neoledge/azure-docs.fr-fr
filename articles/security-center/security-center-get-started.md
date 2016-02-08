@@ -20,16 +20,16 @@
 
 Ce document vous aide à prendre rapidement en main le Centre de sécurité Azure en vous guidant à travers les composants de surveillance de sécurité et de gestion des stratégies de sécurité et vers les étapes suivantes.
 
-> [AZURE.NOTE]Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure. Ce document constitue une présentation du service et utilise un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure. Ce document constitue une présentation du service et utilise un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
 ## Qu’est-ce que le Centre de sécurité Azure ?
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 ## Composants requis
 
-Pour utiliser le Centre de sécurité Azure, vous devez disposer d’un abonnement à Microsoft Azure. Le Centre de sécurité Azure est activé avec votre abonnement. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
+Pour utiliser le Centre de sécurité Azure, vous devez disposer d’un abonnement à Microsoft Azure. Le Centre de sécurité Azure est activé avec votre abonnement. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-Le Centre de sécurité Azure est accessible à partir du [portail Azure](http://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail](https://azure.microsoft.com/documentation/services/azure-portal/).
+Le Centre de sécurité Azure est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 
 ## Accès au Centre de sécurité Azure
@@ -48,7 +48,7 @@ Configurez une **stratégie** de sécurité pour vos abonnements :
 4. Cliquez sur la mosaïque **Stratégie de sécurité** dans le panneau **Centre de sécurité**.
 5. Dans le panneau **Stratégie de sécurité – Définir une stratégie par abonnement (Define policy per subscription)**, sélectionnez un abonnement.
 6. Dans le panneau **stratégie de sécurité**, activez l’option **Collecte des données** pour collecter automatiquement les journaux. L’activation de l’option **Collecte des données** activera également l’extension de la surveillance sur toutes les machines virtuelles actuelles et nouvelles dans l’abonnement.
-7. Cliquez sur **Choose storage accounts (Sélectionner des comptes de stockage)**. Pour chaque région dans lesquelles des machines virtuelles s’exécutent, vous devez choisir le compte de stockage où stocker les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte sera créé. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
+7. Cliquez sur **Choose storage accounts (Sélectionner des comptes de stockage)**. Pour chaque région dans laquelle des machines virtuelles s’exécutent, vous devez choisir le compte de stockage où stocker les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte sera créé. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
 8. Activez les **Recommandations** à afficher dans le cadre de votre stratégie de sécurité. Exemples :
 
   - L’activation des **mises à jour du système** permet d’analyser toutes les machines virtuelles prises en charge pour les mises à jour du système d’exploitation manquantes.
@@ -103,4 +103,4 @@ Ce document vous a présenté les composants de surveillance de sécurité et de
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

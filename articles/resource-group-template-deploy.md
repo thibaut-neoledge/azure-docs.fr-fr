@@ -56,7 +56,7 @@ Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiq
          ...
 
 
-2. Si vous possédez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Select-AzureRmSubscription**.
+2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Select-AzureRmSubscription**.
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
@@ -161,7 +161,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
    
      Vous disposez des options suivantes pour fournir les valeurs des paramètres :
 
-     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre présente le format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
              azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -257,19 +257,29 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
+Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](resource-group-authoring-templates.md/#parameters). Pour plus d’informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
+
 ## Étapes suivantes
-- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
+- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Pour obtenir de l’aide sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans des environnements différents, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md).
-- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions des modèles](resource-group-template-functions.md).
+- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

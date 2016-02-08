@@ -7,10 +7,10 @@ jeux de données dans une fabrique de données | 500 | 5 000
 tranches simultanées par jeu de données | 10 | 10
 octets par objet pour les objets pipeline <sup>1</sup> | 200 Ko | 2 000 Ko
 octets par objet pour les objets dataset et linkedservice <sup>1</sup> | 30 Ko | 2 000 Ko
-champs par objet | 100 | [Contacter le support technique](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-octets par nom de champ ou identificateur | 2 Ko | [Contacter le support technique](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-octets par champ | 30 Ko | [Contacter le support technique](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> | 48 | [Contacter le support technique](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+champs par objet | 100 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+octets par nom de champ ou identificateur | 2 Ko | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+octets par champ | 30 Ko | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> | 48 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline | 1 000 | MaxInt (32 bits)
 
 <sup>1</sup> Les objets Pipeline, DataSet et LinkedService correspondent à un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide du service Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
@@ -29,4 +29,4 @@ Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

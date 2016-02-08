@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
@@ -26,7 +26,7 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure]https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -242,7 +242,7 @@ Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un t
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
+> [AZURE.NOTE] La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
 
 
 ### Annuler les travaux
@@ -392,4 +392,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

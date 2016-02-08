@@ -24,11 +24,10 @@ Cet article décrit les différents environnements de calcul que vous pouvez uti
 
 Dans ce type de configuration, l'environnement de calcul est entièrement géré par le service Azure Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Vous pouvez créer un service lié pour un environnement de calcul à la demande, le configurer et contrôler les paramètres granulaires pour l'exécution de la tâche, la gestion du cluster et les actions d'amorçage.
 
-> [AZURE.NOTE]La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight.
+> [AZURE.NOTE] La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight.
 
 ## Service lié à la demande Azure HDInsight
-
-Le cluster HDInsight à la demande est automatiquement créé par le service Azure Data Factory pour traiter les données. Le cluster est créé dans la région identique à celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster.
+Le service Azure Data Factory peut automatiquement créer un cluster HDInsight à la demande sous Windows/Linux pour traiter les données. Le cluster est créé dans la région identique à celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster.
 
 Notez les points **importants** suivants sur le service lié HDInsight à la demande :
 
@@ -36,28 +35,49 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 - Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage associé au cluster HDInsight. Vous pouvez accéder à ces journaux à partir du panneau **Détails sur l’exécution d’activité** du portail Azure Classic. Pour plus de détails, consultez l'article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 - Vous sera facturé uniquement lorsque le cluster HDInsight est actif et exécute des tâches.
 
-> [AZURE.IMPORTANT]Il faut généralement plus de **15 minutes** pour mettre en service un cluster Azure HDInsight à la demande.
+> [AZURE.IMPORTANT] Il faut généralement plus de **15 minutes** pour mettre en service un cluster Azure HDInsight à la demande.
 
 ### Exemple
+Le JSON suivant définit un service lié HDInsight à la demande. La fabrique de données crée automatiquement un cluster HDInsight **sous Windows** lors du traitement d'une tranche de données. Notez que la valeur **osType** n'est pas spécifiée dans cet exemple de JSON, et la valeur par défaut de cette propriété est **Windows**.
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
 	  "properties": {
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
 	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	      "clusterSize": 1,
+	      "timeToLive": "00:30:00",
+	      "linkedServiceName": "StorageLinkedService"
 	    }
 	  }
 	}
+
+
+Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le service Data Factory crée automatiquement un cluster HDInsight **sous Linux** lors du traitement d'une tranche de données. Vous devez spécifier des valeurs pour **sshUserName** et **sshPassword**.
+
+
+	{
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "hubName": "getstarteddf0121_hub",
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "version": "3.2",
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "sshPassword": "MyPassword!",
+	            "sshUserName": "myuser",
+	            "linkedServiceName": "StorageLinkedService",
+	        }
+	    }
+	}
+
+> [AZURE.IMPORTANT] 
+Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
+> 
+> Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
 ### Propriétés
 
@@ -71,7 +91,17 @@ linkedServiceName | Le magasin d'objets blob utilisé par le cluster à la deman
 additionalLinkedServiceNames | Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. | Non
 osType | Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. | Non
 hcatalogLinkedServiceName | Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande sera créé à l’aide de la base de données SQL Azure comme metastore. | Non
+sshUser | Utilisateur SSH pour le cluster HDInsight sous Linux | Oui (uniquement pour Linux)
+sshPassword | Mot de passe SSH pour le cluster HDInsight sous Linux | Oui (uniquement pour Linux)
 
+
+#### Exemple JSON additionalLinkedServiceNames
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### Propriétés avancées
 
 Vous pouvez également spécifier les propriétés suivantes pour la configuration granulaire du cluster HDInsight à la demande.
@@ -296,8 +326,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données de l’utilisateur. | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données de l’utilisateur. | <p> Valeur maximale de 90 jours si l’utilisateur exécute des tranches en fonction de sa source de service lié OAuth au moins une fois tous les 14 jours. </p><p>Au cours des 90 jours attendus, dès lors que l’utilisateur n’a pas exécuté de tranches en fonction de cette source pendant une période de 14 jours, les informations d’identification expirent immédiatement 14 jours après la dernière tranche.</p> | 
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
 
@@ -334,4 +364,4 @@ Consultez les rubriques [AzureDataLakeStoreLinkedService classe](https://msdn.mi
 
 Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

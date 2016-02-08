@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Utilisation de Recherche de diagnostic dans Application Insights
@@ -20,6 +20,9 @@
 Recherche de diagnostic est le panneau d’[Application Insights][start] qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple les pages vues, les exceptions ou les demandes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
 ## Quand voyez-vous Recherche de diagnostic ?
+
+
+### Dans le portail Azure
 
 Vous pouvez ouvrir Recherche de diagnostic de façon explicite :
 
@@ -38,7 +41,21 @@ La partie principale de Recherche de diagnostic est une liste d’éléments de 
 Les événements s’affichent généralement dans Recherche de diagnostic avant d’apparaître dans Metrics Explorer. Même si le panneau est actualisé à intervalles réguliers, vous pouvez cliquer sur Actualiser si vous attendez un événement spécifique.
 
 
-> [AZURE.NOTE]Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
+### Dans Visual Studio
+
+Ouvrez la fenêtre de recherche dans Visual Studio :
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+La fenêtre de recherche comporte les mêmes fonctionnalités que le portail web :
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### Échantillonnage
+
+Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes.
+> [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
 
 ## Inspecter les éléments un par un
@@ -203,4 +220,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

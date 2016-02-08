@@ -40,7 +40,7 @@ La fonctionnalité **Tâches de bases de données élastiques** est actuellement
 * Définir des calendriers d'exécution
 * Agréger des données à partir d’une collection de bases de données SQL Azure dans un tableau de destination unique
 
-> [AZURE.NOTE]Dans le portail Azure, seul un ensemble réduit de fonctions limitées aux pools élastiques SQL Azure est disponible. Utiliser les APIs PowerShell pour accéder à l'ensemble des fonctionnalités actuelles.
+> [AZURE.NOTE] Dans le portail Azure, seul un ensemble réduit de fonctions limitées aux pools élastiques SQL Azure est disponible. Utiliser les APIs PowerShell pour accéder à l'ensemble des fonctionnalités actuelles.
 
 ## Scénarios
 
@@ -88,10 +88,10 @@ Les groupes personnalisés, quant à eux, sont définis de façon rigide. Vous d
 ## Composants et tarification 
 Les composants suivants fonctionnent en synergie pour créer un service Cloud Azure permettant l'exécution ad hoc de tâches administratives. Les composants sont installés et configurés automatiquement pendant l'installation, dans le cadre de votre abonnement. Vous pouvez identifier les services car ils portent tous le même nom généré automatiquement. Le nom est unique et se compose d'un préfixe « edj » suivi de 21 caractères générés de façon aléatoire.
 
-* **Service Cloud Azure** : les tâches de base de données élastiques (version préliminaire) sont fournies sous forme d'un service Cloud Azure hébergé par le client pour exécuter les tâches demandées. À partir du portail, le service est déployé et hébergé dans votre abonnement Microsoft Azure. Par défaut, le service déployé s'exécute avec un minimum de deux rôles de travail pour garantir une haute disponibilité. La taille par défaut de chaque rôle de travail (ElasticDatabaseJobWorker) s'exécute sur une instance A0. Pour la tarification, voir [Tarification des services cloud](http://azure.microsoft.com/pricing/details/cloud-services/). 
-* **Base de données SQL Azure** : le service utilise une base de données SQL Azure appelée **base de données de contrôle** pour stocker toutes les métadonnées de la tâche. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification de la base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
-* **Azure Service Bus** : Azure Service Bus sert à coordonner le travail au sein du service Cloud Azure. Voir [Tarification de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
-* **Azure Storage** : un compte Azure Storage sert à stocker la journalisation des résultats de diagnostic au cas où un problème nécessite un débogage supplémentaire (une pratique courante pour les [diagnostics Azure](cloud-services-dotnet-diagnostics.md)). Pour la tarification, voir[Tarification d'Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
+* **Service Cloud Azure** : les tâches de base de données élastiques (version préliminaire) sont fournies sous forme d'un service Cloud Azure hébergé par le client pour exécuter les tâches demandées. À partir du portail, le service est déployé et hébergé dans votre abonnement Microsoft Azure. Par défaut, le service déployé s'exécute avec un minimum de deux rôles de travail pour garantir une haute disponibilité. La taille par défaut de chaque rôle de travail (ElasticDatabaseJobWorker) s'exécute sur une instance A0. Pour la tarification, voir [Tarification des services cloud](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Base de données SQL Azure** : le service utilise une base de données SQL Azure appelée **base de données de contrôle** pour stocker toutes les métadonnées de la tâche. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Azure Service Bus** : Azure Service Bus sert à coordonner le travail au sein du service Cloud Azure. Voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Azure Storage** : un compte Azure Storage sert à stocker la journalisation des résultats de diagnostic au cas où un problème nécessite un débogage supplémentaire (une pratique courante pour les [diagnostics Azure](cloud-services-dotnet-diagnostics.md)). Pour la tarification, voir[Tarification d'Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Fonctionnement des tâches de bases de données élastiques
 1.	Une base de données SQL Azure est conçue comme une base de données de contrôle qui stocke toutes les métadonnées et les données d’état.
@@ -124,4 +124,4 @@ Il existe plusieurs types de tâches qui effectuent l'exécution des tâches :
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

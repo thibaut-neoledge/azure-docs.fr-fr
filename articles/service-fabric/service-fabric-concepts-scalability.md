@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Mise à l'échelle des applications Service Fabric
@@ -52,7 +52,7 @@ Toutefois, cette approche est basée sur les clients utilisant des informations 
 
 ## Étapes suivantes
 
-Pour plus d'informations sur les concepts propres à Service Fabric, consultez les articles suivants :
+Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
 - [Disponibilité des services Service Fabric](service-fabric-availability-services.md)
 
@@ -60,4 +60,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

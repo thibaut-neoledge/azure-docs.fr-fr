@@ -24,7 +24,7 @@
 
 Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#NextSteps).
 
-> [AZURE.NOTE]un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
+> [AZURE.NOTE] un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -46,7 +46,7 @@ Ajoutez les instructions d’importation suivantes au début du fichier Java dan
 
 ## Configurer une chaîne de connexion au stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion au stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution d’une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](portal.azure.com). Cet exemple montre comment déclarer un champ statique pour qu’il contienne la chaîne de connexion.
+Un client de stockage Azure utilise une chaîne de connexion au stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution d’une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](https://portal.azure.com). Cet exemple montre comment déclarer un champ statique pour qu’il contienne la chaîne de connexion.
 
     // Define the connection-string with your values
     public static final String storageConnectionString =
@@ -66,7 +66,7 @@ Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces 
 
 Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence des conteneurs et objets blob. Le code suivant crée un objet **CloudBlobClient**.
 
-> [AZURE.NOTE]D’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
+> [AZURE.NOTE] D’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -269,4 +269,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

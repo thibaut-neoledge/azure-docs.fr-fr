@@ -29,7 +29,7 @@ Lorsque vous créez une application web, Azure l'attribue à un sous-domaine de 
 
 Pour une application web de production, vous pouvez souhaiter afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -61,7 +61,7 @@ Le DNS (Domain Name System) utilise des enregistrements de données pour mapper 
 
 Si l'adresse IP change, une entrée CNAME reste valide, tandis qu'un enregistrement A doit être mis à jour. Toutefois, certains bureaux d'enregistrement de domaines n'autorisent pas les enregistrements CNAME pour le domaine racine ou les domaines avec caractère générique. Dans ce cas, utilisez un enregistrement A.
 
-> [AZURE.NOTE]L’adresse IP peut être modifiée si vous supprimez et recréez votre application web ou la faites de nouveau passer en mode Gratuit.
+> [AZURE.NOTE] L’adresse IP peut être modifiée si vous supprimez et recréez votre application web ou la faites de nouveau passer en mode Gratuit.
 
 
 ## Recherche de l'adresse IP virtuelle
@@ -112,7 +112,7 @@ Dans le cas où le nom de domaine personnalisé est « contoso.com », cela cré
 - **contoso.com** mappé vers 168.62.48.183.
 - **www.contoso.com** mappé vers **contoso.azurewebsites.net**.
 
->[AZURE.NOTE]Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE] Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Création d’un enregistrement awverify (enregistrements A uniquement)
@@ -128,7 +128,7 @@ Les visiteurs de votre application web ne verront pas le sous-domaine awverify. 
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Vérifier la propagation DNS
 
@@ -136,7 +136,7 @@ Une fois les étapes de configuration terminées, la propagation des modificatio
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE]La propagation des entrées DNS prend 48 heures (parfois plus). Même si vous avez tout configuré correctement, vous devez faire preuve de patience.
+> [AZURE.NOTE] La propagation des entrées DNS prend 48 heures (parfois plus). Même si vous avez tout configuré correctement, vous devez faire preuve de patience.
 
 ## Étapes suivantes
 
@@ -155,4 +155,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

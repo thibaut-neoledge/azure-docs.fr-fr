@@ -31,8 +31,8 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 
 **Ressources supplémentaires**
 
-* [Blog Microsoft Azure](http://azure.microsoft.com/blog/)
+* [Blog Microsoft Azure](https://azure.microsoft.com/blog/)
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

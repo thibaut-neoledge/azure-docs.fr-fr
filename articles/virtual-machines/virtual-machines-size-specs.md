@@ -29,7 +29,7 @@ Pour connaître les limites générales des machines virtuelles Azure, consultez
 
 Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS. Voici des considérations quant à certaines de ces tailles :
 
-*   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
+*   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
 *   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
@@ -37,7 +37,7 @@ Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS
 
 *   Les machines virtuelles de la série DS et GS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
-La taille de la machine virtuelle a une incidence sur la tarification. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Les coûts de stockage sont calculés séparément en fonction des pages utilisées dans le compte de stockage. Pour plus d’informations, voir les pages [Machines virtuelles Tarification](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur le stockage pour les machines virtuelles, consultez [À propos des disques et des disques durs virtuels pour les machines virtuelles](virtual-machines-disks-vhds.md).
+La taille de la machine virtuelle a une incidence sur la tarification. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Les coûts de stockage sont calculés séparément en fonction des pages utilisées dans le compte de stockage. Pour plus d’informations, voir les pages [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur le stockage pour les machines virtuelles, consultez [À propos des disques et des disques durs virtuels pour les machines virtuelles](virtual-machines-disks-vhds.md).
 
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
@@ -54,7 +54,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de comparer les performances de calcul (UC) des références Azure. Cela vous aidera à identifier facilement la référence la plus à même de répondre à vos besoins en termes de performances. L’unité ACU est actuellement normalisée sur une machine virtuelle de petite taille (Standard\_A1) correspondant à 100, et toutes les autres références représentent ensuite approximativement la rapidité avec laquelle la référence en question peut exécuter un test d’évaluation.
 
->[AZURE.IMPORTANT]Cette unité ACU est fournie uniquement à titre indicatif. Les résultats de votre charge de travail peuvent varier.
+>[AZURE.IMPORTANT] Cette unité ACU est fournie uniquement à titre indicatif. Les résultats de votre charge de travail peuvent varier.
 
 <br>
 
@@ -63,12 +63,7 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 |[Standard\_A0 (très petite)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (petite à grande)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -79,7 +74,7 @@ Les unités ACU signalées par un astérisque (*) utilisent la technologie Inte
 
 Les tableaux ci-après indiquent les tailles et les capacités qu’elles offrent.
 
->[AZURE.NOTE]La capacité de stockage est représentée avec 1024^3 octets comme unité de mesure pour les Go. Cette unité est parfois appelée gibioctet ou définition en base 2. Quand vous comparez des tailles qui utilisent des systèmes en base différente, n’oubliez pas que les tailles en base 2 peuvent paraître plus petites que celles en base 10, mais que pour une taille spécifique (par exemple, 1 Go), un système en base 2 offre une capacité plus élevée qu’un système en base 10, car 1 024^3 est supérieur à 1 000^3.
+>[AZURE.NOTE] La capacité de stockage est représentée avec 1024^3 octets comme unité de mesure pour les Go. Cette unité est parfois appelée gibioctet ou définition en base 2. Quand vous comparez des tailles qui utilisent des systèmes en base différente, n’oubliez pas que les tailles en base 2 peuvent paraître plus petites que celles en base 10, mais que pour une taille spécifique (par exemple, 1 Go), un système en base 2 offre une capacité plus élevée qu’un système en base 10, car 1 024^3 est supérieur à 1 000^3.
 
 <br>
 
@@ -189,4 +184,4 @@ Remarque : pour plus d’informations et pour connaître les éléments à pren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

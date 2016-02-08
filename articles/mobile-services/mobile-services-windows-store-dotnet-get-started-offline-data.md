@@ -33,7 +33,7 @@ Si vous préférez regarder une vidéo, le clip sur la droite suit la même proc
 
 Dans ce didacticiel, vous mettez à jour le projet d'application universelle développé dans le didacticiel [Prise en main de Mobile Services] pour prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au [portail Azure Classic] pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
->[AZURE.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services].
+>[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services].
 
 ##Composants requis
 
@@ -44,27 +44,27 @@ Ce didacticiel requiert les éléments suivants :
 * [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou version ultérieure)][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][SQLite store nuget]
 * [SQLite pour Windows 8.1](http://www.sqlite.org/download.html)
-* Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+* Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion
 
 Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'interagir avec une base de données locale lorsque vous vous trouvez dans un scénario hors connexion avec votre version de Mobile Service. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez un `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `IMobileServiceSyncTable`. Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
 
->[AZURE.NOTE]Vous pouvez ignorer cette section et simplement obtenir l'exemple de projet prenant déjà en charge le mode hors connexion dans le référentiel d'exemples de Github pour Mobile Services. L'exemple de projet prenant en charge le mode hors connexion se trouve ici, [Exemple de liste des tâches hors connexion].
+>[AZURE.NOTE] Vous pouvez ignorer cette section et simplement obtenir l'exemple de projet prenant déjà en charge le mode hors connexion dans le référentiel d'exemples de Github pour Mobile Services. L'exemple de projet prenant en charge le mode hors connexion se trouve ici, [Exemple de liste des tâches hors connexion].
 
 1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1.
 
     * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1].
     * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1].
 
-    >[AZURE.NOTE]Si vous utilisez Internet Explorer et que vous cliquez sur le lien pour installer SQLite, vous serez peut-être invité à télécharger le fichier .vsix en tant que fichier .zip. Enregistrez le fichier à un emplacement sur votre disque dur avec l'extension .vsix plutôt que .zip. Ensuite, double-cliquez sur le fichier .vsix dans l'Explorateur Windows pour exécuter l'installation.
+    >[AZURE.NOTE] Si vous utilisez Internet Explorer et que vous cliquez sur le lien pour installer SQLite, vous serez peut-être invité à télécharger le fichier .vsix en tant que fichier .zip. Enregistrez le fichier à un emplacement sur votre disque dur avec l'extension .vsix plutôt que .zip. Ensuite, double-cliquez sur le fichier .vsix dans l'Explorateur Windows pour exécuter l'installation.
 
 2. Dans Visual Studio, ouvrez le projet mené à bien dans le didacticiel [Prise en main de Mobile Services]. Installez le package NuGet **WindowsAzure.MobileServices.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1.
 
     * **Windows 8.1 :** dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet Windows 8.1, puis cliquez sur **Gérer les packages NuGet** pour exécuter le Gestionnaire de package NuGet. Recherchez **SQLiteStore** pour installer le package `WindowsAzure.MobileServices.SQLiteStore`.
     * **Windows Phone 8.1 :** cliquez avec le bouton droit sur le projet Windows Phone 8.1, puis cliquez sur **Gérer les packages Nuget** pour exécuter le Gestionnaire de packages NuGet. Recherchez **SQLiteStore** pour installer le package `WindowsAzure.MobileServices.SQLiteStore`.
 
-    >[AZURE.NOTE]Si l'installation crée une référence à une version antérieure de SQLite, supprimez simplement cette référence en double.
+    >[AZURE.NOTE] Si l'installation crée une référence à une version antérieure de SQLite, supprimez simplement cette référence en double.
 
     ![][2]
 
@@ -183,7 +183,7 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
 
     Dans cet exemple, nous récupérons tous les enregistrements du `todoTable` distant, mais nous aurions également pu filtrer les enregistrements en transmettant une requête. Le premier paramètre de `PullAsync` est un ID de requête utilisé pour la synchronisation incrémentielle, qui utilise l'horodatage `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `null` comme ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-    >[AZURE.NOTE]*Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
+    >[AZURE.NOTE] *Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
 
     Notez que le `MobileServicePushFailedException` peut survenir pour une opération push et une opération d'extraction. Elle peut se produire pour une extraction, car l'opération d'extraction exécute en interne une opération Push pour s'assurer que toutes les tables et toutes les relations sont cohérentes. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions relatives à la synchronisation.
 
@@ -283,4 +283,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

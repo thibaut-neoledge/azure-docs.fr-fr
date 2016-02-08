@@ -25,7 +25,7 @@ Dans ce document, vous allez découvrir comment utiliser Power BI pour créer un
 
 ## Composants requis
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un utilisateur Azure Active Directory avec un accès [Power BI](https://powerbi.com)
 
@@ -49,7 +49,7 @@ Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifi
 
 * **Data.cs** : décrit la ligne/l'objet de données qui sera envoyé à Power BI
 
-> [AZURE.WARNING]Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 (comme indiqué dans cet exemple) ou créez le jeu de données avant de déployer la topologie.
+> [AZURE.WARNING] Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 (comme indiqué dans cet exemple) ou créez le jeu de données avant de déployer la topologie.
 >
 > L'application de console **CreateDataset** incluse dans cette solution est fournie en exemple pour montrer comment créer le jeu de données en dehors de la topologie.
 
@@ -59,7 +59,7 @@ Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifi
 
 2. Suivez les étapes de la page [Inscrire une application](https://msdn.microsoft.com/library/dn877542.aspx) pour créer une inscription de l'application. Ces informations vous serviront pour accéder à l'API REST de Power BI.
 
-    > [AZURE.IMPORTANT]Enregistrez l'**ID du client** pour l'inscription de l'application.
+    > [AZURE.IMPORTANT] Enregistrez l'**ID du client** pour l'inscription de l'application.
 
 ## Télécharger l'exemple
 
@@ -83,7 +83,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Black
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **WordCount** et sélectionnez **Envoyer à Storm dans HDInsight**. Sélectionnez le cluster HDInsight dans la liste déroulante **Cluster Storm** de la boîte de dialogue.
 
-    > [AZURE.NOTE]L'affichage des noms de serveur dans la liste déroulante **Cluster Storm** peut prendre plusieurs secondes.
+    > [AZURE.NOTE] L'affichage des noms de serveur dans la liste déroulante **Cluster Storm** peut prendre plusieurs secondes.
     >
     > Si vous y êtes invité, entrez les informations d'identification de connexion à votre abonnement Azure. Si vous disposez de plusieurs abonnements, connectez-vous à celui qui contient votre cluster Storm dans HDInsight.
 
@@ -91,7 +91,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Black
 
     ![Les topologies, avec la topologie WordCount sélectionnée](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
 
-    > [AZURE.NOTE]Vous pouvez également afficher les topologies Storm dans l'Explorateur de serveurs : développez Azure, HDInsight, cliquez avec le bouton droit sur un cluster Storm dans HDInsight, puis sélectionnez Afficher les topologies Storm.
+    > [AZURE.NOTE] Vous pouvez également afficher les topologies Storm dans l'Explorateur de serveurs : développez Azure, HDInsight, cliquez avec le bouton droit sur un cluster Storm dans HDInsight, puis sélectionnez Afficher les topologies Storm.
 
 3. Quand vous affichez le **Résumé de la topologie**, faites défiler l'écran jusqu'à la section **Bolts**. Dans cette section, notez la colonne **Exécuté** du bolt **PowerBI**. Utilisez le bouton d'actualisation en haut de la page pour que la valeur zéro soit remplacée par une autre valeur. Quand ce nombre commence à augmenter, cela signifie que les éléments sont en cours d'écriture dans Power BI.
 
@@ -139,4 +139,4 @@ Dans ce document, vous avez appris comment envoyer des données à partir d'une 
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

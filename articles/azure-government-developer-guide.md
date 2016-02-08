@@ -42,7 +42,7 @@ Microsoft fournit un certain nombre d'outils qui permettent de créer et déploy
 
 Durant la création et le déploiement d'applications pour les services Azure Government, par opposition au service global, les développeurs doivent connaître les principales différences qui existent entre ces deux services. Plus précisément, ils doivent savoir installer et configurer leur environnement de programmation, configurer les points de terminaison, écrire des applications et les déployer en tant que services dans Azure Government.
 
-Les informations contenues dans ce document résument ces différences et complètent les informations disponibles sur le site [Azure Government](http://www.azure.com/gov "Azure Government") et sur le site de la [bibliothèque technique de Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") sur MSDN. Des informations officielles sont également disponibles à de nombreux autres emplacements, par exemple le [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/ "Centre de gestion de la confidentialité Microsoft Azure"), le [Centre de documentation Azure](http://azure.microsoft.com/documentation/) et les [blogs Azure](http://azure.microsoft.com/blog/ "Blogs Azure").
+Les informations contenues dans ce document résument ces différences et complètent les informations disponibles sur le site [Azure Government](http://www.azure.com/gov "Azure Government") et sur le site de la [bibliothèque technique de Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") sur MSDN. Des informations officielles sont également disponibles à de nombreux autres emplacements, par exemple le [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/ "Centre de gestion de la confidentialité Microsoft Azure"/), le [Centre de documentation Azure](https://azure.microsoft.com/documentation/) et les [blogs Azure](https://azure.microsoft.com/blog/ "blogs Azure"/).
 
 Ce contenu est destiné aux partenaires et développeurs qui effectuent des déploiements dans Microsoft Azure Government.
 
@@ -77,7 +77,7 @@ Azure Government offre les services suivants dans les régions des états améri
 - ExpressRoute
 - etc.
 
-D'autres services sont disponibles. Par ailleurs, des services seront ajoutés de façon continue. Pour obtenir la liste actualisée des services, consultez la [page des régions](http://azure.microsoft.com/regions/#services) qui indique les régions disponibles et leurs services.
+D'autres services sont disponibles. Par ailleurs, des services seront ajoutés de façon continue. Pour obtenir la liste actualisée des services, consultez la [page des régions](https://azure.microsoft.com/regions/#services) qui indique les régions disponibles et leurs services.
 
 Actuellement, les centres de données Azure Government se trouvent dans les états américains de l'Iowa et de la Virginie. Consultez la page des régions ci-dessus pour connaître les centres de données et les services disponibles actuellement.
 
@@ -112,7 +112,7 @@ Si vous souhaitez en savoir plus sur Azure Governement, consultez certains des l
 
 - **[Blog d’Azure Government](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Conformité Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Conformité Azure](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -128,4 +128,4 @@ Si vous souhaitez en savoir plus sur Azure Governement, consultez certains des l
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

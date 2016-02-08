@@ -96,7 +96,7 @@ Créez un espace de travail Azure Machine Learning dans votre abonnement Azure. 
 
 Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes PowerShell suivantes pour télécharger les fichiers d’exemple de script SQL que nous partageons avec vous sur GitHub dans un répertoire local que vous spécifiez avec le paramètre *-DestDir*. Vous pouvez remplacer la valeur du paramètre *-DestDir* par un répertoire local. Si *-DestDir* n’existe pas, il est créé par le script PowerShell.
 
->[AZURE.NOTE]Vous devrez peut-être sélectionner **Exécuter en tant qu’administrateur** lors de l’exécution du script PowerShell suivant si le privilège Administrateur est nécessaire pour créer *DestDir* ou pour y écrire.
+>[AZURE.NOTE] Vous devrez peut-être sélectionner **Exécuter en tant qu’administrateur** lors de l’exécution du script PowerShell suivant si le privilège Administrateur est nécessaire pour créer *DestDir* ou pour y écrire.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -124,9 +124,9 @@ Ce fichier de script PowerShell exécute les tâches suivantes :
 
 Lorsque le script PowerShell s’exécute pour la première fois, vous devez entrer les informations de votre Azure SQL DW et de votre compte de stockage d’objets blob Azure. À l’issue de la première exécution de ce script PowerShell, les informations d’identification que vous avez entrées sont écrites dans le fichier de configuration SQLDW.conf dans le répertoire de travail actuel. L’exécution suivante de ce fichier de script PowerShell permet de lire tous les paramètres nécessaires de ce fichier de configuration. Si vous devez en modifier certains, vous pouvez choisir d’entrer les paramètres dans l’écran dès l’invite en supprimant ce fichier de configuration et en entrant les valeurs des paramètres comme demandé ou vous pouvez décider de changer ces valeurs en modifiant le fichier de configuration.
 
->[AZURE.NOTE]Pour éviter des conflits de noms de schéma avec ceux qui existent déjà dans votre Azure SQL DW, lors de la lecture directe des paramètres du fichier .conf, un nombre aléatoire à 3 chiffres est ajouté au nom du schéma du fichier .conf comme nom de schéma par défaut pour chaque exécution.
+>[AZURE.NOTE] Pour éviter des conflits de noms de schéma avec ceux qui existent déjà dans votre Azure SQL DW, lors de la lecture directe des paramètres du fichier .conf, un nombre aléatoire à 3 chiffres est ajouté au nom du schéma du fichier .conf comme nom de schéma par défaut pour chaque exécution.
 
->[AZURE.NOTE]Selon l’emplacement géographique de votre compte de stockage privé d’objets blob, le processus de copie des données d’un objet blob public vers votre compte de stockage privé peut prendre environ 15 minutes, voire plus, tandis que le processus de chargement des données de votre compte de stockage vers votre Azure SQL DW peut prendre 20 minutes ou plus.
+>[AZURE.NOTE] Selon l’emplacement géographique de votre compte de stockage privé d’objets blob, le processus de copie des données d’un objet blob public vers votre compte de stockage privé peut prendre environ 15 minutes, voire plus, tandis que le processus de chargement des données de votre compte de stockage vers votre Azure SQL DW peut prendre 20 minutes ou plus.
 
 >[Remarque Azure] Si les fichiers à copier de l’espace de stockage public d’objets blob vers votre compte de stockage privé d’objets blob existent déjà dans ce dernier, AzCopy vous demande si vous souhaitez les remplacer. Si vous ne le souhaitez pas, entrez **n** à l’invite. Si vous souhaitez les remplacer **tous**, entrez **a** à l’invite. Vous pouvez également entrer **y** pour effectuer des remplacements un par un.
 
@@ -632,7 +632,7 @@ Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de 
 
 2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Une expérience de formation classique se déroule comme suit :
 
@@ -669,7 +669,7 @@ Un exemple d’expérience de classification binaire lisant directement les donn
 
 ![Formation Azure Machine Learning][10]
 
-> [AZURE.IMPORTANT]Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
+> [AZURE.IMPORTANT] Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
 > Pour exclure les colonnes superflues ou les fuites cibles, vous pouvez utiliser le module [Colonnes de projet][project-columns] ou l’[Éditeur de métadonnées][metadata-editor]. Pour plus d’informations, voir les pages de référence des modules [Colonnes de projet][project-columns] et [Éditeur de métadonnées][metadata-editor].
 
@@ -744,4 +744,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

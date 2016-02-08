@@ -3,7 +3,7 @@
 	description="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell #
 
 > [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 Le contrôle d'accès en fonction du rôle (RBAC) dans l'API du portail Azure et l'API de gestion de ressources Azure permet une gestion très fine de l'accès à votre abonnement. Cette fonctionnalité vous permet d'accorder l'accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
@@ -39,35 +38,35 @@ Avant d'utiliser Windows PowerShell pour gérer le RBAC, vous devez disposer des
 
 Ce didacticiel s'adresse aux utilisateurs novices de Windows PowerShell, mais il part du principe que vous comprenez les concepts fondamentaux (modules, applets de commande et sessions). Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
-Pour accéder à l'aide détaillée de toute applet de commande présentée dans ce didacticiel, utilisez l'applet de commande Get-Help.
+Pour accéder à l’aide détaillée de toute applet de commande présentée dans ce didacticiel, utilisez l’applet de commande `Get-Help`.
 
 	Get-Help <cmdlet-name> -Detailed
 
-Par exemple, pour obtenir de l'aide sur l'applet de commande Add-AzureAccount, tapez :
+Par exemple, pour obtenir de l’aide sur l’applet de commande `Add-AzureAccount`, tapez :
 
 	Get-Help Add-AzureAccount -Detailed
 
-Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l'utilisation du gestionnaire de ressources Azure dans Windows PowerShell :
+Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l’utilisation du gestionnaire de ressources Azure dans Windows PowerShell :
 
-- [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md)
+- [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 - [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 
 ## Connexion à vos abonnements
 
-Comme le RBAC ne fonctionne qu'avec le gestionnaire de ressources Azure, la première chose à faire est de passer en mode Gestionnaire de ressources Azure ; entrez :
+Comme le RBAC ne fonctionne qu’avec Azure Resource Manager, la première chose à faire est de passer en mode Azure Resource Manager :
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 Pour plus d'informations, voir la section [Utilisation de Windows PowerShell avec le gestionnaire de ressources](../powershell-azure-resource-manager.md).
 
-Pour vous connecter à vos abonnements Azure, entrez :
+Pour vous connecter à vos abonnements Azure, tapez :
 
     PS C:\> Add-AzureAccount
 
-Dans le contrôle contextuel de votre navigateur, entrez votre nom d'utilisateur et votre mot de passe Azure. PowerShell obtient tous vos abonnements inclus dans ce compte et configure le premier d'entre eux pour être utilisé par défaut. Notez que le RBAC vous permet uniquement d'obtenir les abonnements pour lesquels vous disposez d'autorisations en tant que coadministrateur ou détenteur de certains rôles pour cet abonnement.
+Dans le contrôle contextuel de votre navigateur, saisissez votre nom d’utilisateur et votre mot de passe Azure. PowerShell obtient tous vos abonnements inclus dans ce compte et configure le premier d'entre eux pour être utilisé par défaut. Notez que le RBAC vous permet uniquement d'obtenir les abonnements pour lesquels vous disposez d'autorisations en tant que coadministrateur ou détenteur de certains rôles pour cet abonnement.
 
-Si vous disposez de plusieurs abonnements et souhaitez changer d'abonnement, entrez :
+Si vous disposez de plusieurs abonnements et souhaitez changer d’abonnement, utilisez les commandes suivantes :
 
     # This will show you the subscriptions under the account.
     PS C:\> Get-AzureSubscription
@@ -84,19 +83,19 @@ Voyons maintenant quelles affectations de rôles existent déjà dans l'abonneme
 
 Cela renverra toutes les affectations de rôles dans l'abonnement. Deux points à noter :
 
-1. Vous devrez disposer de l'accès en lecture au niveau de l'abonnement.
+1. Vous devez disposer de l’accès en lecture au niveau de l’abonnement.
 2. Si l'abonnement inclut un grand nombre d'affectations de rôles, les obtenir toutes peut prendre un certain temps.
 
-Vous pouvez également contrôler les affectations de rôles existantes pour une définition de rôle spécifique, avec une étendue spécifique, pour un utilisateur spécifique. Type :
+Vous pouvez également contrôler les affectations de rôles existantes pour une définition de rôle spécifique, avec une étendue spécifique, pour un utilisateur spécifique. Entrez :
 
     PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Cela renverra toutes les affectations de rôles pour un utilisateur spécifique dans votre locataire AD, qui dispose d'une affectation de rôle « Propriétaire » pour le groupe de ressources « group1 ». L'affectation de rôle peut avoir deux origines :
 
 1. Une affectation de rôle « Propriétaire » à l'utilisateur pour le groupe de ressources.
-2. Une affectation de rôle « Propriétaire » à l'utilisateur pour le parent du groupe de ressources (l'abonnement, dans le cas présent), car toute autorisation à un certain niveau est héritée par ses enfants.
+2. Une affectation de rôle « Propriétaire » à l’utilisateur pour le parent du groupe de ressources (l’abonnement, dans le cas présent), car toute autorisation à un certain niveau est héritée par tous ses enfants.
 
-Tous les paramètres de cet applet de commande sont facultatifs. Vous pouvez les combiner pour contrôler des affectations de rôles avec différents filtres.
+Tous les paramètres de cette applet de commande sont facultatifs. Vous pouvez les combiner pour contrôler des affectations de rôles avec différents filtres.
 
 ## Création d'une affectation de rôle
 
@@ -113,43 +112,34 @@ Quel rôle vous souhaitez affecter : vous pouvez utiliser l'applet de commande 
 
     PS C:\> Get-AzureRoleDefinition
 
-L'étendue à laquelle s'applique l'affectation : il existe trois niveaux d'étendue
-
-    - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+L’étendue vous souhaitez affecter : il existe trois niveaux d’étendue - L’abonnement actuel - Un groupe de ressources : pour obtenir une liste des groupes de ressources, tapez `PS C:\> Get-AzureResourceGroup` - Une ressource : pour obtenir une liste des ressources, tapez `PS C:\> Get-AzureResource`
 
 Ensuite, utilisez `New-AzureRoleAssignment` pour créer une affectation de rôle. Par exemple :
 
+	#This will create a role assignment at the current subscription level for a user as a reader.
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-Cela créera une affectation de rôle au niveau de l'abonnement actuel pour un utilisateur en tant que lecteur.
-
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
-
-Cela créera une affectation de rôle au niveau d'un groupe de ressources.
-
+	#This will create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-Cela créera une affectation de rôle pour un groupe au niveau d'un groupe de ressources.
-
+	#This will create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-Cela créera une affectation de rôle au niveau d'une ressource.
-
+	#This will create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
 ## Vérification des autorisations
 
-Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant
+Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant :
 
     PS C:\> Get-AzureResourceGroup
     PS C:\> Get-AzureResource
 
-Ces deux applets de commande renverront uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation de lecture. Elles affichent également les autorisations dont vous disposez.
+Ces deux applets de commande renverront uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation en lecture. Elles affichent également les autorisations dont vous disposez.
 
-Et donc, quand vous tentez d'exécuter une autre applet de commande telle que `New-AzureResourceGroup`, vous recevez une erreur d'accès refusé si vous ne disposez pas de l'autorisation requise.
+Ensuite, lorsque vous tentez d’exécuter d’autres applets de commande comme `New-AzureResourceGroup`, vous recevez une erreur d’accès refusé si vous ne disposez pas de l’autorisation requise.
 
 ## Étapes suivantes
 
@@ -164,4 +154,4 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Configurer le contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](role-based-access-control-xplat-cli-install.md)
 - [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

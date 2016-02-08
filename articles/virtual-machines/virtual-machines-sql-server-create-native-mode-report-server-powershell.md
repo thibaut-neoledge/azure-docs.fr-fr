@@ -23,7 +23,7 @@
 
 Cette rubrique explique comment déployer et configurer un serveur de rapports SQL Server Reporting Services en mode natif dans une machine virtuelle Azure. Les procédures décrites dans ce document comportent une combinaison d’étapes manuelles permettant de créer la machine virtuelle et un script Windows PowerShell afin de configurer Reporting Services sur la machine virtuelle. Le script de configuration inclut l’ouverture d’un port de pare-feu pour HTTP ou HTTPs.
 
->[AZURE.NOTE]Si vous n’avez pas besoin de **HTTPS** sur le serveur de rapports, **ignorez l’étape 2**.
+>[AZURE.NOTE] Si vous n’avez pas besoin de **HTTPS** sur le serveur de rapports, **ignorez l’étape 2**.
 >
 >Après avoir créé la machine virtuelle à l’étape 1, passez à la section Utiliser un script pour configurer le serveur de rapports et HTTP. Le serveur de rapports est prêt à l’emploi après l’exécution du script.
 
@@ -33,7 +33,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 	
 	- Pour vérifier la limite de mémoires à tores magnétiques de votre abonnement, dans le portail Azure Classic, cliquez sur PARAMÈTRES dans le volet de gauche, puis sur UTILISATION dans le menu supérieur.
 	
-	- Pour augmenter le quota de mémoires à tores magnétiques, contactez le [support technique Azure](http://azure.microsoft.com/support/options/). Pour plus d’informations sur les tailles de machines virtuelles, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
+	- Pour augmenter le quota de mémoires à tores magnétiques, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). Pour plus d’informations sur les tailles de machines virtuelles, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
 
 - **Écriture de scripts avec Windows PowerShell** : la rubrique part du principe que vous avez une connaissance de base de Windows PowerShell. Pour plus d’informations sur l’utilisation de Windows PowerShell, consultez les rubriques suivantes :
 
@@ -71,7 +71,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 	
 	- **Niveau** : Standard
 	
-	- **Taille : A3** est la taille de machine virtuelle recommandée pour les charges de travail SQL Server. Si une machine virtuelle est utilisée uniquement comme serveur de rapports, la taille A2 est suffisante, sauf si la charge de travail du serveur est importante. Pour connaître les informations de tarification des machines virtuelles, consultez la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
+	- **Taille : A3** est la taille de machine virtuelle recommandée pour les charges de travail SQL Server. Si une machine virtuelle est utilisée uniquement comme serveur de rapports, la taille A2 est suffisante, sauf si la charge de travail du serveur est importante. Pour connaître les informations de tarification des machines virtuelles, consultez la page [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 	
 	- **Nouveau nom d’utilisateur** : le nom que vous fournissez est créé en tant qu’administrateur sur la machine virtuelle.
 	
@@ -93,13 +93,13 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 	
 	- **POINTS DE TERMINAISON** Conservez les points de terminaison **Bureau à distance** et **PowerShell**, puis ajoutez un point de terminaison HTTP ou HTTPS, selon votre environnement.
 
-		- **HTTP** : les ports public et privé par défaut sont **80**. Notez que si vous utilisez un port privé autre que 80, vous devez modifier **$HTTPport = 80** dans le script HTTP.
+		- **HTTP** : les ports public et privé par défaut ont le numéro **80**. Notez que si vous utilisez un port privé autre que 80, vous devez modifier **$HTTPport = 80** dans le script HTTP.
 
 		- **HTTPS** : les ports public et privé par défaut sont **443**. Il est considéré comme meilleure pratique de sécurité de modifier le port privé et de configurer le pare-feu et le serveur de rapports pour qu’ils utilisent le port privé. Pour plus d’informations sur les points de terminaison, consultez la page [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md). Notez que si vous utilisez un port autre que 443, vous devez modifier le paramètre **$HTTPsport = 443** dans le script HTTPS.
 	
 	- Cliquez sur suivant. ![suivant](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. Sur la dernière page de l’Assistant, conservez la valeur par défaut **Installer l’agent de machine virtuelle** sélectionnée. Les étapes décrites dans cette rubrique n’utilisent pas l’agent de machine virtuelle, mais si vous envisagez de conserver cette machine virtuelle, l’agent de machine virtuelle et les extensions vous permettront d’améliorer la machine virtuelle. Pour plus d’informations, consultez le billet de blog [Agent de machine virtuelle et extensions – 1re partie](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). L’une des extensions par défaut installées et exécutées est l’extension « BGINFO », qui affiche sur le bureau de la machine virtuelle les informations système telles que l’adresse IP interne et l’espace libre sur le disque.
+1. Sur la dernière page de l’Assistant, conservez la valeur par défaut **Installer l’agent de machine virtuelle** sélectionnée. Les étapes décrites dans cette rubrique n’utilisent pas l’agent de machine virtuelle, mais si vous envisagez de conserver cette machine virtuelle, l’agent de machine virtuelle et les extensions vous permettront d’améliorer la machine virtuelle. Pour plus d’informations, consultez le billet de blog [Agent de machine virtuelle et extensions – 1re partie](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). L’une des extensions par défaut installées et exécutées est l’extension « BGINFO », qui affiche sur le bureau de la machine virtuelle les informations système telles que l’adresse IP interne et l’espace libre sur le disque.
 
 1. Cliquez Terminé . ![ok](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
@@ -107,7 +107,7 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 
 ## Étape 2 : Créer un certificat de serveur
 
->[AZURE.NOTE]Si vous n’avez pas besoin de HTTPS sur le serveur de rapports, vous pouvez **ignorer l’étape 2** et passer à la section **Utiliser un script pour configurer le serveur de rapports et HTTP**. Utilisez le script HTTP pour configurer rapidement le serveur de rapports afin qu’il soit prêt à l’emploi.
+>[AZURE.NOTE] Si vous n’avez pas besoin de HTTPS sur le serveur de rapports, vous pouvez **ignorer l’étape 2** et passer à la section **Utiliser un script pour configurer le serveur de rapports et HTTP**. Utilisez le script HTTP pour configurer rapidement le serveur de rapports afin qu’il soit prêt à l’emploi.
 
 Pour utiliser HTTPS sur la machine virtuelle, vous devez disposer d’un certificat SSL approuvé. Selon votre scénario, vous pouvez utiliser l’une des deux méthodes suivantes :
 
@@ -129,7 +129,7 @@ Pour utiliser HTTPS sur la machine virtuelle, vous devez disposer d’un certifi
 
 	[Outils de sécurité pour administrer Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE]Le champ **Délivré à** du certificat SSL approuvé doit être le même que le **NOM DNS du service cloud** utilisé pour la nouvelle machine virtuelle.
+	>[AZURE.NOTE] Le champ **Délivré à** du certificat SSL approuvé doit être le même que le **NOM DNS du service cloud** utilisé pour la nouvelle machine virtuelle.
 
 1. **Installez le certificat de serveur sur le serveur web**. Dans ce cas, le serveur web est la machine virtuelle qui héberge le serveur de rapports, et le site web est créé ultérieurement lors de la configuration de Reporting Services. Pour plus d’informations sur l’installation du certificat de serveur sur le serveur web à l’aide du composant logiciel enfichable MMC Certificat, consultez la page [Installer un certificat de serveur](https://technet.microsoft.com/library/cc740068).
 	
@@ -599,13 +599,13 @@ Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serve
 
 ## Étape 4 : Ouvrir le port du pare-feu Windows
 
->[AZURE.NOTE]Si vous avez utilisé un des scripts pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu. La valeur par défaut est le port 80 pour HTTP et le port 443 pour HTTPS.
+>[AZURE.NOTE] Si vous avez utilisé un des scripts pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu. La valeur par défaut est le port 80 pour HTTP et le port 443 pour HTTPS.
 
 Pour vous connecter à distance au Gestionnaire de rapports ou au serveur de rapports sur la machine virtuelle, vous devez disposer d’un point de terminaison TCP sur la machine virtuelle. Il est nécessaire d’ouvrir le même port dans le pare-feu de la machine virtuelle. Le point de terminaison a été créé lors de l’approvisionnement de la machine virtuelle.
 
 Cette section fournit des informations de base sur l’ouverture du port du pare-feu. Pour plus d’informations, consultez la page [Configurer un pare-feu pour accéder au serveur de rapports](https://technet.microsoft.com/library/bb934283.aspx)
 
->[AZURE.NOTE]Si vous avez utilisé le script pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu.
+>[AZURE.NOTE] Si vous avez utilisé le script pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu.
 
 Si vous avez configuré un port privé pour HTTPS autre que 443, modifiez le script suivant en conséquence. Pour ouvrir le port **443** sur le pare-feu Windows, procédez comme suit :
 
@@ -633,7 +633,7 @@ Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ou
 
 		http://localhost/Reports
 
-- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine]\[nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
+- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine][nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -683,7 +683,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 ## Réduire les coûts si vous n’utilisez pas la machine virtuelle
 
->[AZURE.NOTE]Pour réduire les frais associés à vos machines virtuelles Azure lorsque vous ne les utilisez pas, arrêtez la machine virtuelle à partir du portail Azure Classic. Si vous utilisez les options d’alimentation Windows d’une machine virtuelle pour arrêter la machine virtuelle, vous êtes toujours facturé du même montant pour la machine virtuelle. Pour réduire les frais, vous devez arrêter la machine virtuelle dans le portail Azure Classic. Si vous n’avez plus besoin de la machine virtuelle, n’oubliez pas de la supprimer, ainsi que les fichiers .vhd associés, pour éviter des frais de stockage. Pour plus d’informations, consultez la FAQ à la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE] Pour réduire les frais associés à vos machines virtuelles Azure lorsque vous ne les utilisez pas, arrêtez la machine virtuelle à partir du portail Azure Classic. Si vous utilisez les options d’alimentation Windows d’une machine virtuelle pour arrêter la machine virtuelle, vous êtes toujours facturé du même montant pour la machine virtuelle. Pour réduire les frais, vous devez arrêter la machine virtuelle dans le portail Azure Classic. Si vous n’avez plus besoin de la machine virtuelle, n’oubliez pas de la supprimer, ainsi que les fichiers .vhd associés, pour éviter des frais de stockage. Pour plus d’informations, consultez la FAQ à la page [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Informations complémentaires
 
@@ -695,7 +695,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 - Pour des informations d’ordre général sur les déploiements de SQL Server Business Intelligence dans Azure Virtual Machines, consultez la page [SQL Server Business Intelligence dans Azure Virtual Machines](virtual-machines-sql-server-business-intelligence.md).
 
-- Pour plus d’informations sur le montant des frais de calcul Azure, consultez l’onglet Virtual Machines de la [calculatrice de prix Azure](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
+- Pour plus d’informations sur le montant des frais de calcul Azure, consultez l’onglet Virtual Machines de la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### Contenu de la communauté
 
@@ -705,4 +705,4 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

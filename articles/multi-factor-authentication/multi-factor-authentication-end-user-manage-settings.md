@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Problèmes avec Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="Ce document fournit aux utilisateurs des informations sur la procédure à suivre en cas de problème avec l'Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "client de l'authentification multifacteur, problème d'authentification, ID de corrélation"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Problèmes avec Azure Multi-Factor Authentication
->[AZURE.IMPORTANT]Aidez-nous à améliorer cette page. Si vous ne trouvez pas de réponse à votre problème sur cette page, veuillez nous envoyer des commentaires détaillés afin que nous puissions l’ajouter.
+>[AZURE.IMPORTANT]
+Aidez-nous à améliorer cette page. Si vous ne trouvez pas de réponse à votre problème sur cette page, veuillez nous envoyer des commentaires détaillés afin que nous puissions l’ajouter.
 
 Cette section vous aidera à résoudre certains problèmes courants que vous pouvez rencontrer.
 
@@ -32,7 +34,7 @@ Cette section vous aidera à résoudre certains problèmes courants que vous pou
 - [Je n’ai pas trouvé de réponse à mon problème](#i-didn't-find-an-answer-to-my-problem)
 
 ##Erreurs d'ID de corrélation
-Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR) afin que nous puissions résoudre votre problème dès que possible.
+Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR) afin que nous puissions résoudre votre problème dès que possible.
 
 Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
 
@@ -63,7 +65,8 @@ Sélectionnez ensuite votre autre numéro de téléphone. Dans ce cas, vous deve
 
 ![Autre téléphone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
+>[AZURE.IMPORTANT]
+Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
 
 Si vous n’avez pas configuré de numéro de téléphone d’authentification secondaire, vous devrez contacter votre administrateur pour lui demander d’effacer vos paramètres. À la prochaine connexion, vous serez donc invité à configurer de nouveau [l’authentification multifacteur (Multi-Factor Authentication)](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -89,7 +92,7 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous souhai
 2. Dans l’angle supérieur droit, sélectionnez le widget et choisissez les paramètres d’Office 365.
 3. Cliquez sur Vérification de sécurité supplémentaire.
 4. Sur la droite, cliquez sur le lien indiquant **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte.** ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. Ceci vous amènera sur la page qui vous permet de modifier vos paramètres. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
+5. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
 ### Modification des paramètres avec le portail Myapps
@@ -129,7 +132,8 @@ Sélectionnez ensuite votre autre numéro de téléphone. Dans ce cas, vous deve
 
 ![Autre téléphone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
+>[AZURE.IMPORTANT]
+Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
 
 La seconde consiste à contacter votre administrateur ou la personne qui a configuré l’authentification MFA pour vous. Vous devez uniquement effectuer cette opération si vous n’avez pas configuré un numéro de téléphone d’authentification secondaire. Vous devrez contacter votre administrateur ou la personne qui a configuré l’authentification MFA pour lui demander d’effacer vos paramètres. À la prochaine connexion, vous serez donc invité à configurer de nouveau [l’authentification multifacteur (Multi-Factor Authentication)](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -145,7 +149,7 @@ Vous devez tout d’abord vérifier les points suivants :
 
 Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-azure-authenticator).
 
-Si vous recevez vos codes de vérification par des messages texte, vous pouvez changer le mode de réception et opter pour une diffusion via l’application mobile en sélectionnant simplement **Utiliser une autre option de vérification** lors de la connexion.
+Si vous recevez vos codes de vérification par des messages texte, vous pouvez changer le mode de réception et opter pour une diffusion via l'application mobile en sélectionnant simplement **Utiliser une autre option de vérification** lors de la connexion.
 
 ![Vérification différente](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
@@ -168,4 +172,4 @@ En outre, vous pouvez contacter votre administrateur ou la personne qui a config
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

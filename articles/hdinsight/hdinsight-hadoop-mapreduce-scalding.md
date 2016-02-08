@@ -24,7 +24,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 ## Composants requis
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Cluster HDInsight basé sur Windows ou Linux dans Hadoop**. Pour plus d’informations, consultez la page [Approvisionnement de clusters Hadoop Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Approvisionnement de clusters Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md).
 
 * **[Maven](http://maven.apache.org/)**
@@ -185,7 +185,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 ## Exécuter la tâche dans un cluster Linux
 
-> [AZURE.NOTE]Les étapes suivantes utilisent SSH et la commande Hadoop. Pour d'autres méthodes d'exécution des tâches MapReduce, consultez [Utilisation de MapReduce dans Hadoop sous HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] Les étapes suivantes utilisent SSH et la commande Hadoop. Pour d'autres méthodes d'exécution des tâches MapReduce, consultez [Utilisation de MapReduce dans Hadoop sous HDInsight](hdinsight-use-mapreduce.md).
 
 1. Utilisez la commande suivante pour télécharger le package dans votre cluster HDInsight :
 
@@ -193,13 +193,13 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     De cette façon, les fichiers du système local sont copiés dans le nœud principal.
 
-    > [AZURE.NOTE]Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
+    > [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
 
 2. Utilisez la commande suivante pour vous connecter au nœud principal du cluster :
 
         ssh username@clustername-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+    > [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. Une fois connecté au nœud principal, utilisez la commande suivante pour exécuter la tâche de comptage de mots
 
@@ -229,7 +229,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 ## Exécuter la tâche dans un cluster Windows
 
-> [AZURE.NOTE]Les étapes suivantes utilisent Windows PowerShell. Pour d'autres méthodes d'exécution des tâches MapReduce, consultez [Utilisation de MapReduce dans Hadoop sous HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] Les étapes suivantes utilisent Windows PowerShell. Pour d'autres méthodes d'exécution des tâches MapReduce, consultez [Utilisation de MapReduce dans Hadoop sous HDInsight](hdinsight-use-mapreduce.md).
 
 1. [Installez et configurez Azure PowerShell](../powershell-install-configure.md).
 
@@ -245,7 +245,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]Vous pouvez utiliser `Get-AzureRMSubscription` pour obtenir la liste de tous les abonnements associés à votre compte, y compris l’ID d’abonnement de chacun d’eux.
+    > [AZURE.NOTE] Vous pouvez utiliser `Get-AzureRMSubscription` pour obtenir la liste de tous les abonnements associés à votre compte, y compris l’ID d’abonnement de chacun d’eux.
 
 4. Utilisez le script suivant pour télécharger et exécuter la tâche de comptage de mots. Remplacez `CLUSTERNAME` par le nom de votre cluster HDInsight, puis assurez-vous que `$fileToUpload` est le chemin correct du fichier __scaldingwordcount-1.0-SNAPSHOT.jar__.
 
@@ -344,4 +344,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

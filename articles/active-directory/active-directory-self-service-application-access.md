@@ -20,14 +20,14 @@
 
 L’activation des fonctionnalités de libre-service pour les utilisateurs finaux est un scénario courant pour l’informatique d’entreprise. Un grand nombre d’utilisateurs, d’applications, et la personne la mieux informée pour prendre des décisions d’autorisation d’accès n’est pas nécessairement l’administrateur de l’annuaire. Souvent, la personne la mieux à même de décider de qui peut accéder à une application est le responsable d’équipe ou un autre administrateur délégué. Mais à la fin de la journée, c’est l’utilisateur qui se sert de l’application et qui sait ce dont il a besoin pour faire le travail.
 
-L’accès à l’application en libre-service est une fonctionnalité d’[Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) qui permet aux administrateurs d’annuaire de :
+L’accès à l’application en libre-service est une fonctionnalité d’[Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) qui permet aux administrateurs d’annuaire de :
 
 * Donner aux utilisateurs la possibilité de demander l’accès aux applications à l’aide d’une vignette « Obtenir davantage d’applications » du [Panneau d’accès Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Déterminer quels utilisateurs peuvent demander l’accès
 * Définir si une approbation est obligatoire ou non pour que les utilisateurs puissent s’accorder à eux-mêmes l’accès à une application
 * Définir qui doit approuver les requêtes et gérer l’accès à chaque application
 
-Aujourd’hui cette fonctionnalité est prise en charge pour toutes les applications préintégrées et personnalisées qui prennent en charge les connexions fédérées ou basées sur un mot de passe de session unique dans la [Galerie d’applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/), et notamment les applications telles que Salesforce, échange, Google Apps, entre autres. Cet article explique comment :
+Aujourd’hui cette fonctionnalité est prise en charge pour toutes les applications préintégrées et personnalisées qui prennent en charge les connexions fédérées ou basées sur un mot de passe de session unique dans la [Galerie d’applications Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), et notamment les applications telles que Salesforce, échange, Google Apps, entre autres. Cet article explique comment :
 
 * Configuration de l’accès des applications en libre-service pour les utilisateurs finaux, notamment la configuration d’un workflow d’approbation facultatif 
 * Déléguer la gestion de l’accès à des applications spécifiques pour les personnes de votre organisation les plus concernées et leur permettre d’utiliser le volet d’accès Azure AD pour approuver les demandes d’accès, attribuer directement l’accès aux utilisateurs sélectionnés ou (éventuellement) les informations d’identification pour l’accès à l’application lorsque l’authentification par mot de passe est configurée
@@ -106,4 +106,4 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

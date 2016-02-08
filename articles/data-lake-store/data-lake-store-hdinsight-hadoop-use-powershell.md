@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -97,6 +97,8 @@ Pour créer un Data Lake Store, procédez comme suit.
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+
+	>[AZURE.NOTE] Si vous recevez une erreur similaire à `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` lors de l’enregistrement du fournisseur de ressources Data Lake Store, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Azure Data Lake Store. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Store en suivant ces [instructions](data-lake-store-get-started-portal.md#signup).
 
 3. Un compte Azure Data Lake Store est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
 
@@ -376,4 +378,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

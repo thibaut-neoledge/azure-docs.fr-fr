@@ -26,7 +26,7 @@ Ce document contient les notes de publication du Kit de développement logiciel 
 
 Ce document contient également les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.7.1.
 
-Le SDK Azure 2.7 est uniquement pris en charge dans Visual Studio 2015 et Visual Studio 2013. Le [Kit de développement logiciel (SDK) Azure 2.6](http://azure.microsoft.com/downloads/) est le dernier Kit de développement logiciel (SDK) pris en charge pour Visual Studio 2012.
+Le SDK Azure 2.7 est uniquement pris en charge dans Visual Studio 2015 et Visual Studio 2013. Le [Kit de développement logiciel (SDK) Azure 2.6](https://azure.microsoft.com/downloads/) est le dernier Kit de développement logiciel (SDK) pris en charge pour Visual Studio 2012.
 
 Pour plus d’informations sur cette version, consultez le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) et le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
 
@@ -159,4 +159,4 @@ Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

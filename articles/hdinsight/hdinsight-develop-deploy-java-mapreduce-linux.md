@@ -90,7 +90,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	Ceci indique à Maven que le projet a besoin des bibliothèques (figurant dans &lt;artifactId>) avec une version spécifique (figurant dans &lt;version>). Au moment de la compilation, il sera téléchargé à partir du référentiel Maven par défaut. Vous pouvez utiliser la [recherche du référentiel Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) pour en afficher davantage.
 
-	`<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l’application, car elles sont fournies par le cluster HDInsight au moment de l’exécution.
+	`<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l'application, car elles sont fournies par le cluster HDInsight au moment de l'exécution.
 
 2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
@@ -223,7 +223,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 3. Une fois la commande exécutée, le répertoire __wordcountjava\\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l’exécution.
+	> [AZURE.NOTE] Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l'exécution.
 
 
 ##<a id="upload"></a>Téléchargement du fichier jar
@@ -236,7 +236,7 @@ Utilisez la commande suivante pour télécharger le fichier jar dans le nœud pr
 
 De cette façon, les fichiers du système local sont copiés dans le nœud principal.
 
-> [AZURE.NOTE]Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 ##<a name="run"></a>Exécution de la tâche MapReduce
 
@@ -270,7 +270,7 @@ Dans ce document, vous avez appris à développer une tâche MapReduce Java. Con
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 - [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-Pour plus d’informations, consultez également le [Centre pour développeurs Java](http://azure.microsoft.com/develop/java/).
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -171,7 +171,7 @@ Tenez compte des points suivants lorsque vous choisissez la méthode et l’empl
 
 Vous pouvez implémenter les tâches en arrière-plan de manière à empêcher leur déploiement sur Azure Web Apps ou Cloud Services, sauf si ce n’est pas pertinent. Voici quelques exemples typiques : services Windows et utilitaires et programmes exécutables tiers. Il est également possible d’inclure des programmes écrits pour un environnement d’exécution différent de celui qui héberge l’application, par exemple un programme Unix ou Linux que vous souhaitez exécuter à partir d’une application Windows ou .NET. Vous avez le choix entre plusieurs systèmes d’exploitation pour une machine virtuelle Azure. Vous pouvez ensuite exécuter votre service ou programme exécutable sur cette machine virtuelle.
 
-Pour savoir quand utiliser Virtual Machines, consultez [Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines](choose-web-site-cloud-service-vm.md). Pour en savoir plus sur les options des machines virtuelles, voir [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les systèmes d’exploitation et images préconstruites disponibles pour les machines virtuelles, consultez la [galerie dédiée à Azure Virtual Machines](http://azure.microsoft.com/gallery/virtual-machines/).
+Pour savoir quand utiliser Virtual Machines, consultez [Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines](choose-web-site-cloud-service-vm.md). Pour en savoir plus sur les options des machines virtuelles, voir [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les systèmes d’exploitation et images préconstruites disponibles pour les machines virtuelles, consultez la [galerie dédiée à Azure Virtual Machines](https://azure.microsoft.com/gallery/virtual-machines/).
 
 Pour lancer la tâche en arrière-plan dans un ordinateur virtuel distinct, vous disposez d’un éventail d’options :
 
@@ -191,7 +191,7 @@ Lorsque vous envisagez de déployer des tâches en arrière-plan sur une machine
 
 ### Plus d’informations
 
-- [Machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) sur Azure
+- [Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) sur Azure
 - [FAQ sur les machines virtuelles Azure](virtual-machines-questions.md)
 
 ## Remarques relatives à la conception
@@ -317,4 +317,4 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Procédure : activer les diagnostics dans un service cloud](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

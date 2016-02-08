@@ -24,15 +24,15 @@ Cet article est un didacticiel de bout en bout expliquant les scénarios et les 
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
--	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Consultez l'article [Essai gratuit](http://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
--	**Azure Active Directory** : Azure Data Catalog utilise [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) pour la gestion des identités et des accès.
+-	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Consultez l'article [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
+-	**Azure Active Directory** : Azure Data Catalog utilise [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour la gestion des identités et des accès.
 -	**Des sources de données** : Azure Data Catalog comprend des fonctionnalités de détection de sources de données. Pour poursuivre le didacticiel, vous devez avoir accès à une ou plusieurs sources de données. Le didacticiel repose sur des exemples de bases de données Adventure Works, mais vous pouvez utiliser n’importe quelle source de données prise en charge si vous préférez travailler avec des données plus familières et mieux adaptées à votre rôle.
 
 ## Exercice 1 : installation d’un exemple de base de données Adventure Works
 
 Dans cet exercice, vous installez l’exemple Adventure Works pour le moteur de base de données SQL Server et SQL Server Analysis Services Multidimensional. Ces exemples sont utilisés dans les exercices suivants.
 
-> [AZURE.NOTE]Cet exercice est facultatif. Les exercices restants du didacticiel sont écrits de manière à référencer les exemples de bases de données Adventure Works, mais vous pouvez également choisir d’ignorer cet exercice et de travailler avec vos propres sources de données. Les étapes de l’installation d’Adventure Works sont les suivantes.
+> [AZURE.NOTE] Cet exercice est facultatif. Les exercices restants du didacticiel sont écrits de manière à référencer les exemples de bases de données Adventure Works, mais vous pouvez également choisir d’ignorer cet exercice et de travailler avec vos propres sources de données. Les étapes de l’installation d’Adventure Works sont les suivantes.
 
 ### Installer les bases de données Adventure Works OLTP 2014 et Data Warehouse
 
@@ -111,9 +111,9 @@ Dans cet exemple, vous allez utiliser une recherche par mot clé. Dans **Azure D
 
 **Techniques de requête**<table><tr><td><b>Technique</b></td><td><b>Utilisation</b></td><td><b>Exemple</b></td></tr><tr><td>Étendue de propriété</td><td>Renvoie uniquement les sources de données pour lesquelles le terme de recherche correspond à la propriété spécifiée</td><td>name:product</td></tr><tr><td>Opérateurs logiques</td><td>Élargit ou restreint une recherche à l’aide d’opérations booléennes, comme décrit sur cette même page dans la section Opérateurs booléens</td><td>finance NOT corporate</td></tr><tr><td>Regroupement avec parenthèses</td><td>Permet de regrouper des éléments de la requête entre parenthèses pour les isoler de manière logique, notamment avec les opérateurs booléens</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>Opérateurs de comparaison</td><td>Utilisent des comparaisons autres que l’égalité pour les propriétés associées à des données de type numérique et date</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
-Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les étiquettes correspondent à « illustration » ou à « photo ».
+Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les balises correspondent à « illustration » ou les balises correspondent à « photo ».
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Dans la zone **Rechercher**, entrez une requête de type **Regroupement** : (tags:description OR tags:photo).
 4.	Cliquez sur l’icône de recherche ou appuyez sur Entrée. **Azure Data Catalog** affichera les ressources de données correspondant à cette requête de recherche.
@@ -128,7 +128,7 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour a
 
 ### Voici comment annoter les ressources de données
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Choisissez une ou plusieurs **ressources de données**. Dans cet exemple, choisissez **ProductPhoto** puis entrez « Photos de produit pour documents de marketing ».
 4.	Entrez une **Description** qui aidera les autres utilisateurs à découvrir et comprendre pourquoi et comment utiliser la ressource de données sélectionnée. Par exemple, entrez « Images du produit ». Vous pouvez également ajouter des étiquettes supplémentaires et afficher les colonnes.
@@ -142,7 +142,7 @@ Dans cet exercice, vous avez ajouté des informations descriptives aux ressource
 
 Dans cet exercice, vous allez travailler avec un autre utilisateur pour ajouter des métadonnées aux ressources de données du catalogue. L’approche des annotations basée sur le crowdsourcing d’Azure Data Catalog permet aux utilisateurs d’ajouter des étiquettes, des descriptions et d’autres métadonnées afin que tout utilisateur ayant un point de vue sur une ressource de données et son utilisation puisse capturer ce point de vue et le mettre à disposition des autres utilisateurs.
 
-> [AZURE.NOTE]Si aucun autre utilisateur ne peut travailler avec vous sur ce didacticiel, ne vous inquiétez pas ! Tout utilisateur qui accède au catalogue de données peut ajouter son propre point de vue au moment qui lui convient. Cette approche des métadonnées basée sur le crowdsourcing permet de développer le contenu du catalogue et la richesse de ses métadonnées au fil du temps.
+> [AZURE.NOTE] Si aucun autre utilisateur ne peut travailler avec vous sur ce didacticiel, ne vous inquiétez pas ! Tout utilisateur qui accède au catalogue de données peut ajouter son propre point de vue au moment qui lui convient. Cette approche des métadonnées basée sur le crowdsourcing permet de développer le contenu du catalogue et la richesse de ses métadonnées au fil du temps.
 
 ### Voici comment enrichir les métadonnées des ressources de données par crowdsourcing
 
@@ -159,7 +159,7 @@ Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur 
 Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour vous connecter à des sources de données en utilisant Microsoft Excel.
 
 
-> [AZURE.NOTE]Il est important de se rappeler qu’**Azure Data Catalog** ne donne pas aux utilisateurs accès à la source de données elle-même : il leur permet simplement de découvrir et de comprendre plus facilement cette source de données. Lorsqu’un utilisateur se connecte à une source de données, l’application cliente qu’il choisit utilisera ses informations d’identification Windows ou l’invitera à saisir des informations d’identification, le cas échéant. Si l’accès à la source de données n’a pas été préalablement accordé à l’utilisateur, il devra obtenir cet accès avant de pouvoir se connecter.
+> [AZURE.NOTE] Il est important de se rappeler qu’**Azure Data Catalog** ne donne pas aux utilisateurs accès à la source de données elle-même : il leur permet simplement de découvrir et de comprendre plus facilement cette source de données. Lorsqu’un utilisateur se connecte à une source de données, l’application cliente qu’il choisit utilisera ses informations d’identification Windows ou l’invitera à saisir des informations d’identification, le cas échéant. Si l’accès à la source de données n’a pas été préalablement accordé à l’utilisateur, il devra obtenir cet accès avant de pouvoir se connecter.
 
 ### Voici comment se connecter à une source de données à partir d’Excel
 
@@ -181,7 +181,7 @@ Dans cet exercice, vous vous êtes connecté aux sources de données découverte
 
 Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour supprimer les aperçus de données des ressources de données inscrites et pour supprimer les ressources de données du catalogue.
 
-> [AZURE.NOTE]Par défaut, le catalogue permet aux utilisateurs d’inscrire n’importe quelle source de données et de supprimer toutes les ressources de données préalablement inscrites. Les fonctionnalités de gestion incluses dans l’**édition Standard d’Azure Data Catalog** offrent des options supplémentaires qui permettent l’appropriation de ressources, ce qui limite les fonctions de découverte et de suppression des ressources à certains utilisateurs.
+> [AZURE.NOTE] Par défaut, le catalogue permet aux utilisateurs d’inscrire n’importe quelle source de données et de supprimer toutes les ressources de données préalablement inscrites. Les fonctionnalités de gestion incluses dans l’**édition Standard d’Azure Data Catalog** offrent des options supplémentaires qui permettent l’appropriation de ressources, ce qui limite les fonctions de découverte et de suppression des ressources à certains utilisateurs.
 
 Dans **Azure Data Catalog**, vous pouvez supprimer l’aperçu de la suppression d’une ressource individuelle ou de plusieurs ressources de données.
 
@@ -232,4 +232,4 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la 
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -39,7 +39,7 @@ Cet article traite de ces concepts à un niveau supérieur et propose également
 
 ## Différence entre les machines virtuelles et les conteneurs
 
-Les machines virtuelles s’exécutent dans un environnement isolé de virtualisation matérielle, fourni par un [hyperviseur](http://en.wikipedia.org/wiki/Hypervisor). Dans Azure, le service [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) gère toutes les opérations pour vous. Il vous suffit de créer Virtual Machines en choisissant le système d’exploitation et en le configurant pour qu’il s’exécute comme vous le souhaitez ou en téléchargeant votre propre image de machine virtuelle personnalisée. Les machines virtuelles sont une technologie éprouvée, et aguerrie ; de nombreux outils sont disponibles pour gérer les systèmes d’exploitation et configurer les applications que vous installez et exécutez. Tous les éléments exécutés dans une machine virtuelle sont masqués du système d’exploitation hôte et, du point de vue d’une application ou d’un utilisateur exécutés dans une machine virtuelle, la machine virtuelle apparaît comme un ordinateur physique autonome.
+Les machines virtuelles s’exécutent dans un environnement isolé de virtualisation matérielle, fourni par un [hyperviseur](http://en.wikipedia.org/wiki/Hypervisor). Dans Azure, le service [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) gère toutes les opérations pour vous. Il vous suffit de créer Virtual Machines en choisissant le système d’exploitation et en le configurant pour qu’il s’exécute comme vous le souhaitez ou en téléchargeant votre propre image de machine virtuelle personnalisée. Les machines virtuelles sont une technologie éprouvée, et aguerrie ; de nombreux outils sont disponibles pour gérer les systèmes d’exploitation et configurer les applications que vous installez et exécutez. Tous les éléments exécutés dans une machine virtuelle sont masqués du système d’exploitation hôte et, du point de vue d’une application ou d’un utilisateur exécutés dans une machine virtuelle, la machine virtuelle apparaît comme un ordinateur physique autonome.
 
 Les [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) (qui incluent ceux créés et hébergés à l’aide d’outils Docker, d’autres approches existent) ne nécessitent pas d’hyperviseur pour assurer leur isolation et n’y ont pas recours. À la place, l’hôte conteneur utilise les fonctionnalités d’isolation des processus et systèmes de fichiers du noyau Linux pour exposer sur le conteneur (et son application) certaines fonctionnalités du noyau uniquement et son propre système de fichiers isolés (au minimum). Du point de vue d’une application exécutée dans un conteneur, le conteneur apparaît comme une instance unique du système d’exploitation. Une application à relation contenant-contenu ne peut pas voir les processus ou autres ressources en dehors de son conteneur.
 
@@ -63,7 +63,7 @@ Cela étant dit, n’oubliez pas que les conteneurs s’exécutent sur un hôte 
 
 ## Quels sont les avantages des conteneurs ?
 
-Ils sont utiles dans de nombreux cas mais, comme [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) et [Azure Service Fabric](service-fabric-overview.md), ils favorisent la création d'applications distribuées orientées [microservices] à service unique, dans laquelle la conception d'applications repose sur des éléments composables plus petits, plutôt que sur des composants plus étroitement associés.
+Ils sont utiles dans de nombreux cas mais, comme [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) et [Azure Service Fabric](service-fabric-overview.md), ils favorisent la création d'applications distribuées orientées [microservices] à service unique, dans laquelle la conception d'applications repose sur des éléments composables plus petits, plutôt que sur des composants plus étroitement associés.
 
 Cela est particulièrement vrai dans les environnements de cloud public comme Azure, dans lesquels vous louez des machines virtuelles quand et où vous le souhaitez. Non seulement vous bénéficiez de l’isolation, du déploiement rapide et des outils d’orchestration, mais vous pouvez prendre des décisions d’infrastructure des applications plus efficaces.
 
@@ -75,7 +75,7 @@ En outre, il existe plusieurs scénarios qui ne se prêtent pas à une approche 
 
 ### Avantages des conteneurs pour les développeurs
 
-En général, il est facile de constater que la technologie des conteneurs constitue un grand pas en avant, mais il existe également des avantages plus spécifiques. Prenons l’exemple des conteneurs Docker. Cette rubrique ne développe pas en profondeur Docker pour le moment (lisez les pages [Qu'est-ce que Docker ?](https://www.docker.com/whatisdocker/) ou [Wikipédia](http://wikipedia.org/wiki/Docker_%28software%29) pour en savoir plus), mais Docker et son écosystème offrent des avantages considérables aux développeurs et professionnels de l'informatique.
+En général, il est facile de constater que la technologie des conteneurs constitue un grand pas en avant, mais il existe également des avantages plus spécifiques. Prenons l’exemple des conteneurs Docker. Cette rubrique ne développe pas en profondeur Docker pour le moment (lisez les pages [Qu’est-ce que Docker ?](https://www.docker.com/whatisdocker/) ou [Wikipédia](http://wikipedia.org/wiki/Docker_%28software%29) pour en savoir plus), mais Docker et son écosystème offrent des avantages considérables aux développeurs et professionnels de l’informatique.
 
 Les développeurs adoptent rapidement les conteneurs Docker car, avant tout, ils simplifient l’utilisation des conteneurs Linux :
 
@@ -121,7 +121,7 @@ Le tableau suivant décrit de manière très générale le type de différences 
 
 À ce stade, un architecte, développeur ou spécialiste des opérations informatiques pourrait penser : « Je peux automatiser TOUTES ces opérations ; le Data-Center-As-A-Service est une RÉALITÉ ! »
 
-Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d'entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser vos déploiements Azure (et peut-être l'avez-vous déjà fait) en utilisant PowerShell ou des scripts de l'interface de ligne de commande Azure [comme indiqué ici](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
+Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d’entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser vos déploiements Azure (et peut-être l'avez-vous déjà fait) en utilisant PowerShell ou des scripts de l'interface de ligne de commande Azure [comme indiqué ici](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
 
 Souvent, ces fonctionnalités sont ensuite migrées vers des outils tels que [Puppet](https://puppetlabs.com/) et [Chef](https://www.chef.io/) pour automatiser la création et la configuration des machines virtuelles à l'échelle. (Voici des liens expliquant l'[utilisation de ces outils avec Azure](#tools-for-working-with-containers).)
 
@@ -138,11 +138,11 @@ Plus récemment, Azure a publié l'API REST de [gestion des ressources Azure](vi
 
 Plusieurs systèmes courants peuvent déployer des groupes entiers de machines virtuelles et installer Docker (ou autres systèmes d’hébergement de conteneurs Linux ) comme un groupe automatisable. Pour des liens directs, consultez la section [Conteneurs et outils](#containers-and-vm-technologies) ci-dessous. Plusieurs systèmes peuvent plus ou moins réaliser ces opérations ; cette liste n’est pas exhaustive. En fonction de vos compétences et scénarios, ils peuvent se révéler utiles ou non
 
-Docker possède son propre jeu d'outils de création de machines virtuelles ([docker-machine](virtual-machines-docker-machine.md)), ainsi qu'un outil de gestion des clusters, conteneur de Docker et à équilibrage de charge ([swarm](virtual-machines-docker-swarm.md)). En outre, l'[extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est prise en charge par défaut pour [`docker-compose`](https://docs.docker.com/compose/) qui peut déployer des conteneurs d'applications configurés sur plusieurs conteneurs.
+Docker possède son propre jeu d'outils de création de machines virtuelles ([docker-machine](virtual-machines-docker-machine.md)), ainsi qu'un outil de gestion des clusters, conteneur de Docker et à équilibrage de charge ([swarm](virtual-machines-docker-swarm.md)). En outre, l’[extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) est prise en charge par défaut pour [`docker-compose`](https://docs.docker.com/compose/) qui peut déployer des conteneurs d’applications configurés sur plusieurs conteneurs.
 
-En outre, vous pouvez essayer le [système d'exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS est basé sur le « noyau de systèmes distribués » open source [mesos](http://mesos.apache.org/) qui vous permet de traiter votre centre de données comme un service adressable. DCOS intègre des packages pour plusieurs systèmes importants tels que [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) et d'autres, ainsi que des services intégrés tels que [Marathon](https://mesosphere.github.io/marathon/) (un système de contrôle de conteneurs) et [Chronos](https://mesosphere.github.io/chronos/) (un planificateur distribué). Mesos est un dérivé de leçons tirées de Twitter, d’AirBnb et autres entreprises web à grande échelle.
+En outre, vous pouvez essayer le [système d'exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS est basé sur le « noyau de systèmes distribués » open source [mesos](http://mesos.apache.org/) qui vous permet de traiter votre centre de données comme un service adressable. DCOS intègre des packages pour plusieurs systèmes importants tels que [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) et d’autres, ainsi que des services intégrés tels que [Marathon](https://mesosphere.github.io/marathon/) (un système de contrôle de conteneurs) et [Chronos](https://mesosphere.github.io/chronos/) (un planificateur distribué). Mesos est un dérivé de leçons tirées de Twitter, d’AirBnb et autres entreprises web à grande échelle.
 
-En outre, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure) est un système open source pour la gestion de groupes de machines virtuelles et de conteneurs, fondé sur les enseignements tirés de Google. Vous pouvez même utiliser [kubernetes avec weave pour fournir la prise en charge réseau](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
+En outre, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) est un système open source pour la gestion de groupes de machines virtuelles et de conteneurs, fondé sur les enseignements tirés de Google. Vous pouvez même utiliser [kubernetes avec weave pour fournir la prise en charge réseau](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
 [Deis](http://deis.io/overview/) est une plateforme PaaS (Platform-as-a-Service) open source qui facilite le déploiement et la gestion des applications sur vos propres serveurs. Deis repose sur Docker et CoreOS pour fournir une plateforme PaaS légère avec un workflow inspiré de Heroku. Vous pouvez facilement [créer un groupe de machines virtuelles Azure à 3 nœuds et installer Deis](virtual-machines-deis-cluster.md) sur Azure, puis [installer une application Go Hello World](virtual-machines-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
@@ -154,7 +154,7 @@ Ubuntu, une autre distribution Linux très populaire, prend très bien en charge
 
 Le travail avec les conteneurs et les machines virtuelles Azure requiert des outils. Cette section fournit une liste de certains des concepts et outils les plus utiles ou importants pour les conteneurs et les groupes, ainsi que des outils plus vastes d’orchestration et de configuration associés.
 
-> [AZURE.NOTE]Ce domaine évolue très rapidement et bien que nous nous efforcions de tenir cette rubrique et ses liens à jour, la tâche pourrait bien se révéler impossible. Assurez-vous d’effectuer des recherches sur les sujets intéressants pour vous tenir informé !
+> [AZURE.NOTE] Ce domaine évolue très rapidement et bien que nous nous efforcions de tenir cette rubrique et ses liens à jour, la tâche pourrait bien se révéler impossible. Assurez-vous d’effectuer des recherches sur les sujets intéressants pour vous tenir informé !
 
 ### Technologies relatives aux conteneurs et aux machines virtuelles
 
@@ -209,7 +209,7 @@ Configuration, gestion de clusters et orchestration de conteneurs :
 	
 -	Kubernetes
 	- [Guide complet du déploiement automatisé de cluster Kubernetes avec CoreOS et Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Visualiseur Kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+	- [Visualiseur Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 	
 -	[Mesos](http://mesos.apache.org/)
 	-	[Système d’exploitation de centre de données (Data Center Operating System, DCOS) de Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
@@ -224,7 +224,7 @@ Configuration, gestion de clusters et orchestration de conteneurs :
 	- [Chef et Virtual Machines](virtual-machines-windows-install-chef-client.md)
 	- [Vidéo : Description et fonctionnement de Chef](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
--	[Azure Automation](http://azure.microsoft.com/services/automation/)
+-	[Azure Automation](https://azure.microsoft.com/services/automation/)
 	- [Vidéo : Comment utiliser Azure Automation avec des machines virtuelles Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 	
 -	Configuration d'état souhaité Powershell pour Linux
@@ -240,4 +240,4 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows](https://
 [microservices]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->
