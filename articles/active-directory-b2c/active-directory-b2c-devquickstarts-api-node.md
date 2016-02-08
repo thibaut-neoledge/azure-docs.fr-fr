@@ -20,8 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
-> [AZURE.NOTE] Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
+> [AZURE.NOTE]
+	Cet article ne couvre pas l’implémentation de la connexion, de l’inscription et de la gestion de profil avec Azure AD B2C. Il s’intéresse principalement à l’appel d’API web après que l'utilisateur s’est authentifié.
+Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
 
 
 > [AZURE.NOTE]	Cet exemple a été écrit pour être connecté à notre [exemple d’application iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Effectuez d’abord cette procédure pas à pas avant de passer à cet exemple.
@@ -43,11 +44,11 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 > [AZURE.WARNING] 	Pour la version préliminaire de B2C, vous devez utiliser les mêmes ID client/ID d’application et stratégies pour le serveur de la tâche API web et le client qui s’y connecte. Cela est vrai pour les didacticiels iOS et Android. Si vous avez précédemment créé une application dans l’un de ces Démarrages rapides, utilisez ces valeurs au lieu d’en créer de nouvelles ci-dessous.
 
 
-## 1\. Obtention d'un répertoire Azure AD B2C
+## 1. Obtention d'un répertoire Azure AD B2C
 
 Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en avez pas encore, reportez-vous à [Créer un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
 
-## 2\. Création d'une application
+## 2. Création d'une application
 
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L’application cliente et l’API web seront alors toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
 

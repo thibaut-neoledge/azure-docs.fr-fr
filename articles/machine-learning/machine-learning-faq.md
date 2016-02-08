@@ -93,7 +93,8 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
-Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
+Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience.
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -218,7 +219,7 @@ Une fois qu’un modèle prédictif a été mis en production, vous pouvez le su
 
 Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
 
- **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+ ** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
  
  **** Où puis-je trouver plus d'informations sur les codes d'erreur ? Les codes d'erreur sont décrits [ici.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 

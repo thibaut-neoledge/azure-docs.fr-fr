@@ -159,7 +159,7 @@ Pour obtenir l’accès à l’App Service Environment, créer des API, des conn
 
 1. Sélectionnez l’App Service Environment que vous venez de créer.
 2. Dans Essentials, sélectionnez la propriété **Groupe de ressources**. Cette action ouvre le groupe de ressources qui contient l’App Service Environment : ![][7]
-3. Sélectionnez l’icône RBAC pour gérer les autorisations : ![][8] L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
+3. Sélectionnez l’icône RBAC pour gérer les autorisations : ![][8] L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
 
 > [AZURE.NOTE] Actuellement, vous ne pouvez pas accorder des autorisations RBAC à l’App Service Environment. Vous pouvez accorder des autorisations RBAC au niveau du groupe de ressources parent.
 

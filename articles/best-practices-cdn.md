@@ -68,7 +68,8 @@ La liste suivante répertorie des exemples de temps médian jusqu’au premier o
 |Séoul, KR| 190 | 190 | 0 % |
 
 
-* A un nœud de CDN Azure dans la même ville. ** A un nœud de CDN Azure dans une ville voisine.
+* A un nœud de CDN Azure dans la même ville. 
+** A un nœud de CDN Azure dans une ville voisine.
 
 ## Défis  
 
@@ -205,7 +206,13 @@ Incluez le CDN dans le cadre de la stratégie de surveillance de votre applicati
 
 Activez la journalisation pour le CDN et incluez-la dans vos opérations quotidiennes.
 
-Envisagez d’analyser le trafic du CDN pour les modèles d’utilisation. Le portail Azure fournit des outils qui vous permettent de surveiller + la bande passante, + les données transférées, + les accès (codes d’état), + l’état du Cache, + le taux d’accès au cache et + le taux de requêtes IPV4/IPV6.
+Envisagez d’analyser le trafic du CDN pour les modèles d’utilisation. Le portail Azure fournit des outils qui vous permettent de surveiller 
++ la bande passante, 
++ les données transférées, 
++ les accès (codes d’état), 
++ l’état du Cache, 
++ le taux d’accès au cache et 
++ le taux de requêtes IPV4/IPV6.
 
 Pour plus d’informations, voir [Modèles d’utilisation du CDN d’analyse Azure](cdn/cdn-analyze-usage-patterns.md/).
 

@@ -114,7 +114,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 9. Dans l’écran **Profil**, vérifiez que les options **Domaine**, **Privé** et **Public** sont sélectionnées, puis cliquez sur **Suivant**. ![Profil de nouvelle règle de trafic entrant][NewRuleProfile]
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**. ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format ****http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps**. Par exemple, créez un projet Web dynamique JSP (Java Service Page) de base et exportez-le en tant que fichier WAR, copiez celui-ci dans le dossier **webapps** d'Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.

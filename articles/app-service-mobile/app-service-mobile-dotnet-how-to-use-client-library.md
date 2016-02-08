@@ -18,7 +18,8 @@
 
 # Utilisation du client géré pour Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -56,7 +57,8 @@ Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez 
 
 Le code suivant permet de créer l’objet `MobileServiceClient` utilisé pour accéder à votre backend Mobile Apps.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+	"MOBILE_APP_URL");
 
 Dans le code ci-dessus, remplacez `MOBILE_APP_URL` par l’URL du backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [portail Azure](https://portal.azure.com/).
 
@@ -259,7 +261,12 @@ Le code suivant montre comment mettre à jour une instance existante avec le mê
 
 	await todoTable.UpdateAsync(todoItem);
 
-Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi : JObject jo = new JObject(); jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”); jo.Add(“Text”, “Hello World”); jo.Add(“Complete”, false); var inserted = await table.UpdateAsync(jo);
+Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi :
+	JObject jo = new JObject();
+	jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”);
+	jo.Add(“Text”, “Hello World”);
+	jo.Add(“Complete”, false);
+	var inserted = await table.UpdateAsync(jo);
 
 Vous devez spécifier un ID lorsque vous effectuez une mise à jour. C'est grâce à cela que le backend identifie l'instance à mettre à jour. L'ID peut être obtenu à partir du résultat de l'appel `InsertAsync`. Si vous essayez de mettre à jour un élément sans fournir de valeur « Id », une `ArgumentException` se déclenche.
 

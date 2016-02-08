@@ -125,7 +125,8 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
+[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 

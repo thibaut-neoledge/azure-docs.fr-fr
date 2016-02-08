@@ -34,7 +34,8 @@ Le chiffrement via la technique d’enveloppe fonctionne de la façon suivante 
 
 2.	Les données utilisateur sont chiffrées à l'aide de cette clé de chiffrement de contenu.
 
-3.	La clé de chiffrement de contenu est ensuite encapsulée (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans des coffres de clés Azure. La bibliothèque cliente du stockage n’a jamais accès à la clé de chiffrement de clés. Elle appelle l’algorithme d’encapsulage de clés fourni par Key Vault. Si besoin est, les utilisateurs peuvent choisir d'utiliser des fournisseurs personnalisés pour l’encapsulage/le désencapsulage de clés.
+3.	La clé de chiffrement de contenu est ensuite encapsulée (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans des coffres de clés Azure. 
+La bibliothèque cliente du stockage n’a jamais accès à la clé de chiffrement de clés. Elle appelle l’algorithme d’encapsulage de clés fourni par Key Vault. Si besoin est, les utilisateurs peuvent choisir d'utiliser des fournisseurs personnalisés pour l’encapsulage/le désencapsulage de clés.
 
 4.	Les données chiffrées sont ensuite téléchargées sur le service Azure Storage. La clé encapsulée avec des métadonnées de chiffrement supplémentaires est stockée en tant que métadonnées (sur un objet blob) ou interpolée avec les données chiffrées (messages de la file d’attente et entités de la table).
 

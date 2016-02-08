@@ -156,13 +156,13 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host\_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple :
+		Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple :
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
 			...
 
-		La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS. Par exemple, mon\_cluster.b1.cloudapp.net.
+		La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS. Par exemple, mon_cluster.b1.cloudapp.net.
 
 	* **Azure PowerShell** : utilisez le script Azure PowerShell suivant pour enregistrer la fonction **Get-ClusterDetail**, qui peut être utilisée pour renvoyer le suffixe DNS.
 
@@ -260,14 +260,14 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 			Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-		Ceci renvoie le suffixe DNS. Par exemple, **votre\_nom\_cluster.b4.internal.cloudapp.net**.
+		Ceci renvoie le suffixe DNS. Par exemple, **votre_nom_cluster.b4.internal.cloudapp.net**.
 
 	> [AZURE.NOTE] Vous pouvez également utiliser le Bureau à distance pour vous connecter au cluster HBase (vous serez connecté au nœud principal) et exécuter **ipconfig** à partir d’une invite de commandes pour obtenir le suffixe DNS. Pour des instructions sur l’activation du protocole RDP (Remote Desktop Protocol) et la façon de se connecter au moyen de ce dernier, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.suffix][img-dns-surffix]
 
 
-<!--
+<!-- 
 3.	Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
 
 	To make the configuration change:

@@ -16,7 +16,7 @@
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
 
-Le [Kit de développement logiciel (SDK) Application Insights pour .NET](app-insights-asp-net.md) envoie la télémétrie de votre application en direct à [Application Insights](https://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
+Le [Kit de développement logiciel (SDK) Application Insights pour .NET](app-insights-asp-net.md) envoie la télémétrie de votre application en direct à [Application Insights]( https://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
 
 
 #### Pour installer le Kit de développement logiciel (SDK) dans votre application
@@ -61,7 +61,7 @@ Consultez la rubrique [Prise en main d'Application Insights pour .NET](app-insi
 
 ## Version 2.0.0-beta2
 - Prise en charge ajoutée d'ITelemetryProcessor et possibilité de configurer via le code ou config. [Permet le filtrage personnalisé dans le kit de développement logiciel](app-insights-api-filtering-sampling/#filtering)
-- Suppression des initialiseurs de contexte Utilisez les [initialiseurs de télémétrie](https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering) à la place.
+- Suppression des initialiseurs de contexte Utilisez les [initialiseurs de télémétrie]( https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering) à la place.
 - Mise à niveau d'Application Insights pour .Net framework 4.6. 
 - Les noms d'événements personnalisés peuvent maintenant comprendre jusqu'à 512 caractères.
 - La propriété ```OperationContext.Name``` a été renommée en ```RootName```.

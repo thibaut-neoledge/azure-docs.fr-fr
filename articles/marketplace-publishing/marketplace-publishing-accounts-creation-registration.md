@@ -147,7 +147,11 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
   >[AZURE.TIP] Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286). 2. Choisissez **Centre de développement**. 3. Choisissez **Profil**. 4. Choisissez une méthode de contact.
+  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous :
+  1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286).
+  2. Choisissez **Centre de développement**.
+  3. Choisissez **Profil**.
+  4. Choisissez une méthode de contact.
 
 
 

@@ -51,7 +51,9 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	
 - **Système d’exploitation**
 
-	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants :
+	- **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** :
+ 	- **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Type de cluster** et **taille du cluster (également appelé nœuds de données)**
 
@@ -77,16 +79,25 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Les clusters HBase pour HDInsight sont déployés avec trois rôles : - les serveurs principaux (2 nœuds) - les serveurs Region (au moins 1 nœud) - les nœuds Master/Zookeeper (3 nœuds)
+	Les clusters HBase pour HDInsight sont déployés avec trois rôles : 
+	- les serveurs principaux (2 nœuds) 
+	- les serveurs Region (au moins 1 nœud) 
+	- les nœuds Master/Zookeeper (3 nœuds)
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Les clusters Storm pour HDInsight sont déployés avec trois rôles : - les nœuds Nimbus (2 nœuds) - les serveurs Supervisor (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds)
+	Les clusters Storm pour HDInsight sont déployés avec trois rôles : 
+	- les nœuds Nimbus (2 nœuds) 
+	- les serveurs Supervisor (au moins 1 nœud) 
+	- les nœuds Zookeeper (3 nœuds)
 
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Les clusters Spark pour HDInsight sont déployés avec trois rôles : - le nœud principal (2 nœuds) - le nœud de travail (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
+	Les clusters Spark pour HDInsight sont déployés avec trois rôles :
+	- le nœud principal (2 nœuds)
+	- le nœud de travail (au moins 1 nœud)
+	- les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
 
 	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 

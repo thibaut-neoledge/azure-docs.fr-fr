@@ -20,7 +20,7 @@
 
 # Comment modifier la carte de crédit utilisée pour payer un abonnement Azure
 
-Vous pouvez payer à l’aide de cartes de crédit ou de débit, ou faire l’objet d’une approbation pour payer par facture. Pour plus d’informations sur le paiement par facture, consultez [Facturation Azure](https://azure.microsoft.com/fr-FR/pricing/invoicing/).
+Vous pouvez payer à l’aide de cartes de crédit ou de débit, ou faire l’objet d’une approbation pour payer par facture. Pour plus d’informations sur le paiement par facture, consultez [Facturation Azure](https://azure.microsoft.com/pricing/invoicing/).
 
 ## Modifier les informations de paiement d’une carte bancaire existante
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.

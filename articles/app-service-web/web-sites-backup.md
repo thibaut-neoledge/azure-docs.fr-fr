@@ -126,7 +126,8 @@ Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_ba
 
 Supposons que vous avez une application web qui contient des fichiers journaux et des images statiques provenant d'années précédentes et qui ne vont jamais changer. Vous disposez déjà d'une sauvegarde complète de l'application web qui inclut les anciennes images. Vous voulez désormais effectuer une sauvegarde quotidienne de l'application web, mais vous ne voulez pas payer pour le stockage des fichiers journaux ou des images statiques qui ne changent jamais.
 
-![Dossier des journaux][LogsFolder] ![Dossier images][ImagesFolder]
+![Dossier des journaux][LogsFolder] 
+![Dossier images][ImagesFolder]
 	
 Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegarde.
 

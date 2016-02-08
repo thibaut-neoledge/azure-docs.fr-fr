@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à ServiceNow
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow. 
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire dans ServiceNow
@@ -229,19 +230,19 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 2. Sur la page **Saisissez vos identifiants ServiceNow pour permettre l’approvisionnement automatique des utilisateurs**, indiquez les paramètres de configuration suivants : Configurer l’approvisionnement des utilisateurs.
 
-     2\.1. Dans la zone de texte **Nom de l'Instance ServiceNow**, tapez le nom d'instance ServiceNow.
+     2.1. Dans la zone de texte **Nom de l'Instance ServiceNow**, tapez le nom d'instance ServiceNow.
 
-     2\.2. Dans la zone de texte **Nom d’utilisateur admin ServiceNow**, entrez le nom du compte d’administrateur ServiceNow.
+     2.2. Dans la zone de texte **Nom d’utilisateur admin ServiceNow**, entrez le nom du compte d’administrateur ServiceNow.
 
-     2\.3. Dans la zone de texte **Mot de passe de l’admin ServiceNow**, entrez le mot de passe de ce compte.
+     2.3. Dans la zone de texte **Mot de passe de l’admin ServiceNow**, entrez le mot de passe de ce compte.
 
-     2\.4. Cliquez sur **Valider** pour vérifier votre configuration.
+     2.4. Cliquez sur **Valider** pour vérifier votre configuration.
 
-     2\.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
+     2.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
 
-     2\.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
+     2.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
 
-     2\.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
+     2.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
 
 
 

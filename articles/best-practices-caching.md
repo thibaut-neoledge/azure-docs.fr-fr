@@ -123,7 +123,8 @@ Veillez à ne pas introduire de dépendances critiques sur la disponibilité d'u
 
 Toutefois, revenir au magasin de données d'origine en cas d’indisponibilité temporaire du cache peut avoir un impact en termes d'extensibilité sur le système. Pendant que le magasin de données est en cours de restauration, le magasin de données d'origine peut être assailli de demandes de données, ce qui entraîne des délais d'attente et l’échec des connexions. Une stratégie à envisager est d’implémenter un cache local privé dans chaque instance d'une application avec le cache partagé auquel toutes les instances de l'application accèdent. Lorsque l'application récupère un élément, elle peut d'abord vérifier sa mémoire cache locale, le cache partagé puis le magasin de données d'origine. Le cache local peut être rempli à l'aide des données du cache partagé ou de la base de données si le cache partagé n'est pas disponible. Cette approche nécessite une configuration soigneuse pour éviter que le cache local soit trop périmé par rapport au cache partagé, mais elle agit comme une mémoire tampon si le cache partagé est inaccessible. La figure 3 illustre cette structure.
 
-![Utilisation d'un cache local et privé avec un cache partagé](media/best-practices-caching/Caching3.png) _Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
+![Utilisation d'un cache local et privé avec un cache partagé](media/best-practices-caching/Caching3.png)
+_Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
 
 Pour prendre en charge des caches volumineux qui contiennent des données à long terme, certains services de cache offrent une option de haute disponibilité qui implémente le basculement automatique si le cache devient indisponible. Cette approche implique généralement la réplication des données mises en cache d’un serveur de cache principal vers un serveur de cache secondaire, et le basculement vers le serveur secondaire en cas d'échec du serveur principal ou de perte de la connectivité. Pour réduire la latence associée à l’écriture vers plusieurs destinations, lorsque les données sont écrites dans le cache sur le serveur principal, la réplication vers le serveur secondaire peut se produire en mode asynchrone. Cette approche peut avoir comme conséquence que certaines informations mises en cache soient perdues en cas de défaillance, mais la proportion de ces données doit être faible par rapport à la taille globale du cache.
 
@@ -427,9 +428,20 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
 
 - `INCR`, `INCRBY`, `DECR` et `DECRBY` effectuent des opérations d'incrémentation et de décrémentation atomiques sur les valeurs de données numériques entières. La bibliothèque StackExchange fournit des versions surchargées des méthodes `IDatabase.StringIncrementAsync` et `IDatabase.StringDecrementAsync` pour effectuer ces opérations et renvoyer la valeur résultante stockée dans le cache. L'extrait de code suivant illustre l’utilisation de ces méthodes :
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... await cache.StringSetAsync("data:counter", 99); ... long oldValue = await cache.StringIncrementAsync("data:counter"); // Increment by 1 (the default) // oldValue should be 100
+  ```csharp
+  ConnectionMultiplexer redisHostConnection = ...;
+  IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  await cache.StringSetAsync("data:counter", 99);
+  ...
+  long oldValue = await cache.StringIncrementAsync("data:counter");
+  // Increment by 1 (the default)
+  // oldValue should be 100
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50); // Decrement by 50 // newValue should be 50 ```
+  long newValue = await cache.StringDecrementAsync("data:counter", 50);
+  // Decrement by 50
+  // newValue should be 50
+  ```
 
 - `GETSET` récupère la valeur associée à une clé et la remplace par une nouvelle valeur. La bibliothèque StackExchange donne accès à cette opération via la méthode `IDatabase.StringGetSetAsync`. L'extrait de code ci-dessous montre un exemple de cette méthode. Ce code renvoie la valeur actuelle associée à la clé « data:counter » de l'exemple précédent et réinitialise la valeur de cette clé à zéro, tout cela dans le cadre d’une même opération :
 
@@ -442,9 +454,28 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
 
 - `MGET` et `MSET` peuvent renvoyer ou modifier un ensemble de valeurs de chaîne en une seule opération. Les méthodes `IDatabase.StringGetAsync` et `IDatabase.StringSetAsync` sont surchargées pour prendre en charge cette fonctionnalité, comme illustré dans l'exemple suivant :
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... // Create a list of key/value pairs var keysAndValues = new List<KeyValuePair<RedisKey  RedisValue>>() { new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3") };
+  ```csharp
+  ConnectionMultiplexer redisHostConnection = ...;
+  IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  // Create a list of key/value pairs
+  var keysAndValues =
+      new List<KeyValuePair<RedisKey, RedisValue>>()
+      {
+          new KeyValuePair<RedisKey, RedisValue>("data:key1", "value1"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
+      };
 
-  // Store the list of key/value pairs in the cache cache.StringSet(keysAndValues.ToArray()); ... // Find all values that match a list of keys RedisKey keys = { "data:key1", "data:key99", "data:key322"}; RedisValue values = null; values = cache.StringGet(keys); // values should contain { "value1", "value2", "value3" } ```
+  // Store the list of key/value pairs in the cache
+  cache.StringSet(keysAndValues.ToArray());
+  ...
+  // Find all values that match a list of keys
+  RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
+  RedisValue[] values = null;
+  values = cache.StringGet(keys);
+  // values should contain { "value1", "value2", "value3" }
+  ```
 
 Vous pouvez également combiner plusieurs opérations en une seule opération Redis comme décrit dans la section Transactions et lots Redis de ce guide. La bibliothèque StackExchange prend en charge les transactions via l’interface `ITransaction`. Vous pouvez créer un objet ITransaction à l'aide de la méthode IDatabase.CreateTransaction et appeler des commandes vers la transaction en utilisant l’objet `ITransaction` fourni par les méthodes. L’interface `ITransaction` fournit l'accès à un ensemble similaire de méthodes, comme l’interface `IDatabase`, sauf que toutes les méthodes sont asynchrones ; elles ne sont effectuées que lorsque la méthode `ITransaction.Execute` est appelée. La valeur renvoyée par la méthode execute indique si la transaction a été créée avec succès (true) ou a échoué (false).
 
@@ -735,7 +766,8 @@ Il existe plusieurs points que vous devez comprendre sur le mécanisme éditeur/
 
 - Plusieurs abonnés peuvent s'abonner au même canal. Ils recevront alors tous les messages publiés vers ce canal.
 - Les abonnés ne reçoivent que les messages qui ont été publiés après le début de leur abonnement. Les canaux ne sont pas mis en mémoire tampon et une fois qu'un message est publié, l'infrastructure Redis l’envoie à chaque abonné, puis le supprime.
-- Par défaut, les messages sont reçus par les abonnés dans l'ordre dans lequel ils sont envoyés. Dans un système très actif avec un grand nombre de messages et de nombreux abonnés et éditeurs, garantir la remise de messages séquentielle peut ralentir les performances du système. Si chaque message est indépendant et que l'ordre est sans importance, vous pouvez activer un traitement simultané par le système Redis qui peut aider à améliorer la réactivité. Vous pouvez obtenir cela dans un client StackExchange en définissant l’élément PreserveAsyncOrder de la connexion utilisée par l'abonné sur false : ```csharp
+- Par défaut, les messages sont reçus par les abonnés dans l'ordre dans lequel ils sont envoyés. Dans un système très actif avec un grand nombre de messages et de nombreux abonnés et éditeurs, garantir la remise de messages séquentielle peut ralentir les performances du système. Si chaque message est indépendant et que l'ordre est sans importance, vous pouvez activer un traitement simultané par le système Redis qui peut aider à améliorer la réactivité. Vous pouvez obtenir cela dans un client StackExchange en définissant l’élément PreserveAsyncOrder de la connexion utilisée par l'abonné sur false :
+  ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
   ISubscriber subscriber = redisHostConnection.GetSubscriber();
@@ -763,11 +795,11 @@ Le modèle suivant peut également être pertinent lors de l’implémentation d
 - Page [Using Redis as an LRU Cache](http://redis.io/topics/lru-cache) sur le site web Redis.
 - Page [Transactions](http://redis.io/topics/transactions) sur le site web Redis.
 - Page [Sécurité Redis](http://redis.io/topics/security) sur le site web de Redis.
-- Page [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sur le blog Azure.
-- Page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) sur le site web de Microsoft.
+- Page [Tour d’horizon du Cache Redis Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sur le blog Azure.
+- Billet de blog [Exécution de Redis sur une machine virtuelle Linux CentOS](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) dans Azure sur le site web de Microsoft.
 - Page [Fournisseur d'état de session ASP.NET pour le Cache Redis Azure](redis-cache/cache-asp.net-session-state-provider.md) sur le site web de Microsoft.
 - Page [Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure](redis-cache/cache-asp.net-output-cache-provider.md) sur le site web de Microsoft.
-- Page [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) sur le site web Redis.
+- Page [Présentation des abstractions et des types de données Redis](http://redis.io/topics/data-types-intro) sur le site web Redis.
 - Page [Utilisation de base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sur le site web StackExchange.Redis.
 - Page [Transactions Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) dans le référentiel StackExchange.Redis.
 - Page [Guide de partitionnement des données](http://msdn.microsoft.com/library/dn589795.aspx) sur le site web de Microsoft.

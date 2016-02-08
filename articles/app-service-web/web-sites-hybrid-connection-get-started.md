@@ -75,7 +75,11 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le panneau **Créer une connexion hybride** : - dans **Nom**, indiquez le nom de la connexion. - dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource. - Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut). - Cliquez sur **Biz Talk Service**
+	Dans le panneau **Créer une connexion hybride** : 
+	- dans **Nom**, indiquez le nom de la connexion. 
+	- dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource.
+	- Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut). 
+	- Cliquez sur **Biz Talk Service**
 
 
 4. Le panneau **Créer un service BizTalk** s’affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
@@ -89,18 +93,17 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	![Click OK][CreateBTScomplete]
 	
 6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
+
 	<!-- TODO
-
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
-
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Dans le panneau de l’application web, l’icône **Connexions hybrides** indique à présent qu’une connexion hybride a été créée.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]

@@ -112,6 +112,7 @@ Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil 
 - [Résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md)
 - [Utilisation des indicateurs de surveillance de StorSimple](storsimple-monitoring-indicators.md)
 
-Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md).
+Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez :
+-  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
 <!---HONumber=AcomDC_0128_2016-->

@@ -82,7 +82,8 @@ Lorsque le projet `TaskService` reçoit des demandes de `TaskClient`, il recherc
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre [article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre 
+[article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6\. Exécuter des stratégies
 Maintenant que le `TaskService` est prêt authentifier les demandes, nous pouvons implémenter le `TaskClient`. Votre application communique avec Azure AD B2C en envoyant des demandes d’authentification HTTP, en spécifiant la stratégie qu’il souhaite exécuter dans le cadre de la demande. Pour les applications de bureau .NET, vous pouvez utiliser la **bibliothèque d’authentification Active Directory (ADAL)** pour envoyer des messages d’authentification OAuth 2.0, exécuter des stratégies et obtenir des jetons pour appeler des API web.

@@ -43,7 +43,7 @@ Les valeurs ci-dessous sont des approximations.
 - Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système
 - Utilisation de la bande passante réseau : environ 1 Mo/1 000 requêtes AD FS
 
->[AZURE.NOTE]Si l’agent ne parvient pas à communiquer avec Azure, il stocke les données localement, jusqu’à une limite maximale définie. Une fois que l'agent atteint cette limite, s’il n'a pas été en mesure de télécharger les données sur le service, les nouvelles transactions ADFS remplaceront toutes les transactions « mises en cache » sur la base « dernier événement traité ».
+>[AZURE.NOTE] Si l’agent ne parvient pas à communiquer avec Azure, il stocke les données localement, jusqu’à une limite maximale définie. Une fois que l'agent atteint cette limite, s’il n'a pas été en mesure de télécharger les données sur le service, les nouvelles transactions ADFS remplaceront toutes les transactions « mises en cache » sur la base « dernier événement traité ».
 
 - Stockage de mémoire tampon locale pour l’agent AD Health : environ 20 Mo
 - Stockage de données requis pour le canal d’audit

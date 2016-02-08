@@ -22,7 +22,9 @@
 Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessite la collecte des fichiers journaux de service sur les machines virtuelles lorsque les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque.
 > [AZURE.NOTE]Vous trouverez des descriptions de la plupart des informations consignées sur http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 
-Il existe deux modes de collecte dépendant des types de fichiers à recueillir. - Journaux d’agent d’invité Azure uniquement (GA). Ce mode de collecte inclut tous les journaux liés aux agents invités d’Azure et d’autres composants Azure. -Tous les journaux (complète). Ce mode de collecte recueille tous les fichiers en mode GA plus :
+Il existe deux modes de collecte dépendant des types de fichiers à recueillir.
+- Journaux d’agent d’invité Azure uniquement (GA). Ce mode de collecte inclut tous les journaux liés aux agents invités d’Azure et d’autres composants Azure.
+- Tous les journaux (complète). Ce mode de collecte recueille tous les fichiers en mode GA plus :
 
   - journaux des événements système et d’application
   

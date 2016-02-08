@@ -44,14 +44,14 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 - ajouter la plateforme **Web** pour votre application ;
 - entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `http://localhost:3000/auth/openid/return`.
 
-## 2\. Ajoutez des éléments requis à votre répertoire
+## 2. Ajoutez des éléments requis à votre répertoire
 
 Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
 
@@ -75,7 +75,7 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 
 Cela installera les bibliothèques dont dépend passport-azure-ad.
 
-## 3\. Configurez votre application pour utiliser la stratégie passport-nod-js
+## 3. Configurez votre application pour utiliser la stratégie passport-nod-js
 Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d’authentification OpenID Connect. Passport sera utilisé notamment pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur.
 
 -	Pour commencer, ouvrez le fichier `config.js` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `exports.creds`.

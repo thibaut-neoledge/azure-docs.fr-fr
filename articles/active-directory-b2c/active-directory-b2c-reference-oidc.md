@@ -133,7 +133,8 @@ L’une des propriétés de ce document de configuration est l’élément `jwks
 
 Afin de déterminer la stratégie utilisée pour la connexion d’un jeton id\_token (et l’emplacement à partir duquel extraire les métadonnées), deux options sont possibles. Tout d'abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton id\_token. Pour plus d'informations sur la façon d'analyser les revendications à partir d'un jeton id\_token, consultez la [référence des jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). L'autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les deux méthodes sont parfaitement valides.
 
-Une fois que vous avez acquis le document de métadonnées à partir du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA256 à ce point de terminaison pour valider la signature du jeton id\_token. En permanence, ce point de terminaison peut comporter plusieurs clés, chacune étant identifiée par un élément `kid`. L’en-tête de ce jeton id\_token contient également une revendication `kid`, qui identifie la clé utilisée pour la signature du jeton id\_token. Pour plus d’informations, consultez la [référence des jetons Azure AD B2C](active-directory-b2c-reference-tokens.md), comprenant notamment des données relatives aux [Jetons de validation](active-directory-b2c-reference-tokens.md#validating-tokens) et des [Informations importantes sur la substitution des clés de signature](active-directory-b2c-reference-tokens.md#validating-tokens).<!--TODO: Improve the information on this-->
+Une fois que vous avez acquis le document de métadonnées à partir du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA256 à ce point de terminaison pour valider la signature du jeton id\_token. En permanence, ce point de terminaison peut comporter plusieurs clés, chacune étant identifiée par un élément `kid`. L’en-tête de ce jeton id\_token contient également une revendication `kid`, qui identifie la clé utilisée pour la signature du jeton id\_token. Pour plus d’informations, consultez la [référence des jetons Azure AD B2C](active-directory-b2c-reference-tokens.md), comprenant notamment des données relatives aux [Jetons de validation](active-directory-b2c-reference-tokens.md#validating-tokens) et des [Informations importantes sur la substitution des clés de signature](active-directory-b2c-reference-tokens.md#validating-tokens).
+<!--TODO: Improve the information on this-->
 
 Une fois que vous avez validé la signature du jeton id\_token, il vous faudra vérifier quelques revendications :
 
@@ -300,11 +301,11 @@ Les réponses d’erreur se présentent comme suit :
 | error\_description | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 

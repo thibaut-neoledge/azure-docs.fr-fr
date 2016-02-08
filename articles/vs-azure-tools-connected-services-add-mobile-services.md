@@ -49,7 +49,9 @@ L’utilisation de la boîte de dialogue Services connectés vous permet de vous
 
 1. Dans la boîte de dialogue **Azure Mobile Services**, choisissez un service mobile existant. Si vous devez créer un service mobile Azure, suivez la procédure ci-dessous. Sinon, passez à l’étape suivante.
 
-    Pour créer un compte de service mobile : 1. Choisissez le lien **Créer un service** en bas de la boîte de dialogue. ![Ajouter un nouveau service connecté mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Pour créer un compte de service mobile :
+    1. Choisissez le lien **Créer un service** en bas de la boîte de dialogue.
+        ![Ajouter un nouveau service connecté mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 

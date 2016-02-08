@@ -39,7 +39,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera. &nbsp;
+	 >[AZURE.NOTE] Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera. &nbsp;
 
    	![][2]
 
@@ -47,7 +47,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
    	Cette opération inscrit l'application et affiche les détails de la demande.
 
-6. Cliquez sur l’onglet **Clés et jetons d’accès** dans le tableau de bord de votre application et notez les valeurs **Clé client** et **Code secret client**.
+6. Cliquez sur l’onglet **Clés et jetons d’accès** dans le tableau de bord de votre application et notez les valeurs **Clé client** et **Secret du client**.
 
     > [AZURE.NOTE] La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 

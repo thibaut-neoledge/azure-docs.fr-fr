@@ -72,7 +72,7 @@ Les appareils joints au domaine utiliseront cet objet pour découvrir des inform
  Remplacez [*nom de compte de connecteur*] par le compte de domaine utilisé comme compte de connecteur AD.
 
 >[AZURE.NOTE]
-Le nom d'utilisateur des informations d'identification entrées lorsque la fenêtre contextuelle de Get-Credential s'affiche doit être au format **user@example.com*
+Le nom d'utilisateur des informations d'identification entrées lorsque la fenêtre contextuelle de Get-Credential s'affiche doit être au format *user@example.com*
 
 ### Configurer les règles de revendication AD FS
 Cela permet l'inscription instantanée d'un ordinateur avec Azure DRS en permettant aux ordinateurs de procéder à l'authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteindront Azure AD de manière différée (en fonction des heures de synchronisation de Connect de Microsoft Azure AD).

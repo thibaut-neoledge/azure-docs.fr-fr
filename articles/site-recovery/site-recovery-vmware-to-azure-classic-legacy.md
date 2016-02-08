@@ -1,4 +1,11 @@
-<properties pageTitle="Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery (version héritée) | Microsoft Azure" description="Décrit un déploiement hérité pour la configuration d'Azure Site Recovery pour organiser la réplication, le basculement et la récupération de machines virtuelles VMware locales et de serveurs physiques Windows/Linux sur Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery (version héritée) | Microsoft Azure" 
+	description="Décrit un déploiement hérité pour la configuration d'Azure Site Recovery pour organiser la réplication, le basculement et la récupération de machines virtuelles VMware locales et de serveurs physiques Windows/Linux sur Azure." " 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"

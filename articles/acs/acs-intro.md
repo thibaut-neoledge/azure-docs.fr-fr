@@ -28,7 +28,7 @@ ACS utilise Docker pour assurer la portabilité complète de vos conteneurs d’
 
 Azure Container Service vous permet de tirer parti des fonctionnalités d’entreprise d’Azure tout en conservant la portabilité des applications, notamment au niveau des couches d’orchestration.
 
-Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Une fois l’accès à la version préliminaire fourni, un e-mail est envoyé avec d’autres détails, notamment des modèles de déploiement et des instructions de prise en main. Pour utiliser le service, vous avez besoin d’un abonnement Azure, si vous n’en avez pas déjà un. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Une fois l’accès à la version préliminaire fourni, un e-mail est envoyé avec d’autres détails, notamment des modèles de déploiement et des instructions de prise en main. Pour utiliser le service, vous avez besoin d’un abonnement Azure, si vous n’en avez pas déjà un. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 Utilisation d’Azure Container Service
 -----------------------------
@@ -104,7 +104,7 @@ Une documentation complète et une prise en charge sont fournies aux participant
 Obtention d’accès
 --------------
 
-Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Vous avez tout d’abord besoin d’un abonnement Azure, si vous n’en avez pas déjà. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Vous avez tout d’abord besoin d’un abonnement Azure, si vous n’en avez pas déjà. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 Vidéos
 ------

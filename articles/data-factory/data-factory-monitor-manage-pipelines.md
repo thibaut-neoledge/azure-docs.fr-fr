@@ -540,7 +540,9 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs :
+- FailedRuns
+- SuccessfulRuns
 
 **Déploiement de l’alerte :**
 

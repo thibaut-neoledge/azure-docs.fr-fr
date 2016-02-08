@@ -46,7 +46,7 @@ Vous pouvez également [télécharger l'application terminée dans un fichier zi
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
@@ -55,7 +55,7 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 - entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
 
-## 2\. Connexion de l’utilisateur à l’aide d’OpenID Connect
+## 2. Connexion de l’utilisateur à l’aide d’OpenID Connect
 Ici, nous allons configurer l’intergiciel OWIN pour utiliser le [protocole d’authentification OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
 -	Pour commencer, ouvrez le fichier `web.config` dans la racine du projet `TodoList-WebApp`, puis entrez les valeurs de configuration de votre application dans la section `<appSettings>`.
@@ -114,12 +114,14 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
+## 3. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
 Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAuth 2.0 en tandem avec OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) afin d’échanger le code d’autorisation contre un jeton d’accès au service de la liste de tâches. ADAL peut vous faciliter ce processus :
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. - Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
+- Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. 
+- Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -141,7 +143,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Appel de l’API Web de la liste des tâches
+## 4. Appel de l’API Web de la liste des tâches
 Il est à présent temps d’utiliser le jeton d’accès acquis lors de l’étape 3. Ouvrez le fichier `Controllers\TodoListController.cs` de l’application web, qui exécute l’ensemble des requêtes CRUD sur l’API To-Do List.
 
 - Vous pouvez réutiliser ADAL afin de récupérer les jetons d’accès du cache ADAL. Tout d’abord, ajoutez une instruction `using` pour ADAL dans ce fichier.
@@ -201,6 +203,8 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ## Étapes suivantes
 
-Pour obtenir des ressources supplémentaires, consultez : - [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez : 
+- [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=AcomDC_0128_2016-->

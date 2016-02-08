@@ -258,7 +258,7 @@ L'exemple suivant montre comment placer le disque dur virtuel du système d'expl
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 
-### Création d’une machine virtuelle pour utiliser Premium Storage avec une image personnalisée
+### Création d’une machine virtuelle pour utiliser un stockage Premium avec une image personnalisée
 
 Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d'une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
 
