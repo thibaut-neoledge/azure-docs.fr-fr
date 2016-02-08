@@ -142,12 +142,12 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Orange SA
 - PIXELA Corporation
 - Saffron Digital Limited
-- Sagemcom haut débit SAS
-- Corporation Sharp
+- Sagemcom Broadband SAS
+- Sharp Corporation
 - Shenzhen Coship Electronics CO., LTD
-- Shenzhen Jiuzhou Electric Co., Ltd
-- La technologie numérique Shenzhen Skyworth Co., Ltd
-- Du Sichuan Changhong Electric Co., Ltd.
+- Shenzhen Jiuzhou Electric Co.,Ltd
+- Shenzhen Skyworth Digital Technology Co., Ltd
+- Sichuan Changhong Electric Co., Ltd.
 - SmarDTV S.A.
 - SoftAtHome
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited
@@ -156,7 +156,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOX Innovations limitée
+- WOOX Innovations Limited
 - ZTE Corporation
 
 ##Parcours d’apprentissage de Media Services
